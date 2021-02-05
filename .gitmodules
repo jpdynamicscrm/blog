@@ -1,0 +1,3 @@
+[submodule "themes/jpdynamicscrm"]
+	path = themes/jpdynamicscrm
+	url = https://github.com/jpdynamicscrm/hexo-theme-jpdynamicscrm.git
