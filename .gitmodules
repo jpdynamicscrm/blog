@@ -7,6 +7,3 @@
 [submodule "themes/jpaztech"]
 	path = themes/jpaztech
 	url = https://github.com/jpaztech/hexo-theme-jpaztech.git
-[submodule "theme/jpdynamicscrm"]
-	path = theme/jpdynamicscrm
-	url = https://github.com/jpdynamicscrm/hexo-theme-jpdynamicscrm.git
