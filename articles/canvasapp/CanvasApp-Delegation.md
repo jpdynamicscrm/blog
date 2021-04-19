@@ -29,7 +29,7 @@ Power Apps で扱う業務データは非常に膨大になることも少なく
 それぞれ、委任可能な関数がデータソースによって異なりますので、コネクタのリファレンスをご参照ください。
 - [Microsoft Dataverse (旧名: Common Data Service)](https://docs.microsoft.com/ja-jp/connectors/commondataservice/#power-apps-delegable-functions-and-operations-for-dataverse)
 ※Dataverse では、プレビュー機能として CountRows, CountIf, First, in 演算子の委任もサポートしています。
-![Microsoft Dataverse の拡張された委任](./canvasapp-delegation/img00.png)
+![Microsoft Dataverse の拡張された委任](./img00.png)
 (この設定は、既定でオンになっています。)
 - [SharePoint](https://docs.microsoft.com/ja-jp/connectors/sharepointonline/#power-apps-delegable-functions-and-operations-for-sharepoint)
 - [SQL Server](https://docs.microsoft.com/ja-jp/connectors/sql/#power-apps-delegable-functions-and-operations-for-sql-server)
