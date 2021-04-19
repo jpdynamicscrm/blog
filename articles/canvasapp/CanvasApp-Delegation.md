@@ -27,7 +27,7 @@ Power Apps で扱う業務データは非常に膨大になることも少なく
 それぞれ、委任可能な関数がデータソースによって異なりますので、コネクタのリファレンスをご参照ください。
 - [Microsoft Dataverse (旧名: Common Data Service)](https://docs.microsoft.com/ja-jp/connectors/commondataservice/#power-apps-delegable-functions-and-operations-for-dataverse)
 ※Dataverse では、プレビュー機能として CountRows, CountIf, First, in 演算子の委任もサポートしています。
-![Microsoft Dataverse の拡張された委任](canvasapp-delegation/img00.png)
+![Microsoft Dataverse の拡張された委任](./canvasapp-delegation/img00.png)
 (この設定は、既定でオンになっています。)
 - [SharePoint](https://docs.microsoft.com/ja-jp/connectors/sharepointonline/#power-apps-delegable-functions-and-operations-for-sharepoint)
 - [SQL Server](https://docs.microsoft.com/ja-jp/connectors/sql/#power-apps-delegable-functions-and-operations-for-sql-server)
@@ -39,7 +39,7 @@ Power Apps で扱う業務データは非常に膨大になることも少なく
 一度に取得できるデータ件数の最大は、アプリの「委任できないクエリのデータ行の制限」の設定項目から確認できます。
 
 [ファイル] > [設定] > [詳細設定]
-![委任できないクエリのデータ行の制限](canvasapp-delegation/img01.png)
+![委任できないクエリのデータ行の制限](./canvasapp-delegation/img01.png)
 
 データ行の制限は、既定で 500 、最大で 2000 まで変更可能ですので、キャンバス アプリに一度で取得できるデータの最大行数は 2000 行となります。
 
@@ -47,7 +47,7 @@ Power Apps で扱う業務データは非常に膨大になることも少なく
 
 以下の例を見てみましょう。
 
-![データ取得例](canvasapp-delegation/img02.png)
+![データ取得例](./canvasapp-delegation/img02.png)
 
 データソースには全部で 510 件のデータがあり、「委任できないクエリのデータ行の制限」は 500 に設定されています。
 Filter 処理により、300 番目のデータと 510 番目のデータが取得されると仮定すると、
@@ -61,14 +61,14 @@ Filter 処理により、300 番目のデータと 510 番目のデータが取�
 つまり、Power Apps が一度に取得できるデータ行は、結局は最大で 2000 件なのです。
 そのため、データソースにクエリを委任した結果、データ件数が 2500 件になってしまった場合、クエリ結果のうち 2000 件までしか取得できないので、残りの 500 件については置き去りにされてしまいます。
 
-### じゃあどうすればいいの？？
+### では、どうすれば良いのか？？
 「委任できないクエリのデータ行の制限」は、あくまでも**一度に**取得可能なデータ行の制限です。
 2000 行を超えるデータを取得したい場合は、複数回に分けてデータを取得し、コレクションに追加するようにしましょう。
 コレクションには、格納できるデータ件数に上限はございません。
 
 また、ギャラリーを使用している場合は、Items プロパティの式が委任できるように記述されていれば、スクロールに伴って随時データソースと通信し、データの取得を行う動作となるので、ご安心ください。
 
-![ギャラリーの場合](canvasapp-delegation/img03.png)
+![ギャラリーの場合](./canvasapp-delegation/img03.png)
 
 ### Tips - 複数回に分けてデータをコレクションに取得？？
 複数回に分けてデータを取得する動作は、例えば以下のような数式で実現できます。
@@ -97,14 +97,14 @@ SharePoint の ID 列は数値だが=以外の演算子の委任をサポート�
 ```
 
 
-![複数回に分けて取得](canvasapp-delegation/img04.png)
+![複数回に分けて取得](./canvasapp-delegation/img04.png)
 ※サンプルコードなので、動作検証はしっかりと行ってください。
 
 ご参考まで。
 
 ## おわりに
 以上、Power Apps キャンバス アプリの委任の動作についてご説明しました。
-公開情報を読むと、小難しそうな制限に思われるかもしれませんが、理解してしまえば簡単ですよね。
+公開情報を読むと、小難しい制限に思われるかもしれませんが、理解してしまえば簡単ですよね。
 委任をしっかりと理解し、正しくキャンバス アプリを作成する手助けになりましたら幸いです。
 
 
