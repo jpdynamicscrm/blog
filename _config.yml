@@ -15,7 +15,7 @@ keywords:
   - PowerAutomate
   - Customization
   - PPAC
-  - OnlineSystem
+  - On-Premises
   - Portal
   - ModelDrivenApp
   - CanvasApp
@@ -29,7 +29,7 @@ root_tag_generator:
     - CanvasApp
     - Customization
     - ModelDrivenApp
-    - OnlineSystem
+    - On-premises
     - Other
     - Archive
     - PortalApp
