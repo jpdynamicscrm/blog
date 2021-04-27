@@ -96,7 +96,7 @@ Temas からの Power Apps/Power Virtual Agents の使用を禁止するには�
 
 Dataverse for Teams 環境で作成したアプリやボットを [同僚が作成] からユーザーがインストールできるようにするには、それぞれ以下の Teams アプリを許可してください。
 
-![](./Manage-Dataverse-for-Teams/Teams-app-policy-shared.png)
+![](./Manage-Dataverse-for-Teams/Teams-app-policy-Shared.png)
 
 これらの Teams アプリと、先に説明した環境作成が行われる Teams アプリの違いは、それぞれ以下の通りです。
 
