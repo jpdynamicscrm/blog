@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>キャンバス アプリ の委任について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートの清水です。今回は、Power Apps のキャンバス アプリを使用する際に引っ掛かりがちな「委任」の制限について、かみ砕いてご説明いたします。 公開情報はこちら。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="キャンバス アプリ の委任について">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートの清水です。今回は、Power Apps のキャンバス アプリを使用する際に引っ掛かりがちな「委任」の制限について、かみ砕いてご説明いたします。 公開情報はこちら。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img00.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img02.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img04.png">
+<meta property="article:published_time" content="2021-04-19T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-04T13:29:34.441Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="CanvasApp">
+<meta property="article:tag" content="delegation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img00.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-canvasapp/Canvas-app-delegation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      キャンバス アプリ の委任について
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2021-04-19T15:00:00.000Z" itemprop="datePublished">2021-04-20</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+19eb5458-95e6-52e5-9e89-8931141c457b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA+%E3%81%AE%E5%A7%94%E4%BB%BB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2FCanvas-app-delegation%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2FCanvas-app-delegation.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcanvasapp%2FCanvas-app-delegation.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/" data-id="ckpid6ss000000mmxgguu0ip5" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートの清水です。<br>今回は、Power Apps のキャンバス アプリを使用する際に引っ掛かりがちな「委任」の制限について、かみ砕いてご説明いたします。</p>
+<p>公開情報は<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/canvas-apps/delegation-overview">こちら</a>。</p>
+<span id="more"></span>
+
+<h2 id="そもそも委任って何？"><a href="#そもそも委任って何？" class="headerlink" title="そもそも委任って何？"></a>そもそも委任って何？</h2><p>「委任」とは、Power Apps 上でのデータ操作 (Filter クエリなど) をアプリ上で行わず、データソース側で行い、キャンバス アプリはその結果のみを取得することで、アプリのパフォーマンスを向上させる仕組みのことを言います。</p>
+<p>Power Apps で扱う業務データは非常に膨大になることも少なくないので、全てのデータを取得してから、アプリ上で Filter や Sort を行うことは現実的ではございません。<br>したがって、データ量を抑えて効率的なアプリを作成するために、データソースに委任できる処理はデータソース側でやってもらい、アプリでは処理結果を受け取るだけにしましょうね、という仕組みを提供しています。</p>
+<h2 id="委任可能なデータソースと関数"><a href="#委任可能なデータソースと関数" class="headerlink" title="委任可能なデータソースと関数"></a>委任可能なデータソースと関数</h2><p>とはいえ、データソース側でも全ての処理を実行できるわけではございませんので、Power Apps から委任できるデータソースや処理の内容は限られています。</p>
+<p>委任可能なデータソースは、現時点では以下のデータソースのみです。<br>それぞれ、委任可能な関数がデータソースによって異なりますので、コネクタのリファレンスをご参照ください。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/connectors/commondataservice/#power-apps-delegable-functions-and-operations-for-dataverse">Microsoft Dataverse (旧名: Common Data Service)</a><br>※Dataverse では、プレビュー機能として CountRows, CountIf, First, in 演算子の委任もサポートしています。<br><img src="/blog/canvasapp/Canvas-app-delegation/img00.png"><br>(この設定は、既定でオンになっています。)</li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/connectors/sharepointonline/#power-apps-delegable-functions-and-operations-for-sharepoint">SharePoint</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/connectors/sql/#power-apps-delegable-functions-and-operations-for-sql-server">SQL Server</a></li>
+</ul>
+<h2 id="委任できない場合どうなるの？"><a href="#委任できない場合どうなるの？" class="headerlink" title="委任できない場合どうなるの？"></a>委任できない場合どうなるの？</h2><p>委任できないデータソースや関数を使用した場合、Power Apps では、一度データソースから全てのデータをメモリ上にダウンロードします。<br>ただし、あまりにも大量のデータを取得すると、アプリのパフォーマンスに大きな影響が出るため、取得できるデータ量は限られています。</p>
+<p>一度に取得できるデータ件数の最大は、アプリの「委任できないクエリのデータ行の制限」の設定項目から確認できます。</p>
+<p>[ファイル] &gt; [設定] &gt; [詳細設定]<br><img src="/blog/canvasapp/Canvas-app-delegation/img01.png"></p>
+<p>データ行の制限は、既定で 500 、最大で 2000 まで変更可能ですので、キャンバス アプリに一度で取得できるデータの最大行数は 2000 行となります。</p>
+<p>つまり、委任できないデータソースを使用している場合、また委任できない関数や演算子を使用している場合、データソースから上位 2000 件のみを取得し、アプリ上でクエリ処理を実行することとなります。</p>
+<p>以下の例を見てみましょう。</p>
+<p><img src="/blog/canvasapp/Canvas-app-delegation/img02.png"></p>
+<p>データソースには全部で 510 件のデータがあり、「委任できないクエリのデータ行の制限」は 500 に設定されています。<br>Filter 処理により、300 番目のデータと 510 番目のデータが取得されると仮定すると、</p>
+<ul>
+<li>委任がサポートされている場合、Power Apps では、Filter 処理の結果である 2 行のみを取得できます。</li>
+<li>委任がサポートされていない場合、データソースの上位 500 行をアプリ上に取得してから Filter 処理が行われるため、得られる結果は 300 番目のデータのみとなり、510 番目のデータを得ることができません。</li>
+</ul>
+<p>※ただし、ギャラリーを使用している場合は、Items プロパティの式が委任できるように記述されていれば、スクロールに伴って随時データソースと通信し、データの取得を行う動作となるので、ご安心ください。</p>
+<h2 id="委任可能なケースの落とし穴"><a href="#委任可能なケースの落とし穴" class="headerlink" title="委任可能なケースの落とし穴"></a>委任可能なケースの落とし穴</h2><p>「委任ができるデータソース・関数を使用しているから問題ない」と思っている方、実は、委任できるからと言って、どんなに大量のデータでも取得できるわけではないので、要注意です。</p>
+<p>「委任できないクエリのデータ行の制限」という設定項目について説明しましたが、これは、委任ができるデータにも当てはまります。<br>つまり、Power Apps が一度に取得できるデータ行は、結局は最大で 2000 件なのです。<br>そのため、データソースにクエリを委任した結果、データ件数が 2500 件になってしまった場合、クエリ結果のうち 2000 件までしか取得できないので、残りの 500 件については置き去りにされてしまいます。</p>
+<h3 id="では、どうすれば良いのか？？"><a href="#では、どうすれば良いのか？？" class="headerlink" title="では、どうすれば良いのか？？"></a>では、どうすれば良いのか？？</h3><p>「委任できないクエリのデータ行の制限」は、あくまでも<strong>一度に</strong>取得可能なデータ行の制限です。<br>2000 行を超えるデータを取得したい場合は、複数回に分けてデータを取得し、コレクションに追加するようにしましょう。<br>コレクションには、格納できるデータ件数に上限はございません。</p>
+<p><img src="/blog/canvasapp/Canvas-app-delegation/img03.png"></p>
+<h3 id="Tips-複数回に分けてデータをコレクションに取得？？"><a href="#Tips-複数回に分けてデータをコレクションに取得？？" class="headerlink" title="Tips - 複数回に分けてデータをコレクションに取得？？"></a>Tips - 複数回に分けてデータをコレクションに取得？？</h3><p>複数回に分けてデータを取得する動作は、例えば以下のような数式で実現できます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 委任可能件数以上に格納するためのコレクション</span><br><span class="line">Clear(col) </span><br><span class="line"></span><br><span class="line">// 委任制限まで件数を分割するためのコレクション (委任制限が 100 件の場合)</span><br><span class="line">// Sequence は繰り返しの件数を指定 (例では 100 件 * 10 回なので、 999 件まで対応可能)</span><br><span class="line">ClearCollect(Num, </span><br><span class="line">    AddColumns(</span><br><span class="line">        Sequence(10), </span><br><span class="line">        &quot;Min&quot;, (Value - 1) * 100, </span><br><span class="line">        &quot;Max&quot;, Value * 100</span><br><span class="line">    )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 複数回に分けてアイテムを取得</span><br><span class="line">ForAll(Num,</span><br><span class="line">    Collect(Col, FIlter(データソース, IDCount &lt; Max, IDCount &gt;= Min));</span><br><span class="line">)</span><br><span class="line">/*</span><br><span class="line">SharePoint の ID 列は数値だが=以外の演算子の委任をサポートしていないため、ID と同じ値を持つ IDCount 列を作成して使用。</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/blog/canvasapp/Canvas-app-delegation/img04.png"><br>※サンプルコードなので、動作検証はしっかりと行ってください。</p>
+<p>ご参考まで。</p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>以上、Power Apps キャンバス アプリの委任の動作についてご説明しました。<br>公開情報を読むと、小難しい制限に思われるかもしれませんが、理解してしまえば簡単ですよね。<br>委任をしっかりと理解し、正しくキャンバス アプリを作成する手助けになりましたら幸いです。</p>
+<hr>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/CanvasApp/" rel="tag">CanvasApp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/delegation/" rel="tag">delegation</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/canvasapp/Canvas-app-delegation.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../powerplatform/Manage-Dataverse-for-Teams/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Dataverse for Teams 環境の管理方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../information/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../powerplatform/Manage-Dataverse-for-Teams/">Dataverse for Teams 環境の管理方法</a>
+          </li>
+        
+          <li>
+            <a href="">キャンバス アプリ の委任について</a>
+          </li>
+        
+          <li>
+            <a href="../../information/test/">Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/" rel="tag">CanvasApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Management/" rel="tag">Management</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/delegation/" rel="tag">delegation</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/">CanvasApp</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/delegation">delegation</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/">PowerPlatform</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Management">Management</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/CanvasApp/" style="font-size: 10px;">CanvasApp</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10px;">Dataverse for Teams</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Management/" style="font-size: 10px;">Management</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/delegation/" style="font-size: 10px;">delegation</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

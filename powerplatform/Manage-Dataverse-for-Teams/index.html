@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Dataverse for Teams 環境の管理方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの清水です。 今回は、2020 年 9 月に 新たに Teams に統合された Power Platform の機能について、その管理・制御方法やよくお問合せいただく内容に関して、詳しくご説明いたします。 ライセンスが Teams に組み込まれているという性質上、管理にお困りの方も多いかと思います。この記事が皆様のお役に立ちましたら幸いです。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dataverse for Teams 環境の管理方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの清水です。 今回は、2020 年 9 月に 新たに Teams に統合された Power Platform の機能について、その管理・制御方法やよくお問合せいただく内容に関して、詳しくご説明いたします。 ライセンスが Teams に組み込まれているという性質上、管理にお困りの方も多いかと思います。この記事が皆様のお役に立ちましたら幸いです。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/limitation.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-colleagues.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy-Shared.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-org.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/CoE-disclaimer.png">
+<meta property="article:published_time" content="2021-04-27T02:30:00.000Z">
+<meta property="article:modified_time" content="2021-06-04T13:29:34.445Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="PowerPlatform">
+<meta property="article:tag" content="Management">
+<meta property="article:tag" content="Dataverse for Teams">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/limitation.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerplatform/Manage-Dataverse-for-Teams" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Dataverse for Teams 環境の管理方法
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2021-04-27T02:30:00.000Z" itemprop="datePublished">2021-04-27</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+67d3d821-47d5-5211-9b5d-ec4dea7c41fe%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+for+Teams+%E7%92%B0%E5%A2%83%E3%81%AE%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FManage-Dataverse-for-Teams%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FManage-Dataverse-for-Teams.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FManage-Dataverse-for-Teams.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/" data-id="ckpid6ssb00030mmx92v3ffea" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの清水です。</p>
+<p>今回は、2020 年 9 月に 新たに Teams に統合された Power Platform の機能について、その管理・制御方法やよくお問合せいただく内容に関して、詳しくご説明いたします。</p>
+<p>ライセンスが Teams に組み込まれているという性質上、管理にお困りの方も多いかと思います。<br>この記事が皆様のお役に立ちましたら幸いです。</p>
+<span id="more"></span>
+
+<h2 id="Dataverse-for-Teams-の概要"><a href="#Dataverse-for-Teams-の概要" class="headerlink" title="Dataverse for Teams の概要"></a>Dataverse for Teams の概要</h2><hr>
+<p>Dataverse for Teams 環境とは、Teams のチームに紐づく Power Platform の環境です。<br>チームの所有者が環境の管理者となり、チームのメンバーは環境上でアプリやフロー、チャットボットを作成・使用することができます。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/about-teams-environment">Microsoft Dataverse for Teams 環境について | Microsoft Docs</a></p>
+<p>Dataverse for Teams の環境は、Teams を通してのみ作成されます。<br>例えば以下のような場合に、選択したチームの Dataverse for Teams 環境が自動で作成されます。</p>
+<ul>
+<li>Teams 上の Power Apps アプリを使用して、で初めて環境に紐づくアプリを作成したとき</li>
+<li>Teams 上の Power Virtual Agents アプリを使用して、初めて環境に紐づくボットを作成したとき</li>
+<li>Teams のアプリ カタログから初めて Power Apps アプリ (※1) をインストールしたとき</li>
+</ul>
+<p>なお、Teams のチームと Dataverse for Teams の環境は 1:1 で紐づけらます。<br>そのため、一つのチームで複数の環境を持つことはできません。<br>また、異なるチームの Dataverse for Teams 環境にアクセスすることもできません。</p>
+<h3 id="環境の制限"><a href="#環境の制限" class="headerlink" title="環境の制限"></a>環境の制限</h3><p>Dataverse for Teams 環境には以下の制限があります。</p>
+<ul>
+<li><p>Microsoft 365 のライセンス数に応じたテナント毎の環境数の制限<br>  テナント毎の環境数の上限は以下の式で決定されます。</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 + (1 * Microsoft 365 のライセンス数 / 20)</span><br></pre></td></tr></table></figure>
+<p>  また、ライセンス数に関わらず、環境数の上限は 10,000 (※2) となります。</p>
+</li>
+<li><p>環境ごとのストレージ制限<br>  各環境は、最大で 2 GB または 100 万行のデータを格納することが可能です。</p>
+</li>
+<li><p>テナントごとのストレージ制限<br>  テナント毎のストレージ容量の上限は以下の式で決定されます。</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 GB + (環境数 * 2 GB)</span><br></pre></td></tr></table></figure>
+<p>  また、ストレージ容量の上限は 19.5 TB となります。</p>
+</li>
+</ul>
+<p>各テナントで作成可能な環境数は、Power Platform 管理センターからご確認ください。</p>
+<p>Power Platform 管理センター &gt; リソース &gt; キャパシティ &gt; Microsoft Teams<br><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/limitation.png"></p>
+<p>制限を超えて環境やストレージ容量を使用したい場合、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-platform/admin/about-teams-environment#upgrade-process">Dataverse へのアップグレード</a>をご検討ください。</p>
+<h3 id="環境へのゲストアクセス"><a href="#環境へのゲストアクセス" class="headerlink" title="環境へのゲストアクセス"></a>環境へのゲストアクセス</h3><p>Teams チームにゲストユーザーを招待している場合、ゲストユーザーは以下のような権限を持ちます。</p>
+<ul>
+<li>アプリやボット、その他リソースの閲覧</li>
+<li>アプリやボットの実行</li>
+<li>自身が作成したレコードへのフルアクセス<br>  ※他のユーザーが作成したレコードへのアクセス権は持ちません。</li>
+</ul>
+<h2 id="特定のユーザーにだけ環境を作成させたい"><a href="#特定のユーザーにだけ環境を作成させたい" class="headerlink" title="特定のユーザーにだけ環境を作成させたい"></a>特定のユーザーにだけ環境を作成させたい</h2><hr>
+<p>最初に説明した通り、Dataverse for Teams 環境は、Teams 上でのアプリやボットの作成を通して作成されます。<br>そのため、環境を作成させたくない場合、Teams 上でのアプリやボットの作成を禁止する、すなわち、Teams からのPower Apps および Power Virtual Agents の使用を禁止する必要がございます。</p>
+<p>Temas からの Power Apps/Power Virtual Agents の使用を禁止するには、Teams 管理センターからアプリのアクセス許可ポリシーの設定を行い、環境作成を許可しても良いユーザーにだけ以下 2 つのアプリを許可するよう設定してください。</p>
+<p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy.png"><br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies">Microsoft Teams のアプリのアクセス許可ポリシーを管理する | Microsoft Docs</a></p>
+<h2 id="環境の作成は禁止してアプリやボットを使用させる-2-つの方法"><a href="#環境の作成は禁止してアプリやボットを使用させる-2-つの方法" class="headerlink" title="環境の作成は禁止してアプリやボットを使用させる 2 つの方法"></a>環境の作成は禁止してアプリやボットを使用させる 2 つの方法</h2><hr>
+<p>まず、アプリやボットの使用許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting">Microsoft Teams のカスタム アプリのポリシーと設定を管理する #組織全体のカスタム アプリ設定 | Microsoft Docs</a></p>
+<h3 id="1-同僚が作成-からアプリを使用する"><a href="#1-同僚が作成-からアプリを使用する" class="headerlink" title="1. [同僚が作成] からアプリを使用する"></a>1. [同僚が作成] からアプリを使用する</h3><p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-colleagues.png"><br>以下のいずれかの条件に合致するアプリまたはボットは、Teams の[アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] からインストールすることが可能です。</p>
+<table>
+<thead>
+<tr>
+<th>Power Apps</th>
+<th>Power Virtual Agents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. ユーザーが作成したアプリ<br>2. ユーザーに直接共有されたアプリ (グループや組織全体への共有は NG)<br>3. 直近 1 週間以内に使用したアプリ</td>
+<td>1. ユーザーが作成したボット<br>2. ユーザーが所属するグループで作成されたボット</td>
+</tr>
+</tbody></table>
+<p>Dataverse for Teams 環境で作成したアプリやボットを [同僚が作成] からユーザーがインストールできるようにするには、それぞれ以下の Teams アプリを許可してください。</p>
+<p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy-Shared.png"></p>
+<p>これらの Teams アプリと、先に説明した環境作成が行われる Teams アプリの違いは、それぞれ以下の通りです。</p>
+<table>
+<thead>
+<tr>
+<th>アプリ</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Power Apps</td>
+<td>Power Apps 自体の機能を提供します。<br> アプリの作成や編集、管理は全てこのアプリにより行われます。</td>
+</tr>
+<tr>
+<td>Shared Power Apps</td>
+<td>Power Apps で作成されたアプリを表示・使用する機能を提供します。<br>このアプリを使用することで、Teams 上の [アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] にアプリが表示されるようになり、個人の Teams 上で使用することが可能になります。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>アプリ</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Power Virtual Agents</td>
+<td>Power Virtual Agents 自体の機能を提供します。<br> ボットの作成や編集、管理は全てこのアプリにより行われます。</td>
+</tr>
+<tr>
+<td>Shared Power Virtual Agents</td>
+<td>Power Virtual Agents で作成されたボットを表示・使用する機能を提供します。<br>このアプリを使用することで、Teams 上の [アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] にボットが表示されるようになり、個人の Teams 上で使用することが可能になります。</td>
+</tr>
+</tbody></table>
+<p>※参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps">Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する | Microsoft Docs</a></p>
+<h3 id="2．カスタム-アプリとしてアプリやボットをアップロードする"><a href="#2．カスタム-アプリとしてアプリやボットをアップロードする" class="headerlink" title="2．カスタム アプリとしてアプリやボットをアップロードする"></a>2．カスタム アプリとしてアプリやボットをアップロードする</h3><p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-org.png"></p>
+<p>カスタム アプリとして Teams にアップロードされ、管理者により承認されたアプリは、Teams の [アプリ] &gt; [テナント向けに構築] &gt; [組織によって構築されている] からインストールすることが可能です。<br>なお、この [組織によって構築されている] には、アプリやボットへのアクセス権に関わらず、全てのユーザーにアップロードされたアプリが表示されます。(アプリのアクセス許可ポリシーにより制御されている場合を除く。)<br>※ Power Apps のキャンバス アプリの場合は、アプリがユーザーに共有されていないと使用できないため、アプリのアップロードに加え、任意のユーザーへの共有も行ってください。</p>
+<p>アプリのアップロード方法はそれぞれ以下の通りです。</p>
+<ul>
+<li>Power Apps のキャンバスアプリ<br>  <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/teams/embed-teams-app">Teams でキャンバス アプリを個人用アプリとして埋め込む | Microsoft Docs</a> を参照</li>
+<li>Power Virtual Agents のチャットボット<br>  <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-virtual-agents/teams/publication-add-bot-to-microsoft-teams-teams#share-the-bot-with-your-organization">Teams で Microsoft Teams にボットを追加する #ボットを組織と共有する | Microsoft Docs</a> を参照</li>
+</ul>
+<p>管理者による Teams 管理センターからのアプリのアップロードや承認方法は以下をご参照ください。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/upload-custom-apps">アプリ パッケージをアップロードしてカスタム アプリを発行する | Microsoft Docs</a></p>
+<h2 id="環境を監視するには？"><a href="#環境を監視するには？" class="headerlink" title="環境を監視するには？"></a>環境を監視するには？</h2><hr>
+<p>センター オブ エクセレンス (CoE) キットを使用すると、Dataverse for Teams の環境の監視およびクリーン アップが可能となります。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/teams-governance">Microsoft Dataverse for Teams 環境管理 | Microsoft Docs</a></p>
+<p>CoE スターター キットとは、Power Platform での管理や開発を支援するためのツールです。<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/powerapps-tools/tree/master/Administration/CoEStarterKit">GitHub リポジトリ</a> からダウンロードでき、Power Platform のソリューションとしてインストールされます。<br>詳細については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/overview">公開情報</a> をご参照ください。</p>
+<p>※注意事項<br><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/CoE-disclaimer.png"></p>
+<h2 id="注釈"><a href="#注釈" class="headerlink" title="注釈"></a>注釈</h2><p>(※1) <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/teams/use-sample-apps-from-teams-store">公開情報</a>に記載のサンプル アプリをインストールすると、Dataverse for Teams 環境が自動で作成されます。<br>(※2) Microsoft 365 のライセンス数が 200,000 を超えるテナントに関しては、上限を引き上げたい場合、サポートまでお問合せください。</p>
+<hr>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Management/" rel="tag">Management</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/Manage-Dataverse-for-Teams.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../canvasapp/Canvas-app-delegation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">キャンバス アプリ の委任について</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Dataverse for Teams 環境の管理方法</a>
+          </li>
+        
+          <li>
+            <a href="../../canvasapp/Canvas-app-delegation/">キャンバス アプリ の委任について</a>
+          </li>
+        
+          <li>
+            <a href="../../information/test/">Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/" rel="tag">CanvasApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Management/" rel="tag">Management</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/delegation/" rel="tag">delegation</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/">CanvasApp</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/delegation">delegation</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/">PowerPlatform</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Management">Management</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/CanvasApp/" style="font-size: 10px;">CanvasApp</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10px;">Dataverse for Teams</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Management/" style="font-size: 10px;">Management</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/delegation/" style="font-size: 10px;">delegation</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
