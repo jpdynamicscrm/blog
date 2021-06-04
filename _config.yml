@@ -44,7 +44,7 @@ url: https://jpdynamicscrm.github.io/blog/
 github:
   url: https://github.com/jpdynamicscrm/blog/
   posts_dir: articles
-  default_branch: main
+  default_branch: ma
 
 skip_render:
   - '_data/*.png'
