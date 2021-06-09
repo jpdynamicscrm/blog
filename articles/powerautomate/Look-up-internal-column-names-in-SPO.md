@@ -216,5 +216,3 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 
 ---
 Hope to acceralate your business with Power Automate!
-
-（注）　本記事の内容は作成時のものであり、予告なく機能・画面が変更されることがございます。
