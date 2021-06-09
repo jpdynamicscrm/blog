@@ -2,30 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
-    
-    <lastmod>2021-06-04</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
     
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
+    
+    <lastmod>2021-06-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
+    
+    <lastmod>2021-06-09</lastmod>
     
   </url>
   
 
   <url>
     <loc>https://jpdynamicscrm.github.io/blog</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -33,42 +40,56 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/CanvasApp/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/delegation/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Information/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/PowerPlatform/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/PowerAutomate/</loc>
+    <lastmod>2021-06-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/SharePointOnline/</loc>
+    <lastmod>2021-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Management/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse-for-Teams/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
