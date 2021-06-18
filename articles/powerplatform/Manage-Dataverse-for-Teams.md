@@ -21,6 +21,7 @@ tags:
 ---
 
 Dataverse for Teams 環境とは、Teams のチームに紐づく Power Platform の環境です。
+
 チームの所有者が環境の管理者となり、チームのメンバーは環境上でアプリやフロー、チャットボットを作成・使用することができます。
 参考: [Microsoft Dataverse for Teams 環境について | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-platform/admin/about-teams-environment)
 
@@ -40,18 +41,14 @@ Dataverse for Teams の環境は、Teams を通してのみ作成されます。
 Dataverse for Teams 環境には以下の制限があります。
 - Microsoft 365 のライセンス数に応じたテナント毎の環境数の制限
     テナント毎の環境数の上限は以下の式で決定されます。
-    ```
-    5 + (1 * Microsoft 365 のライセンス数 / 20)
-    ```
+    ``` 5 + (1 * Microsoft 365 のライセンス数 / 20) ```
     また、ライセンス数に関わらず、環境数の上限は 10,000 (※2) となります。
 
 - 環境ごとのストレージ制限
     各環境は、最大で 2 GB または 100 万行のデータを格納することが可能です。
 - テナントごとのストレージ制限
     テナント毎のストレージ容量の上限は以下の式で決定されます。
-    ```
-    10 GB + (環境数 * 2 GB)
-    ```
+    ``` 10 GB + (環境数 * 2 GB) ```
     また、ストレージ容量の上限は 19.5 TB となります。
 
 各テナントで作成可能な環境数は、Power Platform 管理センターからご確認ください。
@@ -59,7 +56,7 @@ Dataverse for Teams 環境には以下の制限があります。
 Power Platform 管理センター > リソース > キャパシティ > Microsoft Teams
 ![](./Manage-Dataverse-for-Teams/limitation.png)
 
-制限を超えて環境やストレージ容量を使用したい場合、[Dataverse へのアップグレード](https://docs.microsoft.com/en-us/power-platform/admin/about-teams-environment#upgrade-process)をご検討ください。
+制限を超えて環境やストレージ容量を使用したい場合は、[Dataverse へのアップグレード](https://docs.microsoft.com/en-us/power-platform/admin/about-teams-environment#upgrade-process)をご検討ください。
 
 ### 環境へのゲストアクセス
 Teams チームにゲストユーザーを招待している場合、ゲストユーザーは以下のような権限を持ちます。
@@ -80,12 +77,13 @@ Temas からの Power Apps/Power Virtual Agents の使用を禁止するには�
 ![](./Manage-Dataverse-for-Teams/Teams-app-policy.png)
 参考: [Microsoft Teams のアプリのアクセス許可ポリシーを管理する | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies)
 
-## 環境の作成は禁止してアプリやボットを使用させる 2 つの方法
+## 環境の作成は禁止したいけど、アプリは使わせたい
 ---
+Teams 上の Power Apps/Power Virtual Agents アプリを禁止としても、引き続きアプリやボットを使用することは可能です。
 まず、アプリやボットの使用許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。
-参考: [Microsoft Teams のカスタム アプリのポリシーと設定を管理する #組織全体のカスタム アプリ設定 | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting)
+参考: [Microsoft Teams のカスタム アプリのポリシーと設定を管理する#組織全体のカスタム アプリ設定 | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting)
 
-### 1. [同僚が作成] からアプリを使用する
+### [同僚が作成] からアプリを取得する
 
 ![](./Manage-Dataverse-for-Teams/built-by-your-colleagues.png)
 以下のいずれかの条件に合致するアプリまたはボットは、Teams の[アプリ] > [テナント向けに構築] > [同僚が作成] からインストールすることが可能です。
@@ -111,23 +109,6 @@ Dataverse for Teams 環境で作成したアプリやボットを [同僚が作�
 | Shared Power Virtual Agents | Power Virtual Agents で作成されたボットを表示・使用する機能を提供します。<br>このアプリを使用することで、Teams 上の [アプリ] > [テナント向けに構築] > [同僚が作成] にボットが表示されるようになり、個人の Teams 上で使用することが可能になります。 |
 
 ※参考: [Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)
-
-### 2．カスタム アプリとしてアプリやボットをアップロードする
-
-![](./Manage-Dataverse-for-Teams/built-by-your-org.png)
-
-カスタム アプリとして Teams にアップロードされ、管理者により承認されたアプリは、Teams の [アプリ] > [テナント向けに構築] > [組織によって構築されている] からインストールすることが可能です。
-なお、この [組織によって構築されている] には、アプリやボットへのアクセス権に関わらず、全てのユーザーにアップロードされたアプリが表示されます。(アプリのアクセス許可ポリシーにより制御されている場合を除く。)
-※ Power Apps のキャンバス アプリの場合は、アプリがユーザーに共有されていないと使用できないため、アプリのアップロードに加え、任意のユーザーへの共有も行ってください。
-
-アプリのアップロード方法はそれぞれ以下の通りです。
-- Power Apps のキャンバスアプリ
-    [Teams でキャンバス アプリを個人用アプリとして埋め込む | Microsoft Docs](https://docs.microsoft.com/ja-jp/powerapps/teams/embed-teams-app) を参照
-- Power Virtual Agents のチャットボット
-    [Teams で Microsoft Teams にボットを追加する #ボットを組織と共有する | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-virtual-agents/teams/publication-add-bot-to-microsoft-teams-teams#share-the-bot-with-your-organization) を参照
-
-管理者による Teams 管理センターからのアプリのアップロードや承認方法は以下をご参照ください。
-[アプリ パッケージをアップロードしてカスタム アプリを発行する | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/upload-custom-apps)
 
 ## 環境を監視するには？
 ---
