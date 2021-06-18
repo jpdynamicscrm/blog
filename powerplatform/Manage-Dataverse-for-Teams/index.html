@@ -17,10 +17,9 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-colleagues.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy-Shared.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-org.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/CoE-disclaimer.png">
 <meta property="article:published_time" content="2021-04-27T02:30:00.000Z">
-<meta property="article:modified_time" content="2021-06-18T13:25:19.345Z">
+<meta property="article:modified_time" content="2021-06-18T14:16:03.808Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="PowerPlatform">
 <meta property="article:tag" content="Management">
@@ -111,7 +110,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+67d3d821-47d5-5211-9b5d-ec4dea7c41fe%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+for+Teams+%E7%92%B0%E5%A2%83%E3%81%AE%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FManage-Dataverse-for-Teams%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FManage-Dataverse-for-Teams.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FManage-Dataverse-for-Teams.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/" data-id="ckq2d77q500070nmr7yjz05ug" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/" data-id="ckq2f0i9z00070opnakvh90x0" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -122,7 +121,8 @@
 <span id="more"></span>
 
 <h2 id="Dataverse-for-Teams-の概要"><a href="#Dataverse-for-Teams-の概要" class="headerlink" title="Dataverse for Teams の概要"></a>Dataverse for Teams の概要</h2><hr>
-<p>Dataverse for Teams 環境とは、Teams のチームに紐づく Power Platform の環境です。<br>チームの所有者が環境の管理者となり、チームのメンバーは環境上でアプリやフロー、チャットボットを作成・使用することができます。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/about-teams-environment">Microsoft Dataverse for Teams 環境について | Microsoft Docs</a></p>
+<p>Dataverse for Teams 環境とは、Teams のチームに紐づく Power Platform の環境です。</p>
+<p>チームの所有者が環境の管理者となり、チームのメンバーは環境上でアプリやフロー、チャットボットを作成・使用することができます。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/about-teams-environment">Microsoft Dataverse for Teams 環境について | Microsoft Docs</a></p>
 <p>Dataverse for Teams の環境は、Teams を通してのみ作成されます。<br>例えば以下のような場合に、選択したチームの Dataverse for Teams 環境が自動で作成されます。</p>
 <ul>
 <li>Teams 上の Power Apps アプリを使用して、で初めて環境に紐づくアプリを作成したとき</li>
@@ -132,20 +132,16 @@
 <p>なお、Teams のチームと Dataverse for Teams の環境は 1:1 で紐づけらます。<br>そのため、一つのチームで複数の環境を持つことはできません。<br>また、異なるチームの Dataverse for Teams 環境にアクセスすることもできません。</p>
 <h3 id="環境の制限"><a href="#環境の制限" class="headerlink" title="環境の制限"></a>環境の制限</h3><p>Dataverse for Teams 環境には以下の制限があります。</p>
 <ul>
-<li><p>Microsoft 365 のライセンス数に応じたテナント毎の環境数の制限<br>  テナント毎の環境数の上限は以下の式で決定されます。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 + (1 * Microsoft 365 のライセンス数 / 20)</span><br></pre></td></tr></table></figure>
-<p>  また、ライセンス数に関わらず、環境数の上限は 10,000 (※2) となります。</p>
+<li><p>Microsoft 365 のライセンス数に応じたテナント毎の環境数の制限<br>  テナント毎の環境数の上限は以下の式で決定されます。<br>  <code>5 + (1 * Microsoft 365 のライセンス数 / 20)</code><br>  また、ライセンス数に関わらず、環境数の上限は 10,000 (※2) となります。</p>
 </li>
 <li><p>環境ごとのストレージ制限<br>  各環境は、最大で 2 GB または 100 万行のデータを格納することが可能です。</p>
 </li>
-<li><p>テナントごとのストレージ制限<br>  テナント毎のストレージ容量の上限は以下の式で決定されます。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 GB + (環境数 * 2 GB)</span><br></pre></td></tr></table></figure>
-<p>  また、ストレージ容量の上限は 19.5 TB となります。</p>
+<li><p>テナントごとのストレージ制限<br>  テナント毎のストレージ容量の上限は以下の式で決定されます。<br>  <code>10 GB + (環境数 * 2 GB)</code><br>  また、ストレージ容量の上限は 19.5 TB となります。</p>
 </li>
 </ul>
 <p>各テナントで作成可能な環境数は、Power Platform 管理センターからご確認ください。</p>
 <p>Power Platform 管理センター &gt; リソース &gt; キャパシティ &gt; Microsoft Teams<br><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/limitation.png"></p>
-<p>制限を超えて環境やストレージ容量を使用したい場合、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-platform/admin/about-teams-environment#upgrade-process">Dataverse へのアップグレード</a>をご検討ください。</p>
+<p>制限を超えて環境やストレージ容量を使用したい場合は、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-platform/admin/about-teams-environment#upgrade-process">Dataverse へのアップグレード</a>をご検討ください。</p>
 <h3 id="環境へのゲストアクセス"><a href="#環境へのゲストアクセス" class="headerlink" title="環境へのゲストアクセス"></a>環境へのゲストアクセス</h3><p>Teams チームにゲストユーザーを招待している場合、ゲストユーザーは以下のような権限を持ちます。</p>
 <ul>
 <li>アプリやボット、その他リソースの閲覧</li>
@@ -156,9 +152,9 @@
 <p>最初に説明した通り、Dataverse for Teams 環境は、Teams 上でのアプリやボットの作成を通して作成されます。<br>そのため、環境を作成させたくない場合、Teams 上でのアプリやボットの作成を禁止する、すなわち、Teams からのPower Apps および Power Virtual Agents の使用を禁止する必要がございます。</p>
 <p>Temas からの Power Apps/Power Virtual Agents の使用を禁止するには、Teams 管理センターからアプリのアクセス許可ポリシーの設定を行い、環境作成を許可しても良いユーザーにだけ以下 2 つのアプリを許可するよう設定してください。</p>
 <p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy.png"><br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies">Microsoft Teams のアプリのアクセス許可ポリシーを管理する | Microsoft Docs</a></p>
-<h2 id="環境の作成は禁止してアプリやボットを使用させる-2-つの方法"><a href="#環境の作成は禁止してアプリやボットを使用させる-2-つの方法" class="headerlink" title="環境の作成は禁止してアプリやボットを使用させる 2 つの方法"></a>環境の作成は禁止してアプリやボットを使用させる 2 つの方法</h2><hr>
-<p>まず、アプリやボットの使用許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting">Microsoft Teams のカスタム アプリのポリシーと設定を管理する #組織全体のカスタム アプリ設定 | Microsoft Docs</a></p>
-<h3 id="1-同僚が作成-からアプリを使用する"><a href="#1-同僚が作成-からアプリを使用する" class="headerlink" title="1. [同僚が作成] からアプリを使用する"></a>1. [同僚が作成] からアプリを使用する</h3><p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-colleagues.png"><br>以下のいずれかの条件に合致するアプリまたはボットは、Teams の[アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] からインストールすることが可能です。</p>
+<h2 id="環境の作成は禁止したいけど、アプリは使わせたい"><a href="#環境の作成は禁止したいけど、アプリは使わせたい" class="headerlink" title="環境の作成は禁止したいけど、アプリは使わせたい"></a>環境の作成は禁止したいけど、アプリは使わせたい</h2><hr>
+<p>Teams 上の Power Apps/Power Virtual Agents アプリを禁止としても、引き続きアプリやボットを使用することは可能です。<br>まず、アプリやボットの使用許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting">Microsoft Teams のカスタム アプリのポリシーと設定を管理する#組織全体のカスタム アプリ設定 | Microsoft Docs</a></p>
+<h3 id="同僚が作成-からアプリを取得する"><a href="#同僚が作成-からアプリを取得する" class="headerlink" title="[同僚が作成] からアプリを取得する"></a>[同僚が作成] からアプリを取得する</h3><p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-colleagues.png"><br>以下のいずれかの条件に合致するアプリまたはボットは、Teams の[アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] からインストールすることが可能です。</p>
 <table>
 <thead>
 <tr>
@@ -207,14 +203,6 @@
 </tr>
 </tbody></table>
 <p>※参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps">Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する | Microsoft Docs</a></p>
-<h3 id="2．カスタム-アプリとしてアプリやボットをアップロードする"><a href="#2．カスタム-アプリとしてアプリやボットをアップロードする" class="headerlink" title="2．カスタム アプリとしてアプリやボットをアップロードする"></a>2．カスタム アプリとしてアプリやボットをアップロードする</h3><p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-org.png"></p>
-<p>カスタム アプリとして Teams にアップロードされ、管理者により承認されたアプリは、Teams の [アプリ] &gt; [テナント向けに構築] &gt; [組織によって構築されている] からインストールすることが可能です。<br>なお、この [組織によって構築されている] には、アプリやボットへのアクセス権に関わらず、全てのユーザーにアップロードされたアプリが表示されます。(アプリのアクセス許可ポリシーにより制御されている場合を除く。)<br>※ Power Apps のキャンバス アプリの場合は、アプリがユーザーに共有されていないと使用できないため、アプリのアップロードに加え、任意のユーザーへの共有も行ってください。</p>
-<p>アプリのアップロード方法はそれぞれ以下の通りです。</p>
-<ul>
-<li>Power Apps のキャンバスアプリ<br>  <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/teams/embed-teams-app">Teams でキャンバス アプリを個人用アプリとして埋め込む | Microsoft Docs</a> を参照</li>
-<li>Power Virtual Agents のチャットボット<br>  <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-virtual-agents/teams/publication-add-bot-to-microsoft-teams-teams#share-the-bot-with-your-organization">Teams で Microsoft Teams にボットを追加する #ボットを組織と共有する | Microsoft Docs</a> を参照</li>
-</ul>
-<p>管理者による Teams 管理センターからのアプリのアップロードや承認方法は以下をご参照ください。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/upload-custom-apps">アプリ パッケージをアップロードしてカスタム アプリを発行する | Microsoft Docs</a></p>
 <h2 id="環境を監視するには？"><a href="#環境を監視するには？" class="headerlink" title="環境を監視するには？"></a>環境を監視するには？</h2><hr>
 <p>センター オブ エクセレンス (CoE) キットを使用すると、Dataverse for Teams の環境の監視およびクリーン アップが可能となります。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/teams-governance">Microsoft Dataverse for Teams 環境管理 | Microsoft Docs</a></p>
 <p>CoE スターター キットとは、Power Platform での管理や開発を支援するためのツールです。<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/powerapps-tools/tree/master/Administration/CoEStarterKit">GitHub リポジトリ</a> からダウンロードでき、Power Platform のソリューションとしてインストールされます。<br>詳細については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/overview">公開情報</a> をご参照ください。</p>
