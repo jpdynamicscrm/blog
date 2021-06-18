@@ -4,25 +4,29 @@
   <meta charset="utf-8">
   
   
-  <title>アーカイブ: 2021 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>キャンバス アプリのモニターログ取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/archives/2021/index.html">
+  <meta name="description" content="こんにちは、Power Platform サポートの清水です。今回は、Power Apps のキャンバス アプリの調査の際に必要なモニター ログの取得方法についてご説明します。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="キャンバス アプリのモニターログ取得手順">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！">
+<meta property="og:description" content="こんにちは、Power Platform サポートの清水です。今回は、Power Apps のキャンバス アプリの調査の際に必要なモニター ログの取得方法についてご説明します。">
 <meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/img01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/img02.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/img03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/img04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/img05.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/img02.png">
+<meta property="article:published_time" content="2021-06-16T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-18T13:17:40.227Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="PowerApps">
-<meta property="article:tag" content="PowerAutomate">
-<meta property="article:tag" content="Customization">
-<meta property="article:tag" content="PPAC">
-<meta property="article:tag" content="On-Premises">
-<meta property="article:tag" content="Portal">
-<meta property="article:tag" content="ModelDrivenApp">
 <meta property="article:tag" content="CanvasApp">
+<meta property="article:tag" content="Monitor">
+<meta property="article:tag" content="情報採取">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/img01.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -84,125 +88,91 @@
 </header>
 
       <div class="outer">
-        <section id="main"><section class="archives-wrap">
-    <h2 class='widget-title'>全記事一覧</h2>
+        <section id="main"><article id="post-canvasapp/Canvas-app-monitor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
   
-    <div class="archives">
+    <h1 class="article-title" itemprop="name">
+      キャンバス アプリのモニターログ取得手順
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2021-06-16T15:00:00.000Z" itemprop="datePublished">2021-06-17</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4738575f-27c8-5ee6-8f18-b2790b78870f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC%E3%83%AD%E3%82%B0%E5%8F%96%E5%BE%97%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2FCanvas-app-monitor%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2FCanvas-app-monitor.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcanvasapp%2FCanvas-app-monitor.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/" data-id="ckq2cxdzz00010mnz4ucs11zn" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <article class="archive-article">
-    <div class="archive-article-inner">
-      <header class="archive-article-header">
-        <a href="../../canvasapp/Canvas-app-monitor/" class="archive-article-date">
-  <time datetime="2021-06-16T15:00:00.000Z" itemprop="datePublished">2021/ 6 / 17</time>
-</a>
-        
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../canvasapp/Canvas-app-monitor/">キャンバス アプリのモニターログ取得手順</a>
-    </h1>
-  
+        <p>こんにちは、Power Platform サポートの清水です。<br>今回は、Power Apps のキャンバス アプリの調査の際に必要なモニター ログの取得方法についてご説明します。</p>
+<span id="more"></span>
 
-      </header>
-    </div>
-</article>
+<p>モニター ログは、アプリの編集時のものと再生時のものがどちらも取得可能ですので、状況に応じて必要なログを取得してください。</p>
+<h2 id="編集画面でのモニター-ログ取得方法"><a href="#編集画面でのモニター-ログ取得方法" class="headerlink" title="編集画面でのモニター ログ取得方法"></a>編集画面でのモニター ログ取得方法</h2><p><strong>[手順]</strong></p>
+<ol>
+<li>アプリを編集画面から開き、[高度なツール] ＞ [モニターを開く] をクリックします。<br><img src="/blog/canvasapp/Canvas-app-monitor/img01.png"></li>
+<li>別タブにてモニターが開きますので、事象発生部分を編集モードで実行します。</li>
+<li>ログの記録が確認できたら、モニター画面にて [ダウンロード] をクリックします。<br><img src="/blog/canvasapp/Canvas-app-monitor/img02.png"></li>
+<li>Json ファイルがダウンロードされますので、弊社までお寄せください。</li>
+</ol>
+<h2 id="再生画面でのモニター-ログ取得方法"><a href="#再生画面でのモニター-ログ取得方法" class="headerlink" title="再生画面でのモニター ログ取得方法"></a>再生画面でのモニター ログ取得方法</h2><p><strong>事前準備</strong>: アプリ再生時の情報を取得するために、アプリを編集画面で開き、<br>[設定] &gt; [全般] にて「公開されたアプリのデバッグ」をオンに設定します。<br><img src="/blog/canvasapp/Canvas-app-monitor/img03.png"></p>
+<p><strong>[手順]</strong></p>
+<ol>
+<li>エラーが発生するユーザーにて Power Apps にサインインし、[アプリ] をクリックします。</li>
+<li>エラーの発生するアプリの […] &gt; [監視] をクリックします。<br><img src="/blog/canvasapp/Canvas-app-monitor/img04.png"></li>
+<li>別タブにてモニターが開きますので、[公開したアプリの再生] をクリックします。<br><img src="/blog/canvasapp/Canvas-app-monitor/img05.png"></li>
+<li>アプリが再生されるので、事象発生部分を実行します。</li>
+<li>ログの記録が確認できたら、モニター画面にて [ダウンロード] をクリックします。<br><img src="/blog/canvasapp/Canvas-app-monitor/img02.png"></li>
+<li>Json ファイルがダウンロードされますので、弊社までお寄せください。</li>
+</ol>
+<h3 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h3><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/monitor-overview">モニターの概要 | Microsoft Docs</a><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/monitor-canvasapps">モニターでキャンバス アプリをデバッグする | Microsoft Docs</a></p>
+<hr>
 
+      
+      
+        <div class="article-disclaimer">
         
-          <article class="archive-article">
-    <div class="archive-article-inner">
-      <header class="archive-article-header">
-        <a href="../../powerautomate/PowerAutomateDesktop-NoFlow/" class="archive-article-date">
-  <time datetime="2021-06-07T03:00:00.000Z" itemprop="datePublished">2021/ 6 / 7</time>
-</a>
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../powerautomate/PowerAutomateDesktop-NoFlow/">Power Automate Desktop で「フローなし」と表示される場合の対処法</a>
-    </h1>
-  
-
-      </header>
-    </div>
-</article>
-
-        
-          <article class="archive-article">
-    <div class="archive-article-inner">
-      <header class="archive-article-header">
-        <a href="../../powerautomate/Look-up-internal-column-names-in-SPO/" class="archive-article-date">
-  <time datetime="2021-06-01T02:30:00.000Z" itemprop="datePublished">2021/ 6 / 1</time>
-</a>
-        
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../powerautomate/Look-up-internal-column-names-in-SPO/">SharePointの内部列名を確認する方法</a>
-    </h1>
-  
-
-      </header>
-    </div>
-</article>
-
-        
-          <article class="archive-article">
-    <div class="archive-article-inner">
-      <header class="archive-article-header">
-        <a href="../../powerplatform/Manage-Dataverse-for-Teams/" class="archive-article-date">
-  <time datetime="2021-04-27T02:30:00.000Z" itemprop="datePublished">2021/ 4 / 27</time>
-</a>
-        
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../powerplatform/Manage-Dataverse-for-Teams/">Dataverse for Teams 環境の管理方法</a>
-    </h1>
-  
-
-      </header>
-    </div>
-</article>
-
-        
-          <article class="archive-article">
-    <div class="archive-article-inner">
-      <header class="archive-article-header">
-        <a href="../../canvasapp/Canvas-app-delegation/" class="archive-article-date">
-  <time datetime="2021-04-19T15:00:00.000Z" itemprop="datePublished">2021/ 4 / 20</time>
-</a>
-        
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../canvasapp/Canvas-app-delegation/">キャンバス アプリ の委任について</a>
-    </h1>
-  
-
-      </header>
-    </div>
-</article>
-
-        
-          <article class="archive-article">
-    <div class="archive-article-inner">
-      <header class="archive-article-header">
-        <a href="../../information/test/" class="archive-article-date">
-  <time datetime="2021-03-31T15:00:00.000Z" itemprop="datePublished">2021/ 4 / 1</time>
-</a>
-        
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../information/test/">Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ</a>
-    </h1>
-  
-
-      </header>
-    </div>
-</article>
-
-        
+        </div>
       
     </div>
-  </section>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/CanvasApp/" rel="tag">CanvasApp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Monitor/" rel="tag">Monitor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/canvasapp/Canvas-app-monitor.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerautomate/PowerAutomateDesktop-NoFlow/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Automate Desktop で「フローなし」と表示される場合の対処法</div>
+    </a>
+  
+</nav>
 
   
+</article>
 
 </section>
         
@@ -215,7 +185,7 @@
       <ul>
         
           <li>
-            <a href="../../canvasapp/Canvas-app-monitor/">キャンバス アプリのモニターログ取得手順</a>
+            <a href="">キャンバス アプリのモニターログ取得手順</a>
           </li>
         
           <li>
@@ -231,7 +201,7 @@
           </li>
         
           <li>
-            <a href="../../canvasapp/Canvas-app-delegation/">キャンバス アプリ の委任について</a>
+            <a href="../Canvas-app-delegation/">キャンバス アプリ の委任について</a>
           </li>
         
       </ul>
@@ -254,7 +224,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="04/">2021 / 04</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
     </div>
   </div>
 
@@ -286,7 +256,7 @@
   
     <a href="../../index.html" class="mobile-nav-link">Home</a>
   
-    <a href=".." class="mobile-nav-link">Archives</a>
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     
