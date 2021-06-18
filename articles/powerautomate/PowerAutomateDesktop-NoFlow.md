@@ -25,6 +25,7 @@ Power Automate Desktop をインストールした後、いざデスクトップ
 ## 1. ネットワーク環境の確認
 
 Power Automate Desktop を使用するには、いくつかのエンドポイントを許可していただく必要がございます。
+
 プロキシを経由して通信を行っている場合や、ファイアウォールで通信の制御を行っている場合には、
 以下の IP アドレスやドメインが許可されているかをご確認ください。
 [IP アドレスの構成 - Power Automate | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-automate/ip-address-configuration)
@@ -42,8 +43,7 @@ Power Automate Desktop に最初にログインした際には、テナントの
 3. ユーザー一覧に該当のユーザーが存在するかを確認し、存在しない場合は [ユーザーの追加] ボタンをクリックします。
 4. 対象ユーザーアカウントのメールアドレスを指定し、[追加] をクリックします。
 5. ユーザー追加が完了しましたら、ユーザーの設定ページを開き、下図のように状態が “有効” であることを確認します。
- ![](./PowerAutomateDesktop-NoFlow/UserStatus.png)
-
+![](./PowerAutomateDesktop-NoFlow/UserStatus.png)
 6. ユーザーが有効なことが確認できたら、再度 Power Automate Desktop でのフロー作成を試します。
 
 なお、過去に一度も Power Automate にアクセスしたことがない場合は、[Power Automate ポータル](https://japan.flow.microsoft.com)にアクセスすると、
