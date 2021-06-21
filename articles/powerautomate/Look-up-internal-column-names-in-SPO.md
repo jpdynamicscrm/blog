@@ -165,6 +165,7 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 | 文字の種類 | 列名 | 内部列名  |Power Automate 利用時|
 | :-: | :-: |:-:|:-:|
 | アルファベット | Details | Details | Details|
+| アルファベット×日本語 | Details_承認内容 | Details__x627f__x8a8d__x5185__x5 | Details__x627f__x8a8d__x5185__x5 |
 | 日本語 | 承認期限 | \_x627f__x8a8d__x671f__x9650_ | <font color=red>OData_</font>\_x627f__x8a8d__x671f__x9650_ |
 | 記号 ( 2byte ) | ・ | \_x30fb_  | <font color=red>OData_</font>\_x30fb_ |
 | 記号 ( 1byte ) | /// | \_x002f__x002f__x002f_ | <font color=red>OData_</font>\_x002f__x002f__x002f_ |
@@ -197,6 +198,7 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
    | 文字の種類 | 列名 | 内部列名 | SharePoint 列の設定での表示 |Power Automate 利用時|
    | :-: | :-: |:-:|:-:|:-:|
    | アルファベット | Details | Details | ![](./Look-up-internal-column-names-in-SPO/column-alfabet.png) | Details|
+   | アルファベット×日本語 | Details_承認内容 | Details__x627f__x8a8d__x5185__x5 |![](./Look-up-internal-column-names-in-SPO/column-alfabet_japanese.png) | Details__x627f__x8a8d__x5185__x5 |
    | 日本語 | 承認期限 | \_x627f__x8a8d__x671f__x9650_ | ![](./Look-up-internal-column-names-in-SPO/column-deadline.png) | <font color=red>OData_</font>\_x627f__x8a8d__x671f__x9650_ |
    | 記号 ( 2byte ) | ・ | \_x30fb_ | ![](./Look-up-internal-column-names-in-SPO/column-mark-2byte.png) | <font color=red>OData_</font>\_x30fb_ |
    | 記号 ( 1byte ) | /// | \_x002f__x002f__x002f_ | ![](./Look-up-internal-column-names-in-SPO/column-slash.png) | <font color=red>OData_</font>\_x002f__x002f__x002f_ |
