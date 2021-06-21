@@ -155,8 +155,8 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 <br>
 各列の内部列名を確認していくと、以下のようになります。<br>
 
-- 文字の種類がアルファベットの場合は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>不要</font>
-- 文字の種類がアルファベットの場合<font color=red>以外</font>は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>必要</font>
+- 文字の種類がアルファベットからはじまる場合は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>不要</font>
+- 文字の種類がアルファベット以外からはじまる場合<font color=red>以外</font>は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>必要</font>
 
 <br>
 <br>
@@ -189,7 +189,7 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
     ![](./Look-up-internal-column-names-in-SPO/open-column-setting.png)
 4. URL の <strong>Field= </strong>以降の値が内部列名となります。<br>
     ![](./Look-up-internal-column-names-in-SPO/column-internal-name.png)
-5. 最後に以下の表の規則に従い、アルファベット以外の場合には OData_ を付与します。<br>
+5. 最後に以下の表の規則に従い、アルファベットからはじまる場合以外は OData_ を付与します。<br>
 
 <br>
 <br>
@@ -217,4 +217,3 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 ---
 Hope to acceralate your business with Power Automate!
 
-（注）　本記事の内容は作成時のものであり、予告なく機能・画面が変更されることがございます。
