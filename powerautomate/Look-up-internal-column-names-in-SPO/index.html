@@ -6,24 +6,25 @@
   
   <title>SharePointの内部列名を確認する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの網野です。  今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。  内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！ 便利な使い方は別の機会にたくさん紹介しますので、今回は内部列名の確認方法についてしっか">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの網野です。 今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！便利な使い方は別の機会にたくさん紹介しますので、今回は内部列名の確認方法についてしっかり覚えて">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SharePointの内部列名を確認する方法">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの網野です。  今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。  内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！ 便利な使い方は別の機会にたくさん紹介しますので、今回は内部列名の確認方法についてしっか">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの網野です。 今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！便利な使い方は別の機会にたくさん紹介しますので、今回は内部列名の確認方法についてしっかり覚えて">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/SPO-list.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-list-setting.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-column-setting.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-internal-name.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-alfabet.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-alfabet_japanese.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-deadline.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-mark-2byte.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-slash.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-num.png">
 <meta property="article:published_time" content="2021-06-01T02:30:00.000Z">
-<meta property="article:modified_time" content="2021-06-18T14:16:03.804Z">
+<meta property="article:modified_time" content="2021-06-25T14:24:57.172Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="PowerPlatform">
 <meta property="article:tag" content="PowerAutomate">
@@ -114,34 +115,23 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+94527692-5981-512b-aa9b-5a28e382eed6%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BSharePoint%E3%81%AE%E5%86%85%E9%83%A8%E5%88%97%E5%90%8D%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FLook-up-internal-column-names-in-SPO%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FLook-up-internal-column-names-in-SPO.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2FLook-up-internal-column-names-in-SPO.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/" data-id="ckq2f0i9w00040opn3wjr5n7x" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/" data-id="ckqcfev7e00040ql4deqyeliq" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートチームの網野です。</p>
-<br>
-今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。<br>
-
-<p>内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！<br></p>
-<p>便利な使い方は別の機会にたくさん紹介しますので、今回は内部列名の確認方法についてしっかり覚えていきましょう。</p>
-<br>
-
+<p>今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。<br>内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！<br>便利な使い方は別の機会にたくさん紹介しますので、今回は内部列名の確認方法についてしっかり覚えていきましょう。</p>
 <p>この記事の対象者</p>
 <ul>
 <li>Power Automateをはじめたばかりの方</li>
 <li>SharePointリストとPower Automateの連携に興味のある方</li>
 </ul>
-<br>
-私たちMicrosoftはすべての人が開発者になる未来を目指しています。<br>
-Power Automateを使って、一緒にビジネスを加速させましょう！<br>
-<br>
-<br>
+<p>Power Automateを使って、一緒にビジネスを加速させましょう！</p>
 <span id="more"></span>
 
 <hr>
-<p>#目次</p>
-<ol>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
 <li><a href="#anchor-intro">はじめに</a></li>
 <li><a href="#anchor-what-is-internal-column">内部列名って何？</a></li>
 <li><a href="#anchor-how-to-look-up-internal-column">内部列名の確認方法</a></li>
@@ -149,28 +139,17 @@ Power Automateを使って、一緒にビジネスを加速させましょう！
 <br>
 
 <p><a id='anchor-Intro'></a></p>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><br>
-
-<h3 id="こんなことしたいなって思ったことありませんか？"><a href="#こんなことしたいなって思ったことありませんか？" class="headerlink" title="こんなことしたいなって思ったことありませんか？"></a>こんなことしたいなって思ったことありませんか？</h3><ul>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><h3 id="こんなことしたいなって思ったことありませんか？"><a href="#こんなことしたいなって思ったことありませんか？" class="headerlink" title="こんなことしたいなって思ったことありませんか？"></a>こんなことしたいなって思ったことありませんか？</h3><ul>
 <li>SharePointリストの期限列と現在日時を比較して、期限間近のアイテムをTeamsやメールでリマインドしたい</li>
 <li>ステータス列が「完了」以外のときだけフローを実行したい</li>
 </ul>
-<br>
-Power Automateを使えば、「期限列」や「ステータス列」の値を利用して、～この列が〇〇のとき～のような条件式を簡単に作成することができます!
-<br>
-<br>
-詳しい方法はまた別の機会にblogとして更新しますので、今回は列を指定するときに必要な内部列名について学んでいきます。
-<br>
-<br   >
-それでは早速SharePointリストの内部列名とは何かから、学んでいきましょう！
-<br>
-
-<p>基礎知識は飛ばして確認方法を知りたいという方は<a href="#anchor-how-to-look-up-internal-column">内部列名の確認方法</a>へ進んでください。<br><br><br><br></p>
+<p>Power Automateを使えば、「期限列」や「ステータス列」の値を利用して、～この列が〇〇のとき～のような条件式を簡単に作成することができます!</p>
+<p>詳しい方法はまた別の機会にblogとして更新しますので、今回は列を指定するときに必要な内部列名について学んでいきます。</p>
+<p>それでは早速SharePointリストの内部列名とは何かから、学んでいきましょう！</p>
+<p>基礎知識は飛ばして確認方法を知りたいという方は<a href="#anchor-how-to-look-up-internal-column">内部列名の確認方法</a>へ進んでください。</p>
 <p><a id='anchor-what-is-internal-column'></a></p>
-<h2 id="内部列名って何"><a href="#内部列名って何" class="headerlink" title="内部列名って何?"></a>内部列名って何?</h2><p>内部列名はシステム側で列を特定するためのキー項目です。<br><br><br></p>
-<h3 id="内部列名がないと・・・"><a href="#内部列名がないと・・・" class="headerlink" title="内部列名がないと・・・"></a>内部列名がないと・・・</h3><br>
-
-<p>例えば、以下のようなデータがあったとします。<br>| 列名 | 値 |<br>| :- | :- |<br>| Title | A社様見積もり |<br>| 承認者 | 〇〇部長 |<br>| 期限 | 2021/06/01 |</p>
+<h2 id="内部列名って何"><a href="#内部列名って何" class="headerlink" title="内部列名って何?"></a>内部列名って何?</h2><p>内部列名はシステム側で列を特定するためのキー項目です。<br></p>
+<h3 id="内部列名がないと・・・"><a href="#内部列名がないと・・・" class="headerlink" title="内部列名がないと・・・"></a>内部列名がないと・・・</h3><p>例えば、以下のようなデータがあったとします。<br>| 列名 | 値 |<br>| :- | :- |<br>| Title | A社様見積もり |<br>| 承認者 | 〇〇部長 |<br>| 期限 | 2021/06/01 |</p>
 <br>
 <br>
 ここに、二次承認者を加えることになりました。<br>
@@ -206,8 +185,10 @@ Power Automateを使えば、「期限列」や「ステータス列」の値を
 </tr>
 </tbody></table>
 <br>
+「承認者」と「期限」という列名がなくなってしまったので、システム側が元々の値を見つけられなくなってしまいます。<br>
+では、二次承認を加える前のデータに内部列名を追加してみましょう。
+<br>
 
-<p>「承認者」と「期限」という列名がなくなってしまったので、システム側が元々の値を見つけられなくなってしまいます。<br><br>では、二次承認を加える前のデータに内部列名を追加してみましょう。<br><br></p>
 <table>
 <thead>
 <tr>
@@ -284,25 +265,19 @@ Power AutomateからSharePointの列を扱うときも、同様の理由で表�
 
 <p>一見取っつきにくい表記に思えますが、どの列かを識別するためのものなので、列を表す記号と捉えて次に進みましょう。<br><br><br><br></p>
 <p><a id='anchor-to-use-internal-column'></a></p>
-<h2 id="内部列名をPower-Automateで利用するために"><a href="#内部列名をPower-Automateで利用するために" class="headerlink" title="内部列名をPower Automateで利用するために"></a>内部列名をPower Automateで利用するために</h2><br>
-Powre Automate利用時に注意が必要になるのが、内部列名はそのままで利用できる場合と、加工が必要な場合があります。<br>
-決まりなので覚えていきましょう。<br>
-
+<h2 id="内部列名をPower-Automateで利用するために"><a href="#内部列名をPower-Automateで利用するために" class="headerlink" title="内部列名をPower Automateで利用するために"></a>内部列名をPower Automateで利用するために</h2><p>Powre Automate利用時に注意が必要になるのが、内部列名はそのままで利用できる場合と、加工が必要な場合があります。<br><br>決まりなので覚えていきましょう。<br></p>
 <br>
 以下の列を持つリストを例にして、確認していきます。
 
 <p><img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/SPO-list.png"></p>
 <br>
-<br>
 各列の内部列名を確認していくと、以下のようになります。<br>
 
 <ul>
-<li>文字の種類がアルファベットの場合は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>不要</font></li>
-<li>文字の種類がアルファベットの場合<font color=red>以外</font>は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>必要</font></li>
+<li>文字の種類がアルファベットからはじまる場合は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>不要</font></li>
+<li>文字の種類がアルファベット以外からはじまる場合<font color=red>以外</font>は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>必要</font></li>
 </ul>
 <br>
-<br>
-
 
 <table>
 <thead>
@@ -318,6 +293,12 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 <td align="center">Details</td>
 <td align="center">Details</td>
 <td align="center">Details</td>
+</tr>
+<tr>
+<td align="center">アルファベット×日本語</td>
+<td align="center">Details_承認内容</td>
+<td align="center">Details__x627f__x8a8d__x5185__x5</td>
+<td align="center">Details__x627f__x8a8d__x5185__x5</td>
 </tr>
 <tr>
 <td align="center">日本語</td>
@@ -345,21 +326,16 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 </tr>
 </tbody></table>
 <br>
-
 <br>
 
 <p><a id='anchor-how-to-look-up-internal-column'></a></p>
-<h2 id="内部列名の確認方法"><a href="#内部列名の確認方法" class="headerlink" title="内部列名の確認方法"></a>内部列名の確認方法</h2><br>
-では実際に、内部列名を確認していきましょう。
-<br>
-<br>
-
+<h2 id="内部列名の確認方法"><a href="#内部列名の確認方法" class="headerlink" title="内部列名の確認方法"></a>内部列名の確認方法</h2><p>では実際に、内部列名を確認していきましょう。<br><br><br><br></p>
 <ol>
 <li>SharePointにて、内部列名を確認したいリストを表示します。</li>
 <li>歯車アイコンからリストの設定を開きます。<br><br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-list-setting.png"></li>
 <li>列の一覧から、確認したい列を選択します。<br><br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-column-setting.png"></li>
 <li>URL の <strong>Field= </strong>以降の値が内部列名となります。<br><br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-internal-name.png"></li>
-<li>最後に以下の表の規則に従い、アルファベット以外の場合には OData_ を付与します。<br></li>
+<li>最後に以下の表の規則に従い、アルファベットからはじまる場合以外は OData_ を付与します。<br></li>
 </ol>
 <br>
 <br>
@@ -380,6 +356,13 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 <td align="center">Details</td>
 <td align="center"><img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-alfabet.png"></td>
 <td align="center">Details</td>
+</tr>
+<tr>
+<td align="center">アルファベット×日本語</td>
+<td align="center">Details_承認内容</td>
+<td align="center">Details__x627f__x8a8d__x5185__x5</td>
+<td align="center"><img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-alfabet_japanese.png"></td>
+<td align="center">Details__x627f__x8a8d__x5185__x5</td>
 </tr>
 <tr>
 <td align="center">日本語</td>
