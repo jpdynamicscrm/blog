@@ -31,8 +31,6 @@ Power Automateを使って、一緒にビジネスを加速させましょう！
 1. [内部列名って何？](#anchor-what-is-internal-column)
 1. [内部列名の確認方法](#anchor-how-to-look-up-internal-column)
 
-<br>
-
 <a id='anchor-Intro'></a>
 
 ## はじめに
@@ -60,14 +58,13 @@ Power Automateを使えば、「期限列」や「ステータス列」の値を
 ### 内部列名がないと・・・
 
 例えば、以下のようなデータがあったとします。
+
 | 列名 | 値 |
 | :- | :- |
 | Title | A社様見積もり |
 | 承認者 | 〇〇部長 |
 | 期限 | 2021/06/01 |
 
-<br>
-<br>
 ここに、二次承認者を加えることになりました。<br>
 そこで「承認者」と「期限」の列名を変更することにしました。<br>
 <br>
@@ -117,8 +114,6 @@ Power AutomateからSharePointの列を扱うときも、同様の理由で表�
 
 一見取っつきにくい表記に思えますが、どの列かを識別するためのものなので、列を表す記号と捉えて次に進みましょう。
 <br>
-<br>
-
 <a id='anchor-to-use-internal-column'></a>
 
 ## 内部列名をPower Automateで利用するために
@@ -156,20 +151,15 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 ## 内部列名の確認方法
 
 では実際に、内部列名を確認していきましょう。
-<br>
-<br>
 
 1. SharePointにて、内部列名を確認したいリストを表示します。
-2. 歯車アイコンからリストの設定を開きます。<br>
+2. 歯車アイコンからリストの設定を開きます。
     ![](./Look-up-internal-column-names-in-SPO/open-list-setting.png)
-3. 列の一覧から、確認したい列を選択します。<br>
+3. 列の一覧から、確認したい列を選択します。
     ![](./Look-up-internal-column-names-in-SPO/open-column-setting.png)
-4. URL の <strong>Field= </strong>以降の値が内部列名となります。<br>
+4. URL の <strong>Field= </strong>以降の値が内部列名となります。
     ![](./Look-up-internal-column-names-in-SPO/column-internal-name.png)
-5. 最後に以下の表の規則に従い、アルファベットからはじまる場合以外は OData_ を付与します。<br>
-
-<br>
-<br>
+5. 最後に以下の表の規則に従い、アルファベットからはじまる場合以外は OData_ を付与します。
 
    | 文字の種類 | 列名 | 内部列名 | SharePoint 列の設定での表示 |Power Automate 利用時|
    | :-: | :-: |:-:|:-:|:-:|
@@ -180,8 +170,6 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
    | 記号 ( 1byte ) | /// | \_x002f__x002f__x002f_ | ![](./Look-up-internal-column-names-in-SPO/column-slash.png) | <font color=red>OData_</font>\_x002f__x002f__x002f_ |
    | 数値 | 123456 | \_x0031_23456 | ![](./Look-up-internal-column-names-in-SPO/column-num.png) | <font color=red>OData_</font>\_x0031_23456 |
 
-<br>
-<br>
 これで内部列を取得することができました。
 <br>
 内部列名についてのご案内は以上となります。<br>
