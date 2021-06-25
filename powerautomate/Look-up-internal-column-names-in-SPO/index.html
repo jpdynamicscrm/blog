@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-slash.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-num.png">
 <meta property="article:published_time" content="2021-06-01T02:30:00.000Z">
-<meta property="article:modified_time" content="2021-06-25T14:24:57.172Z">
+<meta property="article:modified_time" content="2021-06-25T14:31:02.804Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="PowerPlatform">
 <meta property="article:tag" content="PowerAutomate">
@@ -115,7 +115,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+94527692-5981-512b-aa9b-5a28e382eed6%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BSharePoint%E3%81%AE%E5%86%85%E9%83%A8%E5%88%97%E5%90%8D%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FLook-up-internal-column-names-in-SPO%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FLook-up-internal-column-names-in-SPO.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2FLook-up-internal-column-names-in-SPO.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/" data-id="ckqcfev7e00040ql4deqyeliq" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/" data-id="ckqcfmp9900040nl81omsf8kw" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -136,8 +136,6 @@
 <li><a href="#anchor-what-is-internal-column">内部列名って何？</a></li>
 <li><a href="#anchor-how-to-look-up-internal-column">内部列名の確認方法</a></li>
 </ol>
-<br>
-
 <p><a id='anchor-Intro'></a></p>
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><h3 id="こんなことしたいなって思ったことありませんか？"><a href="#こんなことしたいなって思ったことありませんか？" class="headerlink" title="こんなことしたいなって思ったことありませんか？"></a>こんなことしたいなって思ったことありませんか？</h3><ul>
 <li>SharePointリストの期限列と現在日時を比較して、期限間近のアイテムをTeamsやメールでリマインドしたい</li>
@@ -149,13 +147,28 @@
 <p>基礎知識は飛ばして確認方法を知りたいという方は<a href="#anchor-how-to-look-up-internal-column">内部列名の確認方法</a>へ進んでください。</p>
 <p><a id='anchor-what-is-internal-column'></a></p>
 <h2 id="内部列名って何"><a href="#内部列名って何" class="headerlink" title="内部列名って何?"></a>内部列名って何?</h2><p>内部列名はシステム側で列を特定するためのキー項目です。<br></p>
-<h3 id="内部列名がないと・・・"><a href="#内部列名がないと・・・" class="headerlink" title="内部列名がないと・・・"></a>内部列名がないと・・・</h3><p>例えば、以下のようなデータがあったとします。<br>| 列名 | 値 |<br>| :- | :- |<br>| Title | A社様見積もり |<br>| 承認者 | 〇〇部長 |<br>| 期限 | 2021/06/01 |</p>
-<br>
-<br>
-ここに、二次承認者を加えることになりました。<br>
-そこで「承認者」と「期限」の列名を変更することにしました。<br>
-<br>
-
+<h3 id="内部列名がないと・・・"><a href="#内部列名がないと・・・" class="headerlink" title="内部列名がないと・・・"></a>内部列名がないと・・・</h3><p>例えば、以下のようなデータがあったとします。</p>
+<table>
+<thead>
+<tr>
+<th align="left">列名</th>
+<th align="left">値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Title</td>
+<td align="left">A社様見積もり</td>
+</tr>
+<tr>
+<td align="left">承認者</td>
+<td align="left">〇〇部長</td>
+</tr>
+<tr>
+<td align="left">期限</td>
+<td align="left">2021/06/01</td>
+</tr>
+</tbody></table>
+<p>ここに、二次承認者を加えることになりました。<br><br>そこで「承認者」と「期限」の列名を変更することにしました。<br><br><br></p>
 <table>
 <thead>
 <tr>
@@ -263,8 +276,7 @@ Power AutomateからSharePointの列を扱うときも、同様の理由で表�
 <br>
 <br>
 
-<p>一見取っつきにくい表記に思えますが、どの列かを識別するためのものなので、列を表す記号と捉えて次に進みましょう。<br><br><br><br></p>
-<p><a id='anchor-to-use-internal-column'></a></p>
+<p>一見取っつきにくい表記に思えますが、どの列かを識別するためのものなので、列を表す記号と捉えて次に進みましょう。<br><br><br><a id='anchor-to-use-internal-column'></a></p>
 <h2 id="内部列名をPower-Automateで利用するために"><a href="#内部列名をPower-Automateで利用するために" class="headerlink" title="内部列名をPower Automateで利用するために"></a>内部列名をPower Automateで利用するために</h2><p>Powre Automate利用時に注意が必要になるのが、内部列名はそのままで利用できる場合と、加工が必要な場合があります。<br><br>決まりなので覚えていきましょう。<br></p>
 <br>
 以下の列を持つリストを例にして、確認していきます。
@@ -329,17 +341,17 @@ Power AutomateからSharePointの列を扱うときも、同様の理由で表�
 <br>
 
 <p><a id='anchor-how-to-look-up-internal-column'></a></p>
-<h2 id="内部列名の確認方法"><a href="#内部列名の確認方法" class="headerlink" title="内部列名の確認方法"></a>内部列名の確認方法</h2><p>では実際に、内部列名を確認していきましょう。<br><br><br><br></p>
+<h2 id="内部列名の確認方法"><a href="#内部列名の確認方法" class="headerlink" title="内部列名の確認方法"></a>内部列名の確認方法</h2><p>では実際に、内部列名を確認していきましょう。</p>
 <ol>
-<li>SharePointにて、内部列名を確認したいリストを表示します。</li>
-<li>歯車アイコンからリストの設定を開きます。<br><br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-list-setting.png"></li>
-<li>列の一覧から、確認したい列を選択します。<br><br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-column-setting.png"></li>
-<li>URL の <strong>Field= </strong>以降の値が内部列名となります。<br><br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-internal-name.png"></li>
-<li>最後に以下の表の規則に従い、アルファベットからはじまる場合以外は OData_ を付与します。<br></li>
-</ol>
-<br>
-<br>
-
+<li><p>SharePointにて、内部列名を確認したいリストを表示します。</p>
+</li>
+<li><p>歯車アイコンからリストの設定を開きます。<br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-list-setting.png"></p>
+</li>
+<li><p>列の一覧から、確認したい列を選択します。<br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/open-column-setting.png"></p>
+</li>
+<li><p>URL の <strong>Field= </strong>以降の値が内部列名となります。<br> <img src="/blog/powerautomate/Look-up-internal-column-names-in-SPO/column-internal-name.png"></p>
+</li>
+<li><p>最後に以下の表の規則に従い、アルファベットからはじまる場合以外は OData_ を付与します。</p>
 <table>
 <thead>
 <tr>
@@ -393,12 +405,9 @@ Power AutomateからSharePointの列を扱うときも、同様の理由で表�
 <td align="center"><font color=red>OData_</font>_x0031_23456</td>
 </tr>
 </tbody></table>
-<br>
-<br>
-これで内部列を取得することができました。
-<br>
-内部列名についてのご案内は以上となります。<br>
-
+</li>
+</ol>
+<p>これで内部列を取得することができました。<br><br><br>内部列名についてのご案内は以上となります。<br></p>
 <br>
 いかがでしたでしょうか。
 <br>
