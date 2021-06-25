@@ -15,7 +15,7 @@ keywords:
   - PowerAutomate
   - Customization
   - PPAC
-  - OnlineSystem
+  - On-Premises
   - Portal
   - ModelDrivenApp
   - CanvasApp
@@ -29,7 +29,7 @@ root_tag_generator:
     - CanvasApp
     - Customization
     - ModelDrivenApp
-    - OnlineSystem
+    - On-premises
     - Other
     - Archive
     - PortalApp
@@ -44,6 +44,7 @@ url: https://jpdynamicscrm.github.io/blog/
 github:
   url: https://github.com/jpdynamicscrm/blog/
   posts_dir: articles
+  default_branch: ma
 
 skip_render:
   - '_data/*.png'
@@ -122,7 +123,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: jpdynamicscrm
+theme: jpazure
 
 feed:
   type: atom

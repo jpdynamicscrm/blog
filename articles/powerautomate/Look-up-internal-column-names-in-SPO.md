@@ -5,37 +5,28 @@ tags:
   - PowerPlatform
   - PowerAutomate
   - SharePointOnline
-  
 ---
 
-#  SharePointの内部列名を確認する方法
+# SharePointの内部列名を確認する方法
 
 こんにちは、Power Platform サポートチームの網野です。
 
-<br>
-今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。<br>
-
-内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！<br>
-
+今回はSharePointリストを利用したフローを作成するときに、必ず知っておくべき内部列名とその確認方法をご案内します。
+内部列名を使いこなせれば、トリガー条件やフィルタークエリを使って、SharePointを更に便利に使いこなせます！
 便利な使い方は別の機会にたくさん紹介しますので、今回は内部列名の確認方法についてしっかり覚えていきましょう。
 
-
-<br>
-
 この記事の対象者
- - Power Automateをはじめたばかりの方
- - SharePointリストとPower Automateの連携に興味のある方
 
-<br>
-私たちMicrosoftはすべての人が開発者になる未来を目指しています。<br>
-Power Automateを使って、一緒にビジネスを加速させましょう！<br>
-<br>
-<br>
+- Power Automateをはじめたばかりの方
+- SharePointリストとPower Automateの連携に興味のある方
+
+Power Automateを使って、一緒にビジネスを加速させましょう！
 <!-- more -->
 
 ---
 
-#目次
+# 目次
+
 1. [はじめに](#anchor-intro)
 1. [内部列名って何？](#anchor-what-is-internal-column)
 1. [内部列名の確認方法](#anchor-how-to-look-up-internal-column)
@@ -44,40 +35,32 @@ Power Automateを使って、一緒にビジネスを加速させましょう！
 
 <a id='anchor-Intro'></a>
 
-
 ## はじめに
-<br>
 
 ### こんなことしたいなって思ったことありませんか？
 
+- SharePointリストの期限列と現在日時を比較して、期限間近のアイテムをTeamsやメールでリマインドしたい
+- ステータス列が「完了」以外のときだけフローを実行したい
 
- - SharePointリストの期限列と現在日時を比較して、期限間近のアイテムをTeamsやメールでリマインドしたい
- - ステータス列が「完了」以外のときだけフローを実行したい
-
-<br>
 Power Automateを使えば、「期限列」や「ステータス列」の値を利用して、～この列が〇〇のとき～のような条件式を簡単に作成することができます!
-<br>
-<br>
+
 詳しい方法はまた別の機会にblogとして更新しますので、今回は列を指定するときに必要な内部列名について学んでいきます。
-<br>
-<br   >
+
 それでは早速SharePointリストの内部列名とは何かから、学んでいきましょう！
-<br>
+
 
 基礎知識は飛ばして確認方法を知りたいという方は[内部列名の確認方法](#anchor-how-to-look-up-internal-column)へ進んでください。
-<br>
-<br>
 
 <a id='anchor-what-is-internal-column'></a>
+
 ## 内部列名って何?
 
 内部列名はシステム側で列を特定するためのキー項目です。<br>
-<br>
+
 ### 内部列名がないと・・・
-<br>
 
 例えば、以下のようなデータがあったとします。
-| 列名 | 値 | 
+| 列名 | 値 |
 | :- | :- |
 | Title | A社様見積もり |
 | 承認者 | 〇〇部長 |
@@ -89,7 +72,7 @@ Power Automateを使えば、「期限列」や「ステータス列」の値を
 そこで「承認者」と「期限」の列名を変更することにしました。<br>
 <br>
 
-| 表示上の列名 | 値 | 
+| 表示上の列名 | 値 |
 | :- | :- |
 | Title | A社様見積もり |
 | <font color=red>一次</font>承認者 | ？ |
@@ -98,12 +81,11 @@ Power Automateを使えば、「期限列」や「ステータス列」の値を
 | 二次承認期限 | - |
 
 <br>
-
 「承認者」と「期限」という列名がなくなってしまったので、システム側が元々の値を見つけられなくなってしまいます。<br>
 では、二次承認を加える前のデータに内部列名を追加してみましょう。
 <br>
 
-| 表示上の列名 | 内部列名 | 値 | 
+| 表示上の列名 | 内部列名 | 値 |
 | :- | :- | :- |
 | Title | <font color=red>Title</font> | A社様見積もり |
 | 承認者 | <font color=red>Approver</font>| 〇〇部長 |
@@ -113,13 +95,13 @@ Power Automateを使えば、「期限列」や「ステータス列」の値を
 次に、「承認者」と「期限」の列名を変更して、二次承認者の情報を増やします。
 <br>
 
-| 表示上の列名 | 内部列名 | 値 | 
+| 表示上の列名 | 内部列名 | 値 |
 | :- | :- | :- |
 | Title | Title | A社様見積もり |
-| <font color=red>一次</font>承認者 | <font color=red>Approver</font> | 〇〇部長 | 
-| <font color=red>一次承認</font>期限 | <font color=red>deadline</font> | 2021/06/01 | 
-| 二次承認者 | Secondary Approver | - | 
-| 二次承認期限 | Secondary Approve deadline | - | 
+| <font color=red>一次</font>承認者 | <font color=red>Approver</font> | 〇〇部長 |
+| <font color=red>一次承認</font>期限 | <font color=red>deadline</font> | 2021/06/01 |
+| 二次承認者 | Secondary Approver | - |
+| 二次承認期限 | Secondary Approve deadline | - |
 
 <br>
 表示上の列名が変更されても内部列名が変わらないので、システム側も値を見つけることができますね。<br>
@@ -137,11 +119,10 @@ Power AutomateからSharePointの列を扱うときも、同様の理由で表�
 <br>
 <br>
 
-
 <a id='anchor-to-use-internal-column'></a>
+
 ## 内部列名をPower Automateで利用するために
 
-<br>
 Powre Automate利用時に注意が必要になるのが、内部列名はそのままで利用できる場合と、加工が必要な場合があります。<br>
 決まりなので覚えていきましょう。<br>
 
@@ -150,8 +131,6 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 
 ![](./Look-up-internal-column-names-in-SPO/SPO-list.png)
 
-
-<br>
 <br>
 各列の内部列名を確認していくと、以下のようになります。<br>
 
@@ -159,8 +138,6 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 - 文字の種類がアルファベット以外からはじまる場合<font color=red>以外</font>は、<strong><font color=red>OData_</font></strong> という接頭辞が<font color=blue>必要</font>
 
 <br>
-<br>
-
 
 | 文字の種類 | 列名 | 内部列名  |Power Automate 利用時|
 | :-: | :-: |:-:|:-:|
@@ -172,13 +149,12 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 | 数値 | 123456 | \_x0031_23456  | <font color=red>OData_</font>\_x0031_23456 |
 
 <br>
-
 <br>
 
 <a id='anchor-how-to-look-up-internal-column'></a>
 
 ## 内部列名の確認方法
-<br>
+
 では実際に、内部列名を確認していきましょう。
 <br>
 <br>
@@ -218,4 +194,3 @@ Powre Automate利用時に注意が必要になるのが、内部列名はその
 
 ---
 Hope to acceralate your business with Power Automate!
-
