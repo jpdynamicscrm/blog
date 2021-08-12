@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Power Automate で接続が「無効な接続」になる原因 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、日本マイクロソフト Dynamics CRM &amp; Power Platform サポート チームです。 この度、GitHub Blog にてサポートブログを開設いたしました！本ブログでは、日本マイクロソフト Dynamics CRM &amp; Power Platform サポート チームに所属する社員より、皆様のお役に立てる情報の発信に努めてまいりますので、ぜひご参照いただ">
+  <meta name="description" content="こんにちは、日本マイクロソフト Power Automate サポートの清水です。 今回は、Power Automate で Azure AD 認証の「接続」が無効になってしまうケースとその仕組みについてご説明いたします。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/information/test/index.html">
+<meta property="og:title" content="Power Automate で接続が「無効な接続」になる原因">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、日本マイクロソフト Dynamics CRM &amp; Power Platform サポート チームです。 この度、GitHub Blog にてサポートブログを開設いたしました！本ブログでは、日本マイクロソフト Dynamics CRM &amp; Power Platform サポート チームに所属する社員より、皆様のお役に立てる情報の発信に努めてまいりますので、ぜひご参照いただ">
+<meta property="og:description" content="こんにちは、日本マイクロソフト Power Automate サポートの清水です。 今回は、Power Automate で Azure AD 認証の「接続」が無効になってしまうケースとその仕組みについてご説明いたします。">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2021-03-31T15:00:00.000Z">
+<meta property="article:published_time" content="2021-07-21T00:30:00.000Z">
 <meta property="article:modified_time" content="2021-08-12T01:13:29.266Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Information">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="Power Automate">
+<meta property="article:tag" content="Connection">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
@@ -79,7 +81,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-information/test" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerautomate/Invalid-Connection" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -88,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ
+      Power Automate で接続が「無効な接続」になる原因
     </h1>
   
 
@@ -96,23 +98,72 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-03-31T15:00:00.000Z" itemprop="datePublished">2021-04-01</time>
+  <time datetime="2021-07-21T00:30:00.000Z" itemprop="datePublished">2021-07-21</time>
 </a>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+86b497be-369b-5ab2-ba7e-00c4ca5936b7%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BJapan+Dynamics+CRM+%26+Power+Platform+Support+Blog+%E9%96%8B%E8%A8%AD%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Finformation%2Ftest%2F%29%0A*+Content+Source%3A+%5Barticles%2Finformation%2Ftest.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Finformation%2Ftest.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+5de92e84-7eae-57f9-b823-ea15362adb77%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%81%A7%E6%8E%A5%E7%B6%9A%E3%81%8C%E3%80%8C%E7%84%A1%E5%8A%B9%E3%81%AA%E6%8E%A5%E7%B6%9A%E3%80%8D%E3%81%AB%E3%81%AA%E3%82%8B%E5%8E%9F%E5%9B%A0%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FInvalid-Connection%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FInvalid-Connection.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2FInvalid-Connection.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/information/test/" data-id="cks889vsl00030mmu44zrdwwf" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/" data-id="cks889vsm00040mmu4euhf0tv" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、日本マイクロソフト Dynamics CRM &amp; Power Platform サポート チームです。</p>
-<p>この度、GitHub Blog にてサポートブログを開設いたしました！<br>本ブログでは、日本マイクロソフト Dynamics CRM &amp; Power Platform サポート チームに所属する社員より、皆様のお役に立てる情報の発信に努めてまいりますので、ぜひご参照いただけますと幸いです。</p>
+        <p>こんにちは、日本マイクロソフト Power Automate サポートの清水です。</p>
+<p>今回は、Power Automate で Azure AD 認証の「接続」が無効になってしまうケースとその仕組みについてご説明いたします。</p>
 <span id="more"></span>
 
-<p>なお、これまで Microsoft Technet に掲載していた記事は、随時本 GitHub Blog の Archive に移行を進めてまいります。<br>製品の特性上、情報が古くなってしまった記事につきましては移行しない場合がございますため、あらかじめご了承ください。</p>
-<p>本 Blog が、皆様のお役にたてれば幸いです。<br>今後ともよろしくお願いたします。</p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Power Automate を業務で使用するうえで、気になるのが「接続」の有効期限です。</p>
+<p>Power Automate の「接続」は、ユーザーの資格情報を使用して Azure AD からトークンを取得しています。<br>そのため、資格情報に変更があった場合に接続が無効となる場合があることは、ご存じの方も多いかと存じますが、</p>
+<p>「実際にパスワードを変更しても接続が切れない」<br>「認証情報は変更していないのに、突然接続が無効になってしまった」</p>
+<p>といったお問い合わせをいただくことが多々ございます。</p>
+<p>この記事では、接続が無効になるケース、ならないケースと、接続が無効になるまでの仕組みについて、詳細にご説明いたします。</p>
+<h2 id="Power-Autoamte-で「無効な接続」と表示される原因"><a href="#Power-Autoamte-で「無効な接続」と表示される原因" class="headerlink" title="Power Autoamte で「無効な接続」と表示される原因"></a>Power Autoamte で「無効な接続」と表示される原因</h2><p>実際に接続が無効になるケース、ならないケースは以下の通りです。</p>
+<table>
+<thead>
+<tr>
+<th>接続が無効になるケース</th>
+<th>接続が無効にならないケース</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><li>ユーザーまたは管理者による PowerShell での更新 トークンの無効化</li><li>管理者による Microsoft 365 管理センターでのパスワードのリセット</li><li>条件付きアクセス ポリシーや多要素認証の設定変更</li><li>接続が長期間 (90 日以上) 使用されていない</li><li>接続先サービス側の一時的な不具合</li></td>
+<td><li>パスワードの有効期限切れ</li><li>ユーザーによるパスワード変更</li><li>ユーザーによる セルフサービス パスワード リセット</li><li>Web 上でのシングルサインアウト</li></td>
+</tr>
+</tbody></table>
+<h2 id="Power-Automate-での認証の仕組み"><a href="#Power-Automate-での認証の仕組み" class="headerlink" title="Power Automate での認証の仕組み"></a>Power Automate での認証の仕組み</h2><p>さて、具体的な Power Autoamte での認証の仕組みについて、ご説明します。</p>
+<p>Power Automate で使用するコネクタは、Azure AD での認証を行うことで、下記 2 種類のトークンを取得しています。</p>
+<ul>
+<li>リソースに対するトークン (アクセス トークン)</li>
+<li>継続的なアクセスを行うためのトークン (更新 トークン)</li>
+</ul>
+<p>トークンの取得後、コネクタは上記のうちアクセス トークンを利用してリソースにアクセスします。<br>なお、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/active-directory-configurable-token-lifetimes#access-tokens">アクセス トークンは取り消すことはできず、有効期限が切れるまでの間は使用可能</a>です。</p>
+<p>アクセス トークンの有効期限なそれほど長くないため、有効期限が切れた場合には、<br>更新 トークンを利用してアクセス トークンを更新することで、継続的にリソースに対してアクセス可能な仕組みとなっています。</p>
+<p>また、更新 トークンには、認証を行った際の IP アドレスや条件付きアクセス ポリシーの情報など、<br>内部的にユーザーがどのような認証を行ったかの情報が含まれています。</p>
+<p>したがって、更新 トークンを使用してアクセストークンを更新する際、<br>条件付きアクセス ポリシーや多要素認証などの設定が認証時と異なっていると、アクセス トークンの更新は失敗し、<br>接続が「無効な接続」となってしまいます。</p>
+<p>また、資格情報の変更や管理者の操作により、更新 トークン自体が無効となる場合もございます。<br>原因として表に挙げた例の中では、以下が当てはまります。</p>
+<ul>
+<li><p>ユーザーまたは管理者が PowerShell を使用して更新トークンを無効化<br> Power Automate の接続は、「機密クライアントのトークン」として認識されます。<br> そのため、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/access-tokens#revocation">公開情報の表</a>に記載の通り、更新トークンを無効化した場合のみトークンが取り消されます。<br> パスワード変更や期限切れでは、更新 トークンは無効となりません。</p>
+</li>
+<li><p>接続が長期間 (90 日以上) 使用されていない<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/active-directory-configurable-token-lifetimes#refresh-and-session-token-lifetime-policy-properties">更新 トークンの最大非アクティブ時間</a>の制限により、接続が 90 日以上使用されていない場合、更新 トークンは失効いたします。</p>
+</li>
+</ul>
+<p>上記の場合、更新 トークンが失効してアクセス トークンの更新ができないため、「無効な接続」となってしまいます。</p>
+<p>ご説明した動作をまとめると、Power Automate では、</p>
+<ol>
+<li>アクセス トークンの有効期限が切れ、</li>
+<li>更新 トークンが失効した</li>
+</ol>
+<p>場合に、リソースにアクセスするためのアクセス トークンの更新ができず、「無効な接続」が発生します。</p>
+<h3 id="補足-時間が経ってから接続が無効になる"><a href="#補足-時間が経ってから接続が無効になる" class="headerlink" title="(補足) 時間が経ってから接続が無効になる"></a>(補足) 時間が経ってから接続が無効になる</h3><p>上述の仕組みからお分かりの通り、接続が無効になるまでには、</p>
+<ol>
+<li>アクセス トークンの有効期限切れ</li>
+<li>更新 トークンの失効</li>
+</ol>
+<p>の 2 つのステップがあります。</p>
+<p>そのため、実際に接続が切れるような操作を行ってから接続が無効となるまで、<br>アクセス トークンの有効期限に応じて、期間が空く場合があることにご留意ください。</p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>以上、Power Autoamte での認証の仕組みについてご説明しました。<br>認証が切れるケースに該当するような操作を行う場合は、Power Autoamte での接続の再認証もお忘れないよう、ご留意ください。</p>
+<hr>
 
       
       
@@ -126,10 +177,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/information/test.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/Invalid-Connection.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -137,15 +188,11 @@
     
 <nav id="article-nav">
   
-    <a href="../../canvasapp/Canvas-app-delegation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          キャンバス アプリ の委任について
-        
-      </div>
-    </a>
   
+    <a href="../../canvasapp/Canvas-app-monitor/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">キャンバス アプリのモニターログ取得手順</div>
+    </a>
   
 </nav>
 
@@ -163,7 +210,7 @@
       <ul>
         
           <li>
-            <a href="../../powerautomate/Invalid-Connection/">Power Automate で接続が「無効な接続」になる原因</a>
+            <a href="">Power Automate で接続が「無効な接続」になる原因</a>
           </li>
         
           <li>
@@ -171,11 +218,11 @@
           </li>
         
           <li>
-            <a href="../../powerautomate/PowerAutomateDesktop-NoFlow/">Power Automate Desktop で「フローなし」と表示される場合の対処法</a>
+            <a href="../PowerAutomateDesktop-NoFlow/">Power Automate Desktop で「フローなし」と表示される場合の対処法</a>
           </li>
         
           <li>
-            <a href="../../powerautomate/Look-up-internal-column-names-in-SPO/">SharePointの内部列名を確認する方法</a>
+            <a href="../Look-up-internal-column-names-in-SPO/">SharePointの内部列名を確認する方法</a>
           </li>
         
           <li>
