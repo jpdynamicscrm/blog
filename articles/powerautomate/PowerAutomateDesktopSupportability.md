@@ -25,8 +25,11 @@ Windows の Power Automate Desktop は、PC にインストールして使用す
 このアプリケーションには、SLA や Microsoft サポートが含まれないため、ビジネスクリティカルな用途で使用すべきではありません。
 Power Automate Desktop をビジネスクリティカルで使用する場合、サポートが含まれる適切な Microsoft ライセンスの購入をご検討ください。
 対象となるライセンスは "Power Automate per user with attended RPA" です。※2021/8 時点
-
 ライセンスのご購入は、Microsoft 365 管理センターの [課金情報] - [サービスを購入する] からご確認いただけます。
+
+また、サポート範囲については以下ライセンスガイドからもご確認いただくことが可能です。
+英語版　：https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x409
+日本語版：https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x411
 
 ## 終わりに
 
