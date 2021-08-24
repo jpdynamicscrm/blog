@@ -77,9 +77,9 @@ Power Automate と組み合わせることによって、例えば以下のよ�
 
 2. Runbook の 「編集」 からPower Shellを作成します。<br>
    実行したい処理を記載してください。<br>
-   <br>
    「Param」 を指定することでフローからパラメータを渡すことができます。<br>
-    サンプルでは、String型の 「Name」 パラメータを受け取り、コンソールに表示します。<br>
+   サンプルでは、String型の 「Name」 パラメータを受け取り、コンソールに表示します。<br>
+   
    ![](./Execute-PowerShell/runbook-script.png)
 　　 
 3. Runbookを「保存」後「公開」を押下します<br>
@@ -100,6 +100,7 @@ Power Automate と組み合わせることによって、例えば以下のよ�
    <br>
    サンプルでは PowerShell にフロー実行時に入力したテキストを渡したいと思いますので<br>
    「Runbook Parameter name」 に動的なコンテンツ 「入力」 を設定します。<br>
+
    ![](./Execute-PowerShell/azure-automation-create-job.png)
    
     
@@ -119,6 +120,7 @@ Power Automate と組み合わせることによって、例えば以下のよ�
    ![](./Execute-PowerShell/result.png)<br>
    <br>
    コンソールに実行時に入力した 「PowerShell」 の文字が表示されていることが確認できます。<br>
+
    ![](./Execute-PowerShell/result2.png)
 　　 
 　 
