@@ -36,5 +36,7 @@ Power Automate Desktop をビジネスクリティカルで使用する場合、
 Power Autoamte Desktop で弊社サポートをご利用いただけるライセンスにについてご案内させていただきました。
 製品やライセンスに関する情報は随時更新されるため、最新の情報については弊社営業もしくは以下サポートまでご相談ください。
 [Microsoft サポートへのお問い合わせ](https://support.microsoft.com/ja-jp/contactus)
+また、以下のコミュニティもぜひご活用ください。
+[Microsoft Power Automate Community](https://powerusers.microsoft.com/t5/Microsoft-Power-Automate/ct-p/MPACommunity)
 
 --
