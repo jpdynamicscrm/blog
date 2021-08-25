@@ -24,7 +24,10 @@ Power Automate Desktopは Windows 10 をご利用のお客様であればどな�
 Windows の Power Automate Desktop は、PC にインストールして使用する無料のアプリケーションです。
 このアプリケーションには、SLA や Microsoft サポートが含まれないため、ビジネスクリティカルな用途で使用すべきではありません。
 Power Automate Desktop をビジネスクリティカルで使用する場合、サポートが含まれる適切な Microsoft ライセンスの購入をご検討ください。
-対象となるライセンスは "Power Automate per user with attended RPA" です。※2021/8 時点
+対象となるライセンスは以下です ※2021/8 時点
+・Power Automate per user plan with attended RPA
+・Power Automate unattended RPA add-on（前提としてPower Automate per user または Power Automate per flow が必要）
+
 ライセンスのご購入は、Microsoft 365 管理センターの [課金情報] - [サービスを購入する] からご確認いただけます。
 
 また、サポート範囲については以下ライセンスガイドからもご確認いただくことが可能です。
