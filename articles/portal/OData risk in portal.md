@@ -41,16 +41,16 @@ Power Apps Portal は既定で構成されないため、ご利用されてい�
 
 ・メッセージセンターにおける通知  
 　上記条件に該当するリストの設定を行っているお客様に対し、Microsoft 365 管理センターのメッセージID MC277597 にて通知を行っています。  
-![](./OData risk in portal/MC277597.png)
+![](./OData-risk-in-portal/MC277597.png)
 
 ・[ポータルチェッカーの実行](https://docs.microsoft.com/ja-jp/powerapps/maker/portals/admin/portal-checker)  
 　Power Apps Portal 管理センターよりポータルチェッカーを実行することで、対象のポータルに構成されているリストのうち、条件に該当するものが存在するか確認することができます。  
 　該当するリストが存在する場合、以下の様な警告とともに対象のリストのIDが表示されます。  
-![](./OData risk in portal/portalchecker.png)
+![](./OData-risk-in-portal/portalchecker.png)
 
 ・高度な検索を使用した手動確認  
 　手動で上記条件に該当するリストをご確認頂く場合、高度な検索を使用して以下の条件で検索いただくことで、該当のエンティティリストが存在しているかご確認いただくことが可能です。  
-![](./OData risk in portal/advancedfind.png)
+![](./OData-risk-in-portal/advancedfind.png)
 
 
 ## 対処方法について
