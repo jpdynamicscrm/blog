@@ -29,8 +29,11 @@ Power Automate Desktop をビジネスクリティカルで使用する場合、
 ・Power Automate unattended RPA add-on（前提としてPower Automate per user または Power Automate per flow が必要）  
 
 ライセンスのご購入は、Microsoft 365 管理センターの [課金情報] - [サービスを購入する] からご確認いただけます。  
+上記ライセンスでPower Automate Desktopご利用されていないお客様は、サポートにお問い合わせをいただいた場合もご支援することができません。  
+ライセンスをお持ちでない場合は、以下のコミュニティをご活用ください。  
+[Microsoft Power Automate Community](https://powerusers.microsoft.com/t5/Microsoft-Power-Automate/ct-p/MPACommunity)
 
-また、サポート範囲については以下ライセンスガイドからもご確認いただくことが可能です。  
+サポート範囲については以下ライセンスガイドからもご確認いただくことが可能です。  
 英語版　：https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x409  
 日本語版：https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x411  
 
@@ -39,7 +42,5 @@ Power Automate Desktop をビジネスクリティカルで使用する場合、
 Power Autoamte Desktop で弊社サポートをご利用いただけるライセンスにについてご案内させていただきました。
 製品やライセンスに関する情報は随時更新されるため、最新の情報については弊社営業もしくは以下サポートまでご相談ください。
 [Microsoft サポートへのお問い合わせ](https://support.microsoft.com/ja-jp/contactus)  
-また、以下のコミュニティもぜひご活用ください。  
-[Microsoft Power Automate Community](https://powerusers.microsoft.com/t5/Microsoft-Power-Automate/ct-p/MPACommunity)
 
 --
