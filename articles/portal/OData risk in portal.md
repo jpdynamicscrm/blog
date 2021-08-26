@@ -26,13 +26,12 @@ Power Apps Portal は既定で構成されないため、ご利用されてい�
 ## 発表された問題について
 
 今回指摘された問題は以下２つの設定によって発生いたします。  
-・リストのアクセス制御有効化の設定  
+・リストのアクセス制御有効化の設定 ([リストをセキュリティで保護する](https://docs.microsoft.com/ja-jp/powerapps/maker/portals/configure/entity-lists#securing-lsists))  
 　リストレコードの "全般" タブにて設定できる [**エンティティのアクセス許可を有効にする**] の設定は、対象のリストにアクセスするユーザーに対してWeb ロールを使用した権限制御を有効化する設定です。こちらが無効の場合、匿名ユーザーがデータを表示することが可能となります。  
-[リストをセキュリティで保護する](https://docs.microsoft.com/ja-jp/powerapps/maker/portals/configure/entity-lists#securing-lsists)
 
-・リストのOData フィードの有効化状態  
+・リストのOData フィードの有効化状態 ([リストの OData フィード](https://docs.microsoft.com/en-us/powerapps/maker/portals/configure/entity-lists#list-odata-feeds))  
 　リストレコードの "OData フィード" タブにて設定できる [**有効**] の設定は、リストを API サービスとして外部に公開しデータ連携などの用途で利用するための設定です。設定が有効な場合、ユーザーは API を使用してデータの取得を要求することが可能です。  
-[リストの OData フィード](https://docs.microsoft.com/en-us/powerapps/maker/portals/configure/entity-lists#list-odata-feeds)
+
 
 [**エンティティのアクセス許可を有効にする**] の設定が無効化状態かつ、"OData フィード" タブの [**有効**] にチェックが入っている場合、匿名のユーザーが API を使用してポータルへアクセスすると、対象のリストのデータを取得することができてしまいます。
 
