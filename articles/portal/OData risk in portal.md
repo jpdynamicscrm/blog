@@ -64,7 +64,11 @@ Power Apps Portal は既定で構成されないため、ご利用されてい�
 ・OData フィードタブの「有効」からチェックを外す  
 　API によるデータへのアクセスが不可能となります。  
 
-また、本件に対する製品側の対処として、2021年8月15日以降に作成されたPower Apps ポータルでは、OData フィード機能を有効化した場合にはテーブル権限を無効にできないように動作変更が行われました。  
+また、本件に対する製品側の対処として、リストのアクセス許可設定を無効化することとなりました。  
+これにより、今後は同様の事象が発生しなくなります。  
+
+[基本/詳細フォームおよびリストへの匿名アクセス](https://docs.microsoft.com/ja-jp/powerapps/maker/portals/admin/portal-checker-analysis#anonymous-access-to-basicadvanced-forms-and-lists)
+![](./OData-risk-in-portal/deprication.png)
 
 ## 終わりに
 
