@@ -4,22 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>Power Automate Desktop のサポート範囲について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Power Apps Portal 上で意図せずデータが外部から参照される | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Power Platform サポート チームの 王 です。今日は Power Automate Desktop のサポート範囲についてご案内させていただきます。">
+  <meta name="description" content="こんにちは。Power Platform サポート チームの 王 です。先日公開された Power Apps Portal で意図せず外部からデータが参照されてしまう問題についてご案内させていただきます。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Power Automate Desktop のサポート範囲について">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/index.html">
+<meta property="og:title" content="Power Apps Portal 上で意図せずデータが外部から参照される">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは。Power Platform サポート チームの 王 です。今日は Power Automate Desktop のサポート範囲についてご案内させていただきます。">
+<meta property="og:description" content="こんにちは。Power Platform サポート チームの 王 です。先日公開された Power Apps Portal で意図せず外部からデータが参照されてしまう問題についてご案内させていただきます。">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2021-08-26T03:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-08T05:30:03.332Z">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/OData-risk-in-portal/MC277597.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/OData-risk-in-portal/portalchecker.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/OData-risk-in-portal/advancedfind.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/OData-risk-in-portal/deprication.png">
+<meta property="article:published_time" content="2021-09-01T03:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-08T05:30:03.324Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Power Automate">
-<meta property="article:tag" content="Desktop Flows">
-<meta property="article:tag" content="Power Automate Desktop">
+<meta property="article:tag" content="Power Apps Portal">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/OData-risk-in-portal/MC277597.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -81,7 +84,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerautomate/PowerAutomateDesktopSupportability" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-portal/OData risk in portal" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -90,7 +93,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Power Automate Desktop のサポート範囲について
+      Power Apps Portal 上で意図せずデータが外部から参照される
     </h1>
   
 
@@ -98,26 +101,34 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-08-26T03:00:00.000Z" itemprop="datePublished">2021-08-26</time>
+  <time datetime="2021-09-01T03:00:00.000Z" itemprop="datePublished">2021-09-01</time>
 </a>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+afa2c7b7-3b90-5afa-917b-6d39689bd633%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+Desktop+%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E7%AF%84%E5%9B%B2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FPowerAutomateDesktopSupportability%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FPowerAutomateDesktopSupportability.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2FPowerAutomateDesktopSupportability.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+61cb9691-eb75-51ec-a17a-5dc15b7588db%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Apps+Portal+%E4%B8%8A%E3%81%A7%E6%84%8F%E5%9B%B3%E3%81%9B%E3%81%9A%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8C%E5%A4%96%E9%83%A8%E3%81%8B%E3%82%89%E5%8F%82%E7%85%A7%E3%81%95%E3%82%8C%E3%82%8B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fportal%2FOData%2520risk%2520in%2520portal%2F%29%0A*+Content+Source%3A+%5Barticles%2Fportal%2FOData+risk+in+portal.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fportal%2FOData%2520risk%2520in%2520portal.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/" data-id="cktb2bwc7000c0qo1f1irbrxf" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/" data-id="cktb2bwbr00040qo1hn9ygxkd" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Power Platform サポート チームの 王 です。<br>今日は Power Automate Desktop のサポート範囲についてご案内させていただきます。  </p>
+        <p>こんにちは。Power Platform サポート チームの 王 です。<br>先日公開された Power Apps Portal で意図せず外部からデータが参照されてしまう問題についてご案内させていただきます。</p>
 <span id="more"></span>
 
-<h2 id="初めに"><a href="#初めに" class="headerlink" title="初めに"></a>初めに</h2><p>Power Automate Desktopは Windows 10 をご利用のお客様であればどなたでも追加費用なしでご利用いただける RPA ツールです。2021年3月3日(日本時間)に公開されました。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-automate/desktop-flows/introduction">Power Automate Desktop の概要</a>  </p>
-<p>今回は Power Automate Desktop のサポート対象についてご案内します。  </p>
-<h2 id="Power-Automate-Desktop-のサポートについて"><a href="#Power-Automate-Desktop-のサポートについて" class="headerlink" title="Power Automate Desktop のサポートについて"></a>Power Automate Desktop のサポートについて</h2><p>Windows の Power Automate Desktop は、PC にインストールして使用する無料のアプリケーションです。<br>このアプリケーションには、SLA や Microsoft サポートが含まれないため、ビジネスクリティカルな用途で使用すべきではありません。<br>Power Automate Desktop をビジネスクリティカルで使用する場合、サポートが含まれる適切な Microsoft ライセンスの購入をご検討ください。<br>対象となるライセンスは以下です ※2021/8 時点<br>・Power Automate per user plan with attended RPA<br>・Power Automate unattended RPA add-on（前提としてPower Automate per user または Power Automate per flow が必要）  </p>
-<p>ライセンスのご購入は、Microsoft 365 管理センターの [課金情報] - [サービスを購入する] からご確認いただけます。<br>上記ライセンスでPower Automate Desktopご利用されていないお客様は、サポートにお問い合わせをいただいた場合もご支援することができません。<br>ライセンスをお持ちでない場合は、以下のコミュニティをご活用ください。<br><a target="_blank" rel="noopener" href="https://powerusers.microsoft.com/t5/Microsoft-Power-Automate/ct-p/MPACommunity">Microsoft Power Automate Community</a></p>
-<p>サポート範囲については以下ライセンスガイドからもご確認いただくことが可能です。<br>英語版　：<a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?LinkId=2085130&amp;clcid=0x409">https://go.microsoft.com/fwlink/?LinkId=2085130&amp;clcid=0x409</a><br>日本語版：<a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?LinkId=2085130&amp;clcid=0x411">https://go.microsoft.com/fwlink/?LinkId=2085130&amp;clcid=0x411</a>  </p>
-<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>Power Autoamte Desktop で弊社サポートをご利用いただけるライセンスにについてご案内させていただきました。<br>製品やライセンスに関する情報は随時更新されるため、最新の情報については公開情報もしくは上記ライセンスガイドをご参照ください。  </p>
+<h2 id="初めに"><a href="#初めに" class="headerlink" title="初めに"></a>初めに</h2><p>Power Apps Portal において、利用者によって正しく設定が行われていない場合に、意図せず内部の情報が匿名ユーザーから取得できてしまう問題が、外部セキュリティ機関の UpGuard により米国時間2021年8月23日に<a target="_blank" rel="noopener" href="https://www.upguard.com/breaches/power-apps">発表</a>されました。<br>この問題について、自身がご利用されている環境がこの問題に該当しているか確認する方法および該当している場合の対処方法についてご案内いたします。</p>
+<h2 id="影響範囲について"><a href="#影響範囲について" class="headerlink" title="影響範囲について"></a>影響範囲について</h2><p>この問題は Power Apps Portal のみ影響を受けるものです。<br>Power Apps Portal は既定で構成されないため、ご利用されていない場合は対象となる設定自体が存在せず、本件について対処の必要はございません。<br>同様に、その他の Power Apps における キャンバスアプリ や モデル駆動型アプリ なども本件の対象外です。</p>
+<h2 id="発表された問題について"><a href="#発表された問題について" class="headerlink" title="発表された問題について"></a>発表された問題について</h2><p>今回指摘された問題は以下２つの設定によって発生いたします。<br>・リストのアクセス制御有効化の設定 (<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/portals/configure/entity-lists#securing-lsists">リストをセキュリティで保護する</a>)<br>　リストレコードの “全般” タブにて設定できる [<strong>エンティティのアクセス許可を有効にする</strong>] の設定は、対象のリストにアクセスするユーザーに対してWeb ロールを使用した権限制御を有効化する設定です。こちらが無効の場合、匿名ユーザーがデータを表示することが可能となります。  </p>
+<p>・リストのOData フィードの有効化状態 (<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powerapps/maker/portals/configure/entity-lists#list-odata-feeds">リストの OData フィード</a>)<br>　リストレコードの “OData フィード” タブにて設定できる [<strong>有効</strong>] の設定は、リストを API サービスとして外部に公開しデータ連携などの用途で利用するための設定です。設定が有効な場合、ユーザーは API を使用してデータの取得を要求することが可能です。  </p>
+<p>[<strong>エンティティのアクセス許可を有効にする</strong>] の設定が無効化状態かつ、”OData フィード” タブの [<strong>有効</strong>] にチェックが入っている場合、匿名のユーザーが API を使用してポータルへアクセスすると、対象のリストのデータを取得することができてしまいます。</p>
+<h2 id="ご利用の環境が上記問題に該当するか確認する方法について"><a href="#ご利用の環境が上記問題に該当するか確認する方法について" class="headerlink" title="ご利用の環境が上記問題に該当するか確認する方法について"></a>ご利用の環境が上記問題に該当するか確認する方法について</h2><p>・メッセージセンターにおける通知<br>　上記条件に該当するリストの設定を行っているお客様に対し、Microsoft 365 管理センターのメッセージID MC277597 にて通知を行っています。<br><img src="./OData-risk-in-portal/MC277597.png"></p>
+<p>・<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/portals/admin/portal-checker">ポータルチェッカーの実行</a><br>　Power Apps Portal 管理センターよりポータルチェッカーを実行することで、対象のポータルに構成されているリストのうち、条件に該当するものが存在するか確認することができます。<br>　該当するリストが存在する場合、以下の様な警告とともに対象のリストのIDが表示されます。<br><img src="./OData-risk-in-portal/portalchecker.png"></p>
+<p>・高度な検索を使用した手動確認<br>　手動で上記条件に該当するリストをご確認頂く場合、高度な検索を使用して以下の条件で検索いただくことで、該当のエンティティリストが存在しているかご確認いただくことが可能です。<br><img src="./OData-risk-in-portal/advancedfind.png"></p>
+<h2 id="対処方法について"><a href="#対処方法について" class="headerlink" title="対処方法について"></a>対処方法について</h2><p>意図せずリストのデータが公開状態になっていた場合、対処を行う必要がございます。<br>匿名ユーザーがアクセスできない様にするためには、以下いずれかの対処をご実施頂く必要がございます。  </p>
+<p>・「エンティティのアクセス許可を有効にする」にチェックを入れてWeb ロールの設定を正しく構成する<br>　有効な権限を保持していない匿名ユーザーに対するデータ表示を制限することが可能です。<br>　Web ロールの設定内容についてはお客様運用に合わせてご検討ください。  </p>
+<p>・OData フィードタブの「有効」からチェックを外す<br>　API によるデータへのアクセスが不可能となります。  </p>
+<p>また、本件に対する製品側の対処として、リストのアクセス許可設定を無効化することとなりました。<br>これにより、今後は同様の事象が発生しなくなります。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/portals/admin/portal-checker-analysis#anonymous-access-to-basicadvanced-forms-and-lists">基本/詳細フォームおよびリストへの匿名アクセス</a><br><img src="./OData-risk-in-portal/deprication.png"></p>
+<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>一般サイトで案内されている内容については一部不適切な表記がされていたり、具体的にご自身の環境が対象となっているか判断が難しいかと存じますので、こちらの記事がご確認の参考になりましたら幸いです。<br>その他ご不明点などがございましたら、弊社サポートまでお気軽にご相談ください。  </p>
 <p>–</p>
 
       
@@ -132,10 +143,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Desktop-Flows/" rel="tag">Desktop Flows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps-Portal/" rel="tag">Power Apps Portal</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/PowerAutomateDesktopSupportability.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/portal/OData%20risk%20in%20portal.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -143,19 +154,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerplatform/How-to-block-free-and-trial-licenses/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Power Automate/Power Appsの試用版・無償版を禁止する方法
-        
-      </div>
-    </a>
   
-  
-    <a href="../Execute-PowerShell/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../powerplatform/How-to-block-free-and-trial-licenses/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Power Automate から PowerShell を実行する方法</div>
+      <div class="article-nav-title">Power Automate/Power Appsの試用版・無償版を禁止する方法</div>
     </a>
   
 </nav>
@@ -174,7 +176,7 @@
       <ul>
         
           <li>
-            <a href="../../portal/OData%20risk%20in%20portal/">Power Apps Portal 上で意図せずデータが外部から参照される</a>
+            <a href="">Power Apps Portal 上で意図せずデータが外部から参照される</a>
           </li>
         
           <li>
@@ -182,15 +184,15 @@
           </li>
         
           <li>
-            <a href="">Power Automate Desktop のサポート範囲について</a>
+            <a href="../../powerautomate/PowerAutomateDesktopSupportability/">Power Automate Desktop のサポート範囲について</a>
           </li>
         
           <li>
-            <a href="../Execute-PowerShell/">Power Automate から PowerShell を実行する方法</a>
+            <a href="../../powerautomate/Execute-PowerShell/">Power Automate から PowerShell を実行する方法</a>
           </li>
         
           <li>
-            <a href="../Invalid-Connection/">Power Automate で接続が「無効な接続」になる原因</a>
+            <a href="../../powerautomate/Invalid-Connection/">Power Automate で接続が「無効な接続」になる原因</a>
           </li>
         
       </ul>
