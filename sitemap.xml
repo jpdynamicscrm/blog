@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    
+    <lastmod>2021-09-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    
+    <lastmod>2021-09-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
     
     <lastmod>2021-09-08</lastmod>
@@ -16,7 +30,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
     
     <lastmod>2021-09-08</lastmod>
     
@@ -37,7 +51,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
+    
+    <lastmod>2021-09-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
     
     <lastmod>2021-09-08</lastmod>
     
@@ -51,28 +72,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/portal/OData%20risk%20in%20portal/</loc>
-    
-    <lastmod>2021-09-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
-    
-    <lastmod>2021-09-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
-    
-    <lastmod>2021-09-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/</loc>
     
     <lastmod>2021-09-08</lastmod>
     
