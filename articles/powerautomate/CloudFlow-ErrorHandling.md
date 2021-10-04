@@ -14,7 +14,7 @@ tags:
 ## 実行条件を構成する    
  
 クラウド フローの「実行条件の構成」機能では、直前のアクションの終了状態に応じてアクションの実行の有無を制御できます。  
-したがって、エラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。  
+エラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。  
 
 **[手順]**  
 1. アクションの [メニュー] から、[実行条件の構成] を選択します。  
@@ -43,7 +43,7 @@ tags:
 ## エラー情報を取得する  
 
 ### 実行履歴の URL の取得
-Power Autoamte の[ワークフロー関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#workflow)を使用することで、実行履歴の URL を生成し、メール等で送付することが可能です。  
+式にて[ワークフロー関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#workflow)を使用することで、実行履歴の URL を生成し、メール等で送付することが可能です。  
 
 実行履歴の URL は下記のような構成となっております。  
 https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}  
@@ -72,7 +72,7 @@ https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}
 
 ## スコープを用いてフロー全体を監視する  
 実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いると、フロー全体を監視することが可能です。
-以下、Try、Catch、Finally テンプレートによるエラー処理の手順をご説明いたします。  
+以下、Try、Catch、Finally テンプレートによるエラー処理の手順をご紹介いたします。  
 [Try、Catch、Finally テンプレート](https://flow.microsoft.com/en-us/galleries/public/templates/e8e028c6df7b4eb786abdf510e4f1da3/try-catch-and-finally-template/)  
 ![](./CloudFlow-ErrorHandling/img6.png)  
 
