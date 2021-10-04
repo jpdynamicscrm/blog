@@ -62,15 +62,17 @@ tags:
 なお、スコープ内のエラー発生アクションを特定し、メッセージを取得する機能は現時点ではございませんが、以下の方法でエラーが発生した実行履歴のリンクを取得し、メールで送付できますので、ご参考までにご案内いたします。  
 
 **実行履歴URLの生成方法**  
-実行履歴の URL は下記のような構成となっております。
+実行履歴の URL は下記のような構成となっております。  
 https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}  
 
 ※各{ }内の値は以下の式で取得できます。  
-  環境ID : workflow().tags.environmentName
-  FlowName : workflow().name
-  実行ID : workflow().run.name
-  ※フロー表示名は以下の数式で取得いただけます。
-  workflow().tags.flowDisplayName  
+- 環境ID : workflow().tags.environmentName  
+- FlowName : workflow().name  
+- 実行ID : workflow().run.name  
+
+※フロー表示名は以下の数式で取得いただけます。  
+- workflow().tags.flowDisplayName  
+
 「メールの送信(V2)」アクションでの使用例：  
 ![](./CloudFlow-ErrorHandling/img7.png)  
 
