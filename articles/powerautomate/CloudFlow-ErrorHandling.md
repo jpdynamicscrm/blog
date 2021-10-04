@@ -17,7 +17,16 @@ tags:
 1. アクションの [メニュー] から、[実行条件の構成] を選択します。  
 ![](./CloudFlow-ErrorHandling/img1.png) 　
 2. アクションが実行されるタイミングについて、チェックボックスの任意の値を選んで [完了] をクリックします。  
+以下の例では、「カレンダーの取得(V2)」アクションが成功または失敗した時に「Apply to each」処理が実行されます。
+タイムアウトまたはスキップした時には実行されません。  
 ![](./CloudFlow-ErrorHandling/img2.png)  
+
+各実行条件の説明は以下の通りです。 
+
+- に成功しました・・既定値。前のアクションが成功した時に実行します。  
+- に失敗しました・・前のアクションがエラーになったときに実行します。  
+- がスキップされます・・前のアクションがスキップされたときに実行します。  
+- がタイムアウトしました・・フロー自体のタイムアウト、またはアクションごとのタイムアウト（アクションの設定）に該当した場合に実行されます。
 
 ## アクションの成否によって後続のアクションを変更する
 
@@ -36,6 +45,9 @@ tags:
 ![](./CloudFlow-ErrorHandling/img5.png)  
 参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
 
+なお、アクションによっては上記の式でエラーメッセージを取得できない場合もありますので、想定されるエラーについて、応答 body の json の構造を確認して適切な式をご設定ください。  
+参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
+
 ## スコープを用いてフロー全体を監視する  
 実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いるとフロー全体をまとめて処理することができます。  
 以下、Try、Catch、Finally テンプレートによるエラー処理の手順をご説明いたします。  
@@ -46,6 +58,21 @@ tags:
 1. Try スコープ内に、メインとなるアクションを挿入します。  
 2. Catch スコープの実行条件は Try ブロックが失敗した際に実行するように設定されています。Try ブロックが失敗した際は、Catch スコープ内のアクションによりメールが送信されます。  
 3. Finally スコープ内には、前のアクションの成否にかかわらず実行されるアクションを挿入します。  
+
+なお、スコープ内のエラー発生アクションを特定し、メッセージを取得する機能は現時点ではございませんが、以下の方法でエラーが発生した実行履歴のリンクを取得し、メールで送付できますので、ご参考までにご案内いたします。  
+
+**実行履歴URLの生成方法**  
+実行履歴の URL は下記のような構成となっております。
+https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}  
+
+※各{ }内の値は以下の式で取得できます。  
+  環境ID : workflow().tags.environmentName
+  FlowName : workflow().name
+  実行ID : workflow().run.name
+  ※フロー表示名は以下の数式で取得いただけます。
+  workflow().tags.flowDisplayName  
+「メールの送信(V2)」アクションでの使用例：  
+![](./CloudFlow-ErrorHandling/img7.png)  
 
 ### 参考情報  
 [Error handling steps, counters, a new flow details experience and more](https://powerautomateweb.microsoft.com/en-us/blog/error-handling/)
