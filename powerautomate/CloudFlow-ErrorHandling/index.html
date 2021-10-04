@@ -6,21 +6,22 @@
   
   <title>クラウド フローでのエラーハンドリングの方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの三宅です。  今回は、 Power Automate でクラウド フローにエラー処理のステップを組み込む方法についてご紹介いたします。 実行条件を構成するエラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。   [手順]    アクションの [メ">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの三宅です。  今回は、 Power Automate でクラウド フローでエラー処理を行う方法についてご紹介いたします。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="クラウド フローでのエラーハンドリングの方法">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの三宅です。  今回は、 Power Automate でクラウド フローにエラー処理のステップを組み込む方法についてご紹介いたします。 実行条件を構成するエラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。   [手順]    アクションの [メ">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの三宅です。  今回は、 Power Automate でクラウド フローでエラー処理を行う方法についてご紹介いたします。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/img1.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/img2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/img3.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/img4.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/img7.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/img5.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/img6.png">
 <meta property="article:published_time" content="2021-09-23T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-24T04:41:00.309Z">
+<meta property="article:modified_time" content="2021-10-04T23:51:57.805Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Cloud Flow">
 <meta property="article:tag" content="Power Automate">
@@ -110,24 +111,44 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+1631571d-b97a-5311-bd0b-24ba8302f421%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AE%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FCloudFlow-ErrorHandling%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FCloudFlow-ErrorHandling.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2FCloudFlow-ErrorHandling.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/" data-id="cktxvmfou00050ms41df1ax3w" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/" data-id="ckudb545700050mnp4xuh59r8" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの三宅です。<br>  今回は、 Power Automate でクラウド フローにエラー処理のステップを組み込む方法についてご紹介いたします。</p>
-<h2 id="実行条件を構成する"><a href="#実行条件を構成する" class="headerlink" title="実行条件を構成する"></a>実行条件を構成する</h2><p>エラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。  </p>
+        <p>こんにちは、Power Platform サポートチームの三宅です。<br>  今回は、 Power Automate でクラウド フローでエラー処理を行う方法についてご紹介いたします。</p>
+  <span id="more"></span>
+
+<h2 id="実行条件を構成する"><a href="#実行条件を構成する" class="headerlink" title="実行条件を構成する"></a>実行条件を構成する</h2><p>クラウド フローの「実行条件の構成」機能では、直前のアクションの終了状態に応じてアクションの実行の有無を制御できます。<br>エラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。  </p>
 <p><strong>[手順]</strong>  </p>
 <ol>
 <li>アクションの [メニュー] から、[実行条件の構成] を選択します。<br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img1.png"> 　</li>
-<li>アクションが実行されるタイミングについて、チェックボックスの任意の値を選んで [完了] をクリックします。<br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img2.png">  </li>
+<li>アクションが実行されるタイミングについて、チェックボックスの任意の値を選んで [完了] をクリックします。<br>以下の例では、「カレンダーの取得(V2)」アクションが成功または失敗した時に「Apply to each」処理が実行されます。<br>タイムアウトまたはスキップした時には実行されません。<br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img2.png">  </li>
 </ol>
+<p>各実行条件の説明は以下の通りです。 </p>
+<ul>
+<li>に成功しました・・既定値。前のアクションが成功した時に実行されます。  </li>
+<li>に失敗しました・・前のアクションがエラーになったときに実行されます。  </li>
+<li>がスキップされます・・前のアクションがスキップされたときに実行されます。  </li>
+<li>がタイムアウトしました・・フロー自体のタイムアウト、またはアクションごとのタイムアウト（アクションの設定）に該当した場合に実行されます。</li>
+</ul>
 <h2 id="アクションの成否によって後続のアクションを変更する"><a href="#アクションの成否によって後続のアクションを変更する" class="headerlink" title="アクションの成否によって後続のアクションを変更する"></a>アクションの成否によって後続のアクションを変更する</h2><p>並列分岐を用いることで、アクションが成功した場合と失敗した場合とで異なる処理を行うことも可能です。</p>
 <p>例として、エラーが予測されるアクションの後にステップがある場合、[並列分岐の追加] から、前のアクションが失敗した場合にメールを送るステップを追加します。<br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img3.png">  </p>
 <p><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img4.png"></p>
-<p>また、実行時のアクションの出力を返す outputs 関数を用いることで、エラー情報を取得することが可能です。<br>例えば、「式」にて以下のように記述することで、エラーメッセージを取得することができます。<br><code>outputs(&#39;&lt;アクション名&gt;&#39;).body.error.message</code>  </p>
+<h2 id="エラー情報を取得する"><a href="#エラー情報を取得する" class="headerlink" title="エラー情報を取得する"></a>エラー情報を取得する</h2><h3 id="実行履歴の-URL-の取得"><a href="#実行履歴の-URL-の取得" class="headerlink" title="実行履歴の URL の取得"></a>実行履歴の URL の取得</h3><p>式にて<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#workflow">ワークフロー関数</a>を使用することで、実行履歴の URL を生成し、メール等で送付することが可能です。  </p>
+<p>実行履歴の URL は下記のような構成となっております。<br><a target="_blank" rel="noopener" href="https://japan.flow.microsoft.com/manage/environments/%7B%E7%92%B0%E5%A2%83ID%7D/flows/%7BFlowName%7D/runs/%7B%E5%AE%9F%E8%A1%8CID%7D">https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}</a>  </p>
+<p>各値を取得する式は、以下の通りです。  </p>
+<ul>
+<li>環境ID : workflow().tags.environmentName  </li>
+<li>FlowName : workflow().name  </li>
+<li>実行ID : workflow().run.name  </li>
+<li>フロー表示名 : - workflow().tags.flowDisplayName  </li>
+</ul>
+<p>「メールの送信(V2)」アクションでの使用例：<br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img7.png">  </p>
+<h3 id="エラーメッセージの取得"><a href="#エラーメッセージの取得" class="headerlink" title="エラーメッセージの取得"></a>エラーメッセージの取得</h3><p>実行時のアクションの出力を返す outputs 関数を用いることで、エラー情報を取得することが可能です。<br>例えば、「式」にて以下のように記述することで、エラーメッセージを取得することができます。<br><code>outputs(&#39;&lt;アクション名&gt;&#39;).body.error.message</code>  </p>
 <p>「失敗しました」側のアクションでの使用例:<br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img5.png"><br>参考：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs">式関数のリファレンス ガイド</a></p>
-<h2 id="スコープを用いてフロー全体を監視する"><a href="#スコープを用いてフロー全体を監視する" class="headerlink" title="スコープを用いてフロー全体を監視する"></a>スコープを用いてフロー全体を監視する</h2><p>実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いるとフロー全体をまとめて処理することができます。<br>以下、Try、Catch、Finally テンプレートによるエラー処理の手順をご説明いたします。<br><a target="_blank" rel="noopener" href="https://flow.microsoft.com/en-us/galleries/public/templates/e8e028c6df7b4eb786abdf510e4f1da3/try-catch-and-finally-template/">Try、Catch、Finally テンプレート</a><br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img6.png">  </p>
+<p>なお、アクションによっては上記の式でエラーメッセージを取得できない場合もありますので、想定されるエラーについて応答 body の json の構造を確認して、適切な式をご設定ください。<br>参考：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs">式関数のリファレンス ガイド</a></p>
+<h2 id="スコープを用いてフロー全体を監視する"><a href="#スコープを用いてフロー全体を監視する" class="headerlink" title="スコープを用いてフロー全体を監視する"></a>スコープを用いてフロー全体を監視する</h2><p>実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いると、フロー全体を監視することが可能です。<br>以下、Try、Catch、Finally テンプレートによるエラー処理の手順をご紹介いたします。<br><a target="_blank" rel="noopener" href="https://flow.microsoft.com/en-us/galleries/public/templates/e8e028c6df7b4eb786abdf510e4f1da3/try-catch-and-finally-template/">Try、Catch、Finally テンプレート</a><br><img src="/blog/powerautomate/CloudFlow-ErrorHandling/img6.png">  </p>
 <p><strong>[手順]</strong>  </p>
 <ol>
 <li>Try スコープ内に、メインとなるアクションを挿入します。  </li>
