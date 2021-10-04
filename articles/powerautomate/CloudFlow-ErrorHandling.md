@@ -7,12 +7,14 @@ tags:
 ---
 
 こんにちは、Power Platform サポートチームの三宅です。  
-  今回は、 Power Automate でクラウド フローにエラー処理のステップを組み込む方法についてご紹介いたします。
+  今回は、 Power Automate でクラウド フローでエラー処理を行う方法についてご紹介いたします。
+  
+  <!-- more -->
 
 ## 実行条件を構成する    
  
-エラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。  
-実行条件の構成では、直前のアクションの終了状態に応じてアクションの実行の有無を制御できます。  
+クラウド フローの「実行条件の構成」機能では、直前のアクションの終了状態に応じてアクションの実行の有無を制御できます。  
+したがって、エラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。  
 
 **[手順]**  
 1. アクションの [メニュー] から、[実行条件の構成] を選択します。  
@@ -38,7 +40,26 @@ tags:
 
 ![](./CloudFlow-ErrorHandling/img4.png)
 
-また、実行時のアクションの出力を返す outputs 関数を用いることで、エラー情報を取得することが可能です。  
+## エラー情報を取得する  
+
+### 実行履歴の URL の取得
+Power Autoamte の[ワークフロー関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#workflow)を使用することで、実行履歴の URL を生成し、メール等で送付することが可能です。  
+
+実行履歴の URL は下記のような構成となっております。  
+https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}  
+
+各値を取得する式は、以下の通りです。  
+
+- 環境ID : workflow().tags.environmentName  
+- FlowName : workflow().name  
+- 実行ID : workflow().run.name  
+- フロー表示名 : - workflow().tags.flowDisplayName  
+
+「メールの送信(V2)」アクションでの使用例：  
+![](./CloudFlow-ErrorHandling/img7.png)  
+
+### エラーメッセージの取得
+実行時のアクションの出力を返す outputs 関数を用いることで、エラー情報を取得することが可能です。  
 例えば、「式」にて以下のように記述することで、エラーメッセージを取得することができます。  
 ```outputs('<アクション名>').body.error.message```  
 
@@ -50,7 +71,7 @@ tags:
 参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
 
 ## スコープを用いてフロー全体を監視する  
-実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いるとフロー全体をまとめて処理することができます。  
+実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いると、フロー全体を監視することが可能です。
 以下、Try、Catch、Finally テンプレートによるエラー処理の手順をご説明いたします。  
 [Try、Catch、Finally テンプレート](https://flow.microsoft.com/en-us/galleries/public/templates/e8e028c6df7b4eb786abdf510e4f1da3/try-catch-and-finally-template/)  
 ![](./CloudFlow-ErrorHandling/img6.png)  
@@ -59,24 +80,6 @@ tags:
 1. Try スコープ内に、メインとなるアクションを挿入します。  
 2. Catch スコープの実行条件は Try ブロックが失敗した際に実行するように設定されています。Try ブロックが失敗した際は、Catch スコープ内のアクションによりメールが送信されます。  
 3. Finally スコープ内には、前のアクションの成否にかかわらず実行されるアクションを挿入します。  
-
-なお、スコープ内のエラー発生アクションを特定することは現時点ではできませんが、以下の方法でエラーが発生した実行履歴のリンクを取得できるため、リンクから実行履歴を確認し、エラーを特定いただくことが可能です。  
-
-**実行履歴 URL の生成方法**  
-
-実行履歴の URL は下記のような構成となっております。  
-https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}  
-
-※各{ }内の値は以下の式で取得できます。  
-- 環境ID : workflow().tags.environmentName  
-- FlowName : workflow().name  
-- 実行ID : workflow().run.name  
-
-※フロー表示名は以下の数式で取得できます。  
-- workflow().tags.flowDisplayName  
-
-「メールの送信(V2)」アクションでの使用例：  
-![](./CloudFlow-ErrorHandling/img7.png)  
 
 ### 参考情報  
 [Error handling steps, counters, a new flow details experience and more](https://powerautomateweb.microsoft.com/en-us/blog/error-handling/)
