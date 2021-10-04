@@ -45,7 +45,7 @@ tags:
 ![](./CloudFlow-ErrorHandling/img5.png)  
 参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
 
-なお、アクションによっては上記の式でエラーメッセージを取得できない場合もありますので、想定されるエラーについて、応答 body の json の構造を確認して適切な式をご設定ください。  
+なお、アクションによっては上記の式でエラーメッセージを取得できない場合もありますので、想定されるエラーについて応答 body の json の構造を確認して、適切な式をご設定ください。  
 参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
 
 ## スコープを用いてフロー全体を監視する  
@@ -59,9 +59,11 @@ tags:
 2. Catch スコープの実行条件は Try ブロックが失敗した際に実行するように設定されています。Try ブロックが失敗した際は、Catch スコープ内のアクションによりメールが送信されます。  
 3. Finally スコープ内には、前のアクションの成否にかかわらず実行されるアクションを挿入します。  
 
-なお、スコープ内のエラー発生アクションを特定し、メッセージを取得する機能は現時点ではございませんが、以下の方法でエラーが発生した実行履歴のリンクを取得し、メールで送付できますので、ご参考までにご案内いたします。  
+なお、スコープ内のエラー発生アクションを特定し、メッセージを取得する機能は現時点ではございませんが、以下の方法でエラーが発生した実行履歴のリンクを取得し、メール等で送付できます。
+メールに記載のリンクから実行履歴を確認し、エラーを特定いただくことが可能です。
 
 **実行履歴URLの生成方法**  
+
 実行履歴の URL は下記のような構成となっております。  
 https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}  
 
@@ -70,7 +72,7 @@ https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}
 - FlowName : workflow().name  
 - 実行ID : workflow().run.name  
 
-※フロー表示名は以下の数式で取得いただけます。  
+※フロー表示名は以下の数式で取得できます。  
 - workflow().tags.flowDisplayName  
 
 「メールの送信(V2)」アクションでの使用例：  
