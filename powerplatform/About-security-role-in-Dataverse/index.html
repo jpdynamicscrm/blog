@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Dataverse 環境のアクセス権制御方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの島です。 今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dataverse 環境のアクセス権制御方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの島です。 今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img00-overall.PNG">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img01-SGsetting.PNG">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img02-rolesetting.PNG">
+<meta property="article:published_time" content="2021-10-11T04:45:00.000Z">
+<meta property="article:modified_time" content="2021-10-11T04:11:59.681Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="ModelDrivenApp">
+<meta property="article:tag" content="Dynamics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img00-overall.PNG">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerplatform/About-security-role-in-Dataverse" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Dataverse 環境のアクセス権制御方法
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2021-10-11T04:45:00.000Z" itemprop="datePublished">2021-10-11</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d61c957b-e530-51a8-8d31-665a237b4daa%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E5%88%B6%E5%BE%A1%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-security-role-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="ckum52ivc000g0moh2eazcxcb" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの島です。</p>
+<p>今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。</p>
+<span id="more"></span>
+
+<p>ビジネスユースで Dynamics 365 CRM やモデル駆動アプリを導入する場合、セキュアな環境管理のために必須となるのがこのアクセス権制御です。<br>特に今 Dataverse の導入にあたりセキュリティ面を検討されている方は、ぜひご覧ください！</p>
+<h2 id="アクセス権制御方法の概要"><a href="#アクセス権制御方法の概要" class="headerlink" title="アクセス権制御方法の概要"></a>アクセス権制御方法の概要</h2><hr>
+<p>Dataverse 環境のアクセス権は、おおまかに以下の構造で制御されています。</p>
+<ol>
+<li><strong>ライセンス</strong> : テナントごとに、<strong>各ユーザーが Power Platform 製品を利用できるか</strong>を決定します。</li>
+<li><strong>セキュリティ グループ</strong> : テナントの各環境ごとに、<strong>ユーザーがその環境を利用できるか</strong>を決定します。</li>
+<li><strong>セキュリティ ロール</strong> : 環境の Dataverse 内の各テーブルごとに、<strong>環境における具体的なユーザーのアクセス権</strong>を決定します。</li>
+</ol>
+<p><img src="/blog/powerplatform/About-security-role-in-Dataverse/img00-overall.PNG"></p>
+<p>図に表すとこのようなイメージです。<br>たとえば同じテナント内に、<br>・グループ A (サポート部門) とグループ B (管理部門)<br>・環境A (サポート部門用の環境) と環境 B (管理部門用の環境)<br>があり、A 同士 / B 同士でそれぞれ環境にグループが割り当てられているとします。このとき、</p>
+<ol>
+<li><strong>ライセンス</strong> :<br>グループ A 内のサポート部門のユーザーは、ライセンスを所有しているため、Power Platform 製品を利用できます。<br>グループ B 内のユーザーは、今回の図の場合ライセンスを保有していないため、Power Platform 製品を利用できません。</li>
+<li><strong>セキュリティ グループ</strong> :<br>グループ A のユーザーは、サポート部門用の環境 A にアクセスすることができますが、管理部門用の環境 B にはアクセスすることができません。</li>
+<li><strong>セキュリティ ロール</strong> :<br>グループ A のユーザーは、セキュリティ ロールによってアクセスするテーブルや、実行可能な操作を制限されます。<br>たとえば図中のユーザーにサポート部門用のセキュリティ ロールが割り当てられ、システム管理者が割り当てられていないとき、ユーザーはシステム管理に使うテーブルにはアクセスができません。</li>
+</ol>
+<p>1 から 3 を組み合わせることで、ユーザーに対してどの環境でのどのような操作を許可するかを制御できます。<br>今回の記事では 2 と 3 をより詳しく見ていきます。</p>
+<h3 id="環境へのセキュリティ-グループの割り当て"><a href="#環境へのセキュリティ-グループの割り当て" class="headerlink" title="環境へのセキュリティ グループの割り当て"></a>環境へのセキュリティ グループの割り当て</h3><hr>
+<p>Power Platform 環境には、デフォルトではテナントに所属する全ユーザーがアクセスできますが、<br>環境にセキュリティ グループを割り当てることで、<strong>割り当てられたセキュリティ グループに所属するユーザーのみにアクセスを限定</strong>することができます。<br>たとえば、「IT部門」用の環境を作成したときに、「IT部門」のセキュリティ グループを割り当てることで、その他の営業部門などのユーザーのアクセスを禁止する…というように、グループごとに環境の利用可否が異なる場合に、ぜひ設定いただきたい項目です。</p>
+<p>セキュリティ グループの割り当ては、環境作成時にオプションで指定できる他、Power Platform 管理センターから既存の環境に対しても指定できます。<br>ただし、既存の環境にセキュリティ グループを割り当てた場合、セキュリティ グループに所属していないユーザーはすべて無効化されるのでご注意ください。<br><img src="/blog/powerplatform/About-security-role-in-Dataverse/img01-SGsetting.PNG"></p>
+<h3 id="セキュリティ-ロールの設定"><a href="#セキュリティ-ロールの設定" class="headerlink" title="セキュリティ ロールの設定"></a>セキュリティ ロールの設定</h3><hr>
+<p>上記でご説明したセキュリティ グループでは、ユーザーに対して環境単位でのアクセス可否を決定します。<br>これに対して、ユーザーに割り当てることで、<strong>環境内でユーザーが行える操作を決定</strong>するのがセキュリティ ロールです。<br>Power Platform では、要件に合わせたさまざまな既定のセキュリティ ロールが存在します。一例をご紹介します。</p>
+<ul>
+<li>システム管理者 : 環境におけるすべての操作を実行できるロール。</li>
+<li>Basic User : 環境における一般的なアプリの利用ができるロール。管理操作が制限される他、自分以外のユーザーが作成したデータに対するアクセスも制限されます。</li>
+<li>システム カスタマイザー : 環境をカスタマイズするためのロール。多くの管理操作を実行できますが、自分以外のユーザーが作成したデータを参照できません。</li>
+</ul>
+<p>またこちらの公開情報にも、より多くのセキュリティ ロールのご説明が記載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/database-security">環境のリソースに対するユーザー セキュリティの構成</a></p>
+<h3 id="セキュリティ-ロールの仕組みとカスタマイズ"><a href="#セキュリティ-ロールの仕組みとカスタマイズ" class="headerlink" title="セキュリティ ロールの仕組みとカスタマイズ"></a>セキュリティ ロールの仕組みとカスタマイズ</h3><hr>
+<p>セキュリティ ロールは、初期状態では、ユーザーのライセンスやMicrosoft 365 管理者役割に応じて自動的にユーザーに割り振られています。<br>ただ、デフォルトで割り当てられるセキュリティ ロールではなく、もっと具体的にアクセス権を管理したいという方に向けて、セキュリティ ロールの仕組みとカスタマイズ方法をご紹介します。</p>
+<p>セキュリティ ロールの実体は、Dataverse 上の各テーブルに対するアクセス権の集合体です。<br>セキュリティ ロール編集画面にて、各セキュリティ ロールごとに、以下のようなイメージでアクセス権が定義されているのが確認できます。<br><img src="/blog/powerplatform/About-security-role-in-Dataverse/img02-rolesetting.PNG"></p>
+<p>上図左の列に記載されているのがDataverse の各テーブルの名称、右側の列に記載されているのがテーブルに対する操作です。<br>このマトリクスに対して、アクセス許可レベルを設定することで、<strong>「(行)どのテーブルに対して × (列)どの操作を許可するか」</strong>を定義することができます。<br>たとえば上図の「お知らせ」テーブルで言えば、Basic User セキュリティ ロールではお知らせの読み込みは完全に許可されている一方で、お知らせの作成・書き込み・削除・追加…など、他の操作は禁止されている、ということが定義されています。</p>
+<p>また、上図では丸の色・塗られ方が権限によって様々ですが、これはアクセス許可のレベルを表現しています。<br>Power Platform ではアクセス許可レベルを 5 段階で設定しています。以下の公開情報に詳しく掲載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権</a></p>
+<p>このアクセス権の定義方法は、セキュリティ ロールのカスタマイズの考え方にもつながります。<br>例えば、</p>
+<ul>
+<li>サポート部門の担当者には、自分が担当する「サポート案件」を参照可とする</li>
+<li>サポート部門の管理者は、全員のサポート案件を参照可とする</li>
+<li>経理部門の担当者には、サポート案件自体参照させたくない</li>
+</ul>
+<p>というような要件がある場合、サポート案件に対するアクセス許可を変更したロールを 3 種類作成し、各ユーザーに割り当てることで要件が実現できます。</p>
+<p>なお、セキュリティ ロールをカスタマイズする際は、既存のセキュリティ ロールは変更後に元々の状態にリセットできないので、<br>万が一に備えてカスタマイズ用のセキュリティ ロールを別途用意いただくことを推奨しています。<br>また、既存のセキュリティ ロールでは、内部処理に使われているさまざまなテーブルについても多数のアクセス制御が設定されています。<br>そのため、セキュリティ ロールを別途用意するときには、既存のセキュリティ ロールをコピーした上で、特定のテーブルのアクセス制御のみ変更することをお勧めいたします。</p>
+<h2 id="本記事からの発展"><a href="#本記事からの発展" class="headerlink" title="本記事からの発展"></a>本記事からの発展</h2><hr>
+<p>Dataverse では、これまでご案内してきたように、ライセンスやセキュリティ グループ、セキュリティ ロールの組み合わせでアクセス制御を行っています。<br>本記事では詳しくご紹介していませんが、より発展的な内容についても、公開情報をご案内いたします。</p>
+<h4 id="チーム単位でのセキュリティ-ロールの割り当て"><a href="#チーム単位でのセキュリティ-ロールの割り当て" class="headerlink" title="チーム単位でのセキュリティ ロールの割り当て"></a>チーム単位でのセキュリティ ロールの割り当て</h4><p>ユーザーが所属するDataverse 上の「チーム」に対してセキュリティ ロールを設定することで、ユーザーにもチームのセキュリティ ロールが引き継がれます。<br>また、この「チーム」を、Azure AD のセキュリティ グループと紐づけることで、Azure AD 側とのユーザー管理の一元化も可能です。<br>セキュリティ ロールをユーザーごとに設定するのは少し大変……という場合には、ぜひチームの導入をご検討ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/manage-teams">チームを管理する</a></p>
+<h4 id="フィールドレベルのセキュリティ付与"><a href="#フィールドレベルのセキュリティ付与" class="headerlink" title="フィールドレベルのセキュリティ付与"></a>フィールドレベルのセキュリティ付与</h4><p>本記事でご案内したユーザーごとのアクセス制御とは別に、Dataverse の各列ごとにアクセス制御を設定することができます。<br>住所や電話番号など、ユーザーを問わず隠しておきたいようなデータに対して、ぜひご設定ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/field-level-security">アクセスを制御するフィールド レベルのセキュリティ</a></p>
+<h4 id="セキュリティ-グループを環境に割り当てた際のメンバー同期"><a href="#セキュリティ-グループを環境に割り当てた際のメンバー同期" class="headerlink" title="セキュリティ グループを環境に割り当てた際のメンバー同期"></a>セキュリティ グループを環境に割り当てた際のメンバー同期</h4><p>セキュリティ グループを環境に割り当てると、グループに所属するうちライセンスを保有するユーザーが、自動的に環境に追加されるようになります。<br>ただし以下のように、注意が必要な挙動もあります。</p>
+<ul>
+<li>ライセンスを保有しないユーザーは環境に追加されない</li>
+<li>入れ子のセキュリティ グループのメンバーは、グループに「Azure AD グループ チーム」が割り当てられている場合を除いて、自動的に環境に追加されない</li>
+<li>ユーザーがグループから削除された際、Power Platform 側のユーザーは無効化される</li>
+</ul>
+<p>以下の公開情報に注意点が列挙されていますので、ぜひご参照ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境に対するユーザー アクセスを構成する</a></p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
+<p>以上、Dataverse でのユーザーアクセスの制御についてご案内いたしました。<br>こちらの記事が皆様のセキュアな環境管理のお役に立ちましたら幸いです。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ModelDrivenApp/" rel="tag">ModelDrivenApp</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/About-security-role-in-Dataverse.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerautomate/CloudFlow-ErrorHandling/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">クラウド フローでのエラーハンドリングの方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Dataverse 環境のアクセス権制御方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/CloudFlow-ErrorHandling/">クラウド フローでのエラーハンドリングの方法</a>
+          </li>
+        
+          <li>
+            <a href="../../portal/OData-risk-in-portal/">Power Apps Portal 上で意図せずデータが外部から参照される</a>
+          </li>
+        
+          <li>
+            <a href="../How-to-block-free-and-trial-licenses/">Power Automate/Power Appsの試用版・無償版を禁止する方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/PowerAutomateDesktopSupportability/">Power Automate Desktop のサポート範囲について</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/" rel="tag">CanvasApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-Flow/" rel="tag">Cloud Flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-Flows/" rel="tag">Desktop Flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Management/" rel="tag">Management</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ModelDrivenApp/" rel="tag">ModelDrivenApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Monitor/" rel="tag">Monitor</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-Portal/" rel="tag">Power Apps Portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerApps/" rel="tag">PowerApps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerAutomate/" rel="tag">PowerAutomate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePointOnline/" rel="tag">SharePointOnline</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/delegation/" rel="tag">delegation</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/">CanvasApp</a><span class="tag-list-count">2</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/Monitor">Monitor</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/delegation">delegation</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/">PowerPlatform</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Management">Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/PowerApps">PowerApps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/PowerAutomate">PowerAutomate</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/SharePointOnline">SharePointOnline</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerAutomate/">PowerAutomate</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/PowerApps">PowerApps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/PowerPlatform">PowerPlatform</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/SharePointOnline">SharePointOnline</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ModelDrivenApp/">ModelDrivenApp</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/ModelDrivenApp/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/CanvasApp/" style="font-size: 13.33px;">CanvasApp</a> <a href="../../tags/Cloud-Flow/" style="font-size: 10px;">Cloud Flow</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10px;">Dataverse for Teams</a> <a href="../../tags/Desktop-Flows/" style="font-size: 13.33px;">Desktop Flows</a> <a href="../../tags/Dynamics/" style="font-size: 10px;">Dynamics</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Management/" style="font-size: 10px;">Management</a> <a href="../../tags/ModelDrivenApp/" style="font-size: 10px;">ModelDrivenApp</a> <a href="../../tags/Monitor/" style="font-size: 10px;">Monitor</a> <a href="../../tags/Power-Apps-Portal/" style="font-size: 10px;">Power Apps Portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 13.33px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 10px;">Power Platform</a> <a href="../../tags/PowerApps/" style="font-size: 10px;">PowerApps</a> <a href="../../tags/PowerAutomate/" style="font-size: 16.67px;">PowerAutomate</a> <a href="../../tags/PowerPlatform/" style="font-size: 20px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 10px;">PowerShell</a> <a href="../../tags/SharePointOnline/" style="font-size: 10px;">SharePointOnline</a> <a href="../../tags/delegation/" style="font-size: 10px;">delegation</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
