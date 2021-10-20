@@ -1,5 +1,5 @@
 ---
-title: Power Automate/Power Appsの試用版・無償版を禁止する方法
+title: Power Automate/Power Appsの試用版・無償版を利用不可にする方法
 date: 2021-08-31 11:30:00
 tags:
   - PowerPlatform
@@ -8,13 +8,17 @@ tags:
   
 ---
 
-# Power Automate/Power Appsの試用版・無償版を禁止する方法
+# Power Automate/Power Appsの試用版・無償版を利用不可にする方法
 
 こんにちは、Power Platform サポートチームの網野です。
 
 <br>
 今回はよく寄せられるお問い合わせの一つ、Power Automate、Power Apps の無償版・試用版を利用不可にする方法についてご案内いたします。<br>
 <br>
+
+> [!IMPORTANT] 
+> 本記事は弊社公式ドキュメントの公開情報を元に構成しておりますが、 本記事編集時点と実際の機能に相違がある場合がございます。 
+> 最新情報につきましては、参考情報として記載しておりますドキュメントをご確認ください
 <!-- more -->
 
 ---
@@ -43,10 +47,12 @@ tags:
 <a id='anchor-license-type'></a>
 
 ## ライセンスの種類
-ライセンスにはユーザーが自身で取得するライセンスと管理者により付与されるライセンスの２つがあります。<br>
+ライセンスにはInternalライセンスとViralライセンスの２つがあります。<br>
 
-- Internal ：ユーザーが自身で取得する無償版・試用版ライセンス<br>
-- Viral： 管理者により付与される無償版・試用版ライセンス<br>
+- Internal ：Power Automate / Power Apps ポータルからユーザーが自身で取得する無償版・試用版ライセンス<br>
+- Viral： 管理者により付与される無償版・試用版ライセンス、および https://signup.microsoft.com/ からユーザーが自身で取得する無償版・試用版ライセンス<br>
+
+     参考情報： [試用ライセンスのブロックコマンド](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#block-trial-licenses-commands)
 
 <a id='anchor-preparation'></a>
 
@@ -80,10 +86,9 @@ Remove-AllowedConsentPlans -Types "Viral"
 以下のように確認メッセージが表示されるので、"y"と入力し、Enterキーを押してください。
    ![](./How-to-block-free-and-trial-licenses/Confirmation-message.png)<br>
 
-
-ユーザーが自身で取得することは禁止し、管理者からの無償版・試用版ライセンス付与は許可したい場合には、Internal のみを無効化してください。<br>
 <br>
 試用版、無償版の利用を許可する場合は、下記のコマンドを実行してください。
+
 ```powershell 
 Add-AllowedConsentPlans -Types "Internal"
 Add-AllowedConsentPlans -Types "Viral"
@@ -113,6 +118,9 @@ Add-AllowedConsentPlans -Types "Viral"
    <br>
 ### <font color=blue>Q. コマンド実行前に有償ライセンスや Office 365 / Microsoft 365 付帯ライセンスが付与されている場合はどうなるのか</font>
    有償ライセンスや Office 365 / Microsoft 365 付帯ライセンスには影響を与えませんので、引き続きご利用いただけます。<br>
+   <br>
+### <font color=blue>Q. コマンド実行後に有償ライセンスの購入に影響は与えるか</font>
+   有償ライセンスには影響を与えませんので、引き続き購入いただけます。<br>
    <br>
 ### <font color=blue>Q. コマンド実行後にもPower Appsへの接続が可能です。またアプリの作成と編集もできましたが、制御することはできないのでしょうか。</font>
    Power Apps は "アプリの実行時" にライセンスの有無が確認される製品となっております。<br>そのため、Power Apps へのアクセス、アプリの作成・編集はライセンスを所持していないユーザーでも可能となっており、ライセンスの付与の有無で制御することはできません。
