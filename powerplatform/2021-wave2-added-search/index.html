@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの島です。 Power Platform の半期に一度の大規模リリース (Wave2) が日本リージョンで 10 月 11 日 (月) から一般公開されました。本記事では、このリリース内で行われた更新のうち、モデル駆動型アプリ &#x2F; Dynamics 365 における検索についてご案内いたします。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの島です。 Power Platform の半期に一度の大規模リリース (Wave2) が日本リージョンで 10 月 11 日 (月) から一般公開されました。本記事では、このリリース内で行われた更新のうち、モデル駆動型アプリ &#x2F; Dynamics 365 における検索についてご案内いたします。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/00_dataverse_search.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/01_dataverse_search_content.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/02_federation_search.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/03_dataverse_table.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/04_dataverse_index.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/05_advanced_search.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/06_advanced_search_content.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/07_dataverse_search_setting.png">
+<meta property="article:published_time" content="2021-11-16T04:45:00.000Z">
+<meta property="article:modified_time" content="2021-11-15T08:16:37.777Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="ModelDrivenApp">
+<meta property="article:tag" content="Dynamics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/00_dataverse_search.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerplatform/2021-wave2-added-search" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2021-11-16T04:45:00.000Z" itemprop="datePublished">2021-11-16</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8020dac6-eb9e-597b-ac20-edda35607bcb%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B2021+%E5%B9%B4+Wave2+%E3%81%A7%E8%BF%BD%E5%8A%A0%E3%81%95%E3%82%8C%E3%81%9F%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E6%A4%9C%E7%B4%A2%E6%96%B9%E6%B3%95%E3%81%BE%E3%81%A8%E3%82%81%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2F2021-wave2-added-search%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2F2021-wave2-added-search.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2F2021-wave2-added-search.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/" data-id="ckw0e7xzl000g0nkv5dal6vqs" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの島です。</p>
+<p>Power Platform の半期に一度の大規模リリース (Wave2) が日本リージョンで 10 月 11 日 (月) から一般公開されました。<br>本記事では、このリリース内で行われた更新のうち、モデル駆動型アプリ / Dynamics 365 における検索についてご案内いたします。</p>
+<span id="more"></span>
+<p>Wave2 では、以下 2 つの検索方法が追加・更新されております。</p>
+<ol>
+<li>Dataverse 検索 (関連性検索)</li>
+<li>高度なルックアップ</li>
+</ol>
+<p>サポートチームでもたくさんのお問合せをいただいているこれらの検索方法について、それぞれ詳しくご紹介いたします！</p>
+<h2 id="Dataverse-検索"><a href="#Dataverse-検索" class="headerlink" title="Dataverse 検索"></a>Dataverse 検索</h2><hr>
+<p>Wave2 より、運用環境において既定で Dataverse 検索が有効化されるようになりました。</p>
+<h3 id="そもそも、Dataverse-検索とは？"><a href="#そもそも、Dataverse-検索とは？" class="headerlink" title="そもそも、Dataverse 検索とは？"></a>そもそも、Dataverse 検索とは？</h3><p>以下のキャプチャのように、画面上部のヘッダに表示されている検索欄が Dataverse 検索 (関連性検索) です。<br><img src="/blog/powerplatform/2021-wave2-added-search/00_dataverse_search.png"></p>
+<p>実際にこちらを検索してみると、以下のようにキーワードを入力するだけで関連エンティティを含めた検索ができます。<br><img src="/blog/powerplatform/2021-wave2-added-search/01_dataverse_search_content.png"></p>
+<p>ちなみに、Wave2 以前では、この検索欄は「カテゴリ別検索」または「簡易検索」と呼ばれ、ヘッダの虫眼鏡マークからご利用いただくことができました。<br><img src="/blog/powerplatform/2021-wave2-added-search/02_federation_search.png"></p>
+<p>このカテゴリ別検索から、より検索性や操作性を向上させた機能が Dataverse 検索です。</p>
+<h3 id="Dataverse-検索では具体的に何を検索しているのか？"><a href="#Dataverse-検索では具体的に何を検索しているのか？" class="headerlink" title="Dataverse 検索では具体的に何を検索しているのか？"></a>Dataverse 検索では具体的に何を検索しているのか？</h3><p>Dataverse 検索で検索対象を決定する仕組みについてご案内いたします。</p>
+<p>Dataverse 検索では、<strong>テーブル (エンティティ) × 列 (フィールド)</strong> をそれぞれ検索対象として指定できます。</p>
+<p><strong>1. 検索対象のテーブル</strong><br>Dataverse 検索では、検索対象のテーブルを指定することができます。<br>環境の詳細設定画面、または Power Apps のソリューション設定画面から指定ができるのですが、今回はソリューション設定画面をご紹介いたします。<br>Power Apps (<a target="_blank" rel="noopener" href="https://make.powerapps.com/">https://make.powerapps.com</a>) からソリューションを選択し、「概要」&gt; 「Dataverse 検索」&gt;「検索インデックスの管理」より、検索対象のテーブルを指定いただけます。<br>なお、Dataverse 検索の対象テーブル自体はソリューションに含まれる要素ではないため、ソリューションは任意のものをご選択いただければ問題ございません。<br><img src="/blog/powerplatform/2021-wave2-added-search/03_dataverse_table.png"></p>
+<p><strong>2. 検索対象の列</strong><br>検索対象の列も、環境の詳細設定画面の他、Power Apps のテーブル設定画面からご確認いただけます。<br>テーブルの各列を選択し「検索可能」をチェックいただくことで、検索対象に指定される列を指定いただけます。<br><img src="/blog/powerplatform/2021-wave2-added-search/04_dataverse_index.png"></p>
+<p>既定の状態でも、主要なテーブル・主要な列は検索対象として指定されていますが、<br>カスタムテーブルなどを作成いただいている場合にはぜひ検索対象に追加の上、検索をご活用ください。</p>
+<h2 id="高度なルックアップ"><a href="#高度なルックアップ" class="headerlink" title="高度なルックアップ"></a>高度なルックアップ</h2><hr>
+<p>Wave2 より、検索 (ルックアップ) 列の入力時に高度なルックアップをご利用いただけるようになりました。</p>
+<ol>
+<li><p>列の入力時に虫眼鏡マークをクリック後、「高度な検索」を選択ください。<br><img src="/blog/powerplatform/2021-wave2-added-search/05_advanced_search.png"></p>
+</li>
+<li><p>図のように、高度なルックアップウィンドウが表示されます。<br><img src="/blog/powerplatform/2021-wave2-added-search/06_advanced_search_content.png"></p>
+</li>
+</ol>
+<p>高度なルックアップウィンドウでは、入力フィールドに適したテーブルのビューから、登録したいデータを選択することができます。<br>今までも、1. の画面で表示されている小さいウィンドウから対象データを検索することができましたが、大画面かつビューを選択できるようになったことで、よりデータの絞り込みがしやすくなりました。<br>複数選択や、複数テーブルの検索もできますので、ぜひご利用ください。</p>
+<h4 id="よくいただくお問合せ"><a href="#よくいただくお問合せ" class="headerlink" title="よくいただくお問合せ"></a>よくいただくお問合せ</h4><hr>
+<h3 id="各検索方法を無効化する方法"><a href="#各検索方法を無効化する方法" class="headerlink" title="各検索方法を無効化する方法"></a>各検索方法を無効化する方法</h3><p>Dataverse 検索に関しては、以下の画像のように、Power Platform 管理センターから有効 / 無効を切り替えることができます。<br><img src="/blog/powerplatform/2021-wave2-added-search/07_dataverse_search_setting.png"></p>
+<p>高度なルックアップに関しては通常の方法で無効化することはできません。<br>セキュリティ リスクの懸念から無効化を検討されている場合には、どちらの検索もユーザーに適切な権限が付与されているレコードのみ検索することができるので、ぜひご安心いただければと思います。</p>
+<h3 id="一部の環境で-Dataverse-検索が有効化されていない"><a href="#一部の環境で-Dataverse-検索が有効化されていない" class="headerlink" title="一部の環境で Dataverse 検索が有効化されていない"></a>一部の環境で Dataverse 検索が有効化されていない</h3><p>現在のところ、Dataverse 検索は運用環境 (Production 環境) のみで有効化されています。<br>サンドボックス環境など、その他の環境では既定で機能が無効化されています。これらの環境で Dataverse 検索をご利用の場合には、「各検索方法を無効化する方法」でご紹介した画面から機能を有効化することができるので、ぜひお試しください。<br>なお、設定を有効化してから、実際に検索に利用するインデックスが構築されるまでには数時間以上 (きわめて大規模な環境の場合、最大数日) かかる場合があります。</p>
+<h3 id="Dataverse-検索を有効にするとキャパシティの使用量が増えた"><a href="#Dataverse-検索を有効にするとキャパシティの使用量が増えた" class="headerlink" title="Dataverse 検索を有効にするとキャパシティの使用量が増えた"></a>Dataverse 検索を有効にするとキャパシティの使用量が増えた</h3><p>Dataverse 検索では内部的に検索インデックスを作成していますが、この検索インデックスは Dataverse ストレージ容量内部のデータベースの容量を使用します。<br>そのため、Dataverse 検索を有効化した後、検索インデックスが構築されることでキャパシティ (Dataverse ストレージ容量) が増加します。<br>具体的な増加量については、インデックス構築対象のテーブル・列・データ量にもよるためご案内をしておりません。<br>ただし増加量は RelevanceSearch テーブルに反映されますので、もし環境ごとのキャパシティをご確認いただいた際に当該テーブルの使用量が増加している場合には、Dataverse 検索の対象となるテーブル・列を減らしていただくことをご検討ください。<br>なお、Dataverse 検索の対象を減らしていただいた後、実際に削減がキャパシティに反映されるまでに最大 24 時間が必要です。</p>
+<p>公開情報 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/capacity-storage#faq">新しい容量ストレージモデル</a> より「よくあるご質問」&gt;「DataverseSearch テーブルとは、またどうすればそれを減らすことができますか」にもご案内がございますので、ぜひご参照ください。<br>※本記事公開時点では、DataverseSearch を RelevanceSearch と読み替えいただけますと幸いです。</p>
+<h2 id="関連する公開情報"><a href="#関連する公開情報" class="headerlink" title="関連する公開情報"></a>関連する公開情報</h2><hr>
+<p>・Dataverse 検索の概要について<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization">自分の環境に Dataverse 検索を構成する</a><br>・Dataverse 検索のリリースについて<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/simplified-dataverse-search-configuration-admins-model-driven-app-makers">管理者およびモデル駆動型アプリ開発者向けの簡素化された Dataverse 検索の構成</a><br>・高度なルックアップのリリースについて<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/advanced-lookup-capabilities-all-end-users-model-driven-power-apps">モデル駆動型 Power Apps のすべてのユーザー向けの高度なルックアップ機能</a><br>・2021年 Wave2 を含む、リリース計画の全体<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/dynamics365/release-plans/">Dynamics 365 および Microsoft Power Platform のリリース計画</a></p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
+<p>以上、Wave2 で追加された 2 種類の検索方法についてご紹介いたしました。<br>Power Platform / Dynamics 365 では、今後も様々な機能追加が予定されています。<br>こちらのブログでも追加機能をご紹介していきますので、ぜひご活用いただけますと幸いです！</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ModelDrivenApp/" rel="tag">ModelDrivenApp</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/2021-wave2-added-search.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../About-security-role-in-Dataverse/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Dataverse 環境のアクセス権制御方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ</a>
+          </li>
+        
+          <li>
+            <a href="../About-security-role-in-Dataverse/">Dataverse 環境のアクセス権制御方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/CloudFlow-ErrorHandling/">クラウド フローでのエラーハンドリングの方法</a>
+          </li>
+        
+          <li>
+            <a href="../../portal/OData-risk-in-portal/">Power Apps Portal 上で意図せずデータが外部から参照される</a>
+          </li>
+        
+          <li>
+            <a href="../How-to-block-free-and-trial-licenses/">Power Automate/Power Appsの試用版・無償版を利用不可にする方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/" rel="tag">CanvasApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-Flow/" rel="tag">Cloud Flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-Flows/" rel="tag">Desktop Flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Management/" rel="tag">Management</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ModelDrivenApp/" rel="tag">ModelDrivenApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Monitor/" rel="tag">Monitor</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-Portal/" rel="tag">Power Apps Portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerApps/" rel="tag">PowerApps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerAutomate/" rel="tag">PowerAutomate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePointOnline/" rel="tag">SharePointOnline</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/delegation/" rel="tag">delegation</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CanvasApp/">CanvasApp</a><span class="tag-list-count">2</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/Monitor">Monitor</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/delegation">delegation</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/CanvasApp/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/">PowerPlatform</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/Management">Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/PowerApps">PowerApps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/PowerAutomate">PowerAutomate</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerPlatform/SharePointOnline">SharePointOnline</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerAutomate/">PowerAutomate</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/PowerApps">PowerApps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/PowerPlatform">PowerPlatform</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/PowerAutomate/SharePointOnline">SharePointOnline</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ModelDrivenApp/">ModelDrivenApp</a><span class="tag-list-count">2</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/ModelDrivenApp/Dynamics">Dynamics</a><span class="tag-list-count">2</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/CanvasApp/" style="font-size: 13.33px;">CanvasApp</a> <a href="../../tags/Cloud-Flow/" style="font-size: 10px;">Cloud Flow</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10px;">Dataverse for Teams</a> <a href="../../tags/Desktop-Flows/" style="font-size: 13.33px;">Desktop Flows</a> <a href="../../tags/Dynamics/" style="font-size: 13.33px;">Dynamics</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Management/" style="font-size: 10px;">Management</a> <a href="../../tags/ModelDrivenApp/" style="font-size: 13.33px;">ModelDrivenApp</a> <a href="../../tags/Monitor/" style="font-size: 10px;">Monitor</a> <a href="../../tags/Power-Apps-Portal/" style="font-size: 10px;">Power Apps Portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 13.33px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 10px;">Power Platform</a> <a href="../../tags/PowerApps/" style="font-size: 10px;">PowerApps</a> <a href="../../tags/PowerAutomate/" style="font-size: 16.67px;">PowerAutomate</a> <a href="../../tags/PowerPlatform/" style="font-size: 20px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 10px;">PowerShell</a> <a href="../../tags/SharePointOnline/" style="font-size: 10px;">SharePointOnline</a> <a href="../../tags/delegation/" style="font-size: 10px;">delegation</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
