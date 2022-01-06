@@ -96,8 +96,8 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
    <補足>  
    本文の指定方法は、各リソースのリファレンスを参考に変更してください。  
    今回は、Message リソースを使用するので、下記の公開情報を参照しました。  
-   
    [メッセージ リソースの種類 - Microsoft Graph | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/api/resources/message?view=graph-rest-1.0)  
+   
    また、テキスト形式でメールを送信することが目的なので、  
    
    - message.body.contentType : "Text"  
