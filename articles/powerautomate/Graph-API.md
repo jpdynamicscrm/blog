@@ -90,7 +90,7 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
    
    ![](./Graph-API/img02.png)  
    ※ここでサインインしたユーザーのアクセス許可が委任され、API が実行されます。  
-3. [API リファレンスのドキュメント](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
+3. [API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
    ![](./Graph-API/img03.png)  
 
    <補足>  
