@@ -124,7 +124,7 @@ HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に
    ![](./Graph-API/img07.png)  
 2. HTTP コネクタの「HTTP」アクションを挿入します。  
    2-1. [API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
-     今回はサインイン中のユーザーがいないため、「/me/sendMail」ではなく、「/users/{id | userPrincipalName}/sendMail」の要求方法を使用します。  
+     HTTP コネクタを使用する場合、サインイン中のユーザーがいないため、`/me/sendMail`ではなく、`/users/{id | userPrincipalName}/sendMail` の要求方法を使用することに注意してください。  
    ![](./Graph-API/img06.png)  
    
    2-2. 認証を「Active Directory OAuth」に設定し、Azure AD に登録したアプリから取得した情報を設定します。  
