@@ -24,9 +24,7 @@ tags:
 
 # はじめに
 ---
-Power Automate では、コネクタを使用して様々な操作を自動化することができますが、目的の操作がコネクタでは用意されていない場合があります。  
-
-コネクタでの自動化ができない場合、代わりに API リクエストを実行することで、実現可能な場合があります。
+Power Automate では、コネクタを使用して様々な操作を自動化することができますが、目的の操作がコネクタでは用意されていない場合、API を使用することでフローでの自動化が実現可能な場合があります。  
 
 ここでは、Microsoft Graph API を使用して API リクエストを送信する 2 つの方法について、ご説明いたします。
 
@@ -34,7 +32,7 @@ Power Automate では、コネクタを使用して様々な操作を自動化�
 
 # 必要なライセンス
 ---
-フローではプレミアム コネクタを使用するため、以下のいずれかのライセンスが必要です。  
+今回作成するフローではプレミアム コネクタを使用するため、以下のいずれかのライセンスが必要です。  
 
 - Power Automate per user
 - Power Automate per flow
@@ -71,7 +69,6 @@ Power Automate の Office 365 Outlook コネクタ「メールを送信する (V
   API を実際に実行するアプリケーションに対し、サインインしているユーザーとして動作するためのアクセス許可が委任されます。  
 - アプリケーションのアクセス許可  
   ユーザーなしでアクセスする際に使用いたします。  
-  管理者の同意が必要です。  
 
 委任されたアクセス許可が使用できる場合は、ユーザーに変わって API を実行する HTTP with Azure AD コネクタが、  
 アプリケーションのアクセス許可が使用できる場合は、ユーザーなしで API を実行する HTTP コネクタが使用できます。  
@@ -84,16 +81,15 @@ Power Automate の Office 365 Outlook コネクタ「メールを送信する (V
 ---
 HTTP with Azure AD コネクタでは、接続でサインインしたユーザーに代わって API を実行できます。    
 
-1. Azure AD を使用した HTTP コネクタの「」アクションを挿入します。
+1. HTTP with Azure AD コネクタの「HTTP 要求を呼び出します」アクションを挿入します。
 2. コネクタを初めて使用する場合、接続を作成します。  
    今回は Graph API を実行するため、「基本リソース URL」と「Azure AD リソース URL」の両方に以下の URL を設定し、[サインイン] をクリックします。  
    - URL: https://graph.microsoft.com  
    
    ![](./Graph-API/img02.png)  
    ※ここでサインインしたユーザーのアクセス許可が委任され、API が実行されます。  
-3. [API リファレンスのドキュメント](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。
+3. [API リファレンスのドキュメント](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
    ![](./Graph-API/img03.png)  
-   ※引用: https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#example-1-send-a-new-email-using-json-format  
 
    <補足>  
    本文の指定方法は、各リソースのリファレンスを参考に変更してください。  
@@ -112,6 +108,11 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
    
 4. フローを実行し、正常に実行されるか確認します。
 
+>[!NOTE]
+>必要なアクセス許可の種類によっては、HTTP with Azure AD コネクタでは API が実行できない場合があります。  
+>フローを実行した際に権限エラーが発生する場合、HTTP with Azure AD コネクタでは実行できない可能性がございますので、HTTP コネクタでの実行をお試しください。  
+
+
 <a id='anchor-use-HTTP-connector'></a>
 
 # HTTP コネクタを使用する  
@@ -128,10 +129,10 @@ HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に
    ![](./Graph-API/img06.png)  
    
    2-2. 認証を「Active Directory OAuth」に設定し、Azure AD に登録したアプリから取得した情報を設定します。  
-   - テナント: ディレクトリ (テナント ID)
-   - 対象ユーザー: https://graph.microsoft.com
-   - クライアント ID: アプリケーション (クライアント ID)
-   - 資格情報の種類: シークレット
+   - テナント: ディレクトリ (テナント ID)  
+   - 対象ユーザー: https://graph.microsoft.com  
+   - クライアント ID: アプリケーション (クライアント ID)  
+   - 資格情報の種類: シークレット  
    - シークレット: [証明書とシークレット] より、新しいクライアントシークレットを発行し、発行された「値」  
    
    ![](./Graph-API/img05.png)  
