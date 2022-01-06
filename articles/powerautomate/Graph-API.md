@@ -91,6 +91,7 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
    ![](./Graph-API/img02.png)  
    ※ここでサインインしたユーザーのアクセス許可が委任され、API が実行されます。  
 3. [API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
+4. 
    ![](./Graph-API/img03.png)  
 
    <補足>  
@@ -98,11 +99,8 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
    今回は、Message リソースを使用するので、下記の公開情報を参照しました。  
    [メッセージ リソースの種類 - Microsoft Graph | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/api/resources/message?view=graph-rest-1.0)  
    
-   また、テキスト形式でメールを送信することが目的なので、  
+   また、テキスト形式でメールを送信することが目的なので、 `message.body.contentType` を `Text` に設定します。  
    
-   - message.body.contentType : "Text"  
-   
-   に設定します。  
    ![](./Graph-API/img04.png)  
    
 4. フローを実行し、正常に実行されるか確認します。  
