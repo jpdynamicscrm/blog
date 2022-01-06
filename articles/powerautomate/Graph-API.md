@@ -95,22 +95,19 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
 
    <補足>  
    本文の指定方法は、各リソースのリファレンスを参考に変更してください。  
-   今回は、Message リソースを参照します。  
+   今回は、Message リソースを使用するので、下記の公開情報を参照しました。  
    
    [メッセージ リソースの種類 - Microsoft Graph | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/api/resources/message?view=graph-rest-1.0)  
-   今回は、テキスト形式でメールを送信することが目的なので、  
+   また、テキスト形式でメールを送信することが目的なので、  
    
-   - message.subject (タイトル)
-   - message.body.content (メール本文)
-   - toRecipients (宛先)
-   - ccRecipients (cc)  
-  
-   を変更し、message.body.contentType は "Text" のままに設定します。  
+   - message.body.contentType : "Text"  
+   
+   に設定します。  
    ![](./Graph-API/img04.png)  
    
-4. フローを実行し、正常に実行されるか確認します。
+4. フローを実行し、正常に実行されるか確認します。  
 
->[!NOTE]
+>[!NOTE]  
 >必要なアクセス許可の種類によっては、HTTP with Azure AD コネクタでは API が実行できない場合があります。  
 >フローを実行した際に権限エラーが発生する場合、HTTP with Azure AD コネクタでは実行できない可能性がございますので、HTTP コネクタでの実行をお試しください。  
 
