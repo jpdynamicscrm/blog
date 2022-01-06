@@ -126,7 +126,7 @@ HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に
    また、登録したアプリの [API] のアクセス許可にて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  
    ![](./Graph-API/img07.png)  
 2. HTTP コネクタの「HTTP」アクションを挿入します。  
-   2-1. [API リファレンスのドキュメント](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
+   2-1. [API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
      今回はサインイン中のユーザーがいないため、「/me/sendMail」ではなく、「/users/{id | userPrincipalName}/sendMail」の要求方法を使用します。  
    ![](./Graph-API/img06.png)  
    
