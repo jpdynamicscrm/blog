@@ -118,8 +118,10 @@ HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に
 
 1. Azure AD にアプリを登録します。  
    [アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph%2Fapi%2F1.0&view=graph-rest-1.) にしたがって、 Azure AD にアプリを登録します。  
-   また、登録したアプリの [API] のアクセス許可にて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  
-   ![](./Graph-API/img07.png)  
+   また、登録したアプリの [API のアクセス許可] のページにて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  
+   
+   ![](./Graph-API/img07.png)   
+   
 2. HTTP コネクタの「HTTP」アクションを挿入します。  
    2-1. [API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
       HTTP コネクタを使用する場合、サインイン中のユーザーがいないため、`/me/sendMail`ではなく、`/users/{id | userPrincipalName}/sendMail` の要求方法を使用することに注意してください。  
