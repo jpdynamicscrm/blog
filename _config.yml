@@ -11,14 +11,14 @@ description: 日本マイクロソフトの Dynamics CRM & Power Platform テク
 
 # Keywords
 keywords:
-  - PowerApps
-  - PowerAutomate
+  - Power Apps
+  - Power Automate
   - Customization
   - PPAC
   - On-Premises
   - Portal
-  - ModelDrivenApp
-  - CanvasApp
+  - Model Driven App
+  - Canvas App
 
 author: Japan Dynamics CRM & Power Platform Support Team
 
@@ -26,16 +26,17 @@ author: Japan Dynamics CRM & Power Platform Support Team
 root_tag_generator:
   root_tag_names:
     - Information
-    - CanvasApp
+    - Canvas App
     - Customization
-    - ModelDrivenApp
+    - Model Driven App
     - On-premises
     - Other
     - Archive
-    - PortalApp
-    - PowerAutomate
-    - PowerPlatform
-    - PowerVirtualAgents
+    - Portal
+    - Power Automate
+    - Power Platform
+    - Power Virtual Agents
+    - Dynamics 365
   sub_tag_limit: 20
   
 # URL
