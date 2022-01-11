@@ -2,8 +2,8 @@
 title: Power Automate で接続が「無効な接続」になる原因
 date: 2021-07-21 9:30:00
 tags:
-  - Power Platform
-  - Power Automate
+  - PowerPlatform
+  - PowerAutomate
   - Connection
 ---
 
