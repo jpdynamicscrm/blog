@@ -32,10 +32,11 @@ root_tag_generator:
     - On-premises
     - Other
     - Archive
-    - PortalApp
+    - Power Apps Portal
     - PowerAutomate
     - PowerPlatform
     - PowerVirtualAgents
+    - Dynamics
   sub_tag_limit: 20
   
 # URL
