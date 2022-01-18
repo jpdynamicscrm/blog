@@ -3,7 +3,7 @@ title: Power Automate Desktop で「フローなし」と表示される場合�
 date: 2021-6-7 12:00
 tags:
   - Power Automate
-  - Desktop Flow
+  - Desktop flows
   - Power Automate Desktop
 ---
 
