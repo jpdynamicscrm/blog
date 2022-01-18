@@ -2,7 +2,7 @@
 title: キャンバス アプリのモニターログ取得手順
 date: 2021-06-17 00:00:00
 tags:
-  - Canvas App
+  - Canvas app
   - モニター
   - 情報採取
 ---
