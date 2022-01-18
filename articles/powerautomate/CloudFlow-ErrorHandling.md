@@ -2,7 +2,7 @@
 title: クラウド フローでのエラーハンドリングの方法
 date: 2021-09-24 00:00:00
 tags:
-  - Cloud Flow
+  - Cloud flows
   - Power Automate
 ---
 
