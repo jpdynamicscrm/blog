@@ -53,9 +53,10 @@ WS-Trust 廃止による影響範囲は以下の通りです。
 ![](./Deprecation-WS-Trust/enabled.png)  
 
 2021年4月以降に作成された環境へ WS-Trust プロトコルで認証する場合：  
-現時点で既に WS-Trust プロトコルが利用不可であるため、ログインに失敗します。HTTP 500 エラーが発生し、下記メッセージが返却されます。  
+既に WS-Trust プロトコルが利用不可であるため、ログインに失敗します。HTTP 500 エラーが発生し、下記メッセージが返却されます。  
 An error occurred when processing the security tokens in the message:You are using Ws-Trust authentication which has been deprecated and no longer supported in your environment. Please use OAuth2.0 authentication.
 ![](./Deprecation-WS-Trust/disabled.png)  
+![](./Deprecation-WS-Trust/disabled_XML.png)  
 
 
 <a id='anchor-how-do-i-know'></a>
