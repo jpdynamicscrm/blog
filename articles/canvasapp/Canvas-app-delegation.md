@@ -2,8 +2,8 @@
 title: キャンバス アプリ の委任について
 date: 2021-04-20 00:00:00
 tags:
-  - CanvasApp
-  - delegation
+  - Canvas App
+  - 委任
 ---
 
 # キャンバス アプリの委任について
