@@ -2,8 +2,7 @@
 title: Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法
 date: 2022-01-11 9:30:00
 tags:
-  - PowerPlatform
-  - PowerAutomate
+  - Power Automate
   - Graph API
 ---
 
