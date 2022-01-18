@@ -2,7 +2,7 @@
 title: キャンバス アプリ の委任について
 date: 2021-04-20 00:00:00
 tags:
-  - Canvas App
+  - Canvas app
   - 委任
 ---
 
