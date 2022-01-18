@@ -2,8 +2,8 @@
 title: Power Automate Desktop で「フローなし」と表示される場合の対処法
 date: 2021-6-7 12:00
 tags:
-  - PowerAutomate
-  - Desktop Flows
+  - Power Automate
+  - Desktop Flow
   - Power Automate Desktop
 ---
 
