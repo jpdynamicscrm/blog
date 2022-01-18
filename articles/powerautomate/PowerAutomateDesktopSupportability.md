@@ -2,8 +2,8 @@
 title: Power Automate Desktop のサポート範囲について
 date: 2021-08-26 12:00
 tags:
-  - PowerAutomate
-  - Desktop Flows
+  - Power Automate
+  - Desktop Flow
   - Power Automate Desktop
 ---
 
