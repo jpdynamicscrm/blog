@@ -2,7 +2,7 @@
 title: 2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ
 date: 2021-11-16 13:45:00
 tags:
-  - ModelDrivenApp
+  - Model Driven App
   - Dynamics
 ---
 
