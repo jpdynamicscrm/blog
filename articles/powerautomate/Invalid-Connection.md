@@ -2,8 +2,8 @@
 title: Power Automate で接続が「無効な接続」になる原因
 date: 2021-07-21 9:30:00
 tags:
-  - PowerPlatform
-  - PowerAutomate
+  - Power Platform
+  - Power Automate
   - Connection
 ---
 
@@ -28,7 +28,7 @@ Power Automate の「接続」は、ユーザーの資格情報を使用して A
 この記事では、接続が無効になるケース、ならないケースと、接続が無効になるまでの仕組みについて、詳細にご説明いたします。
 
 
-## Power Autoamte で「無効な接続」と表示される原因
+## Power Automate で「無効な接続」と表示される原因
 
 実際に接続が無効になるケース、ならないケースは以下の通りです。
 
@@ -39,7 +39,7 @@ Power Automate の「接続」は、ユーザーの資格情報を使用して A
 
 ## Power Automate での認証の仕組み
 
-さて、具体的な Power Autoamte での認証の仕組みについて、ご説明します。
+さて、具体的な Power Automate での認証の仕組みについて、ご説明します。
 
 Power Automate で使用するコネクタは、Azure AD での認証を行うことで、下記 2 種類のトークンを取得しています。
 
@@ -94,6 +94,6 @@ Power Automate で使用するコネクタは、Azure AD での認証を行う�
 ## おわりに
 
 以上、Power Autoamte での認証の仕組みについてご説明しました。
-認証が切れるケースに該当するような操作を行う場合は、Power Autoamte での接続の再認証もお忘れないよう、ご留意ください。
+認証が切れるケースに該当するような操作を行う場合は、Power Automate での接続の再認証もお忘れないよう、ご留意ください。
 
 ---
