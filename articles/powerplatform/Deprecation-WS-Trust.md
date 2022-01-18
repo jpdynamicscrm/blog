@@ -88,4 +88,4 @@ Microsoft Dynamics 365: WS-Trust authentication protocol for connecting to Datav
 ---
 ## おわりに
 
-より詳細な情報が必要な場合、テクニカルサポート、Customer Success Account Manager (CSAM), Customer Engineer (CE) までお問い合わせください。 
+より詳細な情報が必要な場合、弊社テクニカルサポート、Customer Success Account Manager (CSAM), Customer Engineer (CE) までお問い合わせください。 
