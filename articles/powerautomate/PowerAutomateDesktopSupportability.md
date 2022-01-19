@@ -1,5 +1,5 @@
 ---
-title: Power Automate Desktop のサポート範囲について
+title: Power Automate for desktop のサポート範囲について
 date: 2022-01-20 12:00
 tags:
   - PowerAutomate
@@ -19,7 +19,7 @@ Power Automate for desktop は Windows 10 をご利用のお客様であれば�
 
 今回は Power Automate for desktop のサポート範囲についてご案内します。  
 
-## Power Automate Desktop のサポートについて
+## Power Automate for desktop のサポートについて
 
 Windows のライセンスに含まれる Power Automate for desktop は、PC にインストールして使用する無料のアプリケーションです。  
 このアプリケーションには、SLA や Microsoft サポートが含まれないため、ビジネスクリティカルな用途で使用すべきではありません。  
@@ -41,7 +41,7 @@ Power Automate for desktop をビジネスクリティカルな用途で使用�
 
 ## 終わりに
 
-Power Autoamte Desktop で弊社サポートをご利用いただけるライセンスにについてご案内いたしました。  
+Power Autoamte for desktop で弊社サポートをご利用いただけるライセンスにについてご案内いたしました。  
 製品やライセンスに関する情報は随時更新されるため、最新の情報については公開情報もしくは上記ライセンスガイドをご参照ください。  
 
 --
