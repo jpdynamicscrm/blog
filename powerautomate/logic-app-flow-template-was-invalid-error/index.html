@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>Power Apps Portal 上で意図せずデータが外部から参照される | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>「電源フローのロジック アプリ フロー テンプレートが無効です。」 エラーについて | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Power Platform サポート チームの 王 です。先日公開された Power Apps Portal で意図せず外部からデータが参照されてしまう問題についてご案内させていただきます。">
+  <meta name="description" content="こんにちは、日本マイクロソフト Power Automate サポートの清水です。この記事では、Power Automate の一部のインスタント フローで表示される以下のエラーに関してご説明します。   1電源フローのロジック アプリ フロー テンプレートが無効です。The &amp;#x27;type&amp;#x27; property of template trigger &amp;#x27;manual&amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Power Apps Portal 上で意図せずデータが外部から参照される">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/index.html">
+<meta property="og:title" content="「電源フローのロジック アプリ フロー テンプレートが無効です。」 エラーについて">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは。Power Platform サポート チームの 王 です。先日公開された Power Apps Portal で意図せず外部からデータが参照されてしまう問題についてご案内させていただきます。">
+<meta property="og:description" content="こんにちは、日本マイクロソフト Power Automate サポートの清水です。この記事では、Power Automate の一部のインスタント フローで表示される以下のエラーに関してご説明します。   1電源フローのロジック アプリ フロー テンプレートが無効です。The &amp;#x27;type&amp;#x27; property of template trigger &amp;#x27;manual&amp;#x">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/MC277597.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/portalchecker.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/advancedfind.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/deprication.png">
-<meta property="article:published_time" content="2021-09-01T03:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-20T12:27:41.590Z">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/img01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/img02.png">
+<meta property="article:published_time" content="2022-01-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-20T12:27:41.630Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Power Apps portal">
+<meta property="article:tag" content="PowerPlatform">
+<meta property="article:tag" content="PowerAutomate">
+<meta property="article:tag" content="Cloud Flow">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/MC277597.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/img01.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -84,7 +84,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-portal/OData-risk-in-portal" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerautomate/logic-app-flow-template-was-invalid-error" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -93,7 +93,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Power Apps Portal 上で意図せずデータが外部から参照される
+      「電源フローのロジック アプリ フロー テンプレートが無効です。」 エラーについて
     </h1>
   
 
@@ -101,35 +101,35 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-09-01T03:00:00.000Z" itemprop="datePublished">2021-09-01</time>
+  <time datetime="2022-01-20T00:00:00.000Z" itemprop="datePublished">2022-01-20</time>
 </a>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4a2eb059-4821-5452-b643-426e91f4cf26%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Apps+Portal+%E4%B8%8A%E3%81%A7%E6%84%8F%E5%9B%B3%E3%81%9B%E3%81%9A%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8C%E5%A4%96%E9%83%A8%E3%81%8B%E3%82%89%E5%8F%82%E7%85%A7%E3%81%95%E3%82%8C%E3%82%8B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fportal%2FOData-risk-in-portal%2F%29%0A*+Content+Source%3A+%5Barticles%2Fportal%2FOData-risk-in-portal.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fportal%2FOData-risk-in-portal.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+06ef6417-91bb-518e-957b-a6dbc7281b7d%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%80%8C%E9%9B%BB%E6%BA%90%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E3%83%AD%E3%82%B8%E3%83%83%E3%82%AF+%E3%82%A2%E3%83%97%E3%83%AA+%E3%83%95%E3%83%AD%E3%83%BC+%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%8C%E7%84%A1%E5%8A%B9%E3%81%A7%E3%81%99%E3%80%82%E3%80%8D+%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Flogic-app-flow-template-was-invalid-error%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Flogic-app-flow-template-was-invalid-error.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Flogic-app-flow-template-was-invalid-error.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/" data-id="ckymy92hl00040olu6cmi71kx" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/" data-id="ckymy92i2000i0olu1aihekno" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Power Platform サポート チームの 王 です。<br>先日公開された Power Apps Portal で意図せず外部からデータが参照されてしまう問題についてご案内させていただきます。</p>
+        <p>こんにちは、日本マイクロソフト Power Automate サポートの清水です。<br>この記事では、Power Automate の一部のインスタント フローで表示される以下のエラーに関してご説明します。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">電源フローのロジック アプリ フロー テンプレートが無効です。The &#x27;type&#x27; property of template trigger &#x27;manual&#x27; at line &#x27;1&#x27; and column &#x27;#####&#x27; has the value &#x27;Manual&#x27; which is deprecated in schema version &#x27;2016-04-01-preview&#x27; and onwards.</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
-<h2 id="初めに"><a href="#初めに" class="headerlink" title="初めに"></a>初めに</h2><p>Power Apps Portal において、利用者によって正しく設定が行われていない場合に、意図せず内部の情報が匿名ユーザーから取得できてしまう問題が、外部セキュリティ機関の UpGuard により米国時間2021年8月23日に<a target="_blank" rel="noopener" href="https://www.upguard.com/breaches/power-apps">発表</a>されました。<br>この問題について、自身がご利用されている環境がこの問題に該当しているか確認する方法および該当している場合の対処方法についてご案内いたします。</p>
-<h2 id="影響範囲について"><a href="#影響範囲について" class="headerlink" title="影響範囲について"></a>影響範囲について</h2><p>この問題は Power Apps Portal のみ影響を受けるものです。<br>Power Apps Portal は既定で構成されないため、ご利用されていない場合は対象となる設定自体が存在せず、本件について対処の必要はございません。<br>同様に、その他の Power Apps における キャンバスアプリ や モデル駆動型アプリ なども本件の対象外です。</p>
-<h2 id="発表された問題について"><a href="#発表された問題について" class="headerlink" title="発表された問題について"></a>発表された問題について</h2><p>今回指摘された問題は以下２つの設定によって発生いたします。<br>・リストのアクセス制御有効化の設定 (<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/portals/configure/entity-lists#securing-lsists">リストをセキュリティで保護する</a>)<br>　リストレコードの “全般” タブにて設定できる [<strong>エンティティのアクセス許可を有効にする</strong>] の設定は、対象のリストにアクセスするユーザーに対してWeb ロールを使用した権限制御を有効化する設定です。こちらが無効の場合、匿名ユーザーがデータを表示することが可能となります。  </p>
-<p>・リストのOData フィードの有効化状態 (<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powerapps/maker/portals/configure/entity-lists#list-odata-feeds">リストの OData フィード</a>)<br>　リストレコードの “OData フィード” タブにて設定できる [<strong>有効</strong>] の設定は、リストを API サービスとして外部に公開しデータ連携などの用途で利用するための設定です。設定が有効な場合、ユーザーは API を使用してデータの取得を要求することが可能です。  </p>
-<p>[<strong>エンティティのアクセス許可を有効にする</strong>] の設定が無効化状態かつ、”OData フィード” タブの [<strong>有効</strong>] にチェックが入っている場合、匿名のユーザーが API を使用してポータルへアクセスすると、対象のリストのデータを取得することができてしまいます。</p>
-<h2 id="ご利用の環境が上記問題に該当するか確認する方法について"><a href="#ご利用の環境が上記問題に該当するか確認する方法について" class="headerlink" title="ご利用の環境が上記問題に該当するか確認する方法について"></a>ご利用の環境が上記問題に該当するか確認する方法について</h2><p>・メッセージセンターにおける通知<br>　上記条件に該当するリストの設定を行っているお客様に対し、Microsoft 365 管理センターのメッセージID MC277597 にて通知を行っています。<br><img src="/blog/portal/OData-risk-in-portal/MC277597.png"></p>
-<p>・<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/portals/admin/portal-checker">ポータルチェッカーの実行</a><br>　Power Apps Portal 管理センターよりポータルチェッカーを実行することで、対象のポータルに構成されているリストのうち、条件に該当するものが存在するか確認することができます。<br>　該当するリストが存在する場合、以下の様な警告とともに対象のリストのIDが表示されます。<br><img src="/blog/portal/OData-risk-in-portal/portalchecker.png"></p>
-<p>・高度な検索を使用した手動確認<br>　手動で上記条件に該当するリストをご確認頂く場合、高度な検索を使用して以下の条件で検索いただくことで、該当のエンティティリストが存在しているかご確認いただくことが可能です。<br><img src="/blog/portal/OData-risk-in-portal/advancedfind.png"></p>
-<h2 id="対処方法について"><a href="#対処方法について" class="headerlink" title="対処方法について"></a>対処方法について</h2><p>意図せずリストのデータが公開状態になっていた場合、対処を行う必要がございます。<br>匿名ユーザーがアクセスできない様にするためには、以下いずれかの対処をご実施頂く必要がございます。  </p>
-<p>・「エンティティのアクセス許可を有効にする」にチェックを入れてWeb ロールの設定を正しく構成する<br>　有効な権限を保持していない匿名ユーザーに対するデータ表示を制限することが可能です。<br>　Web ロールの設定内容についてはお客様運用に合わせてご検討ください。  </p>
-<p>・OData フィードタブの「有効」からチェックを外す<br>　API によるデータへのアクセスが不可能となります。  </p>
-<p>また、本件に対する製品側の対処として、リストのアクセス許可設定を無効化することとなりました。<br>これにより、今後は同様の事象が発生しなくなります。  </p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/portals/admin/portal-checker-analysis#anonymous-access-to-basicadvanced-forms-and-lists">基本/詳細フォームおよびリストへの匿名アクセス</a><br><img src="/blog/portal/OData-risk-in-portal/deprication.png"></p>
-<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>一般サイトで案内されている内容については一部不適切な表記がされていたり、具体的にご自身の環境が対象となっているか判断が難しいかと存じますので、こちらの記事がご確認の参考になりましたら幸いです。<br>その他ご不明点などがございましたら、弊社サポートまでお気軽にご相談ください。  </p>
-<p>–</p>
+
+<hr>
+<p>2021 年 11 月 8 日頃、Power Automate のクラウド フローに新たな機能としてコメント機能が追加されました。  </p>
+<p>ブログ: <a target="_blank" rel="noopener" href="https://powerautomate.microsoft.com/ja-jp/blog/collaborative-comments-in-power-automate/">Collaborative comments in Power Automate | Power Automate ブログ (microsoft.com)​​​​​​​</a><br>公開情報: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-automate/multi-step-logic-flow#add-comments-to-actions-and-triggers">Add an advanced option and multiple actions - Power Automate | Microsoft Docs</a>  </p>
+<p>この変更により、当該機能のリリース前に作成されたフローでは、機能の追加後初めてフローの編集画面を開いた際、一度だけフローの自動保存が行われる動作となりました。<br>これは、コメント機能を有効にするためのメタデータを追加するための作業です。<br>※編集画面を開くと、フローの読み込み時に保存メッセージが表示されます。<br><img src="/blog/powerautomate/logic-app-flow-template-was-invalid-error/img01.png">  </p>
+<p>この際、一部のインスタント フローでは、フローの読み込みが完了する前にフローの保存が実行されることが原因で、保存時に以下のエラーが発生する場合があります。  </p>
+<p><img src="/blog/powerautomate/logic-app-flow-template-was-invalid-error/img02.png">  </p>
+<pre><code>電源フローのロジック アプリ フロー テンプレートが無効です。The &#39;type&#39; property of template trigger &#39;manual&#39; at line &#39;1&#39; and column &#39;#####&#39; has the value &#39;Manual&#39; which is deprecated in schema version &#39;2016-04-01-preview&#39; and onwards.
+</code></pre>
+<p>上述の通り、フローの保存に失敗したことで発生するエラーのため、エラーが発生した場合でもフローの動作への影響はありません。<br>また、自動保存の動作は、既存のフローへコメントの機能を追加するために一度のみ実行されるため、<br>エラーが発生した場合には、手動でフローを再保存することで以降はエラーが解消します。  </p>
+<p>そのため、上記のエラーが発生した場合には、一度手動でフローを保存しエラーが解消されるかをご確認ください。  </p>
+<p>また、エラーが解消しない場合や、ご不明点がある場合には、弊社サポート窓口までお問い合わせください。  </p>
+<hr>
 
       
       
@@ -143,10 +143,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-Flow/" rel="tag">Cloud Flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerAutomate/" rel="tag">PowerAutomate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/portal/OData-risk-in-portal.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/logic-app-flow-template-was-invalid-error.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -154,19 +154,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerautomate/CloudFlow-ErrorHandling/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../PowerAutomateDesktopSupportability/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          クラウド フローでのエラーハンドリングの方法
+          Power Automate for desktop のサポート範囲について
         
       </div>
     </a>
   
   
-    <a href="../../powerplatform/How-to-block-free-and-trial-licenses/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../Graph-API/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Power Automate/Power Appsの試用版・無償版を利用不可にする方法</div>
+      <div class="article-nav-title">Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法</div>
     </a>
   
 </nav>
@@ -185,15 +185,15 @@
       <ul>
         
           <li>
-            <a href="../../powerautomate/PowerAutomateDesktopSupportability/">Power Automate for desktop のサポート範囲について</a>
+            <a href="../PowerAutomateDesktopSupportability/">Power Automate for desktop のサポート範囲について</a>
           </li>
         
           <li>
-            <a href="../../powerautomate/logic-app-flow-template-was-invalid-error/">「電源フローのロジック アプリ フロー テンプレートが無効です。」 エラーについて</a>
+            <a href="">「電源フローのロジック アプリ フロー テンプレートが無効です。」 エラーについて</a>
           </li>
         
           <li>
-            <a href="../../powerautomate/Graph-API/">Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法</a>
+            <a href="../Graph-API/">Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法</a>
           </li>
         
           <li>
