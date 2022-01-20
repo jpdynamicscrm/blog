@@ -2,21 +2,22 @@
 title: 「電源フローのロジック アプリ フロー テンプレートが無効です。」 エラーについて
 date: 2022-01-20 9:00:00
 tags:
-  - PowerPlatform
-  - PowerAutomate
-  - Cloud Flow
+  - Power Platform
+  - Power Automate
+  - Cloud flows
 ---
 
 こんにちは、日本マイクロソフト Power Automate サポートの清水です。  
 この記事では、Power Automate の一部のインスタント フローで表示される以下のエラーに関してご説明します。  
 
-```
+`
 電源フローのロジック アプリ フロー テンプレートが無効です。The 'type' property of template trigger 'manual' at line '1' and column '#####' has the value 'Manual' which is deprecated in schema version '2016-04-01-preview' and onwards.
-```
+`
 
 <!-- more -->
 
-# エラーの詳細について
+
+# エラーの詳細について  
 ---
 2021 年 11 月 8 日頃、Power Automate のクラウド フローに新たな機能としてコメント機能が追加されました。  
 
@@ -31,9 +32,7 @@ tags:
 この際、一部のインスタント フローでは、フローの読み込みが完了する前にフローの保存が実行されることが原因で、保存時に以下のエラーが発生する場合があります。  
 
 ![](./logic-app-flow-template-was-invalid-error/img02.png)  
-```
-電源フローのロジック アプリ フロー テンプレートが無効です。The 'type' property of template trigger 'manual' at line '1' and column '#####' has the value 'Manual' which is deprecated in schema version '2016-04-01-preview' and onwards.
-```  
+
 
 上述の通り、フローの保存に失敗したことで発生するエラーのため、エラーが発生した場合でもフローの動作への影響はありません。  
 また、自動保存の動作は、既存のフローへコメントの機能を追加するために一度のみ実行されるため、  
