@@ -2,9 +2,9 @@
 title: Power Automate/Power Appsの試用版・無償版を利用不可にする方法
 date: 2021-08-31 11:30:00
 tags:
-  - PowerPlatform
-  - PowerAutomate
-  - PowerApps
+  - Power Platform
+  - Power Automate
+  - Power Apps
   
 ---
 
