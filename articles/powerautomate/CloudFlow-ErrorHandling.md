@@ -11,8 +11,17 @@ tags:
   
   <!-- more -->
 
-## 実行条件を構成する    
- 
+## 目次  
+---
+1. [実行条件を構成してエラーを検知する](#anchor-configure-runafter)
+2. [アクションの成否によって後続のアクションを変更する](#anchor-configure-parallel-actions)
+3. [エラー情報を取得する](#anchor-get-error-message)
+4. [スコープを用いてフロー全体を監視する](#anchor-try-catch)
+
+<a id='anchor-configure-runafter'></a>
+
+## 実行条件を構成してエラーを検知する    
+---
 クラウド フローの「実行条件の構成」機能では、直前のアクションの終了状態に応じてアクションの実行の有無を制御できます。  
 エラーの予測されるアクションがある場合、後続アクションの実行条件を構成することで、エラーの有無にかかわらずフローを最後まで実行させることができます。  
 
@@ -31,8 +40,10 @@ tags:
 - がスキップされます・・前のアクションがスキップされたときに実行されます。  
 - がタイムアウトしました・・フロー自体のタイムアウト、またはアクションごとのタイムアウト（アクションの設定）に該当した場合に実行されます。
 
-## アクションの成否によって後続のアクションを変更する
+<a id='anchor-configure-parallel-actions'></a>
 
+## アクションの成否によって後続のアクションを変更する
+---
 並列分岐を用いることで、アクションが成功した場合と失敗した場合とで異なる処理を行うことも可能です。
 
 例として、エラーが予測されるアクションの後にステップがある場合、[並列分岐の追加] から、前のアクションが失敗した場合にメールを送るステップを追加します。  
@@ -40,8 +51,10 @@ tags:
 
 ![](./CloudFlow-ErrorHandling/img4.png)
 
-## エラー情報を取得する  
+<a id='anchor-get-error-message'></a>
 
+## エラー情報を取得する  
+---
 ### 実行履歴の URL の取得
 式にて[ワークフロー関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#workflow)を使用することで、実行履歴の URL を生成し、メール等で送付することが可能です。  
 
@@ -70,8 +83,15 @@ https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}
 なお、アクションによっては上記の式でエラーメッセージを取得できない場合もありますので、想定されるエラーについて応答 body の json の構造を確認して、適切な式をご設定ください。  
 参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
 
+<a id='anchor-try-catch'></a>
+
 ## スコープを用いてフロー全体を監視する  
-実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いると、フロー全体を監視することが可能です。
+---
+実行条件を用いる方法ではアクション単位でのエラー検知が必要でしたが、コントロール コネクタの [スコープ] を用いると、フロー全体を監視することが可能です。  
+
+スコープアクションには、複数のアクションを格納することができます。  
+また、スコープ内のいずれかのアクションが失敗して終了した場合、スコープアクション自体もエラーで終了するため、スコープの直後にエラー検知のアクションを設定することで、スコープ内のどのアクションが失敗した場合でもエラーを検知して通知を行うことができます。  
+
 以下、Try、Catch、Finally テンプレートによるエラー処理の手順をご紹介いたします。  
 [Try、Catch、Finally テンプレート](https://flow.microsoft.com/en-us/galleries/public/templates/e8e028c6df7b4eb786abdf510e4f1da3/try-catch-and-finally-template/)  
 ![](./CloudFlow-ErrorHandling/img6.png)  
@@ -80,6 +100,7 @@ https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}
 1. Try スコープ内に、メインとなるアクションを挿入します。  
 2. Catch スコープの実行条件は Try ブロックが失敗した際に実行するように設定されています。Try ブロックが失敗した際は、Catch スコープ内のアクションによりメールが送信されます。  
 3. Finally スコープ内には、前のアクションの成否にかかわらず実行されるアクションを挿入します。  
+
 
 ### 参考情報  
 [Error handling steps, counters, a new flow details experience and more](https://powerautomateweb.microsoft.com/en-us/blog/error-handling/)
