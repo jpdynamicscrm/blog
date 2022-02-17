@@ -4,27 +4,28 @@
   <meta charset="utf-8">
   
   
-  <title>キャンバス アプリ の委任について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>キャンバス アプリ所有者の退職・異動への備え | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの清水です。今回は、Power Apps のキャンバス アプリを使用する際に引っ掛かりがちな「委任」の制限について、かみ砕いてご説明いたします。 公開情報はこちら。">
+  <meta name="description" content="こんにちは、Power Platform サポートの谷です。今回は、キャンバス アプリ所有者の退職・異動に際し、Power Apps のキャンバス アプリ所有者を変更する方法についてご説明します。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="キャンバス アプリ の委任について">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/index.html">
+<meta property="og:title" content="キャンバス アプリ所有者の退職・異動への備え">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの清水です。今回は、Power Apps のキャンバス アプリを使用する際に引っ掛かりがちな「委任」の制限について、かみ砕いてご説明いたします。 公開情報はこちら。">
+<meta property="og:description" content="こんにちは、Power Platform サポートの谷です。今回は、キャンバス アプリ所有者の退職・異動に際し、Power Apps のキャンバス アプリ所有者を変更する方法についてご説明します。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img00.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img01.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img02.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img03.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img04.png">
-<meta property="article:published_time" content="2021-04-19T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-17T06:47:03.960Z">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image02.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image05.png">
+<meta property="article:published_time" content="2022-02-16T15:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-17T06:47:03.964Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Canvas app">
-<meta property="article:tag" content="委任">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="PowerShell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/img00.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image01.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -86,7 +87,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-canvasapp/Canvas-app-delegation" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-canvasapp/canvas-app-change-app-owner" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -95,7 +96,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      キャンバス アプリ の委任について
+      キャンバス アプリ所有者の退職・異動への備え
     </h1>
   
 
@@ -103,54 +104,96 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-04-19T15:00:00.000Z" itemprop="datePublished">2021-04-20</time>
+  <time datetime="2022-02-16T15:00:00.000Z" itemprop="datePublished">2022-02-17</time>
 </a>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+19eb5458-95e6-52e5-9e89-8931141c457b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA+%E3%81%AE%E5%A7%94%E4%BB%BB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2FCanvas-app-delegation%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2FCanvas-app-delegation.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcanvasapp%2FCanvas-app-delegation.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+bbb6a14c-f021-5167-9514-092c24cd1c99%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA%E6%89%80%E6%9C%89%E8%80%85%E3%81%AE%E9%80%80%E8%81%B7%E3%83%BB%E7%95%B0%E5%8B%95%E3%81%B8%E3%81%AE%E5%82%99%E3%81%88%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2Fcanvas-app-change-app-owner%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2Fcanvas-app-change-app-owner.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcanvasapp%2Fcanvas-app-change-app-owner.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/" data-id="ckzqmeu1o00000mpb2o54684e" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/" data-id="ckzqmeu1w00030mpbap4953pu" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートの清水です。<br>今回は、Power Apps のキャンバス アプリを使用する際に引っ掛かりがちな「委任」の制限について、かみ砕いてご説明いたします。</p>
-<p>公開情報は<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/canvas-apps/delegation-overview">こちら</a>。</p>
+        <p>こんにちは、Power Platform サポートの谷です。<br/><br>今回は、キャンバス アプリ所有者の退職・異動に際し、Power Apps のキャンバス アプリ所有者を変更する方法についてご説明します。</p>
 <span id="more"></span>
 
-<h2 id="そもそも委任って何？"><a href="#そもそも委任って何？" class="headerlink" title="そもそも委任って何？"></a>そもそも委任って何？</h2><p>「委任」とは、Power Apps 上でのデータ操作 (Filter クエリなど) をアプリ上で行わず、データソース側で行い、キャンバス アプリはその結果のみを取得することで、アプリのパフォーマンスを向上させる仕組みのことを言います。</p>
-<p>Power Apps で扱う業務データは非常に膨大になることも少なくないので、全てのデータを取得してから、アプリ上で Filter や Sort を行うことは現実的ではございません。<br>したがって、データ量を抑えて効率的なアプリを作成するために、データソースに委任できる処理はデータソース側でやってもらい、アプリでは処理結果を受け取るだけにしましょうね、という仕組みを提供しています。</p>
-<h2 id="委任可能なデータソースと関数"><a href="#委任可能なデータソースと関数" class="headerlink" title="委任可能なデータソースと関数"></a>委任可能なデータソースと関数</h2><p>とはいえ、データソース側でも全ての処理を実行できるわけではございませんので、Power Apps から委任できるデータソースや処理の内容は限られています。</p>
-<p>委任可能なデータソースは、現時点では以下のデータソースのみです。<br>それぞれ、委任可能な関数がデータソースによって異なりますので、コネクタのリファレンスをご参照ください。</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/connectors/commondataservice/#power-apps-delegable-functions-and-operations-for-dataverse">Microsoft Dataverse (旧名: Common Data Service)</a><br>※Dataverse では、プレビュー機能として CountRows, CountIf, First, in 演算子の委任もサポートしています。<br><img src="/blog/canvasapp/Canvas-app-delegation/img00.png"><br>(この設定は、既定でオンになっています。)</li>
-<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/connectors/sharepointonline/#power-apps-delegable-functions-and-operations-for-sharepoint">SharePoint</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/connectors/sql/#power-apps-delegable-functions-and-operations-for-sql-server">SQL Server</a></li>
-</ul>
-<h2 id="委任できない場合どうなるの？"><a href="#委任できない場合どうなるの？" class="headerlink" title="委任できない場合どうなるの？"></a>委任できない場合どうなるの？</h2><p>委任できないデータソースや関数を使用した場合、Power Apps では、一度データソースから全てのデータをメモリ上にダウンロードします。<br>ただし、あまりにも大量のデータを取得すると、アプリのパフォーマンスに大きな影響が出るため、取得できるデータ量は限られています。</p>
-<p>一度に取得できるデータ件数の最大は、アプリの「委任できないクエリのデータ行の制限」の設定項目から確認できます。</p>
-<p>[ファイル] &gt; [設定] &gt; [詳細設定]<br><img src="/blog/canvasapp/Canvas-app-delegation/img01.png"></p>
-<p>データ行の制限は、既定で 500 、最大で 2000 まで変更可能ですので、キャンバス アプリに一度で取得できるデータの最大行数は 2000 行となります。</p>
-<p>つまり、委任できないデータソースを使用している場合、また委任できない関数や演算子を使用している場合、データソースから上位 2000 件のみを取得し、アプリ上でクエリ処理を実行することとなります。</p>
-<p>以下の例を見てみましょう。</p>
-<p><img src="/blog/canvasapp/Canvas-app-delegation/img02.png"></p>
-<p>データソースには全部で 510 件のデータがあり、「委任できないクエリのデータ行の制限」は 500 に設定されています。<br>Filter 処理により、300 番目のデータと 510 番目のデータが取得されると仮定すると、</p>
-<ul>
-<li>委任がサポートされている場合、Power Apps では、Filter 処理の結果である 2 行のみを取得できます。</li>
-<li>委任がサポートされていない場合、データソースの上位 500 行をアプリ上に取得してから Filter 処理が行われるため、得られる結果は 300 番目のデータのみとなり、510 番目のデータを得ることができません。</li>
-</ul>
-<p>※ただし、ギャラリーを使用している場合は、Items プロパティの式が委任できるように記述されていれば、スクロールに伴って随時データソースと通信し、データの取得を行う動作となるので、ご安心ください。</p>
-<h2 id="委任可能なケースの落とし穴"><a href="#委任可能なケースの落とし穴" class="headerlink" title="委任可能なケースの落とし穴"></a>委任可能なケースの落とし穴</h2><p>「委任ができるデータソース・関数を使用しているから問題ない」と思っている方、実は、委任できるからと言って、どんなに大量のデータでも取得できるわけではないので、要注意です。</p>
-<p>「委任できないクエリのデータ行の制限」という設定項目について説明しましたが、これは、委任ができるデータにも当てはまります。<br>つまり、Power Apps が一度に取得できるデータ行は、結局は最大で 2000 件なのです。<br>そのため、データソースにクエリを委任した結果、データ件数が 2500 件になってしまった場合、クエリ結果のうち 2000 件までしか取得できないので、残りの 500 件については置き去りにされてしまいます。</p>
-<h3 id="では、どうすれば良いのか？？"><a href="#では、どうすれば良いのか？？" class="headerlink" title="では、どうすれば良いのか？？"></a>では、どうすれば良いのか？？</h3><p>「委任できないクエリのデータ行の制限」は、あくまでも<strong>一度に</strong>取得可能なデータ行の制限です。<br>2000 行を超えるデータを取得したい場合は、複数回に分けてデータを取得し、コレクションに追加するようにしましょう。<br>コレクションには、格納できるデータ件数に上限はございません。</p>
-<p><img src="/blog/canvasapp/Canvas-app-delegation/img03.png"></p>
-<h3 id="Tips-複数回に分けてデータをコレクションに取得？？"><a href="#Tips-複数回に分けてデータをコレクションに取得？？" class="headerlink" title="Tips - 複数回に分けてデータをコレクションに取得？？"></a>Tips - 複数回に分けてデータをコレクションに取得？？</h3><p>複数回に分けてデータを取得する動作は、例えば以下のような数式で実現できます。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 委任可能件数以上に格納するためのコレクション</span><br><span class="line">Clear(col) </span><br><span class="line"></span><br><span class="line">// 委任制限まで件数を分割するためのコレクション (委任制限が 100 件の場合)</span><br><span class="line">// Sequence は繰り返しの件数を指定 (例では 100 件 * 10 回なので、 999 件まで対応可能)</span><br><span class="line">ClearCollect(Num, </span><br><span class="line">    AddColumns(</span><br><span class="line">        Sequence(10), </span><br><span class="line">        &quot;Min&quot;, (Value - 1) * 100, </span><br><span class="line">        &quot;Max&quot;, Value * 100</span><br><span class="line">    )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 複数回に分けてアイテムを取得</span><br><span class="line">ForAll(Num,</span><br><span class="line">    Collect(Col, FIlter(データソース, IDCount &lt; Max, IDCount &gt;= Min));</span><br><span class="line">)</span><br><span class="line">/*</span><br><span class="line">SharePoint の ID 列は数値だが=以外の演算子の委任をサポートしていないため、ID と同じ値を持つ IDCount 列を作成して使用。</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
+<h2 id="アプリの所有者・共同所有者・ユーザーとは？"><a href="#アプリの所有者・共同所有者・ユーザーとは？" class="headerlink" title="アプリの所有者・共同所有者・ユーザーとは？"></a>アプリの所有者・共同所有者・ユーザーとは？</h2><p>キャンバス アプリを作成・実行するためには以下の 3 種類の権限があります。<br/><br>それぞれ、役割に応じた権限を割り当て、安全にアプリを運用していきます。</p>
+<p><strong>所有者</strong></p>
+<p>アプリ作成者は自動的に所有者となります。<br>アプリの実行、編集、削除、共有設定を行うことが可能です。</p>
+<p><strong>共同所有者</strong></p>
+<p>アプリの実行、編集、共有設定を行うことが可能です。<br>アプリの削除は行うことができません。</p>
+<p><strong>ユーザー</strong></p>
+<p>アプリの実行を行うことが可能です。</p>
+<h2 id="アプリ作成者-所有者-が退職あるいは離任する場合はどうしたらいいか？"><a href="#アプリ作成者-所有者-が退職あるいは離任する場合はどうしたらいいか？" class="headerlink" title="アプリ作成者 (所有者) が退職あるいは離任する場合はどうしたらいいか？"></a>アプリ作成者 (所有者) が退職あるいは離任する場合はどうしたらいいか？</h2><p>退職や異動により、アプリ所有者のアカウントが削除された場合、アプリ自体は削除されません。<br/><br>アプリを実行することは可能な状態ですが、所有者、及び共同所有者が一人も存在しないアプリは編集や削除ができません。</p>
+<p>以下のケースごとに対応方法をご説明します。<br/></p>
+<ul>
+<li>ケース 1：アプリ作成者 (所有者) が退職してしまったがアプリを継続して利用 (編集) したい</li>
+<li>ケース 2：アプリ作成者 (所有者) が退職してしまったのでアプリを削除したい</li>
+</ul>
+<h3 id="ケース-1-アプリ作成者-所有者-が退職してしまったがアプリを継続して利用したい"><a href="#ケース-1-アプリ作成者-所有者-が退職してしまったがアプリを継続して利用したい" class="headerlink" title="ケース 1 アプリ作成者 (所有者) が退職してしまったがアプリを継続して利用したい"></a>ケース 1 アプリ作成者 (所有者) が退職してしまったがアプリを継続して利用したい</h3><p>アプリ作成者 (所有者) のアカウントを削除後も、アプリを実行/編集するには、下記の対応が必要となります。</p>
+<p><strong>&lt;共同所有者がいない場合&gt;</strong></p>
+<ul>
+<li>対応方法 1 管理者向け Power Apps コマンドレットで新たな所有者を割り当てる</li>
+<li>対応方法 2 Power Platform 管理センターでアプリの共同所有者、あるいはユーザーを割り当てる</li>
+</ul>
+<p><strong>&lt;共同所有者がいる場合&gt;</strong></p>
+<ul>
+<li>必要な対応はございません。引き続き、アプリを実行いただけます。</li>
+</ul>
+<h3 id="ケース-2-アプリ作成者-所有者-が退職してしまったのでアプリを削除したい"><a href="#ケース-2-アプリ作成者-所有者-が退職してしまったのでアプリを削除したい" class="headerlink" title="ケース 2 アプリ作成者 (所有者) が退職してしまったのでアプリを削除したい"></a>ケース 2 アプリ作成者 (所有者) が退職してしまったのでアプリを削除したい</h3><p>新たな所有者、あるいは Power Platform 管理者などの管理者がアプリを削除することができます。</p>
+<ul>
+<li>対応方法 1 管理者用 Power Apps コマンドレットで新たな所有者を割り当て、所有者としてアプリを削除する</li>
+<li>対応方法 2 Power Platform 管理センターで、管理者としてアプリを削除する</li>
+</ul>
+<p>以降では、それぞれの対応方法の詳細についてご説明いたします。</p>
+<h2 id="管理者用-Power-Apps-コマンドレットでアプリの所有者を変更する方法"><a href="#管理者用-Power-Apps-コマンドレットでアプリの所有者を変更する方法" class="headerlink" title="管理者用 Power Apps コマンドレットでアプリの所有者を変更する方法"></a>管理者用 Power Apps コマンドレットでアプリの所有者を変更する方法</h2><p>グローバル管理者、Azure Active Directory グローバル管理者、Dynamics 365 管理者などの管理者はアプリの所有者を変更することができます。<br/><br>当コマンドレットは所有者のアカウントが存在する場合でも所有者を変更することが可能です。</p>
+<p>なお、管理者用 Power Apps コマンドレットをご利用前に PowerShell モジュールをインストールいただく必要があります。<br/><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation">https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation</a></p>
+<p><strong>実行例</strong></p>
+<ol>
+<li>(事前準備) 管理者向け Power Apps コマンドレットをインストールします</li>
+<li>管理者として PowerShell を実行します</li>
+<li>以下のコマンドを実行します</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-AdminPowerAppOwner –AppName &#x27;&lt;アプリの GUID&gt;&#x27; -AppOwner &#x27;&lt;新たな所有者の GUID&gt;&#x27; –EnvironmentName &#x27;&lt;環境の GUID&gt;&#x27;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/canvasapp/Canvas-app-delegation/img04.png"><br>※サンプルコードなので、動作検証はしっかりと行ってください。</p>
-<p>ご参考まで。</p>
-<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>以上、Power Apps キャンバス アプリの委任の動作についてご説明しました。<br>公開情報を読むと、小難しい制限に思われるかもしれませんが、理解してしまえば簡単ですよね。<br>委任をしっかりと理解し、正しくキャンバス アプリを作成する手助けになりましたら幸いです。</p>
+<p><strong>実行コマンドで指定する各種引数について</strong></p>
+<ul>
+<li>&lt;アプリの GUID&gt;、&lt;環境の GUID&gt;<ul>
+<li>管理者用 Power Apps コマンドレット「<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/get-adminpowerapp?view=pa-ps-latest">Get-AdminPowerApp</a>」コマンドでご取得ください</li>
+<li><img src="./Canvas-app-change-app-owner/image01.png"></li>
+</ul>
+</li>
+<li>&lt;新たな所有者の GUID&gt;<ul>
+<li>「<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account">Get-AzureADUser</a>」コマンド、あるいは Azure Active Directory 管理センターご確認ください</li>
+<li>Get-AzureADUser 実行例<ul>
+<li>例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて ObjectId (AppOwner に指定する値) が取得できます。</li>
+<li><pre><code>Get-AzureADUser | Select DisplayName, UserPrincipalName, ObjectId
+</code></pre>
+</li>
+<li><img src="./Canvas-app-change-app-owner/image02.png"></li>
+</ul>
+</li>
+<li>Azure Active Directory 管理センターにおけるユーザーの GUID の確認例<ul>
+<li><a target="_blank" rel="noopener" href="https://aad.portal.azure.com/">Azure Active Directory 管理センター</a> &gt; ユーザー &gt; 対象のユーザー</li>
+<li><img src="./Canvas-app-change-app-owner/image03.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Power-Platform-管理センターでアプリの共同所有者を追加する、あるいは削除する方法"><a href="#Power-Platform-管理センターでアプリの共同所有者を追加する、あるいは削除する方法" class="headerlink" title="Power Platform 管理センターでアプリの共同所有者を追加する、あるいは削除する方法"></a>Power Platform 管理センターでアプリの共同所有者を追加する、あるいは削除する方法</h2><p><strong>実行例</strong></p>
+<ol>
+<li>管理者の役割を持つユーザーで <a target="_blank" rel="noopener" href="https://admin.powerplatform.com/">Power Platform 管理センター</a> にアクセスします</li>
+<li>対象の環境の「…」メニューから「Power Apps」を選択します<br> <img src="./Canvas-app-change-app-owner/image04.png"></li>
+<li>対象のアプリの「…」メニューから、共同所有者を追加する場合「共有」を、アプリを削除する場合「削除」を選択します<br> <img src="./Canvas-app-change-app-owner/image05.png"></li>
+</ol>
+<h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#set-logged-in-user-as-the-owner-of-a-canvas-app">キャンバス アプリのオーナーとしてログイン ユーザーを設定する</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/admin-manage-apps">Power Appsの管理</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/canvas-apps/delete-app">キャンパス アプリを削除する</a></li>
+</ul>
 <hr>
 
       
@@ -165,10 +208,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/canvasapp/Canvas-app-delegation.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/canvasapp/canvas-app-change-app-owner.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -176,19 +219,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerplatform/Manage-Dataverse-for-Teams/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Dataverse for Teams 環境の管理方法
-        
-      </div>
-    </a>
   
-  
-    <a href="../../information/test/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../powerplatform/Deprecation-WS-Trust/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Japan Dynamics CRM &amp; Power Platform Support Blog 開設のお知らせ</div>
+      <div class="article-nav-title">WS-Trust による Dataverse への接続は、2022 年 4 月以降、非推奨（廃止）になります</div>
     </a>
   
 </nav>
@@ -207,7 +241,7 @@
       <ul>
         
           <li>
-            <a href="../canvas-app-change-app-owner/">キャンバス アプリ所有者の退職・異動への備え</a>
+            <a href="">キャンバス アプリ所有者の退職・異動への備え</a>
           </li>
         
           <li>
