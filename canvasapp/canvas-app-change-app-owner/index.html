@@ -13,19 +13,19 @@
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、Power Platform サポートの谷です。今回は、キャンバス アプリ所有者の退職・異動に際し、Power Apps のキャンバス アプリ所有者を変更する方法についてご説明します。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image01.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image02.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image03.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image04.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image05.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/image01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/image02.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/image03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/image04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/image05.png">
 <meta property="article:published_time" content="2022-02-16T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-17T06:47:03.964Z">
+<meta property="article:modified_time" content="2022-02-17T06:57:42.335Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Canvas app">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="PowerShell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/Canvas-app-change-app-owner/image01.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/image01.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -110,7 +110,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+bbb6a14c-f021-5167-9514-092c24cd1c99%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA%E6%89%80%E6%9C%89%E8%80%85%E3%81%AE%E9%80%80%E8%81%B7%E3%83%BB%E7%95%B0%E5%8B%95%E3%81%B8%E3%81%AE%E5%82%99%E3%81%88%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2Fcanvas-app-change-app-owner%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2Fcanvas-app-change-app-owner.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcanvasapp%2Fcanvas-app-change-app-owner.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/" data-id="ckzqmeu1w00030mpbap4953pu" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/" data-id="ckzqmsio600030nn41kmw7ubr" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -162,7 +162,7 @@
 <ul>
 <li>&lt;アプリの GUID&gt;、&lt;環境の GUID&gt;<ul>
 <li>管理者用 Power Apps コマンドレット「<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/get-adminpowerapp?view=pa-ps-latest">Get-AdminPowerApp</a>」コマンドでご取得ください</li>
-<li><img src="./Canvas-app-change-app-owner/image01.png"></li>
+<li><img src="/blog/canvasapp/canvas-app-change-app-owner/image01.png"></li>
 </ul>
 </li>
 <li>&lt;新たな所有者の GUID&gt;<ul>
@@ -172,12 +172,12 @@
 <li><pre><code>Get-AzureADUser | Select DisplayName, UserPrincipalName, ObjectId
 </code></pre>
 </li>
-<li><img src="./Canvas-app-change-app-owner/image02.png"></li>
+<li><img src="/blog/canvasapp/canvas-app-change-app-owner/image02.png"></li>
 </ul>
 </li>
 <li>Azure Active Directory 管理センターにおけるユーザーの GUID の確認例<ul>
 <li><a target="_blank" rel="noopener" href="https://aad.portal.azure.com/">Azure Active Directory 管理センター</a> &gt; ユーザー &gt; 対象のユーザー</li>
-<li><img src="./Canvas-app-change-app-owner/image03.png"></li>
+<li><img src="/blog/canvasapp/canvas-app-change-app-owner/image03.png"></li>
 </ul>
 </li>
 </ul>
@@ -186,8 +186,8 @@
 <h2 id="Power-Platform-管理センターでアプリの共同所有者を追加する、あるいは削除する方法"><a href="#Power-Platform-管理センターでアプリの共同所有者を追加する、あるいは削除する方法" class="headerlink" title="Power Platform 管理センターでアプリの共同所有者を追加する、あるいは削除する方法"></a>Power Platform 管理センターでアプリの共同所有者を追加する、あるいは削除する方法</h2><p><strong>実行例</strong></p>
 <ol>
 <li>管理者の役割を持つユーザーで <a target="_blank" rel="noopener" href="https://admin.powerplatform.com/">Power Platform 管理センター</a> にアクセスします</li>
-<li>対象の環境の「…」メニューから「Power Apps」を選択します<br> <img src="./Canvas-app-change-app-owner/image04.png"></li>
-<li>対象のアプリの「…」メニューから、共同所有者を追加する場合「共有」を、アプリを削除する場合「削除」を選択します<br> <img src="./Canvas-app-change-app-owner/image05.png"></li>
+<li>対象の環境の「…」メニューから「Power Apps」を選択します<br> <img src="/blog/canvasapp/canvas-app-change-app-owner/image04.png"></li>
+<li>対象のアプリの「…」メニューから、共同所有者を追加する場合「共有」を、アプリを削除する場合「削除」を選択します<br> <img src="/blog/canvasapp/canvas-app-change-app-owner/image05.png"></li>
 </ol>
 <h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#set-logged-in-user-as-the-owner-of-a-canvas-app">キャンバス アプリのオーナーとしてログイン ユーザーを設定する</a></li>

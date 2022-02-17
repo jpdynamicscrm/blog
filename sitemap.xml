@@ -23,13 +23,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/</loc>
-    
-    <lastmod>2022-02-17</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/</loc>
     
     <lastmod>2022-02-17</lastmod>
@@ -37,7 +30,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/</loc>
     
     <lastmod>2022-02-17</lastmod>
     
@@ -79,28 +72,14 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    
+    <lastmod>2022-02-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
-    
-    <lastmod>2022-02-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
-    
-    <lastmod>2022-02-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
-    
-    <lastmod>2022-02-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/</loc>
     
     <lastmod>2022-02-17</lastmod>
     
@@ -129,6 +108,27 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    
+    <lastmod>2022-02-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    
+    <lastmod>2022-02-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
+    
+    <lastmod>2022-02-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/</loc>
     
     <lastmod>2022-02-17</lastmod>
     
