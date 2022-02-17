@@ -84,7 +84,7 @@ Set-AdminPowerAppOwner –AppName '<アプリの GUID>' -AppOwner '<新たな所
 **実行コマンドで指定する各種引数について**
 - <アプリの GUID>、<環境の GUID>
     - 管理者用 Power Apps コマンドレット「[Get-AdminPowerApp](https://docs.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/get-adminpowerapp?view=pa-ps-latest)」コマンドでご取得ください
-    - ![](./Canvas-app-change-app-owner/image01.png)
+    - ![](./canvas-app-change-app-owner/image01.png)
 - <新たな所有者の GUID>
     - 「[Get-AzureADUser](https://docs.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターご確認ください
     - Get-AzureADUser 実行例
@@ -92,19 +92,19 @@ Set-AdminPowerAppOwner –AppName '<アプリの GUID>' -AppOwner '<新たな所
         - ```
           Get-AzureADUser | Select DisplayName, UserPrincipalName, ObjectId
           ```
-        -![](./Canvas-app-change-app-owner/image02.png)
+        -![](./canvas-app-change-app-owner/image02.png)
     - Azure Active Directory 管理センターにおけるユーザーの GUID の確認例
         - [Azure Active Directory 管理センター](https://aad.portal.azure.com) > ユーザー > 対象のユーザー
-        - ![](./Canvas-app-change-app-owner/image03.png)
+        - ![](./canvas-app-change-app-owner/image03.png)
 
 ## Power Platform 管理センターでアプリの共同所有者を追加する、あるいは削除する方法
 
 **実行例**
 1. 管理者の役割を持つユーザーで [Power Platform 管理センター](https://admin.powerplatform.com) にアクセスします
 2. 対象の環境の「…」メニューから「Power Apps」を選択します
-    ![](./Canvas-app-change-app-owner/image04.png)
+    ![](./canvas-app-change-app-owner/image04.png)
 3. 対象のアプリの「…」メニューから、共同所有者を追加する場合「共有」を、アプリを削除する場合「削除」を選択します
-    ![](./Canvas-app-change-app-owner/image05.png)
+    ![](./canvas-app-change-app-owner/image05.png)
 
 ## 参考情報
 - [キャンバス アプリのオーナーとしてログイン ユーザーを設定する](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#set-logged-in-user-as-the-owner-of-a-canvas-app)
