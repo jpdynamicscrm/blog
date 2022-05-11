@@ -51,13 +51,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
-    
-    <lastmod>2022-05-11</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
     
     <lastmod>2022-05-11</lastmod>
@@ -86,7 +79,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
     
     <lastmod>2022-05-11</lastmod>
     
@@ -107,14 +107,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
-    
-    <lastmod>2022-05-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
     
     <lastmod>2022-05-11</lastmod>
     
@@ -135,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
     
     <lastmod>2022-05-11</lastmod>
     
@@ -143,6 +136,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
     <lastmod>2022-05-11</lastmod>
     
