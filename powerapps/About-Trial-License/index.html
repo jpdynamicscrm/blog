@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>試用版ライセンスについて | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Apps の試用版ライセンスについて、下記項目の順にご説明いたします。&lt;試用版ライセンスの概要&gt;&lt;試用版ライセンスの種類について&gt;&lt;ライセンス利用状況の確認方法について&gt;&lt;Microsoft 365 (Office 365) ライセンスとの機能の違い&gt;&lt;Power">
+<meta property="og:type" content="article">
+<meta property="og:title" content="試用版ライセンスについて">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Apps の試用版ライセンスについて、下記項目の順にご説明いたします。&lt;試用版ライセンスの概要&gt;&lt;試用版ライセンスの種類について&gt;&lt;ライセンス利用状況の確認方法について&gt;&lt;Microsoft 365 (Office 365) ライセンスとの機能の違い&gt;&lt;Power">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/assign-trial-license-on-ppac.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/start-button-screen.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/screen-of-demanding-license.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/license-set-up.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/sample-image-of-Get-AdminPowerAppLicenses.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/sample-result-of-Get-AdminPowerAppLicenses.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/about-m365-license.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/screen-of-demanding-license.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/required-license-normal.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/required-license-premium.png">
+<meta property="article:published_time" content="2022-05-06T03:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T09:04:51.367Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="PowerShell">
+<meta property="article:tag" content="Power Apps">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/assign-trial-license-on-ppac.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerapps/About-Trial-License" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      試用版ライセンスについて
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2022-05-06T03:00:00.000Z" itemprop="datePublished">2022-05-06</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+986b88d3-bae5-5f61-a4fd-729ad29c024f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E8%A9%A6%E7%94%A8%E7%89%88%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2FAbout-Trial-License%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2FAbout-Trial-License.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerapps%2FAbout-Trial-License.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/" data-id="cl31cvr9k00070ontgisu14yx" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートの山田です。<br/><br>今回は、Power Apps の試用版ライセンスについて、下記項目の順にご説明いたします。<br>&lt;試用版ライセンスの概要&gt;<br>&lt;試用版ライセンスの種類について&gt;<br>&lt;ライセンス利用状況の確認方法について&gt;<br>&lt;Microsoft 365 (Office 365) ライセンスとの機能の違い&gt;<br>&lt;Power Apps 有償ライセンスについて&gt;  </p>
+<span id="more"></span> 
+<h2 id="lt-試用版ライセンスの概要-gt"><a href="#lt-試用版ライセンスの概要-gt" class="headerlink" title="&lt;試用版ライセンスの概要&gt;"></a><strong>&lt;試用版ライセンスの概要&gt;</strong></h2><p>試用版ライセンスでは、プレミアム機能 (プレミアムコネクタやオンプレミスデータゲートウェイなど) を含む Power Apps の全ての機能をご利用いただけます。<br>試用版ライセンスはユーザー毎に 1 回 30 日間のご利用が可能でございます。<br>2 回までの延長が可能でございますので、合計最大 90 日までご利用いただけます。<br>その他詳細については下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/signup-for-powerapps">Power Apps 30 日間の無料試用版</a>  </p>
+<h2 id="lt-試用版ライセンスの種類について-gt"><a href="#lt-試用版ライセンスの種類について-gt" class="headerlink" title="&lt;試用版ライセンスの種類について&gt;"></a><strong>&lt;試用版ライセンスの種類について&gt;</strong></h2><p>試用版ライセンスには、下記の 2 種類がございます。<br>①Microsoft 365 管理センター上でご確認いただけるライセンス<br>②Microsoft 365 管理センター上でご確認いただけないライセンス  </p>
+<p><strong>①Microsoft 365 管理センター上でご確認いただけるライセンス</strong><br>下記公開情報に記載の方法にて、Microsoft 365 管理センター上にてご確認いただける試用版ライセンスがご取得いただけます。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/signup-for-powerapps#get-a-license-from-scratch">最初からライセンスを取得する</a>  </p>
+<p>または、Microsoft 365 管理センターにて、対象ユーザーに付与することでご利用いただけます。<br><img src="/blog/powerapps/About-Trial-License/assign-trial-license-on-ppac.png"><br>ライセンス付与の対象ユーザーが既に Power Apps サービスへアクセスしたことがある場合は、<br>ライセンスを付与したタイミングから 30 日間ご利用いただけます。<br>ライセンス付与の対象ユーザーがまだ Power Apps サービスへアクセスしたことがない場合は、<br>初回アクセス時に表示される下図の「作業の開始」を実行いただいたタイミングから 30 日間ご利用いただけます。<br><img src="/blog/powerapps/About-Trial-License/start-button-screen.png">  </p>
+<p><strong>②Microsoft 365 管理センター上でご確認いただけないライセンス</strong><br>Power Apps が有効なライセンスが付与されていない状態で、任意のアプリを実行しようとすると下図のメッセージが表示されます。<br>「試用版の開始」よりサインインし、試用版ライセンスのセットアップ手続きを行います。<br>管理センター上に表示されない試用版ライセンスが対象ユーザーにおいて取得され、利用開始となります。<br><img src="/blog/powerapps/About-Trial-License/screen-of-demanding-license.png"><br><img src="/blog/powerapps/About-Trial-License/license-set-up.png">   
+　  
+　  </p>
+<h2 id="lt-ライセンス利用状況の確認方法について-gt"><a href="#lt-ライセンス利用状況の確認方法について-gt" class="headerlink" title="&lt;ライセンス利用状況の確認方法について&gt;"></a><strong>&lt;ライセンス利用状況の確認方法について&gt;</strong></h2><p>管理センター上に表示されない試用版ライセンスは、下記の PowerShell での Power Apps 管理コマンドをご利用いただくことでご確認いただけます。<br>Power Apps 管理 コマンドをご実行いただくとライセンス利用状況の CSV ファイルをご取得いただけます。  </p>
+<p>ただし、コマンドの出力には、Power Platform サービスにアクセスしたユーザーのライセンスのみが含まれます。<br>ライセンスが割り当てられていても、Power Platform サービスにアクセスしたことがないユーザーは、CSV ファイルにライセンスが含まれません。<br>また、最近サービスにアクセスしていないユーザーの場合、出力に反映されるまでに最大で 7 日かかる場合がございます。<br>予めご承知おきいただけますと幸いでございます。  
+　  </p>
+<h3 id="lt-PowerShell-コマンド実行手順-gt"><a href="#lt-PowerShell-コマンド実行手順-gt" class="headerlink" title="&lt;PowerShell コマンド実行手順&gt;"></a>&lt;PowerShell コマンド実行手順&gt;</h3><p>⓪これまでに Power Apps 管理モジュールをご利用頂いたことがない場合は、<br>　管理者権限で PowerShell を起動し、初めに以下のコマンドでモジュールをインストールください。<br>　Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force  </p>
+<p>①下記 Power Apps 管理コマンドを実行  </p>
+<pre><code class="CMD">　Get-AdminPowerAppLicenses -OutputFilePath &#39;&lt;licenses.csv&gt;&#39;  
+</code></pre>
+<p>  　　<br>　詳細につきましては、下記公開情報もご参照ください。<br>　<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#export-a-list-of-assigned-user-licenses">割り当てられたユーザー ライセンスのリストをエクスポートする</a><br>　<br>　実行イメージ：<br>　<img src="/blog/powerapps/About-Trial-License/sample-image-of-Get-AdminPowerAppLicenses.png"><br>　<br>上記コマンドで取得できる CSV ファイルの内容は下図例の様になります。<br><img src="/blog/powerapps/About-Trial-License/sample-result-of-Get-AdminPowerAppLicenses.png">   </p>
+<ul>
+<li>C列”Service”：「Power Apps Per User Plan trial」となっているものが管理センター上でご確認いただける試用版ライセンス  </li>
+<li>D列”License”：「Power Apps Per User Plan trial」となっているものが管理センター上でご確認いただけない試用版ライセンス  </li>
+<li>E列”License Assigned Date”：対象ユーザーの試用版ライセンスの開始時期  </li>
+<li>G列”Expiration Date”：対象ユーザーの試用版ライセンスの終了時期  
+　  </li>
+</ul>
+<h2 id="lt-Microsoft-365-Office-365-ライセンスとの機能の違い-gt"><a href="#lt-Microsoft-365-Office-365-ライセンスとの機能の違い-gt" class="headerlink" title="&lt;Microsoft 365 (Office 365) ライセンスとの機能の違い&gt;"></a><strong>&lt;Microsoft 365 (Office 365) ライセンスとの機能の違い&gt;</strong></h2><p>Office 365 E3 ライセンスなどの Microsoft 365 (Office 365) には Power Apps の一部の使用権が含まれておりますが、<br>試用版ライセンスに含まれるプレミアム機能は含まれておりません。<br>そのため、プレミアム コネクタ等を利用しているアプリは Microsoft 365 ではご実行いただくことができません。  </p>
+<p>Microsoft 365 ライセンスに含まれる Power Apps 使用権の詳細については下記のライセンスガイドをご参照ください。<br>　※クリックすると PDF のダウンロードが開始します。<br>　<a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x411">Microsoft Power Apps、Microsoft Power Automate、Microsoft Power Virtual Agents ライセンスガイド</a>  </p>
+<p>Microsoft 365 ライセンスに含まれる Power Apps の使用権は、<br>プレミアム コネクタ等が含まれておらず、限定された機能となります。<br><img src="/blog/powerapps/About-Trial-License/about-m365-license.png"><br>※ライセンスガイドより抜粋。2022 年 4 月時点のものとなります。  
+　　  </p>
+<p>　　  </p>
+<h2 id="lt-試用版ライセンスの期限を迎えた場合-gt"><a href="#lt-試用版ライセンスの期限を迎えた場合-gt" class="headerlink" title="&lt;試用版ライセンスの期限を迎えた場合&gt;"></a><strong>&lt;試用版ライセンスの期限を迎えた場合&gt;</strong></h2><h3 id="プレミアム機能を利用していないアプリの場合"><a href="#プレミアム機能を利用していないアプリの場合" class="headerlink" title="-プレミアム機能を利用していないアプリの場合"></a>-プレミアム機能を利用していないアプリの場合</h3><p>試用版ライセンスのみが付与されているユーザーがアプリを実行しようとすると、下図の様なメッセージが表示されアプリをご実行いただけません。<br><img src="/blog/powerapps/About-Trial-License/screen-of-demanding-license.png">     </p>
+<p>対象アプリを引き続きご実行いただくには、以下の 2 通りの対応が必要となります。<br>①試用版ライセンスを延長いただく (※ただし、上述の通り、延長は各ユーザーにつき 2 回までとなります。)<br>②Microsoft 365 ライセンス、およびライセンスに含まれる Power Apps 使用権を対象ユーザーに付与いただく  </p>
+<h3 id="プレミアム機能を利用しているアプリの場合"><a href="#プレミアム機能を利用しているアプリの場合" class="headerlink" title="-プレミアム機能を利用しているアプリの場合"></a>-プレミアム機能を利用しているアプリの場合</h3><p>アプリを実行しようとすると有償ライセンスが必要であるメッセージが表示され、アプリをご実行いただけません。  </p>
+<p>プレミアム機能を利用しているため、Microsoft 365 ライセンスに含まれる Power Apps 使用権をユーザーへ付与してもアプリはご実行いただけません。<br>そのため、対象アプリを引き続きご実行いただくには、以下の 2 通りの対応が必要となります。<br>①試用版ライセンスを延長いただく (※ただし、上述の通り、延長は各ユーザー 2 回までとなります。)<br>②Power Apps の有償ライセンスをご利用いただく (※詳細については、後述致します。)  </p>
+<p>※対象アプリがプレミアム機能を必要とするかの判断方法については下記公開情報もご参照ください。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/maker/canvas-apps/license-designation#check-app-license-designation-from-app-settings">アプリのライセンス指定の確認方法</a>   </p>
+<p>上記公開情報に記載のライセンス指定情報 = 設定画面上の「ライセンスの名称」が「プレミアム」となっている場合には、<br>プレミアム機能が有効なライセンスが必要となります。<br><img src="/blog/powerapps/About-Trial-License/required-license-normal.png"><br><img src="/blog/powerapps/About-Trial-License/required-license-premium.png">  </p>
+<h2 id="lt-Power-Apps有償ライセンスについて-gt"><a href="#lt-Power-Apps有償ライセンスについて-gt" class="headerlink" title="&lt;Power Apps有償ライセンスについて&gt;"></a><strong>&lt;Power Apps有償ライセンスについて&gt;</strong></h2><p>試用版ライセンスと同様に Power Apps の全ての機能をご利用いただくには、<br>下記 2 種の Power Apps の有償ライセンスのどちらかが必要となります。<br>①Power Apps per app プラン<br>②Power Apps per user プラン  </p>
+<p>各ライセンスの内容は以下の通りとなります。<br>更なる詳細については上述のライセンスガイドを併せてご確認ください。  </p>
+<p><strong>①Power Apps per app プラン</strong><br>　1 ライセンスで 1 ユーザーが 1 アプリをご利用いただけます。<br>　利用されたいアプリが 2 つある場合には、利用されたいアプリ数分のライセンスが必要となります。<br>　また、1つのアプリを複数ユーザーにてご利用されたい場合には、<br>　利用されるユーザー数分のライセンスが必要となります。  </p>
+<p><strong>②Power Apps per user プラン</strong><br>　割り当てられた対象ユーザーがアプリ数の制限なく、Power Apps をご利用いただけるライセンスとなっております。<br>　ご利用いただくユーザー数分のライセンスが必要となります。  </p>
+<p>その他、ライセンス詳細につきましては、下記公開情報もご参照ください  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus">Microsoft Power Platform ライセンスの概要 </a>  </li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/about-powerapps-perapp">アプリごとの Power Apps プラン </a>  </li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-overview">従量課金制プランの概要 </a>  </li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq">Power Apps と Power Automate のライセンスに関する FAQ </a>  </li>
+</ul>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerapps/About-Trial-License.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerautomate/helpful-information-for-powerautomate-sr/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Automate お問い合わせの際の情報取得手順</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">試用版ライセンスについて</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/helpful-information-for-powerautomate-sr/">Power Automate お問い合わせの際の情報取得手順</a>
+          </li>
+        
+          <li>
+            <a href="../../canvasapp/canvas-app-change-app-owner/">キャンバス アプリ所有者の退職・異動への備え</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/Deprecation-WS-Trust/">WS-Trust による Dataverse への接続は、2022 年 4 月以降、非推奨（廃止）になります</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/PowerAutomateDesktopSupportability/">Power Automate for desktop のサポート範囲について</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flows/" rel="tag">Cloud flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flows/" rel="tag">Desktop flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/">Canvas app</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">8</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Cloud-flows">Cloud flows</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E7%92%B0%E5%A2%83">環境</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">10</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flows">Cloud flows</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flows">Desktop flows</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-Desktop">Power Automate Desktop</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Model-driven-app/Dynamics">Dynamics</a><span class="tag-list-count">3</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/Canvas-app/" style="font-size: 14px;">Canvas app</a> <a href="../../tags/Cloud-flows/" style="font-size: 12px;">Cloud flows</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10px;">Dataverse for Teams</a> <a href="../../tags/Desktop-flows/" style="font-size: 12px;">Desktop flows</a> <a href="../../tags/Dynamics/" style="font-size: 16px;">Dynamics</a> <a href="../../tags/Graph-API/" style="font-size: 10px;">Graph API</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Model-driven-app/" style="font-size: 14px;">Model-driven app</a> <a href="../../tags/Power-Apps/" style="font-size: 12px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 12px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 18px;">Power Platform</a> <a href="../../tags/PowerShell/" style="font-size: 14px;">PowerShell</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a> <a href="../../tags/%E7%92%B0%E5%A2%83/" style="font-size: 10px;">環境</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
