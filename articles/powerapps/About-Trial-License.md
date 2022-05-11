@@ -38,14 +38,14 @@ tags:
 ライセンスを付与したタイミングから 30 日間ご利用いただけます。  
 ライセンス付与の対象ユーザーがまだ Power Apps サービスへアクセスしたことがない場合は、  
 初回アクセス時に表示される下図の「作業の開始」を実行いただいたタイミングから 30 日間ご利用いただけます。      
-![](./about-trial-license/start-button-screen.png)  
+![](./About-Trial-License/start-button-screen.png)  
 
 **②Microsoft 365 管理センター上でご確認いただけないライセンス**   
 Power Apps が有効なライセンスが付与されていない状態で、任意のアプリを実行しようとすると下図のメッセージが表示されます。  
 「試用版の開始」よりサインインし、試用版ライセンスのセットアップ手続きを行います。    
 管理センター上に表示されない試用版ライセンスが対象ユーザーにおいて取得され、利用開始となります。  
-![](./about-trial-license/screen-of-demanding-license.png)   
-![](./about-trial-license/license-set-up.png)   
+![](./About-Trial-License/screen-of-demanding-license.png)   
+![](./About-Trial-License/license-set-up.png)   
 　  
 　  
 ## **<ライセンス利用状況の確認方法について>**  
@@ -71,10 +71,10 @@ Power Apps 管理 コマンドをご実行いただくとライセンス利用�
 　[割り当てられたユーザー ライセンスのリストをエクスポートする](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#export-a-list-of-assigned-user-licenses)  
 　  
 　実行イメージ：  
-　![](./about-trial-license/sample-image-of-Get-AdminPowerAppLicenses.png)   
+　![](./About-Trial-License/sample-image-of-Get-AdminPowerAppLicenses.png)   
 　  
 上記コマンドで取得できる CSV ファイルの内容は下図例の様になります。  
-![](./about-trial-license/sample-result-of-Get-AdminPowerAppLicenses.png)   
+![](./About-Trial-License/sample-result-of-Get-AdminPowerAppLicenses.png)   
   
 - C列”Service”：「Power Apps Per User Plan trial」となっているものが管理センター上でご確認いただける試用版ライセンス  
 - D列”License”：「Power Apps Per User Plan trial」となっているものが管理センター上でご確認いただけない試用版ライセンス  
@@ -95,7 +95,7 @@ Microsoft 365 ライセンスに含まれる Power Apps 使用権の詳細につ
   
 Microsoft 365 ライセンスに含まれる Power Apps の使用権は、  
 プレミアム コネクタ等が含まれておらず、限定された機能となります。  
-![](./about-trial-license/about-m365-license.png)  
+![](./About-Trial-License/about-m365-license.png)  
 ※ライセンスガイドより抜粋。2022 年 4 月時点のものとなります。  
 　　  
 
@@ -104,7 +104,7 @@ Microsoft 365 ライセンスに含まれる Power Apps の使用権は、
 ## **<試用版ライセンスの期限を迎えた場合>**  
 ### -プレミアム機能を利用していないアプリの場合
 試用版ライセンスのみが付与されているユーザーがアプリを実行しようとすると、下図の様なメッセージが表示されアプリをご実行いただけません。  
-![](./about-trial-license/screen-of-demanding-license.png)     
+![](./About-Trial-License/screen-of-demanding-license.png)     
   
 対象アプリを引き続きご実行いただくには、以下の 2 通りの対応が必要となります。  
 ①試用版ライセンスを延長いただく (※ただし、上述の通り、延長は各ユーザーにつき 2 回までとなります。)  
@@ -126,8 +126,8 @@ Microsoft 365 ライセンスに含まれる Power Apps の使用権は、
   
 上記公開情報に記載のライセンス指定情報 = 設定画面上の「ライセンスの名称」が「プレミアム」となっている場合には、  
 プレミアム機能が有効なライセンスが必要となります。  
-![](./about-trial-license/required-license-normal.png)  
-![](./about-trial-license/required-license-premium.png)  
+![](./About-Trial-License/required-license-normal.png)  
+![](./About-Trial-License/required-license-premium.png)  
   
    
 
