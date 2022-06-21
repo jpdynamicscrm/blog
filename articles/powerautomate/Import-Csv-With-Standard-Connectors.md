@@ -1,8 +1,8 @@
 ---
 title: Power Automate で csv ファイルを取り込む
-date: 2022-06-17 17:51:19
+date: 2022-06-21 15:59:17
 tags:
-  - PowerAutomate
+  - Power Automate
 ---
 
 # Power Automate で csv ファイルを取り込む
@@ -14,11 +14,11 @@ tags:
 <!-- more -->
 
 ## 今回取り込む csv ファイル
-![csvファイルをExcelで開いた画面](./Import-Csv-With-Standard-Connectors/image001.png)
+![](./Import-Csv-With-Standard-Connectors/image001.png)
 
 上図が今回使用した Excel シートです。これを、ファイルの種類を「CSV UTF (コンマ区切り)」へ変更して保存しました。その csv ファイルをメモ帳で開いた様子が下図です。
 
-![csvファイルをメモ帳で開いた画面](./Import-Csv-With-Standard-Connectors/image002.png)
+![](./Import-Csv-With-Standard-Connectors/image002.png)
 
 特徴は下記の通りです：
 
@@ -38,20 +38,20 @@ tags:
 
 フローの全体図は下記の通りです。
 
-![フローの全体図](./Import-Csv-With-Standard-Connectors/image003.png)
+![](./Import-Csv-With-Standard-Connectors/image003.png)
 
 ここから、フローの詳細を順を追って解説いたします。
 
 ### csvファイルの内容を行ごとに分割する
 csv ファイルを処理する前に、まずは改行を格納する変数を用意します。
 
-![変数を初期化する1](./Import-Csv-With-Standard-Connectors/image004.png)
+![](./Import-Csv-With-Standard-Connectors/image018.png)
 
 式：`decodeUriComponent('%0D%0A')`
 
 今回の例では、[decodeUriComponent 関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#decodeUriComponent) を使用します。パラメータの `%0D%0A` は改行コード (CRLF) を表しています。
 
-![変数を初期化する2](./Import-Csv-With-Standard-Connectors/image005.png)
+![](./Import-Csv-With-Standard-Connectors/image005.png)
 
 次に、トリガーアクションの「ファイルコンテンツ」を変数「CSVコンテンツ」に格納します。その後、「CSVコンテンツ」を「改行コード」で分割してアレイ変数に格納します。
 指定の文字で分割するには、[split 関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#split) を使います。
@@ -61,7 +61,7 @@ csv ファイルを処理する前に、まずは改行を格納する変数を�
 ### 列ごとの値を入れる変数の準備
 次に、列を分割した後の値を入れるアレイ変数 (列配列) と、csv ファイルに定義されている列と同じ変数を初期化します。
 
-![変数を初期化する3](./Import-Csv-With-Standard-Connectors/image006.png)
+![](./Import-Csv-With-Standard-Connectors/image006.png)
 
 今回は 商品、単価、個数の3つの列があるので、それぞれ同じ名前で変数を作りました。
 
@@ -69,23 +69,22 @@ csv ファイルを処理する前に、まずは改行を格納する変数を�
 
 ここから、行ごとの繰り返し処理 (Apply To Each) に入ります。
 
-![Apply to each](./Import-Csv-With-Standard-Connectors/image007.png)
+![](./Import-Csv-With-Standard-Connectors/image007.png)
 
-繰り返し処理の初めに条件を指定し、行が空ではないときだけ後続のフローを続けるようにします。
+繰り返し処理の初めに条件を指定し、行が空ではないときだけ「はいの場合」が実行されるようにします。
 
-![条件分岐](./Import-Csv-With-Standard-Connectors/image008.png)
+![](./Import-Csv-With-Standard-Connectors/image008.png)
 
 条件式の左辺：`length(item())`
 
 「`length(item())` が 0 より大きい」ときに「はい」になるようにしています。`item()` は行配列の各要素を表しているので、行が空でなければ「はい」になります。
-
 この条件を入れておくと、csv ファイルの最後の行が空の場合に、空のまま取り込んでしまうのを防止できます。
 
-![csvファイルに4行目がある図](./Import-Csv-With-Standard-Connectors/image009.png)
+![](./Import-Csv-With-Standard-Connectors/image009.png)
 
 この条件分岐なしでフローを作成すると、取込先の SharePoint リストに空のデータが入ってしまいます。
 
-![SharePointリストに空行が入っている](./Import-Csv-With-Standard-Connectors/image010.png)
+![](./Import-Csv-With-Standard-Connectors/image010.png)
 
 ### カンマごとに列を分割する
 ここからは、条件分岐の「はいの場合」のときの処理です。
@@ -96,12 +95,10 @@ csv ファイルを処理する前に、まずは改行を格納する変数を�
 
 それぞれの変数名と値は下記の通りです。
 
-|変数名|値|
-|---|---|
-|列配列|`@{split(item(), ',')}`|
-|商品|`@{variables('列配列')?[0]}`|
-|単価|`@{variables('列配列')?[1]}`|
-|個数|`@{variables('列配列')?[2]}`|
+* 列配列 ： `@{split(item(), ',')}`
+* 商品 ： `@{variables('列配列')?[0]}`
+* 単価 ： `@{variables('列配列')?[1]}`
+* 個数 ： `@{variables('列配列')?[2]}`
 
 ### 分割した値を取り込む
 最後に 商品、単価、個数を SharePoint リストへ登録します。
@@ -130,7 +127,6 @@ csv ファイルを処理する前に、まずは改行を格納する変数を�
 ![](./Import-Csv-With-Standard-Connectors/image015.png)
 
 「行カウンタが1より大きい」となるように条件を設定します。
-
 これで、行カウンタが1のときは「いいえの場合」になるので SharePoint リストへの登録が行われなくなります。
 
 ![](./Import-Csv-With-Standard-Connectors/image016.png)
@@ -139,5 +135,4 @@ csv ファイルを処理する前に、まずは改行を格納する変数を�
 
 ## 最後に
 以上、Power Automate で csv ファイルを取り込む方法をご紹介いたしました。
-
 SharePoint リストへの登録の部分を他のアクションへ置き換えることで、様々な状況で活用していただけます。参考になりましたら幸いです。
