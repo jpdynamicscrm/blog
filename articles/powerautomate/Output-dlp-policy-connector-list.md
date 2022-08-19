@@ -102,7 +102,7 @@ $connectors | Export-Csv -Path $filePath -Encoding UTF8 -NoTypeInformation
 
 PowerShell の `Get-DlpPolicy` で取得できるコネクタの顔ぶれと Power Platform 管理センター で確認できるコネクタの顔ぶれが異なる場合があります。
 
-これは想定された動作となっており、両者には以下の違いがあります。
+これは両者に以下の違いがあるためです。
 
 * PowerShell で取得できるコネクタ　：　ポリシーに明示的に追加されたコネクタのみを取得できます。
 * Power Platform 管理センターで見るコネクタ　：　現時点で有効なコネクタが表示されます (ポリシー作成以降に追加/廃止されたコネクタが表示/非表示になります)。
