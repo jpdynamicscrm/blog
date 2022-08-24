@@ -102,7 +102,14 @@ $connectors | Export-Csv -Path $filePath -Encoding UTF8 -NoTypeInformation
 
 PowerShell の `Get-DlpPolicy` で取得できるコネクタの顔ぶれと Power Platform 管理センター で確認できるコネクタの顔ぶれが異なる場合があります。
 
-これは両者に以下の違いがあるためです。
+原因は以下の2つのいずれか、または両方が考えられます。
+
+* 最後に DLP ポリシーを保存してから、新しいコネクタが追加されたか、廃止されたコネクタがある。
+* Power Virtual Agents など、DLP ポリシーの対象とならないコネクタがある。
+
+### 新しいコネクタが追加されたか、廃止されたコネクタがある
+
+PowerShell で取得できるコネクタと、Power Platform 管理センターで見えるコネクタには、以下の違いがあります。
 
 * PowerShell で取得できるコネクタ　：　ポリシーに明示的に追加されたコネクタのみを取得できます。
 * Power Platform 管理センターで見るコネクタ　：　現時点で有効なコネクタが表示されます (ポリシー作成以降に追加/廃止されたコネクタが表示/非表示になります)。
@@ -124,3 +131,7 @@ PowerShell の `Get-DlpPolicy` で取得できるコネクタの顔ぶれと Pow
  * [新しいコネクタの既定データ グループ について](https://docs.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors)
  * [既定のデータ グループの変更](https://docs.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group)
 
+### DLP ポリシーの対象とならないコネクタがある
+DLP ポリシーは Power Platform からのデータ漏洩を防ぐことが目的のものです。
+そのため、Power Apps や Power Virtual Agents など、Power Platform に含まれるコネクタは、DLP ポリシーの対象外になります。
+したがって、Power Platform 管理センター のコネクタ一覧には表示されないのですが、PowerShell で取得できるコネクタ一覧には含まれる場合があります。
