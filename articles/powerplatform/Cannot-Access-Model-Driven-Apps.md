@@ -48,12 +48,12 @@ tags:
 
 5. App Access Checker のページへ遷移したら、左上のテキスト ボックスに、アプリにアクセスできないアカウントのユーザー ID またはメール アドレスを入力し、[Search] ボタンをクリックすることで、ユーザー アカウントのアプリ使用に関する情報を閲覧することができます。
 このとき、License および Security が Yes と表示されていれば、Visible も Yes となり、当該ユーザー アカウントでインスタンス内のアプリを使用できることを意味します。
-License または Security で No と表示されている場合、次の [ライセンスの割り当て](#ライセンスの割り当て) または [セキュリティ ロールの割り当て](#セキュリティ-ロールの割り当て) を行うことで、事象を解消できます。
+License または Security で No と表示されている場合、次の [ライセンスの割り当て](#ライセンスの割り当て) または [セキュリティ ロールの割り当て](#セキュリティ-ロールの割り当て) の操作をお試しください。
 
 ![](./Cannot-Access-Model-Driven-Apps/03_access-checker.png)
 
 ## ライセンスの割り当て
-App Access Checker にて、アカウントの License が No と表示されている場合、適切なライセンスの割り当てが必要になります。
+App Access Checker にて、アカウントの License が No と表示されている場合、適切なライセンスの割り当てが必要です。
 以下の手順でライセンスの割り当てが可能です。
 
 1. ライセンス割り当ての権限を持つ管理者アカウントを使用して、[Microsoft 365 管理センター](https://admin.microsoft.com/) にアクセスします。
@@ -67,7 +67,7 @@ App Access Checker にて、アカウントの License が No と表示されて
 ![](./Cannot-Access-Model-Driven-Apps/05_license.png)
 
 ## セキュリティ ロールの割り当て
-App Access Checker にて、アカウントの Security が No と表示されている場合、適切なセキュリティ ロールの割り当てが必要になります。
+App Access Checker にて、アカウントの Security が No と表示されている場合、適切なセキュリティ ロールの割り当てが必要です。
 以下の手順でセキュリティ ロールの割り当てが可能です。
 
 1. 管理者権限を持ったユーザー アカウントで、[Power Apps](https://make.powerapps.com/?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) にサインインします。
@@ -93,13 +93,13 @@ App Access Checker にて、アカウントの Security が No と表示され�
 ※ sample の部分を適切な文字列に置き換えてください。
 
 ## 注釈
-- (※1) セキュリティ ロールとは、営業担当者などの異なるユーザーが異なる種類のレコードにどのようにアクセスできるかを定義する機能のことです。詳しくは、[こちら](https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges#security-roles) ご覧ください。
+- (※1) セキュリティ ロールとは、営業担当者などの異なるユーザーが異なる種類のレコードにどのようにアクセスできるかを定義する機能のことです。詳しくは、[こちら](https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges#security-roles) をご覧ください。
 
 ## 参考情報
 
 | リンク | 内容 |
 | ---- | --- |
-| [How to access "App Access Checker" to see Role & Privileges needed for AppModule Entity to see and launch model app](https://community.dynamics.com/crm/f/microsoft-dynamics-crm-forum/427100/how-to-access-app-access-checker-to-see-role-privileges-needed-for-appmodule-entity-to-see-and-launch-model-app) | 本記事で紹介した App Access Checker のアクセスについて解説している英語記事になります。 |
-| [Manage user accounts, user licenses, and security roles](https://docs.microsoft.com/en-us/dynamics365/marketing/admin-users-licenses-roles) | Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説している英語記事になります。 |
+| [How to access "App Access Checker" to see Role & Privileges needed for AppModule Entity to see and launch model app](https://community.dynamics.com/crm/f/microsoft-dynamics-crm-forum/427100/how-to-access-app-access-checker-to-see-role-privileges-needed-for-appmodule-entity-to-see-and-launch-model-app) | 本記事で紹介した App Access Checker のアクセスについて解説している英語記事です。 |
+| [Manage user accounts, user licenses, and security roles](https://docs.microsoft.com/en-us/dynamics365/marketing/admin-users-licenses-roles) | Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説している英語記事です。 |
 | [モデル駆動型アプリのよく寄せられる質問](https://docs.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/model-app-faq) | 解説している内容としてはタイトルの通りですが、インスタンス内のアプリがユーザーに表示されない原因について触れています。 |
 | [セキュリティ ロールおよび特権](https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges) | 本記事でアプリのアクセスを許可するために使用したセキュリティ ロールについて解説をしております。 |
