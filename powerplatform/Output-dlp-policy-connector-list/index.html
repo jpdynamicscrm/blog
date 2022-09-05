@@ -4,28 +4,26 @@
   <meta charset="utf-8">
   
   
-  <title>Dataverse for Teams 環境の管理方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>DLP ポリシーに設定されているコネクタの一覧を出力する | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの清水です。 今回は、2020 年 9 月に 新たに Teams に統合された Power Platform の機能について、その管理・制御方法やよくお問合せいただく内容に関して、詳しくご説明いたします。 ライセンスが Teams に組み込まれているという性質上、管理にお困りの方も多いかと思います。この記事が皆様のお役に立ちましたら幸いです。">
+  <meta name="description" content="こんにちは、Power Platform サポートの瀬戸です。 この記事では、データ消失防止 (DLP) ポリシー に設定されたコネクタの一覧を、CSV ファイルに出力する方法をご案内いたします。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dataverse for Teams 環境の管理方法">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/index.html">
+<meta property="og:title" content="DLP ポリシーに設定されているコネクタの一覧を出力する">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの清水です。 今回は、2020 年 9 月に 新たに Teams に統合された Power Platform の機能について、その管理・制御方法やよくお問合せいただく内容に関して、詳しくご説明いたします。 ライセンスが Teams に組み込まれているという性質上、管理にお困りの方も多いかと思います。この記事が皆様のお役に立ちましたら幸いです。">
+<meta property="og:description" content="こんにちは、Power Platform サポートの瀬戸です。 この記事では、データ消失防止 (DLP) ポリシー に設定されたコネクタの一覧を、CSV ファイルに出力する方法をご案内いたします。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/limitation.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-colleagues.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy-Shared.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/CoE-disclaimer.png">
-<meta property="article:published_time" content="2021-04-27T02:30:00.000Z">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-17-17-29-40.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-16-35-50.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-17-24-45.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-16-56-37.png">
+<meta property="article:published_time" content="2022-08-19T02:43:28.000Z">
 <meta property="article:modified_time" content="2022-09-05T00:35:28.842Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
-<meta property="article:tag" content="Dataverse for Teams">
-<meta property="article:tag" content="環境">
+<meta property="article:tag" content="PowerShell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/limitation.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-17-17-29-40.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -87,7 +85,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerplatform/Manage-Dataverse-for-Teams" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/Output-dlp-policy-connector-list" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,7 +94,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Dataverse for Teams 環境の管理方法
+      DLP ポリシーに設定されているコネクタの一覧を出力する
     </h1>
   
 
@@ -104,111 +102,64 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-04-27T02:30:00.000Z" itemprop="datePublished">2021-04-27</time>
+  <time datetime="2022-08-19T02:43:28.000Z" itemprop="datePublished">2022-08-19</time>
 </a>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+67d3d821-47d5-5211-9b5d-ec4dea7c41fe%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+for+Teams+%E7%92%B0%E5%A2%83%E3%81%AE%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FManage-Dataverse-for-Teams%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FManage-Dataverse-for-Teams.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FManage-Dataverse-for-Teams.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d65f502d-79eb-5b58-be81-611d4c18f8ec%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDLP+%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%AE%E4%B8%80%E8%A6%A7%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FOutput-dlp-policy-connector-list%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FOutput-dlp-policy-connector-list.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FOutput-dlp-policy-connector-list.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/" data-id="cl7o17c4i00130qkj1x56hd27" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/" data-id="cl7o17c4j00150qkjc41lf4ot" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの清水です。</p>
-<p>今回は、2020 年 9 月に 新たに Teams に統合された Power Platform の機能について、その管理・制御方法やよくお問合せいただく内容に関して、詳しくご説明いたします。</p>
-<p>ライセンスが Teams に組み込まれているという性質上、管理にお困りの方も多いかと思います。<br>この記事が皆様のお役に立ちましたら幸いです。</p>
+        <p>こんにちは、Power Platform サポートの瀬戸です。</p>
+<p>この記事では、データ消失防止 (DLP) ポリシー に設定されたコネクタの一覧を、CSV ファイルに出力する方法をご案内いたします。</p>
 <span id="more"></span>
 
-<h2 id="Dataverse-for-Teams-の概要"><a href="#Dataverse-for-Teams-の概要" class="headerlink" title="Dataverse for Teams の概要"></a>Dataverse for Teams の概要</h2><hr>
-<p>Dataverse for Teams 環境とは、Teams のチームに紐づく Power Platform の環境です。</p>
-<p>チームの所有者が環境の管理者となり、チームのメンバーは環境上でアプリやフロー、チャットボットを作成・使用することができます。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/about-teams-environment">Microsoft Dataverse for Teams 環境について | Microsoft Docs</a></p>
-<p>Dataverse for Teams の環境は、Teams を通してのみ作成されます。<br>例えば以下のような場合に、選択したチームの Dataverse for Teams 環境が自動で作成されます。</p>
+<h2 id="DLP-ポリシーとコネクタ"><a href="#DLP-ポリシーとコネクタ" class="headerlink" title="DLP ポリシーとコネクタ"></a>DLP ポリシーとコネクタ</h2><p>データ消失防止 (DLP) ポリシーとは、テナントや環境単位でコネクタの利用を制限できる、管理者向けの機能です。<br><a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/home">Power Platform 管理センター</a> よりアクセスいただけます。</p>
+<p><img src="/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-17-17-29-40.png"></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention">データ消失防止ポリシー - Power Platform | Microsoft Docs</a></p>
+<p>しかし、提供されているコネクタは非常に数が多く、DLP ポリシーを設定する画面ではすべてを把握するのが難しいのが現状です。</p>
+<p><img src="/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-16-35-50.png"><br>(2022年8月某日に確認した時点で800個以上)</p>
+<p>こんな時は、コネクタの一覧をファイルに出力できると、より把握しやすくなるのではないでしょうか。Power Platform の管理者向けの PowerShell コマンドレットを活用すれば、コネクタの一覧を CSV ファイルに出力できます。</p>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><p>Power Platform の PowerShell コマンドレットのご利用には、事前準備が必要です。詳しい手順は下記公開情報の「インストール」の章をご参照ください。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell">PowerShell のサポート - Power Platform | Microsoft Docs</a></p>
+<p><code>Install-Module</code> に失敗する場合は、インストールに必要な設定が不足している可能性が考えられます。その設定については、弊社 Windows サポートチームによる記事にまとめられていますので、こちらもぜひご覧ください。</p>
+<p><a target="_blank" rel="noopener" href="https://jpwinsup.github.io/blog/2021/06/14/UserInterfaceAndApps/PowerShell/how-to-setup-install-module/">PowerShell Gallery からモジュールをインストールするために必要な設定 | Microsoft Japan Windows Technology Support Blog</a></p>
+<h2 id="サンプル"><a href="#サンプル" class="headerlink" title="サンプル"></a>サンプル</h2><p>今回は、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/get-dlppolicy?view=pa-ps-latest">Get-DlpPolicy</a> を使用します。</p>
+<p>このコマンドレットは DLP ポリシーの一覧や DLP ポリシーの詳細情報を取得できます。これを <code>Export-Csv</code> と組み合わせ、CSV ファイルを作成します。</p>
+<p>以下に、サンプルコードを記載いたします。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>説明のためのサンプルであり、エラー処理などは含まれておりません。ご使用の際は、十分にご検証いただきますようお願いします。</p></div>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;#</span></span><br><span class="line"><span class="comment">特定のDLPポリシーに設定されているコネクタの一覧をcsvファイルに出力します</span></span><br><span class="line"><span class="comment">#&gt;</span></span><br><span class="line"><span class="built_in">Import-Module</span> Microsoft.PowerApps.Administration.PowerShell</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$filePath</span> = <span class="string">&quot;[CSVファイルパス]&quot;</span></span><br><span class="line"><span class="comment"># ポリシーのID</span></span><br><span class="line"><span class="variable">$policyId</span> = <span class="string">&quot;[DLPポリシーのID]&quot;</span></span><br><span class="line"><span class="comment"># メールアドレス</span></span><br><span class="line"><span class="variable">$mailAddress</span> = <span class="string">&quot;[メールアドレス]&quot;</span></span><br><span class="line"><span class="comment"># パスワード</span></span><br><span class="line"><span class="variable">$plainPassword</span> = <span class="string">&quot;[パスワード]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># サインイン</span></span><br><span class="line"><span class="variable">$pass</span> = <span class="built_in">ConvertTo-SecureString</span> <span class="variable">$plainPassword</span> <span class="literal">-AsPlainText</span> <span class="literal">-Force</span></span><br><span class="line"><span class="built_in">Add-PowerAppsAccount</span> <span class="literal">-Username</span> <span class="variable">$mailAddress</span> <span class="literal">-Password</span> <span class="variable">$pass</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$DLPPolicy</span> = <span class="built_in">Get-DlpPolicy</span> <span class="literal">-PolicyName</span> <span class="variable">$policyId</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$connectors</span> = <span class="selector-tag">@</span>()</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$group</span> <span class="keyword">in</span> <span class="variable">$DLPPolicy</span>.connectorGroups) &#123;</span><br><span class="line">    <span class="variable">$groupName</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="comment"># データグループの名前を分かりやすいものに置き換えます</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;Confidential&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;Business&quot;</span></span><br><span class="line">    &#125; <span class="keyword">elseif</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;General&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;NonBusiness&quot;</span></span><br><span class="line">    &#125; <span class="keyword">elseif</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;Blocked&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;Blocked&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="variable">$connector</span> <span class="keyword">in</span> <span class="variable">$group</span>.connectors) &#123;</span><br><span class="line">        <span class="variable">$obj</span> = <span class="built_in">New-Object</span> PSObject</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> Policy <span class="literal">-Value</span> <span class="variable">$DLPPolicy</span>.displayName</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> <span class="built_in">Group</span>  <span class="literal">-Value</span> <span class="variable">$groupName</span></span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> Name   <span class="literal">-Value</span> <span class="variable">$connector</span>.name</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> ID     <span class="literal">-Value</span> <span class="variable">$connector</span>.id</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> <span class="built_in">Type</span>   <span class="literal">-Value</span> <span class="variable">$connector</span>.type</span><br><span class="line">        <span class="variable">$connectors</span> += <span class="variable">$obj</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$connectors</span> | <span class="built_in">Export-Csv</span> <span class="literal">-Path</span> <span class="variable">$filePath</span> <span class="literal">-Encoding</span> UTF8 <span class="literal">-NoTypeInformation</span></span><br></pre></td></tr></table></figure>
+
+<p>サンプル中の <code>[DLPポリシーのID]</code> は DLP ポリシーの編集画面の URL から取得できます。</p>
+<p><img src="/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-17-24-45.png"></p>
+<p>そして、サンプルを実行すると、以下のような CSV ファイルを出力できます。DLP ポリシーでどのようにコネクタを分類しているか、より把握しやすくなりました。<br><img src="/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-16-56-37.png"></p>
+<h2 id="画面で確認できるコネクタと件数が異なるとき"><a href="#画面で確認できるコネクタと件数が異なるとき" class="headerlink" title="画面で確認できるコネクタと件数が異なるとき"></a>画面で確認できるコネクタと件数が異なるとき</h2><p>PowerShell の <code>Get-DlpPolicy</code> で取得できるコネクタの顔ぶれと Power Platform 管理センター で確認できるコネクタの顔ぶれが異なる場合があります。</p>
+<p>これは両者に以下の違いがあるためです。</p>
 <ul>
-<li>Teams 上の Power Apps アプリを使用して、で初めて環境に紐づくアプリを作成したとき</li>
-<li>Teams 上の Power Virtual Agents アプリを使用して、初めて環境に紐づくボットを作成したとき</li>
-<li>Teams のアプリ カタログから初めて Power Apps アプリ (※1) をインストールしたとき</li>
+<li>PowerShell で取得できるコネクタ　：　ポリシーに明示的に追加されたコネクタのみを取得できます。</li>
+<li>Power Platform 管理センターで見るコネクタ　：　現時点で有効なコネクタが表示されます (ポリシー作成以降に追加/廃止されたコネクタが表示/非表示になります)。</li>
 </ul>
-<p>なお、Teams のチームと Dataverse for Teams の環境は 1:1 で紐づけらます。<br>そのため、一つのチームで複数の環境を持つことはできません。<br>また、異なるチームの Dataverse for Teams 環境にアクセスすることもできません。</p>
-<h3 id="環境の制限"><a href="#環境の制限" class="headerlink" title="環境の制限"></a>環境の制限</h3><p>Dataverse for Teams 環境には以下の制限があります。</p>
+<p>つまり、以下のような現象が起きます。</p>
 <ul>
-<li><p>Microsoft 365 のライセンス数に応じたテナント毎の環境数の制限<br>  テナント毎の環境数の上限は以下の式で決定されます。<br>  <code>5 + (1 * Microsoft 365 のライセンス数 / 20)</code><br>  また、ライセンス数に関わらず、環境数の上限は 10,000 (※2) となります。</p>
+<li>ポリシー作成以降に新しいコネクタが追加された場合、Power Platform 管理センターではそのコネクタが表示され数にも含まれます。しかし、新しいコネクタは自動的にポリシーに追加されないため、PowerShell で取得した結果には含まれません。<ul>
+<li>したがって、Power Platform 管理センター での数 ＞ PowerShell で取得した数 となります。</li>
+</ul>
 </li>
-<li><p>環境ごとのストレージ制限<br>  各環境は、最大で 2 GB または 100 万行のデータを格納することが可能です。</p>
-</li>
-<li><p>テナントごとのストレージ制限<br>  テナント毎のストレージ容量の上限は以下の式で決定されます。<br>  <code>10 GB + (環境数 * 2 GB)</code><br>  また、ストレージ容量の上限は 19.5 TB となります。</p>
+<li>ポリシー作成以降に廃止されたコネクタがある場合、Power Platform 管理センターではそのコネクタが表示されなくなりますが、PowerShell で取得した結果には残ります。<ul>
+<li>したがって、Power Platform 管理センター での数 ＜ PowerShell で取得した数 となります。</li>
+</ul>
 </li>
 </ul>
-<p>各テナントで作成可能な環境数は、Power Platform 管理センターからご確認ください。</p>
-<p>Power Platform 管理センター &gt; リソース &gt; キャパシティ &gt; Microsoft Teams<br><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/limitation.png"></p>
-<p>制限を超えて環境やストレージ容量を使用したい場合は、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-platform/admin/about-teams-environment#upgrade-process">Dataverse へのアップグレード</a>をご検討ください。</p>
-<h3 id="環境へのゲストアクセス"><a href="#環境へのゲストアクセス" class="headerlink" title="環境へのゲストアクセス"></a>環境へのゲストアクセス</h3><p>Teams チームにゲストユーザーを招待している場合、ゲストユーザーは以下のような権限を持ちます。</p>
+<p>表示上の不一致はありますが、ポリシー作成以降に追加されたコネクタは既定のデータグループの設定に従って制御されるため、ポリシーは想定通り動作しますのでご安心ください。</p>
+<p>なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、両者の数の不一致が解消されます。<br>少しお手数ではありますが、不一致を解消したい場合は再保存をお試しください。</p>
+<p> 参考：</p>
 <ul>
-<li>アプリやボット、その他リソースの閲覧</li>
-<li>アプリやボットの実行</li>
-<li>自身が作成したレコードへのフルアクセス<br>  ※他のユーザーが作成したレコードへのアクセス権は持ちません。</li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors">新しいコネクタの既定データ グループ について</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group">既定のデータ グループの変更</a></li>
 </ul>
-<h2 id="特定のユーザーにだけ環境を作成させたい"><a href="#特定のユーザーにだけ環境を作成させたい" class="headerlink" title="特定のユーザーにだけ環境を作成させたい"></a>特定のユーザーにだけ環境を作成させたい</h2><hr>
-<p>最初に説明した通り、Dataverse for Teams 環境は、Teams 上でのアプリやボットの作成を通して作成されます。<br>そのため、環境を作成させたくない場合、Teams 上でのアプリやボットの作成を禁止する、すなわち、Teams からのPower Apps および Power Virtual Agents の使用を禁止する必要がございます。</p>
-<p>Temas からの Power Apps/Power Virtual Agents の使用を禁止するには、Teams 管理センターからアプリのアクセス許可ポリシーの設定を行い、環境作成を許可しても良いユーザーにだけ以下 2 つのアプリを許可するよう設定してください。</p>
-<p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy.png"><br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies">Microsoft Teams のアプリのアクセス許可ポリシーを管理する | Microsoft Docs</a></p>
-<h2 id="環境の作成は禁止したいけど、アプリは使わせたい"><a href="#環境の作成は禁止したいけど、アプリは使わせたい" class="headerlink" title="環境の作成は禁止したいけど、アプリは使わせたい"></a>環境の作成は禁止したいけど、アプリは使わせたい</h2><hr>
-<p>Teams 上の Power Apps/Power Virtual Agents アプリを禁止としても、引き続きアプリやボットを使用することは可能です。<br>まず、アプリやボットの使用許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting">Microsoft Teams のカスタム アプリのポリシーと設定を管理する#組織全体のカスタム アプリ設定 | Microsoft Docs</a></p>
-<h3 id="同僚が作成-からアプリを取得する"><a href="#同僚が作成-からアプリを取得する" class="headerlink" title="[同僚が作成] からアプリを取得する"></a>[同僚が作成] からアプリを取得する</h3><p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/built-by-your-colleagues.png"><br>以下のいずれかの条件に合致するアプリまたはボットは、Teams の[アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] からインストールすることが可能です。</p>
-<table>
-<thead>
-<tr>
-<th>Power Apps</th>
-<th>Power Virtual Agents</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1. ユーザーが作成したアプリ<br>2. ユーザーに直接共有されたアプリ (グループや組織全体への共有は NG)<br>3. 直近 1 週間以内に使用したアプリ</td>
-<td>1. ユーザーが作成したボット<br>2. ユーザーが所属するグループで作成されたボット</td>
-</tr>
-</tbody></table>
-<p>Dataverse for Teams 環境で作成したアプリやボットを [同僚が作成] からユーザーがインストールできるようにするには、それぞれ以下の Teams アプリを許可してください。</p>
-<p><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/Teams-app-policy-Shared.png"></p>
-<p>これらの Teams アプリと、先に説明した環境作成が行われる Teams アプリの違いは、それぞれ以下の通りです。</p>
-<table>
-<thead>
-<tr>
-<th>アプリ</th>
-<th>機能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Power Apps</td>
-<td>Power Apps 自体の機能を提供します。<br> アプリの作成や編集、管理は全てこのアプリにより行われます。</td>
-</tr>
-<tr>
-<td>Shared Power Apps</td>
-<td>Power Apps で作成されたアプリを表示・使用する機能を提供します。<br>このアプリを使用することで、Teams 上の [アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] にアプリが表示されるようになり、個人の Teams 上で使用することが可能になります。</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>アプリ</th>
-<th>機能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Power Virtual Agents</td>
-<td>Power Virtual Agents 自体の機能を提供します。<br> ボットの作成や編集、管理は全てこのアプリにより行われます。</td>
-</tr>
-<tr>
-<td>Shared Power Virtual Agents</td>
-<td>Power Virtual Agents で作成されたボットを表示・使用する機能を提供します。<br>このアプリを使用することで、Teams 上の [アプリ] &gt; [テナント向けに構築] &gt; [同僚が作成] にボットが表示されるようになり、個人の Teams 上で使用することが可能になります。</td>
-</tr>
-</tbody></table>
-<p>※参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps">Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する | Microsoft Docs</a></p>
-<h2 id="環境を監視するには？"><a href="#環境を監視するには？" class="headerlink" title="環境を監視するには？"></a>環境を監視するには？</h2><hr>
-<p>センター オブ エクセレンス (CoE) キットを使用すると、Dataverse for Teams の環境の監視およびクリーン アップが可能となります。<br>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/teams-governance">Microsoft Dataverse for Teams 環境管理 | Microsoft Docs</a></p>
-<p>CoE スターター キットとは、Power Platform での管理や開発を支援するためのツールです。<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/powerapps-tools/tree/master/Administration/CoEStarterKit">GitHub リポジトリ</a> からダウンロードでき、Power Platform のソリューションとしてインストールされます。<br>詳細については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/overview">公開情報</a> をご参照ください。</p>
-<p>※注意事項<br><img src="/blog/powerplatform/Manage-Dataverse-for-Teams/CoE-disclaimer.png"></p>
-<h2 id="注釈"><a href="#注釈" class="headerlink" title="注釈"></a>注釈</h2><p>(※1) <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powerapps/teams/use-sample-apps-from-teams-store">公開情報</a>に記載のサンプル アプリをインストールすると、Dataverse for Teams 環境が自動で作成されます。<br>(※2) Microsoft 365 のライセンス数が 200,000 を超えるテナントに関しては、上限を引き上げたい場合、サポートまでお問合せください。</p>
-<hr>
 
       
       
@@ -222,10 +173,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/Manage-Dataverse-for-Teams.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/Output-dlp-policy-connector-list.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -233,19 +184,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerautomate/Look-up-internal-column-names-in-SPO/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../powerautomate/Import-Csv-With-Standard-Connectors/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          SharePointの内部列名を確認する方法
+          Power Automate で CSV ファイルを取り込む
         
       </div>
     </a>
   
   
-    <a href="../../canvasapp/Canvas-app-delegation/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../powerautomate/MC362053/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">キャンバス アプリ の委任について</div>
+      <div class="article-nav-title">MC362053 Power Automate フローの IP アドレスのファイアウォール構成を 2022 年 5 月 15 日までに更新する</div>
     </a>
   
 </nav>
@@ -268,7 +219,7 @@
           </li>
         
           <li>
-            <a href="../Output-dlp-policy-connector-list/">DLP ポリシーに設定されているコネクタの一覧を出力する</a>
+            <a href="">DLP ポリシーに設定されているコネクタの一覧を出力する</a>
           </li>
         
           <li>
