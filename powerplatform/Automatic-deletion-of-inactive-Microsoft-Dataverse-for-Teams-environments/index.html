@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>非アクティブな Microsoft Dataverse for Teams 環境の自動削除について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートの山田です。今回は、Dataverse for Teams 環境の自動削除について、下記項目の順にご説明いたします。・Dataverse for Teams環境の自動無効化&#x2F;削除メカニズムとは・自動無効化&#x2F;削除条件・自動無効化&#x2F;削除メカニズム自体の無効化の可否・無効化&#x2F;削除された環境の復元・ご案内メール・ご案内メールを受信された際の対応・よくあるご">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非アクティブな Microsoft Dataverse for Teams 環境の自動削除について">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、Dataverse for Teams 環境の自動削除について、下記項目の順にご説明いたします。・Dataverse for Teams環境の自動無効化&#x2F;削除メカニズムとは・自動無効化&#x2F;削除条件・自動無効化&#x2F;削除メカニズム自体の無効化の可否・無効化&#x2F;削除された環境の復元・ご案内メール・ご案内メールを受信された際の対応・よくあるご">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/announce-mail.jpg">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/trigger-button.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/message-center.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/resources.png">
+<meta property="article:published_time" content="2022-09-06T03:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-09T07:42:11.397Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="Power Apps">
+<meta property="article:tag" content="Dataverse">
+<meta property="article:tag" content="Dataverse for Teams">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/announce-mail.jpg">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      非アクティブな Microsoft Dataverse for Teams 環境の自動削除について
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2022-09-06T03:00:00.000Z" itemprop="datePublished">2022-09-06</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b39a57e5-309f-52e6-a072-86d32faa33b1%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E9%9D%9E%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%81%AA+Microsoft+Dataverse+for+Teams+%E7%92%B0%E5%A2%83%E3%81%AE%E8%87%AA%E5%8B%95%E5%89%8A%E9%99%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/" data-id="cl7u67i5n000y0onu6v9q40y7" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートの山田です。<br><br>今回は、Dataverse for Teams 環境の自動削除について、下記項目の順にご説明いたします。<br>・Dataverse for Teams環境の自動無効化/削除メカニズムとは<br>・自動無効化/削除条件<br>・自動無効化/削除メカニズム自体の無効化の可否<br>・無効化/削除された環境の復元<br>・ご案内メール<br>・ご案内メールを受信された際の対応<br>・よくあるご質問  </p>
+<p>下記公開情報を基にご説明いたします。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/inactive-teams-environment">非アクティブな Microsoft Dataverse for Teams 環境の自動削除</a><br>各項目について公開情報内にも詳細を記載しておりますのでご参照ください。   </p>
+<p>なお、対象はあくまでDataverse for Teams環境となります。<br>環境が紐づいているチーム自体が削除されるわけではございませんので、ご安心ください。   </p>
+<span id="more"></span>  
+<h2 id="lt-Dataverse-for-Teams環境の自動無効化-削除メカニズムとは-gt"><a href="#lt-Dataverse-for-Teams環境の自動無効化-削除メカニズムとは-gt" class="headerlink" title="&lt;Dataverse for Teams環境の自動無効化/削除メカニズムとは&gt;"></a><strong>&lt;Dataverse for Teams環境の自動無効化/削除メカニズムとは&gt;</strong></h2><p>本メカニズムは2022年８月末より徐々に展開されております。<br>設定された一定期間（非アクティブ期間）中、ユーザーによる活動のないDataverse for Teams環境が無効化されます。<br>無効化状態が30日継続しますと、対象環境が自動削除されます。<br></p>
+<p>無効化された環境では、アプリやフロー、チャットボット等がご利用いただけません。<br></p>
+<p>設定可能な非アクティブ期間は次の通りでございます。<br>・15 日、30 日、45 日、60 日、および 90 日間<br></p>
+<p>デフォルトでは90日となっております。<br></p>
+<p>ただし、現時点では期間変更機能は未リリースであり、今後追ってリリースされる予定でございます。<br>恐れ入りますが、機能の展開をお待ちくださいますようお願い申し上げます。<br><br></p>
+<h2 id="lt-Dataverse-for-Teams環境の自動無効化-削除条件-gt"><a href="#lt-Dataverse-for-Teams環境の自動無効化-削除条件-gt" class="headerlink" title="&lt;Dataverse for Teams環境の自動無効化/削除条件&gt;"></a><strong>&lt;Dataverse for Teams環境の自動無効化/削除条件&gt;</strong></h2><p>対象環境におけるユーザーのアプリ起動などの活動が設定期間中に実施されない場合、自動削除の対象となります。<br><br>対象の活動は下記の通りです。<br><br>・ユーザーの活動: アプリの起動、フローの実行、Power Virtual Agents ボットとのチャット<br><br>・作成者の活動: アプリ、フロー 、Power Virtual Agents ボット、カスタムコネクタの作成、読み取り、更新、削除<br><br>・管理者の活動: コピー、削除、バックアップ、復元、リセットなどの環境操作<br><br><br></p>
+<h2 id="lt-Dataverse-for-Teams環境の自動無効化-削除メカニズム自体の無効化の可否-gt"><a href="#lt-Dataverse-for-Teams環境の自動無効化-削除メカニズム自体の無効化の可否-gt" class="headerlink" title="&lt;Dataverse for Teams環境の自動無効化/削除メカニズム自体の無効化の可否&gt;"></a><strong>&lt;Dataverse for Teams環境の自動無効化/削除メカニズム自体の無効化の可否&gt;</strong><br></h2><p>本メカニズムは無効化いただくことが出来ません。<br><br>何卒ご理解いただけますと幸いでございます。<br><br><br></p>
+<h2 id="lt-自動無効化-削除された環境の復元-gt"><a href="#lt-自動無効化-削除された環境の復元-gt" class="headerlink" title="&lt;自動無効化/削除された環境の復元&gt; "></a><strong>&lt;自動無効化/削除された環境の復元&gt;</strong> <br></h2><p>環境無効化後、30日以内であれば環境の再有効化が可能でございます。<br><br>また、環境削除後も、7日以内であれば環境の復元が可能でございます。<br><br>どちらもPower Platform 管理センターよりご実施いただけます。<br></p>
+<p>・無効にした Dataverse for Teams 環境の再有効化<br><br>①Power Platform 管理センター にサインイン<br><br>②環境　＞　無効化された Dataverse for Teams 環境を選択<br><br>③環境ページで 「環境を再度有効にする」 を選択<br></p>
+<p>・削除された Dataverse for Teams 環境の復元<br><br>①Power Platform 管理センター にサインイン<br><br>②環境　＞　削除された環境を復元する　を選択<br><br>③回復する環境　＞　回復 を選択<br><br><br>
+ 　　  </p>
+<h2 id="lt-ご案内メール-gt"><a href="#lt-ご案内メール-gt" class="headerlink" title="&lt;ご案内メール&gt; "></a><strong>&lt;ご案内メール&gt;</strong> <br></h2><p>対象環境の無効化が実施される７日前より、その旨についてのご案内メールが次のユーザーに通知されます。<br><br>・対象Dataverse for Teams環境のチームの所有者<br><br>・対象Dataverse for Teams環境の作成者<br><br>・システム管理者<br><br></p>
+<p>環境が無効化される旨のご案内メールは下図のようなものになります。<br><br>黒塗りのマスキング部分に対象環境名が記載されます。<br><br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/announce-mail.jpg"><br><br><br></p>
+<h2 id="lt-無効化対象のご案内メールを受信された際の対応-gt"><a href="#lt-無効化対象のご案内メールを受信された際の対応-gt" class="headerlink" title="&lt;無効化対象のご案内メールを受信された際の対応&gt;"></a><strong>&lt;無効化対象のご案内メールを受信された際の対応&gt;</strong><br></h2><p>下記2通りの方法にて、無効化対象となる非アクティブな期間のカウントを一旦リセットいただけます。<br><br>・対象環境において、アプリやフローのご実行など上述のユーザー活動を実施<br><br>・Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」を実行<br><br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/trigger-button.png"><br><br></p>
+<h2 id="lt-よくあるご質問-gt"><a href="#lt-よくあるご質問-gt" class="headerlink" title="&lt;よくあるご質問&gt; "></a><strong>&lt;よくあるご質問&gt;</strong> <br></h2><p>Q：メッセージセンターの番号は?<br><br>A：MC415083 となります。<br><br>該当メッセージURL:<a target="_blank" rel="noopener" href="https://admin.microsoft.com/adminportal/home?ref=MessageCenter/:/messages/MC415083">https://admin.microsoft.com/adminportal/home?ref=MessageCenter/:/messages/MC415083</a><br><br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/message-center.png"><br><br><br></p>
+<p>Q：Dataverse for Teams環境とは何か。無効化された場合、どのような影響があるか?<br><br>A：Microsoft Dataverse for Teams 環境は、チームにDataverse機能を使用したアプリを追加した場合や、<br><br>チーム内にチャットボットやPower Appsキャンバスアプリ等を作成した場合に作成される環境です。<br><br>無効化されると、環境内に作成されていたアプリやフロー、チャットボット等がご利用いただけなくなります。<br><br>具体的なシナリオや詳細について、以下の記事にて解説しておりますので、よろしければご参照ください。<br><br><a href="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/">Dataverse for Teams 環境の管理方法</a><br><br><br></p>
+<p>Q：Dataverse for Teams環境にて無効化される際に配信される通知メールを配信停止することは可能か?<br><br>A：恐れ入りますが、メール配信を停止することのできる機能はございません。<br><br>製品動作としてご理解賜りますようお願い申し上げます。<br><br><br></p>
+<p>Q：Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」の実効は、通常ユーザにて操作可能なものか?<br><br>A：Power Platform管理センターにてDataverse for Teams環境の「環境活動をトリガーする」を実行できるユーザーは以下の通りでございます。<br><br>・対象Dataverse for Teams環境のチームの所有者<br><br>・対象Dataverse for Teams環境の作成者<br><br>・グローバル管理者<br><br>・Power Platform管理者<br><br>・Dynamics 365管理者<br><br><br></p>
+<p>Q：「環境活動をトリガーする」を実行すると、有効期限は何日まで延びるのか?<br><br>A：有効期限は90日間延長され、その90日の期間中に、対象環境におけるユーザーのアプリ起動などの活動が実施されない場合、<br><br>再び自動削除の対象となり、7日前（トリガー実行から83日後）にメールにて通知されます。<br><br><br></p>
+<p>Q：無効化される環境内のアプリ当の詳細については、どこから確認できるか?<br><br>A：下記より対象環境内のアプリ等をご確認いただけます。<br><br>Power Platform 管理センター　＞　環境　＞　対象環境　＞　リソース　＞　Power Apps/フロー<br><br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/resources.png"><br><br><br></p>
+<p>Q：再有効化した場合、無効化前の情報が維持されるか?<br><br>A：再有効化後または復元後は、無効前の情報が維持されます。<br><br>削除されてしまいますと、無効化前の情報は復元できなくなりますのでご注意ください。<br><br><br></p>
+<p>免責事項<br><br>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。<br></p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../Cannot-Access-Model-Driven-Apps/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">モデル駆動型アプリにアクセスできないときの対処法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</a>
+          </li>
+        
+          <li>
+            <a href="../Cannot-Access-Model-Driven-Apps/">モデル駆動型アプリにアクセスできないときの対処法</a>
+          </li>
+        
+          <li>
+            <a href="../Provide-Support-Instance/">サポート インスタンスの提供</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/Import-Csv-With-Standard-Connectors/">Power Automate で CSV ファイルを取り込む</a>
+          </li>
+        
+          <li>
+            <a href="../Output-dlp-policy-connector-list/">DLP ポリシーに設定されているコネクタの一覧を出力する</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flows/" rel="tag">Cloud flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flows/" rel="tag">Desktop flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/">Canvas app</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">13</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Cloud-flows">Cloud flows</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse">Dataverse</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB">セキュリティ ロール</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9">ライセンス</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E7%92%B0%E5%A2%83">環境</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">12</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flows">Cloud flows</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flows">Desktop flows</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-Desktop">Power Automate Desktop</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Model-driven-app/Dynamics">Dynamics</a><span class="tag-list-count">3</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Canvas-app/" style="font-size: 14px;">Canvas app</a> <a href="../../tags/Cloud-flows/" style="font-size: 14px;">Cloud flows</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse/" style="font-size: 10px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 14px;">Dataverse for Teams</a> <a href="../../tags/Desktop-flows/" style="font-size: 12px;">Desktop flows</a> <a href="../../tags/Dynamics/" style="font-size: 16px;">Dynamics</a> <a href="../../tags/Graph-API/" style="font-size: 10px;">Graph API</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Model-driven-app/" style="font-size: 14px;">Model-driven app</a> <a href="../../tags/Power-Apps/" style="font-size: 14px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 18px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 12px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 20px;">Power Platform</a> <a href="../../tags/PowerShell/" style="font-size: 16px;">PowerShell</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 10px;">ライセンス</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a> <a href="../../tags/%E7%92%B0%E5%A2%83/" style="font-size: 12px;">環境</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
