@@ -8,18 +8,20 @@ tags:
 # Power Automate でテキストファイルの文字化けを回避する
 
 こんにちは、 Power Platform サポートの竹内です。  
-今回は、多くお問い合わせをいただく Power Automate で日本語のテキストファイルを扱う際の２つの文字化けに関する事例の対処法をご紹介します。  
-①. Power Automate 内で作成した CSV ファイルを Excel で開く際に文字化けを起こさない方法  
-②. 文字コードが ANSI(Shift-JIS) であるテキストファイルを Power Automate で文字化けを起こさずに扱う方法
+今回は、 Power Automate で起きる日本語テキストファイルの文字化け事例と対処法から、特に多くお問い合わせをいただくものを２つご紹介します。  
+① Power Automate 内で作成した CSV ファイルを Excel で開く際に文字化けを起こさない方法  
+② 文字コードが ANSI(Shift_JIS) であるテキストファイルを Power Automate で文字化けを起こさずに扱う方法
 
 ### [前提条件]
-現在 Power Automate がテキストファイルのコンテンツを扱う際に対応している文字コードは UTF-8 です。 Power Automate で Shift-JIS  など他の文字コードでのテキストファイルを作成することはできません。
+
+現在 Power Automate はテキストファイルの文字コードを UTF-8 として扱います。Power Automate で Shift_JIS  など他の文字コードでのテキストファイルを作成することはできません。
 
 <!-- more -->
 
-## ①. Power Automate 内で作成した CSV ファイルを Excel で開く際に文字化けを起こさない方法  
+## ① Power Automate 内で作成した CSV ファイルを Excel で開く際に文字化けを起こさない方法  
 
 ### [事象]
+
 例として下図のように、Power Automate で JSON を CSV として変換して OneDrive for Business に保存するフローを考えます。  
 
 ![](./Avoid-Character-Corruption-Methods/image001.png)  
@@ -31,7 +33,7 @@ tags:
 
 ### [原因]  
 
-これは Power Automate によって作成されたCSV形式のテキストファイルは文字コードが UTF-8 であるのに対し、 Excel Online は文字コードが ANSI(Shift-JIS) であると見なして処理してしまうためです。先ほどのフローで OneDrive for Business 上に保存されたCSVファイルをダウンロードして Windows 標準のメモ帳アプリで開くと、下図のように文字コードが UTF-8 であることが確認できます。  
+これは Power Automate によって作成されたCSV形式のテキストファイルは文字コードが UTF-8 であるのに対し、 Excel Online は文字コードが ANSI(Shift_JIS) であると見なして処理してしまうためです。先ほどのフローで OneDrive for Business 上に保存されたCSVファイルをダウンロードして Windows 標準のメモ帳アプリで開くと、下図のように文字コードが UTF-8 であることが確認できます。  
 
 ![](./Avoid-Character-Corruption-Methods/image003.png)  
 <br />
@@ -59,7 +61,7 @@ UTF-8 の BOM は「0xEF 0xBB 0xBF」の3バイトの文字列なので、これ
 <br />
 <br />
 
-## ②. 文字コードがANSI(Shift-JIS)であるテキストファイルをPower Automateで文字化けを起こさずに扱う方法  
+## ② 文字コードがANSI(Shift_JIS)であるテキストファイルをPower Automateで文字化けを起こさずに扱う方法  
 
 ### [事象]  
 
@@ -67,7 +69,7 @@ UTF-8 の BOM は「0xEF 0xBB 0xBF」の3バイトの文字列なので、これ
 特徴として以下の二つが挙げられます。  
 
 1. 日本語が含まれている。  
-2. 文字コードが ANSI(Shift-JIS) である。  
+2. 文字コードが ANSI(Shift_JIS) である。  
 
 ![](./Avoid-Character-Corruption-Methods/image006.png)  
 
@@ -75,7 +77,7 @@ OneDrive for Business に格納してあるこの CSV ファイルを下図の�
 
 ![](./Avoid-Character-Corruption-Methods/image007.png)  
 
-このフローを実行し、出力されたファイルをダウンロードして表示すると、下図のように日本語が文字化けしている様子が見られます。また、文字コードが UTF-8 に変更されていることが確認できます。
+このフローを実行し、出力されたファイルをダウンロードして表示すると、下図のように日本語が文字化けしている様子が見られます。
 
 ![](./Avoid-Character-Corruption-Methods/image008.png)  
 
@@ -91,12 +93,12 @@ Power Automate はテキストファイルを読みこむ際に、既定では�
 
 ### [対処法]  
 
-テキストファイルを読み込む際に UTF-8 にエンコードする動作を回避し、元のファイルコンテンツをそのまま取り扱うため、 base64 エンコードを適用します。
+UTF-8としてデコードする動作を回避し、元のファイルコンテンツをそのまま扱うように設定します。
 読み込むファイルをテキストファイルだと判断し、UTF-8にエンコードする動作を変更する方法をご紹介します。下図のように [OneDrive for Business] コネクタの [ファイルコンテンツの取得] アクションで、「詳細オプションを表示する」を選択してください。
 
 ![](./Avoid-Character-Corruption-Methods/image010.png)  
 
-すると、下図のように「コンテンツタイプの推測」という項目が表示されます。これが規定では「はい」になっているところを、「いいえ」に変更してください。  
+すると、下図のように「コンテンツタイプの推測」という項目が表示されます。これが既定では「はい」になっているところを、「いいえ」に変更してください。  
 <br />
 (変更前)
 
