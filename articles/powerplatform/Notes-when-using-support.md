@@ -23,6 +23,7 @@ tags:
 - [原因究明に関する調査について](#原因究明に関する調査について)
 - [長期的な修正項目として検討される事象について](#長期的な修正項目として検討される事象について)
 - [お客様とのご連絡がつかない場合について](#お客様とのご連絡がつかない場合について)
+- [既知の問題について](#既知の問題について)
 - [参考](#参考)
 
 ## お問い合わせ番号について
@@ -61,6 +62,15 @@ Dynamics 365 では、マイクロソフトがサービスの提供に影響を�
 事象が改善しない場合や引き続き調査が必要である場合は、以前のお問い合わせ番号を添えて新規サービス リクエストでお問い合わせください。
 その際は、内容を継続してご対応させていただきます。
 何卒、お客様のご理解、ご協力のほどお願い申し上げます。
+
+## 既知の問題について
+
+既知の問題のご案内は、製品ごとにページが異なります。下記のリンクなどからご確認ください。
+
+- Dynamics 365 Marketing : [既知の問題と回避策](https://docs.microsoft.com/ja-jp/dynamics365/marketing/known-issues)
+- Microsoft Dynamics 365 Guides : [Microsoft Dynamics 365 Guides に関する既知の問題](https://docs.microsoft.com/ja-jp/dynamics365/mixed-reality/guides/known-issues)
+- Power Apps : [既知の問題](https://docs.microsoft.com/ja-jp/power-apps/maker/portals/known-issues)
+- Power Automate : [既知の問題](https://docs.microsoft.com/ja-jp/power-automate/approvals-known-issues)
 
 ## 参考
 
