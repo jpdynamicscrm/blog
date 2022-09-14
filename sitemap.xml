@@ -79,20 +79,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
-    
-    <lastmod>2022-09-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
-    
-    <lastmod>2022-09-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
     
     <lastmod>2022-09-14</lastmod>
@@ -107,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/</loc>
-    
-    <lastmod>2022-09-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/</loc>
     
     <lastmod>2022-09-14</lastmod>
@@ -122,6 +101,27 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
+    
+    <lastmod>2022-09-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
+    
+    <lastmod>2022-09-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    
+    <lastmod>2022-09-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/</loc>
     
     <lastmod>2022-09-14</lastmod>
     
@@ -156,6 +156,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
+    
+    <lastmod>2022-09-14</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
     
     <lastmod>2022-09-14</lastmod>
@@ -164,13 +171,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/</loc>
-    
-    <lastmod>2022-09-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
     
     <lastmod>2022-09-14</lastmod>
     
@@ -340,6 +340,20 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/PowerApps/</loc>
+    <lastmod>2022-09-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/PowerPlatform/</loc>
+    <lastmod>2022-09-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse/</loc>
     <lastmod>2022-09-14</lastmod>
     <changefreq>daily</changefreq>
@@ -347,7 +361,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse-for-Teams/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/DataverseforTeams/</loc>
     <lastmod>2022-09-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -376,6 +390,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/</loc>
+    <lastmod>2022-09-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse-for-Teams/</loc>
     <lastmod>2022-09-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
