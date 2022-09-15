@@ -50,8 +50,9 @@ Microsoft 365 コンプライアンスの「監査ログ」機能でアプリの
 監査ログの注意点として、下記公開情報に記載のように、   
 イベントの発生からログ出力までの時差やログ保存期間の制限等ございますのでご留意ください。  
 監査レコードは通常は90日間保持されます。  
-Office 365 E5 または Microsoft E5 ライセンスがが割り当てられたユーザーのアクティビティの場合、1年間まで保持されます。  
-詳細は下記公開情報の「よく寄せられる質問」を参照ください。   
+Office 365 E5 または Microsoft E5 ライセンスがが割り当てられたユーザーのアクティビティの場合、  
+ポリシーを設定することにより、1年間まで保持されます。  
+詳細は下記公開情報の「よく寄せられる質問」等をご参照ください。   
 [Microsoft 365 コンプライアンス センターの監査ログ検索ツール - よく寄せられる質問](https://docs.microsoft.com/ja-jp/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#frequently-asked-questions)  
 [既定の監査ログの保持ポリシー](https://docs.microsoft.com/ja-jp/microsoft-365/compliance/audit-log-retention-policies?view=o365-worldwide#default-audit-log-retention-policy)  
 <br>
