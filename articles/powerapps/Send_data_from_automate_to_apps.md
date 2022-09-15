@@ -1,9 +1,9 @@
 ---
-title: PowerAutomateからPowerAppsへのデータ送信について
+title: Power Automate からPower Apps へのデータ送信について
 date: 2022-08-031 12:00:00
 tags:
   - Power Apps
-  - PowerAutomate
+  - Power Automate
 ---
 
 こんにちは、Power Apps サポートの深津です。
@@ -41,7 +41,7 @@ SharePointのリストに格納されている商品名、金額、個数の3列
 
 #### 必要なライセンス
 
-今回作成するフローではプレミアム コネクタを使用するため、 [PowerAppsの有償ライセンス](https://powerapps.microsoft.com/ja-jp/pricing/)が必要です。  
+今回作成するフローではプレミアム コネクタを使用するため、 [Power Appsの有償ライセンス](https://powerapps.microsoft.com/ja-jp/pricing/)が必要です。  
 
 #### Power Automate の説明
 
