@@ -1,11 +1,11 @@
 ---
-title: Power Automate でフローの有効期限切れについて
+title: Power Automate におけるフローの有効期限切れについて
 date: 2022-09-15 10:36:00
 tags:
   - Power Automate
 ---
 
-# Power Automate でフローの有効期限切れについて
+# Power Automate におけるフローの有効期限切れについて
 
 こんにちは、 Power Platform サポートの竹内です。  
 今回は、 Power Automate で一定期間フローを実行していない場合に有効期限が切れてしまい自動的に無効化される事象へ、どのように対応すればよいのかをご紹介します。
