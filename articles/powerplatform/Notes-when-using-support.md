@@ -1,12 +1,12 @@
 ---
-title: クラウド サポートをご利用いただく際の留意点
+title: Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点
 date: 2022-09-12 15:33:00
 tags:
   - Power Platform
   - サポート
 ---
 
-# クラウド サポートをご利用いただく際の留意点
+# Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点
 
 こんにちは、Power Platform サポートチームの鎌田です。
 
@@ -33,8 +33,8 @@ tags:
 
 ## 新しい機能、修正モジュールの展開について
 
-Dynamics 365 は多くのお客様にご利用いただいており、それを支えるサーバー規模も非常に大規模なものとなっております。
-そのため、新機能や修正モジュールを全てのサーバー (全てのユーザー) に展開し、機能し始めるまでに 4 週間から 6 週間いただいております。
+Dynamics 365 Customer Engagement は多くのお客様にご利用いただいており、それを支えるサーバー規模も非常に大規模なものとなっております。
+そのため、新機能や修正モジュールのリリースを開始した後、全てのサーバー (全てのユーザー) へ内容を展開するまでに最大で 4 週間から 6 週間程度のお時間をいただく場合がございます。
 なお、Dynamics 365 テクニカル サポートでは、お問い合わせをいただいた時点での調査状況の進捗のご案内をいたします。修正完了までの継続的なご連絡は差し控えさせていただいておりますため、必要に応じて [Dynamics 365 コミュニティ](https://community.dynamics.com/) などをご確認ください。
 Dynamics 365 のユーザー インターフェイスを含む機能変更につきまして、ご案内が遅れる、または公開情報がない場合があり、ご迷惑をおかけしております。クラウド サービスの性質上変更が随時発生しておりますため、お客様のご利用状況をもとに影響が大きいと考えられる新機能の内容、展開時期につきまして、メッセージ センターにてご案内しております。あわせてご確認をお願いいたします。
 
@@ -70,10 +70,9 @@ Dynamics 365 では、マイクロソフトがサービスの提供に影響を�
 - Dynamics 365 Marketing : [既知の問題と回避策](https://docs.microsoft.com/ja-jp/dynamics365/marketing/known-issues)
 - Microsoft Dynamics 365 Guides : [Microsoft Dynamics 365 Guides に関する既知の問題](https://docs.microsoft.com/ja-jp/dynamics365/mixed-reality/guides/known-issues)
 - Power Apps : [既知の問題](https://docs.microsoft.com/ja-jp/power-apps/maker/portals/known-issues)
-- Power Automate : [既知の問題](https://docs.microsoft.com/ja-jp/power-automate/approvals-known-issues)
 
 ## 参考
 
 以下の記事もあわせてご確認ください。
 
-- [サポートチームより問題の早期解決に向けたお客様へのお願い](articles/powerplatform/For-early-resolution-of-issues.md)
+- [サポートチームより問題の早期解決に向けたお客様へのお願い](https://jpdynamicscrm.github.io/blog/powerplatform/For-early-resolution-of-issues.md)
