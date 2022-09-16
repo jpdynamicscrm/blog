@@ -16,7 +16,7 @@ tags:
 
 ## 目次
 
-- [App Access Checker を使ってユーザーがアプリにアクセスできるか確認する](#app-access-checker-を使ってユーザーがアプリにアクセスできるか確認する)
+- [App Access Checker を使ってユーザーがアプリにアクセスできるか確認する](#App-Access-Checker-を使ってユーザーがアプリにアクセスできるか確認する)
 - [ライセンスの割り当て](#ライセンスの割り当て)
 - [セキュリティ ロールの割り当て](#セキュリティ-ロールの割り当て)
 - [補足](#補足)
@@ -25,7 +25,7 @@ tags:
 
 ## App Access Checker を使ってユーザーがアプリにアクセスできるか確認する
 
-モデル駆動型アプリをユーザーが閲覧するためには、以下の2点が必要となります。
+モデル駆動型アプリにユーザーがアクセスするためには、以下の2点が必要となります。
 - ユーザーにアプリを使用するための**ライセンス**が割り当てられていること
 - ユーザーにアプリを使用できる**セキュリティ ロール** [(※1)](#注釈) が割り当てられていること
 
@@ -91,7 +91,7 @@ App Access Checker にて、アカウントの Security が No と表示され�
 ## 補足
 - App Access Checker は次のように URL を編集してアクセスすることも可能です。
 \<orgURL\>/WebResources/msdyn_AppAccessChecker.html
-例 : https://sample.crm7.dynamics.com//WebResources/msdyn_AppAccessChecker.html
+例 : https://sample.crm7.dynamics.com/WebResources/msdyn_AppAccessChecker.html
 ※ sample の部分を適切な文字列に置き換えてください。
 
 ## 注釈
@@ -106,6 +106,6 @@ App Access Checker にて、アカウントの Security が No と表示され�
 | リンク | 内容 |
 | ---- | --- |
 | [How to access "App Access Checker" to see Role & Privileges needed for AppModule Entity to see and launch model app](https://community.dynamics.com/crm/f/microsoft-dynamics-crm-forum/427100/how-to-access-app-access-checker-to-see-role-privileges-needed-for-appmodule-entity-to-see-and-launch-model-app) | 本記事で紹介した App Access Checker のアクセスについて解説している英語記事です。 |
-| [Manage user accounts, user licenses, and security roles](https://docs.microsoft.com/en-us/dynamics365/marketing/admin-users-licenses-roles) | Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説している英語記事です。 |
+| [ユーザー アカウント、ユーザー ライセンス、セキュリティ ロールを管理する](https://docs.microsoft.com/ja-jp/dynamics365/marketing/admin-users-licenses-roles) | Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説をしております。 |
 | [モデル駆動型アプリのよく寄せられる質問](https://docs.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/model-app-faq) | 解説している内容としてはタイトルの通りですが、インスタンス内のアプリがユーザーに表示されない原因について触れています。 |
 | [セキュリティ ロールおよび特権](https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges) | 本記事でアプリのアクセスを許可するために使用したセキュリティ ロールについて解説をしております。 |
