@@ -6,7 +6,7 @@ tags:
   - Power Automate
   - Power Platform 
 ---
-こんにちは、Power Apps サポートの深津です。
+こんにちは、Power Apps サポートの深津です。  
 今回は、Power Platform に問い合わせを行うための最小の権限についてご説明いたします。
 
 <!-- more -->
@@ -22,7 +22,7 @@ tags:
 
 ## はじめに
 
-Power Platform 管理センターより SR（Service Request）を起票する権限をユーザーに与えたいが、他の操作権限に関しては最小に抑えたいという時があると思います。
+Power Platform 管理センターより SR（Service Request）を起票する権限をユーザーに与えたいが、他の操作権限に関しては最小に抑えたいという時があると思います。  
 今回は、そのためにどういった権限を付与すれば良いか、権限を付与する際の制限人数はあるかについてご説明いたします。
 
 ---
@@ -31,7 +31,7 @@ Power Platform 管理センターより SR（Service Request）を起票する�
 
 ## Power Platform に問い合わせを行うための最小の権限
 
-結論から申し上げますと、Power Platform 管理センターより SR（Service Request）を起票するためだけの権限はご用意がなく、他の操作権限も付与される形となります。
+結論から申し上げますと、Power Platform 管理センターより SR（Service Request）を起票するためだけの権限はご用意がなく、他の操作権限も付与される形となります。  
 そこで、他の操作権限を最小に抑え、SR を起票する権限を与える方法として「サービス サポート管理者」権限の付与という方法があります。
 [公式ドキュメント](https://docs.microsoft.com/ja-jp/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)より「サービス サポート管理者」の権限が与えられると以下の３つの操作を行うことができます。
  - サービスリクエストを開いて管理する
