@@ -1,6 +1,6 @@
 ---
 title: Power Automate におけるフローの有効期限切れを防ぐ
-date: 2022-09-15 15:02:00
+date: 2022-09-16 14:27:00
 tags:
   - Power Automate
 ---
@@ -17,14 +17,13 @@ tags:
 [対象のプラン]  
 無料版と試用版、Power Apps 開発者プラン* 、 Microsoft 365 プラン  
 
-詳細については以下の公開文書を併せてご参照ください。
+詳細については以下の公開文書を併せてご確認ください。
 
-![](./How-to-deal-with-auto-disabling/image001.png)  
 [制限と構成 - Power Automate | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
 
 *Power Apps コミュニティプランは 2021 年 5 月に Power Apps 開発者プランに名称を変更しました。  
+Power Apps 開発者プランの詳細につきましては以下の公開情報をご参照ください。  
 
-![](./How-to-deal-with-auto-disabling/image002.png)  
 [Power Apps 開発者プランにサインアップ - Power Apps | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-apps/maker/developer-plan#improvements-from-the-previous-power-apps-community-plan)
 
 ## [フローの無効化を回避する方法]
@@ -41,22 +40,19 @@ tags:
 ## ① スタンドアロンの Power Automate ライセンスをご購入いただく。  
 
 スタンドアロンの Power Automate ライセンスを持ったユーザーがフローを作成する、あるいは自動で無効化されたくないフローをフローごとのライセンスの対象に入れることで自動で無効化される事象を回避できます。  
-以下の公開文書も併せてご確認ください。  
+詳細につきましては以下の公開情報も併せてご確認ください。  
 
-![](./How-to-deal-with-auto-disabling/image003.png)  
 [制限と構成 - Power Automate | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
 
 また、スタンドアロンの Power Automate ライセンスの詳細につきましては以下の公開情報をご参照ください。
 
-![](./How-to-deal-with-auto-disabling/image004.png)  
 [Power Automate ライセンスの種類 - Power Platform | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types)  
 [価格 | Microsoft Power Automate](https://powerautomate.microsoft.com/ja-jp/pricing/)  
 
 ## ② フロー作成日、あるいは最終実行日から 120 日以内に 1 度以上実行していただく。  
 
 フローを実行していただくことにより、フローを実行していない 90 日の期間と自動的に無効化されるまでの 30 日の期間をリセットすることができます。  
-定期的に手動で実行していただく、あるいはフローのトリガーを定期的に起動するものに変更することによって実現することができます。  
-まず、手動で実行していただく方法についてご紹介致します
+手動で実行していただく方法についてご紹介致します
 
 フローの一覧画面から対象のフローを選択し、下図の赤枠のいずれかを押すことにより実行します。
 
@@ -67,13 +63,9 @@ tags:
 ![](./How-to-deal-with-auto-disabling/image007.png)  
 
 <br>
-次に、定期的に起動するトリガーを活用する方法をご紹介いたします。
-
-フロー作成時に下図のように「スケジュール済みクラウド フロー」を選択します。
+参考情報としまして、下図のように「スケジュール済みクラウド フロー」を作成する場合、90 日に一度は実行されるように設定していただくことで、フローの有効期限切れを防ぐことができます。
 
 ![](./How-to-deal-with-auto-disabling/image005.png)  
-
-すると、下図のような画面が表示されるため、繰り返し間隔を 120 日以内に設定し、フローの作成を行ってください。
 
 ![](./How-to-deal-with-auto-disabling/image008.png)  
 
@@ -126,7 +118,7 @@ Flow：手順 2 で設定したフローを指定
 以上です。  
 このフローを実行すると、変更日時が更新されていることが確認できます。
 
-![](./How-to-deal-with-auto-disabling/image016.png)
+![](./How-to-deal-with-auto-disabling/image017.png)
 
 ## 最後に
 
