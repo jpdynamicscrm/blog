@@ -16,7 +16,7 @@ tags:
 2. [Power Platform に問い合わせを行うための最小権限](#anchor-sr-authority)
 3. [おわりに](#anchor-finish)
 
-<a id='anchor-Intro'></a>
+<a id='anchor-intro'></a>
 
 ---
 
