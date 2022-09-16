@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/07_security-role_num.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/08_security-role2_num.png">
 <meta property="article:published_time" content="2022-08-26T06:50:00.000Z">
-<meta property="article:modified_time" content="2022-09-15T12:34:01.300Z">
+<meta property="article:modified_time" content="2022-09-16T06:59:15.396Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="App Access Checker">
@@ -115,7 +115,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+47de4be9-ed29-5688-97c8-e1d6cb5c115b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%A8%E3%81%8D%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FCannot-Access-Model-Driven-Apps%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FCannot-Access-Model-Driven-Apps.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FCannot-Access-Model-Driven-Apps.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/" data-id="cl8319ww100130nrth5260xm4" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/" data-id="cl844raty00130nnu4ejffw5o" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -123,14 +123,14 @@
         <p>こんにちは、Power Platform サポートチームの鎌田です。</p>
 <p>本記事では、モデル駆動型アプリにアクセスできないときの対処法についてご案内いたします。</p>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
-<li><a href="#app-access-checker-%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%8B%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">App Access Checker を使ってユーザーがアプリにアクセスできるか確認する</a></li>
+<li><a href="#App-Access-Checker-%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%8B%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">App Access Checker を使ってユーザーがアプリにアクセスできるか確認する</a></li>
 <li><a href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AE%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6">ライセンスの割り当て</a></li>
 <li><a href="#%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AE%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6">セキュリティ ロールの割り当て</a></li>
 <li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
 <li><a href="#%E6%B3%A8%E9%87%88">注釈</a></li>
 <li><a href="#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1">参考情報</a></li>
 </ul>
-<h2 id="App-Access-Checker-を使ってユーザーがアプリにアクセスできるか確認する"><a href="#App-Access-Checker-を使ってユーザーがアプリにアクセスできるか確認する" class="headerlink" title="App Access Checker を使ってユーザーがアプリにアクセスできるか確認する"></a>App Access Checker を使ってユーザーがアプリにアクセスできるか確認する</h2><p>モデル駆動型アプリをユーザーが閲覧するためには、以下の2点が必要となります。</p>
+<h2 id="App-Access-Checker-を使ってユーザーがアプリにアクセスできるか確認する"><a href="#App-Access-Checker-を使ってユーザーがアプリにアクセスできるか確認する" class="headerlink" title="App Access Checker を使ってユーザーがアプリにアクセスできるか確認する"></a>App Access Checker を使ってユーザーがアプリにアクセスできるか確認する</h2><p>モデル駆動型アプリにユーザーがアクセスするためには、以下の2点が必要となります。</p>
 <ul>
 <li>ユーザーにアプリを使用するための<strong>ライセンス</strong>が割り当てられていること</li>
 <li>ユーザーにアプリを使用できる<strong>セキュリティ ロール</strong> <a href="#%E6%B3%A8%E9%87%88">(※1)</a> が割り当てられていること</li>
@@ -184,7 +184,7 @@
 </ol>
 <p><img src="/blog/powerplatform/Cannot-Access-Model-Driven-Apps/08_security-role2_num.png"></p>
 <h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><ul>
-<li>App Access Checker は次のように URL を編集してアクセスすることも可能です。<br>&lt;orgURL&gt;/WebResources/msdyn_AppAccessChecker.html<br>例 : <a target="_blank" rel="noopener" href="https://sample.crm7.dynamics.com//WebResources/msdyn_AppAccessChecker.html">https://sample.crm7.dynamics.com//WebResources/msdyn_AppAccessChecker.html</a><br>※ sample の部分を適切な文字列に置き換えてください。</li>
+<li>App Access Checker は次のように URL を編集してアクセスすることも可能です。<br>&lt;orgURL&gt;/WebResources/msdyn_AppAccessChecker.html<br>例 : <a target="_blank" rel="noopener" href="https://sample.crm7.dynamics.com/WebResources/msdyn_AppAccessChecker.html">https://sample.crm7.dynamics.com/WebResources/msdyn_AppAccessChecker.html</a><br>※ sample の部分を適切な文字列に置き換えてください。</li>
 </ul>
 <h2 id="注釈"><a href="#注釈" class="headerlink" title="注釈"></a>注釈</h2><ul>
 <li>(※1) セキュリティ ロールとは、営業担当者などの異なるユーザーが異なる種類のレコードにどのようにアクセスできるかを定義する機能のことです。詳しくは、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges#security-roles">こちら</a> をご覧ください。</li>
@@ -207,8 +207,8 @@
 <td>本記事で紹介した App Access Checker のアクセスについて解説している英語記事です。</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dynamics365/marketing/admin-users-licenses-roles">Manage user accounts, user licenses, and security roles</a></td>
-<td>Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説している英語記事です。</td>
+<td><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/dynamics365/marketing/admin-users-licenses-roles">ユーザー アカウント、ユーザー ライセンス、セキュリティ ロールを管理する</a></td>
+<td>Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説をしております。</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/model-app-faq">モデル駆動型アプリのよく寄せられる質問</a></td>
