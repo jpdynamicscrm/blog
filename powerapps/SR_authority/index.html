@@ -4,25 +4,24 @@
   <meta charset="utf-8">
   
   
-  <title>Power Automate Desktop で「フローなし」と表示される場合の対処法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Power Platform に問い合わせを行うための権限について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Power Automate サポートの清水です。 今回は、Power Automate Desktop で「フローなし」のエラーが表示される場合の対処法についてご紹介します。">
+  <meta name="description" content="こんにちは、Power Apps サポートの深津です。今回は、Power Platform に問い合わせを行うための最小の権限についてご説明いたします。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Power Automate Desktop で「フローなし」と表示される場合の対処法">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/index.html">
+<meta property="og:title" content="Power Platform に問い合わせを行うための権限について">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは。Power Automate サポートの清水です。 今回は、Power Automate Desktop で「フローなし」のエラーが表示される場合の対処法についてご紹介します。">
+<meta property="og:description" content="こんにちは、Power Apps サポートの深津です。今回は、Power Platform に問い合わせを行うための最小の権限についてご説明いたします。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/Error.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/UserStatus.png">
-<meta property="article:published_time" content="2021-06-07T03:00:00.000Z">
-<meta property="article:modified_time" content="2022-09-21T05:02:00.467Z">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/service_support_authority.PNG">
+<meta property="article:published_time" content="2022-09-16T03:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-21T05:02:00.439Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="Power Apps">
 <meta property="article:tag" content="Power Automate">
-<meta property="article:tag" content="Desktop flows">
-<meta property="article:tag" content="Power Automate Desktop">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/Error.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/service_support_authority.PNG">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -84,7 +83,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerautomate/PowerAutomateDesktop-NoFlow" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerapps/SR_authority" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -93,7 +92,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Power Automate Desktop で「フローなし」と表示される場合の対処法
+      Power Platform に問い合わせを行うための権限について
     </h1>
   
 
@@ -101,47 +100,41 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-06-07T03:00:00.000Z" itemprop="datePublished">2021-06-07</time>
+  <time datetime="2022-09-16T03:00:00.000Z" itemprop="datePublished">2022-09-16</time>
 </a>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+c9e25cad-fad8-51b0-8c67-409a7210a52a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+Desktop+%E3%81%A7%E3%80%8C%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AA%E3%81%97%E3%80%8D%E3%81%A8%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FPowerAutomateDesktop-NoFlow%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FPowerAutomateDesktop-NoFlow.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2FPowerAutomateDesktop-NoFlow.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+0a956f91-e133-5116-8845-2bfdc77becc6%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Platform+%E3%81%AB%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%82%92%E8%A1%8C%E3%81%86%E3%81%9F%E3%82%81%E3%81%AE%E6%A8%A9%E9%99%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2FSR_authority%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2FSR_authority.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerapps%2FSR_authority.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/" data-id="cl8b5rq69000s0op898s595n0" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/" data-id="cl8b5rq5u00080op828llhv36" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Power Automate サポートの清水です。</p>
-<p>今回は、Power Automate Desktop で「フローなし」のエラーが表示される場合の対処法についてご紹介します。</p>
+        <p>こんにちは、Power Apps サポートの深津です。<br>今回は、Power Platform に問い合わせを行うための最小の権限についてご説明いたします。</p>
 <span id="more"></span>
-
-
-
-<p>Power Automate Desktop をインストールした後、いざデスクトップ フローを作成しよう！とサインインすると、<br>以下のような エラーが表示される場合があります。</p>
-<p><img src="/blog/powerautomate/PowerAutomateDesktop-NoFlow/Error.png"></p>
-<p>今回は上記のエラー解消に向けての確認ポイントをご案内します。</p>
-<h2 id="1-ネットワーク環境の確認"><a href="#1-ネットワーク環境の確認" class="headerlink" title="1. ネットワーク環境の確認"></a>1. ネットワーク環境の確認</h2><p>Power Automate Desktop を使用するには、いくつかのエンドポイントを許可していただく必要がございます。</p>
-<p>プロキシを経由して通信を行っている場合や、ファイアウォールで通信の制御を行っている場合には、<br>以下の IP アドレスやドメインが許可されているかをご確認ください。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-automate/ip-address-configuration">IP アドレスの構成 - Power Automate | Microsoft Docs</a></p>
-<h2 id="2-既定の環境でのユーザーの状態の確認"><a href="#2-既定の環境でのユーザーの状態の確認" class="headerlink" title="2. 既定の環境でのユーザーの状態の確認"></a>2. 既定の環境でのユーザーの状態の確認</h2><p>Power Automate Desktop に最初にログインした際には、テナントの既定の環境にアクセスいたします。</p>
-<p>そのため、既定の環境でユーザーが無効な状態になっている場合にエラーが発生する場合がございますので、<br>ログインしているユーザーが有効な状態になっているかをご確認ください。</p>
-<p>&lt;確認手順&gt;</p>
-<ol>
-<li>全体管理者アカウントにて、<a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a>にアクセスし、既定の環境をクリックします。</li>
-<li>[設定] から、[ユーザーとアクセス許可] &gt; [ユーザー] を開きます。</li>
-<li>ユーザー一覧に該当のユーザーが存在するかを確認し、存在しない場合は [ユーザーの追加] ボタンをクリックします。</li>
-<li>対象ユーザーアカウントのメールアドレスを指定し、[追加] をクリックします。</li>
-<li>ユーザー追加が完了しましたら、ユーザーの設定ページを開き、下図のように状態が “有効” であることを確認します。<br><img src="/blog/powerautomate/PowerAutomateDesktop-NoFlow/UserStatus.png"></li>
-<li>ユーザーが有効なことが確認できたら、再度 Power Automate Desktop でのフロー作成を試します。</li>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol>
+<li><a href="#anchor-intro">はじめに</a></li>
+<li><a href="#anchor-sr-authority">Power Platform に問い合わせを行うための最小権限</a></li>
+<li><a href="#anchor-finish">おわりに</a></li>
 </ol>
-<p>なお、過去に一度も Power Automate にアクセスしたことがない場合は、<a target="_blank" rel="noopener" href="https://japan.flow.microsoft.com/">Power Automate ポータル</a>にアクセスすると、<br>自動で既定の環境に追加されます。<br>管理者でのユーザーの確認が難しい場合は、一度 Power Automate ポータルにアクセスしてから<br>少し時間を置いて Powre Automate Desktop にアクセスするなどの操作もお試しください。</p>
-<h2 id="3-Dataverse-旧名-Common-Data-Service-のライセンスの確認"><a href="#3-Dataverse-旧名-Common-Data-Service-のライセンスの確認" class="headerlink" title="3. Dataverse (旧名: Common Data Service) のライセンスの確認"></a>3. Dataverse (旧名: Common Data Service) のライセンスの確認</h2><p>Power Automate Desktop で作成されたフローは既定の環境の Dataverse に保存されるため、<br>Power Automate Desktop を使用するには、有効な Dataverse のライセンスが必要となります。</p>
-<p>通常は、Power Automate のライセンスを持っていないユーザーであっても、初めて Power Automate にアクセスした際に<br>全てのユーザーに無償版の「Power Automate Free」というライセンスが付与されます。<br>そのため、この無償のライセンスによって Dataverse へのアクセスが可能となり、Power Automate Desktop を使用できます。</p>
-<p>しかし、テナント内で無償版のライセンスを禁止としている場合には、Power Automate Free ライセンスが使用できないため、<br>有効なライセンスがないことから、Power Automate Desktop が使用できないケースがございます。</p>
-<p>この場合、一度テナントの管理者にご連絡いただき、Power Automate Free もしくは Power Automate for Office 365 などのライセンスを付与していただくようお願いいたします。</p>
-<h2 id="4-Power-Automate-Desktop-のバージョンの確認"><a href="#4-Power-Automate-Desktop-のバージョンの確認" class="headerlink" title="4. Power Automate Desktop のバージョンの確認"></a>4. Power Automate Desktop のバージョンの確認</h2><p>以下のリンクから、Power Automate Desktopの最新バージョンをインストールし、<br>事象が解消するかどうかをご確認ください。<br><a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?linkid=2102613">https://go.microsoft.com/fwlink/?linkid=2102613</a></p>
-<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>Power Automate Desktop で「フローなし」のエラーが発生する場合の確認点についてご説明いたしました。<br>Power Automate Desktop を初めて使用するユーザーにとって、少しでもお役に立つ情報がございましたら幸いです。</p>
+<p><a id='anchor-intro'></a></p>
 <hr>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Power Platform 管理センターより SR（Service Request）を起票する権限をユーザーに与えたいが、他の操作権限に関しては最小に抑えたいという時があると思います。<br>今回は、そのためにどういった権限を付与すれば良いか、権限を付与する際の制限人数はあるかについてご説明いたします。</p>
+<hr>
+<p><a id='anchor-sr-authority'></a></p>
+<h2 id="Power-Platform-に問い合わせを行うための最小の権限"><a href="#Power-Platform-に問い合わせを行うための最小の権限" class="headerlink" title="Power Platform に問い合わせを行うための最小の権限"></a>Power Platform に問い合わせを行うための最小の権限</h2><p>結論から申し上げますと、Power Platform 管理センターより SR（Service Request）を起票するためだけの権限はご用意がなく、他の操作権限も付与される形となります。<br>そこで、他の操作権限を最小に抑え、SR を起票する権限を与える方法として「サービス サポート管理者」権限の付与という方法があります。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide">公式ドキュメント</a>より「サービス サポート管理者」の権限が与えられると以下の３つの操作を行うことができます。</p>
+<ul>
+<li>サービスリクエストを開いて管理する</li>
+<li>メッセージ センターの投稿を表示して共有する</li>
+<li>サービス正常性を監視する</li>
+</ul>
+<p>つまり、行うことができる操作は「ヘルプとサポート」および、「ホーム」＞「サービス正常性」/「メッセージ センター」になります。以下の画像で赤く囲った部分が該当します。</p>
+<p><img src="/blog/powerapps/SR_authority/service_support_authority.PNG"></p>
+<p>また、環境ごとに SR を起票する権限をユーザーに付与したい場合、セキュリティ ロールを付与するといった方法があります。<br>セキュリティ ロールは Power Platform の環境ごとに付与する権限であり、対象環境内のユーザーのアクセスを制御します。<br>ユーザーへのセキュリティ ロールの割り当てはこちらの<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/assign-security-roles">公式ドキュメント</a>に記載があるためご覧ください。<br>SR を起票する権限が含まれるセキュリティ ロールとして「環境管理者」と「システム管理者」の２つがあります。<br>「環境管理者」はデータベースなしの環境、「システム管理者」はデータベースありの環境で存在するセキュリティ ロールですので、データベース利用の有無に基づいて選択してください。<br>加えて、セキュリティ ロールを付与する人数に上限があるかといったご質問をいただくことが多いですが、追加できる人数に関しまして特に制限はございません。</p>
+<hr>
+<p><a id='anchor-finish'></a></p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>今回、Power Platform に問い合わせを行うための最小の権限についてご説明いたしました。<br>このように権限を適切にユーザーに与えることで、セキュリティ強化に繋がります。<br>ぜひ、試してみてください。</p>
 
       
       
@@ -155,10 +148,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Desktop-flows/" rel="tag">Desktop flows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/PowerAutomateDesktop-NoFlow.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerapps/SR_authority.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -166,19 +159,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../canvasapp/Canvas-app-monitor/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../powerautomate/Avoid-Character-Corruption-Methods/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          キャンバス アプリのモニターログ取得手順
+          Power Automate でテキストファイルの文字化けを回避する
         
       </div>
     </a>
   
   
-    <a href="../Look-up-internal-column-names-in-SPO/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">SharePointの内部列名を確認する方法</div>
+      <div class="article-nav-title">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</div>
     </a>
   
 </nav>
@@ -197,11 +190,11 @@
       <ul>
         
           <li>
-            <a href="../Avoid-Character-Corruption-Methods/">Power Automate でテキストファイルの文字化けを回避する</a>
+            <a href="../../powerautomate/Avoid-Character-Corruption-Methods/">Power Automate でテキストファイルの文字化けを回避する</a>
           </li>
         
           <li>
-            <a href="../../powerapps/SR_authority/">Power Platform に問い合わせを行うための権限について</a>
+            <a href="">Power Platform に問い合わせを行うための権限について</a>
           </li>
         
           <li>
@@ -209,7 +202,7 @@
           </li>
         
           <li>
-            <a href="../../powerapps/Send_data_from_automate_to_apps/">Power Automate からPower Apps へのデータ送信について</a>
+            <a href="../Send_data_from_automate_to_apps/">Power Automate からPower Apps へのデータ送信について</a>
           </li>
         
           <li>
