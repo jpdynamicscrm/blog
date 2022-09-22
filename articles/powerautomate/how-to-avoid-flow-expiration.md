@@ -39,7 +39,7 @@ Power Apps 開発者プランの詳細につきましては以下の公開情報
 
 ## ① スタンドアロンの Power Automate ライセンスをご購入いただく。  
 
-スタンドアロンの Power Automate ライセンスを持ったユーザーがフローを作成する、あるいは自動で無効化されたくないフローをフローごとのライセンスの対象に入れることで自動で無効化される事象を回避できます。  
+スタンドアロンの Power Automate ライセンスを持ったユーザーがフローを作成する、あるいは自動で無効化されたくないフローをフローごとのライセンスの対象に入れることで自動で無効化される事象を回避できます。もしくは既存フローを作成したユーザーにスタンドアロンの Power Automate ライセンスを付与することでも回避することが可能です。  
 詳細につきましては以下の公開情報も併せてご確認ください。  
 
 [制限と構成 - Power Automate | Microsoft Docs](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
