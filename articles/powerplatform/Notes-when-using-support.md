@@ -64,14 +64,6 @@ Dynamics 365 では、マイクロソフトがサービスの提供に影響を�
 その際は、内容を継続してご対応させていただきます。
 何卒、お客様のご理解、ご協力のほどお願い申し上げます。
 
-## 既知の問題について
-
-既知の問題のご案内は、製品ごとにページが異なります。下記のリンクなどからご確認ください。
-
-- Dynamics 365 Marketing : [既知の問題と回避策](https://docs.microsoft.com/ja-jp/dynamics365/marketing/known-issues)
-- Microsoft Dynamics 365 Guides : [Microsoft Dynamics 365 Guides に関する既知の問題](https://docs.microsoft.com/ja-jp/dynamics365/mixed-reality/guides/known-issues)
-- Power Apps : [既知の問題](https://docs.microsoft.com/ja-jp/power-apps/maker/portals/known-issues)
-
 ## 参考
 
 以下の記事もあわせてご確認ください。
