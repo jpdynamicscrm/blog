@@ -89,4 +89,5 @@ Dynamics 365 の動作について、仕様の確認をお問い合わせいた�
 以下の記事もあわせてご確認ください。
 
 - [根本原因分析 (RCA) を要求するにはどのサポート プランが必要ですか。](https://learn.microsoft.com/ja-jp/power-platform/admin/support-overview#which-support-plan-do-i-need-in-order-to-request-a-root-cause-analysis-rca)
+- [一般的な Power Apps デバッグ戦略](https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-apps/isolate-common-issues)
 - [クラウド サポートをご利用いただく際の留意点](https://jpdynamicscrm.github.io/blog/powerplatform/Notes-when-using-support.md)
