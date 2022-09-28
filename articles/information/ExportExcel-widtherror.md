@@ -35,18 +35,18 @@ tags:
 
 アップデート内容と致しましては、「列の編集」でビューに列を追加した際、その追加した列も出力したExcelに表示されるよう動作変更が行われました。  
 上記機能追加に伴い、追加リグレッションが発生していることから、ビューから出力されたファイルの表示幅が規定値(294ピクセル)になるという不具合が発生しております。  
-![](./ExportExcel_widtherror/ExportExcel-widtherror-2.png)  
+![](./ExportExcel-widtherror/ExportExcel-widtherror-2.png)  
 
 また、高度な検索から出力した場合には、ビューの列幅設定が反映されることを確認しております。
 * 高度な検索にてExcelを出力する方法
 1. 対象の画面の上部にある「…」を押下し、Create Viewを開く  
-![](./ExportExcel_widtherror/ExportExcel-widtherror-6.png) 
+![](./ExportExcel-widtherror/ExportExcel-widtherror-6.png) 
 2. Resultボタンを押下する  
-![](./ExportExcel_widtherror/ExportExcel-widtherror-3.png) 
+![](./ExportExcel-widtherror/ExportExcel-widtherror-3.png) 
 3. 全ての行を選択し、「Export to Excel」を押下する  
-![](./ExportExcel_widtherror/ExportExcel-widtherror-4.png) 
+![](./ExportExcel-widtherror/ExportExcel-widtherror-4.png) 
 4. Excelが出力される
-![](./ExportExcel_widtherror/ExportExcel-widtherror-5.png) 
+![](./ExportExcel-widtherror/ExportExcel-widtherror-5.png) 
 
 
 ---
