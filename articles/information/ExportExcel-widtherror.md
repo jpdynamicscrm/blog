@@ -24,7 +24,7 @@ tags:
 
 ## はじめに
 
-6月11日(土)に日本環境に適用したアップデートが原因で、Excelエクスポート時の列幅が規定値で出力される事象が発生しております。
+2022年6月11日(土)に日本環境に適用したアップデートが原因で、Excelエクスポート時の列幅が規定値で出力される事象が発生しております。
 こちらの事象の詳細と今後の修正予定につきまして、当ブログにてご説明いたします。
 
 ---
@@ -48,12 +48,20 @@ tags:
 4. Excelが出力される
 ![](./ExportExcel-widtherror/ExportExcel-widtherror-5.png) 
 
+※下記公開資料に記載のある「最新の高度な検索」がONになっている場合  
+[最新の高度な検索が既定でオンになっている](https://learn.microsoft.com/ja-jp/power-platform-release-plan/2022wave2/power-apps/modern-advanced-find-turned-default)
+1. 画面上部にある歯車ボタンを押下し、Advanced Setting画面を開く
+![](./ExportExcel-widtherror/ExportExcel-widtherror-7.png) 
+2. 画面上部にある、ろうとの画像を押下し、高度な検索画面を開く
+![](./ExportExcel-widtherror/ExportExcel-widtherror-8.png) 
+![](./ExportExcel-widtherror/ExportExcel-widtherror-9.png) 
+それ以降の手順は上記No.2以降を同様になります。
 
 ---
 <a id='anchor-futurefix'></a>
 
 ## 今後の修正予定について
-9月28日現在
+2022年9月28日現在
 修正方法については、検討段階であるため決定事項ではございませんが、修正には少なくとも2週間ほど見積もっており、その他の修正も併せて日本リージョンへの展開まで1か月以上先になる見込みでございます
 
 <a id='anchor-finish'></a>
