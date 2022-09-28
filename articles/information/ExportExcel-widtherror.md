@@ -45,7 +45,7 @@ tags:
 ![](./ExportExcel-widtherror/ExportExcel-widtherror-3.png) 
 3. 全ての行を選択し、 [Excel にエクスポート] を押下する  
 ![](./ExportExcel-widtherror/ExportExcel-widtherror-4.png) 
-4. Excel ファイルが出力される
+4. Excel ファイルが出力される  
 ![](./ExportExcel-widtherror/ExportExcel-widtherror-5.png) 
 
 ※下記公開資料に記載のある「最新の高度な検索」がON になっている場合  
