@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Power Automate フロー所有者の退職・異動への備え | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートの谷です。クラウド フロー所有者の退職・異動に際し、 クラウド フローの所有者を管理する方法についてご説明します。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power Automate フロー所有者の退職・異動への備え">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートの谷です。クラウド フロー所有者の退職・異動に際し、 クラウド フローの所有者を管理する方法についてご説明します。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image05.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image06.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image07.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image08.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image09.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image11.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image12.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image13.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image15.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image16.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image17.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image18.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image19.png">
+<meta property="article:published_time" content="2022-10-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-29T14:12:40.633Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="Power Automate">
+<meta property="article:tag" content="Cloud flows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image01.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerautomate/change-flow-owner" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Power Automate フロー所有者の退職・異動への備え
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2022-10-01T00:00:00.000Z" itemprop="datePublished">2022-10-01</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+50b4fdae-ab7a-5fec-9b99-99b91e6bc7c3%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%83%95%E3%83%AD%E3%83%BC%E6%89%80%E6%9C%89%E8%80%85%E3%81%AE%E9%80%80%E8%81%B7%E3%83%BB%E7%95%B0%E5%8B%95%E3%81%B8%E3%81%AE%E5%82%99%E3%81%88%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fchange-flow-owner%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fchange-flow-owner.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fchange-flow-owner.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/" data-id="cl8n4yqwn000w0mod3dz73rpw" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートの谷です。<br/><br>クラウド フロー所有者の退職・異動に際し、 クラウド フローの所有者を管理する方法についてご説明します。</p>
+<span id="more"></span>
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><hr>
+<ol>
+<li><a href="#anchor-about-flowowner">フローの所有者・実行専用ユーザーとは？</a></li>
+<li><a href="#anchor-about-flowowner-retire">フロー作成者 (所有者) が退職あるいは離任する場合はどうしたらいいか？</a></li>
+<li><a href="#anchor-solution-flow-or-not">ソリューション フローと非ソリューション フロー</a></li>
+<li><a href="#anchor-add-flow-co-owner">フローの所有者を追加するにはどうしたらいいか？</a><ul>
+<li><a href="#anchor-add-flow-co-owner-ps">PowerShell で所有者を追加する方法</a></li>
+<li><a href="#anchor-add-flow-co-owner-ppac">Power Platform 管理センターで所有者を追加する方法</a></li>
+<li><a href="#anchor-add-flow-co-owner-portal">フロー編集画面で所有者を追加する方法</a></li>
+</ul>
+</li>
+<li><a href="#anchor-change-flow-owner">フロー作成者 (所有者) を変更したい場合はどうしたらいいか？</a><ul>
+<li>非ソリューションフロー<ul>
+<li><a href="#anchor-change-flow-owner-rename">所有者が「名前をつけて保存」する方法</a></li>
+<li><a href="#anchor-change-flow-owner-cp">フローの「コピーを送信」する方法</a></li>
+<li><a href="#anchor-change-flow-export">フローのエクスポートを行い、新たなユーザーでインポートする方法</a></li>
+</ul>
+</li>
+<li>ソリューションフロー<ul>
+<li><a href="#anchor-change-flow-solution">フロー詳細画面からフローの所有者を変更する方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><a id='anchor-about-flowowner'></a></p>
+<h2 id="フローの所有者・実行専用ユーザーとは？"><a href="#フローの所有者・実行専用ユーザーとは？" class="headerlink" title="フローの所有者・実行専用ユーザーとは？"></a>フローの所有者・実行専用ユーザーとは？</h2><p>フローを作成・実行するためには以下の 2 種類の権限があります。<br/></p>
+<p><strong>作成者 (所有者)</strong><br/><br>フローの実行、編集、削除、共有設定を行うことが可能です。<br/><br>フローの作成者のみがフローのオリジナルの所有者となりますが、所有者は複数存在できます。</p>
+<p><strong>実行専用ユーザー</strong><br/><br>フローの実行のみを行うことが可能です。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>フローのパフォーマンスは作成者のライセンスにより決定されます</p><p>自動フローやスケジュール フローの場合は作成者のライセンスにより、また、</p><p>インスタント フローの場合は実行者のライセンスによりパフォーマンスプロファイルが決定します。</p><p>フローの所有者が複数存在する場合、作成者以外の所有者のライセンスはフローのパフォーマンスに影響いたしません。</p></div>
+<p><a id='anchor-about-flowowner-retire'></a></p>
+<h2 id="フロー作成者-所有者-が退職あるいは離任する場合はどうしたらいいか？"><a href="#フロー作成者-所有者-が退職あるいは離任する場合はどうしたらいいか？" class="headerlink" title="フロー作成者 (所有者) が退職あるいは離任する場合はどうしたらいいか？"></a>フロー作成者 (所有者) が退職あるいは離任する場合はどうしたらいいか？</h2><h3 id="実行について"><a href="#実行について" class="headerlink" title="実行について"></a>実行について</h3><p>フロー所有者のアカウントを削除後、フロー自体は削除されずそのまま残りますが、引き続きご利用いただくには以下の観点から対応が必要です。</p>
+<ol>
+<li>作成者がいない状態が続くと、有効なライセンスがないとみなされフローが中断される場合がある。</li>
+<li>削除されたユーザーアカウントの接続を使用している場合、アカウントの削除に伴い接続が無効となる。<br/><br> ※フロー作成者 (所有者) の変更および、接続の修正が必要になる場合があります。</li>
+</ol>
+<p>したがいまして、引き続きご利用いただくためには以下のいずれかの対応を行ってください。</p>
+<ol>
+<li>フローに Power Automate per flow ライセンスを割り当て、接続を修正する。</li>
+<li>新たなフローとして保存し、新たな所有者でフローを実行する。<br/><br> なお、現時点では、一部のフローのみ、既存のフローの作成者 (所有者) を変更することができます。<br/></li>
+</ol>
+<h3 id="編集・削除・共有について"><a href="#編集・削除・共有について" class="headerlink" title="編集・削除・共有について"></a>編集・削除・共有について</h3><p>フローの所有者がいる場合、フローを編集・削除・共有することができます。<br/><br>所有者は以下のいずれかの方法で追加いただけます。</p>
+<ul>
+<li>PowerShell</li>
+<li>Power Platform 管理センター</li>
+<li>フロー編集画面</li>
+</ul>
+<p><a id='anchor-solution-flow-or-not'></a></p>
+<h2 id="ソリューション-フローと非ソリューション-フロー"><a href="#ソリューション-フローと非ソリューション-フロー" class="headerlink" title="ソリューション フローと非ソリューション フロー"></a>ソリューション フローと非ソリューション フロー</h2><p>Power Platform では、Power Platform 上で構築するアプリやフローなどのコンポーネントを管理するためのメカニズム、ソリューションを提供しています。<br/><br>ソリューションに含まれるフローは<strong>ソリューション 対応 フロー</strong>と呼ばれます。<br/><br>ソリューション 対応 フローには独自で作成したソリューションに含まれるフローやDataverse for Teams環境で作成するフローがあります。<br/></p>
+<p>本記事ではソリューション対応フローを「ソリューション フロー」、それ以外のフローを「非ソリューションフロー」として記載しています。<br/><br>ソリューション フローであるか否かにより、フローの所有者を追加する方法、フローの所有者を変更する方法が一部異なりますためご留意ください。</p>
+<p><a id='anchor-add-flow-co-owner'></a></p>
+<h2 id="フローの所有者を追加するにはどうしたらいいか？"><a href="#フローの所有者を追加するにはどうしたらいいか？" class="headerlink" title="フローの所有者を追加するにはどうしたらいいか？"></a>フローの所有者を追加するにはどうしたらいいか？</h2><p>フローの所有者を追加する方法が複数ありますので、状況に応じた方法をご利用ください。</p>
+<p><a id='#anchor-add-flow-co-owner-ps'></a></p>
+<h3 id="PowerShell-で所有者を追加する方法"><a href="#PowerShell-で所有者を追加する方法" class="headerlink" title="PowerShell で所有者を追加する方法"></a>PowerShell で所有者を追加する方法</h3><p>グローバル管理者、Power Platform 管理者、Dynamics 365 管理者などの管理者はフローの所有者を追加することができます。<br/><br>非ソリューション フローの場合のみご利用いただける方法です。<br/></p>
+<p>事前準備として、管理者用 Power Apps コマンドレットのPowerShell モジュールをインストールいただく必要があります。<br/><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation">https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation</a></p>
+<p><strong>実行例</strong></p>
+<ol>
+<li>(事前準備) 管理者向け Power Apps コマンドレットをインストールします</li>
+<li>(事前準備) コマンドを実行するユーザー (管理者アカウント) でPower Platform 管理センターにサインインします</li>
+<li>以下のコマンドを実行します</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-AdminFlowOwnerRole -EnvironmentName &lt;環境ID&gt; -FlowName &lt;フローID&gt; -PrincipalType User -RoleName CanEdit -PrincipalObjectId &lt;新所有者のObjectID&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/powerautomate/change-flow-owner/image01.png"> </p>
+<p><strong>&lt;環境ID&gt;の確認方法</strong></p>
+<ul>
+<li>管理者用 Power Apps コマンドレット「 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-a-list-of-all-environments">Get-AdminPowerAppEnvironment</a>　」コマンドで対象の 環境ID をご確認ください<ul>
+<li>例えば、以下のとおり実行いただきますとテナント内の全環境について 環境ID が取得できます。</li>
+<li>```<br>  Get-AdminPowerAppEnvironment<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    - ![](/blog/powerautomate/change-flow-owner/image02.png)</span><br><span class="line"></span><br><span class="line">**&lt;フローID&gt;の確認方法**</span><br><span class="line">- 管理者用 Power Apps コマンドレット「[Get-AdminFlow](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-all-flows)」あるいはフロー編集画面のURLからご確認ください</span><br><span class="line">    - Get-AdminFlow実行例</span><br><span class="line">        - 例えば、以下のとおり実行いただきますと、環境内のすべてのフローが取得できます</span><br><span class="line">        - ```</span><br><span class="line">            Get-AdminFlow -EnvironmentName &lt;環境ID&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><img src="/blog/powerautomate/change-flow-owner/image03.png"></li>
+</ul>
+</li>
+<li>フロー編集画面におけるフローIDの確認例<ul>
+<li>対象のフローの編集画面のURLの一部がフローIDでございます</li>
+<li><img src="/blog/powerautomate/change-flow-owner/image04.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>&lt;新所有者の ObjectID&gt; の確認方法</strong></p>
+<ul>
+<li>「<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account">Get-AzureADUser</a>」コマンド、あるいは Azure Active Directory 管理センターでご確認ください</li>
+<li>Get-AzureADUser 実行例<ul>
+<li>例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて ObjectId が取得できます。</li>
+<li><pre><code>  Get-AzureADUser | Select DisplayName, UserPrincipalName, ObjectId
+</code></pre>
+</li>
+<li><img src="/blog/powerautomate/change-flow-owner/image05.png"></li>
+</ul>
+</li>
+<li>Azure Active Directory 管理センターにおけるユーザーの ObjectID の確認例<ul>
+<li><a target="_blank" rel="noopener" href="https://aad.portal.azure.com/">Azure Active Directory 管理センター</a> &gt; ユーザー &gt; 対象のユーザー</li>
+<li><img src="/blog/powerautomate/change-flow-owner/image06.png"></li>
+</ul>
+</li>
+</ul>
+<p><a id='anchor-add-flow-co-owner-ppac'></a></p>
+<h3 id="Power-Platform-管理センターで所有者を追加する方法"><a href="#Power-Platform-管理センターで所有者を追加する方法" class="headerlink" title="Power Platform 管理センターで所有者を追加する方法"></a>Power Platform 管理センターで所有者を追加する方法</h3><p>グローバル管理者、Power Platform 管理者、Dynamics 365 管理者などの管理者や環境管理者、システム管理者など対象の環境の管理者セキュリティロールを持つユーザーはPower Platform 管理センターからフローの所有者を追加することができます。<br/><br>非ソリューション フロー、ソリューション フローでご利用いただける方法です。<br/></p>
+<ol>
+<li>管理者アカウントで <a target="_blank" rel="noopener" href="https://admin.powerplatform.com/">Power Platform 管理センター</a> にアクセスします</li>
+<li>対象の環境の「設定」を表示し、「リソース」＞「フロー」を選択します<br> <img src="/blog/powerautomate/change-flow-owner/image07.png"></li>
+<li>対象のアプリの「…」メニューから、「共有」を選択します<br> <img src="/blog/powerautomate/change-flow-owner/image08.png"></li>
+<li>所有者として追加したいアカウントを追加します</li>
+</ol>
+<p><a id='anchor-add-flow-co-owner-portal'></a></p>
+<h3 id="フロー編集画面で所有者を追加する方法"><a href="#フロー編集画面で所有者を追加する方法" class="headerlink" title="フロー編集画面で所有者を追加する方法"></a>フロー編集画面で所有者を追加する方法</h3><p>フロー作成者(所有者)はフロー編集画面から所有者を追加することができます。<br/><br>非ソリューション フロー、ソリューション フローでご利用いただける方法です。</p>
+<ol>
+<li>Power Automate 作成者ポータルにアクセスします</li>
+<li>対象のフローの「…」メニューから「共有」を選択します<br> <img src="/blog/powerautomate/change-flow-owner/image09.png"></li>
+<li>所有者として追加したいアカウントを追加します</li>
+</ol>
+<p><a id='anchor-change-flow-owner'></a></p>
+<h2 id="フロー作成者-所有者-を変更したい場合はどうしたらいいか？"><a href="#フロー作成者-所有者-を変更したい場合はどうしたらいいか？" class="headerlink" title="フロー作成者 (所有者) を変更したい場合はどうしたらいいか？"></a>フロー作成者 (所有者) を変更したい場合はどうしたらいいか？</h2><p>非ソリューション フロー、あるいはソリューション フローかどうかにより変更方法が異なりますので、それぞれ説明します。</p>
+<p><strong>非ソリューション フロー</strong></p>
+<p>元の所有者で作成されたフローを複製し、新しい所有者でフローを新たに作成します。<br/><br>新たなフローとして保存を行うことで、フロー作成者 (所有者) を変更します。<br/><br>元の所有者で作成されたフローは残ったままとなってしまいますため、無効化や削除することを推奨します。</p>
+<ul>
+<li>所有者が「名前を付けて保存」する</li>
+<li>フローの「コピーを送信」する</li>
+<li>フローのエクスポートを行い、新たな所有者で当フローをインポートする</li>
+</ul>
+<p><strong>ソリューション フロー</strong></p>
+<ul>
+<li>フロー詳細画面からフローの所有者を変更する</li>
+</ul>
+<p><a id='anchor-change-flow-owner-rename'></a></p>
+<h3 id="＜非ソリューション-フロー＞-所有者が「名前をつけて保存」する方法"><a href="#＜非ソリューション-フロー＞-所有者が「名前をつけて保存」する方法" class="headerlink" title="＜非ソリューション フロー＞　所有者が「名前をつけて保存」する方法"></a>＜非ソリューション フロー＞　所有者が「名前をつけて保存」する方法</h3><p>変更先のユーザーにフローを共有し、フロー一覧より「名前をつけて保存」選択いただきますと<br/><br>同一環境に同一構成のフローを別名で、自身のフローとして保存いただけます。</p>
+<p><strong>実行例</strong></p>
+<ol>
+<li>フロー一覧画面から「名前を付けて保存」を実行します<br> <img src="/blog/powerautomate/change-flow-owner/image11.png"> </li>
+</ol>
+<p><a id='anchor-change-flow-owner-cp'></a></p>
+<h3 id="＜非ソリューション-フロー＞-フローの「コピーを送信」する方法"><a href="#＜非ソリューション-フロー＞-フローの「コピーを送信」する方法" class="headerlink" title="＜非ソリューション フロー＞　フローの「コピーを送信」する方法"></a>＜非ソリューション フロー＞　フローの「コピーを送信」する方法</h3><p>作成したフローをテンプレートとして、組織内のユーザーに送信いただけます。<br/><br>「コピーの送信」時に変更先ユーザーを指定し、指定されたユーザーにメール通知されますため、<br/><br>メールリンクより対象フローのテンプレートへアクセスし、自身のフローとして保存ください。<br/></p>
+<p><strong>実行例</strong></p>
+<ol>
+<li>フロー編集画面から「コピーの送信」を実行し、新たな所有者のメールアドレスを指定します<br> <img src="/blog/powerautomate/change-flow-owner/image12.png"> </li>
+<li>メール内のリンクをクリックし、テンプレートにアクセスします<br> <img src="/blog/powerautomate/change-flow-owner/image13.png"> </li>
+<li>フローを保存します</li>
+</ol>
+<p><a id='anchor-change-flow-export'></a></p>
+<h3 id="＜非ソリューション-フロー＞-フローのエクスポートを行い、新たなユーザーでインポートする方法"><a href="#＜非ソリューション-フロー＞-フローのエクスポートを行い、新たなユーザーでインポートする方法" class="headerlink" title="＜非ソリューション フロー＞　フローのエクスポートを行い、新たなユーザーでインポートする方法"></a>＜非ソリューション フロー＞　フローのエクスポートを行い、新たなユーザーでインポートする方法</h3><p>フローのパッケージファイルをしてエクスポートし、エクスポートしたファイルを変更先ユーザーにご送付いただきます。<br/><br>変更先ユーザーは当該エクスポートファイルをPower Automate ポータル画面よりインポートすることで、同一構成のフローを自身のフローとして保存いただけます。<br/><br>なお、パッケージのエクスポート後のインポートはテナントや環境をまたいだ実施が可能です。</p>
+<p><strong>実行例</strong></p>
+<ol>
+<li>フロー編集画面から「エクスポート」を実行します<br> <img src="/blog/powerautomate/change-flow-owner/image15.png"> </li>
+<li>新たな所有者で「インポート」を実行します<br> <img src="/blog/powerautomate/change-flow-owner/image16.png"> </li>
+</ol>
+<p><a id='anchor-change-flow-solution'></a></p>
+<h3 id="＜ソリューション-フロー＞-フロー詳細画面からフローの所有者を変更する方法"><a href="#＜ソリューション-フロー＞-フロー詳細画面からフローの所有者を変更する方法" class="headerlink" title="＜ソリューション フロー＞　フロー詳細画面からフローの所有者を変更する方法"></a>＜ソリューション フロー＞　フロー詳細画面からフローの所有者を変更する方法</h3><p>以下の方法でフローの所有者を変更できます。<br/></p>
+<p><strong>実行例</strong></p>
+<ol>
+<li>対象のソリューション 編集画面を表示し、対象のフローの「詳細」メニューを選択します<br> <img src="/blog/powerautomate/change-flow-owner/image17.png"> </li>
+<li>フロー編集画面の「編集」を押下します<br> <img src="/blog/powerautomate/change-flow-owner/image18.png"> </li>
+<li>所有者を変更します<br/><br> <img src="/blog/powerautomate/change-flow-owner/image19.png"> </li>
+</ol>
+<h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスをもとに紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p>
+<h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles">パフォーマンスプロファイルについて</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/manage-orphan-flow-when-owner-leaves-org">PowerShell を使用してフローの所有者を追加する</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/manage-power-automate">Power Platform 管理センターにてフローの所有者を追加する</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.microsoft.com/ja-jp/topic/%E6%89%80%E6%9C%89%E8%80%85%E3%81%8C%E7%B5%84%E7%B9%94%E3%82%92%E9%9B%A2%E3%82%8C%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E5%AD%A4%E7%AB%8B%E3%81%97%E3%81%9F%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95-c2915d93-cf96-98a3-e78c-5a69224270b7">所有者が組織を離れるときに孤立したフローを管理する方法</a></li>
+</ul>
+<hr>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flows/" rel="tag">Cloud flows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/change-flow-owner.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../how-to-avoid-flow-expiration/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Automate におけるフローの有効期限切れを防ぐ</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Power Automate フロー所有者の退職・異動への備え</a>
+          </li>
+        
+          <li>
+            <a href="../how-to-avoid-flow-expiration/">Power Automate におけるフローの有効期限切れを防ぐ</a>
+          </li>
+        
+          <li>
+            <a href="../Avoid-Character-Corruption-Methods/">Power Automate でテキストファイルの文字化けを回避する</a>
+          </li>
+        
+          <li>
+            <a href="../../powerapps/SR_authority/">Power Platform に問い合わせを行うための権限について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerapps/Audit-log-for-Power-Apps/">監査ログでのアプリ実行履歴等の確認について</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flows/" rel="tag">Cloud flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DataverseforTeams/" rel="tag">DataverseforTeams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flows/" rel="tag">Desktop flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerApps/" rel="tag">PowerApps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/">Canvas app</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">15</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Audit-Log">Audit Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Cloud-flows">Cloud flows</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB">セキュリティ ロール</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9">ライセンス</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E7%92%B0%E5%A2%83">環境</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">17</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flows">Cloud flows</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flows">Desktop flows</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-Desktop">Power Automate Desktop</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Model-driven-app/Dynamics">Dynamics</a><span class="tag-list-count">3</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 13.33px;">Canvas app</a> <a href="../../tags/Cloud-flows/" style="font-size: 15px;">Cloud flows</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse/" style="font-size: 10px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.67px;">Dataverse for Teams</a> <a href="../../tags/DataverseforTeams/" style="font-size: 10px;">DataverseforTeams</a> <a href="../../tags/Desktop-flows/" style="font-size: 11.67px;">Desktop flows</a> <a href="../../tags/Dynamics/" style="font-size: 15px;">Dynamics</a> <a href="../../tags/Graph-API/" style="font-size: 10px;">Graph API</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Model-driven-app/" style="font-size: 13.33px;">Model-driven app</a> <a href="../../tags/Power-Apps/" style="font-size: 16.67px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 11.67px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 18.33px;">Power Platform</a> <a href="../../tags/PowerApps/" style="font-size: 10px;">PowerApps</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 15px;">PowerShell</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 10px;">ライセンス</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a> <a href="../../tags/%E7%92%B0%E5%A2%83/" style="font-size: 11.67px;">環境</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
