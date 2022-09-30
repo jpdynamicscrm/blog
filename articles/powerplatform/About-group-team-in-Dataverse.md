@@ -115,7 +115,7 @@ Azure AD グループが入れ子になっており、かつ親グループと�
 なお、**「入れ子のうち子セキュリティ グループのメンバーを環境に自動で追加したい・セキュリティ ロールを割り振りたい」**というお問合せをよくいただきますが、その際にこの入れ子のグループ チームの手法を応用することができます。
 環境にセキュリティ グループを追加し、かつセキュリティ グループに子となるセキュリティ グループが存在する場合、子グループのメンバーは環境に事前に追加されません。
 ただし、親グループを含むグループにグループ チームが作成されている場合には、子グループのメンバーも自動で事前に追加されます。
-(ご参考 : [環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス](https://docs.microsoft.com/ja-jp/power-platform/admin/control-user-access))
+(ご参考 : [環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス](https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access))
 *環境セキュリティ グループ内の入れ子のセキュリティ グループのメンバーは、事前にプロビジョニングされたり、Dataverse 環境に自動的に追加されたりすること は、ありません。 ただし、入れ子のセキュリティ グループに Dataverse グループ チーム を作成すると、環境に追加できます。*
 
 つまり、**親グループのグループ チームを作成することで、子グループのメンバーも自動で環境に追加される**ようになります
@@ -124,8 +124,8 @@ Azure AD グループが入れ子になっており、かつ親グループと�
 
 ## 関連する公開情報
 ---
-・[Microsoft Dataverse チームの管理](https://docs.microsoft.com/ja-jp/power-platform/admin/manage-teams) : グループ チームを含め、Dataverse の各チームについてご案内しています。
-・[グループ チームを管理する](https://docs.microsoft.com/ja-jp/power-platform/admin/control-user-access) : グループ チームの概要、また作成・編集手順をご案内しています。
+・[Microsoft Dataverse チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams) : グループ チームを含め、Dataverse の各チームについてご案内しています。
+・[グループ チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams) : グループ チームの概要、また作成・編集手順をご案内しています。
 
 ## おわりに
 ---

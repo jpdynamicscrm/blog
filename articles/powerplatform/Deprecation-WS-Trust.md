@@ -26,7 +26,7 @@ tags:
 2020 年 2 月に、セキュリティ観点により、クライアントプログラムからの WS-Trust 認証プロトコルによる Dataverse への接続が非推奨になることがアナウンスされ、段階的に廃止されています。  
 現時点では一部の Dynamics 365 や Power Platform 環境では、引き続き WS-Trust プロトコルにて認証可能ですが、2022 年 4 月以降、すべての環境で非推奨（廃止）となります。その結果、クライアントプログラムから Dataverse 環境へのログインに失敗する可能性がございます。  
 
-[Dataverse に接続するための Office365 認証の種類と OrganizationServiceProxy クラスの廃止](https://docs.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-office365-authentication-type-and-organizationserviceproxy-class-for-connecting-to-dataverse) 
+[Dataverse に接続するための Office365 認証の種類と OrganizationServiceProxy クラスの廃止](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-office365-authentication-type-and-organizationserviceproxy-class-for-connecting-to-dataverse) 
 
 <a id='anchor-schedule'></a>
 
@@ -73,7 +73,7 @@ Microsoft Dynamics 365: WS-Trust authentication protocol for connecting to Datav
 -	CrmServiceClient.OrganizationServiceProxy を使用している
 
 下記公開情報も併せてご参照のうえ、プログラムのご確認をお願いいたします。  
-[コードやアプリケーションが WS-Trust を使用しているかどうかを確認するにはどうすればよいですか？](https://docs.microsoft.com/ja-jp/powerapps/developer/data-platform/authenticate-office365-deprecation#how-do-i-know-if-my-code-or-application-is-using-ws-trust)
+[コードやアプリケーションが WS-Trust を使用しているかどうかを確認するにはどうすればよいですか？](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/authenticate-office365-deprecation#how-do-i-know-if-my-code-or-application-is-using-ws-trust)
 
 
 <a id='anchor-fix'></a>
@@ -81,7 +81,7 @@ Microsoft Dynamics 365: WS-Trust authentication protocol for connecting to Datav
 # 対処方法  
 ---
 下記公開情報を参考に、接続インターフェイスの変更や、認証タイプ OAuth へ移行をご検討ください。  
-[この影響を受けた場合、アプリケーションのコードを修正するにはどうすればよいですか。](https://docs.microsoft.com/ja-jp/powerapps/developer/data-platform/authenticate-office365-deprecation#what-should-i-do-to-fix-my-application-code-if-affected)
+[この影響を受けた場合、アプリケーションのコードを修正するにはどうすればよいですか。](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/authenticate-office365-deprecation#what-should-i-do-to-fix-my-application-code-if-affected)
 
 2021 年 4 月以降に作成された環境では WS-Trust が利用できないため、改修後の認証接続テストにご利用ください。必要に応じて、既存の運用環境を WS-Trust プロトコル利用不可環境へコピーしてテストをお願いいたします。
 

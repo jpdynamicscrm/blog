@@ -23,7 +23,7 @@ tags:
 Dataverse for Teams 環境とは、Teams のチームに紐づく Power Platform の環境です。
 
 チームの所有者が環境の管理者となり、チームのメンバーは環境上でアプリやフロー、チャットボットを作成・使用することができます。
-参考: [Microsoft Dataverse for Teams 環境について | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-platform/admin/about-teams-environment)
+参考: [Microsoft Dataverse for Teams 環境について](https://learn.microsoft.com/ja-jp/power-platform/admin/about-teams-environment)
 
 Dataverse for Teams の環境は、Teams を通してのみ作成されます。
 例えば以下のような場合に、選択したチームの Dataverse for Teams 環境が自動で作成されます。
@@ -56,7 +56,7 @@ Dataverse for Teams 環境には以下の制限があります。
 Power Platform 管理センター > リソース > キャパシティ > Microsoft Teams
 ![](./Manage-Dataverse-for-Teams/limitation.png)
 
-制限を超えて環境やストレージ容量を使用したい場合は、[Dataverse へのアップグレード](https://docs.microsoft.com/en-us/power-platform/admin/about-teams-environment#upgrade-process)をご検討ください。
+制限を超えて環境やストレージ容量を使用したい場合は、[Dataverse へのアップグレード](https://learn.microsoft.com/ja-jp/power-platform/admin/about-teams-environment#upgrade-process)をご検討ください。
 
 ### 環境へのゲストアクセス
 Teams チームにゲストユーザーを招待している場合、ゲストユーザーは以下のような権限を持ちます。
@@ -75,13 +75,13 @@ Teams チームにゲストユーザーを招待している場合、ゲスト�
 Temas からの Power Apps/Power Virtual Agents の使用を禁止するには、Teams 管理センターからアプリのアクセス許可ポリシーの設定を行い、環境作成を許可しても良いユーザーにだけ以下 2 つのアプリを許可するよう設定してください。
 
 ![](./Manage-Dataverse-for-Teams/Teams-app-policy.png)
-参考: [Microsoft Teams のアプリのアクセス許可ポリシーを管理する | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies)
+参考: [Microsoft Teams のアプリのアクセス許可ポリシーを管理する](https://learn.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies)
 
 ## 環境の作成は禁止したいけど、アプリは使わせたい
 ---
 Teams 上の Power Apps/Power Virtual Agents アプリを禁止としても、引き続きアプリやボットを使用することは可能です。
 まず、アプリやボットの使用許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。
-参考: [Microsoft Teams のカスタム アプリのポリシーと設定を管理する#組織全体のカスタム アプリ設定 | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting)
+参考: [組織全体のカスタム アプリ設定](https://learn.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting)
 
 ### [同僚が作成] からアプリを取得する
 
@@ -108,24 +108,24 @@ Dataverse for Teams 環境で作成したアプリやボットを [同僚が作�
 |Power Virtual Agents | Power Virtual Agents 自体の機能を提供します。<br> ボットの作成や編集、管理は全てこのアプリにより行われます。 |
 | Shared Power Virtual Agents | Power Virtual Agents で作成されたボットを表示・使用する機能を提供します。<br>このアプリを使用することで、Teams 上の [アプリ] > [テナント向けに構築] > [同僚が作成] にボットが表示されるようになり、個人の Teams 上で使用することが可能になります。 |
 
-※参考: [Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する | Microsoft Docs](https://docs.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)
+※参考: [Teams 管理センターで Microsoft Power Platform アプリを管理する](https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)
 
 ## 環境を監視するには？
 ---
 
 センター オブ エクセレンス (CoE) キットを使用すると、Dataverse for Teams の環境の監視およびクリーン アップが可能となります。
-参考: [Microsoft Dataverse for Teams 環境管理 | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/teams-governance)
+参考: [Microsoft Dataverse for Teams 環境管理](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/teams-governance)
 
 CoE スターター キットとは、Power Platform での管理や開発を支援するためのツールです。
 [GitHub リポジトリ](https://github.com/microsoft/powerapps-tools/tree/master/Administration/CoEStarterKit) からダウンロードでき、Power Platform のソリューションとしてインストールされます。
-詳細については、[公開情報](https://docs.microsoft.com/ja-jp/power-platform/guidance/coe/overview) をご参照ください。
+詳細については、[公開情報](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/overview) をご参照ください。
 
 ※注意事項
 ![](./Manage-Dataverse-for-Teams/CoE-disclaimer.png)
 
 
 ## 注釈
-(※1) [公開情報](https://docs.microsoft.com/ja-jp/powerapps/teams/use-sample-apps-from-teams-store)に記載のサンプル アプリをインストールすると、Dataverse for Teams 環境が自動で作成されます。
+(※1) [公開情報](https://learn.microsoft.com/ja-jp/power-apps/teams/use-sample-apps-from-teams-store)に記載のサンプル アプリをインストールすると、Dataverse for Teams 環境が自動で作成されます。
 (※2) Microsoft 365 のライセンス数が 200,000 を超えるテナントに関しては、上限を引き上げたい場合、サポートまでお問合せください。
 
 ---
