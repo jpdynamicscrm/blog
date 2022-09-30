@@ -52,13 +52,13 @@ tags:
 - Internal ：Power Automate / Power Apps ポータルからユーザーが自身で取得する無償版・試用版ライセンス<br>
 - Viral： 管理者により付与される無償版・試用版ライセンス、および https://signup.microsoft.com/ からユーザーが自身で取得する無償版・試用版ライセンス<br>
 
-     参考情報： [試用ライセンスのブロックコマンド](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#block-trial-licenses-commands)
+     参考情報： [試用ライセンスのブロックコマンド](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#block-trial-licenses-commands)
 
 <a id='anchor-preparation'></a>
 
 ## 事前準備
 ### PowerShell モジュールのインストール
-1. Power Apps の PowerShell モジュールを [こちらの手順](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation) に従ってインストールします。
+1. Power Apps の PowerShell モジュールを [こちらの手順](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation) に従ってインストールします。
 
 ### 現在の設定を確認<br>
 1. 以下のコマンドを実行し、無償版・試用版が無効化されているかどうか確認します。<br>
@@ -155,7 +155,7 @@ Add-AllowedConsentPlans -Types "Viral"
      Power Automate の使用権は Power Apps の有償ライセンスに含まれているため、Power Automate のライセンスは必要ありません。<br>
 
 ### <font color=blue>Q. コマンド実行すると他の製品には影響を与えないか</font>
-   [Azure のセルフサービスサインアップ](https://docs.microsoft.com/ja-jp/azure/active-directory/enterprise-users/directory-self-service-signup)を無効にしていると、Dynamicsの試用版が無効になる場合がございます。<br>Azure のセルフサービスサインアップを無効にしていない場合は、Power Automate 、 Power Apps の無償版、試用版のみに影響があります。<br>
+   [Azure Active Directory のセルフサービス サインアップについて](https://learn.microsoft.com/ja-jp/azure/active-directory/enterprise-users/directory-self-service-signup)を無効にしていると、Dynamicsの試用版が無効になる場合がございます。<br>Azure のセルフサービスサインアップを無効にしていない場合は、Power Automate 、 Power Apps の無償版、試用版のみに影響があります。<br>
    <br>
 
 
