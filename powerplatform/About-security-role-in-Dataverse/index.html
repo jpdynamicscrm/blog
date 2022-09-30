@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img01-SGsetting.PNG">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img02-rolesetting.PNG">
 <meta property="article:published_time" content="2021-10-11T04:45:00.000Z">
-<meta property="article:modified_time" content="2022-09-29T14:12:40.673Z">
+<meta property="article:modified_time" content="2022-09-30T07:01:30.898Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Model-driven app">
 <meta property="article:tag" content="Dynamics">
@@ -107,7 +107,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d61c957b-e530-51a8-8d31-665a237b4daa%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E5%88%B6%E5%BE%A1%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-security-role-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cl8n4yqww001a0modffi1bk74" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cl8o5034q001a0mqse4173qf6" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -142,12 +142,12 @@
 <li>Basic User : 環境における一般的なアプリの利用ができるロール。管理操作が制限される他、自分以外のユーザーが作成したデータに対するアクセスも制限されます。</li>
 <li>システム カスタマイザー : 環境をカスタマイズするためのロール。多くの管理操作を実行できますが、自分以外のユーザーが作成したデータを参照できません。</li>
 </ul>
-<p>またこちらの公開情報にも、より多くのセキュリティ ロールのご説明が記載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/database-security">環境のリソースに対するユーザー セキュリティの構成</a></p>
+<p>またこちらの公開情報にも、より多くのセキュリティ ロールのご説明が記載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security">環境のリソースに対するユーザー セキュリティの構成</a></p>
 <h3 id="セキュリティ-ロールの仕組みとカスタマイズ"><a href="#セキュリティ-ロールの仕組みとカスタマイズ" class="headerlink" title="セキュリティ ロールの仕組みとカスタマイズ"></a>セキュリティ ロールの仕組みとカスタマイズ</h3><hr>
 <p>セキュリティ ロールは、初期状態では、ユーザーのライセンスやMicrosoft 365 管理者役割に応じて自動的にユーザーに割り振られています。<br>ただ、デフォルトで割り当てられるセキュリティ ロールではなく、もっと具体的にアクセス権を管理したいという方に向けて、セキュリティ ロールの仕組みとカスタマイズ方法をご紹介します。</p>
 <p>セキュリティ ロールの実体は、Dataverse 上の各テーブルに対するアクセス権の集合体です。<br>セキュリティ ロール編集画面にて、各セキュリティ ロールごとに、以下のようなイメージでアクセス権が定義されているのが確認できます。<br><img src="/blog/powerplatform/About-security-role-in-Dataverse/img02-rolesetting.PNG"></p>
 <p>上図左の列に記載されているのがDataverse の各テーブルの名称、右側の列に記載されているのがテーブルに対する操作です。<br>このマトリクスに対して、アクセス許可レベルを設定することで、<strong>「(行)どのテーブルに対して × (列)どの操作を許可するか」</strong>を定義することができます。<br>たとえば上図の「お知らせ」テーブルで言えば、Basic User セキュリティ ロールではお知らせの読み込みは完全に許可されている一方で、お知らせの作成・書き込み・削除・追加…など、他の操作は禁止されている、ということが定義されています。</p>
-<p>また、上図では丸の色・塗られ方が権限によって様々ですが、これはアクセス許可のレベルを表現しています。<br>Power Platform ではアクセス許可レベルを 5 段階で設定しています。以下の公開情報に詳しく掲載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権</a></p>
+<p>また、上図では丸の色・塗られ方が権限によって様々ですが、これはアクセス許可のレベルを表現しています。<br>Power Platform ではアクセス許可レベルを 5 段階で設定しています。以下の公開情報に詳しく掲載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権</a></p>
 <p>このアクセス権の定義方法は、セキュリティ ロールのカスタマイズの考え方にもつながります。<br>例えば、</p>
 <ul>
 <li>サポート部門の担当者には、自分が担当する「サポート案件」を参照可とする</li>
@@ -158,15 +158,15 @@
 <p>なお、セキュリティ ロールをカスタマイズする際は、既存のセキュリティ ロールは変更後に元々の状態にリセットできないので、<br>万が一に備えてカスタマイズ用のセキュリティ ロールを別途用意いただくことを推奨しています。<br>また、既存のセキュリティ ロールでは、内部処理に使われているさまざまなテーブルについても多数のアクセス制御が設定されています。<br>そのため、セキュリティ ロールを別途用意するときには、既存のセキュリティ ロールをコピーした上で、特定のテーブルのアクセス制御のみ変更することをお勧めいたします。</p>
 <h2 id="本記事からの発展"><a href="#本記事からの発展" class="headerlink" title="本記事からの発展"></a>本記事からの発展</h2><hr>
 <p>Dataverse では、これまでご案内してきたように、ライセンスやセキュリティ グループ、セキュリティ ロールの組み合わせでアクセス制御を行っています。<br>本記事では詳しくご紹介していませんが、より発展的な内容についても、公開情報をご案内いたします。</p>
-<h4 id="チーム単位でのセキュリティ-ロールの割り当て"><a href="#チーム単位でのセキュリティ-ロールの割り当て" class="headerlink" title="チーム単位でのセキュリティ ロールの割り当て"></a>チーム単位でのセキュリティ ロールの割り当て</h4><p>ユーザーが所属するDataverse 上の「チーム」に対してセキュリティ ロールを設定することで、ユーザーにもチームのセキュリティ ロールが引き継がれます。<br>また、この「チーム」を、Azure AD のセキュリティ グループと紐づけることで、Azure AD 側とのユーザー管理の一元化も可能です。<br>セキュリティ ロールをユーザーごとに設定するのは少し大変……という場合には、ぜひチームの導入をご検討ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/manage-teams">チームを管理する</a></p>
-<h4 id="フィールドレベルのセキュリティ付与"><a href="#フィールドレベルのセキュリティ付与" class="headerlink" title="フィールドレベルのセキュリティ付与"></a>フィールドレベルのセキュリティ付与</h4><p>本記事でご案内したユーザーごとのアクセス制御とは別に、Dataverse の各列ごとにアクセス制御を設定することができます。<br>住所や電話番号など、ユーザーを問わず隠しておきたいようなデータに対して、ぜひご設定ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/field-level-security">アクセスを制御するフィールド レベルのセキュリティ</a></p>
+<h4 id="チーム単位でのセキュリティ-ロールの割り当て"><a href="#チーム単位でのセキュリティ-ロールの割り当て" class="headerlink" title="チーム単位でのセキュリティ ロールの割り当て"></a>チーム単位でのセキュリティ ロールの割り当て</h4><p>ユーザーが所属するDataverse 上の「チーム」に対してセキュリティ ロールを設定することで、ユーザーにもチームのセキュリティ ロールが引き継がれます。<br>また、この「チーム」を、Azure AD のセキュリティ グループと紐づけることで、Azure AD 側とのユーザー管理の一元化も可能です。<br>セキュリティ ロールをユーザーごとに設定するのは少し大変……という場合には、ぜひチームの導入をご検討ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a></p>
+<h4 id="フィールドレベルのセキュリティ付与"><a href="#フィールドレベルのセキュリティ付与" class="headerlink" title="フィールドレベルのセキュリティ付与"></a>フィールドレベルのセキュリティ付与</h4><p>本記事でご案内したユーザーごとのアクセス制御とは別に、Dataverse の各列ごとにアクセス制御を設定することができます。<br>住所や電話番号など、ユーザーを問わず隠しておきたいようなデータに対して、ぜひご設定ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/field-level-security">アクセスを制御する列レベルのセキュリティ</a></p>
 <h4 id="セキュリティ-グループを環境に割り当てた際のメンバー同期"><a href="#セキュリティ-グループを環境に割り当てた際のメンバー同期" class="headerlink" title="セキュリティ グループを環境に割り当てた際のメンバー同期"></a>セキュリティ グループを環境に割り当てた際のメンバー同期</h4><p>セキュリティ グループを環境に割り当てると、グループに所属するうちライセンスを保有するユーザーが、自動的に環境に追加されるようになります。<br>ただし以下のように、注意が必要な挙動もあります。</p>
 <ul>
 <li>ライセンスを保有しないユーザーは環境に追加されない</li>
 <li>入れ子のセキュリティ グループのメンバーは、グループに「Azure AD グループ チーム」が割り当てられている場合を除いて、自動的に環境に追加されない</li>
 <li>ユーザーがグループから削除された際、Power Platform 側のユーザーは無効化される</li>
 </ul>
-<p>以下の公開情報に注意点が列挙されていますので、ぜひご参照ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境に対するユーザー アクセスを構成する</a></p>
+<p>以下の公開情報に注意点が列挙されていますので、ぜひご参照ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス</a></p>
 <h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
 <p>以上、Dataverse でのユーザーアクセスの制御についてご案内いたしました。<br>こちらの記事が皆様のセキュアな環境管理のお役に立ちましたら幸いです。</p>
 
