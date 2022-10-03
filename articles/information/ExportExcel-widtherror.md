@@ -55,13 +55,13 @@ tags:
 2. 画面上部にある、 [ろうと]を押下し、高度な検索画面を開く
 ![](./ExportExcel-widtherror/ExportExcel-widtherror-8.png) 
 ![](./ExportExcel-widtherror/ExportExcel-widtherror-9.png) 
-それ以降の手順は上記No.2 以降を同様になります。
+それ以降の手順は上記No.2 以降と同様になります。
 
 ---
 <a id='anchor-futurefix'></a>
 
 ## 今後の修正予定について
-2022年9月28日 (水) 現在
+2022年10月3日 (月) 現在
 修正方法については、検討段階であるため決定事項ではございませんが、修正には少なくとも2週間ほど見積もっており、その他の修正も併せて日本リージョンへの展開まで1か月以上先になる見込みでございます
 
 <a id='anchor-finish'></a>
