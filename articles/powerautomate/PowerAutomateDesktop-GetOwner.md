@@ -21,9 +21,9 @@ tags:
 
 ## a. Power Automate ポータル画面から確認する
 環境の管理者は、環境内の全てのデスクトップ フローの共同所有者となります。  
-そのため、有償ライセンスをお持ちの場合 __「マイ フロー > デスクトップ フロー」__ からフローごとに確認いただけます。)
+そのため、有償ライセンスをお持ちの場合 __「マイ フロー > デスクトップ フロー」__ から環境内の全てのフローの情報を確認いただけます。
 
-ライセンスについては以下をご確認ください。  
+有償ライセンスについては以下をご確認ください。  
 [Premium RPA 機能 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/premium-features#plans-that-provide-entitlements-for-the-premium-rpa-features)
 
 また、Power Automate ポータル画面からデスクトップ フローを確認する方法については以下に記載されています。  
@@ -56,8 +56,8 @@ Power Automate 画面より __「データ > テーブル」__ からメニュ�
 <br>
 <br>
 ### 5. 条件を設定し、リボンの [結果] をクリックします
-検索条件として、カテゴリから __「デスクトップ フロー」__ を選択下さい。  
-また、 __「列の編集 > 列の追加」__ から作成日、修正日など追加で表示する列を選択できます。
+検索条件として、カテゴリから「デスクトップ フロー」を選択下さい。  
+また、「列の編集 > 列の追加」から作成日、修正日など追加で表示する列を選択できます。
 ![](./PowerAutomateDesktop-GetOwner/image5.png)
 <br>
 <br>
