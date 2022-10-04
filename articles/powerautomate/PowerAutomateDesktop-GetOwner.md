@@ -64,7 +64,7 @@ Power Automate 画面より __「データ > テーブル」__ からメニュ�
 ### 6. デスクトップ フローの一覧が表示されます
 所有者列を参照することで、所有者を確認することができます。  
 表示された検索結果は __「プロセスのエクスポート」__ から Excel にエクスポートすることが可能です。
-![](./PowerAutomateDesktop-GetOwner/image6.png)
+![](./PowerAutomateDesktop-GetOwner/image5.png)
 <br>
 <br>
 ## おわりに
