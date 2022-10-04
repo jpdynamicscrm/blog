@@ -21,8 +21,12 @@ tags:
 
 ## a. Power Automate ポータル画面から確認する
 環境の管理者は、環境内の全てのデスクトップ フローの共同所有者となります。  
-そのため、 __「マイ フロー > デスクトップ フロー」__ からフローごとに確認いただけます。  
-Power Automate ポータル画面からデスクトップ フローを確認する方法については以下にも記載されています。  
+そのため、有償ライセンスをお持ちの場合 __「マイ フロー > デスクトップ フロー」__ からフローごとに確認いただけます。)
+
+ライセンスについては以下をご確認ください。
+[Premium RPA 機能 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/premium-features#plans-that-provide-entitlements-for-the-premium-rpa-features)
+
+また、Power Automate ポータル画面からデスクトップ フローを確認する方法については以下に記載されています。  
 [デスクトップ フローの共有と管理 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/manage#list-of-desktop-flows)
 
 
