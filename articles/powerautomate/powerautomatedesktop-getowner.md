@@ -21,7 +21,7 @@ tags:
 
 ## a. Power Automate ポータル画面から確認する
 環境の管理者は、環境内の全てのデスクトップ フローの共同所有者となります。  
-そのため、有償ライセンスをお持ちの場合 __「マイ フロー > デスクトップ フロー」__ から環境内の全てのフローの情報を確認いただけます。
+そのため、有償ライセンスをお持ちの場合「マイ フロー > デスクトップ フロー」から環境内の全てのフローの情報を確認いただけます。
 
 有償ライセンスについては以下をご確認ください。  
 [Premium RPA 機能 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/premium-features#plans-that-provide-entitlements-for-the-premium-rpa-features)
@@ -36,12 +36,12 @@ tags:
 取得した情報は Excel ファイルにエクスポートすることが可能です。
 
 ### 1. Power Apps の画面に遷移します
-Power Automate 画面より __「データ > テーブル」__ からメニューを選択することで Power Apps の画面に遷移します。
+Power Automate 画面より「データ > テーブル」からメニューを選択することで Power Apps の画面に遷移します。
 ![](./PowerAutomateDesktop-GetOwner/image1.png)
 <br>
 <br>
-### 2. [詳細設定] を選択します
-表示された Power Apps 画面の右上のギアアイコンより、__「詳細設定」__ を選択します。
+### 2. 「詳細設定」を選択します
+表示された Power Apps 画面の右上のギアアイコンより「詳細設定」を選択します。
 ![](./PowerAutomateDesktop-GetOwner/image2.png)
 <br>
 <br>
@@ -51,18 +51,18 @@ Power Automate 画面より __「データ > テーブル」__ からメニュ�
 <br>
 <br>
 ### 4. 「プロセス」を選択した上で、条件をクリアします
-表示された「高度な検索」の「検索」画面で、 __「プロセス」__ を選択した上で、赤枠の  __「クリア」__ で条件をクリアします。
+表示された「高度な検索」の「検索」画面で、「プロセス」を選択した上で、赤枠の 「クリア」で条件をクリアします。
 ![](./PowerAutomateDesktop-GetOwner/image4.png)
 <br>
 <br>
-### 5. 条件を設定し、リボンの [結果] をクリックします
+### 5. 条件を設定し、リボンの 「結果」をクリックします
 検索条件として、カテゴリから「デスクトップ フロー」を選択下さい。  
 また、「列の編集 > 列の追加」から作成日、修正日など追加で表示する列を選択できます。
 ![](./PowerAutomateDesktop-GetOwner/image5.png)
 <br>
 <br>
 ### 6. デスクトップ フローの基礎情報が一覧表示されます  
-表示された検索結果は __「プロセスのエクスポート」__ から Excel にエクスポートすることが可能です。
+表示された検索結果は 「プロセスのエクスポート」から Excel にエクスポートすることが可能です。
 ![](./PowerAutomateDesktop-GetOwner/image6.png)
 <br>
 <br>
