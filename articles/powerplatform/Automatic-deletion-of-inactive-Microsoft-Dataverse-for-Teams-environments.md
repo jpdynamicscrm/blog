@@ -19,7 +19,7 @@ tags:
 ・よくあるご質問  
   
 下記公開情報を基にご説明いたします。   
-[非アクティブな Microsoft Dataverse for Teams 環境の自動削除](https://docs.microsoft.com/ja-jp/power-platform/admin/inactive-teams-environment)   
+[非アクティブな Microsoft Dataverse for Teams 環境の自動削除](https://learn.microsoft.com/ja-jp/power-platform/admin/inactive-teams-environment)   
 各項目について公開情報内にも詳細を記載しておりますのでご参照ください。   
   
 なお、対象はあくまでDataverse for Teams環境となります。   

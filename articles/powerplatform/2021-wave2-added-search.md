@@ -93,20 +93,20 @@ Dataverse 検索では内部的に検索インデックスを作成していま�
 ただし増加量は RelevanceSearch テーブルに反映されますので、もし環境ごとのキャパシティをご確認いただいた際に当該テーブルの使用量が増加している場合には、Dataverse 検索の対象となるテーブル・列を減らしていただくことをご検討ください。
 なお、Dataverse 検索の対象を減らしていただいた後、実際に削減がキャパシティに反映されるまでに最大 24 時間が必要です。
 
-公開情報 [新しい容量ストレージモデル](https://docs.microsoft.com/ja-jp/power-platform/admin/capacity-storage#faq) より「よくあるご質問」>「DataverseSearch テーブルとは、またどうすればそれを減らすことができますか」にもご案内がございますので、ぜひご参照ください。
+公開情報 [新しい容量ストレージモデル](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#faq) より「よくあるご質問」>「DataverseSearch テーブルとは、またどうすればそれを減らすことができますか」にもご案内がございますので、ぜひご参照ください。
 ※本記事公開時点では、DataverseSearch を RelevanceSearch と読み替えいただけますと幸いです。
 
 
 ## 関連する公開情報
 ---
 ・Dataverse 検索の概要について
-[自分の環境に Dataverse 検索を構成する](https://docs.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization)
+[自分の環境に Dataverse 検索を構成する](https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization)
 ・Dataverse 検索のリリースについて
-[管理者およびモデル駆動型アプリ開発者向けの簡素化された Dataverse 検索の構成](https://docs.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/simplified-dataverse-search-configuration-admins-model-driven-app-makers)
+[管理者およびモデル駆動型アプリ開発者向けの簡素化された Dataverse 検索の構成](https://learn.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/simplified-dataverse-search-configuration-admins-model-driven-app-makers)
 ・高度なルックアップのリリースについて
-[モデル駆動型 Power Apps のすべてのユーザー向けの高度なルックアップ機能](https://docs.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/advanced-lookup-capabilities-all-end-users-model-driven-power-apps)
+[モデル駆動型 Power Apps のすべてのユーザー向けの高度なルックアップ機能](https://learn.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/advanced-lookup-capabilities-all-end-users-model-driven-power-apps)
 ・2021年 Wave2 を含む、リリース計画の全体
-[Dynamics 365 および Microsoft Power Platform のリリース計画](https://docs.microsoft.com/ja-jp/dynamics365/release-plans/)
+[Dynamics 365 および Microsoft Power Platform のリリース計画](https://learn.microsoft.com/ja-jp/dynamics365/release-plans/)
 
 
 ## おわりに

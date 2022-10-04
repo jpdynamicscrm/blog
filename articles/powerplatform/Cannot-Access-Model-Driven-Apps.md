@@ -95,7 +95,7 @@ App Access Checker にて、アカウントの Security が No と表示され�
 ※ sample の部分を適切な文字列に置き換えてください。
 
 ## 注釈
-- (※1) セキュリティ ロールとは、営業担当者などの異なるユーザーが異なる種類のレコードにどのようにアクセスできるかを定義する機能のことです。詳しくは、[こちら](https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges#security-roles) をご覧ください。
+- (※1) セキュリティ ロールとは、営業担当者などの異なるユーザーが異なる種類のレコードにどのようにアクセスできるかを定義する機能のことです。詳しくは、[こちら](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges#security-roles) をご覧ください。
 - (※2) アプリへのアクセスに必要なライセンスについては以下をご覧ください。
   - [価格 | Microsoft Dynamics 365](https://dynamics.microsoft.com/ja-jp/pricing/)
   - [価格 - Power Apps](https://powerapps.microsoft.com/ja-jp/pricing/)
@@ -106,6 +106,6 @@ App Access Checker にて、アカウントの Security が No と表示され�
 | リンク | 内容 |
 | ---- | --- |
 | [How to access "App Access Checker" to see Role & Privileges needed for AppModule Entity to see and launch model app](https://community.dynamics.com/crm/f/microsoft-dynamics-crm-forum/427100/how-to-access-app-access-checker-to-see-role-privileges-needed-for-appmodule-entity-to-see-and-launch-model-app) | 本記事で紹介した App Access Checker のアクセスについて解説している英語記事です。 |
-| [ユーザー アカウント、ユーザー ライセンス、セキュリティ ロールを管理する](https://docs.microsoft.com/ja-jp/dynamics365/marketing/admin-users-licenses-roles) | Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説をしております。 |
-| [モデル駆動型アプリのよく寄せられる質問](https://docs.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/model-app-faq) | 解説している内容としてはタイトルの通りですが、インスタンス内のアプリがユーザーに表示されない原因について触れています。 |
-| [セキュリティ ロールおよび特権](https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges) | 本記事でアプリのアクセスを許可するために使用したセキュリティ ロールについて解説をしております。 |
+| [ユーザー アカウント、ユーザー ライセンス、セキュリティ ロールを管理する](https://learn.microsoft.com/ja-jp/dynamics365/marketing/admin-users-licenses-roles) | Dynamics 365 のモデル駆動型アプリに必要な、ライセンスとセキュリティ ロールの割り当てについて解説をしております。 |
+| [モデル駆動型アプリのよく寄せられる質問](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/model-app-faq) | 解説している内容としてはタイトルの通りですが、インスタンス内のアプリがユーザーに表示されない原因について触れています。 |
+| [セキュリティ ロールおよび特権](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges) | 本記事でアプリのアクセスを許可するために使用したセキュリティ ロールについて解説をしております。 |

@@ -67,7 +67,7 @@ Power Platform では、要件に合わせたさまざまな既定のセキュ�
 - システム カスタマイザー : 環境をカスタマイズするためのロール。多くの管理操作を実行できますが、自分以外のユーザーが作成したデータを参照できません。
 
 またこちらの公開情報にも、より多くのセキュリティ ロールのご説明が記載されているので、ぜひご覧ください。
-ご参考: [環境のリソースに対するユーザー セキュリティの構成](https://docs.microsoft.com/ja-jp/power-platform/admin/database-security)
+ご参考: [環境のリソースに対するユーザー セキュリティの構成](https://learn.microsoft.com/ja-jp/power-platform/admin/database-security)
 
 
 ### セキュリティ ロールの仕組みとカスタマイズ
@@ -85,7 +85,7 @@ Power Platform では、要件に合わせたさまざまな既定のセキュ�
 
 また、上図では丸の色・塗られ方が権限によって様々ですが、これはアクセス許可のレベルを表現しています。
 Power Platform ではアクセス許可レベルを 5 段階で設定しています。以下の公開情報に詳しく掲載されているので、ぜひご覧ください。
-ご参考: [セキュリティ ロールおよび特権](https://docs.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges)
+ご参考: [セキュリティ ロールおよび特権](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges)
 
 このアクセス権の定義方法は、セキュリティ ロールのカスタマイズの考え方にもつながります。
 例えば、
@@ -111,12 +111,12 @@ Dataverse では、これまでご案内してきたように、ライセンス�
 ユーザーが所属するDataverse 上の「チーム」に対してセキュリティ ロールを設定することで、ユーザーにもチームのセキュリティ ロールが引き継がれます。
 また、この「チーム」を、Azure AD のセキュリティ グループと紐づけることで、Azure AD 側とのユーザー管理の一元化も可能です。
 セキュリティ ロールをユーザーごとに設定するのは少し大変……という場合には、ぜひチームの導入をご検討ください。
-ご参考: [チームを管理する](https://docs.microsoft.com/ja-jp/power-platform/admin/manage-teams)
+ご参考: [Microsoft Dataverse チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams)
 
 #### フィールドレベルのセキュリティ付与
 本記事でご案内したユーザーごとのアクセス制御とは別に、Dataverse の各列ごとにアクセス制御を設定することができます。
 住所や電話番号など、ユーザーを問わず隠しておきたいようなデータに対して、ぜひご設定ください。
-ご参考: [アクセスを制御するフィールド レベルのセキュリティ](https://docs.microsoft.com/ja-jp/power-platform/admin/field-level-security)
+ご参考: [アクセスを制御する列レベルのセキュリティ](https://learn.microsoft.com/ja-jp/power-platform/admin/field-level-security)
 
 #### セキュリティ グループを環境に割り当てた際のメンバー同期
 セキュリティ グループを環境に割り当てると、グループに所属するうちライセンスを保有するユーザーが、自動的に環境に追加されるようになります。
@@ -126,7 +126,7 @@ Dataverse では、これまでご案内してきたように、ライセンス�
 - ユーザーがグループから削除された際、Power Platform 側のユーザーは無効化される
 
 以下の公開情報に注意点が列挙されていますので、ぜひご参照ください。
-ご参考: [環境に対するユーザー アクセスを構成する](https://docs.microsoft.com/ja-jp/power-platform/admin/control-user-access)
+ご参考: [環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス](https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access)
 
 
 ## おわりに
