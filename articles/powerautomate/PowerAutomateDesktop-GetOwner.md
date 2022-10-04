@@ -23,7 +23,7 @@ tags:
 環境の管理者は、環境内の全てのデスクトップ フローの共同所有者となります。  
 そのため、有償ライセンスをお持ちの場合 __「マイ フロー > デスクトップ フロー」__ からフローごとに確認いただけます。)
 
-ライセンスについては以下をご確認ください。
+ライセンスについては以下をご確認ください。  
 [Premium RPA 機能 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/premium-features#plans-that-provide-entitlements-for-the-premium-rpa-features)
 
 また、Power Automate ポータル画面からデスクトップ フローを確認する方法については以下に記載されています。  
