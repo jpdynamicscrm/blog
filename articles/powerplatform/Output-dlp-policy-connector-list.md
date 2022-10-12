@@ -124,20 +124,24 @@ PowerShell で取得できるコネクタと、Power Platform 管理センター
 
 つまり、以下のような現象が起きます。
 
-* ポリシー作成以降に新しいコネクタが追加された場合、Power Platform 管理センターではそのコネクタが表示され数にも含まれます。しかし、新しいコネクタは自動的にポリシーに追加されないため、PowerShell で取得した結果には含まれません。
-  * したがって、Power Platform 管理センター での数 ＞ PowerShell で取得した数 となります。
-* ポリシー作成以降に廃止されたコネクタがある場合、Power Platform 管理センターではそのコネクタが表示されなくなりますが、PowerShell で取得した結果には残ります。
-  * したがって、Power Platform 管理センター での数 ＜ PowerShell で取得した数 となります。
+DLP ポリシーを作成した後に、新しく追加されたコネクタがある場合：
+
+* Power Platform 管理センターでは新しいコネクタが表示されます。
+* 新しいコネクタは自動的にポリシーに追加されないため、PowerShell で取得した結果には含まれません。
+
+ポリシー作成以降に廃止されたコネクタがある場合：
+
+* Power Platform 管理センターでは廃止されたコネクタが表示されなくなります。
+* PowerShell で取得した結果には廃止されたコネクタが残ります。
 
 表示上の不一致はありますが、ポリシー作成以降に追加されたコネクタは既定のデータグループの設定に従って制御されるため、ポリシーは想定通り動作しますのでご安心ください。
-
-なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、両者の数の不一致が解消されます。
-少しお手数ではありますが、不一致を解消したい場合は再保存をお試しください。
 
  参考：
 
  * [新しいコネクタの既定データ グループ について](https://docs.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors)
  * [既定のデータ グループの変更](https://docs.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group)
+
+なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、新しく追加されたコネクタが PowerShell で取得した結果に含まれるようになります。しかし、廃止されたコネクタは PowerShell で取得した結果に残り続けますのでご承知おきください。
 
 ### DLP ポリシーの対象とならないコネクタがある
 DLP ポリシーは Power Platform からのデータ漏洩を防ぐことが目的のものです。
