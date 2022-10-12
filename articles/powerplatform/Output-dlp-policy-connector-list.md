@@ -18,7 +18,7 @@ tags:
 
 ![](Output-dlp-policy-connector-list/2022-08-17-17-29-40.png)
 
-参考：[データ消失防止ポリシー - Power Platform | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention)
+参考：[データ消失防止ポリシー - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention)
 
 しかし、提供されているコネクタは非常に数が多く、DLP ポリシーを設定する画面ではすべてを把握するのが難しいのが現状です。
 
@@ -30,14 +30,14 @@ tags:
 ## 事前準備
 Power Platform の PowerShell コマンドレットのご利用には、事前準備が必要です。詳しい手順は下記公開情報の「インストール」の章をご参照ください。
 
-[PowerShell のサポート - Power Platform | Microsoft Docs](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
+[PowerShell のサポート - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
 
 `Install-Module` に失敗する場合は、インストールに必要な設定が不足している可能性が考えられます。その設定については、弊社 Windows サポートチームによる記事にまとめられていますので、こちらもぜひご覧ください。
 
 [PowerShell Gallery からモジュールをインストールするために必要な設定 | Microsoft Japan Windows Technology Support Blog](https://jpwinsup.github.io/blog/2021/06/14/UserInterfaceAndApps/PowerShell/how-to-setup-install-module/)
 
 ## サンプル
-今回は、[Get-DlpPolicy](https://docs.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/get-dlppolicy?view=pa-ps-latest) を使用します。
+今回は、[Get-DlpPolicy](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/get-dlppolicy?view=pa-ps-latest) を使用します。
 
 このコマンドレットは DLP ポリシーの一覧や DLP ポリシーの詳細情報を取得できます。これを `Export-Csv` と組み合わせ、CSV ファイルを作成します。
 
@@ -140,8 +140,8 @@ DLP ポリシーを作成した後に、新しく追加されたコネクタが�
 
  参考：
 
- * [新しいコネクタの既定データ グループ について](https://docs.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors)
- * [既定のデータ グループの変更](https://docs.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group)
+ * [新しいコネクタの既定データ グループ について](https://learn.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors)
+ * [既定のデータ グループの変更](https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group)
 
 なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、新しく追加されたコネクタが PowerShell で取得した結果に含まれるようになります。しかし、廃止されたコネクタは PowerShell で取得した結果に残り続けますのでご承知おきください。
 
