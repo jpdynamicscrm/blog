@@ -18,7 +18,7 @@ tags:
 
 ![](Output-dlp-policy-connector-list/2022-08-17-17-29-40.png)
 
-参考：[データ消失防止ポリシー - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention)
+参考：[データの消失防止ポリシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention)
 
 しかし、提供されているコネクタは非常に数が多く、DLP ポリシーを設定する画面ではすべてを把握するのが難しいのが現状です。
 
@@ -30,7 +30,7 @@ tags:
 ## 事前準備
 Power Platform の PowerShell コマンドレットのご利用には、事前準備が必要です。詳しい手順は下記公開情報の「インストール」の章をご参照ください。
 
-[PowerShell のサポート - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
+[Power Apps の PowerShell サポート](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
 
 `Install-Module` に失敗する場合は、インストールに必要な設定が不足している可能性が考えられます。その設定については、弊社 Windows サポートチームによる記事にまとめられていますので、こちらもぜひご覧ください。
 
