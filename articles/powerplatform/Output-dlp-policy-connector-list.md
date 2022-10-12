@@ -144,8 +144,3 @@ DLP ポリシーを作成した後に、新しく追加されたコネクタが�
  * [既定のデータ グループの変更](https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group)
 
 なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、新しく追加されたコネクタが PowerShell で取得した結果に含まれるようになります。しかし、廃止されたコネクタは PowerShell で取得した結果に残り続けますのでご承知おきください。
-
-### DLP ポリシーの対象とならないコネクタがある
-DLP ポリシーは Power Platform からのデータ漏洩を防ぐことが目的のものです。
-そのため、Power Apps や Power Virtual Agents など、Power Platform に含まれるコネクタは、DLP ポリシーの対象外になります。
-したがって、Power Platform 管理センター のコネクタ一覧には表示されないのですが、PowerShell で取得できるコネクタ一覧には含まれる場合があります。
