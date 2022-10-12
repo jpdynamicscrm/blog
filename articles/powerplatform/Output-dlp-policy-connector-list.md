@@ -65,30 +65,38 @@ $plainPassword = "[パスワード]"
 $pass = ConvertTo-SecureString $plainPassword -AsPlainText -Force
 Add-PowerAppsAccount -Username $mailAddress -Password $pass
 
+# DLP ポリシーとコネクタの取得
 $DLPPolicy = Get-DlpPolicy -PolicyName $policyId
 
-$connectors = @()
+if (Test-Path $filePath) {
+    Remove-Item $filePath
+}
+
 foreach($group in $DLPPolicy.connectorGroups) {
     $groupName = ""
-    # データグループの名前を分かりやすいものに置き換えます
+    # グループの名前を分かりやすいものに置き換えます
     if ($group.classification -eq "Confidential") {
         $groupName = "Business"
+    
     } elseif ($group.classification -eq "General") {
         $groupName = "NonBusiness"
+
     } elseif ($group.classification -eq "Blocked") {
         $groupName = "Blocked"
     }
+
     foreach($connector in $group.connectors) {
-        $obj = New-Object PSObject
-        $obj | Add-Member -MemberType NoteProperty -Name Policy -Value $DLPPolicy.displayName
-        $obj | Add-Member -MemberType NoteProperty -Name Group  -Value $groupName
-        $obj | Add-Member -MemberType NoteProperty -Name Name   -Value $connector.name
-        $obj | Add-Member -MemberType NoteProperty -Name ID     -Value $connector.id
-        $obj | Add-Member -MemberType NoteProperty -Name Type   -Value $connector.type
-        $connectors += $obj
+        $obj = [PSCustomObject]@{
+            Policy = $DLPPolicy.displayName
+            Group = $groupName
+            Name = $connector.name
+            ID = $connector.id
+            Type = $connector.type
+        }
+
+        $obj | Export-Csv -Path $filePath -Encoding UTF8 -NoTypeInformation -Append
     }
 }
-$connectors | Export-Csv -Path $filePath -Encoding UTF8 -NoTypeInformation
 ```
 
 サンプル中の `[DLPポリシーのID]` は DLP ポリシーの編集画面の URL から取得できます。
