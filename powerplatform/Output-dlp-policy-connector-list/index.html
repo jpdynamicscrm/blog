@@ -17,8 +17,8 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-16-35-50.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-17-24-45.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-16-56-37.png">
-<meta property="article:published_time" content="2022-08-19T02:43:28.000Z">
-<meta property="article:modified_time" content="2022-10-03T04:12:36.138Z">
+<meta property="article:published_time" content="2022-10-12T10:23:09.000Z">
+<meta property="article:modified_time" content="2022-10-13T00:27:05.742Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="PowerShell">
@@ -102,13 +102,13 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2022-08-19T02:43:28.000Z" itemprop="datePublished">2022-08-19</time>
+  <time datetime="2022-10-12T10:23:09.000Z" itemprop="datePublished">2022-10-12</time>
 </a>
         
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d65f502d-79eb-5b58-be81-611d4c18f8ec%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDLP+%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%AE%E4%B8%80%E8%A6%A7%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FOutput-dlp-policy-connector-list%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FOutput-dlp-policy-connector-list.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FOutput-dlp-policy-connector-list.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/" data-id="cl8s9aexv001s0lo43feufb1s" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/" data-id="cl96bmykz001s0mt2f9succy2" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -131,35 +131,52 @@
 <p>このコマンドレットは DLP ポリシーの一覧や DLP ポリシーの詳細情報を取得できます。これを <code>Export-Csv</code> と組み合わせ、CSV ファイルを作成します。</p>
 <p>以下に、サンプルコードを記載いたします。</p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>説明のためのサンプルであり、エラー処理などは含まれておりません。ご使用の際は、十分にご検証いただきますようお願いします。</p></div>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;#</span></span><br><span class="line"><span class="comment">特定のDLPポリシーに設定されているコネクタの一覧をcsvファイルに出力します</span></span><br><span class="line"><span class="comment">#&gt;</span></span><br><span class="line"><span class="built_in">Import-Module</span> Microsoft.PowerApps.Administration.PowerShell</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$filePath</span> = <span class="string">&quot;[CSVファイルパス]&quot;</span></span><br><span class="line"><span class="comment"># ポリシーのID</span></span><br><span class="line"><span class="variable">$policyId</span> = <span class="string">&quot;[DLPポリシーのID]&quot;</span></span><br><span class="line"><span class="comment"># メールアドレス</span></span><br><span class="line"><span class="variable">$mailAddress</span> = <span class="string">&quot;[メールアドレス]&quot;</span></span><br><span class="line"><span class="comment"># パスワード</span></span><br><span class="line"><span class="variable">$plainPassword</span> = <span class="string">&quot;[パスワード]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># サインイン</span></span><br><span class="line"><span class="variable">$pass</span> = <span class="built_in">ConvertTo-SecureString</span> <span class="variable">$plainPassword</span> <span class="literal">-AsPlainText</span> <span class="literal">-Force</span></span><br><span class="line"><span class="built_in">Add-PowerAppsAccount</span> <span class="literal">-Username</span> <span class="variable">$mailAddress</span> <span class="literal">-Password</span> <span class="variable">$pass</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$DLPPolicy</span> = <span class="built_in">Get-DlpPolicy</span> <span class="literal">-PolicyName</span> <span class="variable">$policyId</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$connectors</span> = <span class="selector-tag">@</span>()</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$group</span> <span class="keyword">in</span> <span class="variable">$DLPPolicy</span>.connectorGroups) &#123;</span><br><span class="line">    <span class="variable">$groupName</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="comment"># データグループの名前を分かりやすいものに置き換えます</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;Confidential&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;Business&quot;</span></span><br><span class="line">    &#125; <span class="keyword">elseif</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;General&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;NonBusiness&quot;</span></span><br><span class="line">    &#125; <span class="keyword">elseif</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;Blocked&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;Blocked&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="variable">$connector</span> <span class="keyword">in</span> <span class="variable">$group</span>.connectors) &#123;</span><br><span class="line">        <span class="variable">$obj</span> = <span class="built_in">New-Object</span> PSObject</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> Policy <span class="literal">-Value</span> <span class="variable">$DLPPolicy</span>.displayName</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> <span class="built_in">Group</span>  <span class="literal">-Value</span> <span class="variable">$groupName</span></span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> Name   <span class="literal">-Value</span> <span class="variable">$connector</span>.name</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> ID     <span class="literal">-Value</span> <span class="variable">$connector</span>.id</span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Add-Member</span> <span class="literal">-MemberType</span> NoteProperty <span class="literal">-Name</span> <span class="built_in">Type</span>   <span class="literal">-Value</span> <span class="variable">$connector</span>.type</span><br><span class="line">        <span class="variable">$connectors</span> += <span class="variable">$obj</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$connectors</span> | <span class="built_in">Export-Csv</span> <span class="literal">-Path</span> <span class="variable">$filePath</span> <span class="literal">-Encoding</span> UTF8 <span class="literal">-NoTypeInformation</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;#</span></span><br><span class="line"><span class="comment">特定のDLPポリシーに設定されているコネクタの一覧をcsvファイルに出力します</span></span><br><span class="line"><span class="comment">#&gt;</span></span><br><span class="line"><span class="built_in">Import-Module</span> Microsoft.PowerApps.Administration.PowerShell</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$filePath</span> = <span class="string">&quot;[CSVファイルパス]&quot;</span></span><br><span class="line"><span class="comment"># ポリシーのID</span></span><br><span class="line"><span class="variable">$policyId</span> = <span class="string">&quot;[DLPポリシーのID]&quot;</span></span><br><span class="line"><span class="comment"># メールアドレス</span></span><br><span class="line"><span class="variable">$mailAddress</span> = <span class="string">&quot;[メールアドレス]&quot;</span></span><br><span class="line"><span class="comment"># パスワード</span></span><br><span class="line"><span class="variable">$plainPassword</span> = <span class="string">&quot;[パスワード]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># サインイン</span></span><br><span class="line"><span class="variable">$pass</span> = <span class="built_in">ConvertTo-SecureString</span> <span class="variable">$plainPassword</span> <span class="literal">-AsPlainText</span> <span class="literal">-Force</span></span><br><span class="line"><span class="built_in">Add-PowerAppsAccount</span> <span class="literal">-Username</span> <span class="variable">$mailAddress</span> <span class="literal">-Password</span> <span class="variable">$pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DLP ポリシーとコネクタの取得</span></span><br><span class="line"><span class="variable">$DLPPolicy</span> = <span class="built_in">Get-DlpPolicy</span> <span class="literal">-PolicyName</span> <span class="variable">$policyId</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Test-Path</span> <span class="variable">$filePath</span>) &#123;</span><br><span class="line">    <span class="built_in">Remove-Item</span> <span class="variable">$filePath</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$group</span> <span class="keyword">in</span> <span class="variable">$DLPPolicy</span>.connectorGroups) &#123;</span><br><span class="line">    <span class="variable">$groupName</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="comment"># グループの名前を分かりやすいものに置き換えます</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;Confidential&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;Business&quot;</span></span><br><span class="line">    </span><br><span class="line">    &#125; <span class="keyword">elseif</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;General&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;NonBusiness&quot;</span></span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">elseif</span> (<span class="variable">$group</span>.classification <span class="operator">-eq</span> <span class="string">&quot;Blocked&quot;</span>) &#123;</span><br><span class="line">        <span class="variable">$groupName</span> = <span class="string">&quot;Blocked&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span>(<span class="variable">$connector</span> <span class="keyword">in</span> <span class="variable">$group</span>.connectors) &#123;</span><br><span class="line">        <span class="variable">$obj</span> = [<span class="type">PSCustomObject</span>]<span class="selector-tag">@</span>&#123;</span><br><span class="line">            Policy = <span class="variable">$DLPPolicy</span>.displayName</span><br><span class="line">            <span class="built_in">Group</span> = <span class="variable">$groupName</span></span><br><span class="line">            Name = <span class="variable">$connector</span>.name</span><br><span class="line">            ID = <span class="variable">$connector</span>.id</span><br><span class="line">            <span class="built_in">Type</span> = <span class="variable">$connector</span>.type</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$obj</span> | <span class="built_in">Export-Csv</span> <span class="literal">-Path</span> <span class="variable">$filePath</span> <span class="literal">-Encoding</span> UTF8 <span class="literal">-NoTypeInformation</span> <span class="literal">-Append</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>サンプル中の <code>[DLPポリシーのID]</code> は DLP ポリシーの編集画面の URL から取得できます。</p>
 <p><img src="/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-17-24-45.png"></p>
 <p>そして、サンプルを実行すると、以下のような CSV ファイルを出力できます。DLP ポリシーでどのようにコネクタを分類しているか、より把握しやすくなりました。<br><img src="/blog/powerplatform/Output-dlp-policy-connector-list/2022-08-18-16-56-37.png"></p>
 <h2 id="画面で確認できるコネクタと件数が異なるとき"><a href="#画面で確認できるコネクタと件数が異なるとき" class="headerlink" title="画面で確認できるコネクタと件数が異なるとき"></a>画面で確認できるコネクタと件数が異なるとき</h2><p>PowerShell の <code>Get-DlpPolicy</code> で取得できるコネクタの顔ぶれと Power Platform 管理センター で確認できるコネクタの顔ぶれが異なる場合があります。</p>
-<p>これは両者に以下の違いがあるためです。</p>
+<p>原因は以下の2つのいずれか、または両方が考えられます。</p>
 <ul>
-<li>PowerShell で取得できるコネクタ　：　ポリシーに明示的に追加されたコネクタのみを取得できます。</li>
-<li>Power Platform 管理センターで見るコネクタ　：　現時点で有効なコネクタが表示されます (ポリシー作成以降に追加/廃止されたコネクタが表示/非表示になります)。</li>
+<li>最後に DLP ポリシーを保存してから、新しいコネクタが追加されたか、廃止されたコネクタがある。</li>
+<li>Power Virtual Agents など、DLP ポリシーの対象とならないコネクタがある。</li>
 </ul>
+<h3 id="新しいコネクタが追加されたか、廃止されたコネクタがある"><a href="#新しいコネクタが追加されたか、廃止されたコネクタがある" class="headerlink" title="新しいコネクタが追加されたか、廃止されたコネクタがある"></a>新しいコネクタが追加されたか、廃止されたコネクタがある</h3><p>PowerShell で取得できるコネクタと、Power Platform 管理センターで見えるコネクタには、以下の違いがあります。</p>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PowerShell で取得できるコネクタ</td>
+<td>ポリシーに明示的に追加されたコネクタのみを取得できます。</td>
+</tr>
+<tr>
+<td>Power Platform 管理センターで見るコネクタ</td>
+<td>現時点で有効なコネクタが表示されます (ポリシー作成以降に追加/廃止されたコネクタが表示/非表示になります)。</td>
+</tr>
+</tbody></table>
 <p>つまり、以下のような現象が起きます。</p>
+<p>DLP ポリシーを作成した後に、新しく追加されたコネクタがある場合：</p>
 <ul>
-<li>ポリシー作成以降に新しいコネクタが追加された場合、Power Platform 管理センターではそのコネクタが表示され数にも含まれます。しかし、新しいコネクタは自動的にポリシーに追加されないため、PowerShell で取得した結果には含まれません。<ul>
-<li>したがって、Power Platform 管理センター での数 ＞ PowerShell で取得した数 となります。</li>
+<li>Power Platform 管理センターでは新しいコネクタが表示されます。</li>
+<li>新しいコネクタは自動的にポリシーに追加されないため、PowerShell で取得した結果には含まれません。</li>
 </ul>
-</li>
-<li>ポリシー作成以降に廃止されたコネクタがある場合、Power Platform 管理センターではそのコネクタが表示されなくなりますが、PowerShell で取得した結果には残ります。<ul>
-<li>したがって、Power Platform 管理センター での数 ＜ PowerShell で取得した数 となります。</li>
-</ul>
-</li>
+<p>ポリシー作成以降に廃止されたコネクタがある場合：</p>
+<ul>
+<li>Power Platform 管理センターでは廃止されたコネクタが表示されなくなります。</li>
+<li>PowerShell で取得した結果には、廃止されたコネクタが残ります。</li>
 </ul>
 <p>表示上の不一致はありますが、ポリシー作成以降に追加されたコネクタは既定のデータグループの設定に従って制御されるため、ポリシーは想定通り動作しますのでご安心ください。</p>
-<p>なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、両者の数の不一致が解消されます。<br>少しお手数ではありますが、不一致を解消したい場合は再保存をお試しください。</p>
 <p> 参考：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors">新しいコネクタの既定データ グループ</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors">新しいコネクタの既定データ グループ について</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group">既定のデータ グループの変更</a></li>
 </ul>
+<p>なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、新しく追加されたコネクタが PowerShell で取得した結果に含まれるようになります。しかし、廃止されたコネクタは PowerShell で取得した結果に残り続けますのでご承知おきください。</p>
 
       
       
@@ -184,19 +201,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerautomate/Import-Csv-With-Standard-Connectors/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Power Automate で CSV ファイルを取り込む
-        
-      </div>
-    </a>
   
-  
-    <a href="../../powerautomate/MC362053/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../powerautomate/change-flow-owner/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">MC362053 Power Automate フローの IP アドレスのファイアウォール構成を 2022 年 5 月 15 日までに更新する</div>
+      <div class="article-nav-title">Power Automate フロー所有者の退職・異動への備え</div>
     </a>
   
 </nav>
@@ -215,6 +223,10 @@
       <ul>
         
           <li>
+            <a href="">DLP ポリシーに設定されているコネクタの一覧を出力する</a>
+          </li>
+        
+          <li>
             <a href="../../powerautomate/change-flow-owner/">Power Automate フロー所有者の退職・異動への備え</a>
           </li>
         
@@ -228,10 +240,6 @@
         
           <li>
             <a href="../../powerautomate/Avoid-Character-Corruption-Methods/">Power Automate でテキストファイルの文字化けを回避する</a>
-          </li>
-        
-          <li>
-            <a href="../../powerapps/SR_authority/">Power Platform に問い合わせを行うための権限について</a>
           </li>
         
       </ul>
