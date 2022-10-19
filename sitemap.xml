@@ -107,6 +107,20 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
     
     <lastmod>2022-10-19</lastmod>
@@ -142,20 +156,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
     
     <lastmod>2022-10-19</lastmod>
@@ -177,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/Send_data_from_automate_to_apps/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/Send_data_from_automate_to_apps/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -199,6 +199,27 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/information/ExportExcel-widtherror/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -219,7 +240,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -227,13 +248,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/information/ExportExcel-widtherror/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -248,13 +262,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -355,6 +362,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Audit-Log/</loc>
+    <lastmod>2022-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Tenant-level-Analytics/</loc>
+    <lastmod>2022-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Inventory-Report/</loc>
     <lastmod>2022-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
