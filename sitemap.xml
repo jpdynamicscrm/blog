@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Notes-when-using-support/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/</loc>
     
     <lastmod>2022-10-19</lastmod>
@@ -17,13 +10,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/For-early-resolution-of-issues/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -44,7 +30,21 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Notes-when-using-support/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Deprecation-WS-Trust/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/For-early-resolution-of-issues/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -212,20 +212,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/information/ExportExcel-widtherror/</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
     
     <lastmod>2022-10-19</lastmod>
@@ -240,7 +226,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/information/ExportExcel-widtherror/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -248,6 +241,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -262,6 +262,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
     
     <lastmod>2022-10-19</lastmod>
     
