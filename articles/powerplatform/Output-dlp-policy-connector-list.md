@@ -1,6 +1,6 @@
 ---
 title: DLP ポリシーに設定されているコネクタの一覧を出力する
-date: 2022-08-19 11:43:28
+date: 2022-10-12 19:23:09
 tags:
   - Power Platform
   - PowerShell
@@ -65,30 +65,38 @@ $plainPassword = "[パスワード]"
 $pass = ConvertTo-SecureString $plainPassword -AsPlainText -Force
 Add-PowerAppsAccount -Username $mailAddress -Password $pass
 
+# DLP ポリシーとコネクタの取得
 $DLPPolicy = Get-DlpPolicy -PolicyName $policyId
 
-$connectors = @()
+if (Test-Path $filePath) {
+    Remove-Item $filePath
+}
+
 foreach($group in $DLPPolicy.connectorGroups) {
     $groupName = ""
-    # データグループの名前を分かりやすいものに置き換えます
+    # グループの名前を分かりやすいものに置き換えます
     if ($group.classification -eq "Confidential") {
         $groupName = "Business"
+    
     } elseif ($group.classification -eq "General") {
         $groupName = "NonBusiness"
+
     } elseif ($group.classification -eq "Blocked") {
         $groupName = "Blocked"
     }
+
     foreach($connector in $group.connectors) {
-        $obj = New-Object PSObject
-        $obj | Add-Member -MemberType NoteProperty -Name Policy -Value $DLPPolicy.displayName
-        $obj | Add-Member -MemberType NoteProperty -Name Group  -Value $groupName
-        $obj | Add-Member -MemberType NoteProperty -Name Name   -Value $connector.name
-        $obj | Add-Member -MemberType NoteProperty -Name ID     -Value $connector.id
-        $obj | Add-Member -MemberType NoteProperty -Name Type   -Value $connector.type
-        $connectors += $obj
+        $obj = [PSCustomObject]@{
+            Policy = $DLPPolicy.displayName
+            Group = $groupName
+            Name = $connector.name
+            ID = $connector.id
+            Type = $connector.type
+        }
+
+        $obj | Export-Csv -Path $filePath -Encoding UTF8 -NoTypeInformation -Append
     }
 }
-$connectors | Export-Csv -Path $filePath -Encoding UTF8 -NoTypeInformation
 ```
 
 サンプル中の `[DLPポリシーのID]` は DLP ポリシーの編集画面の URL から取得できます。
@@ -102,24 +110,37 @@ $connectors | Export-Csv -Path $filePath -Encoding UTF8 -NoTypeInformation
 
 PowerShell の `Get-DlpPolicy` で取得できるコネクタの顔ぶれと Power Platform 管理センター で確認できるコネクタの顔ぶれが異なる場合があります。
 
-これは両者に以下の違いがあるためです。
+原因は以下の2つのいずれか、または両方が考えられます。
 
-* PowerShell で取得できるコネクタ　：　ポリシーに明示的に追加されたコネクタのみを取得できます。
-* Power Platform 管理センターで見るコネクタ　：　現時点で有効なコネクタが表示されます (ポリシー作成以降に追加/廃止されたコネクタが表示/非表示になります)。
+* 最後に DLP ポリシーを保存してから、新しいコネクタが追加されたか、廃止されたコネクタがある。
+* Power Virtual Agents など、DLP ポリシーの対象とならないコネクタがある。
+
+### 新しいコネクタが追加されたか、廃止されたコネクタがある
+
+PowerShell で取得できるコネクタと、Power Platform 管理センターで見えるコネクタには、以下の違いがあります。
+
+|種類|説明|
+|---|---|
+|PowerShell で取得できるコネクタ|ポリシーに明示的に追加されたコネクタのみを取得できます。|
+|Power Platform 管理センターで見るコネクタ|現時点で有効なコネクタが表示されます (ポリシー作成以降に追加/廃止されたコネクタが表示/非表示になります)。|
 
 つまり、以下のような現象が起きます。
 
-* ポリシー作成以降に新しいコネクタが追加された場合、Power Platform 管理センターではそのコネクタが表示され数にも含まれます。しかし、新しいコネクタは自動的にポリシーに追加されないため、PowerShell で取得した結果には含まれません。
-  * したがって、Power Platform 管理センター での数 ＞ PowerShell で取得した数 となります。
-* ポリシー作成以降に廃止されたコネクタがある場合、Power Platform 管理センターではそのコネクタが表示されなくなりますが、PowerShell で取得した結果には残ります。
-  * したがって、Power Platform 管理センター での数 ＜ PowerShell で取得した数 となります。
+DLP ポリシーを作成した後に、新しく追加されたコネクタがある場合：
+
+* Power Platform 管理センターでは新しいコネクタが表示されます。
+* 新しいコネクタは自動的にポリシーに追加されないため、PowerShell で取得した結果には含まれません。
+
+ポリシー作成以降に廃止されたコネクタがある場合：
+
+* Power Platform 管理センターでは廃止されたコネクタが表示されなくなります。
+* PowerShell で取得した結果には、廃止されたコネクタが残ります。
 
 表示上の不一致はありますが、ポリシー作成以降に追加されたコネクタは既定のデータグループの設定に従って制御されるため、ポリシーは想定通り動作しますのでご安心ください。
 
-なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、両者の数の不一致が解消されます。
-少しお手数ではありますが、不一致を解消したい場合は再保存をお試しください。
-
  参考：
 
- * [新しいコネクタの既定データ グループ](https://learn.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors)
+ * [新しいコネクタの既定データ グループ について](https://learn.microsoft.com/ja-jp/power-platform/admin/dlp-connector-classification#default-data-group-for-new-connectors)
  * [既定のデータ グループの変更](https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss#change-the-default-data-group)
+
+なお、Power Platform 管理センターで対象のポリシーを編集し保存し直していただくと、新しく追加されたコネクタが PowerShell で取得した結果に含まれるようになります。しかし、廃止されたコネクタは PowerShell で取得した結果に残り続けますのでご承知おきください。
