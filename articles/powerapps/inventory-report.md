@@ -1,6 +1,6 @@
 ---
 title: テナントレベルでの分析のアプリ在庫について
-date: 2022-09-06 12:00:00
+date: 2022-10-04 12:00:00
 tags:
   - Power Apps
   - Power Platform
