@@ -19,6 +19,11 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image04.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image05.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image06.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/uImage01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/uImage02.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/uImage03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/uImage04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/uImage03.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image07.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image08.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image09.png">
@@ -37,7 +42,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image22.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image23.png">
 <meta property="article:published_time" content="2022-10-31T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-19T03:43:34.776Z">
+<meta property="article:modified_time" content="2022-11-01T00:08:37.546Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Canvas app">
 <meta property="article:tag" content="Power Apps">
@@ -127,7 +132,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+26bfc702-5e53-54d9-88f2-f1ec350b5e10%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Apps+%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA+%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E9%9A%9B%E3%81%AE%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2Ftroubleshooting-general-canvasapp%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2Ftroubleshooting-general-canvasapp.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcanvasapp%2Ftroubleshooting-general-canvasapp.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/" data-id="cl9f3aqau00610lqd1v46eb87" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/" data-id="cl9xgce3y00610mo0gwcab0gf" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -241,33 +246,48 @@
 <h4 id="キャンバス-アプリ-再生時"><a href="#キャンバス-アプリ-再生時" class="headerlink" title="キャンバス アプリ 再生時"></a>キャンバス アプリ 再生時</h4><ol>
 <li>Power Apps 作成者ポータル(<a target="_blank" rel="noopener" href="http://make.powerapps.com/">http://make.powerapps.com</a>) にアクセスします</li>
 <li>アプリ 一覧画面から対象のアプリの「…」メニューを表示し、「監視」を選択します<ul>
-<li>※別タブで監視ウィンドウが表示されます</li>
+<li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/uImage01.png"></li>
 </ul>
 </li>
-<li>「公開したアプリの再生」を行い、事象を発生させます</li>
-<li>監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します </li>
+<li>別タブで監視ウィンドウが表示されるので「公開したアプリの再生」を行います<ul>
+<li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/uImage02.png"></li>
+</ul>
+</li>
+<li>別タブでアプリが再生されるので事象を発生させます</li>
+<li>手順3で表示した監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します <ul>
+<li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/uImage03.png"></li>
+</ul>
+</li>
 <li>ダウンロードしたファイル（PowerAppsTraceEvents.json）をご提供ください</li>
 </ol>
 <h4 id="キャンバス-アプリ-編集時"><a href="#キャンバス-アプリ-編集時" class="headerlink" title="キャンバス アプリ 編集時"></a>キャンバス アプリ 編集時</h4><ol>
 <li>Power Apps 作成者ポータル(<a target="_blank" rel="noopener" href="http://make.powerapps.com/">http://make.powerapps.com</a>) にアクセスします</li>
 <li>アプリ 一覧画面から対象のアプリの編集画面を表示します  </li>
 <li>画面左方にある　高度なツール＞監視＞モニターを開く を選択します<ul>
-<li>※別タブで監視ウィンドウが表示されます</li>
+<li>別タブで監視ウィンドウが表示されます</li>
+<li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/uImage04.png"></li>
 </ul>
 </li>
-<li>事象を発生させます</li>
-<li>監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します </li>
+<li>アプリ編集画面に戻り、事象を発生させます</li>
+<li>監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します <ul>
+<li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/uImage03.png"></li>
+</ul>
+</li>
 <li>ダウンロードしたファイル（PowerAppsTraceEvents.json）をご提供ください</li>
 </ol>
 <p><a id='anchor-about-networkhar'></a></p>
 <h3 id="6-Webブラウザのネットワークト-レース・コンソール-ログ"><a href="#6-Webブラウザのネットワークト-レース・コンソール-ログ" class="headerlink" title="6. Webブラウザのネットワークト レース・コンソール ログ"></a>6. Webブラウザのネットワークト レース・コンソール ログ</h3><p>キャンバス アプリ編集中、あるいは実行中に発生するHTTPリクエストの記録をご提供ください。<br/><br>Power Appsサービスへ送信するHTTPリクエストやPower Appsサービスから受信するHTTPレスポンスの内容を確認することで通信上の問題を特定します。<br/><br>※事象の内容により、netsh traceコマンドやサードパーティ製のツール「Fiddler」によるネットワーク キャプチャの取得をお願いする場合があります。</p>
 <ol>
 <li>Webブラウザを起動します</li>
-<li>[F12] を押下してブラウザの開発者ツールを開始します</li>
-<li>事象が発生する操作を行います</li>
-<li>ブラウザ開発者ツールに戻り、Networkタブの赤色の [Stop recording network log] アイコンをクリックします(❷)</li>
-<li>[Export HAR] のアイコンをクリックし、任意のファイル名で保存します(❸)</li>
-<li>Consoleタブをクリックし、表示されるすべての情報をコピーして <strong>テキスト形式</strong> で保存します(❹)</li>
+<li>事象が発生する画面を表示します</li>
+<li>手順2で表示している画面(タブ)上で[F12] を押下してブラウザの開発者ツールを開始します<ul>
+<li>「ログの保持」・「キャッシュを無効にする」にチェックを入れます(❶・❷)</li>
+</ul>
+</li>
+<li>[F5]を押下して画面を再読み込み後、事象が発生する操作を行います</li>
+<li>ブラウザ開発者ツールに戻り、Networkタブの赤色の [Stop recording network log] アイコンをクリックします(❸)</li>
+<li>[Export HAR] のアイコンをクリックし、任意のファイル名で保存します(❹)</li>
+<li>Consoleタブをクリックし、表示されるすべての情報をコピーして <strong>テキスト形式</strong> で保存します(❺)</li>
 </ol>
 <p><img src="/blog/canvasapp/troubleshooting-general-canvasapp/image07.png"></p>
 <p><a id='anchor-about-sessionid'></a></p>
@@ -329,7 +349,7 @@
 <ol>
 <li>Power Apps 作成者ポータル(<a target="_blank" rel="noopener" href="http://make.powerapps.com/">http://make.powerapps.com</a>) にアクセスします</li>
 <li>アプリ 一覧画面から対象のアプリの「…」メニューを押下し、「詳細」を選択します</li>
-<li>アプリURLを <strong>テキスト形式</strong> で取得します<ul>
+<li>Web リンク、アプリIDを <strong>テキスト形式</strong> で取得します<ul>
 <li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/image15.png"></li>
 </ul>
 </li>
@@ -381,7 +401,10 @@
 <h4 id="アプリを含むソリューションファイル"><a href="#アプリを含むソリューションファイル" class="headerlink" title="アプリを含むソリューションファイル"></a>アプリを含むソリューションファイル</h4><ol>
 <li>Power Apps 作成者ポータル(<a target="_blank" rel="noopener" href="http://make.powerapps.com/">http://make.powerapps.com</a>) にサインインします</li>
 <li>ソリューション 一覧画面を表示します</li>
-<li>「新しいソリューション」を押下します<br> <img src="/blog/canvasapp/troubleshooting-general-canvasapp/image20.png"></li>
+<li>「新しいソリューション」を押下します<ul>
+<li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/image20.png"></li>
+</ul>
+</li>
 <li>手順3 で作成したソリューションに対象のアプリを追加します<ul>
 <li>必要に応じて使用するDataverseテーブルなどを含めます</li>
 <li><img src="/blog/canvasapp/troubleshooting-general-canvasapp/image21.png"></li>
