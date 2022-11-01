@@ -130,18 +130,23 @@ Webブラウザで事象が発生している場合、[セッションID(Webブ�
 #### キャンバス アプリ 再生時
 1. Power Apps 作成者ポータル(http://make.powerapps.com) にアクセスします
 2. アプリ 一覧画面から対象のアプリの「...」メニューを表示し、「監視」を選択します
-    - ※別タブで監視ウィンドウが表示されます
-3. 「公開したアプリの再生」を行い、事象を発生させます
-4. 監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します 
-5. ダウンロードしたファイル（PowerAppsTraceEvents.json）をご提供ください
+    - ![](./troubleshooting-general-canvasapp/uImage01.png)
+3. 別タブで監視ウィンドウが表示されるので「公開したアプリの再生」を行います
+    - ![](./troubleshooting-general-canvasapp/uImage02.png)
+4. 別タブでアプリが再生されるので事象を発生させます
+5. 手順3で表示した監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します 
+    - ![](./troubleshooting-general-canvasapp/uImage03.png)
+6. ダウンロードしたファイル（PowerAppsTraceEvents.json）をご提供ください
 	
 #### キャンバス アプリ 編集時
 1. Power Apps 作成者ポータル(http://make.powerapps.com) にアクセスします
 2. アプリ 一覧画面から対象のアプリの編集画面を表示します  
 3. 画面左方にある　高度なツール＞監視＞モニターを開く を選択します
-    - ※別タブで監視ウィンドウが表示されます
-4. 事象を発生させます
+    - 別タブで監視ウィンドウが表示されます
+    - ![](./troubleshooting-general-canvasapp/uImage04.png)
+4. アプリ編集画面に戻り、事象を発生させます
 5. 監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します 
+    - ![](./troubleshooting-general-canvasapp/uImage03.png)
 6. ダウンロードしたファイル（PowerAppsTraceEvents.json）をご提供ください
 
 
@@ -153,11 +158,13 @@ Power Appsサービスへ送信するHTTPリクエストやPower Appsサービ�
 ※事象の内容により、netsh traceコマンドやサードパーティ製のツール「Fiddler」によるネットワーク キャプチャの取得をお願いする場合があります。
 
 1. Webブラウザを起動します
-2. [F12] を押下してブラウザの開発者ツールを開始します
-3. 事象が発生する操作を行います
-4. ブラウザ開発者ツールに戻り、Networkタブの赤色の [Stop recording network log] アイコンをクリックします(❷)
-5. [Export HAR] のアイコンをクリックし、任意のファイル名で保存します(❸)
-6. Consoleタブをクリックし、表示されるすべての情報をコピーして **テキスト形式** で保存します(❹)
+2. 事象が発生する画面を表示します
+3. 手順2で表示している画面(タブ)上で[F12] を押下してブラウザの開発者ツールを開始します
+    - 「ログの保持」・「キャッシュを無効にする」にチェックを入れます(❶・❷)
+4. [F5]を押下して画面を再読み込み後、事象が発生する操作を行います
+5. ブラウザ開発者ツールに戻り、Networkタブの赤色の [Stop recording network log] アイコンをクリックします(❸)
+6. [Export HAR] のアイコンをクリックし、任意のファイル名で保存します(❹)
+7. Consoleタブをクリックし、表示されるすべての情報をコピーして **テキスト形式** で保存します(❺)
 
 ![](./troubleshooting-general-canvasapp/image07.png)
 
@@ -210,7 +217,7 @@ Power Appsサービスへ送信するHTTPリクエストやPower Appsサービ�
 
 1. Power Apps 作成者ポータル(http://make.powerapps.com) にアクセスします
 2. アプリ 一覧画面から対象のアプリの「...」メニューを押下し、「詳細」を選択します
-3. アプリURLを **テキスト形式** で取得します
+3. Web リンク、アプリIDを **テキスト形式** で取得します
     - ![](./troubleshooting-general-canvasapp/image15.png)
 
 
@@ -258,7 +265,7 @@ Power Appsサービスへ送信するHTTPリクエストやPower Appsサービ�
 1. Power Apps 作成者ポータル(http://make.powerapps.com) にサインインします
 2. ソリューション 一覧画面を表示します
 3. 「新しいソリューション」を押下します
-    ![](./troubleshooting-general-canvasapp/image20.png)
+    - ![](./troubleshooting-general-canvasapp/image20.png)
 4. 手順3 で作成したソリューションに対象のアプリを追加します
     - 必要に応じて使用するDataverseテーブルなどを含めます
     - ![](./troubleshooting-general-canvasapp/image21.png)
