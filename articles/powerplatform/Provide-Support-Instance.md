@@ -33,12 +33,13 @@ tags:
 サポート インスタンスを作成するために次の条件を満たす必要がございます。
 1. お問い合わせは、事象発生環境が属するテナントの [Power Platform 管理センター](https://admin.powerplatform.microsoft.com/) から起票されている。
 2. お問い合わせ起票者は、事象発生環境にて、システム管理者のセキュリティロールが割り当てられている。
-3. お問い合わせにて、サポート インスタンス作成の同意レベルが、下記いずれかに設定されている。
+3. お問い合わせの対象製品として Dynamics 365 Customer Enagagement が選択されている。
+![](./Provide-Support-Instance/00_SR_product.png)
+4. お問い合わせにて、サポート インスタンス作成の同意レベルが、下記いずれかに設定されている。
     * 診断情報へのアクセスで [最小限のコピー](https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-customizations-and-schemas-only) を許可する
     * 診断情報へのアクセスで [フル コピー](https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-everything) を許可する
+    
     [サポート リクエストを作成した後、同意を付与または取り消すにはどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#how-do-i-grant-or-revoke-consent-after-i-create-a-support-request) を参考に、同意いただけるレベルを、いずれかに設定ください。
-4. お問い合わせの対象製品として Dynamics 365 Customer Enagagement が選択されている。
-![](./Provide-Support-Instance/00_SR_product.png)
 
 __留意事項__
 
