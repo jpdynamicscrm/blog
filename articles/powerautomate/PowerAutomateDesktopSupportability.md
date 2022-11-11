@@ -1,6 +1,6 @@
 ---
 title: Power Automate for desktop のサポート範囲について
-date: 2022-01-20 12:00
+date: 2022-11-11 12:00
 tags:
   - Power Automate
   - Desktop flows
@@ -14,7 +14,7 @@ tags:
 
 ## 初めに
 
-Power Automate for desktop は Windows 10 をご利用のお客様であればどなたでも追加費用なしでご利用いただける RPA ツールです。2021年3月3日(日本時間)に公開されました。  
+Power Automate for desktop は Windows をご利用のお客様であればどなたでも追加費用なしでご利用いただける RPA ツールです。2021 年 3 月 3日 (日本時間) に公開されました。  
 [Power Automate for desktop の概要](https://docs.microsoft.com/ja-jp/power-automate/desktop-flows/introduction)  
 
 今回は Power Automate for desktop のサポート範囲についてご案内します。  
@@ -22,18 +22,28 @@ Power Automate for desktop は Windows 10 をご利用のお客様であれば�
 ## Power Automate for desktop のサポートについて
 
 Windows のライセンスに含まれる Power Automate for desktop は、PC にインストールして使用する無料のアプリケーションです。  
-このアプリケーションには、SLA や Microsoft サポートが含まれないため、ビジネスクリティカルな用途で使用すべきではありません。  
-Power Automate for desktop をビジネスクリティカルな用途で使用する場合、サポートが含まれる適切な Microsoft ライセンスの購入をご検討ください。  
-対象となるライセンスは以下です ※2022/1 時点  
-・Power Automate per user plan with attended RPA  
-・Power Automate unattended RPA add-on（前提としてPower Automate per user with attended RPA または Power Automate per flow が必要）  
+このアプリケーションには、SLA や Microsoft サポートが含まれないため、ビジネス クリティカルな用途で使用すべきではありません。  
+Power Automate for desktop をビジネス クリティカルな用途で使用する場合、サポートが含まれる適切な Microsoft ライセンスの購入をご検討ください。  
+対象となるプランは以下です ※2022/11 時点  
+- Power Automate per user plan with attended RPA  
+- Power Automate unattended RPA add-on（前提としてPower Automate per user with attended RPA または Power Automate per flow が必要）  
+- 従量課金制プラン
 
 ライセンスのご購入状況は、Microsoft 365 管理センターの [課金情報] - [サービスを購入する] からご確認いただけます。  
 上記ライセンスで Power Automate for desktopご利用されていないお客様は、サポートにお問い合わせをいただいた場合もご支援することができません。  
 ライセンスをお持ちでない場合は、以下のコミュニティをご活用ください。  
 [Microsoft Power Automate Community](https://powerusers.microsoft.com/t5/Microsoft-Power-Automate/ct-p/MPACommunity)
 
-また、お問い合わせをいただく際には、弊社にてライセンスのチェックを行わせていただく場合がございますので、Power Automate for desktop を使用しているアカウントの UPN を添えてお問い合わせいただけますと幸いでございます。
+また、お問い合わせをいただく際には、弊社にてライセンスのチェックを行わせていただく場合がございますので、以下の情報を添えてお問い合わせいただけますと幸いでございます。
+
+### お問い合わせ時の情報採取手順
+1. Power Automate for desktop にサインインしているユーザーで [Power Automate ポータル](https://make.powerautomate.com/) にアクセスします。
+2. 画面右上から、デスクトップ フローを作成中の環境を選択します。
+3. キーボードの `Ctrl` + `Alt` + `A` を押下し、別タブにて表示される情報を全てコピーし、テキスト形式でお寄せください。
+
+手順 3 にて取得した情報に以下のいずれかが含まれる場合、サポートが含まれるプランをお持ちのため、ご支援が可能でございます。
+- "environment" 内の "isPayAsYouGoEnabled" が true の場合
+- "userServicePlans" 内で "isCurrent" が true のプランにて、"rpaAttendedAllowed" または "rpaUnattendedAllowed" のいずれかが true の場合
 
 サポート範囲については以下ライセンスガイドからもご確認いただくことが可能です。  
 英語版　：https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x409  
