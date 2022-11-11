@@ -30,7 +30,7 @@ tags:
 <a id='anchor-about-criteria'></a>
 ## 1. サポートインスタンス作成条件の確認
 
-サポート インスタンスを作成するために次の全ての条件を満たす必要がございます。
+サポート インスタンスを作成するために、次の全ての条件を満たす必要がございます。
 * a. お問い合わせ起票者は、事象発生環境にて、システム管理者のセキュリティロールが割り当てられている。
 * b. お問い合わせの対象製品として Dynamics 365 Customer Enagagement が選択されている。
 ![](./Provide-Support-Instance/00_SR_product.png)
@@ -38,11 +38,11 @@ tags:
     * 診断情報へのアクセスで [最小限のコピー](https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-customizations-and-schemas-only) を許可する
     * 診断情報へのアクセスで [フル コピー](https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-everything) を許可する
     
-    異なる場合 [サポート リクエストを作成した後、同意を付与または取り消すにはどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#how-do-i-grant-or-revoke-consent-after-i-create-a-support-request) を参考に、同意レベルを設定ください。
+    同意レベルが異なる場合 [サポート リクエストを作成した後、同意を付与または取り消すにはどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#how-do-i-grant-or-revoke-consent-after-i-create-a-support-request) を参考に、同意レベルを設定ください。
 
 __留意事項__
 
-事象発生テナントとお問い合わせ起票テナントが異なる場合 -- 例えば A 社環境で事象が発生しており、パートナー様 B 社が代理で調査依頼を起票する場合は上記条件を満たすことをご確認ください。条件を満たさない場合、条件に合致するよう新規お問い合わせのご起票をお願いさせていただくことがございます。
+事象発生テナントとお問い合わせ起票テナントが異なる場合 -- 例えば A 社環境で事象が発生しており、パートナー様 B 社が代理で調査依頼を起票する場合は条件 a ~ c を満たすことをご確認ください。条件を満たさない場合、条件に合致するよう新規お問い合わせのご起票をお願いさせていただくことがございます。
 
 これらの条件は [サポート環境と顧客データへのアクセスへの同意](https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment) に説明されますように、お客様のプライバシーを尊重するための措置でございます。ご了承くださいますと幸いでございます。
 
