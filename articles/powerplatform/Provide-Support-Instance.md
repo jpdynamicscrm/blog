@@ -93,11 +93,7 @@ __留意事項__
 
 ![](./Provide-Support-Instance/04_processing.png)
 
-7. コピーが完了しましたら、以下の [編集] ボタンをクリックします。
-
-![](./Provide-Support-Instance/05_edit_environment.png)
-
-8. 提供手順は終了です。担当エンジニアまで完了の旨をご連絡ください。
+7. 成功しましたらコピー手順は終了です。担当エンジニアまで完了の旨をご連絡ください。
 
 ## 補足
 
