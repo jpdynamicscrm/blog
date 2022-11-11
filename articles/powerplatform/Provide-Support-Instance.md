@@ -1,6 +1,6 @@
 ---
 title: サポート インスタンスの提供
-date: 2022-11-09 15:50:00
+date: 2022-11-11 17:30:00
 tags:
   - Power Platform
   - Dataverse for Teams
@@ -97,11 +97,7 @@ __留意事項__
 
 ![](./Provide-Support-Instance/05_edit_environment.png)
 
-8. [管理モード] を [有効] から [無効] にし [保存] をクリックします [(※2)](#注釈) 。
-
-![](./Provide-Support-Instance/06_edit_environment_setting.png)
-
-9. 提供手順は終了です。担当エンジニアまで完了の旨をご連絡ください。
+8. 提供手順は終了です。担当エンジニアまで完了の旨をご連絡ください。
 
 ## 補足
 
@@ -114,7 +110,6 @@ __留意事項__
 
 ![](./Provide-Support-Instance/07_search_instance.png)
 
-- (※2) 一部のお客様より [管理モード] が変更できない動作をお寄せいただいております。その場合、データ センター上で同作業を行いますため、担当のサポート エンジニアまでご相談ください。
 
 ## 参考情報
 
