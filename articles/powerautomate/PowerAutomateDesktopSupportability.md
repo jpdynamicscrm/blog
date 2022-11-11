@@ -43,7 +43,7 @@ Power Automate for desktop をビジネス クリティカルな用途で使用�
 
 手順 3 にて取得した情報に以下のいずれかが含まれる場合、サポートが含まれるプランをお持ちのため、ご支援が可能でございます。
 - "environment" 内の "isPayAsYouGoEnabled" が true の場合
-- "userServicePlans" 内に "rpaAttendedAllowed" または "rpaUnattendedAllowed" のいずれかが true のプランが存在する場合
+- "userServicePlans" 内で "isCurrent" が true のプランにて、"rpaAttendedAllowed" または "rpaUnattendedAllowed" のいずれかが true の場合
 
 サポート範囲については以下ライセンスガイドからもご確認いただくことが可能です。  
 英語版　：https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x409  
