@@ -74,11 +74,11 @@ Power Automate 画面より「データ > テーブル」からメニューを�
 ![](./PowerAutomateDesktop-GetOwner/image8.png)
 <br>
 <br>
-#### 5-3.「レコードの種類」を「所有ユーザー（ユーザー）」に変更します。
+#### 5-3.「レコードの種類」を「所有ユーザー（ユーザー）」に変更します
 ![](./PowerAutomateDesktop-GetOwner/image9.png)
 <br>
 <br>
-#### 5-4. 表示させたい項目を選択し、「OK」を２回押してメイン画面に戻ります。
+#### 5-4. 表示させたい項目を選択し、「OK」を２回押してメイン画面に戻ります
 ![](./PowerAutomateDesktop-GetOwner/image10.png)
 <br>
 <br>
