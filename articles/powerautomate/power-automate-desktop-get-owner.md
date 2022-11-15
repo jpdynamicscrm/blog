@@ -1,6 +1,6 @@
 ---
 title: 環境内のデスクトップ フローの所有者、作成日、修正日を確認する方法
-date: 2022-10-4 17:00
+date: 2022-11-15 12:00
 tags:
   - Power Automate
   - Desktop flows
@@ -75,11 +75,11 @@ Power Automate 画面より「データ > テーブル」からメニューを�
 ![](./power-automate-desktop-get-owner/image8.png)
 <br>
 <br>
-#### 5-3.「レコードの種類」を「所有ユーザー（ユーザー）」に変更します
+#### 5-3.「レコードの種類」を「所有ユーザー (ユーザー)」に変更します
 ![](./power-automate-desktop-get-owner/image9.png)
 <br>
 <br>
-#### 5-4. 表示させたい項目を選択し、「OK」を２回押してメイン画面に戻ります
+#### 5-4. 表示させたい項目を選択し、「OK」を 2 回押してメイン画面に戻ります
 ![](./power-automate-desktop-get-owner/image10.png)
 <br>
 <br>
