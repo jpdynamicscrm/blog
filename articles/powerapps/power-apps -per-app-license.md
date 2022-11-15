@@ -1,5 +1,5 @@
 ---
-title: Power Apps 試用版ライセンスについて
+title: アプリごとの Power Apps プラン（per app plan）ライセンスについて 
 date: 2022-11-18 12:00:00
 tags:
   - Power Apps
