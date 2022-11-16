@@ -13,20 +13,20 @@
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Appsのテナントレベルでの分析機能の[アプリ在庫]タブの下記項目について、順にご説明いたします。・最終実行日のフィルターについて・「最終オープン日」が空欄の場合・その他のフィルター ビュー上の各列の意味など、テナントレベルでの分析機能の詳細については下記公開情報をご参照ください。Power Apps のテナント レ">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/Inventory-report/date-option.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/Inventory-report/over30days.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/Inventory-report/over60days.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/Inventory-report/empty-last-opend.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/Inventory-report/last-opened-order.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/date-option.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/over30days.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/over60days.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/empty-last-opend.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/last-opened-order.png">
 <meta property="article:published_time" content="2022-10-04T03:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-16T02:57:02.633Z">
+<meta property="article:modified_time" content="2022-11-16T03:27:59.513Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Power Apps">
 <meta property="article:tag" content="Tenant-level Analytics">
 <meta property="article:tag" content="Inventory Report">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/Inventory-report/date-option.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/date-option.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -111,7 +111,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+199a91ca-eb13-5009-be12-7651727eba77%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%83%AC%E3%83%99%E3%83%AB%E3%81%A7%E3%81%AE%E5%88%86%E6%9E%90%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E5%9C%A8%E5%BA%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2Finventory-report%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2Finventory-report.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerapps%2Finventory-report.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/" data-id="claj1yr78000i0mrr9v07drws" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/" data-id="claj32j8k000i0mnz7n1d2jl2" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -120,11 +120,11 @@
 <p>ビュー上の各列の意味など、テナントレベルでの分析機能の詳細については下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-analytics-reports">Power Apps のテナント レベルの分析</a>   </p>
 <span id="more"></span>  
 <h2 id="lt-最終実行日のフィルターについて-gt"><a href="#lt-最終実行日のフィルターについて-gt" class="headerlink" title="&lt;最終実行日のフィルターについて&gt;"></a><strong>&lt;最終実行日のフィルターについて&gt;</strong></h2><p>「アプリ在庫」タブでは、テナント内に存在するキャンバスアプリ、モデル駆動型アプリについて一覧でご確認いただけます。<br>アプリの最終オープン日（実行日）を基準としたフィルターでご確認いただけます。<br>Last Openedより下図選択肢の期間をご指定いただけます。<br>なお、テナントレベルの分析の有効化後に実行された日付にてカウントされております。<br><br></p>
-<p>・30日以内（Less than 30 days）<br>・30日以上（Over 30 days）<br>・60日以上（Over 60 days）<br>・90日以上（Over 90 days）<br>・180日以上（Over 180 days）<br><img src="./Inventory-report/date-option.png"><br><br></p>
-<p>「30日以上」を選択した場合、最終実行日が30日より前のアプリがすべて対象となります。<br>下図は2022年10月4日時点での30日以上をフィルターとしたキャプチャでございます。<br>60日以上経過のアプリも含まれております。<br><img src="./Inventory-report/over30days.png"><br><br></p>
-<p>そのため、より経過日数が長いフィルターを選んでいただきますと、表示されるアプリ数は少なくなります。<br>下図は「60日以上」を選択した場合の表示となります。<br>上図の「30日以上」の場合より、表示されるアプリ数が減っています。<br><img src="./Inventory-report/over60days.png"><br><br><br></p>
-<h2 id="lt-「最終オープン日」が空欄の場合-gt"><a href="#lt-「最終オープン日」が空欄の場合-gt" class="headerlink" title="&lt;「最終オープン日」が空欄の場合&gt;"></a><strong>&lt;「最終オープン日」が空欄の場合&gt;</strong></h2><p>「30日以内」フィルターで表示した場合、「最終オープン日」が空欄のアプリがございます。<br>こちらは、テナントレベルの分析機能を有効化後、まだ一度も実行されていないアプリとなります。<br><img src="./Inventory-report/empty-last-opend.png"><br><br></p>
-<p>「最終オープン日」部分をクリックしていただきますと、降順/昇順切り替えが可能でございます。<br>過去30日間で実行されたアプリをご確認いただく際には、順を切り替えてご確認いただけますと幸いでございます。<br><img src="./Inventory-report/last-opened-order.png"><br><br></p>
+<p>・30日以内（Less than 30 days）<br>・30日以上（Over 30 days）<br>・60日以上（Over 60 days）<br>・90日以上（Over 90 days）<br>・180日以上（Over 180 days）<br><img src="/blog/powerapps/inventory-report/date-option.png"><br><br></p>
+<p>「30日以上」を選択した場合、最終実行日が30日より前のアプリがすべて対象となります。<br>下図は2022年10月4日時点での30日以上をフィルターとしたキャプチャでございます。<br>60日以上経過のアプリも含まれております。<br><img src="/blog/powerapps/inventory-report/over30days.png"><br><br></p>
+<p>そのため、より経過日数が長いフィルターを選んでいただきますと、表示されるアプリ数は少なくなります。<br>下図は「60日以上」を選択した場合の表示となります。<br>上図の「30日以上」の場合より、表示されるアプリ数が減っています。<br><img src="/blog/powerapps/inventory-report/over60days.png"><br><br><br></p>
+<h2 id="lt-「最終オープン日」が空欄の場合-gt"><a href="#lt-「最終オープン日」が空欄の場合-gt" class="headerlink" title="&lt;「最終オープン日」が空欄の場合&gt;"></a><strong>&lt;「最終オープン日」が空欄の場合&gt;</strong></h2><p>「30日以内」フィルターで表示した場合、「最終オープン日」が空欄のアプリがございます。<br>こちらは、テナントレベルの分析機能を有効化後、まだ一度も実行されていないアプリとなります。<br><img src="/blog/powerapps/inventory-report/empty-last-opend.png"><br><br></p>
+<p>「最終オープン日」部分をクリックしていただきますと、降順/昇順切り替えが可能でございます。<br>過去30日間で実行されたアプリをご確認いただく際には、順を切り替えてご確認いただけますと幸いでございます。<br><img src="/blog/powerapps/inventory-report/last-opened-order.png"><br><br></p>
 <p>なお、「作成者」「共有ユーザー」「環境」「接続」などの数値は、フィルターによって一覧表示されているアプリの合計数となっております。<br>「30日以内」フィルターの場合、上述の通り、テナントレベルの分析機能の有効化後にまだ実行されていないアプリも一覧に表示されており、<br>「作成者」「共有ユーザー」「環境」「接続」の数値には、それらのアプリも含まれております。<br><br><br><br></p>
 <h2 id="lt-その他のフィルター-gt"><a href="#lt-その他のフィルター-gt" class="headerlink" title="&lt;その他のフィルター&gt;"></a><strong>&lt;その他のフィルター&gt;</strong></h2><p>その他下記フィルターなどで一覧表示するアプリをフィルターいただけます。<br>・アプリ種類<br>・アプリが存在する環境種類<br>・アプリが存在する環境名<br><br><br><br></p>
 <p>免責事項<br>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。<br></p>
