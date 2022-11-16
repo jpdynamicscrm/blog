@@ -30,30 +30,30 @@ Last Openedより下図選択肢の期間をご指定いただけます。
 ・60日以上（Over 60 days）  
 ・90日以上（Over 90 days）  
 ・180日以上（Over 180 days）  
-![](./Inventory-report/date-option.png)
+![](./inventory-report/date-option.png)
 <br>
 
 「30日以上」を選択した場合、最終実行日が30日より前のアプリがすべて対象となります。  
 下図は2022年10月4日時点での30日以上をフィルターとしたキャプチャでございます。   
 60日以上経過のアプリも含まれております。  
-![](./Inventory-report/over30days.png)
+![](./inventory-report/over30days.png)
 <br>
 
 そのため、より経過日数が長いフィルターを選んでいただきますと、表示されるアプリ数は少なくなります。  
 下図は「60日以上」を選択した場合の表示となります。  
 上図の「30日以上」の場合より、表示されるアプリ数が減っています。  
-![](./Inventory-report/over60days.png)
+![](./inventory-report/over60days.png)
 <br><br>
 
 ## **<「最終オープン日」が空欄の場合>**  
 「30日以内」フィルターで表示した場合、「最終オープン日」が空欄のアプリがございます。  
 こちらは、テナントレベルの分析機能を有効化後、まだ一度も実行されていないアプリとなります。  
-![](./Inventory-report/empty-last-opend.png)
+![](./inventory-report/empty-last-opend.png)
 <br>
 
 「最終オープン日」部分をクリックしていただきますと、降順/昇順切り替えが可能でございます。   
 過去30日間で実行されたアプリをご確認いただく際には、順を切り替えてご確認いただけますと幸いでございます。  
-![](./Inventory-report/last-opened-order.png)
+![](./inventory-report/last-opened-order.png)
 <br>
 
 なお、「作成者」「共有ユーザー」「環境」「接続」などの数値は、フィルターによって一覧表示されているアプリの合計数となっております。   
