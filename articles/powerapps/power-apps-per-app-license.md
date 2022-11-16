@@ -71,15 +71,15 @@ Power Apps の全ての機能を利用可能でございます。
 <br/><br/>
 ①Power Platform管理センターから、該当の環境に対してパスを割り当てます。  
 　リソース　＞　容量　＞　アドオン　＞　パス割り当て対象の環境のペンマーク　＞　アプリのパス  
-　![](./power-apps%20-per-app-license/assign-to-envs.png) 
+　![](./power-apps-per-app-license/assign-to-envs.png) 
 <br/><br/>
 ②Power Appsポータルサイトにて対象アプリの「アプリパスごとの自動割り当て」（または「アプリごとのライセンス」）を「オン」に変更します。   
 　①で対象環境にパスの割り当てがされていない場合、その環境下でアプリに対して「アプリパスごとの自動割り当て」が設定出来ません。  
 　パスの設定がper appプランでアプリを共有するための前提の設定となります。 
  <br/><br/>
 　アプリ　＞　対象アプリを選択　＞　設定　＞　「アプリパスごとの自動割り当て」（または「アプリごとのライセンス」）   
-　![](./power-apps%20-per-app-license/assign-to-apps.png)  
-　![](./power-apps%20-per-app-license/assign-to-apps2.png)  
+　![](./power-apps-per-app-license/assign-to-apps.png)  
+　![](./power-apps-per-app-license/assign-to-apps2.png)  
 <br/>
 　※環境にアプリごとの Power Apps プランライセンスのパスを割り当てている場合、2020 年 10 月 1 日以降に作成したアプリについては、自動にオンとなります。   
 　※アプリの設定は、対象アプリにおける下記のユーザーの場合に、設定可能でございます。  
@@ -98,7 +98,7 @@ Power Apps の全ての機能を利用可能でございます。
 ## **<アプリごとの Power Apps プランライセンス割り当て可能なユーザー>**  
 下記より設定いただけます。  
 Power Platform 管理センター　＞　設定　＞　アドオン容量の割り当て   
-![](./power-apps%20-per-app-license/who-can-assign.png)
+![](./power-apps-per-app-license/who-can-assign.png)
 <br/><br/>
 「任意の環境管理者」の場合、対象環境において「システム管理者（System Administrator）」のセキュリティロールが
 割り当てられているユーザーが割り当てが可能でございます。
