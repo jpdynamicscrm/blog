@@ -46,7 +46,7 @@ Power Automate for desktop のバージョンが確認できる画面キャプ�
 ![](./power-automate-desktop-helpful-information-for-sr/pad-version2.png) 
 
 なお、Power Automate for desktop のバージョンは以下からもご確認いただけます。 
-* Power Automate for desktopのexeファイル > プロパティ > 詳細  
+* Power Automate for desktop の exe ファイル > プロパティ > 詳細  
 ![](./power-automate-desktop-helpful-information-for-sr/pad-version3.png) 
   
 <a id='anchor-os-version'></a>
