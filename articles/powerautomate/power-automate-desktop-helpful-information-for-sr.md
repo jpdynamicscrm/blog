@@ -15,8 +15,8 @@ tags:
 
 1. [概要](#anchor-intro)
 1. [情報取得手順詳細](#anchor-how-to-collect)
-      1. [Power Automate for desktopのバージョン](#anchor-pad-version)
-      1. [OSのバージョン](#anchor-os-version)
+      1. [Power Automate for desktop のバージョン](#anchor-pad-version)
+      1. [OS のバージョン](#anchor-os-version)
       1. [コンピューター ログ](#anchor-computer-log)
       1. [Fiddler ログ](#anchor-fiddler-log)
       1. [マシン登録の情報](#anchor-machine-information)
@@ -38,7 +38,7 @@ Power Automate for desktop に関するサポートサービスのお問い合�
 
 <a id='anchor-pad-version'></a>
 
-## 1. Power Automate for desktopのバージョン
+## 1. Power Automate for desktop のバージョン
 Power Automate for desktopのバージョンが確認できる画面キャプチャをご提供ください。
 1. Power Automate for desktop > ヘルプ > バージョン情報 を選択します。  
 ![](./power-automate-desktop-helpful-information-for-sr/pad-version.png)     
@@ -51,7 +51,7 @@ Power Automate for desktopのバージョンが確認できる画面キャプチ
   
 <a id='anchor-os-version'></a>
 
-## 2. OSのバージョン
+## 2. OS のバージョン
 OS のバージョンが確認できる以下の画面キャプチャをご提供ください。
 * システム > バージョン情報 を開き以下の画面キャプチャを取得します。
 ![](./power-automate-desktop-helpful-information-for-sr/os-version.png)  
@@ -134,12 +134,12 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 ## 7. Power Automate for desktop のフロー
 デスクトップ フローがマイ フローのフローか、ソリューションに含まれるフローかにより、フローの共有方法が異なります。
-### 1. デスクトップフロー (マイフロー)
+### 1. デスクトップ フロー (マイフロー)
 デスクトップ フローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキスト エディター (Ctrl + V) に貼り付けてご提供ください。 
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow.png)  
 一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  
 
-### 2. デスクトップフロー (ソリューション)
+### 2. デスクトップ フロー (ソリューション)
 ソリューション内に作成したデスクトップフローの場合は、エクスポートしたソリューション ファイル (zip) をご提供ください。
 * ソリューション > (ソリューションを選択) > エクスポート  
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow2.png)
@@ -161,7 +161,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-cloudflow-run-history-csv'></a>
 
-## 9. クラウドフローの実行履歴CSV
+## 9. クラウド フローの実行履歴CSV
 1. デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png)
 2. 「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。
@@ -172,7 +172,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-cloudflow-raw-input-output'></a>
 
-## 10. クラウドフローのアクションの未加工入力と未加工出力
+## 10. クラウド フローのアクションの未加工入力と未加工出力
 
 実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。  
 未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。  
