@@ -146,7 +146,7 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 ※弊社環境にインポートできるよう、依存関係のあるコンポーネントを含めてご提供をお願い致します  
 
 ソリューションのエクスポートの詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。    
-[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8-%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%95%E3%83%AD%E3%83%BC)
+[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution)
 
 
 <a id='anchor-desktopflow-url'></a>
@@ -177,7 +177,7 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png)  
 
 クラウドフローのアクションの未加工入力と未加工出力の取得方法の詳細に関して、以下にも記載がございますのでご参照いただけますと幸いです。  
-[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%9C%AA%E5%8A%A0%E5%B7%A5%E5%85%A5%E5%8A%9B%E3%80%81%E6%9C%AA%E5%8A%A0%E5%B7%A5%E5%87%BA%E5%8A%9B)
+[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-raw-input-output)
 
 
 ---
