@@ -45,6 +45,10 @@ Power Automate for desktopのバージョンが確認できる画面キャプチ
 2. 以下の画面キャプチャを取得してご提供ください。  
 ![](./power-automate-desktop-helpful-information-for-sr/pad-version2.png) 
 
+なお、Power Automate for desktop のバージョンは以下からも確認いただけます。 
+* Power Automate for desktopのexeファイル > プロパティ > 詳細
+![](./power-automate-desktop-helpful-information-for-sr/pad-version3.png) 
+
 <a id='anchor-os-version'></a>
 
 ## 2. OSのバージョン
@@ -89,7 +93,9 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 * フォルダ：%localappdata%\Microsoft\Power Automate Desktop\Scripts\{scriptid}\Runs\{runid}  
 a) Actions.log：デスクトップフローに設定された各アクションの実行結果が記載されたログです。  
 b) RunDefinition.json：デスクトップフローの実行開始日、実行終了日、フローの実行結果(成功、失敗)が記載されたログです。  
-{ScriptId} にはデスクトップフローのIDを、{RunId} にはフローの実行IDを挿入します。
+
+{ScriptId} にはデスクトップフローのIDを、{RunId} にはフローの実行IDを挿入します。  
+デスクトップフローのIDとフローの実行IDの確認方法は有償版か無償版かにより異なりますので、順にご案内いたします。 
 
 <有償版の場合>  
 Power Automateポータルのデスクトップフローの実行履歴からデスクトップフローのIDとフローの実行IDを確認いただけます。
@@ -127,9 +133,21 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 <a id='anchor-desktopflow'></a>
 
 ## 7. Power Automate for desktopのフロー
-デスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキスト エディター (Ctrl + V) に貼り付けてご提供ください。  
+デスクトップフローがマイフローのフローか、ソリューションに含まれるフローかにより、フローの共有方法が異なります。
+### 1. デスクトップフロー (マイフロー)
+デスクトップフローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキスト エディター (Ctrl + V) に貼り付けてご提供ください。  
 一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  
-  
+
+### 2. デスクトップフロー (ソリューション)
+ソリューション内に作成したデスクトップフローの場合は、エクスポートしたソリューション ファイル (zip) をご提供ください。
+* ソリューション > (ソリューションを選択) > エクスポート
+
+ソリューション全体の提供が難しい場合は、必要なコンポーネントのみが含まれる新しいソリューションを作成し、ご提供ください。  
+※弊社環境にインポートできるよう、依存関係のあるコンポーネントを含めてご提供をお願い致します  
+
+ソリューションのエクスポートの詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。    
+[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8-%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%95%E3%83%AD%E3%83%BC)
+
 
 <a id='anchor-desktopflow-url'></a>
 
