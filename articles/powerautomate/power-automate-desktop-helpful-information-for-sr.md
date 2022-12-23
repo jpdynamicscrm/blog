@@ -148,7 +148,7 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 ※弊社環境にインポートできるよう、依存関係のあるコンポーネントを含めてご提供をお願い致します  
 
 ソリューションのエクスポートの詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。    
-[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)] (https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution)
+[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv)
 
 
 <a id='anchor-desktopflow-url'></a>
