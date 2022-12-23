@@ -1,5 +1,5 @@
 ---
-title: Power Automate お問い合わせの際の情報取得手順
+title: Power Automate for desktop お問い合わせの際の情報取得手順
 date: 2022-12-28 12:00
 tags:
   - Power Automate
