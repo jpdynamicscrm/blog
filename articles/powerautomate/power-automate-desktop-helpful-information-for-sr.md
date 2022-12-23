@@ -16,15 +16,15 @@ tags:
 1. [概要](#anchor-intro)
 1. [情報取得手順詳細](#anchor-how-to-collect)
       1. [Power Automate for desktopのバージョン](#anchor-pad-version)
-      1. [OSのバージョン](#anchor-os-version)
-      1. [コンピューター ログ](#anchor-computer-log)
-      1. [Fiddler ログ](#anchor-fiddler-log)
-      1. [マシン登録の情報](#anchor-machine-information)
-      1. [リモートデスクトップ設定](#anchor-remote-desktop-setting)
-      1. [Power Automate for desktopのフロー](#anchor-desktopflow)
-      1. [デスクトップフローの実行履歴URL](#anchor-desktopflow-url)
-      1. [クラウドフローの実行履歴CSV](#anchor-cloudflow-run-history-csv)
-      1. [クラウドフローのアクションの未加工入力と未加工出力](#anchor-cloudflow-run-history-csv)
+      2. [OSのバージョン](#anchor-os-version)
+      3. [コンピューター ログ](#anchor-computer-log)
+      4. [Fiddler ログ](#anchor-fiddler-log)
+      5. [マシン登録の情報](#anchor-machine-information)
+      6. [リモートデスクトップ設定](#anchor-remote-desktop-setting)
+      7. [Power Automate for desktopのフロー](#anchor-desktopflow)
+      8. [デスクトップフローの実行履歴URL](#anchor-desktopflow-url)
+      9. [クラウドフローの実行履歴CSV](#anchor-cloudflow-run-history-csv)
+      10. [クラウドフローのアクションの未加工入力と未加工出力](#anchor-cloudflow-run-history-csv)
 
 <a id='anchor-intro'></a>
 # 概要
@@ -82,6 +82,7 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 * 必要となるレジストリ
 以下の公開情報を参考に、必要となるレジストリが登録されていることをご確認ください。
 公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。
+
 [Power Automate でのガバナンス - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/governance#configure-power-automate-for-desktop-to-keep-the-flow-run-details)
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log2.png)
 
@@ -151,6 +152,7 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png)
 
 クラウドフローの実行履歴CSVの取得方法の詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。
+
 [Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv)
 
 <a id='anchor-cloudflow-raw-input-output'></a>
@@ -161,7 +163,8 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png)  
 
-クラウドフローのアクションの未加工入力と未加工出力の取得方法の詳細に関して、以下にも記載がございますのでご参照いただけますと幸いです。
+クラウドフローのアクションの未加工入力と未加工出力の取得方法の詳細に関して、以下にも記載がございますのでご参照いただけますと幸いです。  
+
 [Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%9C%AA%E5%8A%A0%E5%B7%A5%E5%85%A5%E5%8A%9B%E3%80%81%E6%9C%AA%E5%8A%A0%E5%B7%A5%E5%87%BA%E5%8A%9B)
 
 
