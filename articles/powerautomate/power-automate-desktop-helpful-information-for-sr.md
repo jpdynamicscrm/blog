@@ -22,9 +22,9 @@ tags:
       1. [マシン登録の情報](#anchor-machine-information)
       1. [リモートデスクトップ設定](#anchor-remote-desktop-setting)
       1. [Power Automate for desktopのフロー](#anchor-desktopflow)
-      1. [デスクトップフローの実行履歴URL](#anchor-desktopflow-url)
-      1. [クラウドフローの実行履歴CSV](#anchor-cloudflow-run-history-csv)
-      1. [クラウドフローのアクションの未加工入力と未加工出力](#anchor-cloudflow-run-history-csv)
+      1. [デスクトップ フローの実行履歴URL](#anchor-desktopflow-url)
+      1. [クラウド フローの実行履歴CSV](#anchor-cloudflow-run-history-csv)
+      1. [クラウド フローのアクションの未加工入力と未加工出力](#anchor-cloudflow-run-history-csv)
 
 <a id='anchor-intro'></a>
 # 概要
@@ -52,7 +52,7 @@ Power Automate for desktopのバージョンが確認できる画面キャプチ
 <a id='anchor-os-version'></a>
 
 ## 2. OSのバージョン
-OSのバージョンが確認できる以下の画面キャプチャをご提供ください。
+OS のバージョンが確認できる以下の画面キャプチャをご提供ください。
 * システム > バージョン情報 を開き以下の画面キャプチャを取得します。
 ![](./power-automate-desktop-helpful-information-for-sr/os-version.png)  
 
@@ -61,12 +61,12 @@ OSのバージョンが確認できる以下の画面キャプチャをご提供
 
 ## 3. コンピューター ログ
 コンピューター ログの取得方法は大きく分けて３つございます。
-Power Automate コンピューターランタイムをご利用いただいている場合は a) の方法から、ご利用いただけない場合は b) の方法からログを取得してご提供ください。  
+Power Automate コンピューター ランタイムをご利用いただいている場合は a) の方法から、ご利用いただけない場合は b) の方法からログを取得してご提供ください。  
 
-また、RunDefinition.jsonファイルとActions.logファイルを保持するレジストリを登録いただいている場合は、c) の方法で取得できるログも併せてご提供ください。
+また、RunDefinition.json ファイルと Actions.log ファイルを保持するレジストリを登録いただいている場合は、c) の方法で取得できるログも併せてご提供ください。
 
 ### a) Power Automate コンピュータ ランタイムからログを収集する
-フロー実行後のログの出力に関して、過去３日間のログがPower Automate コンピューターランタイムから出力いただけます。
+フロー実行後のログの出力に関して、過去３日間のログが Power Automate コンピューター ランタイムから出力いただけます。
 Power Automate コンピュータ ランタイムからエクスポートしたzipファイルをご提供ください。
 * Power Automate コンピュータ ランタイム > トラブルシューティング > ログのエクスポート を選択します。
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log.png)
@@ -91,20 +91,20 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 2．ファイルを取得する  
 以下のフォルダに格納されているファイルを取得し、ご提供ください。  
 * フォルダ：%localappdata%\Microsoft\Power Automate Desktop\Scripts\{scriptid}\Runs\{runid}  
-a) Actions.log：デスクトップフローに設定された各アクションの実行結果が記載されたログです。  
-b) RunDefinition.json：デスクトップフローの実行開始日、実行終了日、フローの実行結果(成功、失敗)が記載されたログです。  
+a) Actions.log：デスクトップ フローに設定された各アクションの実行結果が記載されたログです。  
+b) RunDefinition.json：デスクトップ フローの実行開始日、実行終了日、フローの実行結果(成功、失敗)が記載されたログです。  
 
-{ScriptId} にはデスクトップフローのIDを、{RunId} にはフローの実行IDを挿入します。  
+{ScriptId} にはデスクトップ フローの ID を、{RunId} にはフローの実行 ID を挿入します。  
 デスクトップフローのIDとフローの実行IDの確認方法は有償版か無償版かにより異なりますので、順にご案内いたします。 
 
 <有償版の場合>  
-Power Automateポータルのデスクトップフローの実行履歴からデスクトップフローのIDとフローの実行IDを確認いただけます。
+Power Automateポータルのデスクトップ フローの実行履歴からデスクトップフローの ID とフローの実行 ID を確認いただけます。
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log3.png)
 
 <無償版の場合>  
-デスクトップフローのIDは以下の手順で取得します。
+デスクトップ フローの ID は以下の手順で取得します。
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log4.png)
-フローの実行IDに関しましては、Windowsのエクスプローラーの更新日時からどの実行かをご判断いただけますと幸いでございます。
+フローの実行 ID に関しましては、Windows のエクスプローラーの更新日時からどの実行かをご判断いただけますと幸いでございます。
 
 
 <a id='anchor-fiddler-log'></a>
@@ -132,10 +132,10 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 
 <a id='anchor-desktopflow'></a>
 
-## 7. Power Automate for desktopのフロー
-デスクトップフローがマイフローのフローか、ソリューションに含まれるフローかにより、フローの共有方法が異なります。
+## 7. Power Automate for desktop のフロー
+デスクトップ フローがマイ フローのフローか、ソリューションに含まれるフローかにより、フローの共有方法が異なります。
 ### 1. デスクトップフロー (マイフロー)
-デスクトップフローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキスト エディター (Ctrl + V) に貼り付けてご提供ください。 
+デスクトップ フローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキスト エディター (Ctrl + V) に貼り付けてご提供ください。 
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow.png)  
 一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  
 
@@ -152,9 +152,9 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 
 
 <a id='anchor-desktopflow-url'></a>
-
-## 8. デスクトップフローの実行履歴URL  
-1. マイフロー>デスクトップフローから該当のフローを選択します。実行履歴から該当の日時を選択します。  
+ 
+## 8. デスクトップ フローの実行履歴URL  
+1. マイ フロー>デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。  
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow-url.png)  
 1. URLをコピーしてご提供ください。
 エラー時にフローが実行されず実行履歴に残っていない場合は、１の画面のURLをコピーしてご提供いただけますと幸いです。
@@ -162,23 +162,23 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 <a id='anchor-cloudflow-run-history-csv'></a>
 
 ## 9. クラウドフローの実行履歴CSV
-1. デスクトップフローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。
+1. デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png)
 2. 「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png)
 
-クラウドフローの実行履歴CSVの取得方法の詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。  
+クラウド フローの実行履歴 CSV の取得方法の詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。  
 [Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv)
 
 <a id='anchor-cloudflow-raw-input-output'></a>
 
 ## 10. クラウドフローのアクションの未加工入力と未加工出力
 
-実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップフローを呼び出すアクションを展開します。  
+実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。  
 未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。  
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png)  
 
-クラウドフローのアクションの未加工入力と未加工出力の取得方法の詳細に関して、以下にも記載がございますのでご参照いただけますと幸いです。  
+クラウド フローのアクションの未加工入力と未加工出力の取得方法の詳細に関して、以下にも記載がございますのでご参照いただけますと幸いです。  
 [Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-raw-input-output)
 
 
