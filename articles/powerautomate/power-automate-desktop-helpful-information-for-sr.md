@@ -42,7 +42,8 @@ Power Automate for desktop に関するサポートサービスのお問い合�
 Power Automate for desktopのバージョンが確認できる画面キャプチャをご提供ください。
 1. Power Automate for desktop > ヘルプ > バージョン情報 を選択します。
 
-![](./power-automate-desktop-helpful-information-for-sr/pad-version.png) 
+![](./power-automate-desktop-helpful-information-for-sr/pad-version.png)   
+
 2. 以下の画面キャプチャを取得してご提供ください。
 
 ![](./power-automate-desktop-helpful-information-for-sr/pad-version2.png) 
