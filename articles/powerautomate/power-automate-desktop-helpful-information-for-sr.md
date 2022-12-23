@@ -41,8 +41,10 @@ Power Automate for desktop に関するサポートサービスのお問い合�
 ## 1. Power Automate for desktopのバージョン
 Power Automate for desktopのバージョンが確認できる画面キャプチャをご提供ください。
 1. Power Automate for desktop > ヘルプ > バージョン情報 を選択します。
+{: align="center"}
 ![](./power-automate-desktop-helpful-information-for-sr/pad-version.png) 
 1. 以下の画面キャプチャを取得してご提供ください。
+{: align="center"}
 ![](./power-automate-desktop-helpful-information-for-sr/pad-version2.png) 
 
 
@@ -79,19 +81,17 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 ### c) レジストリを設定いただいている場合に収集できるログ
 以下のレジストリを登録いただきマシンを再起動した上で、以下でご案内するフォルダに格納されているファイルを取得してご提供ください。
 
-1. 必要となるレジストリを確認する
-以下の公開情報を参考に、必要となるレジストリが登録されていることをご確認ください。
+1. 必要となるレジストリを確認する  
+以下の公開情報を参考に、必要となるレジストリが登録されていることをご確認ください。  
 公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。  
 [Power Automate でのガバナンス - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/governance#configure-power-automate-for-desktop-to-keep-the-flow-run-details)
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log2.png)
-
 	
-1．ファイルを取得する
-以下のフォルダに格納されているファイルを取得し、ご提供ください。
+2．ファイルを取得する  
+以下のフォルダに格納されているファイルを取得し、ご提供ください。  
 * フォルダ：%localappdata%\Microsoft\Power Automate Desktop\Scripts\{scriptid}\Runs\{runid}  
 a) Actions.log：デスクトップフローに設定された各アクションの実行結果が記載されたログです。  
 b) RunDefinition.json：デスクトップフローの実行開始日、実行終了日、フローの実行結果(成功、失敗)が記載されたログです。  
-
 {ScriptId} にはデスクトップフローのIDを、{RunId} にはフローの実行IDを挿入します。
 
 <有償版の場合>  
@@ -123,7 +123,7 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 <a id='anchor-remote-desktop-setting'></a>
 
 ## 6. リモートデスクトップ設定 
-実行される端末のリモートデスクトップの設定の画面キャプチャをご提供ください。 
+実行される端末のリモートデスクトップの設定の画面キャプチャをご提供ください。   
 * 実行される端末 > システムのプロパティ > リモートデスクトップ   
 ![](./power-automate-desktop-helpful-information-for-sr/remote-desktop-setting.png)  
 
@@ -157,8 +157,8 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 
 ## 10. クラウドフローのアクションの未加工入力と未加工出力
 
-実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップフローを呼び出すアクションを展開します。
-未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。
+実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップフローを呼び出すアクションを展開します。  
+未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。  
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png)  
 
 クラウドフローのアクションの未加工入力と未加工出力の取得方法の詳細に関して、以下にも記載がございますのでご参照いただけますと幸いです。  
