@@ -69,6 +69,7 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log.png)
 
 公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。
+
 [デスクトップ フローのトラブルシューティング - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/troubleshoot#collect-machine-logs)
 
 
@@ -80,6 +81,7 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 以下のレジストリを登録いただきマシンを再起動した上で、以下でご案内するフォルダに格納されているファイルを取得してご提供ください。
 
 * 必要となるレジストリ
+
 以下の公開情報を参考に、必要となるレジストリが登録されていることをご確認ください。
 公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。
 
@@ -88,6 +90,7 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 
 	
 * 提供いただきたいファイル
+
 以下のフォルダに格納されているファイルを取得し、ご提供ください。
 フォルダ：%localappdata%\Microsoft\Power Automate Desktop\Scripts\{scriptid}\Runs\{runid}
 ・Actions.log：デスクトップフローに設定された各アクションの実行結果が記載されたログです。
@@ -96,10 +99,12 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 {ScriptId} にはデスクトップフローのIDを、{RunId} にはフローの実行IDを挿入します。
 
 * 有償版の場合
+
 Power Automateポータルのデスクトップフローの実行履歴からデスクトップフローのIDとフローの実行IDを確認いただけます。
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log3.png)
 
 * 無償版の場合
+
 デスクトップフローのIDは以下の手順で取得します。
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log4.png)
 フローの実行IDに関しましては、Windowsのエクスプローラーの更新日時からどの実行かをご判断いただけますと幸いでございます。
@@ -109,6 +114,7 @@ Power Automateポータルのデスクトップフローの実行履歴からデ
 
 ## 4. Fiddler ログ
 以下の採取手順をご確認の上でログファイルをご提供ください。
+
 [Fiddler ログの採取手順 (microsoft.com)](https://social.technet.microsoft.com/Forums/ja-JP/fe5f977a-2992-44c3-b643-38ad570a3d18/fiddler-12525124641239825505214622516338918?forum=DCRMSupport)
 
 <a id='anchor-machine-information'></a>
