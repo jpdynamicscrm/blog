@@ -21,9 +21,9 @@ tags:
       1. [Fiddler ログ](#anchor-fiddler-log)
       1. [マシン登録の情報](#anchor-machine-information)
       1. [リモートデスクトップ設定](#anchor-remote-desktop-setting)
-      1. [Power Automate for desktopのフロー](#anchor-desktopflow)
-      1. [デスクトップ フローの実行履歴URL](#anchor-desktopflow-url)
-      1. [クラウド フローの実行履歴CSV](#anchor-cloudflow-run-history-csv)
+      1. [Power Automate for desktop のフロー](#anchor-desktopflow)
+      1. [デスクトップ フローの実行履歴 URL](#anchor-desktopflow-url)
+      1. [クラウド フローの実行履歴 CSV](#anchor-cloudflow-run-history-csv)
       1. [クラウド フローのアクションの未加工入力と未加工出力](#anchor-cloudflow-run-history-csv)
 
 <a id='anchor-intro'></a>
@@ -76,7 +76,7 @@ Power Automate コンピュータ ランタイムからエクスポートしたz
 
 
 ### b) 管理者権限のあるアカウントでフォルダからログを収集する
-管理者権限のあるアカウントで以下のフォルダ内にあるファイルをzipファイルにまとめてご提供ください。  
+管理者権限のあるアカウントで以下のフォルダ内にあるファイルを zip ファイルにまとめてご提供ください。  
 * フォルダ：%ProgramData%\Microsoft\Power Automate\Logs
 
 ### c) レジストリを設定いただいている場合に収集できるログ
@@ -96,7 +96,7 @@ b) RunDefinition.json：デスクトップ フローの実行開始日、実行�
 
 {ScriptId} にはデスクトップ フローの ID を、{RunId} にはフローの実行 ID を挿入します。  
 
-<デスクトップフローのIDとフローの実行IDの確認方法>  
+<デスクトップフローの ID とフローの実行 ID の確認方法>  
 Power Automateポータルのデスクトップ フローの実行履歴からデスクトップフローの ID とフローの実行 ID を確認いただけます。
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log3.png)
 
@@ -147,7 +147,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-desktopflow-url'></a>
  
-## 8. デスクトップ フローの実行履歴URL  
+## 8. デスクトップ フローの実行履歴 URL  
 1. マイ フロー>デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。  
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow-url.png)  
 1. URLをコピーしてご提供ください。
@@ -155,7 +155,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-cloudflow-run-history-csv'></a>
 
-## 9. クラウド フローの実行履歴CSV
+## 9. クラウド フローの実行履歴 CSV
 1. デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png)
 2. 「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。
