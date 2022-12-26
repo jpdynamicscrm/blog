@@ -54,7 +54,7 @@ Power Automate for desktop のバージョンが確認できる画面キャプ�
 ## 2. OS のバージョン
 OS のバージョンが確認できる以下の画面キャプチャをご提供ください。
 * システム > バージョン情報 を開き以下の画面キャプチャを取得します。
-![](./power-automate-desktop-helpful-information-for-sr/os-version.png)  
+![](./power-automate-desktop-helpful-information-for-sr/os-version1.png)  
 
 
 <a id='anchor-computer-log'></a>
