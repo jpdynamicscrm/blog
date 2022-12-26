@@ -53,7 +53,7 @@ Tag:
 Power Platform は、複数のサービスをつなぐという製品の性質上、Power Platform 以外の製品に関する情報や、監査ログなどの情報をご依頼する場合があります。  
 お手数をおかけしますが、以下のような点についてご理解・ご協力をお願いいたします。  
 - お問い合わせの起票時に診断情報へのアクセスの同意を求める箇所がございますので、「診断情報へのアクセスを許可する」をご選択ください。
-[参考: 同意情報について](https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#consent-information)  
+参考: [同意情報について](https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#consent-information)  
 - 上記の診断情報へのアクセスを許可いただいていても、サポート担当者にて閲覧ができないデータもございます。この場合、弊社より必要な情報の採取をご依頼いたしますので、お客様側でのデータの取得にご協力ください。
 
 また、お客様にてご作成いただいているフロー、アプリ、ボットが複雑な場合や、弊社での事象の再現が難しい場合、調査を進めるためには、お客様にて事象の切り分けをご実施いただく必要がございます。  
@@ -145,8 +145,8 @@ Power Platform にてサードパーティ サービスをご使用の場合、�
 
 以下のようなサービス・機能は、テクニカル サポートでのご支援の対象外です。  
 テクニカル サポート以外のお問い合わせ先があるものもございますので、それぞれ適切なお問い合わせ先へのご起票をお願いいたします。  
-- [CoE スターターキット](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) (問合せ先:[aka.ms/coe-starter-kit-issues](https://aka.ms/coe-starter-kit-issues))
-- [Automation Kit](https://learn.microsoft.com/ja-jp/power-automate/guidance/automation-kit/overview/introduction) (問合せ先:[aka.ms/automation-kit-issues](https//aka.ms/automation-kit-issues))
+- [CoE スターターキット](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) (問合せ先: [aka.ms/coe-starter-kit-issues](https://aka.ms/coe-starter-kit-issues))
+- [Automation Kit](https://learn.microsoft.com/ja-jp/power-automate/guidance/automation-kit/overview/introduction) (問合せ先: [aka.ms/automation-kit-issues](https//aka.ms/automation-kit-issues))
 - PowerShell コマンド 
 - [Power Apps for Teams のサンプルアプリ](https://learn.microsoft.com/ja-jp/power-apps/teams/use-sample-apps-from-teams-store)
 - [Power Apps のテンプレートアプリ](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/open-and-run-a-sample-app)
