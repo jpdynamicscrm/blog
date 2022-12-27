@@ -126,23 +126,28 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-desktopflow'></a>
 
-## 7. Power Automate for desktop のフロー
-デスクトップ フローがマイ フローのフローか、ソリューションに含まれるフローかにより、フローの共有方法が異なります。
-### 1. デスクトップ フロー (マイ フロー)
-デスクトップ フローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキスト エディター (Ctrl + V) に貼り付けてご提供ください。 
+## 7. Power Automate for desktop のフロー  
+デスクトップ フローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキストエディター (Ctrl + V) に貼り付けてご提供ください。 
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow.png)  
 一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  
 
-### 2. デスクトップ フロー (ソリューション)
-ソリューション内に作成したデスクトップフローの場合は(渋谷さんに要確認)、エクスポートしたソリューション ファイル (zip) をご提供ください。
+ソリューションのエクスポートの詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。    
+[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution)  
+
+※なお、フロー内のアクションをコピーする方法では、コピー対象は、デスクトップフローのステップ情報でございます。  
+そのため、入出力変数の定義やフロー内のアクションで使用していない UI 要素など一部の情報がコピーの対象外となります。  
+エラーが発生しているアクションで入出力変数を使用している場合や、デスクトップ フロー全体の容量等を確認する必要がある場合は、弊社のサポートエンジニアから以下のソリューションごとエクスポートする方法での共有をお願いする可能性がございます。
+
+< ソリューションごとエクスポートする方法 >
+弊社のサポートエンジニアからソリューションごとエクスポートする方法を依頼された場合は、ソリューション内に作成したデスクトップフローの場合や、エクスポートしたソリューション ファイル (zip) をご提供ください。
 * ソリューション > (ソリューションを選択) > エクスポート  
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow2.png)
 
 ソリューション全体の提供が難しい場合は、必要なコンポーネントのみが含まれる新しいソリューションを作成し、ご提供ください。  
-※弊社環境にインポートできるよう、依存関係のあるコンポーネントを含めてご提供をお願い致します  
-
-ソリューションのエクスポートの詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。    
-[Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution)
+弊社環境にインポートできるよう、依存関係のあるコンポーネントを含めてご提供をお願い致します。  
+1. コピー元テナントでソリューション メニューより、新しいソリューションを追加します。  
+2. 作成したソリューション > 既存の追加 から、該当のデスクトップ フローを追加します。  
+3. 作成したソリューションの概要画面 >  エクスポート からエクスポートしたソリューション ファイル (zip) をご提供ください。  
 
 
 <a id='anchor-desktopflow-url'></a>
