@@ -9,14 +9,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/about-power-platform-support/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -37,6 +30,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/For-early-resolution-of-issues/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -45,6 +45,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/How-to-block-free-and-trial-licenses/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -121,6 +128,20 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -156,28 +177,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -199,6 +199,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/power-apps-per-app-license/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -268,13 +275,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -290,6 +290,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
     
     <lastmod>2022-12-28</lastmod>
     

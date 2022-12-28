@@ -4,31 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>監査ログでのアプリ実行履歴等の確認について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの山田です。今回は、監査ログでのPower Appsの利用状況確認について、下記項目の順にご説明いたします。・監査ログ・ログの出力・監査ログ利用方法・監査ログの注意点">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの清水です。今回は、Power Apps&#x2F;Power Automate&#x2F;Power Virtual Agents のお問い合わせをいただく際の留意事項、ご協力いただきたい事項についてご紹介します。   我々サポートチームといたしましては、できる限りお客様のお役に立てるよう、日々調査に努めておりますが、お客様の協力があって初めてご支援ができるこ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="監査ログでのアプリ実行履歴等の確認について">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/index.html">
+<meta property="og:title" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/about-power-platform-support/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、監査ログでのPower Appsの利用状況確認について、下記項目の順にご説明いたします。・監査ログ・ログの出力・監査ログ利用方法・監査ログの注意点">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの清水です。今回は、Power Apps&#x2F;Power Automate&#x2F;Power Virtual Agents のお問い合わせをいただく際の留意事項、ご協力いただきたい事項についてご紹介します。   我々サポートチームといたしましては、できる限りお客様のお役に立てるよう、日々調査に努めておりますが、お客様の協力があって初めてご支援ができるこ">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/activity-menu.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/user-selection.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/item-id.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/app-id.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/classic-top.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/start-recording.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/confirm-refresh.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/try-again.png">
-<meta property="article:published_time" content="2022-09-14T03:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-28T05:43:17.612Z">
+<meta property="article:published_time" content="2022-12-28T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-28T05:43:17.784Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Power Apps">
-<meta property="article:tag" content="Audit Log">
+<meta property="article:tag" content="Power Automate">
+<meta property="article:tag" content="PPAC">
+<meta property="article:tag" content="Power Apps Portal">
+<meta property="article:tag" content="モデル駆動型 アプリ">
+<meta property="article:tag" content="キャンバス アプリ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/activity-menu.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -90,45 +84,80 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerapps/Audit-log-for-Power-Apps" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/about-power-platform-support" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
     
-      <header class="article-header-single">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      監査ログでのアプリ実行履歴等の確認について
-    </h1>
-  
-
-      </header>
-      <div class="article-share">
-        Last Update: 
-        <a href="" class="article-date-single">
-  <time datetime="2022-09-14T03:00:00.000Z" itemprop="datePublished">2022-09-14</time>
-</a>
-        
-        
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+bb454670-3e7f-5319-9abb-f9d24d5495a9%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%81%A7%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E5%AE%9F%E8%A1%8C%E5%B1%A5%E6%AD%B4%E7%AD%89%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2FAudit-log-for-Power-Apps%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2FAudit-log-for-Power-Apps.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerapps%2FAudit-log-for-Power-Apps.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
-        
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/" data-id="clc78eb3o000c0lpl9qiu6zzt" class="article-share-link">共有</a>
-      </div>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートの山田です。<br><br>今回は、監査ログでのPower Appsの利用状況確認について、下記項目の順にご説明いたします。<br>・監査ログ<br>・ログの出力<br>・監査ログ利用方法<br>・監査ログの注意点</p>
-<span id="more"></span>  
-<h2 id="lt-監査ログ-gt"><a href="#lt-監査ログ-gt" class="headerlink" title="&lt;監査ログ&gt;"></a><strong>&lt;監査ログ&gt;</strong></h2><p>Microsoft 365 コンプライアンスの「監査ログ」機能でアプリの実行状況をご確認いただけます。<br>監査ログにて、「アクティビティ」の「Power Appsアプリのアクティビティ」より、<br>「アプリの起動」にて、アプリの各起動（実行）ログ等をご確認いただけます。<br><img src="/blog/powerapps/Audit-log-for-Power-Apps/activity-menu.png"><br><br></p>
-<p>ユーザー欄にて対象ユーザーをフィルターいただくことが可能でございます。<br><img src="/blog/powerapps/Audit-log-for-Power-Apps/user-selection.png"><br><br></p>
-<h2 id="lt-ログの出力-gt"><a href="#lt-ログの出力-gt" class="headerlink" title="&lt;ログの出力&gt;"></a><strong>&lt;ログの出力&gt;</strong></h2><p>ログは下図のような形となります。<br>各ログの「アイテム」欄が各アプリの詳細画面にてご確認いただけるアプリIDを示しております。<br>誰がいつ、どのアプリを実行したかご確認いただけます。<br>各ログを選択いただきますと、より詳細な情報をご確認いただきます。<br>アクティビティによって、詳細の中にはIPや対象環境情報などが含まれておりますので、ご活用ください。<br><img src="/blog/powerapps/Audit-log-for-Power-Apps/item-id.png"><br><img src="/blog/powerapps/Audit-log-for-Power-Apps/app-id.png"><br><br></p>
-<h2 id="lt-監査ログ利用方法-gt"><a href="#lt-監査ログ利用方法-gt" class="headerlink" title="&lt;監査ログ利用方法&gt;"></a><strong>&lt;監査ログ利用方法&gt;</strong></h2><p><a target="_blank" rel="noopener" href="https://compliance.microsoft.com/homepage">Microsoft 365 コンプライアンス</a>の”監査”にて、<br>ログの時刻範囲を決定、アクティビティにて「アプリの○○」を選択し、検索します。<br><img src="/blog/powerapps/Audit-log-for-Power-Apps/classic-top.png"><br><br></p>
-<p>※本記事執筆の2022年9月時点では「新しい検索（プレビュー）」と「クラシック検索」の2種類がございますが、<br>「新しい検索（プレビュー）」はプレビュー機能のため、「クラシック検索」についてご案内いたします。<br><br></p>
-<h2 id="lt-監査ログの注意点-gt"><a href="#lt-監査ログの注意点-gt" class="headerlink" title="&lt;監査ログの注意点&gt;"></a><strong>&lt;監査ログの注意点&gt;</strong></h2><p>監査ログの注意点として、下記公開情報に記載のように、<br>イベントの発生からログ出力までの時差やログ保存期間の制限等ございますのでご留意ください。<br>監査レコードは通常は90日間保持されます。<br>Office 365 E5 または Microsoft E5 ライセンスがが割り当てられたユーザーのアクティビティの場合、<br>ポリシーを設定することにより、1年間まで保持されます。<br>詳細は下記公開情報の「よく寄せられる質問」等をご参照ください。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#frequently-asked-questions">Microsoft 365 コンプライアンス センターの監査ログ検索ツール - よく寄せられる質問</a><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoft-365/compliance/audit-log-retention-policies?view=o365-worldwide#default-audit-log-retention-policy">既定の監査ログの保持ポリシー</a><br><br></p>
-<p>なお、初回時には下図例の「ユーザーと管理者のアクティビティの記録を開始する」ボタンが表示されます。<br>ボタンを押して頂き、案内に従ってください。<br>なお、こちらのボタンは一度では有効化されない場合がございます。<br>下図のようなメッセージが表示される場合には、何度か押下して頂けますと幸いでございます。<br><img src="/blog/powerapps/Audit-log-for-Power-Apps/start-recording.png"><br><img src="/blog/powerapps/Audit-log-for-Power-Apps/confirm-refresh.png"><br><img src="/blog/powerapps/Audit-log-for-Power-Apps/try-again.png"><br><br></p>
-<p>その他監査ログの詳細につきましては、下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#search-the-audit-log">コンプライアンス ポータルで監査ログを検索する</a><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/power-platform/admin/logging-powerapps">Power Apps のアクティビティ ログ</a><br><br></p>
-<p>免責事項<br>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。<br></p>
+        <p>こんにちは、Power Platform サポートチームの清水です。<br>今回は、Power Apps/Power Automate/Power Virtual Agents のお問い合わせをいただく際の留意事項、ご協力いただきたい事項についてご紹介します。  </p>
+<p>我々サポートチームといたしましては、できる限りお客様のお役に立てるよう、日々調査に努めておりますが、お客様の協力があって初めてご支援ができることも多くございます。<br>また、クラウドサービスの性質や、成長スピードの速い Power Platform という製品の性質上、また情報保護の観点から、どうしてもお客様への情報のご提供が難しい場合もございます。  </p>
+<p>サポートをご利用いただくうえでは、以下のような点にご留意ください。   </p>
+<span id="more"></span>
+
+<hr>
+<p>調査を迅速に開始するため、また、コミュニケーションを円滑に進めるため、以下の点にご協力ください。  </p>
+<h2 id="お問い合わせ内容はできる限り詳細にご記載ください"><a href="#お問い合わせ内容はできる限り詳細にご記載ください" class="headerlink" title="お問い合わせ内容はできる限り詳細にご記載ください"></a>お問い合わせ内容はできる限り詳細にご記載ください</h2><p>認識齟齬をなくすため、お問い合わせ内容はできる限り詳細に記載してください。<br>例えばエラーが発生した場合、 </p>
+<ul>
+<li>いつ発生したのか  </li>
+<li>毎回発生するのか  </li>
+<li>表示されているエラーメッセージやエラー画面のキャプチャ  </li>
+<li>エラーが発生した状況  </li>
+</ul>
+<p>などをできる限り詳細に記載いただくことで、我々も正確に事象を把握でき、調査がスムーズに進みます。<br>反対に、お問い合わせ内容にこれらの情報が不足している場合、内容を把握するだけで何回もやり取りが必要になり、日数を要してしまう場合があります。   </p>
+<h2 id="情報提供にご協力ください"><a href="#情報提供にご協力ください" class="headerlink" title="情報提供にご協力ください"></a>情報提供にご協力ください</h2><p>お問い合わせフォームに、エラー内容やフロー/アプリの URL などを質問する項目がある場合があります。<br>お問い合わせ時にこれらの項目について記載いただくことで、お問い合わせを受領してすぐに詳細調査を開始することができますので、お問い合わせフォームの項目はできるかぎりすべて入力いただくよう、ご協力をお願いいたします。<br>また、お問い合わせ時にお寄せいただきたい情報とその情報採取手順について、ブログ記事でご紹介しています。<br>事象によって必要な情報は異なるため、すべてを添付いただく必要はございませんが、お問い合わせいただく事象に関係のありそうなものをお問い合わせ時に添付いただけますと、調査がスムーズに進みますので、ご協力をお願いいたします。  </p>
+<p><a href="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/">Power Apps キャンバス アプリ お問い合わせの際の情報取得手順</a><br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/">Power Automate お問い合わせの際の情報採取手順</a>  </p>
+<h2 id="お問い合わせの分割起票にご協力ください"><a href="#お問い合わせの分割起票にご協力ください" class="headerlink" title="お問い合わせの分割起票にご協力ください"></a>お問い合わせの分割起票にご協力ください</h2><p>テクニカル サポートでは、お客様の技術的な課題に対して、各製品の専任のエンジニアが担当となりご支援を差し上げております。<br>そのため、複数の製品に跨るご質問に関しては、製品ごとに分割してお問い合わせをご起票いただくようお願いいたします。</p>
+<p>また、同一製品に関するご質問であっても、質問内容が多岐にわたる場合には、分割起票をご依頼することがございます。<br>課題管理やお客様とのコミュニケーションの円滑化、複数エンジニアでの並行調査を可能とするため、技術的に一問一答形式でお問い合わせいただくようお願いいたします。</p>
+<h1 id="2．調査へのご協力のお願い"><a href="#2．調査へのご協力のお願い" class="headerlink" title="2．調査へのご協力のお願い"></a>2．調査へのご協力のお願い</h1><hr>
+<h2 id="情報提供にご協力ください-1"><a href="#情報提供にご協力ください-1" class="headerlink" title="情報提供にご協力ください"></a>情報提供にご協力ください</h2><p>上述したように、調査を円滑に進めるには、お客様からの情報提供が不可欠です。<br>Power Platform は、複数のサービスをつなぐという製品の性質上、Power Platform 以外の製品に関する情報や、監査ログなどの情報をご依頼する場合があります。<br>お手数をおかけしますが、以下のような点についてご理解・ご協力をお願いいたします。  </p>
+<ul>
+<li>お問い合わせの起票時に診断情報へのアクセスの同意を求める箇所がございますので、「診断情報へのアクセスを許可する」をご選択ください。<br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#consent-information">同意情報について</a>  </li>
+<li>上記の診断情報へのアクセスを許可いただいていても、サポート担当者にて閲覧ができないデータもございます。この場合、弊社より必要な情報の採取をご依頼いたしますので、お客様側でのデータの取得にご協力ください。</li>
+</ul>
+<p>また、お客様にてご作成いただいているフロー、アプリ、ボットが複雑な場合や、弊社での事象の再現が難しい場合、調査を進めるためには、お客様にて事象の切り分けをご実施いただく必要がございます。<br>製品の性質上、お客様のご協力なしに調査を進めることは難しい場合も多くございますので、ご理解・ご協力のほどお願いいたします。</p>
+<h2 id="お問い合わせは、事象の発生後できるかぎりすぐにご起票ください"><a href="#お問い合わせは、事象の発生後できるかぎりすぐにご起票ください" class="headerlink" title="お問い合わせは、事象の発生後できるかぎりすぐにご起票ください"></a>お問い合わせは、事象の発生後できるかぎりすぐにご起票ください</h2><p>Power Platform では、事象の発生から 28 日が経過すると、サーバーログを破棄しています。<br>事象の発生から時間が経ってしまうと、ログが残っておらず、調査ができない場合がございますので、お問い合わせはできる限りお早めにご起票ください。  </p>
+<h2 id="Teams-会議にご協力ください"><a href="#Teams-会議にご協力ください" class="headerlink" title="Teams 会議にご協力ください"></a>Teams 会議にご協力ください</h2><p>Power Apps や Power Automate for desktop など、クライアント端末上で動作するサービスをご利用いただいている場合、事象を正しく把握するために、Teams 会議での画面共有をしながらのコミュニケーションをご依頼する場合がございます。<br>特に、お問い合わせいただいた事象が弊社では再現できない場合、Teams 会議での事象の確認、再現手順の確認、情報採取が必要となってきますので、ご協力をお願いいたします。  </p>
+<h2 id="サードパーティサービスと連携する場合の調査について"><a href="#サードパーティサービスと連携する場合の調査について" class="headerlink" title="サードパーティサービスと連携する場合の調査について"></a>サードパーティサービスと連携する場合の調査について</h2><p>Power Platform にてサードパーティ サービスをご使用の場合、弊社では詳細な調査ができない場合があります。<br>事象に関する切り分けの結果、サードパーティ サービス側での調査が必要と判断した場合、お客様から他社様へのお問い合わせをご依頼する場合や、調査を終了とさせていただく場合がございますので、ご理解のほどお願いいたします。  </p>
+<h1 id="3．Power-Platform-でのサポート-サービス全般に関する留意事項"><a href="#3．Power-Platform-でのサポート-サービス全般に関する留意事項" class="headerlink" title="3．Power Platform でのサポート サービス全般に関する留意事項"></a>3．Power Platform でのサポート サービス全般に関する留意事項</h1><hr>
+<h2 id="仕様確認について"><a href="#仕様確認について" class="headerlink" title="仕様確認について"></a>仕様確認について</h2><p>仕様確認のお問い合わせについては、公開情報や現時点の動作をもとに、想定される動作をご案内いたします。<br>公開情報に記載されている以上の情報については、ご提供できない場合があることを、あらかじめご承知おきください。   </p>
+<h2 id="再現性のない事象について"><a href="#再現性のない事象について" class="headerlink" title="再現性のない事象について"></a>再現性のない事象について</h2><p>過去の特定の時期にのみ発生していた問題や、発生頻度の少ない事象に関する調査は、事象発生時の情報が不足している場合、十分な調査を行うことができないことから、原因特定までのご支援が出来ない場合がございます。<br>そのため、確認可能な情報からのベストエフォートでの調査となりますこと、予めご了承の程お願いいたします。    </p>
+<p>なお、クラウド製品におきましては、その特性上、一過性の障害（サービスとのネットワーク接続が一瞬失われたり、サービスが一時的にビジー状態になる等）が発生する場合がございますが、これらの障害は自動修正され、少し時間をおいてから操作を再試行することで、高い確率で正常に実行されます。<br>このような事象においては、根本原因の究明は困難となりますこと、ご理解くださいますようお願いいたします。</p>
+<p><strong>例）以下のようなお問い合わせは、技術サポートのご支援の対象外となりますこと、予めご了承の程お願いいたします。</strong>  </p>
+<ul>
+<li>キャンバスアプリにてデータを保存した際、過去に一度のみエラーが発生し、データが登録されなかった。その後発生はしていないが、エラーの理由が不明であり再現した際に備えたいため、原因と対応策を教えてほしい  </li>
+<li>クラウドフローを編集しようとしたが、編集画面が描画されず、一時的にフローの編集ができなかった。特定のユーザでのみ発生しており、一定時間経過後に解消したが、根本原因について調査してほしい。 </li>
+</ul>
+<h2 id="長期にわたる修正について"><a href="#長期にわたる修正について" class="headerlink" title="長期にわたる修正について"></a>長期にわたる修正について</h2><p>調査の結果、サービス側の改修が必要となることがございますが、回避策がある状況において、修正が長期にわたることが想定される場合は、お問い合わせを一旦クローズとさせていただきます。<br>定期的な修正状況の確認や、修正の進捗報告をご希望の場合は、ご確認が必要なタイミングで、その都度お問い合わせを起票いただくようお願いいたします。   </p>
+<h2 id="リリース時期や今後の予定に関するご質問について"><a href="#リリース時期や今後の予定に関するご質問について" class="headerlink" title="リリース時期や今後の予定に関するご質問について"></a>リリース時期や今後の予定に関するご質問について</h2><p>新機能のリリース時期や修正の展開時期など、今後の予定に関するご質問には、基本的にはお答えすることができません。<br>状況に応じて、ベストエフォートで開発部門への確認を行い、目安としてご案内を差し上げることがございますが、ご案内する時期についてはあくまでもその時点での予定であり、変更となる可能性が多分にあることをご承知おきください。   </p>
+<h2 id="お客様側での情報採取や確認にお時間がかかる場合について"><a href="#お客様側での情報採取や確認にお時間がかかる場合について" class="headerlink" title="お客様側での情報採取や確認にお時間がかかる場合について"></a>お客様側での情報採取や確認にお時間がかかる場合について</h2><p>お客様側での情報採取や、ご案内内容の確認、実装などにお時間がかかる場合には、お問い合わせを一旦クローズとさせていただきます。<br>テクニカル サポートは、短期的な課題に対してご支援を差し上げるサービスですので、2 週間程度を目安に、それ以上のお時間が必要な場合には、お問い合わせの一旦クローズにご理解ください。<br>なお、クローズ後にご質問が発生した場合には、以前のお問い合わせ番号を記載してお問い合わせいただければ、情報を引継いでご支援を再開することが可能ですので、ご安心ください。  </p>
+<h2 id="サンプル作成やカスタマイズ、パフォーマンス-チューニングについて"><a href="#サンプル作成やカスタマイズ、パフォーマンス-チューニングについて" class="headerlink" title="サンプル作成やカスタマイズ、パフォーマンス チューニングについて"></a>サンプル作成やカスタマイズ、パフォーマンス チューニングについて</h2><p>以下のようなご依頼については、テクニカル サポートでは承ることができません。<br>別途プロアクティブ サービスなどのご紹介を差し上げる場合がございますので、ご理解ください。  </p>
+<ul>
+<li>サンプルの作成 </li>
+<li>説明資料の作成やレビュー </li>
+<li>お客様のご要件に沿ったカスタマイズのご提供 </li>
+<li>パフォーマンスチューニングのご依頼 (詳細は次項を参照) </li>
+</ul>
+<h2 id="パフォーマンス-チューニングについて"><a href="#パフォーマンス-チューニングについて" class="headerlink" title="パフォーマンス チューニングについて"></a>パフォーマンス チューニングについて</h2><p>サポートからは、パフォーマンスに影響する一般的な事例や対応策をご案内することは可能ですが、お客様環境固有のカスタマイズに応じたチューニングを行うことはご支援の対象外となります。<br>また、パフォーマンスへ影響を与えている処理を特定いただき、製品プラットフォーム側に原因があるかの調査は可能ですが、カスタマイズ部分に原因がある場合は、改善方法のご提案はご支援の対象外となります。  </p>
+<p><strong>例）以下のようなお問い合わせは、技術サポートのご支援の対象外となりますこと、予めご了承の程お願いいたします。</strong> </p>
+<ul>
+<li>あるキャンバスアプリにおいて、検索処理に時間を要している。<br>アプリを提供するので、パフォーマンス改善のために実施すべき内容を教えてほしい。 </li>
+<li>特定のクラウドフローにおいて、スロットリングが頻繁に発生し、フローの処理が遅くなっている。スロットリングを発生させないようなフローの修正方法があれば教えてほしい。 </li>
+</ul>
+<h2 id="プレビュー機能について"><a href="#プレビュー機能について" class="headerlink" title="プレビュー機能について"></a>プレビュー機能について</h2><p>プレビュー機能は、”現状のまま”、”不具合とともに” 利用可能な機能としてご提供しています。<br>不具合を確認した場合、事象により開発部門にフィードバックを行うことはございますが、修正のお約束はできないことをご了承ください。<br>また、機能強化のご要望がございましたら、Ideas サイトまでご投稿ください。<br><a target="_blank" rel="noopener" href="https://ideas.powerapps.com/">Power Apps Ideas</a><br><a target="_blank" rel="noopener" href="https://ideas.powerautomate.com/">Power Automate Ideas</a><br><a target="_blank" rel="noopener" href="https://ideas.powervirtualagents.com/">Power Virtual Agents Ideas</a>  </p>
+<h2 id="サポート外の機能について"><a href="#サポート外の機能について" class="headerlink" title="サポート外の機能について"></a>サポート外の機能について</h2><p>以下のようなサービス・機能は、テクニカル サポートでのご支援の対象外です。<br>テクニカル サポート以外のお問い合わせ先があるものもございますので、それぞれ適切なお問い合わせ先へのご起票をお願いいたします。  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit">CoE スターターキット</a> (問合せ先: <a target="_blank" rel="noopener" href="https://aka.ms/coe-starter-kit-issues">aka.ms/coe-starter-kit-issues</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/guidance/automation-kit/overview/introduction">Automation Kit</a> (問合せ先: <a href="https//aka.ms/automation-kit-issues">aka.ms/automation-kit-issues</a>)</li>
+<li>PowerShell コマンド </li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/teams/use-sample-apps-from-teams-store">Power Apps for Teams のサンプルアプリ</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/open-and-run-a-sample-app">Power Apps のテンプレートアプリ</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/devops-build-tools">Power Apps Build Tool</a> (問合せ先: <a target="_blank" rel="noopener" href="https://powerusers.microsoft.com/t5/Power-Apps-Pro-Dev-ISV/bd-p/pa_component_framework">Power Apps component framework, ALM &amp; Pro Dev forum</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/tools/devtools-install">Power Platform Tools</a> (問合せ先: <a target="_blank" rel="noopener" href="https://github.com/microsoft/powerplatform-vscode/issues">https://github.com/microsoft/powerplatform-vscode/issues</a>)</li>
+<li>Microsoft Lobe (問合せ先: <a target="_blank" rel="noopener" href="https://www.lobe.ai/docs/welcome/welcome">Lobe Community or Contact Us</a>)</li>
+</ul>
+<h2 id="公開情報の修正依頼・追加依頼について"><a href="#公開情報の修正依頼・追加依頼について" class="headerlink" title="公開情報の修正依頼・追加依頼について"></a>公開情報の修正依頼・追加依頼について</h2><p>我々サポートチームは、責任をもってお客様にご回答を差し上げておりますため、障害発生時や製品に不具合が発生している場合、サポートからの回答をもってマイクロソフトからの正式なご案内とさせていただく場合がございます。<br>公開情報に情報の記載がない場合、サポートチームよりフィードバックすることは可能ですが、情報の記載をお約束することはできかねますので、ご了承ください。  </p>
 
       
       
@@ -142,10 +171,8 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
-
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerapps/Audit-log-for-Power-Apps.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/about-power-platform-support.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -153,19 +180,19 @@
     
 <nav id="article-nav">
   
-    <a href="../SR_authority/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Power Platform に問い合わせを行うための権限について
+          非アクティブな Microsoft Dataverse for Teams 環境の自動削除について
         
       </div>
     </a>
   
   
-    <a href="../Send_data_from_automate_to_apps/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../For-early-resolution-of-issues/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Power Automate からPower Apps へのデータ送信について</div>
+      <div class="article-nav-title">Dynamics 365 Customer Engagement サポートチームより問題の早期解決に向けたお客様へのお願い</div>
     </a>
   
 </nav>
@@ -184,23 +211,23 @@
       <ul>
         
           <li>
-            <a href="../../powerplatform/T2T-Introduction/">環境のテナント移行について</a>
+            <a href="../T2T-Introduction/">環境のテナント移行について</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</a>
+            <a href="../Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/about-power-platform-support/">(no title)</a>
+            <a href="">(no title)</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/For-early-resolution-of-issues/">Dynamics 365 Customer Engagement サポートチームより問題の早期解決に向けたお客様へのお願い</a>
+            <a href="../For-early-resolution-of-issues/">Dynamics 365 Customer Engagement サポートチームより問題の早期解決に向けたお客様へのお願い</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/Notes-when-using-support/">Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点</a>
+            <a href="../Notes-when-using-support/">Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点</a>
           </li>
         
       </ul>
