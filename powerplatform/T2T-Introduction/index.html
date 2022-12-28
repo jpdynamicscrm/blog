@@ -4,29 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>テナントレベルでの分析のアプリ在庫について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>環境のテナント移行について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Appsのテナントレベルでの分析機能の[アプリ在庫]タブの下記項目について、順にご説明いたします。・最終実行日のフィルターについて・「最終オープン日」が空欄の場合・その他のフィルター ビュー上の各列の意味など、テナントレベルでの分析機能の詳細については下記公開情報をご参照ください。Power Apps のテナント レ">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの島です。本記事では、Power Platform の Dataverse あり環境を他のテナントに移行するプロセスについてご案内します。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="テナントレベルでの分析のアプリ在庫について">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/index.html">
+<meta property="og:title" content="環境のテナント移行について">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Appsのテナントレベルでの分析機能の[アプリ在庫]タブの下記項目について、順にご説明いたします。・最終実行日のフィルターについて・「最終オープン日」が空欄の場合・その他のフィルター ビュー上の各列の意味など、テナントレベルでの分析機能の詳細については下記公開情報をご参照ください。Power Apps のテナント レ">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの島です。本記事では、Power Platform の Dataverse あり環境を他のテナントに移行するプロセスについてご案内します。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/date-option.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/over30days.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/over60days.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/empty-last-opend.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/last-opened-order.png">
-<meta property="article:published_time" content="2022-10-04T03:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-28T05:41:14.194Z">
+<meta property="article:published_time" content="2022-12-28T08:30:00.000Z">
+<meta property="article:modified_time" content="2022-12-28T05:41:14.354Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
-<meta property="article:tag" content="Power Apps">
-<meta property="article:tag" content="Tenant-level Analytics">
-<meta property="article:tag" content="Inventory Report">
+<meta property="article:tag" content="環境">
+<meta property="article:tag" content="テナント移行">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/date-option.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -88,7 +81,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerapps/inventory-report" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/T2T-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -97,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      テナントレベルでの分析のアプリ在庫について
+      環境のテナント移行について
     </h1>
   
 
@@ -105,29 +98,94 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2022-10-04T03:00:00.000Z" itemprop="datePublished">2022-10-04</time>
+  <time datetime="2022-12-28T08:30:00.000Z" itemprop="datePublished">2022-12-28</time>
 </a>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+199a91ca-eb13-5009-be12-7651727eba77%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%83%AC%E3%83%99%E3%83%AB%E3%81%A7%E3%81%AE%E5%88%86%E6%9E%90%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E5%9C%A8%E5%BA%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2Finventory-report%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2Finventory-report.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerapps%2Finventory-report.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+78dd8ca1-2524-511a-82b8-451e2a92e4e1%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E7%92%B0%E5%A2%83%E3%81%AE%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FT2T-Introduction%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FT2T-Introduction.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FT2T-Introduction.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/" data-id="clc78bp98000i0ls34d6lclrq" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/" data-id="clc78bpc2006f0ls305fdb4fr" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートの山田です。<br><br>今回は、Power Appsのテナントレベルでの分析機能の[アプリ在庫]タブの下記項目について、順にご説明いたします。<br>・最終実行日のフィルターについて<br>・「最終オープン日」が空欄の場合<br>・その他のフィルター</p>
-<p>ビュー上の各列の意味など、テナントレベルでの分析機能の詳細については下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-analytics-reports">Power Apps のテナント レベルの分析</a>   </p>
-<span id="more"></span>  
-<h2 id="lt-最終実行日のフィルターについて-gt"><a href="#lt-最終実行日のフィルターについて-gt" class="headerlink" title="&lt;最終実行日のフィルターについて&gt;"></a><strong>&lt;最終実行日のフィルターについて&gt;</strong></h2><p>「アプリ在庫」タブでは、テナント内に存在するキャンバスアプリ、モデル駆動型アプリについて一覧でご確認いただけます。<br>アプリの最終オープン日（実行日）を基準としたフィルターでご確認いただけます。<br>Last Openedより下図選択肢の期間をご指定いただけます。<br>なお、テナントレベルの分析の有効化後に実行された日付にてカウントされております。<br><br></p>
-<p>・30日以内（Less than 30 days）<br>・30日以上（Over 30 days）<br>・60日以上（Over 60 days）<br>・90日以上（Over 90 days）<br>・180日以上（Over 180 days）<br><img src="/blog/powerapps/inventory-report/date-option.png"><br><br></p>
-<p>「30日以上」を選択した場合、最終実行日が30日より前のアプリがすべて対象となります。<br>下図は2022年10月4日時点での30日以上をフィルターとしたキャプチャでございます。<br>60日以上経過のアプリも含まれております。<br><img src="/blog/powerapps/inventory-report/over30days.png"><br><br></p>
-<p>そのため、より経過日数が長いフィルターを選んでいただきますと、表示されるアプリ数は少なくなります。<br>下図は「60日以上」を選択した場合の表示となります。<br>上図の「30日以上」の場合より、表示されるアプリ数が減っています。<br><img src="/blog/powerapps/inventory-report/over60days.png"><br><br><br></p>
-<h2 id="lt-「最終オープン日」が空欄の場合-gt"><a href="#lt-「最終オープン日」が空欄の場合-gt" class="headerlink" title="&lt;「最終オープン日」が空欄の場合&gt;"></a><strong>&lt;「最終オープン日」が空欄の場合&gt;</strong></h2><p>「30日以内」フィルターで表示した場合、「最終オープン日」が空欄のアプリがございます。<br>こちらは、テナントレベルの分析機能を有効化後、まだ一度も実行されていないアプリとなります。<br><img src="/blog/powerapps/inventory-report/empty-last-opend.png"><br><br></p>
-<p>「最終オープン日」部分をクリックしていただきますと、降順/昇順切り替えが可能でございます。<br>過去30日間で実行されたアプリをご確認いただく際には、順を切り替えてご確認いただけますと幸いでございます。<br><img src="/blog/powerapps/inventory-report/last-opened-order.png"><br><br></p>
-<p>なお、「作成者」「共有ユーザー」「環境」「接続」などの数値は、フィルターによって一覧表示されているアプリの合計数となっております。<br>「30日以内」フィルターの場合、上述の通り、テナントレベルの分析機能の有効化後にまだ実行されていないアプリも一覧に表示されており、<br>「作成者」「共有ユーザー」「環境」「接続」の数値には、それらのアプリも含まれております。<br><br><br><br></p>
-<h2 id="lt-その他のフィルター-gt"><a href="#lt-その他のフィルター-gt" class="headerlink" title="&lt;その他のフィルター&gt;"></a><strong>&lt;その他のフィルター&gt;</strong></h2><p>その他下記フィルターなどで一覧表示するアプリをフィルターいただけます。<br>・アプリ種類<br>・アプリが存在する環境種類<br>・アプリが存在する環境名<br><br><br><br></p>
-<p>免責事項<br>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。<br></p>
+        <p>こんにちは、Power Platform サポートチームの島です。<br>本記事では、Power Platform の Dataverse あり環境を他のテナントに移行するプロセスについてご案内します。</p>
+<span id="more"></span>
+
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Power Platform では、複数テナントの統合や企業組織の変更などに対応するため、環境のテナント移行をサポートしています。<br>テナント移行は運用影響の大きい処理であり、また <strong>リハーサル日程も含めた形で事前に移行スケジュールを計画いただく</strong> ことを弊社として強く推奨しております。<br>そのため計画段階でのお役に立てるよう、移行全体の流れやよくいただくご質問についてご案内いたします。</p>
+<p>なお記事の前提として、以下の点についてご留意ください。</p>
+<ul>
+<li>本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。<br>特にテナント移行は環境のダウンタイムを伴う運用影響の大きい処理ですので、確実に移行を完遂するため、記載内容についてはお手元でのご検証や弊社への問合せなどでもご確認ください。</li>
+<li>最新情報につきましては、以下の公開情報もご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/move-environment-tenant">テナントからテナントへの移行</a></li>
+<li>テナント移行は Dataverse あり環境が対象です。Dataverse なしの環境についてはテナント移行の実施が叶いませんので、Dataverse なしの環境に含まれるキャンバス アプリや Power Automate などの移行方法につきましては、各製品の公開情報をご参照ください。</li>
+</ul>
+<hr>
+<ol>
+<li><a href="#anchor-whole-process">移行の流れ</a></li>
+<li><a href="#anchor-QA">よくいただくご質問</a></li>
+</ol>
+<p><a id='anchor-whole-process'></a></p>
+<h2 id="1-移行の流れ"><a href="#1-移行の流れ" class="headerlink" title="1. 移行の流れ"></a>1. 移行の流れ</h2><p>テナント移行は以下の流れで実施いたします。</p>
+<ol>
+<li>(お客様) 移行対象の本番環境を直近でコピーしている環境について、リハーサル移行用のお問合せを起票いただく。</li>
+<li>(お客様) テナント移行の事前準備を進めていただく。</li>
+<li>(お客様) ユーザー マッピングファイルをご提供いただく。</li>
+<li>(弊社) ユーザー マッピングファイルの検証を実施。</li>
+<li>(弊社) 日程調整の上、テナント移行を実施。</li>
+<li>(お客様・弊社) 1 ～ 5 のプロセスにて、リハーサル後の移行環境の動作に問題がなかった場合には、本番環境に対して 1 ～ 5 のプロセスを実施。</li>
+</ol>
+<h3 id="1-1-お問合せの起票について"><a href="#1-1-お問合せの起票について" class="headerlink" title="1-1. お問合せの起票について"></a>1-1. お問合せの起票について</h3><p>本番環境をコピーしたリハーサル環境をご用意いただいた上で、移行対象の環境ごとに、テナント移行を希望いただいている旨をご連絡ください。<br>お問合せ起票時に、以下の情報をお寄せください。</p>
+<ul>
+<li>移行対象環境の環境 URL</li>
+<li>移行先のテナント ID ※<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/sharepoint/find-your-office-365-tenant-id">ご確認方法</a></li>
+<li>移行先テナントで環境にセキュリティ グループを割り当てる場合、セキュリティ グループの Azure Active Directory Object ID</li>
+<li>移行実施をご希望の日時</li>
+</ul>
+<p>なお、移行日時をご指定いただく場合には、実施の 1 週間前までにお問合せにて日時をお知らせください。</p>
+<h3 id="1-2-テナント移行の事前準備について"><a href="#1-2-テナント移行の事前準備について" class="headerlink" title="1-2. テナント移行の事前準備について"></a>1-2. テナント移行の事前準備について</h3><p>以下の項目について対応を実施ください。</p>
+<h5 id="1-2-1-移行先テナントのライセンスについて"><a href="#1-2-1-移行先テナントのライセンスについて" class="headerlink" title="1-2-1. 移行先テナントのライセンスについて"></a>1-2-1. 移行先テナントのライセンスについて</h5><p>移行先テナントで、事前にユーザーに環境の利用権を有する Power Platform ライセンスを割り当てください。<br>またテナント単位のライセンスや Power Apps per app ライセンスをお使いの場合など、ユーザーに割り当てるライセンスがない場合にはお問合せにて個別にご相談ください。</p>
+<h5 id="1-2-2-移行先テナントの容量について"><a href="#1-2-2-移行先テナントの容量について" class="headerlink" title="1-2-2. 移行先テナントの容量について"></a>1-2-2. 移行先テナントの容量について</h5><p>移行先テナントにて、移行対象の環境と同等以上の Power Platform テナントの空き容量を確保ください。<br>もしやむを得ず空き容量の確保が難しい場合には、お問合せにて個別にご相談ください。</p>
+<p><a id='anchor-unsupported-components'></a></p>
+<h5 id="1-2-3-事前準備が必要なコンポーネントについて"><a href="#1-2-3-事前準備が必要なコンポーネントについて" class="headerlink" title="1-2-3. 事前準備が必要なコンポーネントについて"></a>1-2-3. 事前準備が必要なコンポーネントについて</h5><p>テナント移行にあたって事前準備を実施いただく必要のあるコンポーネントがございます。<br>各コンポーネントについて、環境上での利用有無をご確認いただき、利用いただいている場合には事前準備を実施ください。<br>・<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/move-environment-tenant?tabs=image#confirm-if-any-of-the-solutions-below-are-installed-in-the-environments-to-be-migrated-as-these-may-require-additional-steps-either-from-you-or-support">ご参考 : 対象コンポーネントについて</a></p>
+<p>なお上記のコンポーネントの中には、キャンバス アプリや Power Automate など、<strong>事前対応いただかなかった場合移行できず消滅する機能</strong> が複数存在いたします。<br>そのため対象機能については、移行後に正しく動作するかをリハーサルにて必ずご確認いただきますようお願い申し上げます。</p>
+<h5 id="1-2-4-ユーザー-SystemUser-テーブルのプラグインについて"><a href="#1-2-4-ユーザー-SystemUser-テーブルのプラグインについて" class="headerlink" title="1-2-4. ユーザー (SystemUser) テーブルのプラグインについて"></a>1-2-4. ユーザー (SystemUser) テーブルのプラグインについて</h5><p>ユーザー (SystemUser) テーブルに対してプラグインを実装いただいている場合、当該プラグインが動作することでユーザー マッピング時に想定しない処理が発生する可能性がございます。<br>そのため、移行前にユーザーテーブルのプラグインを無効化いただきますようお願い申し上げます。</p>
+<h3 id="1-3-ユーザー-マッピングファイルのご提供について"><a href="#1-3-ユーザー-マッピングファイルのご提供について" class="headerlink" title="1-3. ユーザー マッピングファイルのご提供について"></a>1-3. ユーザー マッピングファイルのご提供について</h3><p>ユーザー マッピングファイルは、テナント移行において移行元テナントのユーザーと移行後テナントのユーザーを紐づける定義であり、以下のフォーマットで記述された CSV ファイルです。<br>「_移行元テナントのユーザーの UPN, 移行先テナントのユーザーの UPN_」</p>
+<p>例えば AAA.com テナントから BBB.com テナントへ移行を行い、ユーザー XXX および YYY の 2 名のマッピングを行う場合、ユーザー マッピングファイルは以下のように記述されます。<br><em><code>XXX@AAA.com,XXX@BBB.com</code></em><br><em><code>YYY@AAA.com,YYY@BBB.com</code></em></p>
+<p>そのため、以下の手順に従ってユーザー マッピングファイルを作成し、お問合せ内でご提供ください。<br>・<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/move-environment-tenant?tabs=image#steps-to-create-the-mapping-file">ご参考 : マッピング ファイルを作成するステップ</a></p>
+<p>なお、ユーザー マッピングファイルの内容に起因してテナント移行が失敗する事例が多くございます。<br>そのため、<strong>リハーサル移行であっても極力本番移行と同一のユーザー マッピングファイル</strong> をご提供いただきますようお願い申し上げます。<br>本番移行まで期間が空くなどにより同一ファイルのご提供が難しい場合には、観点を分けての複数回のリハーサル実施も承っております。</p>
+<h3 id="1-4-ユーザー-マッピングファイルの検証について"><a href="#1-4-ユーザー-マッピングファイルの検証について" class="headerlink" title="1-4. ユーザー マッピングファイルの検証について"></a>1-4. ユーザー マッピングファイルの検証について</h3><p>ユーザー マッピングファイルをご提供いただいた後、弊社にてファイルの内容をもとに、ユーザーの存在有無やライセンス状況の確認を行います。<br>問題があった場合にはお問合せ内でその旨をご連絡いたします。<br>問題がない場合には、調整させていただいた日時をもとに、テナント移行の実施を手配いたします。</p>
+<h3 id="1-5-テナント移行の実施について"><a href="#1-5-テナント移行の実施について" class="headerlink" title="1-5. テナント移行の実施について"></a>1-5. テナント移行の実施について</h3><p>いただいた情報をもとに、弊社データセンター部門にてテナント移行を実施いたします。<br>テナント移行の実施中は環境にアクセスいただけなくなりますのでご注意ください。<br>移行完了後、技術サポートから窓口営業時間内に移行結果をご連絡いたします。</p>
+<h3 id="1-6-本番移行の実施について"><a href="#1-6-本番移行の実施について" class="headerlink" title="1-6. 本番移行の実施について"></a>1-6. 本番移行の実施について</h3><p>弊社では、本番環境をテナント移行する場合、移行が適切に行えることを確認するために必ずテスト環境での事前リハーサルをお願いしております。<br>必ず 1 から 5 までの手順にてリハーサル結果が問題ないことを確認の上で、本番環境の移行をご依頼ください。<br>特に <a href="#anchor-unsupported-components">1-2-3</a> の通り、移行にあたって追加対応が必要なコンポーネントにつきましては、必ずリハーサル後に動作をご確認ください。</p>
+<p>本番移行にあたっては、リハーサルを実施した際のお問合せ番号を併記の上、改めてお問合せを起票いただけますと幸いです。</p>
+<hr>
+<p><a id='anchor-QA'></a></p>
+<h2 id="2-よくいただくご質問"><a href="#2-よくいただくご質問" class="headerlink" title="2. よくいただくご質問"></a>2. よくいただくご質問</h2><h3 id="2-1-テナント移行前後で変更される環境情報はあるか"><a href="#2-1-テナント移行前後で変更される環境情報はあるか" class="headerlink" title="2-1. テナント移行前後で変更される環境情報はあるか"></a>2-1. テナント移行前後で変更される環境情報はあるか</h3><p>以下の項目については変更や影響がございますので、ご留意ください。</p>
+<ul>
+<li><a href="#anchor-unsupported-components">事前準備が必要なコンポーネント</a>には移行されないものがございます。</li>
+<li>ユーザー マッピングに伴い、UPN や氏名などのユーザー情報が新テナントの Azure Active Directory の内容に置き換わります。</li>
+</ul>
+<p>以下の項目は変化いたしません。</p>
+<ul>
+<li>環境の URL ※環境を別リージョンに移行する場合を除く</li>
+<li>環境の組織 ID</li>
+<li>モデル駆動型アプリの内容や構成</li>
+<li>関連付けやレコードの所有権情報、セキュリティ ロール情報などを含む Dataverse のすべてのデータ</li>
+</ul>
+<h3 id="2-2-移行の所要時間はどの程度か"><a href="#2-2-移行の所要時間はどの程度か" class="headerlink" title="2.-2. 移行の所要時間はどの程度か"></a>2.-2. 移行の所要時間はどの程度か</h3><p>移行の所要時間は、クラウド リソースの利用状況やネットワーク状況に依存いたします。<br>そのため移行時間を事前にお見積りすることは叶いませんが、通常では数時間程度の所要時間をいただいております。<br>詳細な移行時間につきましては、リハーサル移行の実績を目安としていただけますと幸いです。</p>
+<h3 id="2-3-夜間や休日の移行を希望するが、Microsoft-側でどのような支援体制が可能か"><a href="#2-3-夜間や休日の移行を希望するが、Microsoft-側でどのような支援体制が可能か" class="headerlink" title="2-3 夜間や休日の移行を希望するが、Microsoft 側でどのような支援体制が可能か"></a>2-3 夜間や休日の移行を希望するが、Microsoft 側でどのような支援体制が可能か</h3><p>弊社技術サポートでは、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/support-overview#what-hours-are-considered-local-business-hours-for-support">弊社技術サポート営業時間</a>内でのご支援を承っております。<br>そのため夜間や休日に移行を実施する場合には、営業時間内での技術サポートからの完了報告が叶いませんので、技術サポートからは翌営業日の営業時間に実施結果をご報告いたします。<br>誠に恐れ入りますが、サポート契約上の制限事項として何卒ご理解を賜りますようお願い申し上げます。</p>
+<p>夜間や休日帯の移行に際し、弊社からのご連絡前に結果を確認されたい場合には、移行が完了したと考えられる時間帯以降に、環境がアクセス可能であることや環境の管理モードが無効となっていることをご確認ください。</p>
+<h3 id="2-4-移行が失敗した場合の対応について"><a href="#2-4-移行が失敗した場合の対応について" class="headerlink" title="2-4 移行が失敗した場合の対応について"></a>2-4 移行が失敗した場合の対応について</h3><p>移行が万が一失敗した場合には、以下の対応を行います。</p>
+<ul>
+<li><p>テナントの移行処理自体が失敗した場合<br>弊社側で、自動で処理のロールバックを行います。</p>
+</li>
+<li><p>ユーザー マッピングが一部ユーザーのライセンス不足などにより失敗した場合<br>テナント移行の自動ロールバックは行いません。そのため環境の移行自体は完了し、ユーザー マッピングのみが完了していない状態となります。<br>この場合には、失敗した原因ごとに、ライセンス付与やユーザー マッピングファイルの修正など、発生事象に応じたご対応をお願い申し上げます。</p>
+</li>
+</ul>
+<p>また、特に本番環境の移行が万が一失敗し、これにより広範な業務停止などの重大な影響が発生した場合には、緊急度重大のお問合せを起票いただくことで、事象回避を目的とした 24 時間体制でご支援できる場合がございます。</p>
+<h3 id="2-5-ユーザー-マッピング後のユーザー情報はどのように更新されるか"><a href="#2-5-ユーザー-マッピング後のユーザー情報はどのように更新されるか" class="headerlink" title="2-5 ユーザー マッピング後のユーザー情報はどのように更新されるか"></a>2-5 ユーザー マッピング後のユーザー情報はどのように更新されるか</h3><p>ユーザー マッピング処理では、環境のユーザー情報のうち、UPN など Azure AD との連携に直接関わる部分の書き換えを行います。<br>これにより、移行完了後のユーザーは新テナントの Azure AD と同期されるようになります。<br>従って、その後は通常のユーザー同期機構により、ユーザー情報 (氏名や状態など) の書き換えが追加で行われます。</p>
+<p>そのため移行後のユーザー状況が意図したものとなっていない場合、ユーザー同期機構の正常な動きに事象が起因する可能性がございますので、一度 Power Platform 管理センターからユーザーを再度追加するなどし、同期内容をご検証いただけますと幸いです。<br>よくいただくご質問として、Office 365 ライセンスのみをお持ちのユーザー様について、ユーザー マッピング後に一時的に状態が無効となるケースがございます。<br>これは当該ユーザーがライセンス要件上、環境に自動で追加されないためでございます。<br>本挙動は通常環境にユーザーを追加いただく際にも発生する正常なものであり、ユーザーの環境利用には影響いたしません。<br>・ご参考 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/create-users#categories-of-users-not-added-automatically-in-dataverse">Dataverse に自動的に追加されないユーザーのカテゴリ</a></p>
+<hr>
+<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本記事がテナント移行をご検討いただいている皆様のお役に立てましたら幸いです。<br>ご不明な点などがございましたら、弊社サポート一同にてお待ち申し上げておりますので、ぜひお気軽にお問合せください。</p>
 
       
       
@@ -141,10 +199,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerapps/inventory-report.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/T2T-Introduction.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -152,19 +210,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerplatform/Output-dlp-policy-connector-list/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          DLP ポリシーに設定されているコネクタの一覧を出力する
-        
-      </div>
-    </a>
   
-  
-    <a href="../../powerautomate/change-flow-owner/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Power Automate フロー所有者の退職・異動への備え</div>
+      <div class="article-nav-title">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</div>
     </a>
   
 </nav>
@@ -183,23 +232,23 @@
       <ul>
         
           <li>
-            <a href="../../powerplatform/T2T-Introduction/">環境のテナント移行について</a>
+            <a href="">環境のテナント移行について</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</a>
+            <a href="../Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/For-early-resolution-of-issues/">Dynamics 365 Customer Engagement サポートチームより問題の早期解決に向けたお客様へのお願い</a>
+            <a href="../For-early-resolution-of-issues/">Dynamics 365 Customer Engagement サポートチームより問題の早期解決に向けたお客様へのお願い</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/Notes-when-using-support/">Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点</a>
+            <a href="../Notes-when-using-support/">Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点</a>
           </li>
         
           <li>
-            <a href="../power-apps-per-app-license/">アプリごとの Power Apps プラン（per app plan）ライセンスについて</a>
+            <a href="../../powerapps/power-apps-per-app-license/">アプリごとの Power Apps プラン（per app plan）ライセンスについて</a>
           </li>
         
       </ul>

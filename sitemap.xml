@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Notes-when-using-support/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -16,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/For-early-resolution-of-issues/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -31,13 +45,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/How-to-block-free-and-trial-licenses/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -114,13 +121,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -184,7 +184,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/power-apps-per-app-license/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -198,7 +198,21 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/power-apps-per-app-license/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -213,13 +227,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -254,21 +261,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -283,6 +276,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -537,6 +544,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/%E7%92%B0%E5%A2%83/</loc>
+    <lastmod>2022-12-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/</loc>
     <lastmod>2022-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
