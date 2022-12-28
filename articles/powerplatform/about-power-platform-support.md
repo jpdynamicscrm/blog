@@ -11,7 +11,7 @@ tags:
 
 # Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項
 
-こんにちは、Power Platform サポートチームの清水です。  
+こんにちは、Power Platform サポートチームです。  
 今回は、Power Apps/Power Automate/Power Virtual Agents のお問い合わせをいただく際の留意事項、ご協力いただきたい事項についてご紹介します。  
 
 我々サポートチームといたしましては、できる限りお客様のお役に立てるよう、日々調査に努めておりますが、お客様の協力があって初めてご支援ができることも多くございます。  
