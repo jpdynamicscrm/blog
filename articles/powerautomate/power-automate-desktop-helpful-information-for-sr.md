@@ -21,6 +21,7 @@ tags:
       1. [Fiddler ログ](#anchor-fiddler-log)
       1. [マシン登録の情報](#anchor-machine-information)
       1. [リモートデスクトップ設定](#anchor-remote-desktop-setting)
+      1. [レジストリの設定](#anchor-registry-setting)
       1. [Power Automate for desktop のフロー](#anchor-desktopflow)
       1. [デスクトップ フローの実行履歴 URL](#anchor-desktopflow-url)
       1. [クラウド フローの実行履歴 CSV](#anchor-cloudflow-run-history-csv)
@@ -105,6 +106,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 ## 4. Fiddler ログ
 以下の採取手順をご確認の上でログファイルをご提供ください。  
+なお、情報取得の際はキャプチャ対象を Non-Browser に変更いただくようお願いいたします。
 [Fiddler ログの採取手順 (microsoft.com)](https://social.technet.microsoft.com/Forums/ja-JP/fe5f977a-2992-44c3-b643-38ad570a3d18/fiddler-12525124641239825505214622516338918?forum=DCRMSupport)
 
 <a id='anchor-machine-information'></a>
@@ -121,12 +123,21 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 ## 6. リモートデスクトップ設定 
 実行される端末のリモートデスクトップの設定の画面キャプチャをご提供ください。   
-* 実行される端末 > システムのプロパティ > リモートデスクトップ   
+* 実行される端末 > システムのプロパティ > コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Power Automate Desktop   
 ![](./power-automate-desktop-helpful-information-for-sr/remote-desktop-setting.png)  
+※弊社のサポートエンジニアから別のキーの画面キャプチャを依頼された場合は、指示されたキーの画面キャプチャのご提供をお願いいたします
+
+<a id='anchor-registry-setting'></a>
+
+## 7. レジストリの設定  
+以下のキーのレジストリの設定が確認できる画面キャプチャをご提供ください。 
+* 実行される端末 > レジストリ エディター > リモートデスクトップ
+![](./power-automate-desktop-helpful-information-for-sr/registry-setting.png)  
+一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。
 
 <a id='anchor-desktopflow'></a>
 
-## 7. Power Automate for desktop のフロー  
+## 8. Power Automate for desktop のフロー  
 デスクトップ フローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキストエディター (Ctrl + V) に貼り付けてご提供ください。 
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow.png)  
 一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  
@@ -148,7 +159,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-desktopflow-url'></a>
  
-## 8. デスクトップ フローの実行履歴 URL  
+## 9. デスクトップ フローの実行履歴 URL  
 1. マイ フロー>デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。  
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow-url.png)  
 1. URLをコピーしてご提供ください。
@@ -156,7 +167,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-cloudflow-run-history-csv'></a>
 
-## 9. クラウド フローの実行履歴 CSV
+## 10. クラウド フローの実行履歴 CSV
 1. デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png)
 2. 「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。
@@ -167,7 +178,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 <a id='anchor-cloudflow-raw-input-output'></a>
 
-## 10. クラウド フローのアクションの未加工入力と未加工出力
+## 11. クラウド フローのアクションの未加工入力と未加工出力
 
 実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。  
 未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。  
