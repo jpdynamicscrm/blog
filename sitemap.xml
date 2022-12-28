@@ -16,13 +16,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Notes-when-using-support/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -52,6 +45,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/How-to-block-free-and-trial-licenses/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -177,13 +177,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -191,14 +184,21 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -240,20 +240,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/About-Trial-License/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -268,7 +254,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -276,6 +269,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -290,13 +297,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
