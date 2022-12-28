@@ -1,5 +1,6 @@
 ---
 Title: Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項
+date: 2022-12-28 09:00:00
 Tag:
 - Power Platform
 - Supportability
