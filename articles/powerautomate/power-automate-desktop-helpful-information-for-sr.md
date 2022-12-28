@@ -124,7 +124,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 ## 6. リモートデスクトップ設定 
 実行される端末のリモートデスクトップの設定の画面キャプチャをご提供ください。 
 * 実行される端末 > システムのプロパティ > リモートデスクトップ  
-![](./power-automate-desktop-helpful-information-for-sr/remote-desktop-setting.png)
+![](./power-automate-desktop-helpful-information-for-sr/remote-desktop-setting2.png)
 
 <a id='anchor-registry-setting'></a>
 
