@@ -106,7 +106,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 
 ## 4. Fiddler ログ
 以下の採取手順をご確認の上でログファイルをご提供ください。  
-なお、情報取得の際はキャプチャ対象を Non-Browser に変更いただくようお願いいたします。
+なお、情報取得の際はキャプチャ対象を Non-Browser に変更いただくようお願いいたします。  
 [Fiddler ログの採取手順 (microsoft.com)](https://social.technet.microsoft.com/Forums/ja-JP/fe5f977a-2992-44c3-b643-38ad570a3d18/fiddler-12525124641239825505214622516338918?forum=DCRMSupport)
 
 <a id='anchor-machine-information'></a>
@@ -122,18 +122,17 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 <a id='anchor-remote-desktop-setting'></a>
 
 ## 6. リモートデスクトップ設定 
-実行される端末のリモートデスクトップの設定の画面キャプチャをご提供ください。   
-* 実行される端末 > システムのプロパティ > コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Power Automate Desktop   
-![](./power-automate-desktop-helpful-information-for-sr/remote-desktop-setting.png)  
-※弊社のサポートエンジニアから別のキーの画面キャプチャを依頼された場合は、指示されたキーの画面キャプチャのご提供をお願いいたします
+実行される端末のリモートデスクトップの設定の画面キャプチャをご提供ください。 
+* 実行される端末 > システムのプロパティ > リモートデスクトップ
+![](./power-automate-desktop-helpful-information-for-sr/remote-desktop-setting.png)
 
 <a id='anchor-registry-setting'></a>
 
 ## 7. レジストリの設定  
 以下のキーのレジストリの設定が確認できる画面キャプチャをご提供ください。 
-* 実行される端末 > レジストリ エディター > リモートデスクトップ
+* 実行される端末 > システムのプロパティ > コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Power Automate Desktop   
 ![](./power-automate-desktop-helpful-information-for-sr/registry-setting.png)  
-一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。
+※弊社のサポートエンジニアから別のキーの画面キャプチャを依頼された場合は、指示されたキーの画面キャプチャのご提供をお願いいたします
 
 <a id='anchor-desktopflow'></a>
 
