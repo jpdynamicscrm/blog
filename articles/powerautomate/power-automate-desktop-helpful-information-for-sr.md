@@ -131,7 +131,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 ## 7. レジストリの設定  
 以下のキーのレジストリの設定が確認できる画面キャプチャをご提供ください。   
 * 実行される端末 > システムのプロパティ > コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop\Registration   
-![](./power-automate-desktop-helpful-information-for-sr/registry-setting2.png)  
+![](./power-automate-desktop-helpful-information-for-sr/registry-setting4.png)  
 弊社のサポートエンジニアから別のキーの画面キャプチャを依頼された場合は、指示されたキーの画面キャプチャのご提供をお願いいたします。  
 
 また、サービスアカウントをご利用の場合は、上記に加えて以下の画面キャプチャもご提供ください。  
