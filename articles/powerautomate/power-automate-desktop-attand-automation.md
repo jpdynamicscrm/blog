@@ -1,6 +1,6 @@
 ---
 title: Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行)
-date: 2023-01-06 12:00
+date: 2023-01-12 12:00
 tags:
   - Power Automate
   - Desktop flows
@@ -75,9 +75,9 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
     [IP アドレスの構成 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration#desktop-flows-services-required-for-runtime)  
 
 1. Power Automate コンピュータ ランタイム アプリケーションをインストールする  
-    * Power Automate for desktop インストール時に Power Automate コンピュータ ランタイム アプリケーションもインストールする方法  
+    * Power Automate for desktop をまだインストールしていない場合  
     　Power Automate for desktop のインストール時に「Power Automate コンピュータ ランタイム アプリをインストールして、Power Automate クラウド ポータルに接続する 」にチェックを入れます。  
-    * Power Automate for desktop インストール後に Power Automate コンピュータ ランタイム アプリケーションもインストールする方法  
+    * 既にPower Automate for desktop インストールしている場合  
     　設定 > コンピューターの設定を開く > アプリのインストールを選択します。  
     ![](./power-automate-desktop-attand-automation/register-computers.png)  
 
