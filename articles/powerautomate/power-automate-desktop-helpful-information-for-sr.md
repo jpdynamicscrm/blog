@@ -61,14 +61,14 @@ OS のバージョンが確認できる以下の画面キャプチャをご提�
 <a id='anchor-computer-log'></a>
 
 ## 3. コンピューター ログ
-コンピューター ログの取得方法は大きく分けて３つございます。  
+コンピューター ログの取得方法は大きく分けて 3 つございます。  
 Power Automate コンピューター ランタイムをご利用いただいている場合は a) の方法から、ご利用いただけない場合は b) の方法からログを取得してご提供ください。    
 
 また、RunDefinition.json ファイルと Actions.log ファイルを保持するレジストリを登録いただいている場合は、c) の方法で取得できるログも併せてご提供ください。
 
 ### a) Power Automate コンピュータ ランタイムからログを収集する
-フロー実行後のログの出力に関して、過去３日間のログが Power Automate コンピューター ランタイムから出力いただけます。  
-Power Automate コンピュータ ランタイムからエクスポートしたzipファイルをご提供ください。  
+フロー実行後のログの出力に関して、過去 3 日間のログが Power Automate コンピューター ランタイムから出力いただけます。  
+Power Automate コンピュータ ランタイムからエクスポートした zip ファイルをご提供ください。  
 * Power Automate コンピュータ ランタイム > トラブルシューティング > ログのエクスポート を選択します。  
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log.png)
 
@@ -98,7 +98,7 @@ b) RunDefinition.json：デスクトップ フローの実行開始日、実行�
 {ScriptId} にはデスクトップ フローの ID を、{RunId} にはフローの実行 ID を挿入します。  
 
 <デスクトップフローの ID とフローの実行 ID の確認方法>  
-Power Automateポータルのデスクトップ フローの実行履歴からデスクトップフローの ID とフローの実行 ID を確認いただけます。
+Power Automateポータルのデスクトップ フローの実行履歴からデスクトップ フローの ID とフローの実行 ID を確認いただけます。
 ![](./power-automate-desktop-helpful-information-for-sr/computer-log3.png)
 
 
@@ -166,7 +166,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 1. マイ フロー>デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。  
 ![](./power-automate-desktop-helpful-information-for-sr/desktopflow-url.png)  
 1. URLをコピーしてご提供ください。
-エラー時にフローが実行されず実行履歴に残っていない場合は、１の画面のURLをコピーしてご提供いただけますと幸いです。
+エラー時にフローが実行されず実行履歴に残っていない場合は、1 の画面のURLをコピーしてご提供いただけますと幸いです。
 
 <a id='anchor-cloudflow-run-history-csv'></a>
 
