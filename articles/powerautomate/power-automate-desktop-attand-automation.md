@@ -89,7 +89,7 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 <a id='call-desktopflow-from-cloudflow'></a>
 
 ## クラウド フローからデスクトップ フローを呼び出す方法
-デスクトップ フローをクラウド フローから有人実行出呼び出す方法についてご案内いたします。  
+デスクトップ フローをクラウド フローから有人実行で呼び出す方法についてご案内いたします。  
 
 1. デスクトップ フローを作成します。  
 既にデスクトップ フローを作成済みの場合は手順2にお進みください。  
@@ -131,7 +131,7 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 <a id='result-of-attended-automation-flow'></a>
 
 ## 実行結果  
-クラウド フローからデスクトップ フローを呼び出して有人実行することができました。  
+Power Automate for desktop で作成したデスクトップ フローをクラウド フローからアテンド型(有人)で呼び出して実行することができました。  
 ![](./power-automate-desktop-attand-automation/result-of-attended-automation-flow.png)  
 
 ---
