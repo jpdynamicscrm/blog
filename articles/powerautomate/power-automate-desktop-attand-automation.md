@@ -109,9 +109,9 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
     * ドメインとユーザー名：「ドメイン名\ユーザー名」の形式でご指定ください。  なお、現在端末ログオンしているユーザーのドメインとユーザーの名はwhoamiコマンドから確認いただけます。  
     * パスワード：上記で指定したユーザーのパスワードをご指定ください。  
 
-    whoami コマンドについて、公開情報に詳細な記載がございますのでご確認いただけますと幸いです。  
+    whoami コマンドについて、公開情報に詳細な記載がございますのでご確認ください。  
     [whoami | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows-server/administration/windows-commands/whoami)  
-    また接続の作成方法についても、公開情報に詳細な記載がございますのでご確認いただけますと幸いです。  
+    また接続の作成方法についても、公開情報に詳細な記載がございますのでご確認ください。  
     [コンピュータの管理 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/manage-machines#trigger-a-desktop-flow-to-run-on-your-machine)  
 
 1. 「デスクトップ用 Power Automate で構築したフローを実行する」アクションで呼び出したいデスクトップ フローと実行モードを選択します。  
