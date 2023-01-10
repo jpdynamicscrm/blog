@@ -19,6 +19,7 @@ tags:
 1. [デスクトップ フローを有人実行する方法](#anchor-attended-automation)
     1. [端末の登録方法](#anchor-register-computers)
     1. [クラウド フローからデスクトップ フローを呼び出す方法](#call-desktopflow-from-cloudflow)
+    1. [有人実行の際の注意事項について](#notes-on-attended-automation)
     1. [実行結果](#result-of-attended-automation-flow)
 
 <a id='anchor-intro'></a>
@@ -65,9 +66,11 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 
 
 1. 事前準備  
-    * セキュリティロール  
-    コンピュータ登録には「環境作成者」または「デスクトップ フローコンピュータ所有者」のロールが必要となります。   
-    そのため、登録したい環境において、コンピュータ登録を実行しているアカウントに「環境作成者」または「デスクトップ フロー コンピュータ所有者」のロールが付与されているかご確認ください。  
+    * セキュリティ ロール  
+    コンピュータ登録には「環境作成者」または「デスクトップ フローコンピュータ所有者」のセキュリティ ロールが必要となります。   
+    そのため、登録したい環境において、コンピュータ登録を実行しているアカウントに「環境作成者」または「デスクトップ フロー コンピュータ所有者」のセキュリティ ロールが付与されているかご確認ください。  
+    セキュリティ ロールに関して以下の公開情報がございますので、ご確認いただけますと幸いです。   
+    [セキュリティ ロールおよび特権 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges) 
 
     * 必要なエンドポイント  
     コンピュータを登録する際のネットワーク要件として、「ランタイムに必要なデスクトップ フロー サービス」がございます。  
@@ -95,27 +98,14 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 既にデスクトップ フローを作成済みの場合は手順2にお進みください。  
 ![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow.png)  
 
-1. デスクトップ フローを呼び出すためのクラウド フローを作成します。  
-   マイ フローに作成するかソリューション内に作成するかで、クラウド フローの作成方法が異なります。  
-    * マイ フローに作成する場合：
-      マイ フロー > + 新しいフロー > 一から独自に構築する > ご希望のトリガーを選択します。  
-    ![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow2.png)   
-
-    * ソリューション内に作成する場合:
-      ソリューション > ご希望のソリューションを選択 > + 新規 > 自動化 > クラウド フロー > ご希望のトリガーを選択します。  
-    ![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow3.png)   
-
-1. フロー名を指定し、トリガーを選択して、「作成」を選択します。  今回は手動トリガーを選択しています。  
-![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow7.png)   
-
-1. 新しいステップ > 「Desktop flows」コネクタの「デスクトップ用 Power Automate で構築したフローを実行する」アクションを選択します。  
+1. デスクトップ フローを呼び出すためのクラウド フローを作成し、新しいステップ > 「Desktop flows」コネクタの「デスクトップ用 Power Automate で構築したフローを実行する」アクションを選択します。  
 ![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow4.png)  
 
 1. デスクトップ フローへの接続を設定します。  
 ![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow5.png)  
     * 接続：コンピューターに直接送信をご指定ください。  
     * コンピューターまたはコンピューター グループ：登録済みの端末をご指定ください。  
-    * ドメインとユーザー名：ドメインとユーザー名をご指定ください。  現在端末ログオンしているユーザーのドメインとユーザーの名はwhoamiコマンドから確認いただけます。  
+    * ドメインとユーザー名：「ドメイン名\ユーザー名」の形式でご指定ください。  なお、現在端末ログオンしているユーザーのドメインとユーザーの名はwhoamiコマンドから確認いただけます。  
     * パスワード：上記で指定したユーザーのパスワードをご指定ください。  
 
     whoami コマンドについて、公開情報に詳細な記載がございますのでご確認いただけますと幸いです。  
@@ -127,6 +117,14 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 ![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow6.png)  
     * Desktop フロー：呼び出したいデスクトップ フローをご指定ください。  
     * 実行モード：アテンド型をご指定ください。  
+
+<a id='notes-on-attended-automation'></a>
+
+## 有人実行の際の注意事項について
+有人実行でデスクトップ フローを呼び出す際は、フローを問題なく実行するために以下の点をご確認いただけますと幸いです。  
+* 端末にログオンしていること：接続を設定した際に指定したユーザーでログオンしているかどうかご確認ください。  
+* 画面をロックしていないこと：有人実行する際に画面をロックしているとフローが実行できませんので、画面がロックされていないことをご確認ください。  
+
 
 <a id='result-of-attended-automation-flow'></a>
 
