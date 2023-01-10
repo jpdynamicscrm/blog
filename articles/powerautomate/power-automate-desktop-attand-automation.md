@@ -8,7 +8,7 @@ tags:
 ---
 
 こんにちは。Power Platform サポートの原野です。  
-本記事では Power Automate for desktop で作成したデスクトップ フロークラウドフローから呼び出して、アテンド型(有人)でフローを実行する方法についてご案内いたします。  
+本記事では Power Automate for desktop で作成したデスクトップ フローをクラウドフローから呼び出して、アテンド型(有人)でフローを実行する方法についてご案内いたします。  
 
 <!-- more -->
 # 目次
@@ -69,24 +69,25 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
     * セキュリティ ロール  
     コンピュータ登録には「環境作成者」または「デスクトップ フローコンピュータ所有者」のセキュリティ ロールが必要となります。   
     そのため、登録したい環境において、コンピュータ登録を実行しているアカウントに「環境作成者」または「デスクトップ フロー コンピュータ所有者」のセキュリティ ロールが付与されているかご確認ください。  
-    セキュリティ ロールに関して以下の公開情報がございますので、ご確認いただけますと幸いです。   
+    セキュリティ ロールに関して以下の公開情報がございますので、ご確認ください。   
     [セキュリティ ロールおよび特権 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges) 
 
     * 必要なエンドポイント  
     コンピュータを登録する際のネットワーク要件として、「ランタイムに必要なデスクトップ フロー サービス」がございます。  
-    以下の公開情報をご確認いただき、グローバル エンドポイントと公開エンドポイントに接続できる状態となっているかご確認いただけますと幸いです。   
+    以下の公開情報をご確認いただき、グローバル エンドポイントと公開エンドポイントに接続できる状態となっているかご確認ください。   
     [IP アドレスの構成 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration#desktop-flows-services-required-for-runtime)  
 
 1. Power Automate コンピュータ ランタイム アプリケーションをインストールする  
     * Power Automate for desktop をまだインストールしていない場合  
-    　Power Automate for desktop のインストール時に「Power Automate コンピュータ ランタイム アプリをインストールして、Power Automate クラウド ポータルに接続する 」にチェックを入れます。  
+    Power Automate for desktop のインストール時に「Power Automate コンピュータ ランタイム アプリをインストールして、Power Automate クラウド ポータルに接続する 」にチェックを入れます。  
+    ![](./power-automate-desktop-attand-automation/register-computers3.png)
     * 既にPower Automate for desktop インストールしている場合  
-    　設定 > コンピューターの設定を開く > アプリのインストールを選択します。  
+    設定 > コンピューターの設定を開く > アプリのインストールを選択します。  
     ![](./power-automate-desktop-attand-automation/register-computers.png)  
 
 1. Power Automate コンピュータ ランタイム アプリケーションを起動すると端末が自動的に現在の環境に登録されます。  
 ![](./power-automate-desktop-attand-automation/register-computers2.png)  
-上記の手順について公開情報にも記載がございますので、ご参照いただけますと幸いでございます。  
+上記の手順について公開情報にも記載がございますので、ご参照ください。  
 [コンピュータの管理 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/manage-machines#register-a-new-machine)  
 
 <a id='call-desktopflow-from-cloudflow'></a>
