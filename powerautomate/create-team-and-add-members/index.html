@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Power Automate で Teams のチーム作成とメンバー追加を自動化 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは。Power Platform サポートの瀬戸です。 今回は、Teams の新しいチームの作成と、そのチームへのメンバー追加を、Power Automate で自動化する例をご紹介いたします。組織の方針でチーム作成を申請制にしている場合や、たくさんのチームを一度に作成しなければいけないときにご活用いただけます。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power Automate で Teams のチーム作成とメンバー追加を自動化">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは。Power Platform サポートの瀬戸です。 今回は、Teams の新しいチームの作成と、そのチームへのメンバー追加を、Power Automate で自動化する例をご紹介いたします。組織の方針でチーム作成を申請制にしている場合や、たくさんのチームを一度に作成しなければいけないときにご活用いただけます。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image02.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image18.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image19.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image05.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image06.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image07.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image08.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image09.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image10.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image11.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image12.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image13.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image14.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image15.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image16.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image17.png">
+<meta property="article:published_time" content="2023-01-11T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-12T09:27:31.655Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Automate">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/image01.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerautomate/create-team-and-add-members" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Power Automate で Teams のチーム作成とメンバー追加を自動化
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2023-01-11T15:00:00.000Z" itemprop="datePublished">2023-01-12</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+1d2c37e6-3ea2-58ae-8253-a196752e2b8a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%81%A7+Teams+%E3%81%AE%E3%83%81%E3%83%BC%E3%83%A0%E4%BD%9C%E6%88%90%E3%81%A8%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E8%BF%BD%E5%8A%A0%E3%82%92%E8%87%AA%E5%8B%95%E5%8C%96%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fcreate-team-and-add-members%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fcreate-team-and-add-members.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fcreate-team-and-add-members.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/" data-id="clcsw0h24006t0nqk5csv5mf2" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは。Power Platform サポートの瀬戸です。</p>
+<p>今回は、Teams の新しいチームの作成と、そのチームへのメンバー追加を、Power Automate で自動化する例をご紹介いたします。組織の方針でチーム作成を申請制にしている場合や、たくさんのチームを一度に作成しなければいけないときにご活用いただけます。</p>
+<span id="more"></span>
+
+<h2 id="メンバー表の例"><a href="#メンバー表の例" class="headerlink" title="メンバー表の例"></a>メンバー表の例</h2><p><img src="/blog/powerautomate/create-team-and-add-members/image01.png"></p>
+<p>今回は、上図のような Excel ファイルのメンバー表を元に、チームのメンバーを追加すると想定しています。表はテーブル形式で、メンバーのメールアドレスと、チームに対する権限の列があります。このファイルを、既存の SharePoint サイトのドキュメント ライブラリへ保存しておきます。</p>
+<h2 id="フローの例"><a href="#フローの例" class="headerlink" title="フローの例"></a>フローの例</h2><p>ここから、フローのサンプルをご案内します。フローの大まかな流れは下記の通りです。</p>
+<ol>
+<li>新しいチームを作成します。</li>
+<li>Excel ファイルのメンバー表を読み込みます。</li>
+<li>メンバー表のメールアドレスを元に、メンバーを追加します。</li>
+</ol>
+<h3 id="全体図"><a href="#全体図" class="headerlink" title="全体図"></a>全体図</h3><p>下図がフローの全体図です。それぞれのアクションの設定方法は後述します。</p>
+<p><img src="/blog/powerautomate/create-team-and-add-members/image02.png"></p>
+<h3 id="1-チームの作成"><a href="#1-チームの作成" class="headerlink" title="(1) チームの作成"></a>(1) チームの作成</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image03.png"></p>
+<p>Microsoft Teams コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/teams/#%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E4%BD%9C%E6%88%90">チームの作成</a>」アクションを使用し、新しいチームを作成します。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>チーム名</td>
+<td>任意のチーム名を指定します。</td>
+</tr>
+<tr>
+<td>説明</td>
+<td>任意の説明文を指定します。</td>
+</tr>
+<tr>
+<td>可視性</td>
+<td>任意の値 (Private または Public) を選択します。</td>
+</tr>
+</tbody></table>
+<p>「チームの作成」アクションでチームを作成すると、フロー作成者 (≒このアクションの接続のアカウント) がチームの所有者となります。</p>
+<p>接続のアカウント：<br><img src="/blog/powerautomate/create-team-and-add-members/image18.png"></p>
+<p>作成されたチームのメンバー：<br><img src="/blog/powerautomate/create-team-and-add-members/image19.png"></p>
+<p>これは Teams で手作業でチームを作成した場合と同じ動作です。しかし、このままではメンバー表にいない人がチームに参加していることになってしまうため、後でチームを脱退する必要があります。このフローのサンプルでは、その脱退についても実施しています。</p>
+<h3 id="2-表内に存在する行を一覧表示"><a href="#2-表内に存在する行を一覧表示" class="headerlink" title="(2) 表内に存在する行を一覧表示"></a>(2) 表内に存在する行を一覧表示</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image04.png"></p>
+<p>Excel Online (Business) コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%86%85%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E8%A1%8C%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">表内に存在する行を一覧表示</a>」アクションを使用し、メンバー表の値を取得します。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>場所</td>
+<td>Excel ファイルがある場所を指定します。</td>
+</tr>
+<tr>
+<td>ドキュメント ライブラリ</td>
+<td>Excel ファイルがあるライブラリを指定します。</td>
+</tr>
+<tr>
+<td>ファイル</td>
+<td>Excel ファイルのパスを指定します。</td>
+</tr>
+<tr>
+<td>テーブル</td>
+<td>メンバー表のテーブル名を指定します。</td>
+</tr>
+</tbody></table>
+<h3 id="3-マイ-プロフィールの取得-V2"><a href="#3-マイ-プロフィールの取得-V2" class="headerlink" title="(3) マイ プロフィールの取得 (V2)"></a>(3) マイ プロフィールの取得 (V2)</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image05.png"></p>
+<p>※ 設定が必要なパラメータはありません。</p>
+<p>Office 365 Users コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/office365users/#%E8%87%AA%E5%88%86%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B-(v2)">マイ プロフィールの取得 (V2)</a>」アクションを使用し、自分 (フロー作成者) の情報を取得します。<br>このアクションは、「(1) チームの作成」のアクションと接続のアカウントが同じである必要があります。</p>
+<p>前述したように、「(1) チームの作成」で作成したチームは、自分が所有者として追加されています。しかし、メンバー表に自分がいない場合はチームから脱退しておきたいので、それに必要な情報を取得しています。</p>
+<h3 id="4-アレイのフィルター処理-自分以外を抽出"><a href="#4-アレイのフィルター処理-自分以外を抽出" class="headerlink" title="(4) アレイのフィルター処理-自分以外を抽出"></a>(4) アレイのフィルター処理-自分以外を抽出</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image06.png"></p>
+<p>データ操作 コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/data-operations#use-the-filter-array-action">アレイのフィルター処理</a>」アクションを使用し、Excel ファイルから取得したメンバー表から、自分 (フロー作成者) を削除した一覧を作成します。<br>この後メンバーをチームに追加しますが、前述したように自分はすでにメンバーとしてチームに参加しているため、追加の必要がないためです。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>差出人</td>
+<td>「(2) 表内に存在する行を一覧表示」アクションの出力「value」</td>
+</tr>
+<tr>
+<td>条件式-左辺</td>
+<td>「(2) 表内に存在する行を一覧表示」アクションの出力「メールアドレス」 ※<br>または以下を式として入力：<br><code>item()?[&#39;メールアドレス&#39;]</code> ※</td>
+</tr>
+<tr>
+<td>条件式-比較演算子</td>
+<td>「次の値に等しくない」</td>
+</tr>
+<tr>
+<td>条件式-右辺</td>
+<td>「(3) マイ プロフィールの取得 (V2)」アクションの出力「メール」</td>
+</tr>
+</tbody></table>
+<p>※ 「メールアドレス」は メンバー表の列の名前です。</p>
+<h3 id="5-Apply-to-each"><a href="#5-Apply-to-each" class="headerlink" title="(5) Apply to each"></a>(5) Apply to each</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image07.png"></p>
+<p>コントロール コネクタの「Apply to each」アクションを使用し、自分 (フロー作成者) 以外のメンバーをチームに追加する繰り返し処理を行います。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>以前の手順から出力を選択</td>
+<td>「(4) アレイのフィルター処理-自分以外を抽出」アクションの出力「本文」</td>
+</tr>
+</tbody></table>
+<h3 id="6-ユーザーの検索-V2"><a href="#6-ユーザーの検索-V2" class="headerlink" title="(6) ユーザーの検索 (V2)"></a>(6) ユーザーの検索 (V2)</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image08.png"></p>
+<p>Office 365 Users コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/office365users/#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B-(v2)">ユーザーの検索 (V2)</a>」アクションを使用し、メンバー表のメールアドレスから、ユーザー情報を取得します。この後の処理に UPN (ユーザー プリンシパル名) が必要なのでこのアクションを使用していますが、メールアドレスと UPN が必ず一致する環境であれば、このアクションは必要ありません。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>検索語句</td>
+<td>「(4) アレイのフィルター処理-自分以外を抽出」アクションの出力「メールアドレス」 ※<br>または以下を式として入力：<br><code>item()?[&#39;メールアドレス&#39;]</code> ※</td>
+</tr>
+</tbody></table>
+<p>※ 「メールアドレス」は メンバー表の列の名前です。</p>
+<h3 id="7-作成-検索結果の1行目"><a href="#7-作成-検索結果の1行目" class="headerlink" title="(7) 作成-検索結果の1行目"></a>(7) 作成-検索結果の1行目</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image09.png"></p>
+<p>データ操作 コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/data-operations#use-the-compose-action">作成</a>」アクションを使用し、前のアクションのリスト形式の出力から、1行目を取り出します。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>入力</td>
+<td>以下を式として入力：<br><code>outputs(&#39;ユーザーの検索_(V2)&#39;)?[&#39;body/value&#39;]?[0]</code> ※</td>
+</tr>
+</tbody></table>
+<p>※ <code>ユーザーの検索_(V2)</code> は、「(6) ユーザーの検索 (V2)」のアクション名です。</p>
+<h3 id="8-チームにメンバーを追加する"><a href="#8-チームにメンバーを追加する" class="headerlink" title="(8) チームにメンバーを追加する"></a>(8) チームにメンバーを追加する</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image10.png"></p>
+<p>Microsoft Teams コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/teams/#%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AB%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">チームにメンバーを追加する</a>」アクションを使用し、新しく作成したチームにメンバーを追加します。また、メンバー表に「所有者」として記載されたメンバーを所有者として登録するようにします。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>チーム</td>
+<td>「(1) チームの作成」アクションの出力「新しいチームID」</td>
+</tr>
+<tr>
+<td>チームに追加するユーザーの<br>プリンシパル名または AAD ID</td>
+<td>「(7) 作成-検索結果の1行目」アクションの出力「Id」<br>または以下を式として入力：<br><code>outputs(&#39;作成-検索結果の1行目&#39;)?[&#39;Id&#39;]</code> ※1</td>
+</tr>
+<tr>
+<td>新しく追加されたユーザーが<br>チームの所有者である必要があります</td>
+<td>以下を式として入力：<br><code>equals(item()?[&#39;権限&#39;], &#39;所有者&#39;)</code> ※2</td>
+</tr>
+</tbody></table>
+<p>※1 <code>作成-検索結果の1行目</code> は、「(7) 作成-検索結果の1行目」のアクション名です。<br>※2 <code>権限</code> は、メンバー表の列名です。<code>所有者</code> は、メンバー表の権限の列に入力した値です。</p>
+<h3 id="9-待ち時間-遅延"><a href="#9-待ち時間-遅延" class="headerlink" title="(9) 待ち時間 (遅延)"></a>(9) 待ち時間 (遅延)</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image11.png"></p>
+<p>スケジュール コネクタの「遅延」アクションを使用し、メンバーの追加後少し待機します。待機無しで次の処理へ移ると、前の処理がまだ処理中で、まれにエラーになることがあるためです。<br>実際に何秒待機するべきかは、サーバーの処理状況によって異なるため、個別に調整が必要です。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>カウント</td>
+<td>5</td>
+</tr>
+<tr>
+<td>単位</td>
+<td>秒</td>
+</tr>
+</tbody></table>
+<h3 id="10-アレイのフィルター処理-自分を抽出"><a href="#10-アレイのフィルター処理-自分を抽出" class="headerlink" title="(10) アレイのフィルター処理-自分を抽出"></a>(10) アレイのフィルター処理-自分を抽出</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image12.png"></p>
+<p>データ操作 コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/data-operations#use-the-filter-array-action">アレイのフィルター処理</a>」アクションを使用し、メンバー表から自分 (フロー作成者) を抽出します。このアクションの出力を使い、既にチーム所有者として登録されている自分を削除するかどうか、権限を変更するかどうかを判定します。設定内容は、(4) のアクションとほぼ同じで、比較演算子が異なるのみです。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>差出人</td>
+<td>「(2) 表内に存在する行を一覧表示」アクションの出力「value」</td>
+</tr>
+<tr>
+<td>条件式-左辺</td>
+<td>「(2) 表内に存在する行を一覧表示」アクションの出力「メールアドレス」<br>または以下を式として入力：<br><code>item()?[&#39;メールアドレス&#39;]</code> ※</td>
+</tr>
+<tr>
+<td>条件式-比較演算子</td>
+<td>「次の値に等しい」</td>
+</tr>
+<tr>
+<td>条件式-右辺</td>
+<td>「(3) マイ プロフィールの取得 (V2)」アクションの出力「メール」</td>
+</tr>
+</tbody></table>
+<p>※ <code>メールアドレス</code> は、メンバー表の列名です。</p>
+<h3 id="11-条件-メンバー表に自分がないor所有者ではない"><a href="#11-条件-メンバー表に自分がないor所有者ではない" class="headerlink" title="(11) 条件-メンバー表に自分がないor所有者ではない"></a>(11) 条件-メンバー表に自分がないor所有者ではない</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image13.png"></p>
+<p>コントロール コネクタの「条件」アクションを使用し、メンバー表に自分 (フロー作成者) がいない または メンバー表にはいるけど所有者ではないとき、で処理を分岐します。<br>条件に一致するときのみ、自分から所有者の権限を削除します。<br>メンバー表に自分がいないときはチームから自分を削除すればいいのですが、チームの所有者を削除するには、所有者権限の削除 → メンバーの削除、という 2 つの手順が必要です。</p>
+<p>以下 2 つの条件式を「または」でつなげます：</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条件式1-左辺</td>
+<td>以下を式として入力：<br><code>length(body(&#39;アレイのフィルター処理-自分を抽出&#39;))</code> ※1</td>
+</tr>
+<tr>
+<td>条件式1-比較演算子</td>
+<td>「次の値に等しい」</td>
+</tr>
+<tr>
+<td>条件式1-右辺</td>
+<td><code>0</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条件式2-左辺</td>
+<td>以下を式として入力：<br><code>body(&#39;アレイのフィルター処理-自分を抽出&#39;)?[0]?[&#39;権限&#39;]</code> ※1</td>
+</tr>
+<tr>
+<td>条件式2-比較演算子</td>
+<td>「次の値に等しくない」</td>
+</tr>
+<tr>
+<td>条件式2-右辺</td>
+<td><code>所有者</code> ※2</td>
+</tr>
+</tbody></table>
+<p>※1 <code>アレイのフィルター処理-自分を抽出</code> は、「(10) アレイのフィルター処理-自分を抽出」のアクション名です。<code>権限</code> は、メンバー表の列名です。<br>※2 <code>所有者</code> は、メンバー表の権限の列に入力した値です。</p>
+<h3 id="12-HTTP-要求-V2-を送信する"><a href="#12-HTTP-要求-V2-を送信する" class="headerlink" title="(12) HTTP 要求 V2 を送信する"></a>(12) HTTP 要求 V2 を送信する</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image14.png"></p>
+<p>Office 365 Groups コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/office365groups/#http-%E8%A6%81%E6%B1%82%E3%82%92%E9%80%81%E4%BF%A1%E3%81%99%E3%82%8B-v2-(%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC)">HTTP 要求 V2 を送信する</a>」アクションを使用し、自分 (フロー作成者) から所有者権限を削除します。<br>Teams のチームも Microsoft 365 グループの 1 つなので、メンバーの操作は Office 365 Groups コネクタのアクションからも行えます。しかし所有者権限を削除できるアクションは現時点では提供されていないため、「HTTP 要求 V2 を送信する」アクションを使用し Graph API を実行します。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>URI</td>
+<td><code>https://graph.microsoft.com/v1.0/groups/※1/owners/※2/$ref</code></td>
+</tr>
+<tr>
+<td>メソッド</td>
+<td>「DELETE」</td>
+</tr>
+<tr>
+<td>本文</td>
+<td>(空白)</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+<p>※1「(1) チームの作成」アクションの出力「新しいチームID」<br><br>※2「(3) マイ プロフィールの取得 (V2)」アクションの出力「ID」</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/group-delete-owners?view=graph-rest-1.0&tabs=http">グループ所有者を削除する - Microsoft Graph v1.0 | Microsoft Learn</a></p>
+<h3 id="13-待ち時間-2-遅延"><a href="#13-待ち時間-2-遅延" class="headerlink" title="(13) 待ち時間 2 (遅延)"></a>(13) 待ち時間 2 (遅延)</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image15.png"></p>
+<p>スケジュール コネクタの「遅延」アクションを使用し、少し処理を待機します。<br>実際に何秒待機するべきかは、サーバーの処理状況によって異なるため、個別に調整が必要です。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>カウント</td>
+<td>5</td>
+</tr>
+<tr>
+<td>単位</td>
+<td>秒</td>
+</tr>
+</tbody></table>
+<h3 id="14-条件-メンバー表に自分がいない"><a href="#14-条件-メンバー表に自分がいない" class="headerlink" title="(14) 条件-メンバー表に自分がいない"></a>(14) 条件-メンバー表に自分がいない</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image16.png"></p>
+<p>コントロール コネクタの「条件」アクションを使用し、メンバー表に自分 (フロー作成者) がいないとき、で条件分岐します。条件に一致するときのみ、チームから自分を削除します。<br>指定する条件は、(11) の条件式1と同じです。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条件式-左辺</td>
+<td>以下を式として入力：<br><code>length(body(&#39;アレイのフィルター処理-自分を抽出&#39;))</code> ※</td>
+</tr>
+<tr>
+<td>条件式-比較演算子</td>
+<td>「次の値に等しい」</td>
+</tr>
+<tr>
+<td>条件式-右辺</td>
+<td><code>0</code></td>
+</tr>
+</tbody></table>
+<p>※ <code>アレイのフィルター処理-自分を抽出</code> は、「(10) アレイのフィルター処理-自分を抽出」のアクション名です。</p>
+<h3 id="15-グループからメンバーを削除"><a href="#15-グループからメンバーを削除" class="headerlink" title="(15) グループからメンバーを削除"></a>(15) グループからメンバーを削除</h3><p><img src="/blog/powerautomate/create-team-and-add-members/image17.png"></p>
+<p>Office 365 Groups コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/office365groups/#%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E3%82%92%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%8B%E3%82%89%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B">グループからメンバーを削除</a>」アクションを使用し、自分 (フロー作成者) をチームから削除します。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>グループ ID</td>
+<td>「(1) チームの作成」アクションの出力「新しいチーム ID」</td>
+</tr>
+<tr>
+<td>ユーザー プリンシパル名</td>
+<td>「(3) マイ プロフィールの取得 (V2)」アクションの出力「ユーザー プリンシパル名」</td>
+</tr>
+</tbody></table>
+<p>フローの各アクションの設定は以上です。</p>
+<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>今回の例では手動トリガーを使用しましたが、例えば手動トリガーの入力に「チーム名」などを追加すれば、実行の度に任意のチーム名を指定できるようになります。<br>そのほか、承認アクションや Microsoft Forms コネクタと組み合わせれば、申請からチーム作成の流れを自動化することも可能です。</p>
+<p>この記事が皆さまの自動化の一助になりましたら幸いです。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/create-team-and-add-members.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerplatform/T2T-Introduction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">環境のテナント移行について</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Power Automate で Teams のチーム作成とメンバー追加を自動化</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/T2T-Introduction/">環境のテナント移行について</a>
+          </li>
+        
+          <li>
+            <a href="../power-automate-desktop-helpful-information-for-sr/">Power Automate for desktop お問い合わせの際の情報取得手順</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/">非アクティブな Microsoft Dataverse for Teams 環境の自動削除について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/about-power-platform-support/">Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flows/" rel="tag">Cloud flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DataverseforTeams/" rel="tag">DataverseforTeams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flows/" rel="tag">Desktop flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerApps/" rel="tag">PowerApps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Supportability/" rel="tag">Supportability</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/license/" rel="tag">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバス アプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/">Canvas app</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Apps">Power Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">23</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Audit-Log">Audit Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Cloud-flows">Cloud flows</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics">Dynamics</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics-365-Customer-Engagement">Dynamics 365 Customer Engagement</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Inventory-Report">Inventory Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">9</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">10</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Virtual-Agents">Power Virtual Agents</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Supportability">Supportability</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Tenant-level-Analytics">Tenant-level Analytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/license">license</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA">キャンバス アプリ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB">セキュリティ ロール</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">22</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flows">Cloud flows</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flows">Desktop flows</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Dynamics-365-Customer-Engagement">Dynamics 365 Customer Engagement</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-Desktop">Power Automate Desktop</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">10</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Virtual-Agents">Power Virtual Agents</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Supportability">Supportability</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Model-driven-app/Dynamics">Dynamics</a><span class="tag-list-count">3</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">6</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Power-Platform">Power Platform</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/">Power Virtual Agents</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Power-Apps">Power Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Power-Automate">Power Automate</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Supportability">Supportability</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 14.29px;">Canvas app</a> <a href="../../tags/Cloud-flows/" style="font-size: 14.29px;">Cloud flows</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse/" style="font-size: 10px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.43px;">Dataverse for Teams</a> <a href="../../tags/DataverseforTeams/" style="font-size: 10px;">DataverseforTeams</a> <a href="../../tags/Desktop-flows/" style="font-size: 14.29px;">Desktop flows</a> <a href="../../tags/Dynamics/" style="font-size: 15.71px;">Dynamics</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Graph-API/" style="font-size: 10px;">Graph API</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/Model-driven-app/" style="font-size: 12.86px;">Model-driven app</a> <a href="../../tags/Power-Apps/" style="font-size: 17.14px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 18.57px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 14.29px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 20px;">Power Platform</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 10px;">Power Virtual Agents</a> <a href="../../tags/PowerApps/" style="font-size: 10px;">PowerApps</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 14.29px;">PowerShell</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Supportability/" style="font-size: 10px;">Supportability</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/license/" style="font-size: 10px;">license</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバス アプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 11.43px;">サポート</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 10px;">ライセンス</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a> <a href="../../tags/%E7%92%B0%E5%A2%83/" style="font-size: 12.86px;">環境</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
