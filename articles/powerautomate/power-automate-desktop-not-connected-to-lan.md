@@ -40,7 +40,7 @@ LAN 接続時の証明書が選択される動作となります。
 従来使用されていた LAN の証明書ではなく、Power Automate for desktop の証明書が選択される可能性があります。  
 その結果、LAN 接続時に必要な証明書が選択されず、社内LANに繋がらない事象が発生する可能性があります。  
 
-証明書の自動選択基準についてはこちらのサポートブログにてご説明しておりますので、ご参照いただけますと幸いです。  
+証明書の自動選択基準についてはこちらの Windows サポートブログにてご説明しておりますので、ご参照いただけますと幸いです。  
 [無線 LAN 接続に利用されるコンピューター証明書の選択基準について](https://jpwinsup.github.io/blog/2021/02/02/WirelessNetwork/Wi-Fi/Selection-criteria-for-certificates-used-for-wireless-LAN-connections/)
 <br/><br/>
 
@@ -53,14 +53,14 @@ LAN 接続時の証明書が選択される動作となります。
 
 <a id='anchor-measure-wireless-lan'></a>
 ### 1. 端末ごとの証明書フィルタリング設定 (無線 LAN の場合)
-無線 LAN 接続に利用されるフィルタリング機能の設定手順については、こちらのサポートブログをご参照ください。  
+無線 LAN 接続に利用されるフィルタリング機能の設定手順については、こちらの Windows サポートブログをご参照ください。  
 [無線 LAN 接続に利用される証明書のフィルタリングについて](https://jpwinsup.github.io/blog/2021/02/02/WirelessNetwork/Wi-Fi/Filtering-of-certificates-used-for-wireless-LAN-connections/)
 <br/>
 
 <a id='anchor-measure-wired-lan'></a>
 ### 2. 端末ごとの証明書フィルタリング設定 (有線 LAN の場合)
-  1. 管理者権限でコマンド プロンプトを開きます。
-  1. `ncpa.cpl` と入力して [Enter] キーを押します。  
+  1.  [Win] キー + [R] キー を押し、[ファイル名を指定して実行] のダイアログボックスを開きます。  
+  1. `ncpa.cpl` と入力し、[Ctrl] キー + [Shift] キー + [Enter] キーを押します。  
      ![](./power-automate-desktop-not-connected-to-lan/wired-lan-filter-setting1.png)
 
   1. 認証設定されている有線アダプタを右クリックして [プロパティ] をクリックします。  
@@ -112,7 +112,7 @@ LAN 接続時の証明書が選択される動作となります。
 
 1. クライアント側にて `gpupdate /force` を実施します。  
 
-なお、設定される項目に関しては、以下サポートブログをご参照いただけますと幸いです。  
+なお、設定される項目に関しては、以下 Windows サポートブログをご参照いただけますと幸いです。  
 [無線 LAN 接続に利用される証明書のフィルタリングについて](https://jpwinsup.github.io/blog/2021/02/02/WirelessNetwork/Wi-Fi/Filtering-of-certificates-used-for-wireless-LAN-connections/)
 
 ---
