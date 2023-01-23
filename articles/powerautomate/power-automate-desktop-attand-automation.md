@@ -14,10 +14,10 @@ tags:
 # 目次
 
 1. [概要](#anchor-intro)
-1. [有人実行(アテンド型)と無人実行(非アテンド型)の違い](#anchor-how-to-collect)
-1. [有人実行に必要なライセンスについて](#anchor-licence-for-attended-automation)
-1. [デスクトップ フローを有人実行する方法](#anchor-attended-automation)
-    1. [端末の登録方法](#anchor-register-computers)
+1. [有人実行(アテンド型)と無人実行(非アテンド型)の違い](#how-to-collect)
+1. [有人実行に必要なライセンスについて](#licence-for-attended-automation)
+1. [デスクトップ フローを有人実行する方法](#attended-automation)
+    1. [端末の登録方法](#register-computers)
     1. [クラウド フローからデスクトップ フローを呼び出す方法](#call-desktopflow-from-cloudflow)
     1. [有人実行の際の注意事項について](#notes-on-attended-automation)
     1. [実行結果](#result-of-attended-automation-flow)
