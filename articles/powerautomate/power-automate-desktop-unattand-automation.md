@@ -86,7 +86,7 @@ tags:
 
 ## 端末の登録方法
 Power Automate コンピュータ ランタイムアプリを使用して、該当の環境にデスクトップ フローを実行する端末を登録を行います。  
-以下の記事に加えて、リモートデスクトップの設定を行います。
+以下の記事に加えて、リモートデスクトップの設定を行います。  
 [端末の登録方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/#anchor-register-computers)
 
 * リモート デスクトップの設定
@@ -99,7 +99,7 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 <a id='anchor-call-desktopflow-from-cloudflow'></a>
 
 ## クラウド フローからデスクトップ フローを呼び出す方法
-以下の記事の手順 6 で実行モードを非アテンド型に変更することで、デスクトップ フローを無人実行で呼び出すことができます。 
+以下の記事の手順 6 で実行モードを非アテンド型に変更することで、デスクトップ フローを無人実行で呼び出すことができます。   
 [クラウド フローからデスクトップ フローを呼び出す方法 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/#anchor-call-desktopflow-from-cloudflow)
 
 ![](./power-automate-desktop-unattand-automation/call-desktopflow-from-cloudflow6.png)  
