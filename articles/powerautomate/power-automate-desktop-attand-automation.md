@@ -14,7 +14,7 @@ tags:
 # 目次
 
 1. [概要](#anchor-intro)
-1. [有人実行(アテンド型)と無人実行(非アテンド型)の違い](#anchor-how-to-collect)
+1. [有人実行(アテンド型)と無人実行(非アテンド型)の違い](#anchor-attend-and-unattended-automation)
 1. [有人実行に必要なライセンスについて](#anchor-licence-for-attended-automation)
 1. [デスクトップ フローを有人実行する方法](#anchor-attended-automation)
     1. [端末の登録方法](#anchor-register-computers)
