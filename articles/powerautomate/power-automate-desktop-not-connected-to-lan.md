@@ -36,11 +36,11 @@ Power Automate for desktop をインストールすると、Power Automate for d
 一方、Windows の証明書のフィルタリング機能を利用していない場合、Windows にて実装されているコンピューター証明書の自動選択基準に従い、  
 LAN 接続時の証明書が選択される動作となります。  
 
-そのため、Power Automate for desktop のインストール後、自動選択基準で LAN 接続時の証明書が選択される際、
-従来使用されていた LAN の証明書ではなく、Power Automate for desktop の証明書が選択される可能性があります。
-その結果、LAN 接続時に必要な証明書が選択されず、社内LANに繋がらない事象が発生する可能性があります。
+そのため、Power Automate for desktop のインストール後、自動選択基準で LAN 接続時の証明書が選択される際、 
+従来使用されていた LAN の証明書ではなく、Power Automate for desktop の証明書が選択される可能性があります。  
+その結果、LAN 接続時に必要な証明書が選択されず、社内LANに繋がらない事象が発生する可能性があります。  
 
-証明書の自動選択基準についてはこちらのサポートブログにてご説明しておりますので、ご参照いただけますと幸いです。
+証明書の自動選択基準についてはこちらのサポートブログにてご説明しておりますので、ご参照いただけますと幸いです。  
 [無線 LAN 接続に利用されるコンピューター証明書の選択基準について](https://jpwinsup.github.io/blog/2021/02/02/WirelessNetwork/Wi-Fi/Selection-criteria-for-certificates-used-for-wireless-LAN-connections/)
 <br/><br/>
 
@@ -48,7 +48,7 @@ LAN 接続時の証明書が選択される動作となります。
 ## 対応方法
 ---
 端末ごとに証明書フィルタリング設定をすることで、ネットワークに繋がらない事象を防ぐことができます。 
-また、証明書フィルタリング設定を管理者にてグループポリシーとして設定できます。
+また、証明書フィルタリング設定を管理者にてグループポリシーとして設定できます。  
 <br/>
 
 <a id='anchor-measure-wireless-lan'></a>
