@@ -112,7 +112,7 @@ LAN 接続時の証明書が選択される動作となります。
 
 1. クライアント側にて `gpupdate /force` を実施します。  
 
-なお、設定される項目に関しては、以下サポートブログをご参照いただけますと幸いです。
+なお、設定される項目に関しては、以下サポートブログをご参照いただけますと幸いです。  
 [無線 LAN 接続に利用される証明書のフィルタリングについて](https://jpwinsup.github.io/blog/2021/02/02/WirelessNetwork/Wi-Fi/Filtering-of-certificates-used-for-wireless-LAN-connections/)
 
 ---
