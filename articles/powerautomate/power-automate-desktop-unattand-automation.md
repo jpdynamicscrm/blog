@@ -101,9 +101,9 @@ tags:
 以下の記事の手順 6 で実行モードを非アテンド型に変更することで、デスクトップ フローを無人実行で呼び出すことができます。   
 [クラウド フローからデスクトップ フローを呼び出す方法 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/#anchor-call-desktopflow-from-cloudflow)
 
-![](./power-automate-desktop-unattand-automation/call-desktopflow-from-cloudflow6.png)  
-    * Desktop フロー：呼び出したいデスクトップ フローをご指定ください。  
-    * 実行モード：非アテンド型をご指定ください。  
+![](./power-automate-desktop-unattand-automation/call-desktopflow-from-cloudflow.png)  
+  * Desktop フロー：呼び出したいデスクトップ フローをご指定ください。  
+  * 実行モード：非アテンド型をご指定ください。  
 
 <a id='anchor-notes-on-unattended-automation'></a>
 
