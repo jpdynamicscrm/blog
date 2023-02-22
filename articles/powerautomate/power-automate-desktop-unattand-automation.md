@@ -62,7 +62,7 @@ tags:
 <a id='anchor-unattended-add-on'></a>
 
 ## 無人 RPA アドオンの割り当て方
-無人 RPA アドオンを購入して、環境に割り当てる方法についてご案内いたします。  
+無人 RPA アドオンを購入して、環境に割り当てることで、割り当てられた環境でデスクトップ フローを無人実行できるようになります。  
 * 無人 RPA アドオンを購入する  
   [Microsoft 365 管理センター](https://admin.microsoft.com/)から無人 RPA アドオンを購入する方法については以下の公開情報でご案内していますのでご確認ください。  
   [Power Automate ライセンスを購入する - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/buy-licenses#buy-unattended-add-on)
