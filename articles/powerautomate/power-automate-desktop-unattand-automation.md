@@ -21,7 +21,7 @@ tags:
 1. [無人実行に必要なライセンスについて](#anchor-licence-for-unattended-automation)
 1. [デスクトップ フローを無人実行する方法](#anchor-unattended-automation)
     1. [無人 RPA アドオンの割り当て方](#anchor-unattended-add-on)
-    1. [端末の登録方法](#anchor-register-computers)
+    1. [端末の登録準備](#anchor-register-computers)
     1. [クラウド フローからデスクトップ フローを呼び出す方法](#anchor-call-desktopflow-from-cloudflow)
     1. [無人実行の際の注意事項について](#anchor-notes-on-unattended-automation)
     1. [実行結果](#anchor-result-of-unattended-automation-flow)
