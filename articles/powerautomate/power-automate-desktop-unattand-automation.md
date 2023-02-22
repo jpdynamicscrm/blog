@@ -65,9 +65,11 @@ tags:
 無人 RPA アドオンを購入して、環境に割り当てる方法についてご案内いたします。  
 * 無人 RPA アドオンを購入する  
   [Microsoft 365 管理センター](https://admin.microsoft.com/)から無人 RPA アドオンを購入する方法については以下の公開情報でご案内していますのでご確認ください。  
-  [Power Automate ライセンスを購入する - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/buy-licenses#buy-unattended-add-on))](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/buy-licenses#buy-unattended-add-on)  
+  [Power Automate ライセンスを購入する - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/buy-licenses#buy-unattended-add-on)
+  
 * 無人 RPA アドオンを環境に割り当てる    
   上記で購入したアドオンを環境に割り当てる方法については以下の公開情報でご案内していますのでご確認ください。 
+  
   [Power Automate ライセンスを購入する - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/buy-licenses#assign-unattended-add-ons-to-an-environment)
     
 <a id='anchor-register-computers'></a>
