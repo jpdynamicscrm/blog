@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dataverse のストレージ容量について
 date: 2023-03-10 12:00:00
 tags:
@@ -107,7 +107,8 @@ Dataverse ありの環境では、環境作成時に選択いただいた言語�
 ご参考 : [AsyncOperationBase テーブルと WorkflowLogBase テーブルからレコードをクリーンアップする](https://learn.microsoft.com/ja-jp/power-platform/admin/cleanup-asyncoperationbase-table)
 
 Dataverse では、上記のように業務と直接関連のないデータが容量を消費する場合もございます。
-これらの容量を削減いただくことで、容量消費状況が大きく改善することもございますので、もし容量がひっ迫した場合にはぜひ[「容量が不足した場合の対処法はありますか？」](#anchor-reduce-strage)のセクションをご参照ください。
+これらの容量には、上記 1 や 2 のように削除いただけないものもございますが、一方で 3 などのデータは削除いただけます。
+ご不要なデータを削減いただくことで、容量消費状況が大きく改善することもございますので、もし容量がひっ迫した場合にはぜひ[「容量が不足した場合の対処法はありますか？」](#anchor-reduce-strage)のセクションをご参照ください。
 
 ### 既定環境や Teams 環境など、実稼働・サンドボックス以外の環境を利用しています。テナントの容量について考慮すべき点はありますか？
 以下の環境は、製品をお試しいただく目的などでの小規模利用を想定していることから、テナントの割り当て容量を消費しません。
@@ -127,14 +128,15 @@ Dataverse では、上記のように業務と直接関連のないデータが�
 ・[開発者環境](https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan#%E9%96%8B%E7%99%BA%E8%80%85%E7%92%B0%E5%A2%83%E3%81%AE%E5%AE%B9%E9%87%8F%E5%88%B6%E9%99%90%E3%81%AF%E3%81%A9%E3%82%8C%E3%81%8F%E3%82%89%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B)
 
 ### テナントの Dataverse 容量について通知する機能はありますか？
-テナント Dataverse 容量がひっ迫した際には、以下のタイミングで**テナントの全体管理者**に通知メールが送信されます。
+テナント Dataverse 容量がひっ迫した際には、以下のタイミングで通知メールが送信されます。
 * Dataverse 空き容量が全体の 15 % 未満となった場合
 * Dataverse 空き容量が全体の 5 % 未満となった場合
 * Dataverse 容量が上限を超過した場合
-※ご参考 : [記憶域容量の権利を超えるための変更](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#changes-for-exceeding-storage-capacity-entitlements)
+通知の詳細や送信対象者などにつきましては、以下の公開情報をご参照ください。
+・ご参考 : [記憶域容量の権利を超えるための変更](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#changes-for-exceeding-storage-capacity-entitlements)
 
 なお記事執筆時点では、通知の送信対象や容量の閾値を変更する機能のご用意がございません。
-特に送信対象につきましては、全体管理者ではなく Power Platform 管理者のユーザーにて容量を管理いただくことなどもあるかと存じますので、適宜転送いただく運用をご検討いただけますと幸いです。
+管理者役割ではないユーザーに通知を送信されたい場合には、通知メールを適宜転送いただく運用をご検討いただけますと幸いです。
 
 
 ## 3.おわりに
