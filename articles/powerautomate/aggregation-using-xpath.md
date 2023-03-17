@@ -5,21 +5,28 @@ tags:
   - Power Automate
   - Cloud flows
 ---
+# XPath を活用した集計
 
+こんにちは、Power Platform サポートの瀬戸です。
+今回は、なるべく少ない手順でクラウド フローで集計をしたいときに活用いただける Tips をご紹介いたします。
 
-残念ながら Power Automate には配列を 1 度に集計するようなアクションや関数はご提供がありません。
-それでもなるべく少ないアクション数で集計をしたい場合は、XPath の関数の機能を活用いただけます。
+<!-- more -->
 
-例えば、下図のように、数値の列を持つ SharePoint リストがあるとします。
-![](troubleshoot-throttling-flow/image01.png)
+## 基本的な集計方法
+例えば、下図のような数値の列を持つ SharePoint リストがあるとします。
+![](aggregation-using-xpath/image01.png)
 
 この amount1、amount2 の列の合計を求めたい場合、素直に考えると Apply to each で数を集計することを考えます。
-しかしこの方法では、集計するだけで少なくとも リストの行数 × 集計したい列の数 の回数アクションが実行されます。
 
 ※ Apply to each を使った集計の例
-![](troubleshoot-throttling-flow/image02.png)
+![](aggregation-using-xpath/image02.png)
 
+合計値を求めるならこれでも良いのですが、この方法では、集計するだけで少なくとも リストの行数 × 集計したい列の数 の回数アクションが実行されます。
+データ件数が多いときや、他にもフローで行いたい処理があるときは、アクション要求数が気になってしまいます。
+
+## XPath を使った集計方法
 XPath は XML という形式のデータの位置を指定できる言語です。関数も用意されていて、集計 (sum) や個数のカウント (count) ができます。
+
 Power Automate 上のデータは基本的に JSON 形式で扱われます。
 ですが、Power Automate には、JSON 形式を XML 形式へ変換する関数と、XPath の処理を行える関数がありますので、それらを使って集計を求められます。
 
@@ -27,7 +34,7 @@ Power Automate 上のデータは基本的に JSON 形式で扱われます。
 Apply to each を使用しないので、行数が増えても実行されるアクション数が増えません。
 
 ※フロー全体図
-![](troubleshoot-throttling-flow/image03.png)
+![](aggregation-using-xpath/image03.png)
 
 (1) 複数の項目の取得  
 SharePoint コネクタの「複数の項目の取得」アクションを使用し、リストを取得します。
