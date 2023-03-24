@@ -21,16 +21,14 @@ tags:
 ※ Apply to each を使った集計の例
 ![](aggregation-using-xpath/image02.png)
 
-合計値を求めるならこれでも良いのですが、この方法では、集計するだけで少なくとも リストの行数 × 集計したい列の数 の回数アクションが実行されます。
-データ件数が多いときや、他にもフローで行いたい処理があるときは、アクション要求数が気になってしまいます。
+合計値を求めるならこれでも良いのですが、この方法では、集計するだけで少なくとも リストの行数 × 集計したい列の数 の回数アクションが実行されます。データ件数が多いときや、他にもフローで行いたい処理があるときは、アクション要求数が気になってしまいます。
 
 ## XPath を使った集計方法
 XPath は、XML という形式のデータの位置を指定できる言語です。関数も用意されていて、集計 (sum) や個数のカウント (count) ができます。
 
 Power Automate 上のデータは基本的に JSON 形式で扱われます。ですが、Power Automate には、JSON 形式を XML 形式へ変換する関数と、XPath の処理を行える関数がありますので、それらを使って集計を求められます。
 
-以下に、XML と XPath を使って、先ほどの SharePoint リストを集計するサンプルを記載いたします。
-Apply to each を使用していない点にご注目ください。
+以下に、XML と XPath を使って、先ほどの SharePoint リストを集計するサンプルを記載いたします。Apply to each を使用していない点にご注目ください。
 
 ### フローの例
 ※フロー全体図
@@ -85,6 +83,7 @@ SharePoint コネクタの「[複数の項目の取得](https://learn.microsoft.
 
 #### (5) 作成-amount1
 データ操作コネクタの「[作成](https://learn.microsoft.com/ja-jp/power-automate/data-operations#use-the-compose-action)」アクションを使用し、XML へ変換した内容と XPath を使用して amount1 列の集計を求めます。
+
 |パラメータ|値|
 |---|---|
 |入力|以下を式として入力：<br>`xpath(outputs('作成2'), 'sum(/root/numbers/amount1)')`　※1|
@@ -95,6 +94,7 @@ SharePoint コネクタの「[複数の項目の取得](https://learn.microsoft.
 
 #### (6) 作成-amount2
 データ操作コネクタの「[作成](https://learn.microsoft.com/ja-jp/power-automate/data-operations#use-the-compose-action)」アクションを使用し、amount1 と同じく amount2 の集計を求めます。
+
 |パラメータ|値|
 |---|---|
 |入力|以下を式として入力：<br>`xpath(outputs('作成2'), 'sum(/root/numbers/amount2)')`　※1|
@@ -104,3 +104,8 @@ SharePoint コネクタの「[複数の項目の取得](https://learn.microsoft.
 実行結果：
 
 ![](aggregation-using-xpath/image07.png)
+
+amout1 と amount2 の集計を求められました。
+
+## 最後に
+ローコード ツールである Power Automate はできることが少ないと思いがちですが、やりたいことを意外な方法で解決できることもあります。ぜひご活用ください。
