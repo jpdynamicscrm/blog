@@ -44,11 +44,11 @@ Windows 8 以降、Windows Server 2012 R2 以降の端末にインストール�
 ゲートウェイをダウンロードしインストールします。手順については、以下の公開情報をご確認ください。  
 [オンプレミス データ ゲートウェイをインストールする | Microsoft Learn](https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-install#download-and-install-a-standard-gateway)  
 
-* 補足事項１
+* 補足事項１  
 設定時にメール アドレスを入力しますが、入力したアドレスのユーザーが管理者となります。管理者はゲートウェイの管理者や利用者の追加、複数のゲートウェイをクラスター化する権限を有します。  
 ![](./gateway-filesystem/address.png)
 
-* 補足事項２
+* 補足事項２  
 ゲートウェイの登録情報はクラウド上に記録されますが、登録先リージョン（以下、赤枠）をご確認下さい。テナントが日本の場合、Japan East と表示されているかご確認し、異なっていれば変更してください。  
 ![](./gateway-filesystem/region.png)
 
