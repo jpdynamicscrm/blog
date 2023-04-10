@@ -119,6 +119,7 @@ Power Platform にてサードパーティ サービスをご使用の場合、�
 
 ### サンプル作成やカスタマイズのご支援について 
 
+アドバイザリー サービスを含むサポート契約をお持ちの場合には、ご支援が可能です。  
 サンプル作成やカスタマイズのご依頼をいただいた場合、お客様からご要件の詳細をヒアリングしたうえで、フローやアプリの作成方法についてのご支援をさせていただきますが、成果物としてサンプル アプリやサンプル フローをご提供することはできかねますので、ご了承ください。  
 なお、ご案内の過程で、一例として弊社にてサンプル フローやサンプル コードを作成し、ご案内することがございますが、あくまでも説明のためのサンプルとしてのご案内となりますので、下記の点についてご承知おきください。
 
@@ -174,4 +175,4 @@ Power Platform にてサードパーティ サービスをご使用の場合、�
  ### 参考
  以下の記事も併せてお読みください。  
 [サポートの概要 | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/support-overview)  
-[プロフェッショナル サポートをご利用の皆様へ - Microsoft Services](https://www.microsoft.com/ja-jp/services/professional-supportqa.aspx#coreui-banner-bt9nbho)
+[プロフェッショナル サポートをご利用の皆様へ - Microsoft Services](https://www.microsoft.com/ja-jp/services/professional-supportqa.aspx)
