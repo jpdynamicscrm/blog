@@ -1,6 +1,6 @@
 ---
 title: Dataverse の監査ログをエクスポートする方法
-date: 2023-04-11 12:00:00
+date: 2023-04-01 12:00:00
 tags:
   - Model-driven app
   - Dynamics
@@ -14,7 +14,7 @@ Dataverse の監査ログは、レコードに対する変更履歴を監査概�
 Dataverse の監査ログの取得や、確認方法については下記公開情報をご参照ください。  
 (ご参考 : [Dataverse 監査を管理する](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-dataverse-auditing))  
 
-サポートチームでは、監査概要ビューの内容をエクスポートしたい、というお問合せをいただくことがありますが、2023年4月現在では、Dataverse 監査ログのエクスポート機能を提供していません。  
+サポートチームでは、監査概要ビューの内容をエクスポートしたい、というお問合せをいただくことがありますが、2023年4月現在では、Dataverse 監査ログのエクスポート機能を提供していません。
 そこで、今回は XRMToolBox というサードパーティ製のツールを使用したエクスポート方法をご紹介します。  
 XRMToolBox 自体は、当社提供のツールではないため、詳細な使用方法やエラーに対する対処は製品提供元へご確認いただく必要があることをご了承いただいた上で、ご利用いただけますと幸いです。  
 
@@ -50,9 +50,9 @@ XRMToolBox とは、Dataverse に接続し、操作できる Windows アプリ�
 
 ## ツールのインストール
 ---
-XRMToolBox には、様々なツールが存在しますが、今回は監査ログをエクスポートするための、Attribute Audit Explorer というツールを使用します。  
+XRM ToolBox には、様々なツールが存在しますが、今回は監査ログをエクスポートするための、Attribute Audit Explorer というツールを使用します。  
 Attribute Audit Explorer の詳細については、下記をご参照ください。  
-(ご参考 : [Audit Explorer Plugin](https://www.xrmtoolbox.com/plugins/MESquare.XrmToolBox.AuditExplorer/))  
+(ご参考 : [Audit Explorer Plugin](hhttps://www.xrmtoolbox.com/plugins/MESquare.XrmToolBox.AuditExplorer/))  
 
 
 1. Configuration > Tool Libraryを開き、Audit Explorer Plugin にチェックし Install をクリックします。  
