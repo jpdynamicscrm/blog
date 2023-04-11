@@ -23,10 +23,10 @@ XRMToolBox 自体は、当社提供のツールではないため、詳細な使
 XRM ToolBox とは、Dataverse に接続し、操作できる Windows アプリケーションとなります。  
 事前にインストールし、接続設定を行うことで、Web API でしか実行できないような Dataverse 環境に対する様々なアクションを GUI 操作によって可能にします。  
 
-1. XRM ToolBox を以下のサイトよりダウンロードします。  
+1. XRMToolBox を以下のサイトよりダウンロードします。  
     URL: https://www.xrmtoolbox.com/  
 
-2. XRM ToolBox アプリケーションを開きます。  
+2. XRMToolBox アプリケーションを開きます。  
 
 3. Configuration タブより Manage connections を選択します。  
     ![](./export-audit-log/image01.png)  
@@ -43,12 +43,12 @@ XRM ToolBox とは、Dataverse に接続し、操作できる Windows アプリ�
 
 8. Connection が作成されたことを確認し、Connections Manager ウィンドウを閉じます。  
 
-これで、XRM ToolBox のインストールと Dataverse 環境への接続が完了です。  
+これで、XRMToolBox のインストールと Dataverse 環境への接続が完了です。  
 
 
 ## ツールのインストール  
 ---
-XRM ToolBox には、様々なツールが存在しますが、今回は監査ログをエクスポートするための、Attribute Audit Explorer というツールを使用します。  
+XRMToolBox には、様々なツールが存在しますが、今回は監査ログをエクスポートするための、Attribute Audit Explorer というツールを使用します。  
 Attribute Audit Explorer の詳細については、下記をご参照ください。  
 (ご参考 : [Audit Explorer Plugin](hhttps://www.xrmtoolbox.com/plugins/MESquare.XrmToolBox.AuditExplorer/))  
 
@@ -91,4 +91,4 @@ Attribute Audit Explorer の詳細については、下記をご参照くださ�
 ---
 Microsoft 365 のコンプライアンスセンターから Dataverse に関する監査ログを確認し、エクスポートする方法もあります。  
 しかし現時点では、Dataverse 環境に関しては監査概要ビューから確認することで、レコードに対する変更履歴が分かりやすく表示されるため、ご利用いただいているユーザー様も多数いらっしゃるかと思います。  
-監査概要ビューでは提供していないエクスポート機能が、XRM ToolBox を利用することで可能となりますので、ぜひご活用いただけますと幸いです。  
+監査概要ビューでは提供していないエクスポート機能が、XRMToolBox を利用することで可能となりますので、ぜひご活用いただけますと幸いです。  
