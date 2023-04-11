@@ -36,12 +36,12 @@ XRM ToolBox とは、Dataverse に接続し、操作できる Windows アプリ�
 5. Organization url に対象の Dataverse 環境の URL を入力し、Next をクリックします。  
     ![](./export-audit-log/image02.png)  
 
-6. 環境にサインイン可能な Username と Password を入力し、 Next を選択します。  
+6. 環境にサインイン可能な Username と Password を入力し、Next を選択します。  
     ![](./export-audit-log/image03.png)  
 
-7. Connection の任意の名前を入力し、Finish を選択します。  
+7. Connection に任意の名前を入力し、Finish を選択します。  
 
-8. Connection が作成されたことを確認し、 Connections Manager ウィンドウを閉じます。  
+8. Connection が作成されたことを確認し、Connections Manager ウィンドウを閉じます。  
 
 これで、XRM ToolBox のインストールと Dataverse 環境への接続が完了です。  
 
@@ -77,7 +77,7 @@ Attribute Audit Explorer の詳細については、下記をご参照くださ�
    ![](./export-audit-log/image08.png)
 
 
-なお、出力する列は、オプションで選択可能です。  
+なお出力する列は、オプションで選択可能です。  
    ![](./export-audit-log/image09.png)
 
 
