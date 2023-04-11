@@ -1,6 +1,6 @@
 ---
 title: Dataverse の監査ログをエクスポートする方法
-date: 2023-04-01 12:00:00
+date: 2023-04-11 12:00:00
 tags:
   - Model-driven app
   - Dynamics
