@@ -70,6 +70,70 @@ SharePoint コネクタの「[複数の項目の取得](https://learn.microsoft.
 |---|---|
 |入力|`{"root": {"numbers":「(2) 選択」アクションの出力  }}`|
 
+XML はルート要素が 1 つという決まりがあるため、JSON のルートプロパティも 1 つにします。そして、ルート要素を配列にすることもできないため、もう 1 つ `numbers` というプロパティを加え、`numbers` を配列にします。
+
+良い例：
+
+```json
+{
+  "root": {
+    "numbers": [
+       { "amount1": 1, "amount2": 2 }
+      ,{ "amount1": 3, "amount2": 4 }
+      ,{ "amount1": 5, "amount2": 6 }
+    ]
+  }
+}
+```
+
+上記の XML 変換後：
+
+```xml
+<root>
+  <numbers>
+    <amount1>1</amount1>
+    <amount2>2</amount2>
+  </numbers>
+  <numbers>
+    <amount1>3</amount1>
+    <amount2>4</amount2>
+  </numbers>
+  <numbers>
+    <amount1>5</amount1>
+    <amount2>6</amount2>
+  </numbers>
+</root>
+```
+
+エラーになる例 1：
+
+```json
+{
+  "root": {
+    "numbers": [
+       { "amount1": 1, "amount2": 2 }
+      ,{ "amount1": 3, "amount2": 4 }
+      ,{ "amount1": 5, "amount2": 6 }
+    ]
+  }
+  ,"root2": { // ルート要素が2つになってしまうので NG
+    "numbers" : []
+  }
+}
+```
+
+エラーになる例 2：
+
+```json
+{
+  "root": [ // ルート要素は配列にできないので NG
+     { "amount1": 1, "amount2": 2 }
+    ,{ "amount1": 3, "amount2": 4 }
+    ,{ "amount1": 5, "amount2": 6 }
+  ]
+}
+```
+
 #### (4) 作成2
 データ操作コネクタの「[作成](https://learn.microsoft.com/ja-jp/power-automate/data-operations#use-the-compose-action)」アクションを使用し、先のアクションの出力を XML へ変換します。
 
