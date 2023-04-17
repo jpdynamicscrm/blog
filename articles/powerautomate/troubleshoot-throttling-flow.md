@@ -41,9 +41,15 @@ Power Automate には、サービスを皆さまへ安定的に提供するた�
 
 参考：[制限と構成 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config)
 
-中でも、抵触することが多い制限に「24 時間あたりのアクション要求数」が挙げられます。2023 年 3 月時点での制限は下記の通りです。
+特にフローの実行速度に影響を与えるのは、以下 3 点のスループットの制限です。
 
-※ 「24 時間あたりのアクション要求数」の制限の例  
+* [アクション要求数の制限](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#action-request-limits)
+* [ランタイム エンドポイント要求の制限](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#runtime-endpoint-request-limits)
+* [コンテンツ スループットの制限](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#content-throughput-limits)
+
+中でも、抵触することが多い制限として「24 時間あたりのアクション要求数」が挙げられます。  今回の記事では、この「24 時間あたりのアクション要求数」の制限と、それに抵触しないようにする改善策に焦点を当てます。
+
+2023 年 4 月時点での「24 時間あたりのアクション要求数」の制限は下記の通りです。
 
 |ライセンス|パフォーマンス プロファイル|フローごとの 24 時間あたりのアクション要求数|
 |---|---|---|
