@@ -1,6 +1,6 @@
 ---
 title: Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行)
-date: 2023-01-12 12:00
+date: 2023-04-20 17:00
 tags:
   - Power Automate
   - Desktop flows
@@ -8,19 +8,19 @@ tags:
 ---
 
 こんにちは。Power Platform サポートの原野です。  
-本記事では Power Automate for desktop で作成したデスクトップ フローをクラウドフローから呼び出して、アテンド型(有人)でフローを実行する方法についてご案内いたします。  
+本記事では Power Automate for desktop で作成したデスクトップ フローをクラウド フローから呼び出して、アテンド型 (有人) でフローを実行する方法についてご案内いたします。  
 
 <!-- more -->
 # 目次
 
 1. [概要](#anchor-intro)
-1. [有人実行(アテンド型)と無人実行(非アテンド型)の違い](#anchor-how-to-collect)
+1. [有人実行(アテンド型)と無人実行(非アテンド型)の違い](#anchor-attend-and-unattended-automation)
 1. [有人実行に必要なライセンスについて](#anchor-licence-for-attended-automation)
 1. [デスクトップ フローを有人実行する方法](#anchor-attended-automation)
     1. [端末の登録方法](#anchor-register-computers)
-    1. [クラウド フローからデスクトップ フローを呼び出す方法](#call-desktopflow-from-cloudflow)
-    1. [有人実行の際の注意事項について](#notes-on-attended-automation)
-    1. [実行結果](#result-of-attended-automation-flow)
+    1. [クラウド フローからデスクトップ フローを呼び出す方法](#anchor-call-desktopflow-from-cloudflow)
+    1. [有人実行の際の注意事項について](#anchor-notes-on-attended-automation)
+    1. [実行結果](#anchor-result-of-attended-automation-flow)
 
 <a id='anchor-intro'></a>
 
@@ -46,7 +46,7 @@ tags:
 
 # 有人実行に必要なライセンスについて
 クラウド フローからデスクトップ フローを有人実行で呼び出す際には、下記のいずれかの Power Automate 有償ライセンスが必要になります。  
-* 有人RPAを含む Power Automate per user プラン  
+* 有人 RPA を含む Power Automate per user プラン  
 * 従量課金制  
 
 
@@ -59,10 +59,10 @@ tags:
 * クラウド フローからデスクトップ フローを呼び出す方法  
 
 
-<a id='register-computers'></a>
+<a id='anchor-register-computers'></a>
 
 ## 端末の登録方法
-Power Automate コンピュータ ランタイムアプリを使用して、該当の環境にデスクトップ フローを実行する端末を登録を行います。  
+Power Automate コンピュータ ランタイム アプリを使用して、該当の環境にデスクトップ フローを実行する端末を登録を行います。  
 
 
 1. 事前準備  
@@ -90,7 +90,7 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 上記の手順について公開情報にも記載がございますので、ご参照ください。  
 [コンピュータの管理 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/manage-machines#register-a-new-machine)  
 
-<a id='call-desktopflow-from-cloudflow'></a>
+<a id='anchor-call-desktopflow-from-cloudflow'></a>
 
 ## クラウド フローからデスクトップ フローを呼び出す方法
 デスクトップ フローをクラウド フローから有人実行で呼び出す方法についてご案内いたします。  
@@ -121,7 +121,7 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
     * Desktop フロー：呼び出したいデスクトップ フローをご指定ください。  
     * 実行モード：アテンド型をご指定ください。  
 
-<a id='notes-on-attended-automation'></a>
+<a id='anchor-notes-on-attended-automation'></a>
 
 ## 有人実行の際の注意事項について
 有人実行でデスクトップ フローを呼び出す際は、フローを問題なく実行するために以下の点をご確認いただけますと幸いです。  
@@ -129,7 +129,7 @@ Power Automate コンピュータ ランタイムアプリを使用して、該�
 * 画面をロックしていないこと：有人実行する際に画面をロックしているとフローが実行できませんので、画面がロックされていないことをご確認ください。  
 
 
-<a id='result-of-attended-automation-flow'></a>
+<a id='anchor-result-of-attended-automation-flow'></a>
 
 ## 実行結果  
 Power Automate for desktop で作成したデスクトップ フローをクラウド フローからアテンド型 (有人) で呼び出して実行することができました。  
