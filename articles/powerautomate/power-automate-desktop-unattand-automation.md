@@ -1,6 +1,6 @@
 ---
 title: Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (無人実行)
-date: 2023-01-26 12:00
+date: 2023-04-20 17:00
 tags:
   - Power Automate
   - Desktop flows
@@ -41,7 +41,7 @@ tags:
 # 無人実行に必要なライセンスについて
 1. 必要なライセンス  
     クラウド フローからデスクトップ フローを 無人実行で呼び出す際には、下記のいずれかの Power Automate 有償ライセンスが必要になります。  
-    * 有人RPAを含む Power Automate per user プラン ＋ Power Automate 無人 RPA アドオン
+    * 有人 RPA を含む Power Automate per user プラン ＋ Power Automate 無人 RPA アドオン
     * Power Automate per flow プラン＋ Power Automate 無人 RPA アドオン
     * 従量課金制  
 
