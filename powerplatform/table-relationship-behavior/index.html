@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>テーブルのリレーションシップとカスケード | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチーム鈴木です。   Datavers のテーブルとテーブルは、1:N、もしくはN:N の関連付けが可能です。関連付けされたテーブル定義のことを、リレーションシップと呼びますが、今回はテーブル間のリレーションシップにおける、カスケード(伝播)処理について、具体的な動作とともにご紹介します。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="テーブルのリレーションシップとカスケード">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチーム鈴木です。   Datavers のテーブルとテーブルは、1:N、もしくはN:N の関連付けが可能です。関連付けされたテーブル定義のことを、リレーションシップと呼びますが、今回はテーブル間のリレーションシップにおける、カスケード(伝播)処理について、具体的な動作とともにご紹介します。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image001.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image002.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image003.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image004.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image005.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image006.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image007.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image008.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image009.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image010.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image011.png">
+<meta property="article:published_time" content="2023-04-21T03:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-21T00:56:49.461Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Model-driven app">
+<meta property="article:tag" content="Dynamics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/image001.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerplatform/table-relationship-behavior" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      テーブルのリレーションシップとカスケード
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2023-04-21T03:00:00.000Z" itemprop="datePublished">2023-04-21</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+82c4f22b-6ccf-557c-b92d-5265fc114b3b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E3%83%AA%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B7%E3%83%83%E3%83%97%E3%81%A8%E3%82%AB%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%89%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Ftable-relationship-behavior%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Ftable-relationship-behavior.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2Ftable-relationship-behavior.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/" data-id="clgpud2nl002n0opb43yah6om" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチーム鈴木です。  </p>
+<p>Datavers のテーブルとテーブルは、1:N、もしくはN:N の関連付けが可能です。<br>関連付けされたテーブル定義のことを、リレーションシップと呼びますが、今回はテーブル間のリレーションシップにおける、カスケード(伝播)処理について、具体的な動作とともにご紹介します。  </p>
+<span id="more"></span>
+
+<h2 id="リレーションシップの確認"><a href="#リレーションシップの確認" class="headerlink" title="リレーションシップの確認"></a>リレーションシップの確認</h2><hr>
+<p>テーブル間のリレーションシップの作成、変更、確認は、Power Apps にてテーブル &gt; リレーションシップから確認できます。<br>    <img src="/blog/powerplatform/table-relationship-behavior/image001.png">  </p>
+<p>1:N の1側のテーブルから確認する場合も、N側のテーブルから確認する場合も同じで、どちらか一方で設定を変更した場合は、もう一方の設定に引き継がれます。  </p>
+<h2 id="カスケード設定について"><a href="#カスケード設定について" class="headerlink" title="カスケード設定について"></a>カスケード設定について</h2><hr>
+<p>各リレーションシップのカスケード処理は、リレーションシップをクリックして表示される詳細オプションから確認できます。  </p>
+<p>動作の種類と選択可能なカスケード処理は、以下の通りです。<br>    <img src="/blog/powerplatform/table-relationship-behavior/image002.png"><br>    <img src="/blog/powerplatform/table-relationship-behavior/image003.png">  </p>
+<h3 id="親子-上位下位"><a href="#親子-上位下位" class="headerlink" title="親子(上位下位)"></a>親子(上位下位)</h3><p>リレーションシップが親子に設定されているときは、親レコードから子レコードへすべての処理がカスケードされます。<br>    <img src="/blog/powerplatform/table-relationship-behavior/image004.png">  </p>
+<h3 id="参照"><a href="#参照" class="headerlink" title="参照"></a>参照</h3><p>リレーションシップが参照に設定されているときは、削除処理のみ「リンクの削除」か「制限」を選択できます。<br>    <img src="/blog/powerplatform/table-relationship-behavior/image005.png">  </p>
+<h3 id="カスタム"><a href="#カスタム" class="headerlink" title="カスタム"></a>カスタム</h3><p>リレーションシップがカスタムに設定されているときは、各処理を自由に定義できます。<br>    <img src="/blog/powerplatform/table-relationship-behavior/image006.png">  </p>
+<h2 id="カスケード設定の各動作について"><a href="#カスケード設定の各動作について" class="headerlink" title="カスケード設定の各動作について"></a>カスケード設定の各動作について</h2><hr>
+<p>各カスケード処理について 1:N の場合の動作を説明します。  </p>
+<h3 id="削除"><a href="#削除" class="headerlink" title="削除"></a>削除</h3><hr>
+<p>1側のレコードを削除したときに、関連付けられた N側のレコードはどうなるでしょうか？  </p>
+<h4 id="・すべてにカスケード"><a href="#・すべてにカスケード" class="headerlink" title="・すべてにカスケード"></a>・すべてにカスケード</h4><p>1側のレコードを削除すると、N側のレコードも削除されます。  </p>
+<h4 id="・リンクの削除"><a href="#・リンクの削除" class="headerlink" title="・リンクの削除"></a>・リンクの削除</h4><p>1側のレコードを削除すると、N側のレコードは削除されませんが、関連付けが解除されます。<br>つまり1側の参照先をもたない、N側のレコードが残ります。  </p>
+<h4 id="・制限"><a href="#・制限" class="headerlink" title="・制限"></a>・制限</h4><p>1側のレコードを削除しようとすると、関連付けられた N側のレコードが存在するため、削除できません。<br>以下のようなエラーメッセージが表示されます。<br>    <img src="/blog/powerplatform/table-relationship-behavior/image007.png">  </p>
+<h3 id="割り当て"><a href="#割り当て" class="headerlink" title="割り当て"></a>割り当て</h3><hr>
+<p>1側のレコードの所有者を変更したときに、関連付けられた N側の所有者はどうなるでしょうか？  </p>
+<h4 id="・すべてにカスケード-1"><a href="#・すべてにカスケード-1" class="headerlink" title="・すべてにカスケード"></a>・すべてにカスケード</h4><p>1側のレコードの所有者を変更すると、N側のレコードの所有者も1側と同じ所有者に変更されます。<br>※変更する所有者にN側のアクセス権がない場合は、1側の所有者として指定することはできません。  </p>
+<h4 id="・アクティブにカスケード"><a href="#・アクティブにカスケード" class="headerlink" title="・アクティブにカスケード"></a>・アクティブにカスケード</h4><p>1側のレコードの所有者を変更すると、N側のアクティブレコードの所有者は、1側と同じ所有者に変更されます。<br>N側が非アクティブレコードだった場合は、N側のレコードの所有者は変更されません。<br>※変更する所有者にN側のアクセス権がない場合は、1側の所有者として指定することはできません。  </p>
+<h4 id="・ユーザー所有にカスケード"><a href="#・ユーザー所有にカスケード" class="headerlink" title="・ユーザー所有にカスケード"></a>・ユーザー所有にカスケード</h4><p>1側のレコードの所有者を変更すると、N側のレコードの所有者が1側の元の所有者と同じだった場合は、1側と同じ所有者に変更されます。<br>N側が1側のレコードの元の所有者と異なる場合は、N側のレコードの所有者は変更されません。<br>※変更する所有者にN側のアクセス権がない場合は、1側の所有者として指定することはできません。  </p>
+<h4 id="・カスケードなし"><a href="#・カスケードなし" class="headerlink" title="・カスケードなし"></a>・カスケードなし</h4><p>1側のレコードの所有者を変更しても、N側のレコードの所有者は変更されません。  </p>
+<h3 id="共有"><a href="#共有" class="headerlink" title="共有"></a>共有</h3><hr>
+<p>テーブルにアクセス権のないユーザーやチームに対して、レコード毎に共有設定を行うことができます。<br>レコードの 共有 &gt; アクセスの管理 から設定できます。<br>    <img src="/blog/powerplatform/table-relationship-behavior/image008.png"><br>    <img src="/blog/powerplatform/table-relationship-behavior/image009.png">  </p>
+<p>では、1側のレコードを他者(ユーザーA)に共有した場合、関連付けられた N側のレコードへのアクセス権はどうなるでしょうか？  </p>
+<h4 id="・すべてにカスケード-2"><a href="#・すべてにカスケード-2" class="headerlink" title="・すべてにカスケード"></a>・すべてにカスケード</h4><p>1側のレコードをユーザーAに共有すると、ユーザーAは N側のレコードにもアクセス権をもちます。<br>例えば、1側に読み込み、書き込み特権を付けると、N側のレコードにも同じく読み込み、書き込み特権をもちます。  </p>
+<div class="alert is-success"><p class="alert-title">ヒント</p><p>1側の共有設定(共有設定から確認できます。)</p><p>    <img src="/blog/powerplatform/table-relationship-behavior/image010.png">  </p>
+<p>N側のアクセス権(アクセスの確認からユーザーを検索して確認できます。)</p><p>    <img src="/blog/powerplatform/table-relationship-behavior/image011.png">  </p></div>
+<h4 id="・アクティブにカスケード-1"><a href="#・アクティブにカスケード-1" class="headerlink" title="・アクティブにカスケード"></a>・アクティブにカスケード</h4><p>1側のレコードをユーザーAに共有すると、ユーザーAは N側のアクティブレコードにもアクセス権をもちます。<br>N側が非アクティブレコードだった場合、ユーザーAは N側のレコードのアクセス権をもちません。  </p>
+<h4 id="・ユーザー所有にカスケード-1"><a href="#・ユーザー所有にカスケード-1" class="headerlink" title="・ユーザー所有にカスケード"></a>・ユーザー所有にカスケード</h4><p>1側のレコードのユーザーAに共有すると、N側のレコードの所有者が1側の元の所有者と同じだった場合、ユーザーAは N側のレコードにもアクセス権をもちます。<br>N側が1側のレコードの元の所有者と異なる場合は、1側のレコードをユーザーAに共有しても、ユーザーAは N側のレコードのアクセス権をもちません。  </p>
+<h4 id="・カスケードなし-1"><a href="#・カスケードなし-1" class="headerlink" title="・カスケードなし"></a>・カスケードなし</h4><p>1側のレコードをユーザーAに共有しても、ユーザーAは、N側のレコードのアクセス権をもちません。  </p>
+<h3 id="共有の解除"><a href="#共有の解除" class="headerlink" title="共有の解除"></a>共有の解除</h3><hr>
+<p>1側のレコードを他者(ユーザーA)に共有し、その後共有を解除すると、関連付けられた N側のレコードへのアクセス権はどうなるでしょうか？<br>※共有設定はカスケードされる設定を想定しています。  </p>
+<h4 id="・すべてにカスケード-3"><a href="#・すべてにカスケード-3" class="headerlink" title="・すべてにカスケード"></a>・すべてにカスケード</h4><p>1側のレコードをユーザーAに共有し、その後共有解除すると、ユーザーAは N側のレコードのアクセス権も解除され、アクセスできません。  </p>
+<h4 id="・アクティブにカスケード-2"><a href="#・アクティブにカスケード-2" class="headerlink" title="・アクティブにカスケード"></a>・アクティブにカスケード</h4><p>1側のレコードをユーザーAに共有し、その後共有解除すると、ユーザーAは N側のアクティブレコードのアクセス権も解除され、アクセスできません。<br>N側が非アクティブレコードだった場合、ユーザーAは N側のレコードのアクセス権をもち続けます。  </p>
+<h4 id="・ユーザー所有にカスケード-2"><a href="#・ユーザー所有にカスケード-2" class="headerlink" title="・ユーザー所有にカスケード"></a>・ユーザー所有にカスケード</h4><p>1側のレコードをユーザーAに共有し、その後共有解除すると、N側のレコードの所有者が1側の元の所有者と同じだった場合、ユーザーAは N側のレコードのアクセス権も解除され、アクセスできません。<br>N側が1側のレコードの元の所有者と異なる場合は、1側のレコードをユーザーAに共有し、その後共有解除しても、ユーザーAは N側のレコードのアクセス権をもち続けます。  </p>
+<h4 id="・カスケードなし-2"><a href="#・カスケードなし-2" class="headerlink" title="・カスケードなし"></a>・カスケードなし</h4><p>1側のレコードをユーザーAに共有し、その後共有解除しても、ユーザーAは N側のレコードのアクセス権をもち続けます。  </p>
+<h3 id="親の関連付けの再設定-リペアレント"><a href="#親の関連付けの再設定-リペアレント" class="headerlink" title="親の関連付けの再設定(リペアレント)"></a>親の関連付けの再設定(リペアレント)</h3><hr>
+<p>「1側に N側のレコードを関連付けする設定時」に N側レコードへのアクセスに対して、1側レコードのものを継承させるかどうか、という設定になります。<br>「共有」と「親の関連付けの再設定」の違いは、「共有」は「1側のレコードで共有設定を行ったときにすでに関連づけられている N側レコードに対して共有を継承させるかどうか」であることに対して、「親の関連付けの再設定」は「1側のレコードで N側レコードに対する関連付けを行ったときに存在する共有設定を N側レコードに対して継承させるかどうか」です。  </p>
+<p>では、1側のレコードをすでに他者(ユーザーA)に共有している場合、共有設定後に関連付けられた N側のレコードへのアクセス権はどうなるでしょうか？  </p>
+<h4 id="・すべてにカスケード-4"><a href="#・すべてにカスケード-4" class="headerlink" title="・すべてにカスケード"></a>・すべてにカスケード</h4><p>1側のレコードに N側のレコードを関連付けると、ユーザーAは N側のレコードにアクセスできます。  </p>
+<h4 id="・アクティブにカスケード-3"><a href="#・アクティブにカスケード-3" class="headerlink" title="・アクティブにカスケード"></a>・アクティブにカスケード</h4><p>1側のレコードに N側のレコードを関連付けると、ユーザーAは N側のアクティブなレコードにアクセスできます。<br>N側が非アクティブレコードだった場合、ユーザーAは N側のレコードのアクセス権をもちません。  </p>
+<h4 id="・ユーザー所有にカスケード-3"><a href="#・ユーザー所有にカスケード-3" class="headerlink" title="・ユーザー所有にカスケード"></a>・ユーザー所有にカスケード</h4><p>1側のレコードに N側のレコードを関連付けると、N側のレコードの所有者が1側の元の所有者と同じだった場合、ユーザーAは N側のレコードにもアクセス権をもちます。<br>N側が1側のレコードの元の所有者と異なる場合は、1側のレコードをユーザーAに共有しても、ユーザーAは N側のレコードのアクセス権をもちません。  </p>
+<h4 id="・カスケードなし-3"><a href="#・カスケードなし-3" class="headerlink" title="・カスケードなし"></a>・カスケードなし</h4><p>1側のレコードに N側のレコードを関連付けても、ユーザーAは N側のレコードのアクセス権をもちません。  </p>
+<h2 id="よくあるご質問"><a href="#よくあるご質問" class="headerlink" title="よくあるご質問"></a>よくあるご質問</h2><hr>
+<h4 id="・カスケード処理の「共有」を「すべてにカスケード」から「カスケードなし」に変更しました。既存の共有設定はどうなりますか？"><a href="#・カスケード処理の「共有」を「すべてにカスケード」から「カスケードなし」に変更しました。既存の共有設定はどうなりますか？" class="headerlink" title="・カスケード処理の「共有」を「すべてにカスケード」から「カスケードなし」に変更しました。既存の共有設定はどうなりますか？"></a>・カスケード処理の「共有」を「すべてにカスケード」から「カスケードなし」に変更しました。既存の共有設定はどうなりますか？</h4><p>カスケード処理変更前に既に共有されたレコードは、既に共有レコードを管理するテーブルに共有情報が登録されているため、カスケード処理を変更しても動作が変わりません。<br>カスケード処理変更前に共有されたレコードは、一度共有を解除し、再度共有設定することで、変更後のカスケード処理を伝播します。<br>注意事項として、「共有の解除」が「カスケードなし」の設定になっている場合には共有解除したことがカスケードされないため、再共有した場合に N側レコードの参照ができてしまいます。<br>これを防ぐためには、「共有の解除」は「カスケード」される設定にしておく必要があります。  </p>
+<h4 id="・1側のレコードの所有者がユーザーAで、N側のレコードの所有者がユーザーBです。ユーザーAは-N側のレコードへアクセス権をもちますか？"><a href="#・1側のレコードの所有者がユーザーAで、N側のレコードの所有者がユーザーBです。ユーザーAは-N側のレコードへアクセス権をもちますか？" class="headerlink" title="・1側のレコードの所有者がユーザーAで、N側のレコードの所有者がユーザーBです。ユーザーAは N側のレコードへアクセス権をもちますか？"></a>・1側のレコードの所有者がユーザーAで、N側のレコードの所有者がユーザーBです。ユーザーAは N側のレコードへアクセス権をもちますか？</h4><p>※ユーザーAは、N側テーブルのアクセス権をもっていない、かつ共有設定は行われていない前提です。<br>親の関連付けの再設定が「カスケード」の場合、ユーザーＡは所有者の異なる Ｎ側のレコードへアクセス権をもちます。<br>親の関連付けの再設定が「カスケードなし」の場合は、ユーザーＡは所有者の異なる Ｎ側のレコードへアクセス権をもちません。  </p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
+<p>今回ご説明した内容に関連した公開情報について、ご紹介します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-edit-entity-relationships#table-relationship-behavior">テーブル リレーションシップ</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/data-platform-entity-lookup#add-advanced-relationship-behavior">テーブル間に関連付けを作成する</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/user/assign-or-share-records">行の割り当てまたは共有</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/user/share-row">ユーザーまたはチームと行を共有する</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/user/access-checker">行に対するユーザー アクセスを確認する</a>    </p>
+<p>今回は、テーブル間のリレーションシップにおけるカスケード処理の具体的な動作についてご案内しました。<br>テーブルによっては、事前定義されたアプリケーション動作を担保するためにシステム側で予め設定されたカスケード処理が存在する場合や、カスケードは設定がない場合も製品プラグインによってカスケードに近い処理を実施している場合もありますので、ご留意ください。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/table-relationship-behavior.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerautomate/power-automate-desktop-attand-automation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">テーブルのリレーションシップとカスケード</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/power-automate-desktop-attand-automation/">Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行)</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/power-automate-desktop-unattand-automation/">Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (無人実行)</a>
+          </li>
+        
+          <li>
+            <a href="../about-power-platform-support/">Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項</a>
+          </li>
+        
+          <li>
+            <a href="../Automatic-deletion-of-inactive-Developer-environments/">非アクティブな開発者環境の自動削除について</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flows/" rel="tag">Cloud flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DataverseforTeams/" rel="tag">DataverseforTeams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flows/" rel="tag">Desktop flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerApps/" rel="tag">PowerApps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Supportability/" rel="tag">Supportability</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/license/" rel="tag">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバス アプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" rel="tag">自動フロー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/">Canvas app</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Apps">Power Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">25</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Audit-Log">Audit Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Cloud-flows">Cloud flows</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse">Dataverse</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8">Dataverse ストレージ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Developer-Environment">Developer Environment</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics">Dynamics</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics-365-Customer-Engagement">Dynamics 365 Customer Engagement</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Environment">Environment</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Inventory-Report">Inventory Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">9</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">9</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Supportability">Supportability</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Tenant-level-Analytics">Tenant-level Analytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/license">license</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">25</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flows">Cloud flows</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flows">Desktop flows</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Dynamics-365-Customer-Engagement">Dynamics 365 Customer Engagement</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-Desktop">Power Automate Desktop</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">9</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC">自動フロー</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">5</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Model-driven-app/Dynamics">Dynamics</a><span class="tag-list-count">5</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">8</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Power-Platform">Power Platform</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 13.75px;">Canvas app</a> <a href="../../tags/Cloud-flows/" style="font-size: 15px;">Cloud flows</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse/" style="font-size: 12.5px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.25px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">Dataverse ストレージ</a> <a href="../../tags/DataverseforTeams/" style="font-size: 10px;">DataverseforTeams</a> <a href="../../tags/Desktop-flows/" style="font-size: 16.25px;">Desktop flows</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 17.5px;">Dynamics</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 10px;">Environment</a> <a href="../../tags/Graph-API/" style="font-size: 10px;">Graph API</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/Model-driven-app/" style="font-size: 15px;">Model-driven app</a> <a href="../../tags/Power-Apps/" style="font-size: 18.75px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 16.25px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 20px;">Power Platform</a> <a href="../../tags/PowerApps/" style="font-size: 10px;">PowerApps</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 13.75px;">PowerShell</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Supportability/" style="font-size: 10px;">Supportability</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/license/" style="font-size: 10px;">license</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバス アプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 11.25px;">サポート</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 10px;">ライセンス</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a> <a href="../../tags/%E7%92%B0%E5%A2%83/" style="font-size: 12.5px;">環境</a> <a href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" style="font-size: 10px;">自動フロー</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
