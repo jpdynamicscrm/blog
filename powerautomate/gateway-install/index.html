@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>クラウド フローとオンプレミス環境間でデータ連携する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートの林です。本記事では クラウド フローとオンプレミス環境間でデータ連携する方法と、一例としてローカル ファイルをクラウド フローで扱う方法についてもご紹介します。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="クラウド フローとオンプレミス環境間でデータ連携する方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートの林です。本記事では クラウド フローとオンプレミス環境間でデータ連携する方法と、一例としてローカル ファイルをクラウド フローで扱う方法についてもご紹介します。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/address.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/region.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/folder.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/connection.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/overview.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/trigger.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/filecontents.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/filecreate.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/service.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/restrictdatasource.png">
+<meta property="article:published_time" content="2023-05-08T03:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-08T02:04:33.455Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Automate">
+<meta property="article:tag" content="On-Premises">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/address.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerautomate/gateway-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      クラウド フローとオンプレミス環境間でデータ連携する方法
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2023-05-08T03:00:00.000Z" itemprop="datePublished">2023-05-08</time>
+</a>
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+900ed695-3a25-5cd4-9303-ca9b060fd692%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A8%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9%E7%92%B0%E5%A2%83%E9%96%93%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E9%80%A3%E6%90%BA%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fgateway-install%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fgateway-install.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fgateway-install.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/" data-id="clhe79mn600180nn5bpuvdwwx" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートの林です。<br>本記事では クラウド フローとオンプレミス環境間でデータ連携する方法と、一例としてローカル ファイルをクラウド フローで扱う方法についてもご紹介します。  </p>
+<span id="more"></span>
+
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>クラウド フローはクラウド サービスの自動化を実現するイメージをお持ちの方が多いのですが、オンプレミス環境と通信することもできます。クラウドフローとの通信を実現するには、オンプレミス環境のローカルマシンにオンプレミス データ ゲートウェイ (以下、ゲートウェイ) をインストールします。</p>
+<p>これによりローカル ファイルが格納されたことをトリガーにクラウド フローを実行することや、クラウド フローで扱ったファイルをローカル マシンに保存することができます。その他、ローカル マシンから接続できるデータ ソース (SQL Server や Oracleなど) のデータ操作もできるようになります。  </p>
+<p>今回はローカル マシンにファイルが格納されたことをトリガーにクラウド フローで SharePoint のドキュメント ライブラリにファイルを格納する方法をご紹介させていただきます。  </p>
+<ol>
+<li><a href="#install">ゲートウェイのインストール方法</a>  </li>
+<li><a href="#filesystem">利用例) ファイルシステムコネクタを利用したフローの構築</a>  </li>
+<li><a href="#trouble-shooting">よくあるトラブル</a>  </li>
+<li><a href="#faq">FAQ</a>  </li>
+</ol>
+<hr>
+<p><a id='install'></a></p>
+<h2 id="ゲートウェイのインストール方法"><a href="#ゲートウェイのインストール方法" class="headerlink" title="ゲートウェイのインストール方法"></a>ゲートウェイのインストール方法</h2><h3 id="1-前提"><a href="#1-前提" class="headerlink" title="1. 前提"></a>1. 前提</h3><ol>
+<li><p>要件<br>Windows 8 以降、Windows Server 2012 R2 以降の端末にインストールできます。詳細は以下の公開情報をご確認いただき、要件を満たしているかご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-install#requirements">オンプレミス データ ゲートウェイをインストールする | Microsoft Learn</a>   </p>
+</li>
+<li><p>必要なエンド ポイント<br>ゲートウェイは送信ポートのみを利用してクラウドサービスと通信します。<br>以下の公開情報をご確認いただき、送信ポートから全てのエンド ポイントに接続できる状態となっているかご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-communication#ports">オンプレミス データ ゲートウェイの通信設定を調整する | Microsoft Learn</a>  </p>
+</li>
+<li><p>有償ライセンス<br>ゲートウェイのインストール自体にライセンス要件はありません。ただし、ゲートウェイを Power Automate、Power Apps で利用するには、Microsoft 365 のライセンスでは利用できず、Power Platform の有償ライセンスが必要となります。<br>有償ライセンスについては以下をご確認ください。<br>・<a target="_blank" rel="noopener" href="https://powerautomate.microsoft.com/ja-jp/pricing/">Power Automate の有償ライセンス</a><br>・<a target="_blank" rel="noopener" href="https://powerapps.microsoft.com/ja-jp/pricing/">Power Apps の有償ライセンス</a>  </p>
+</li>
+</ol>
+<h3 id="2-ゲートウェイをインストールする"><a href="#2-ゲートウェイをインストールする" class="headerlink" title="2. ゲートウェイをインストールする"></a>2. ゲートウェイをインストールする</h3><p>ゲートウェイをダウンロードしインストールします。手順については、以下の公開情報をご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-install#download-and-install-a-standard-gateway">オンプレミス データ ゲートウェイをインストールする | Microsoft Learn</a>  </p>
+<h5 id="補足事項"><a href="#補足事項" class="headerlink" title="補足事項"></a>補足事項</h5><ul>
+<li><p>設定時にメール アドレスを入力しますが、入力したアドレスのユーザーが管理者となります。管理者はゲートウェイの利用者の追加、複数のゲートウェイをクラスター化する権限を有します。<br><img src="/blog/powerautomate/gateway-install/address.png">  </p>
+</li>
+<li><p>ゲートウェイの登録情報はクラウド上に記録されます。テナントが日本の場合、登録先リージョン(以下、赤枠) が Japan East と表示されているかご確認ください。仮に、Power Platform のリージョンと異なっている場合、ゲートウェイが認識されず利用できないため、ご注意ください。<br><img src="/blog/powerautomate/gateway-install/region.png">  </p>
+</li>
+</ul>
+<h3 id="3-プロキシ設定をする"><a href="#3-プロキシ設定をする" class="headerlink" title="3. プロキシ設定をする"></a>3. プロキシ設定をする</h3><p>プロキシ サーバー経由でネットワーク通信をする必要がある場合、インストールされた設定ファイルを修正します。修正対象、修正内容は以下の公開情報をご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-proxy">オンプレミス データ ゲートウェイのプロキシ設定を構成する | Microsoft Learn</a></p>
+<hr>
+<p><a id='filesystem'></a></p>
+<h2 id="利用例-ファイルシステムコネクタを利用したフローの構築"><a href="#利用例-ファイルシステムコネクタを利用したフローの構築" class="headerlink" title="利用例) ファイルシステムコネクタを利用したフローの構築"></a>利用例) ファイルシステムコネクタを利用したフローの構築</h2><p>サンプルとして、以下のフォルダに追加されたファイルを SharePoint のドキュメント ライブラリに格納します。<br><img src="/blog/powerautomate/gateway-install/folder.png">  </p>
+<h3 id="1-ファイルシステムコネクタの接続作成"><a href="#1-ファイルシステムコネクタの接続作成" class="headerlink" title="1. ファイルシステムコネクタの接続作成"></a>1. ファイルシステムコネクタの接続作成</h3><p>Power Automate ポータルの接続メニューからファイル システム コネクタの接続を作成します。<br><img src="/blog/powerautomate/gateway-install/connection.png">  </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Root folder</td>
+<td>連携したいファイルの親フォルダを指定します。アクションにてサブフォルダを指定することができます。</td>
+</tr>
+<tr>
+<td>Authentication Type</td>
+<td>Windows 固定</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>Windowsにログインする際のドメイン名とユーザー名を「ドメイン名\ユーザー名」の形式でご指定ください。<br>端末にログオンしているユーザーのドメインとユーザーの名は whoami コマンドから確認いただけます。<br>※ Power Automate のログインアカウントではございませんので、ご注意ください。<br>※ ドメイン名とユーザー名の間は \ (バックスラッシュ)です。/ (スラッシュ) ではない点ご注意ください。</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>上記で指定したユーザーのパスワードをご指定ください。</td>
+</tr>
+<tr>
+<td>ゲートウェイの選択</td>
+<td>インストールしたゲートウェイを選択ください。</td>
+</tr>
+</tbody></table>
+<h3 id="2-クラウド-フローの作成"><a href="#2-クラウド-フローの作成" class="headerlink" title="2. クラウド フローの作成"></a>2. クラウド フローの作成</h3><h5 id="全体図"><a href="#全体図" class="headerlink" title="全体図"></a>全体図</h5><p>クラウド フローの全体図です。<br><img src="/blog/powerautomate/gateway-install/overview.png">  </p>
+<h4 id="1-ファイルが作成されたことをトリガーに起動"><a href="#1-ファイルが作成されたことをトリガーに起動" class="headerlink" title="(1) ファイルが作成されたことをトリガーに起動"></a>(1) ファイルが作成されたことをトリガーに起動</h4><p>ファイル システム コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/filesystem/#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%8C%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%9F%E3%81%A8%E3%81%8D-(%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AE%E3%81%BF)">ファイルが作成されたとき (プロパティのみ)</a>」トリガーを使用します。<br><img src="/blog/powerautomate/gateway-install/trigger.png">  </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>フォルダー</td>
+<td>接続で指定した Root folder 配下のトリガー対象のフォルダを指定します。<br>対象フォルダのサブフォルダ内にファイルが追加された場合はトリガーしないので注意してください。</td>
+</tr>
+</tbody></table>
+<h4 id="2-ファイルコンテンツの取得"><a href="#2-ファイルコンテンツの取得" class="headerlink" title="(2) ファイルコンテンツの取得"></a>(2) ファイルコンテンツの取得</h4><p>ファイル システム コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/filesystem/#%E3%83%91%E3%82%B9%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB-%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%92%E5%8F%96%E5%BE%97">パスを使用してファイル コンテンツを取得</a>」アクションを使用します。<br><img src="/blog/powerautomate/gateway-install/filecontents.png"></p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ファイルパス</td>
+<td>追加したファイルのファイル コンテンツを取得します。ファイル パスにはトリガーで取得した “Path” を指定します。</td>
+</tr>
+</tbody></table>
+<h4 id="3-SharePoint-のドキュメント-ライブラリにファイルを格納"><a href="#3-SharePoint-のドキュメント-ライブラリにファイルを格納" class="headerlink" title="(3) SharePoint のドキュメント ライブラリにファイルを格納"></a>(3) SharePoint のドキュメント ライブラリにファイルを格納</h4><p>SharePoint コネクタの「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90">ファイルの作成</a>」アクションを使用します。<br><img src="/blog/powerautomate/gateway-install/filecreate.png"></p>
+<table>
+<thead>
+<tr>
+<th>パラメータ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>サイトのアドレス</td>
+<td>任意のサイトを指定してください。</td>
+</tr>
+<tr>
+<td>フォルダーのパス</td>
+<td>格納先のパスを指定してください。</td>
+</tr>
+<tr>
+<td>ファイル名</td>
+<td>トリガーで取得した “Name” を指定します。</td>
+</tr>
+<tr>
+<td>ファイル コンテンツ</td>
+<td>「パスによるファイル コンテンツ」で取得した”ファイル コンテンツ”を指定します。</td>
+</tr>
+</tbody></table>
+<p>フローの各アクションの設定は以上です。  </p>
+<hr>
+<p><a id='trouble-shooting'></a></p>
+<h2 id="よくあるトラブル"><a href="#よくあるトラブル" class="headerlink" title="よくあるトラブル"></a>よくあるトラブル</h2><h3 id="Q-ゲートウェイがオフラインのままで利用できない"><a href="#Q-ゲートウェイがオフラインのままで利用できない" class="headerlink" title="Q. ゲートウェイがオフラインのままで利用できない"></a>Q. ゲートウェイがオフラインのままで利用できない</h3><p>ゲートウェイがオフラインとなる原因はいくつかあります。よくある原因としては、以下の通りです。また最新バージョンのご利用や、再インストールを実施いただくことでも解消することがございますので、ぜひお試しください。  </p>
+<ol>
+<li><p>ネットワーク要件を満たしていない<br>以下の公開情報をご確認いただき、送信ポートから全てのエンドポイントに接続できる状態となっているかご確認ください。その際、マシンからのネットワークとして、プロキシ サーバーをご利用の場合はプロキシ サーバーにて通信可能となっているかも併せてご確認下さい。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-communication#ports">オンプレミス データ ゲートウェイの通信設定を調整する | Microsoft Learn</a>  </p>
+</li>
+<li><p>プロキシの設定がされていない<br>プロキシ サーバー経由でネットワーク通信をする必要がある場合、インストールされた設定ファイルを修正します。修正対象、修正内容は以下の公開情報をご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-proxy">オンプレミス データ ゲートウェイのプロキシ設定を構成する | Microsoft Learn</a>  </p>
+</li>
+<li><p>ゲートウェイのサービスが起動していない<br>以下の On-premises data gateway service サービスが起動しているかご確認いただき、起動していない場合は起動します。<br><img src="/blog/powerautomate/gateway-install/service.png">  </p>
+</li>
+</ol>
+<h3 id="Q-ゲートウェイをインストールしたにもかかわらず、接続作成時に表示されない"><a href="#Q-ゲートウェイをインストールしたにもかかわらず、接続作成時に表示されない" class="headerlink" title="Q. ゲートウェイをインストールしたにもかかわらず、接続作成時に表示されない"></a>Q. ゲートウェイをインストールしたにもかかわらず、接続作成時に表示されない</h3><ol>
+<li><p>ゲートウェイの登録先リージョンが異なっている<br>ゲートウェイはインストールすることでクラウド側に登録されますが、Power Platform のリージョンと同じリージョンに存在していないと表示されません。リージョンの確認方法と対応方法については以下の公開情報をご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/check-if-gateway-is-the-right-region">ゲートウェイが適切なリージョンにあるかどうかを確認する - Power Automate | Microsoft Learn</a>  </p>
+</li>
+<li><p>ゲートウェイが共有されていない<br>ゲートウェイは管理者以外でも共有することでご利用できます。ゲートウェイの共有は Power Platform 管理センターから実施可能です。ゲートウェイの共有方法は以下の公開情報をご確認下さい。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/onpremises-data-gateway-management#manage-users">オンプレミスのデータ ゲートウェイの表示と管理 (プレビュー) - Power Platform | Microsoft Learn</a><br><br>現在、ユーザーへの共有時に指定できるカテゴリは以下の通りです。 </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>カテゴリ</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>接続作成機能</td>
+<td>データ ソースの接続作成時に当該ゲートウェイを指定することができます。</td>
+</tr>
+<tr>
+<td>再共有による接続作成機能</td>
+<td>接続作成機能に加え、ゲートウェイを共有することができます。</td>
+</tr>
+<tr>
+<td>管理者</td>
+<td>ゲートウェイの作成、削除、利用を含めたフルコントロール権限を有することができます。カスタムコネクタをゲートウェイ経由でご利用する場合は、管理者のカテゴリを指定して共有する必要があるのでご注意ください。</td>
+</tr>
+</tbody></table>
+<h3 id="Q-ゲートウェイでデータ-ソース間の通信が失敗する様になった"><a href="#Q-ゲートウェイでデータ-ソース間の通信が失敗する様になった" class="headerlink" title="Q. ゲートウェイでデータ ソース間の通信が失敗する様になった"></a>Q. ゲートウェイでデータ ソース間の通信が失敗する様になった</h3><p>ゲートウェイ経由でのデータ ソースとの通信が失敗となる原因はいくつかあります。よくある原因としては、以下の通りです。エラー メッセージにも出ていることが多いので、ご確認をお願いします。  </p>
+<ol>
+<li>ゲートウェイがオフラインとなっている  </li>
+<li>データ ソースが起動していない  </li>
+<li>データ ソース側の認証情報が変わった  </li>
+</ol>
+<h3 id="上記以外のトラブルについては以下の公開情報もご参照ください"><a href="#上記以外のトラブルについては以下の公開情報もご参照ください" class="headerlink" title="上記以外のトラブルについては以下の公開情報もご参照ください"></a>上記以外のトラブルについては以下の公開情報もご参照ください</h3><p> <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/data-integration/gateway/service-gateway-tshoot">オンプレミス データ ゲートウェイのトラブルシューティング | Microsoft Learn</a>  </p>
+<hr>
+<p><a id='faq'></a></p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="Q-ゲートウェイは自動でバージョンアップされますか"><a href="#Q-ゲートウェイは自動でバージョンアップされますか" class="headerlink" title="Q. ゲートウェイは自動でバージョンアップされますか"></a>Q. ゲートウェイは自動でバージョンアップされますか</h3><p>自動ではバージョンアップされません。Microsoft は最新の 6 リリースのみを積極的にサポートしています。月に一度程度バージョン アップされるため、定期的なバージョン アップをお勧めいたします。  </p>
+<h3 id="Q-ゲートウェイ利用時はアプリの起動が必要ですか"><a href="#Q-ゲートウェイ利用時はアプリの起動が必要ですか" class="headerlink" title="Q. ゲートウェイ利用時はアプリの起動が必要ですか"></a>Q. ゲートウェイ利用時はアプリの起動が必要ですか</h3><p>不要です。マシン起動と同時に必要なサービスが立ち上がるため、インストール後はゲートウェイを利用するための操作は不要です。  </p>
+<h3 id="Q-ゲートウェイを利用して接続できるデータ-ソースは何ですか"><a href="#Q-ゲートウェイを利用して接続できるデータ-ソースは何ですか" class="headerlink" title="Q. ゲートウェイを利用して接続できるデータ ソースは何ですか"></a>Q. ゲートウェイを利用して接続できるデータ ソースは何ですか</h3><p>2023/5/8 現時点では以下のデータ ソースがご利用いただけます。また、カスタム コネクタについてもゲートウェイ経由で利用できます。  </p>
+<ul>
+<li>Apache Impala</li>
+<li>BizTalk Server</li>
+<li>ファイル システム</li>
+<li>HTTP with Azure AD</li>
+<li>IBM DB2</li>
+<li>IBM Informix</li>
+<li>IBM MQ</li>
+<li>MySQL</li>
+<li>Oracle データベース</li>
+<li>PostgreSQL</li>
+<li>SAP</li>
+<li>SharePoint Server</li>
+<li>SQL Server</li>
+<li>Teradata</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-gateway-connection?WT.mc_id=Portal-Microsoft_Azure_EMA">オンプレミス データ ソースに接続する - Azure Logic Apps | Microsoft Learn</a>  </p>
+<h3 id="Q-利用可能なデータ-ソースを制限することはできますか"><a href="#Q-利用可能なデータ-ソースを制限することはできますか" class="headerlink" title="Q. 利用可能なデータ ソースを制限することはできますか"></a>Q. 利用可能なデータ ソースを制限することはできますか</h3><p>ゲートウェイ共有時に、利用可能なデータ ソースのみ指定することができます。<br><img src="/blog/powerautomate/gateway-install/restrictdatasource.png">  </p>
+<h3 id="上記以外の-FAQ-については以下の公開情報もご参照ください"><a href="#上記以外の-FAQ-については以下の公開情報もご参照ください" class="headerlink" title="上記以外の FAQ については以下の公開情報もご参照ください"></a>上記以外の FAQ については以下の公開情報もご参照ください</h3><p> <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-bi/connect-data/service-gateway-power-bi-faq">オンプレミス データ ゲートウェイに関するよく寄せられる質問 (FAQ) - Power BI | Microsoft Learn</a></p>
+<hr>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/On-Premises/" rel="tag">On-Premises</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/gateway-install.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerplatform/table-relationship-behavior/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">テーブルのリレーションシップとカスケード</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">クラウド フローとオンプレミス環境間でデータ連携する方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/table-relationship-behavior/">テーブルのリレーションシップとカスケード</a>
+          </li>
+        
+          <li>
+            <a href="../power-automate-desktop-attand-automation/">Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行)</a>
+          </li>
+        
+          <li>
+            <a href="../power-automate-desktop-unattand-automation/">Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (無人実行)</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/about-power-platform-support/">Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flows/" rel="tag">Cloud flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DataverseforTeams/" rel="tag">DataverseforTeams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flows/" rel="tag">Desktop flows</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/On-Premises/" rel="tag">On-Premises</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-Desktop/" rel="tag">Power Automate Desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerApps/" rel="tag">PowerApps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Supportability/" rel="tag">Supportability</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/license/" rel="tag">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバス アプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83/" rel="tag">環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" rel="tag">自動フロー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/">Canvas app</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Apps">Power Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Canvas-app/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">25</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Audit-Log">Audit Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Cloud-flows">Cloud flows</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse">Dataverse</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8">Dataverse ストレージ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Developer-Environment">Developer Environment</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics">Dynamics</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics-365-Customer-Engagement">Dynamics 365 Customer Engagement</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Environment">Environment</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Inventory-Report">Inventory Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">9</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">9</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Supportability">Supportability</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Tenant-level-Analytics">Tenant-level Analytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/license">license</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">26</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flows">Cloud flows</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flows">Desktop flows</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Dynamics-365-Customer-Engagement">Dynamics 365 Customer Engagement</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/On-Premises">On-Premises</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-Desktop">Power Automate Desktop</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">9</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC">自動フロー</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">5</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Model-driven-app/Dynamics">Dynamics</a><span class="tag-list-count">5</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">8</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Power-Platform">Power Platform</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 13.33px;">Canvas app</a> <a href="../../tags/Cloud-flows/" style="font-size: 14.44px;">Cloud flows</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Dataverse/" style="font-size: 12.22px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.11px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">Dataverse ストレージ</a> <a href="../../tags/DataverseforTeams/" style="font-size: 10px;">DataverseforTeams</a> <a href="../../tags/Desktop-flows/" style="font-size: 15.56px;">Desktop flows</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 16.67px;">Dynamics</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 10px;">Environment</a> <a href="../../tags/Graph-API/" style="font-size: 10px;">Graph API</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/Model-driven-app/" style="font-size: 14.44px;">Model-driven app</a> <a href="../../tags/On-Premises/" style="font-size: 10px;">On-Premises</a> <a href="../../tags/Power-Apps/" style="font-size: 17.78px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-Desktop/" style="font-size: 15.56px;">Power Automate Desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 18.89px;">Power Platform</a> <a href="../../tags/PowerApps/" style="font-size: 10px;">PowerApps</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 13.33px;">PowerShell</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Supportability/" style="font-size: 10px;">Supportability</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/license/" style="font-size: 10px;">license</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバス アプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 11.11px;">サポート</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 10px;">ライセンス</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 10px;">情報採取</a> <a href="../../tags/%E7%92%B0%E5%A2%83/" style="font-size: 12.22px;">環境</a> <a href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" style="font-size: 10px;">自動フロー</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
