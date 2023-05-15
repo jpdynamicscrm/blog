@@ -64,6 +64,13 @@ Power Automate には、サービスを皆さまへ安定的に提供するた�
 パフォーマンス プロファイルが「低」の場合、制限値は「10,000」です。
 例えば、1,000 行の CSV ファイルを読み込み、Apply to each で行ごとに処理をする場合、Apply to each の内側のアクションが 10 個あるだけで、実行されるアクション要求数が 10,000 を超えてしまいます。
 
+補足：
+環境の従量課金を有効にすると、アクション要求数 (Power Platform 要求数) の制限が無くなります。詳細は、下記公開の Power Platform 要求メーター をご参照ください。
+※ 2023 年 5 月現在、プレビューの機能です。
+
+[従量課金制プランの概要 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-overview)
+
+
 ### フローのアクション要求数を数えてみる
 「アクション要求数」は、大まかに言うと「アクションの数」です。詳しい数え方は、下記公開情報をご参照ください。(アクション要求数と Power Platform 要求数は数え方が同じです)  
 [「何が Power Platform 要求と見なされますか?」](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#what-counts-as-power-platform-request)
