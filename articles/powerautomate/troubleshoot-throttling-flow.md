@@ -152,7 +152,18 @@ SharePoint コネクタの「複数の項目の取得」アクションなど、
 
 参考：[Power Automate で CSV ファイルを取り込む | Japan Dynamics CRM & Power Platform Support Blog](/blog/powerautomate/Import-Csv-With-Standard-Connectors/)
 
-上記記事の例からも分かる通り、変数を用意して…条件分岐して…とやっているだけでアクション要求数を消費してしまうので、アクション要求数を削減したい場合は、できるかぎり SharePoint リスト、Dataverse をはじめとしたデータベース、または、Excel ファイルなどの利用をお勧めします。これらは、各コネクタにデータ読み込みのためのアクションが用意されているため、読み込み処理を自分で作る必要がありません。
+上記記事の例からも分かる通り、変数を用意して…条件分岐して…とやっているだけでアクション要求数を消費してしまいます。
+
+アクション要求数を削減したい場合は、SharePoint リスト、Dataverse をはじめとしたデータベース、または、Excel ファイルなどの利用をお勧めします。これらは、各コネクタにデータ読み込みのためのアクションが用意されているため、読み込み処理を自分で作る必要がありません。
+
+活用できるアクション：
+
+* Microsoft Dataverse コネクタ
+  * [行を一覧にする](https://learn.microsoft.com/ja-jp/connectors/commondataserviceforapps/#%E8%A1%8C%E3%82%92%E4%B8%80%E8%A6%A7%E3%81%AB%E3%81%99%E3%82%8B) アクション
+* SharePoint コネクタ
+  * [複数の項目の取得](https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#%E9%A0%85%E7%9B%AE%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B) アクション
+* Excel Online (Business) コネクタ
+  * [表内に存在する行を一覧表示](https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%86%85%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E8%A1%8C%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B) アクション
 
 ### フローを分割する
 2023 年 5 月時点の Power Automate の制限は、**フローごと**の制限となっています。1 つの長いフローが制限に抵触しているのであれば、それをいくつかに分割して順番に実行させることで制限を回避できる可能性があります。
