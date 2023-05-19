@@ -139,7 +139,7 @@ SharePoint コネクタの「複数の項目の取得」アクションなど、
 参考：[Power Automate でデータ操作を使用する (ビデオを含む) - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/data-operations#use-the-filter-array-action)
 
 #### 1 度に繰り返す回数を減らす
-例えば、1 度に 全件処理するのではなく、10 件の データを 1 時間に 1 回処理するよう設計します。
+例えば、1 度に全件処理するのではなく、10 件の データを 1 時間に 1 回処理するよう設計します。
 
 フローが制限に抵触しないよう、意図的に処理をゆっくりにする考え方です。フィルター クエリと合わせて使用し、未処理のデータだけを取得する必要があります。
 
@@ -164,11 +164,11 @@ SharePoint コネクタの「複数の項目の取得」アクションなど、
 活用できるアクション：
 
 * Microsoft Dataverse コネクタ
-  * [行を一覧にする](https://learn.microsoft.com/ja-jp/connectors/commondataserviceforapps/#%E8%A1%8C%E3%82%92%E4%B8%80%E8%A6%A7%E3%81%AB%E3%81%99%E3%82%8B) アクション
+  * [行を一覧にする](https://learn.microsoft.com/ja-jp/connectors/commondataserviceforapps/#%E8%A1%8C%E3%82%92%E4%B8%80%E8%A6%A7%E3%81%AB%E3%81%99%E3%82%8B)
 * SharePoint コネクタ
-  * [複数の項目の取得](https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#%E9%A0%85%E7%9B%AE%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B) アクション
+  * [複数の項目の取得](https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#%E9%A0%85%E7%9B%AE%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B)
 * Excel Online (Business) コネクタ
-  * [表内に存在する行を一覧表示](https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%86%85%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E8%A1%8C%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B) アクション
+  * [表内に存在する行を一覧表示](https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%86%85%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E8%A1%8C%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)
 
 ### フローを分割する
 2023 年 5 月時点の Power Automate の制限は、**フローごと**の制限となっています。1 つの長いフローが制限に抵触しているのであれば、それをいくつかに分割して順番に実行させることで制限を回避できる可能性があります。
