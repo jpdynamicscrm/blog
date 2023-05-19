@@ -69,6 +69,10 @@ Power Automate には、サービスを皆さまへ安定的に提供するた�
 >※ 2023 年 5 月現在、プレビューの機能です。  
 >[従量課金制プランの概要 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-overview)
 
+>[!NOTE]
+> 今後、アクション要求数の制限は「Power Platform 要求数の制限」になり、制限の集計単位が **ユーザーごと** へ移行する予定です。2023 年 5 月現在、移行時期は未定ですが、移行の予定があることをご留意ください。  
+>[要求の制限と割り当て - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations)
+
 
 ### フローのアクション要求数を数えてみる
 「アクション要求数」は、大まかに言うと「実行されるアクションの数」です。詳しい数え方は、下記公開情報をご参照ください。(アクション要求数と Power Platform 要求数は数え方が同じです)  
