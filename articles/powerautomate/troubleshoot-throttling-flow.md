@@ -75,14 +75,19 @@ Power Automate には、サービスを皆さまへ安定的に提供するた�
 
 
 ### フローのアクション要求数を数えてみる
-「アクション要求数」は、大まかに言うと「実行されるアクションの数」です。詳しい数え方は、下記公開情報をご参照ください。(アクション要求数と Power Platform 要求数は数え方が同じです)  
-[「何が Power Platform 要求と見なされますか?」](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#what-counts-as-power-platform-request)
+「アクション要求数」は、大まかに言うと「実行されたアクションの数」です。実行したフローのアクション要求数は、フローごとの分析のページ、または Power Platform 管理センターで確認できます。
 
-フローのアクション要求数が求められたら、以下の式で 24 時間あたりのアクション要求数が分かります。
+* [作成者が使用状況を分析するためのどんなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#as-a-maker-what-tools-do-i-have-to-analyze-my-usage)
+* [管理者が環境の使用状況を分析するためのどのようなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#as-an-admin-what-tools-do-i-have-to-analyze-my-environments-usage)
 
-式： `フローのアクション要求数 × 24 時間あたりのフロー実行回数 ＝ 24時間あたりのアクション要求数`
+※ フローの分析のページの例 (上記公開情報より)  
+![](troubleshoot-throttling-flow/image15.png)
 
-実際のアクション要求数は再試行やページングで増えますが、この時点でフローの制限値を超えている場合は、対策が必要です。
+フローをまだ実行していない、または机上でアクション要求数を求めたい場合は、下記公開情報の Power Platform 要求数の数え方をご参照ください。(アクション要求数と Power Platform 要求数は数え方が同じです)  
+
+[何が Power Platform 要求と見なされますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#what-counts-as-power-platform-request)
+
+実際のアクション要求数は再試行やページングで増えるので、見積もりの時点でフローの制限値を超えている場合は、対策が必要です。
 
 ## 改善策
 ### フローの実行回数を減らす
