@@ -156,6 +156,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-not-connected-to-lan/</loc>
+    
+    <lastmod>2023-06-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-get-owner/</loc>
     
     <lastmod>2023-06-02</lastmod>
@@ -170,14 +177,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/</loc>
     
     <lastmod>2023-06-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
     
     <lastmod>2023-06-02</lastmod>
     
@@ -226,20 +233,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
-    
-    <lastmod>2023-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
-    
-    <lastmod>2023-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
     
     <lastmod>2023-06-02</lastmod>
@@ -261,13 +254,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/</loc>
-    
-    <lastmod>2023-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/</loc>
     
     <lastmod>2023-06-02</lastmod>
@@ -276,6 +262,27 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
+    
+    <lastmod>2023-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
+    
+    <lastmod>2023-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    
+    <lastmod>2023-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/</loc>
     
     <lastmod>2023-06-02</lastmod>
     
@@ -324,6 +331,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
+    
+    <lastmod>2023-06-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/Send_data_from_automate_to_apps/</loc>
     
     <lastmod>2023-06-02</lastmod>
@@ -332,13 +346,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/</loc>
-    
-    <lastmod>2023-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
     
     <lastmod>2023-06-02</lastmod>
     
@@ -373,13 +380,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
-    
-    <lastmod>2023-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
     
     <lastmod>2023-06-02</lastmod>
@@ -394,14 +394,21 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
     
     <lastmod>2023-06-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    
+    <lastmod>2023-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
     <lastmod>2023-06-02</lastmod>
     
