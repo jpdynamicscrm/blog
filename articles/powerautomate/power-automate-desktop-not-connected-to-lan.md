@@ -1,6 +1,6 @@
 ---
 title: Power Automate for desktop のインストール後に LAN が繋がらない場合の対応方法
-date: 2023-1-23 12:00
+date: 2023-6-3 12:00
 tags:
   - Power Automate
   - Desktop flows
@@ -38,7 +38,7 @@ LAN 接続時の証明書が選択される動作となります。
 
 そのため、Power Automate for desktop のインストール後、自動選択基準で LAN 接続時の証明書が選択される際、 
 従来使用されていた LAN の証明書ではなく、Power Automate for desktop の証明書が選択される可能性があります。  
-その結果、LAN 接続時に必要な証明書が選択されず、社内LANに繋がらない事象が発生する可能性があります。  
+その結果、LAN 接続時に必要な証明書が選択されず、社内 LAN に繋がらない事象が発生する可能性があります。  
 
 証明書の自動選択基準についてはこちらの Windows サポートブログにてご説明しておりますので、ご参照いただけますと幸いです。  
 [無線 LAN 接続に利用されるコンピューター証明書の選択基準について](https://jpwinsup.github.io/blog/2021/02/02/WirelessNetwork/Wi-Fi/Selection-criteria-for-certificates-used-for-wireless-LAN-connections/)
@@ -48,7 +48,7 @@ LAN 接続時の証明書が選択される動作となります。
 ## 対応方法
 ---
 端末ごとに証明書フィルタリング設定をすることで、ネットワークに繋がらない事象を防ぐことができます。  
-また、証明書フィルタリング設定を管理者にてグループポリシーとして設定できます。  
+また、証明書フィルタリング設定を管理者にてグループ ポリシーとして設定できます。  
 <br/>
 
 <a id='anchor-measure-wireless-lan'></a>
@@ -77,7 +77,7 @@ LAN 接続時の証明書が選択される動作となります。
   ![](./power-automate-desktop-not-connected-to-lan/wired-lan-filter-setting4.png)
 
   1. [証明書発行者] のチェックボックスを入れて、社内ネットワークで利用したい証明書の「ルート証明機関」のチェックを入れます。  
-    (※ 以下は、社内 NW で利用する証明書のルート証明機関が “Microsoft Root Certificate Authority” の場合の設定例です。)  
+    (※ 以下は、社内 NW で利用する証明書のルート証明機関が "Microsoft Root Certificate Authority" の場合の設定例です。)  
   ![](./power-automate-desktop-not-connected-to-lan/wired-lan-filter-setting5.png)
 
   1. [OK] ボタンですべてのプロパティ画面を閉じます。  
