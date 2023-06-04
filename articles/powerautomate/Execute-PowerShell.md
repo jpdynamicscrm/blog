@@ -27,7 +27,7 @@ Power Automate と PowerShell と連携させることで、業務自動化の�
       1. [フローの作成](#anchor-create-flow)
       1. [実行結果](#anchor-resutls)
 1. [FAQ](#anchor-faq)
-1. [Power Shellリンク集](#anchor-powershell-links)
+1. [PowerShellリンク集](#anchor-powershell-links)
 
 
 <a id='anchor-intro'></a>
@@ -61,28 +61,28 @@ Power Automate と組み合わせることによって、例えば以下のよ�
 
 ## 手順
 
-＜[参考：Azure Automation コネクタ](https://docs.microsoft.com/ja-jp/connectors/azureautomation/)＞
+＜[参考：Azure Automation コネクタ](https://learn.microsoft.com/ja-jp/connectors/azureautomation/)＞
 
 <a id='anchor-preparation'></a>
 
 ### ■事前準備
 1.  Azure Automation アカウントを作成します <br>
- [「Automation アカウントを作成する」](https://docs.microsoft.com/ja-jp/azure/automation/automation-quickstart-create-account) を実施してください。
+ [「Automation アカウントを作成する」](https://learn.microsoft.com/ja-jp/azure/automation/quickstarts/create-azure-automation-account-portal) を実施してください。
 
 <a id='anchor-create-runbook'></a>
 
 ### ■Runbookの作成
 1.  Runbook を作成します <br>
- [「Runbook の作成」](https://docs.microsoft.com/ja-jp/azure/automation/automation-quickstart-create-runbook) を実施してください。
+ [「Runbook の作成」](https://learn.microsoft.com/ja-jp/azure/automation/automation-quickstart-create-runbook) を実施してください。
 
-2. Runbook の 「編集」 からPower Shellを作成します。<br>
+2. Runbook の 「編集」 から PowerShell を作成します。<br>
    実行したい処理を記載してください。<br>
    「Param」 を指定することでフローからパラメータを渡すことができます。<br>
-   サンプルでは、String型の 「Name」 パラメータを受け取り、コンソールに表示します。<br>
+   サンプルでは、String 型の 「Name」 パラメータを受け取り、コンソールに表示します。<br>
    
    ![](./Execute-PowerShell/runbook-script.png)
 　　 
-3. Runbookを「保存」後「公開」を押下します<br>
+3. Runbook を「保存」後「公開」を押下します<br>
    ![](./Execute-PowerShell/publish-runbook.png)
 
 <a id='anchor-create-flow'></a>
@@ -134,11 +134,11 @@ Power Automate と組み合わせることによって、例えば以下のよ�
 <a id='anchor-powershell-links'></a>
 
 ## Power Shell リンク集
- - [Power Apps/Power Automate](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
- - [Azure](https://docs.microsoft.com/ja-jp/powershell/azure/?view=azps-6.3.0&viewFallbackFrom=azps-3.0.0)
- - [Microsoft 365](https://docs.microsoft.com/ja-jp/microsoft-365/enterprise/getting-started-with-microsoft-365-powershell?view=o365-worldwide)
- - [Teams](https://docs.microsoft.com/ja-jp/microsoftteams/teams-powershell-overview)
- - [SharePoint](https://docs.microsoft.com/ja-jp/powershell/sharepoint/?view=sharepoint-ps)
+ - [Power Apps/Power Automate](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
+ - [Azure](https://learn.microsoft.com/ja-jp/powershell/azure/?view=azps-6.3.0&viewFallbackFrom=azps-3.0.0)
+ - [Microsoft 365](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/getting-started-with-microsoft-365-powershell?view=o365-worldwide)
+ - [Teams](https://learn.microsoft.com/ja-jp/microsoftteams/teams-powershell-overview)
+ - [SharePoint](https://learn.microsoft.com/ja-jp/powershell/sharepoint/?view=sharepoint-ps)
  
 <br>
 PowerShell と Power Automate を組み合わせることで、みなさまの業務自動化が進むことを楽しみにしています。<br>
