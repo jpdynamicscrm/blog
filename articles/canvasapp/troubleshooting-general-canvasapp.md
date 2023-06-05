@@ -39,7 +39,7 @@ tags:
     - [公開済みアプリ](#anchor-about-canvasapp-published)
     - [編集中アプリ](#anchor-about-canvasapp-edit)
     - [ソリューション アプリ](#anchor-about-canvasapp-solutionapp)
-    - [SharePoint カスタムフォーム](#anchor-about-canvasapp-sharepointcustomform)
+    - [SharePoint カスタムフォーム](#anchor-about-canvasapp-spocustomform)
     - [コンポーネント単体](#anchor-about-canvasapp-componentlibrary)
 
 ## 情報取得手順
