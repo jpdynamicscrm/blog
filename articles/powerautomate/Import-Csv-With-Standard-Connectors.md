@@ -3,6 +3,7 @@ title: Power Automate で CSV ファイルを取り込む
 date: 2022-08-19 18:40:17
 tags:
   - Power Automate
+  - Cloud flow
 ---
 
 # Power Automate で CSV ファイルを取り込む
@@ -55,12 +56,12 @@ CSV ファイルを処理する前に、まずは改行を格納する変数を�
 
 式：`decodeUriComponent('%0D%0A')`
 
-今回の例では、[decodeUriComponent 関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#decodeUriComponent) を使用します。パラメータの `%0D%0A` は改行コード (CRLF) を表しています。
+今回の例では、[decodeUriComponent 関数](https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#decodeUriComponent) を使用します。パラメータの `%0D%0A` は改行コード (CRLF) を表しています。
 
 ![](./Import-Csv-With-Standard-Connectors/image005.png)
 
 次に、トリガーアクションの「ファイルコンテンツ」を変数「CSVコンテンツ」に格納します。その後、「CSVコンテンツ」を「改行コード」で分割してアレイ変数に格納します。
-指定の文字で分割するには、[split 関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#split) を使います。
+指定の文字で分割するには、[split 関数](https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#split) を使います。
 
 式：`split(variables('CSVコンテンツ'), variables('改行コード'))`
 
