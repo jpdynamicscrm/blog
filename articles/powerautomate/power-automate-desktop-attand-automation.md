@@ -5,6 +5,7 @@ tags:
   - Power Automate
   - Desktop flow
   - Power Automate for desktop
+  - How to
 ---
 
 こんにちは。Power Platform サポートの原野です。
