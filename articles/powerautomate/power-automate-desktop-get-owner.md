@@ -3,8 +3,8 @@ title: 環境内のデスクトップ フローの所有者、作成日、修正
 date: 2022-11-15 12:00
 tags:
   - Power Automate
-  - Desktop flows
-  - Power Automate Desktop
+  - Desktop flow
+  - Power Automate for desktop
 ---
 
 こんにちは。Power Platform サポートの原野です。  
