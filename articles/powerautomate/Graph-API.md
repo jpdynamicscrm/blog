@@ -5,6 +5,7 @@ tags:
   - Power Automate
   - Cloud flow
   - Graph API
+  - How to
 ---
 
 こんにちは、Power Platform サポートチームの清水です。
