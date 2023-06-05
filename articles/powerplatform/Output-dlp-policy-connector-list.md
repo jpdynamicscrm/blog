@@ -4,6 +4,7 @@ date: 2022-10-12 19:23:09
 tags:
   - Power Platform
   - PowerShell
+  - DLP ポリシー
 ---
 
 こんにちは、Power Platform サポートの瀬戸です。

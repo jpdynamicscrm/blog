@@ -3,7 +3,7 @@ title: 低速フローのトラブル シューティング
 date: 2023-05-17 00:00
 tags:
   - Power Automate
-  - Cloud flows
+  - Cloud flow
 ---
 
 # 低速フローのトラブル シューティング

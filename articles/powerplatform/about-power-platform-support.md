@@ -3,7 +3,7 @@ title: Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の�
 date: 2023-04-20 15:00:00
 tags:
 - Power Platform
-- Supportability
+- サポート
 ---
 
 # Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項

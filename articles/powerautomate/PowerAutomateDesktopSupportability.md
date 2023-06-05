@@ -3,8 +3,8 @@ title: Power Automate for desktop のサポート範囲について
 date: 2022-11-11 12:00
 tags:
   - Power Automate
-  - Desktop flows
-  - Power Automate Desktop
+  - Desktop flow
+  - Power Automate for desktop
 ---
 
 こんにちは。Power Platform サポート チームの 王 です。  
@@ -15,7 +15,7 @@ tags:
 ## 初めに
 
 Power Automate for desktop は Windows をご利用のお客様であればどなたでも追加費用なしでご利用いただける RPA ツールです。2021 年 3 月 3日 (日本時間) に公開されました。  
-[Power Automate for desktop の概要](https://docs.microsoft.com/ja-jp/power-automate/desktop-flows/introduction)  
+[Power Automate for desktop の概要](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/introduction)  
 
 今回は Power Automate for desktop のサポート範囲についてご案内します。  
 
@@ -51,7 +51,7 @@ Power Automate for desktop をビジネス クリティカルな用途で使用�
 
 ## 終わりに
 
-Power Autoamte for desktop で弊社サポートをご利用いただけるライセンスにについてご案内いたしました。  
+Power Automate for desktop で弊社サポートをご利用いただけるライセンスにについてご案内いたしました。  
 製品やライセンスに関する情報は随時更新されるため、最新の情報については公開情報もしくは上記ライセンスガイドをご参照ください。  
 
 --

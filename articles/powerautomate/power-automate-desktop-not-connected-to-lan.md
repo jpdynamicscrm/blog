@@ -3,8 +3,8 @@ title: Power Automate for desktop のインストール後に LAN が繋がら�
 date: 2023-6-3 12:00
 tags:
   - Power Automate
-  - Desktop flows
-  - Power Automate Desktop
+  - Desktop flow
+  - Power Automate for desktop
 ---
 
 こんにちは。Power Platform サポートの櫻井です。  

@@ -2,9 +2,8 @@
 title: 「電源フローのロジック アプリ フロー テンプレートが無効です。」 エラーについて
 date: 2022-01-20 9:00:00
 tags:
-  - Power Platform
   - Power Automate
-  - Cloud flows
+  - Cloud flow
 ---
 
 こんにちは、日本マイクロソフト Power Automate サポートの清水です。  
@@ -21,8 +20,8 @@ tags:
 ---
 2021 年 11 月 8 日頃、Power Automate のクラウド フローに新たな機能としてコメント機能が追加されました。  
 
-ブログ: [Collaborative comments in Power Automate | Power Automate ブログ (microsoft.com)​​​​​​​](https://powerautomate.microsoft.com/ja-jp/blog/collaborative-comments-in-power-automate/)  
-公開情報: [Add an advanced option and multiple actions - Power Automate | Microsoft Docs](https://docs.microsoft.com/en-us/power-automate/multi-step-logic-flow#add-comments-to-actions-and-triggers)  
+ブログ: [Collaborative comments in Power Automate | Power Automate ブログ (microsoft.com)](https://powerautomate.microsoft.com/ja-jp/blog/collaborative-comments-in-power-automate/)  
+公開情報: [Add an advanced option and multiple actions - Power Automate | Microsoft Learn](https://learn.microsoft.com/en-us/power-automate/multi-step-logic-flow#add-comments-to-actions-and-triggers)  
 
 この変更により、当該機能のリリース前に作成されたフローでは、機能の追加後初めてフローの編集画面を開いた際、一度だけフローの自動保存が行われる動作となりました。  
 これは、コメント機能を有効にするためのメタデータを追加するための作業です。  

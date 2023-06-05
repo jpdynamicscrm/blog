@@ -3,7 +3,9 @@ title: Power Automate クラウド フローを使用して、Microsoft Graph AP
 date: 2022-01-11 9:30:00
 tags:
   - Power Automate
+  - Cloud flow
   - Graph API
+  - How to
 ---
 
 こんにちは、Power Platform サポートチームの清水です。
@@ -42,12 +44,12 @@ Power Automate では、コネクタを使用して様々な操作を自動化�
 # 使用する API を決定する
 ---
 まずは使用する API を決定します。  
-[Microsoft Graph API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/overview?view=graph-rest-1.0) から、目的に合った API を探してください。  
+[Microsoft Graph API のリファレンス](https://learn.microsoft.com/ja-jp/graph/api/overview?view=graph-rest-1.0) から、目的に合った API を探してください。  
 
 本記事では、よくあるお問い合わせの一つとして、「テキスト形式でメールを送信する」処理を例にとって進めていきたいと思います。  
 Power Automate の Office 365 Outlook コネクタ「メールを送信する (V2)」アクションでは、HTML 形式のメールしか送信できませんが、Graph API を使用することで、テキスト形式でメールを送信することも可能です。  
 今回使用する API はこちらです。  
-[メールを送信する - Microsoft Graph v1.0 | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http)  
+[メールを送信する - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http)  
 
 
 <a id='anchor-check-the-permission'></a>
@@ -56,7 +58,7 @@ Power Automate の Office 365 Outlook コネクタ「メールを送信する (V
 ---
 公開情報には、必ず API を呼び出すために必要なアクセス許可が記されているので、「アクセス許可」のセクションにて必要なアクセス許可が何かを確認してください。   
 
-アクセス許可の選択方法などの詳細については、[Microsoft Graph のアクセス許可のリファレンス | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/permissions-reference)をご参照ください。  
+アクセス許可の選択方法などの詳細については、[Microsoft Graph のアクセス許可のリファレンス | Microsoft Learn](https://learn.microsoft.com/ja-jp/graph/permissions-reference)をご参照ください。  
 今回使用する API では、以下のアクセス許可が必要です。  
 
 ![](./Graph-API/img01.png)  
@@ -89,14 +91,14 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
    
    ![](./Graph-API/img02.png)  
    ※ここでサインインしたユーザーのアクセス許可が委任され、API が実行されます。  
-3. [API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
+3. [API のリファレンス](https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
  
    ![](./Graph-API/img03.png)  
 
    <補足>  
    本文の指定方法は、各リソースのリファレンスを参考に変更してください。  
    今回は、Message リソースを使用するので、下記の公開情報を参照しました。  
-   [メッセージ リソースの種類 - Microsoft Graph | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/api/resources/message?view=graph-rest-1.0)  
+   [メッセージ リソースの種類 - Microsoft Graph | Microsoft Learn](https://learn.microsoft.com/ja-jp/graph/api/resources/message?view=graph-rest-1.0)  
    
    また、テキスト形式でメールを送信することが目的なので、 `message.body.contentType` を `Text` に設定します。  
    
@@ -116,13 +118,13 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
 HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に登録したアプリから API を実行できます。  
 
 1. Azure AD にアプリを登録します。  
-   [アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Docs](https://docs.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph%2Fapi%2F1.0&view=graph-rest-1.) にしたがって、 Azure AD にアプリを登録します。  
+   [アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Learn](https://learn.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) にしたがって、 Azure AD にアプリを登録します。  
    また、登録したアプリの [API のアクセス許可] のページにて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  
    
    ![](./Graph-API/img07.png)   
    
 2. HTTP コネクタの「HTTP」アクションを挿入します。  
-   2-1. [API のリファレンス](https://docs.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
+   2-1. [API のリファレンス](https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
       HTTP コネクタを使用する場合、サインイン中のユーザーがいないため、`/me/sendMail`ではなく、`/users/{id | userPrincipalName}/sendMail` の要求方法を使用することに注意してください。  
       
       ![](./Graph-API/img06.png)  
