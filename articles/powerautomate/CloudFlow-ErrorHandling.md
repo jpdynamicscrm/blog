@@ -2,7 +2,7 @@
 title: クラウド フローでのエラーハンドリングの方法
 date: 2021-09-24 00:00:00
 tags:
-  - Cloud flows
+  - Cloud flow
   - Power Automate
 ---
 
@@ -56,7 +56,7 @@ tags:
 ## エラー情報を取得する  
 ---
 ### 実行履歴の URL の取得
-式にて[ワークフロー関数](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#workflow)を使用することで、実行履歴の URL を生成し、メール等で送付することが可能です。  
+式にて[ワークフロー関数](https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#workflow)を使用することで、実行履歴の URL を生成し、メール等で送付することが可能です。  
 
 実行履歴の URL は下記のような構成となっております。  
 https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}/runs/{実行ID}  
@@ -78,10 +78,10 @@ https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}
 
 「失敗しました」側のアクションでの使用例:  
 ![](./CloudFlow-ErrorHandling/img5.png)  
-参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
+参考：[式関数のリファレンス ガイド](https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
 
 なお、アクションによっては上記の式でエラーメッセージを取得できない場合もありますので、想定されるエラーについて応答 body の json の構造を確認して、適切な式をご設定ください。  
-参考：[式関数のリファレンス ガイド](https://docs.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
+参考：[式関数のリファレンス ガイド](https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#outputs)
 
 <a id='anchor-try-catch'></a>
 
