@@ -3,7 +3,7 @@ title: Dataverse テーブルに登録されている 5,000 件を超えるデ�
 date: 2023-05-31 09:00:00
 tags:
   - Power Automate
-  - Could flow
+  - Cloud flow
   - How to
   - Dataverse
 ---
