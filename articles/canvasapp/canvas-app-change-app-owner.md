@@ -3,7 +3,7 @@ title: キャンバス アプリ所有者の退職・異動への備え
 date: 2022-02-17 00:00:00
 tags:
   - Canvas app
-  - Power Platform
+  - Power Apps
   - PowerShell
 ---
 
@@ -69,7 +69,7 @@ tags:
 当コマンドレットは所有者のアカウントが存在する場合でも所有者を変更することが可能です。
 
 なお、管理者用 Power Apps コマンドレットをご利用前に PowerShell モジュールをインストールいただく必要があります。<br/>
-https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation
+[インストール手順](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation)
 
 
 **実行例**
@@ -83,10 +83,10 @@ Set-AdminPowerAppOwner –AppName '<アプリの GUID>' -AppOwner '<新たな所
 
 **実行コマンドで指定する各種引数について**
 - <アプリの GUID>、<環境の GUID>
-    - 管理者用 Power Apps コマンドレット「[Get-AdminPowerApp](https://docs.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/get-adminpowerapp?view=pa-ps-latest)」コマンドでご取得ください
+    - 管理者用 Power Apps コマンドレット「[Get-AdminPowerApp](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/get-adminpowerapp?view=pa-ps-latest)」コマンドでご取得ください
     - ![](./canvas-app-change-app-owner/image01.png)
 - <新たな所有者の GUID>
-    - 「[Get-AzureADUser](https://docs.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターご確認ください
+    - 「[Get-AzureADUser](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターご確認ください
     - Get-AzureADUser 実行例
         - 例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて ObjectId (AppOwner に指定する値) が取得できます。
         - ```
@@ -107,8 +107,8 @@ Set-AdminPowerAppOwner –AppName '<アプリの GUID>' -AppOwner '<新たな所
     ![](./canvas-app-change-app-owner/image05.png)
 
 ## 参考情報
-- [キャンバス アプリのオーナーとしてログイン ユーザーを設定する](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#set-logged-in-user-as-the-owner-of-a-canvas-app)
-- [Power Appsの管理](https://docs.microsoft.com/ja-jp/power-platform/admin/admin-manage-apps)
-- [キャンパス アプリを削除する](https://docs.microsoft.com/ja-jp/powerapps/maker/canvas-apps/delete-app)
+- [キャンバス アプリのオーナーとしてログイン ユーザーを設定する](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#set-logged-in-user-as-the-owner-of-a-canvas-app)
+- [Power Appsの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/admin-manage-apps)
+- [キャンパス アプリを削除する](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/delete-app)
 
 ---
