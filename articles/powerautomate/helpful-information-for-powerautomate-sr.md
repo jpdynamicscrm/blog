@@ -3,6 +3,8 @@ title: Power Automate お問い合わせの際の情報取得手順
 date: 2022-03-16 9:30:00
 tags:
   - Power Automate
+  - 情報採取
+  - Cloud flow
 ---
 
 こんにちは、Power Platform サポートチームの網野です。  
@@ -22,7 +24,7 @@ tags:
       1. [実行履歴 CSV](#anchor-flowrunhistory-csv)
       1. [フロー実行履歴 URL](#anchor-flowrunhistory-url)
       1. [実行履歴に表示されるエラーメッセージ](#anchor-error-message-in-run-history)
-      1. [アクションの未加工入力、未加工出力 ](#anchor-raw-input-output)
+      1. [アクションの未加工入力、未加工出力](#anchor-raw-input-output)
       1. [テナント情報](#anchor-tenantInfo)
       1. [環境 ID](#anchor-environmentid)
 
@@ -77,7 +79,7 @@ Power Automate に関するサポートサービスのお問い合わせの際�
    ![](./helpful-information-for-powerautomate-sr/export-flow-dv4t.png)  
    1. (フローを選択) > エクスポート > Export solution  
    ![](./helpful-information-for-powerautomate-sr/export-flow-dv4t2.png)  
-   1. 「すべての依存関係をエクスポートする」を選択し、「zip形式でエクスポート」  
+   1. 「すべての依存関係をエクスポートする」を選択し、「zip 形式でエクスポート」  
    ![](./helpful-information-for-powerautomate-sr/export-flow-dv4t3.png)  
 
 
@@ -89,20 +91,20 @@ Power Automate に関するサポートサービスのお問い合わせの際�
    ![](./helpful-information-for-powerautomate-sr/export-flowid2.png)  
 
 <a id='anchor-flowrunhistory-csv'></a>
-## フロー実行履歴CSV
+## フロー実行履歴 CSV
   1. フローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。  
    ![](./helpful-information-for-powerautomate-sr/export-flowrunhistory.png)  
   1. 「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。  
    ![](./helpful-information-for-powerautomate-sr/export-flowrunhistory2.png)  
 
 <a id='anchor-flowrunhistory-url'></a>
-## フロー実行履歴URL
+## フロー実行履歴 URL
   1. <b>Power Automate</b> ポータル画面にアクセスし、以下の手順でフロー詳細画面を開きます  
-     ※Power Apps ポータルや Teams からだと正しくURLが表示されないため、Power Automate ポータルをご利用ください。
+     ※Power Apps ポータルや Teams からだと正しく URL が表示されないため、Power Automate ポータルをご利用ください。
      * マイ フローに作成した場合　-　マイ フロー (①) > (フロー選択)  
      * ソリューションに作成した場合　-　ソリューション(②) > (ソリューションを選択)   > (フロー選択)  
-     * Teams の Power Automate アプリから作成した場合　-　(default環境を選択) (③) > マイ フロー(①) > (フロー選択)  
-     * Teams の Power Apps アプリから作成した場合　-　(Teams環境を選択) (③) > ソリューション(②) > Common Data Services Default Solution > (フロー選択)  
+     * Teams の Power Automate アプリから作成した場合　-　(default 環境を選択) (③) > マイ フロー(①) > (フロー選択)  
+     * Teams の Power Apps アプリから作成した場合　-　(Teams 環境を選択) (③) > ソリューション(②) > Common Data Services Default Solution > (フロー選択)  
     ![](./helpful-information-for-powerautomate-sr/export-flowrunhistory3.png)  
   1. 「28 日間の実行履歴」から履歴を選択します。  
     ![](./helpful-information-for-powerautomate-sr/flowrunurl1.png)
