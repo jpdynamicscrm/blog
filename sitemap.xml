@@ -100,6 +100,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/</loc>
+    
+    <lastmod>2023-06-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-Dataverse-Storage/</loc>
     
     <lastmod>2023-06-05</lastmod>
@@ -108,13 +115,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/</loc>
-    
-    <lastmod>2023-06-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
@@ -177,13 +177,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
-    
-    <lastmod>2023-06-05</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/</loc>
     
     <lastmod>2023-06-05</lastmod>
@@ -191,7 +184,21 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
+    
+    <lastmod>2023-06-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/how-to-avoid-flow-expiration/</loc>
+    
+    <lastmod>2023-06-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
@@ -212,7 +219,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-trigger-condition/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
@@ -220,13 +227,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/</loc>
-    
-    <lastmod>2023-06-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-trigger-condition/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
@@ -289,13 +289,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
-    
-    <lastmod>2023-06-05</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
     
     <lastmod>2023-06-05</lastmod>
@@ -303,14 +296,21 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/CloudFlow-ErrorHandling/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
+    
+    <lastmod>2023-06-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
@@ -331,13 +331,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
-    
-    <lastmod>2023-06-05</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/Send_data_from_automate_to_apps/</loc>
     
     <lastmod>2023-06-05</lastmod>
@@ -352,14 +345,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/portal/OData-risk-in-portal/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/information/test/</loc>
     
     <lastmod>2023-06-05</lastmod>
     
@@ -401,6 +394,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/archive/odata-risk-in-portal/</loc>
+    
+    <lastmod>2023-06-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
     <lastmod>2023-06-05</lastmod>
@@ -424,6 +424,20 @@
 
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Apps-portal/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Pages/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Canvas-app/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
@@ -432,6 +446,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/%E5%A7%94%E4%BB%BB/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Apps/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -452,13 +473,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Platform/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/PowerShell/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
@@ -466,21 +480,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Apps/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9-%E3%82%A2%E3%83%97%E3%83%AA/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Automate/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -501,7 +501,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Apps-portal/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -509,6 +509,41 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Audit-Log/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Platform/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E6%A8%A9%E9%99%90/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Automate/</loc>
+    <lastmod>2023-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -529,14 +564,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/license/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Cloud-flows/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/How-to/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -564,14 +599,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Desktop-flows/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Desktop-flow/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Automate-Desktop/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Automate-for-desktop/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -585,14 +620,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Could-flows/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/On-Premises/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -607,13 +642,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Dynamics/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -641,21 +669,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/PowerApps/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/PowerPlatform/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/DataverseforTeams/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse-for-Teams/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -663,13 +677,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/App-Access-Checker/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -697,14 +704,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Dataverse-for-Teams/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/%E7%92%B0%E5%A2%83/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -712,13 +712,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/</loc>
-    <lastmod>2023-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Supportability/</loc>
     <lastmod>2023-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
