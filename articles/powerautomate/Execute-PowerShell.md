@@ -5,6 +5,7 @@ tags:
   - Power Automate
   - PowerShell
   - Cloud flow
+  - How to
 ---
 
 #  Power Automate から PowerShell を実行する方法
