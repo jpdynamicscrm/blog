@@ -170,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-get-owner/</loc>
-    
-    <lastmod>2023-06-06</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/</loc>
     
     <lastmod>2023-06-06</lastmod>
@@ -184,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-get-owner/</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -192,6 +185,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -240,20 +240,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
-    
-    <lastmod>2023-06-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
-    
-    <lastmod>2023-06-06</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
     
     <lastmod>2023-06-06</lastmod>
@@ -296,6 +282,20 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
     
     <lastmod>2023-06-06</lastmod>
@@ -317,13 +317,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/power-apps-per-app-license/</loc>
-    
-    <lastmod>2023-06-06</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
     
     <lastmod>2023-06-06</lastmod>
@@ -331,7 +324,21 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/power-apps-per-app-license/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -352,7 +359,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/information/ExportExcel-widtherror/</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -373,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/information/ExportExcel-widtherror/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -381,27 +388,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/</loc>
-    
-    <lastmod>2023-06-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
-    
-    <lastmod>2023-06-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
-    
-    <lastmod>2023-06-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -416,6 +402,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
     
     <lastmod>2023-06-06</lastmod>
     
