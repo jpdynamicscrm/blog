@@ -3,8 +3,8 @@ title: Power Automate for desktop で作成したデスクトップ フローを
 date: 2023-04-20 17:00
 tags:
   - Power Automate
-  - Desktop flows
-  - Power Automate Desktop
+  - Desktop flow
+  - Power Automate for desktop
 ---
 
 こんにちは。Power Platform サポートの原野です。  

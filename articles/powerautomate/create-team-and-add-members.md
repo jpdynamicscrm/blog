@@ -3,6 +3,8 @@ title: Power Automate で Teams のチーム作成とメンバー追加を自動
 date: 2023-01-12 00:00:00
 tags:
   - Power Automate
+  - Cloud flow
+  - How to
 ---
 
 # Power Automate で Teams のチーム作成とメンバー追加を自動化

@@ -2,9 +2,8 @@
 title: Power Automate フロー所有者の退職・異動への備え
 date: 2022-10-01 9:00:00
 tags:
-  - Power Platform
   - Power Automate
-  - Cloud flows
+  - Cloud flow
 ---
 
 こんにちは、Power Platform サポートの谷です。<br/>
@@ -17,7 +16,7 @@ tags:
 1. [フローの所有者・実行専用ユーザーとは？](#anchor-about-flowowner)
 2. [フロー作成者 (所有者) が退職あるいは離任する場合はどうしたらいいか？](#anchor-about-flowowner-retire)
 3. [ソリューション フローと非ソリューション フロー](#anchor-solution-flow-or-not)
-4. [フローの所有者を追加するにはどうしたらいいか？](#anchor-add-flow-co-owner)
+4. [フローの所有者を追加するにはどうしたらいいか？](#anchor-add-flow-co-owner)  
     - [PowerShell で所有者を追加する方法](#anchor-add-flow-co-owner-ps)
     - [Power Platform 管理センターで所有者を追加する方法](#anchor-add-flow-co-owner-ppac)
     - [フロー編集画面で所有者を追加する方法](#anchor-add-flow-co-owner-portal)
@@ -96,7 +95,7 @@ Power Platform では、Power Platform 上で構築するアプリやフロー�
 非ソリューション フローの場合のみご利用いただける方法です。<br/>
 
 事前準備として、管理者用 Power Apps コマンドレットのPowerShell モジュールをインストールいただく必要があります。<br/>
-https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation
+https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation
 
 **実行例**
 1. (事前準備) 管理者向け Power Apps コマンドレットをインストールします
@@ -110,7 +109,7 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
 ![](./change-flow-owner/image01.png) 
 
 **<環境ID>の確認方法**
-- 管理者用 Power Apps コマンドレット「 [Get-AdminPowerAppEnvironment](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-a-list-of-all-environments)　」コマンドで対象の 環境ID をご確認ください
+- 管理者用 Power Apps コマンドレット「 [Get-AdminPowerAppEnvironment](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-a-list-of-all-environments)」コマンドで対象の 環境ID をご確認ください
     - 例えば、以下のとおり実行いただきますとテナント内の全環境について 環境ID が取得できます。
     - ```
         Get-AdminPowerAppEnvironment
@@ -118,7 +117,7 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
     - ![](./change-flow-owner/image02.png)
 
 **<フローID>の確認方法**
-- 管理者用 Power Apps コマンドレット「[Get-AdminFlow](https://docs.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-all-flows)」あるいはフロー編集画面のURLからご確認ください
+- 管理者用 Power Apps コマンドレット「[Get-AdminFlow](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-all-flows)」あるいはフロー編集画面のURLからご確認ください
     - Get-AdminFlow実行例
         - 例えば、以下のとおり実行いただきますと、環境内のすべてのフローが取得できます
         - ```
@@ -130,7 +129,7 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
         - ![](./change-flow-owner/image04.png)
 
 **<新所有者の ObjectID> の確認方法**
-- 「[Get-AzureADUser](https://docs.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターでご確認ください
+- 「[Get-AzureADUser](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターでご確認ください
 - Get-AzureADUser 実行例
     - 例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて ObjectId が取得できます。
     - ```
@@ -241,10 +240,9 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
 
 
 ## 参考情報
-- [パフォーマンスプロファイルについて](https://docs.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles)
-- [PowerShell を使用してフローの所有者を追加する](https://docs.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/manage-orphan-flow-when-owner-leaves-org)
-- [Power Platform 管理センターにてフローの所有者を追加する](https://docs.microsoft.com/ja-jp/power-platform/admin/manage-power-automate)
-- [所有者が組織を離れるときに孤立したフローを管理する方法](https://support.microsoft.com/ja-jp/topic/%E6%89%80%E6%9C%89%E8%80%85%E3%81%8C%E7%B5%84%E7%B9%94%E3%82%92%E9%9B%A2%E3%82%8C%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E5%AD%A4%E7%AB%8B%E3%81%97%E3%81%9F%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95-c2915d93-cf96-98a3-e78c-5a69224270b7
-)
+- [パフォーマンスプロファイルについて](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles)
+- [PowerShell を使用してフローの所有者を追加する](https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/manage-orphan-flow-when-owner-leaves-org)
+- [Power Platform 管理センターにてフローの所有者を追加する](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-power-automate)
+- [所有者が組織を離れるときに孤立したフローを管理する方法](https://support.microsoft.com/ja-jp/topic/%E6%89%80%E6%9C%89%E8%80%85%E3%81%8C%E7%B5%84%E7%B9%94%E3%82%92%E9%9B%A2%E3%82%8C%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E5%AD%A4%E7%AB%8B%E3%81%97%E3%81%9F%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95-c2915d93-cf96-98a3-e78c-5a69224270b7)
 
 ---

@@ -4,7 +4,7 @@ date: 2021-04-27 11:30:00
 tags:
   - Power Platform
   - Dataverse for Teams
-  - 環境
+  - Environment
 ---
 
 #  Dataverse for Teams 環境の管理方法
