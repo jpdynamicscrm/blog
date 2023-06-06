@@ -132,4 +132,18 @@
 
     $container.removeClass('mobile-nav-on');
   });
+
+  var mediaQuery = window.matchMedia("(min-width: 767px)");
+  if(mediaQuery.matches){
+    $('#toc-header').addClass('toc-is-expanded');
+    $('#toc-header').next().show();
+  } else {
+    $('#toc-header').removeClass('toc-is-expanded');
+    $('#toc-header').next().hide();
+  }
+  $('#toc-header').on('click', function(){
+    //toggle class for this element and child elements
+    $(this).toggleClass('toc-is-expanded');
+    $(this).next().slideToggle(200);
+  })
 })(jQuery);
