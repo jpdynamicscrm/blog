@@ -3,11 +3,12 @@ title: Power Automate for desktop で作成したデスクトップ フローを
 date: 2023-04-20 17:00
 tags:
   - Power Automate
-  - Desktop flows
-  - Power Automate Desktop
+  - Desktop flow
+  - Power Automate for desktop
+  - How to
 ---
 
-こんにちは。Power Platform サポートの原野です。  
+こんにちは。Power Platform サポートの原野です。
 本記事では Power Automate for desktop で作成したデスクトップ フローをクラウド フローから呼び出して、アテンド型 (有人) でフローを実行する方法についてご案内いたします。  
 
 <!-- more -->
@@ -107,7 +108,7 @@ Power Automate コンピュータ ランタイム アプリを使用して、該
     * 接続：コンピューターに直接送信をご指定ください。  
     * コンピューターまたはコンピューター グループ：登録済みの端末をご指定ください。  
     * ドメインとユーザー名：「ドメイン名\ユーザー名」の形式でご指定ください。  
-    現在端末ログオンしているユーザーのドメインとユーザーの名は whoami コマンドから確認いただけます。  
+    現在端末ログオンしているユーザーのドメインとユーザーの名は `whoami` コマンドから確認いただけます。  
     ※ Web 版 Power Automate のログインアカウントではございませんので、ご注意ください。 
     * パスワード：上記で指定したユーザーのパスワードをご指定ください。  
 

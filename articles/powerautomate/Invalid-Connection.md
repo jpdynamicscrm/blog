@@ -2,7 +2,6 @@
 title: Power Automate で接続が「無効な接続」になる原因
 date: 2021-07-21 9:30:00
 tags:
-  - Power Platform
   - Power Automate
   - Connection
 ---
@@ -47,7 +46,7 @@ Power Automate で使用するコネクタは、Azure AD での認証を行う�
 - 継続的なアクセスを行うためのトークン (更新 トークン)
 
 トークンの取得後、コネクタは上記のうちアクセス トークンを利用してリソースにアクセスします。
-なお、[アクセス トークンは取り消すことはできず、有効期限が切れるまでの間は使用可能](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/active-directory-configurable-token-lifetimes#access-tokens)です。
+なお、[アクセス トークンは取り消すことはできず、有効期限が切れるまでの間は使用可能](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/configurable-token-lifetimes#access-tokens)です。
 
 アクセス トークンの有効期限なそれほど長くないため、有効期限が切れた場合には、
 更新 トークンを利用してアクセス トークンを更新することで、継続的にリソースに対してアクセス可能な仕組みとなっています。
@@ -64,11 +63,11 @@ Power Automate で使用するコネクタは、Azure AD での認証を行う�
 
 - ユーザーまたは管理者が PowerShell を使用して更新トークンを無効化
    Power Automate の接続は、「機密クライアントのトークン」として認識されます。
-   そのため、[公開情報の表](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/access-tokens#revocation)に記載の通り、更新トークンを無効化した場合のみトークンが取り消されます。
+   そのため、[公開情報の表](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/access-tokens#revocation)に記載の通り、更新トークンを無効化した場合のみトークンが取り消されます。
    パスワード変更や期限切れでは、更新 トークンは無効となりません。
 
 - 接続が長期間 (90 日以上) 使用されていない
-  [更新 トークンの最大非アクティブ時間](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/active-directory-configurable-token-lifetimes#refresh-and-session-token-lifetime-policy-properties)の制限により、接続が 90 日以上使用されていない場合、更新 トークンは失効いたします。
+  [更新 トークンの最大非アクティブ時間](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/configurable-token-lifetimes#refresh-and-session-token-lifetime-policy-properties)の制限により、接続が 90 日以上使用されていない場合、更新 トークンは失効いたします。
 
 上記の場合、更新 トークンが失効してアクセス トークンの更新ができないため、「無効な接続」となってしまいます。
 
@@ -93,7 +92,7 @@ Power Automate で使用するコネクタは、Azure AD での認証を行う�
 
 ## おわりに
 
-以上、Power Autoamte での認証の仕組みについてご説明しました。
+以上、Power Automate での認証の仕組みについてご説明しました。
 認証が切れるケースに該当するような操作を行う場合は、Power Automate での接続の再認証もお忘れないよう、ご留意ください。
 
 ---

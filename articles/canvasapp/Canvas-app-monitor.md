@@ -2,6 +2,7 @@
 title: キャンバス アプリのモニターログ取得手順
 date: 2021-06-17 00:00:00
 tags:
+  - Power Apps
   - Canvas app
   - モニター
   - 情報採取
@@ -44,7 +45,7 @@ tags:
 
 ### 参考情報
 
-[モニターの概要 | Microsoft Docs](https://docs.microsoft.com/ja-jp/powerapps/maker/monitor-overview)
-[モニターでキャンバス アプリをデバッグする | Microsoft Docs](https://docs.microsoft.com/ja-jp/powerapps/maker/monitor-canvasapps)
+[モニターの概要 | Microsoft Docs](https://learn.microsoft.com/ja-jp/power-apps/maker/monitor-overview)
+[モニターでキャンバス アプリをデバッグする | Microsoft Docs](https://learn.microsoft.com/ja-jp/power-apps/maker/monitor-canvasapps)
 
 ---

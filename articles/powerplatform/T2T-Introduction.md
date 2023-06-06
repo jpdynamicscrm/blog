@@ -4,7 +4,7 @@ date: 2022-12-28 17:30:00
 tags:
   - Power Platform
   - テナント移行
-  - 環境
+  - Environment
 ---
 
 #  環境のテナント移行について

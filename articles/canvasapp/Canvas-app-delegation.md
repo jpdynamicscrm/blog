@@ -1,9 +1,10 @@
 ---
-title: キャンバス アプリ の委任について
+title: キャンバス アプリの委任について
 date: 2021-04-20 00:00:00
 tags:
   - Canvas app
   - 委任
+  - Power Apps
 ---
 
 # キャンバス アプリの委任について
@@ -12,7 +13,7 @@ tags:
 今回は、Power Apps のキャンバス アプリを使用する際に引っ掛かりがちな「委任」の制限について、かみ砕いてご説明いたします。
 
 
-公開情報は[こちら](https://docs.microsoft.com/ja-jp/powerapps/maker/canvas-apps/delegation-overview)。
+公開情報は[こちら](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/delegation-overview)。
 
 <!-- more -->
 
@@ -27,12 +28,12 @@ Power Apps で扱う業務データは非常に膨大になることも少なく
 
 委任可能なデータソースは、現時点では以下のデータソースのみです。
 それぞれ、委任可能な関数がデータソースによって異なりますので、コネクタのリファレンスをご参照ください。
-- [Microsoft Dataverse (旧名: Common Data Service)](https://docs.microsoft.com/ja-jp/connectors/commondataservice/#power-apps-delegable-functions-and-operations-for-dataverse)
+- [Microsoft Dataverse (旧名: Common Data Service)](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/connections/connection-common-data-service#power-apps-delegable-functions-and-operations-for-dataverse)
 ※Dataverse では、プレビュー機能として CountRows, CountIf, First, in 演算子の委任もサポートしています。
 ![](./Canvas-app-delegation/img00.png)
 (この設定は、既定でオンになっています。)
-- [SharePoint](https://docs.microsoft.com/ja-jp/connectors/sharepointonline/#power-apps-delegable-functions-and-operations-for-sharepoint)
-- [SQL Server](https://docs.microsoft.com/ja-jp/connectors/sql/#power-apps-delegable-functions-and-operations-for-sql-server)
+- [SharePoint](https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#power-apps-delegable-functions-and-operations-for-sharepoint)
+- [SQL Server](https://learn.microsoft.com/ja-jp/connectors/sql/#power-apps-functions-and-operations-delegable-to-sql-server)
 
 ## 委任できない場合どうなるの？
 委任できないデータソースや関数を使用した場合、Power Apps では、一度データソースから全てのデータをメモリ上にダウンロードします。
@@ -92,7 +93,7 @@ ClearCollect(Num,
 
 // 複数回に分けてアイテムを取得
 ForAll(Num,
-    Collect(Col, FIlter(データソース, IDCount < Max, IDCount >= Min));
+    Collect(col, FIlter(データソース, IDCount < Max, IDCount >= Min));
 )
 /*
 SharePoint の ID 列は数値だが=以外の演算子の委任をサポートしていないため、ID と同じ値を持つ IDCount 列を作成して使用。

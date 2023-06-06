@@ -3,6 +3,7 @@ title: Power Automate におけるフローの有効期限切れを防ぐ
 date: 2023-03-03 15:00:00
 tags:
   - Power Automate
+  - Cloud flow
 ---
 
 # Power Automate におけるフローの有効期限切れを防ぐ
@@ -19,12 +20,12 @@ tags:
 
 詳細については以下の公開文書を併せてご確認ください。
 
-[制限と構成 - Power Automate | Microsoft Docs](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
+[制限と構成 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
 
 *Power Apps コミュニティプランは 2021 年 5 月に Power Apps 開発者プランに名称を変更しました。  
 Power Apps 開発者プランの詳細につきましては以下の公開情報をご参照ください。  
 
-[Power Apps 開発者プランにサインアップ - Power Apps | Microsoft Docs](https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan#improvements-from-the-previous-power-apps-community-plan)
+[Power Apps 開発者プランにサインアップ - Power Apps | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan#improvements-from-the-previous-power-apps-community-plan)
 
 ## [フローの無効化を回避する方法]
 
@@ -41,16 +42,16 @@ Power Apps 開発者プランの詳細につきましては以下の公開情報
 
 スタンドアロンの Power Automate ライセンスを購入することにより、自動で無効化される事象を回避できます。以下のいずれかの方法をご検討ください。
 
-* ユーザーごとの Power Autoamte ライセンスを購入し、対象のフローの作成者に割り当てる  
-* フローごとの Power Autoamte ライセンスを購入し、対象のフローに割り当てる  
+* ユーザーごとの Power Automate ライセンスを購入し、対象のフローの作成者に割り当てる  
+* フローごとの Power Automate ライセンスを購入し、対象のフローに割り当てる  
   
 詳細につきましては以下の公開情報も併せてご確認ください。  
 
-[制限と構成 - Power Automate | Microsoft Docs](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
+[制限と構成 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
 
 また、スタンドアロンの Power Automate ライセンスの詳細につきましては以下の公開情報をご参照ください。
 
-[Power Automate ライセンスの種類 - Power Platform | Microsoft Docs](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types)  
+[Power Automate ライセンスの種類 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types)  
 [価格 | Microsoft Power Automate](https://powerautomate.microsoft.com/ja-jp/pricing/)  
 
 ## ② フロー作成日、あるいは最終実行日から 120 日以内に 1 度以上実行する。  

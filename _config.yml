@@ -25,9 +25,8 @@ root_tag_generator:
   root_tag_names:
     - Information
     - Archive
-    - Canvas app
-    - Model-driven app
-    - Power Apps Portal
+    - Power Apps
+    - Power Pages
     - Power Automate
     - Power Virtual Agents
     - Power Platform
