@@ -15,7 +15,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/MC454715/messagecenter.png">
 <meta property="article:published_time" content="2023-06-06T02:30:00.000Z">
-<meta property="article:modified_time" content="2023-06-07T00:53:10.164Z">
+<meta property="article:modified_time" content="2023-06-07T01:08:01.731Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Apps">
 <meta property="article:tag" content="Power Platform">
@@ -108,7 +108,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+cc9621ac-1650-5416-bf57-9bd5b31a1f11%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMC454715+%28Power+Apps%E3%81%A8Power+Platform%E3%81%AE%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%95%E3%82%8C%E3%82%8B%E6%96%B0%E3%81%97%E3%81%84Power+Platform%E3%81%AEURL%29%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FMC454715%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FMC454715.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FMC454715.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/MC454715/" data-id="clikzxdes002i0ooiftdzc8ns" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/MC454715/" data-id="clil0gh5r002i0oqsendff6gv" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -133,20 +133,18 @@
 <p>  また、Power Apps / Power Automate をご利用いただく場合に許可が必要な URL は以下の公開情報におまとめしています。<br>  本件の対応と合わせてすべての URL が許可されているかご確認ください。 </p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#required-services">Power Apps 必要なサービス</a></li>
-<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration#required-services">Power Automate 必要なサービス</a>  <br></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration#required-services">Power Automate 必要なサービス</a>  </li>
 </ul>
 </li>
 <li><p><u>Azure AD の条件付きアクセスの確認</u><br>  Azure AD の条件付きアクセスを利用している場合、Power Platform API アプリがブロックされていないことを確認してください。<br>  Azure AD の条件付きアクセスを利用していない場合や、Power Platform API アプリをブロックしていない場合は対応は必要ございません。  </p>
-  <br>
-  また、Azure AD の条件付きアクセスを利用している場合、Power Apps および Power Automate をご利用いただくには [公開情報](https://learn.microsoft.com/ja-jp/power-platform/guidance/adoption/conditional-access) に記載されているアプリがすべて許可されている必要があります。  
-  2023/06/04 時点では以下のアプリが対象となりますので、本件の対応と合わせて対象のアプリがすべてブロックされていないことをご確認ください。  
-  * Common Data Service
-  * Power Platform API
-  * Microsoft Power Apps
-  * Microsoft Flow
-  * Microsoft Azure Management  
-  <br>
-
+<p>  また、Azure AD の条件付きアクセスを利用している場合、Power Apps および Power Automate をご利用いただくには <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/guidance/adoption/conditional-access">公開情報</a> に記載されているアプリがすべて許可されている必要があります。<br>  2023/06/04 時点では以下のアプリが対象となりますので、本件の対応と合わせて対象のアプリがすべてブロックされていないことをご確認ください。  </p>
+<ul>
+<li>Common Data Service</li>
+<li>Power Platform API</li>
+<li>Microsoft Power Apps</li>
+<li>Microsoft Flow</li>
+<li>Microsoft Azure Management  <br></li>
+</ul>
 <p>  Azure AD の条件付きアクセスポリシーに Power Platform API が表示されない場合は以下の公開情報に記載の PowerShell から追加することができます。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/programmability-authentication-v2#step-2-configure-api-permissions">ステップ 2. API アクセス許可の構成</a></p>
   <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Install the Azure AD the module</span></span><br><span class="line"><span class="built_in">Install-Module</span> AzureAD</span><br><span class="line"> </span><br><span class="line"><span class="built_in">Connect-AzureAD</span></span><br><span class="line"><span class="built_in">New-AzureADServicePrincipal</span> <span class="literal">-AppId</span> <span class="number">8578</span>e004<span class="literal">-a5c6</span><span class="literal">-46e7</span><span class="literal">-913e</span><span class="literal">-12f58912df43</span> <span class="literal">-DisplayName</span> <span class="string">&quot;Power Platform API&quot;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
