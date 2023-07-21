@@ -28,9 +28,13 @@ Power Automate for desktop をビジネス クリティカルな用途で使用�
 - Power Automate per user plan with attended RPA  
 - Power Automate unattended RPA add-on（前提としてPower Automate per user with attended RPA または Power Automate per flow が必要）  
 - 従量課金制プラン
+- Power Automate 試用版ライセンス
 
 ライセンスのご購入状況は、Microsoft 365 管理センターの [課金情報] - [サービスを購入する] からご確認いただけます。  
-上記ライセンスで Power Automate for desktopご利用されていないお客様は、サポートにお問い合わせをいただいた場合もご支援することができません。  
+
+Power Automate for desktop のサポートに関しましては、[プレミアム機能](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/premium-features#premium-feature-list)の一部として含まれておりますため、  
+上記いずれのライセンスもお持ちではない場合には、サポートにお問い合わせをいただいた場合もご支援することができません。  
+
 ライセンスをお持ちでない場合は、以下のコミュニティをご活用ください。  
 [Microsoft Power Automate Community](https://powerusers.microsoft.com/t5/Microsoft-Power-Automate/ct-p/MPACommunity)
 
