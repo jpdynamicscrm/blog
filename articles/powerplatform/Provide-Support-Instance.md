@@ -41,9 +41,10 @@ tags:
     同意レベルが異なる場合 [サポート リクエストを作成した後、同意を付与または取り消すにはどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#how-do-i-grant-or-revoke-consent-after-i-create-a-support-request) を参考に、同意レベルを設定ください。
 
     また、上記の同意レベルが表示されない場合は、弊社にて実施いたしますので、証跡として以下をご共有いただきますようお願いいたします。ただし、弊社で実施する場合は約1~2営業日ほどお時間いただく場合がございますので予めご了承ください。
-    *事象発生環境URL
-    *コピーするユーザーのUPN
-    *同意レベル（完全コピー/最小コピー）
+   * 事象発生環境 URL (\***.crm\*.dynamics.com)
+   * コピーするユーザーのUPN
+   * 同意レベル（完全コピー/最小コピー）
+   
     
 
 
