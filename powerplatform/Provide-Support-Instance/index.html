@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/04_processing.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/07_search_instance.png">
 <meta property="article:published_time" content="2022-11-11T08:30:00.000Z">
-<meta property="article:modified_time" content="2023-07-21T03:20:59.043Z">
+<meta property="article:modified_time" content="2023-07-31T08:44:39.371Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Dynamics">
 <meta property="article:tag" content="Environment">
@@ -115,7 +115,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4f5d6141-6d4c-530b-9d3c-60b0e2a06576%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88+%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AE%E6%8F%90%E4%BE%9B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FProvide-Support-Instance%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FProvide-Support-Instance.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FProvide-Support-Instance.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="clkc0ky5k002p0nmndgdrfnj9" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="clkqmjpw6002p0omuegocbqf5" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -124,15 +124,17 @@
 <p>本記事では弊社サポート サービスでお問合せいただいたお客様に向けてご案内しておりますサポート インスタンスを紹介します。</p>
 <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>サポート インスタンスは、弊社エンジニアがお客様の問題を再現させて調査することを目的とした環境です。</p>
 <p>サポート インスタンスへお客様の事象が発生している環境をコピーしていただくことで、事象の再現と調査を一貫して行うことが可能となり、早期解決が見込めます</p>
-<p>弊社エンジニアがサポート インスタンスを利用した調査が有効であると判断した場合、お客様にサポート インスタンスの作成について可否を伺います。ご了承いただける場合は、次の 1, 2 をご対応いただき、弊社にてサポート インスタンス作成後、お客様にて 3 のコピーをお願いいたします。</p>
+<p>弊社エンジニアがサポート インスタンスを利用した調査が有効であると判断した場合、お客様にサポート インスタンスの作成について可否を伺います。ご了承いただける場合は、以下に一連の流れを記載いたしますので、ご確認いただきますようお願いいたします。</p>
 <hr>
 <ol>
-<li><a href="#anchor-about-criteria">サポートインスタンス作成条件の確認</a></li>
-<li><a href="#anchor-about-information">情報の提供</a></li>
-<li><a href="#anchor-about-copy">サポートインスタンスのコピー</a></li>
+<li><a href="#anchor-about-criteria">サポートインスタンス作成条件の確認</a>（お客様の作業）</li>
+<li><a href="#anchor-about-information">情報の提供</a>（お客様の作業）</li>
+<li><a href="#anchor-create-instance">サポートインスタンスの作成</a>（弊社の作業）</li>
+<li>Power Platform 管理者または、全体管理者以外の方は、プロビジョニングを行う（お客様の作業）<br>詳細は<a href="#anchor-about-environment">サポート インスタンス環境が表示されない場合</a>をご覧ください。<br>Power Platform 管理者または、全体管理者の方はこちらの作業は行う必要はありません。</li>
+<li><a href="#anchor-about-copy">サポートインスタンスのコピー</a>（お客様の作業）</li>
 </ol>
 <p><a id='anchor-about-criteria'></a></p>
-<h2 id="1-サポートインスタンス作成条件の確認"><a href="#1-サポートインスタンス作成条件の確認" class="headerlink" title="1. サポートインスタンス作成条件の確認"></a>1. サポートインスタンス作成条件の確認</h2><p>サポート インスタンスを作成するために、次の全ての条件を満たす必要がございます。</p>
+<h2 id="1-サポートインスタンス作成条件の確認（お客様の作業）"><a href="#1-サポートインスタンス作成条件の確認（お客様の作業）" class="headerlink" title="1. サポートインスタンス作成条件の確認（お客様の作業）"></a>1. サポートインスタンス作成条件の確認（お客様の作業）</h2><p>サポート インスタンスを作成するために、次の全ての条件を満たす必要がございます。</p>
 <ul>
 <li>a. お問い合わせ起票者は、事象発生環境にて、システム管理者のセキュリティロールが割り当てられている。</li>
 <li>b. お問い合わせの対象製品として Dynamics 365 Customer Enagagement が選択されている。<br><img src="/blog/powerplatform/Provide-Support-Instance/00_SR_product.png"></li>
@@ -143,12 +145,14 @@
   同意レベルが異なる場合 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#how-do-i-grant-or-revoke-consent-after-i-create-a-support-request">サポート リクエストを作成した後、同意を付与または取り消すにはどうすればよいですか?</a> を参考に、同意レベルを設定ください。</li>
 </ul>
 <p><strong>留意事項</strong></p>
-<p>事象発生テナントとお問い合わせ起票テナントが異なる場合 – 例えば A 社環境で事象が発生しており、パートナー様 B 社が代理で調査依頼を起票する場合は条件 a ~ c を満たすことをご確認ください。条件を満たさない場合、条件に合致するよう新規お問い合わせのご起票をお願いさせていただくことがございます。</p>
-<p>これらの条件は <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment">サポート環境と顧客データへのアクセスへの同意</a> に説明されますように、お客様のプライバシーを尊重するための措置でございます。ご了承くださいますと幸いでございます。</p>
+<p> 上記の同意レベルが表示されない場合は、弊社にて同意レベルの変更を代理実施いたしますので、以下をご共有いただきますようお願いいたします。ただし、弊社で実施する場合は約1~2営業日ほどお時間いただく場合がございますので予めご了承ください。</p>
+<ul>
+<li>事象発生環境 URL（***.crm*.dynamics.com）</li>
+<li>コピーするユーザーの UPN</li>
+<li>同意レベル（完全コピー/最小コピー）</li>
+</ul>
 <p><a id='anchor-about-information'></a></p>
-<h2 id="2-情報の提供"><a href="#2-情報の提供" class="headerlink" title="2. 情報の提供"></a>2. 情報の提供</h2><ol>
-<li><a href="#anchor-about-criteria">サポートインスタンス作成条件の確認</a> が完了しましたら、サポート インスタンス作成のため、弊社サポート エンジニアへ次の情報をご提供ください。</li>
-</ol>
+<h2 id="2-情報の提供（お客様の作業）"><a href="#2-情報の提供（お客様の作業）" class="headerlink" title="2. 情報の提供（お客様の作業）"></a>2. 情報の提供（お客様の作業）</h2><p><a href="#anchor-about-criteria">サポートインスタンス作成条件の確認</a> が完了しましたら、サポート インスタンス作成のため、弊社サポート エンジニアへ次の情報をご提供ください。</p>
 <ul>
 <li><p>事象発生環境 URL (***.crm*.dynamics.com)</p>
 </li>
@@ -156,10 +160,12 @@
 <p>UPN は Power Platform 管理センター &gt; 環境 &gt; 設定 &gt; ユーザー のユーザー名よりご確認いただけます。<br><img src="/blog/powerplatform/Provide-Support-Instance/00_UPN.png"></p>
 </li>
 </ul>
-<p>ご提供いただいた情報より、弊社にてサポート インスタンスを作成いたします。</p>
-<p>サポート エンジニアより、新規作成したサポート インスタンス環境名をお問い合わせ起票者へご連絡いたしますので、3. <a href="#anchor-about-copy">サポートインスタンスのコピー</a> の手順でコピーを実施ください。</p>
+<p><a id='anchor-create-instance'></a></p>
+<h2 id="3-サポートイインスタンスの作成（弊社の作業）"><a href="#3-サポートイインスタンスの作成（弊社の作業）" class="headerlink" title="3. サポートイインスタンスの作成（弊社の作業）"></a>3. サポートイインスタンスの作成（弊社の作業）</h2><p>ご提供いただいた情報より、弊社にてサポート インスタンスを作成いたします。</p>
+<p>サポート エンジニアより、新規作成したサポート インスタンス環境名をお問い合わせ起票者へご連絡いたしますので、4. <a href="#anchor-about-copy">サポートインスタンスのコピー</a> の手順でコピーを実施ください。</p>
 <p><a id='anchor-about-copy'></a></p>
-<h2 id="3-サポートインスタンスのコピー"><a href="#3-サポートインスタンスのコピー" class="headerlink" title="3. サポートインスタンスのコピー"></a>3. サポートインスタンスのコピー</h2><p>弊社エンジニアより、サポートインスタンス環境名が通知されましたら、2. <a href="#anchor-about-information">情報の提供</a> でご共有いただきました UPN のユーザーにて、コピー操作をお願いいたします。</p>
+<h2 id="4-サポートインスタンスのコピー（お客様の作業）"><a href="#4-サポートインスタンスのコピー（お客様の作業）" class="headerlink" title="4. サポートインスタンスのコピー（お客様の作業）"></a>4. サポートインスタンスのコピー（お客様の作業）</h2><p>弊社エンジニアより、サポートインスタンス環境名が通知されましたら、2. <a href="#anchor-about-information">情報の提供</a> でご共有いただきました UPN のユーザーにて、コピー操作をお願いいたします。</p>
+<p>また、サポート インスタンス環境が表示されない場合は <a href="#anchor-about-environment">サポート インスタンス環境が表示されない場合</a> をご参照ください。</p>
 <ol>
 <li><p>当該 UPN のユーザーにて、 <a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> へサインインします。</p>
 </li>
@@ -187,6 +193,14 @@
 <p><img src="/blog/powerplatform/Provide-Support-Instance/04_processing.png"></p>
 <ol start="7">
 <li>成功しましたらコピー手順は終了です。担当エンジニアまで完了の旨をご連絡ください。</li>
+</ol>
+<p><a id='anchor-about-environment'></a></p>
+<h2 id="サポート-インスタンス環境が表示されない場合"><a href="#サポート-インスタンス環境が表示されない場合" class="headerlink" title="サポート インスタンス環境が表示されない場合"></a>サポート インスタンス環境が表示されない場合</h2><p>サポート インスタンス上に作業者アカウントのプロビジョニングが必要となりますので、以下の操作をお願いいたします。</p>
+<ol>
+<li>ご連絡したサポート インスタンスに、管理者権限が必要なユーザーのアカウントでアクセスするようお願いいたします。<br>エラーが表示されますが、この初回アクセス時にサポート インスタンス上にユーザーが作成（プロビジョニング）されます。（お客様の作業）</li>
+<li>サポートインスタンスにアクセス後、弊社にその旨をご連絡ください。（お客様の作業）</li>
+<li>弊社エンジニアより、プロビジョニングされた作業者アカウントに、システム管理者のセキュリティ ロールを付与いたします。（弊社の作業）</li>
+<li>ロールの付与が完了いたしましたら、ご連絡を差し上げますので、コピー作業をお願いいたします。（お客様の作業）</li>
 </ol>
 <h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><ul>
 <li>本手順は執筆時点の弊社検証環境でのユーザー インターフェイスを基に紹介しております。不明点がございましたら、担当のサポート エンジニアまでご相談ください。</li>
