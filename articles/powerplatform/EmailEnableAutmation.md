@@ -22,7 +22,7 @@ URL:https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell/issues
 ## はじめに
 Dynamics 365では、Dynamics 365と Exchange Online の同期を行うことができます。これを行うことで、 Dynamics 365 のレコードから取引先担当者にメールを送信できるようになったり、営業案件のタイムラインで会話を追跡することができるようになります。<br>
 メールボックスを有効化するためには、承認とテストが既定では必須となっております。
-メールボックスの承認・テストと有効化を手動で行う方法については、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online" target="_blank" rel="noopener noreferrer">Exchange Online への接続</a>をご参照ください。<br>
+メールボックスの承認・テストと有効化を手動で行う方法については、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online" target="_blank">Exchange Online への接続</a>をご参照ください。<br>
 
 
 <a id='anchor-powershell'></a>
@@ -50,7 +50,7 @@ Set-CrmUserMailbox -UserId \<UserId>  -ScheduleTest
 __メールボックスの承認を不要にする__<br>
 メールボックスを有効化するにあたって、メールボックスの承認は、既定では必須となっております。<br>
 ただし、こちらの承認作業は、管理者にて設定を変更いただくことで、要件を削除することが可能となっております。<br>
-詳しい手順につきましては、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online#remove-the-requirement-to-approve-mailboxes" target="_blank" rel="noopener noreferrer">メールボックスを承認するための要件の削除</a>をご参照ください。
+詳しい手順につきましては、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online#remove-the-requirement-to-approve-mailboxes" target="_blank">メールボックスを承認するための要件の削除</a>をご参照ください。
 <br>
 また、メールボックスを承認するための要件を削除せずに、自動化をされたい場合は、[  PowerShell を使用して実行する](#anchor-powershell)をご検討ください。
 
