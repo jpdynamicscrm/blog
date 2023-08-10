@@ -4,7 +4,7 @@ date:
 tags:
   - Dynamics
   - サポート
-  - Environment //要検討
+  - Environment
 ---
 
 # メールボックスの承認・テストと有効化の自動化について
