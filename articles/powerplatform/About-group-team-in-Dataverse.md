@@ -37,7 +37,7 @@ Dataverse では、グループ チームを含め、4 種類のチームとい�
 種類として Office グループ チームと セキュリティ グループ チームの 2 つに分かれますが、記事執筆時点ではグループの種類による機能差はありません。
 
 上記の内容をまとめると、以下のように各チームを比較できます。
-![](./About-group-team-in-Dataverse/image01-compareTeam.png)
+![](./About-group-team-in-Dataverse/compareTable.png)
 
 Azure Entra Identity グループチームの特色は、文字通り Azure Entra Identity グループと連携でき、**グループ チーム配下の Dataverse ユーザーを、Azure Entra Identity グループから一元管理**できることです。
 
@@ -53,7 +53,7 @@ Azure Entra Identity グループチームは Power Platform 管理センター�
 
 **【手順】**
 1. Power Platform 管理センターで 設定 > ユーザーとアクセス許可 > チーム を選択ください。
-![](./About-group-team-in-Dataverse/compareTable.png)
+![](./About-group-team-in-Dataverse/image02-PPAC01.png)
 2. 「チームの作成」を選択ください。
 3. 作成時の入力項目を以下の通り入力ください。この後チームを作成することで、入力したグループとチーム同士が紐づきます。
 ・チームの種類 : Azure Entra Identity セキュリティ グループ または Azure Entra Identity Office グループを選択ください。
