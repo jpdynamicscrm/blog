@@ -13,19 +13,19 @@
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、Power Platform サポートチームの島です。 ※ Azure Active Directory (Azure AD) は2023年7月に Azure Entra Identity に名称が変更となりましたので、ご承知おきくださいますようお願い申し上げます。 Dataverse では、Azure Entra Identity グループ チームを作成することで、セキュリティ グル">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image01-compareTeam.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/compareTable.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image02-PPAC01.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/testTeamCapture.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image04-PPACeditRole.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image06-teamMember.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image05-accessCheck.png">
 <meta property="article:published_time" content="2022-01-07T04:45:00.000Z">
-<meta property="article:modified_time" content="2023-08-14T06:04:56.381Z">
+<meta property="article:modified_time" content="2023-08-14T06:25:28.938Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Model-driven app">
 <meta property="article:tag" content="Dynamics">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image01-compareTeam.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/compareTable.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -112,7 +112,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+ea72032b-bfab-5621-9019-a4b3c961f183%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%86%E6%B3%A8%E6%84%8F%E7%82%B9%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-group-team-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-group-team-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FAbout-group-team-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/" data-id="cllah08in00230nnx8yajeodf" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/" data-id="cllahqngw00230nqsalrc51tb" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -126,14 +126,14 @@
 <h2 id="そもそも、チームとは？"><a href="#そもそも、チームとは？" class="headerlink" title="そもそも、チームとは？"></a>そもそも、チームとは？</h2><hr>
 <p>Dataverse では、グループ チームを含め、4 種類のチームという概念を持ち、この中にユーザーを所属させることができます。<br>それぞれについて簡単にご紹介します。</p>
 <p><strong>1. 所有者チーム</strong><br>セキュリティ ロールを割り当てることのでき、レコードを所有できるチームです。<br>グループ チームと似ていますが、Azure Entra Identity グループとは連動しないため、ユーザーを明示的に指定して追加する必要があります。<br>またDataverse 上の「部署」というオブジェクトに紐づいて自動作成されます。(なのでグループ チームの操作を何もしていなくても、環境に最低ひとつはこの所有者チームが存在します。)<br><strong>2. アクセス チーム</strong><br>セキュリティ ロールを割り当てることができず、レコードも所有しないチームです。<br>ただ、アクセス チーム自体がレコードへのアクセス権を持つため、セキュリティ ロールに依存しないアクセス権制御を行うことができます。<br>将来削除される予定があり、レコードを所有させたくないような一時的なチーム (プロジェクトなど) に適したチームと言えます。<br><strong>3. Azure Entra Identity グループ チーム (Office グループ / セキュリティ グループ)</strong><br>セキュリティ ロールを割り当てることのでき、レコードを所有できるチームです。また、Azure Entra Identity グループと連動します。<br>種類として Office グループ チームと セキュリティ グループ チームの 2 つに分かれますが、記事執筆時点ではグループの種類による機能差はありません。</p>
-<p>上記の内容をまとめると、以下のように各チームを比較できます。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/image01-compareTeam.png"></p>
+<p>上記の内容をまとめると、以下のように各チームを比較できます。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/compareTable.png"></p>
 <p>Azure Entra Identity グループチームの特色は、文字通り Azure Entra Identity グループと連携でき、<strong>グループ チーム配下の Dataverse ユーザーを、Azure Entra Identity グループから一元管理</strong>できることです。</p>
 <h2 id="Azure-Entra-Identity-グループチームで具体的にできること"><a href="#Azure-Entra-Identity-グループチームで具体的にできること" class="headerlink" title="Azure Entra Identity グループチームで具体的にできること"></a>Azure Entra Identity グループチームで具体的にできること</h2><hr>
 <p>Azure Entra Identity グループチームでできること、メリットについて具体的にご紹介します。</p>
 <h3 id="1-Azure-Entra-Identity-グループとの連携"><a href="#1-Azure-Entra-Identity-グループとの連携" class="headerlink" title="1. Azure Entra Identity グループとの連携"></a>1. Azure Entra Identity グループとの連携</h3><p>Azure Entra Identity グループチームでは、セキュリティ グループや Office グループとの同期が可能です。<br>Azure Entra Identity グループチームは Power Platform 管理センターから作成することができますが、このときに対応するAzure Entra Identity グループを選択することで、チームとグループを紐づけることができます。</p>
 <p><strong>【手順】</strong></p>
 <ol>
-<li>Power Platform 管理センターで 設定 &gt; ユーザーとアクセス許可 &gt; チーム を選択ください。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/compareTable.png"></li>
+<li>Power Platform 管理センターで 設定 &gt; ユーザーとアクセス許可 &gt; チーム を選択ください。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/image02-PPAC01.png"></li>
 <li>「チームの作成」を選択ください。</li>
 <li>作成時の入力項目を以下の通り入力ください。この後チームを作成することで、入力したグループとチーム同士が紐づきます。<br>・チームの種類 : Azure Entra Identity セキュリティ グループ または Azure Entra Identity Office グループを選択ください。<br>・グループ名 : 対応するAzure Entra Identity グループ名を選択ください。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/testTeamCapture.png"><br>ちなみに、以下の項目はグループ チームとは関係がありませんが、ご参考までに入力内容を紹介いたします。<br>・チーム名、説明 : 任意のものを入力ください。<br>・部署 : Dataverse の部署を作成いただいている場合は適宜ご要件に合わせて選択ください。作成していない場合はデフォルトの部署が 1 つだけ表示されますので、その部署を選択ください。<br>・管理者 : ご要件に合わせて管理者となるユーザーをご選択ください。<br>・メンバーシップの種類 : Azure Entra Identity グループ メンバーシップを入力する欄です。<strong>後のセクションでもご説明します！</strong></li>
 </ol>
