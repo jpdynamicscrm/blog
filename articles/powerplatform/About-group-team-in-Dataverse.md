@@ -10,7 +10,7 @@ tags:
 
 こんにちは、Power Platform サポートチームの島です。
 
-※ Azure Active Directory (Azure AD) は2023年7月に Azure Entra Identityに名称が変更となりましたので、ご承知おきくださいますようお願い申し上げます。
+※ Azure Active Directory (Azure AD) は2023年7月に Azure Entra Identity に名称が変更となりましたので、ご承知おきくださいますようお願い申し上げます。
 
 Dataverse では、Azure Entra Identity グループ チームを作成することで、セキュリティ グループへのユーザー所属状態によって、ロールを自動的に付け外しすることができます。
 「特定の管理者用セキュリティ グループに所属するユーザーに、自動的にシステム管理者ロールを付与する」というような運用も可能です。
@@ -53,12 +53,12 @@ Azure Entra Identity グループチームは Power Platform 管理センター�
 
 **【手順】**
 1. Power Platform 管理センターで 設定 > ユーザーとアクセス許可 > チーム を選択ください。
-![](./About-group-team-in-Dataverse/image02-PPAC01.png)
+![](./About-group-team-in-Dataverse/compareTable.png)
 2. 「チームの作成」を選択ください。
 3. 作成時の入力項目を以下の通り入力ください。この後チームを作成することで、入力したグループとチーム同士が紐づきます。
 ・チームの種類 : Azure Entra Identity セキュリティ グループ または Azure Entra Identity Office グループを選択ください。
 ・グループ名 : 対応するAzure Entra Identity グループ名を選択ください。
-![](./About-group-team-in-Dataverse/image03-PPAC02.png)
+![](./About-group-team-in-Dataverse/testTeamCapture.png)
 ちなみに、以下の項目はグループ チームとは関係がありませんが、ご参考までに入力内容を紹介いたします。
 ・チーム名、説明 : 任意のものを入力ください。
 ・部署 : Dataverse の部署を作成いただいている場合は適宜ご要件に合わせて選択ください。作成していない場合はデフォルトの部署が 1 つだけ表示されますので、その部署を選択ください。
