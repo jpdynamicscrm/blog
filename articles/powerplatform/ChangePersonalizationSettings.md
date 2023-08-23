@@ -26,7 +26,7 @@ tags:
 ![](./ChangePersonalizationSettings/2ndStep.png)
 3. [New Connection] を選択し、 [Microsoft Login Control] をクリックします。
 4. [Open Microsoft Login Control] をクリックし、ユーザー名などを入力します。
-![](./ChangePersonalizationSettings/4thStep.png)
+![](./ChangePersonalizationSettings/4thStep.png)<br>
 ![](./ChangePersonalizationSettings/4-2ndStep.png)
 5. 該当環境を選択して Connection の任意の名前を入力し、[Finish]を選択します。
 Connection が作成されたことを確認し、[Connections Manager] ウィンドウを閉じます。
