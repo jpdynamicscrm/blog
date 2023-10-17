@@ -136,7 +136,7 @@ https://manage.office.com/api/v1.0/{tenant_id}/activity/feed/{operation}
 
 - コンテンツタイプ
 
-![変数を初期化-コンテンツタイプ](./work-with-audit-log/init-variable-contentType.png)  
+![変数を初期化-コンテンツタイプ](./work-with-audit-log/init-variable-contenttype.png)  
 
 |パラメータ|値|
 |---------|--|
