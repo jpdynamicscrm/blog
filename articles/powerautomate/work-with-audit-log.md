@@ -152,7 +152,7 @@ https://manage.office.com/api/v1.0/{tenant_id}/activity/feed/{operation}
 [現在のサブスクリプションのリストの作成](https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#list-current-subscriptions)  
 
 **2-1．サブスクリプション リストの作成**  
-HTTP コネクタ「HTTP」アクションをフローに追加し、リファレンスに従って、以下のように設定します。  
+HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  
 
 ![HTTPアクション-サブスクリプションリストを確認](./work-with-audit-log/http-list-subscriptions.png)  
 
@@ -222,7 +222,7 @@ HTTP コネクタ「HTTP」アクションをフローに追加し、リファ�
 |右辺|式 > `true`|
 
 **3-3．サブスクリプションの開始**  
-`はいの場合` 内にHTTP コネクタ「HTTP」アクションをフローに追加し、リファレンスに従って、以下のように設定します。  
+`はいの場合` 内にHTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  
 
 ![HTTPアクション-サブスクリプションを開始](./work-with-audit-log/http-start-subscription.png)  
 
