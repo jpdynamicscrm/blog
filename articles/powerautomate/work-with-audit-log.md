@@ -19,14 +19,18 @@ tags:
 プレミアム コネクタを使用するフローとなりますので、有償ライセンスが必要です。  
 以下のいずれかのライセンス/環境があれば、フローを実行可能です。  
 
-- Power Automate Premium (※ 旧名: Power Automate per user with attended RPA)
+- Power Automate Premium (※ 旧名: Power Automate per user with attended RPA)  
 - Power Automate Process
-‐ Power Automate per user (※ 2023/8/1~ レガシー)
-‐ Power Automate per flow (※ 2023/8/1~ レガシー)
-‐ 従量課金制環境
+- Power Automate per user (※ 2023/8/1~ レガシー)
+- Power Automate per flow (※ 2023/8/1~ レガシー)
+- 従量課金制環境  
+
+## 必要な権限について
+Office 365 Management API を使用するために必要なアクセス許可を付与する際、テナント管理者の同意が必要となります。  
+同意の付与には、グローバル管理者の権限が必要です。
 
 ## 手順の概要
-フローは大きく 5 つのステップで構成されます。  
+フローは大きく 7 つのステップで構成されます。  
 
 0. 事前準備
 Office 365 Management API を使用する準備として、Azure AD へのアプリケーションの登録およびアクセス許可の付与などを行います。  
@@ -421,3 +425,7 @@ SharePoint コネクタ「ファイルの作成」アクションを追加し、
 今回は `Audit.AzureActiveDirectory` のコンテンツ タイプを対象に API を実行しましたが、SharePoint など他のコンテンツ タイプについても同じ構成のフローで実行できますので、ぜひカスタマイズして便利なフローを作ってみてください。  
 
 ![フロー全体像](./work-with-audit-log/flow.png)
+
+## 補足
+Power Autoamte のテンプレートギャラリーには、"[Office 365 の監査ログで特定の詳細を監視してアラートを送信](https://make.powerautomate.com/galleries/public/templates/4a7ea95259f1404e95855f6b053360b1/office-365-%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E7%9B%A3%E8%A6%96%E3%81%97%E3%81%A6%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E3%82%92%E9%80%81%E4%BF%A1)" というテンプレートがありますが、こちらは古い API を使用しているため、現時点では使用が推奨されておりません。
+監査ログの取得については、Office 365 Management API でのフローの作成をご検討ください。
