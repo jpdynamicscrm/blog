@@ -35,9 +35,8 @@ Power Automate では、コネクタを使用して様々な操作を自動化�
 ---
 今回作成するフローではプレミアム コネクタを使用するため、以下のいずれかのライセンスが必要です。  
 
-- Power Automate per user
-- Power Automate per flow
-- Power Automate per user with attended RPA
+- Power Automate Premium
+- Power Automate Process
 
 <a id='anchor-decide-the-API'></a>
 
