@@ -41,8 +41,8 @@ tags:
 # 無人実行に必要なライセンスについて
 1. 必要なライセンス  
     クラウド フローからデスクトップ フローを 無人実行で呼び出す際には、下記のいずれかの Power Automate 有償ライセンスが必要になります。  
-    * 有人 RPA を含む Power Automate per user プラン ＋ Power Automate 無人 RPA アドオン
-    * Power Automate per flow プラン＋ Power Automate 無人 RPA アドオン
+    * Power Automate Process
+    * Power Automate Premium ＋ Power Automate ホスト型 RPA アドオン    
     * 従量課金制  
 
     なお、デスクトップ フローを無人実行する際に Office 製品を利用する場合、Office 365 無人ライセンス (E3 unattended License) を購入し、ユーザーに割り当てる必要がございます。  
