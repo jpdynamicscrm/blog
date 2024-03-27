@@ -58,8 +58,8 @@ Power Automate には、サービスを皆さまへ安定的に提供するた�
 |ライセンス|パフォーマンス プロファイル|フローごとの 24 時間あたりのアクション要求数|
 |---|---|---|
 |Power Automate Free<br>Office 365 に含まれる使用権　など|低|10,000|
-|Power Automate per user など|中|100,000|
-|Power Automate per flow|高|500,000|
+|Power Automate Premium など|中|200,000|
+|Power Automate Process|高|500,000|
 
 パフォーマンス プロファイルが「低」の場合、制限値は「10,000」です。
 例えば、1,000 行の CSV ファイルを読み込み、Apply to each で行ごとに処理をする場合、Apply to each の内側のアクションが 10 個あるだけで、実行されるアクション要求数が 10,000 を超えてしまいます。
