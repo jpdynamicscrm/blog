@@ -47,7 +47,7 @@ tags:
 
 # 有人実行に必要なライセンスについて
 クラウド フローからデスクトップ フローを有人実行で呼び出す際には、下記のいずれかの Power Automate 有償ライセンスが必要になります。  
-* 有人 RPA を含む Power Automate per user プラン  
+* Power Automate Premium  
 * 従量課金制  
 
 
