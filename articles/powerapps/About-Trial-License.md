@@ -128,7 +128,7 @@ Microsoft 365 ライセンスに含まれる Power Apps の使用権は、
 試用版ライセンスと同様に Power Apps の全ての機能をご利用いただくには、  
 下記 2 種の Power Apps の有償ライセンスのどちらかが必要となります。  
 ① Power Apps per app プラン  
-② Power Apps per user プラン  
+② Power Apps Premium (旧 : Power Apps per user) プラン  
   
 各ライセンスの内容は以下の通りとなります。
 更なる詳細については上述のライセンスガイドを併せてご確認ください。  
@@ -140,7 +140,7 @@ Microsoft 365 ライセンスに含まれる Power Apps の使用権は、
 　利用されるユーザー数分のライセンスが必要となります。  
 
   
-**② Power Apps per user プラン**  
+**② Power Apps Premium (旧 : Power Apps per user) プラン**  
 　割り当てられた対象ユーザーがアプリ数の制限なく、Power Apps をご利用いただけるライセンスとなっております。  
 　ご利用いただくユーザー数分のライセンスが必要となります。  
   
