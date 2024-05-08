@@ -108,7 +108,7 @@ Power Automateポータルのデスクトップ フローの実行履歴から�
 ## 4. Fiddler ログ
 以下の採取手順をご確認の上でログファイルをご提供ください。  
 なお、情報取得の際はキャプチャ対象を Non-Browser に変更いただくようお願いいたします。  
-[Fiddler ログの採取手順 (microsoft.com)](https://social.technet.microsoft.com/Forums/ja-JP/fe5f977a-2992-44c3-b643-38ad570a3d18/fiddler-12525124641239825505214622516338918?forum=DCRMSupport)
+[Fiddler ログの採取手順 (microsoft.com)](https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler)
 
 <a id='anchor-machine-information'></a>
 
