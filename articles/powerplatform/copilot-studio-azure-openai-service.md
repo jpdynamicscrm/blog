@@ -1,5 +1,5 @@
 
-title: Copilot studioの生成 AI 機能を利用する際のデータ移行について
+title: Copilot studio の生成 AI 機能を利用する際のデータ移行について
 date: 2024-06-14 13:30:00
 tags:
   - Copilot studio
@@ -29,7 +29,7 @@ Microsoft は、信頼、透過性、標準への準拠、および法規制の�
 ### Power Platform のデータの保護に関して
 ユーザーデバイスと Microsoft データセンター間で転送中のデータは、セキュリティ保護されます。 顧客と Microsoft データセンターの間で確立される接続は暗号化され、すべてのパブリックエンドポイントは業界標準の TLS を使用して保護されます。 TLS は、セキュリティが強化されたブラウザーからサーバーへの接続を確立し、デスクトップとデータセンターの間でデータの機密性と整合性を確保することができます。 また、顧客エンドポイントからサーバーへの API アクセスも同様に保護されます。
 
-オンプレミスのデータゲートウェイ経由で転送されたデータも暗号化されます。 ユーザーがアップロードするデータは通常 Azure Blob Storage に送信され、システム自体のすべてのメタデータおよびアーティファクトはAzure SQL Database および Azure Table storage に保存されます。
+オンプレミスのデータゲートウェイ経由で転送されたデータも暗号化されます。 ユーザーがアップロードするデータは通常 Azure Blob Storage に送信され、システム自体のすべてのメタデータおよびアーティファクトは Azure SQL Database および Azure Table storage に保存されます。
 
 
 <br>
@@ -132,7 +132,7 @@ Azure OpenAI Service 上に保存された不正使用を監視するための�
 ## AI Builder のテキスト生成モデル
 ### クラウドフローにおける Copilot と、AI Builder のテキスト生成モデル
 
-クラウドフローの Copilot は、Power Automate フローについて説明し、その過程で役立つガイダンスを提供するだけで、作成および編集ができるように設計されています。AI Builder Power Automate Power Apps のテキスト生成モデルを使用すると、テキストの要約、回答の下書き、テキストの分類など、さまざまなシナリオで、フローや組み込みアプリでGPTモデルを直接使用できます。
+クラウドフローの Copilot は、Power Automate フローについて説明し、その過程で役立つガイダンスを提供するだけで、作成および編集ができるように設計されています。AI Builder Power Automate Power Apps のテキスト生成モデルを使用すると、テキストの要約、回答の下書き、テキストの分類など、さまざまなシナリオで、フローや組み込みアプリで GPT モデルを直接使用できます。
 
 AI Builder のテキスト生成モデルも、米国の環境が前提条件で、Azure OpenAI Service に搭載されています。そのため、格納場所は米国であり、使用用途や閲覧可能ユーザー、データ保護などもここまでの記載と同様の扱いになっています。
 
@@ -145,11 +145,15 @@ AI Builder プロンプトは、Azure OpenAI Service を利用した GPT-3.5 Tur
 >>GPT Prompts and Prompt Builder will be generally available this week across the United States, Australia, the United Kingdom, and Europe. GPT Prompts currently leverage the GPT-3.5-Turbo model from Azure’s OpenAI Service, meaning your prompts and outputs: <br>
 
 > [!IMPORTANT]
-    >>are NOT available to other customers. 
-    >>are NOT available to OpenAI. 
-    >>are NOT used to improve OpenAI models. 
-    >>are NOT used to improve any Microsoft or 3rd party products or services. 
-    >>are NOT used for automatically improving Azure OpenAI models for your use in your resource.
+are NOT available to other customers. 
+are NOT available to OpenAI. 
+are NOT used to improve OpenAI models. 
+are NOT used to improve any Microsoft or 3rd party products or services. 
+are NOT used for automatically improving Azure OpenAI models for your use in your resource.
 
 上記からも判断できる通り、テキストを作成の際のプロンプトの内容が、教師データとして用いられることはありません。
 
+<br><br>
+
+免責事項
+※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。<br>
