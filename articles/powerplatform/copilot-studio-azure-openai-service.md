@@ -1,6 +1,6 @@
 
 title: Copilot studioの生成AI機能を利用する際のデータ移行について
-date: 2024-06-13 XX:00:00
+date: 2024-06-14 13:30:00
 tags:
   - Copilot studio
   - Power Platform
