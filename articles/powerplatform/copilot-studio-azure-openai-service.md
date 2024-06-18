@@ -9,8 +9,9 @@ tags:
   - AI builder
 ---
 
+# Copilot studio の生成 AI 機能を利用する際のデータ移行について
 こんにちは。Power Platform サポートチームの トテ です。
-今日は Copilot Studio の生成 AI 機能におけるデータ移行の考え方についてご案内いたします。
+今回はよく寄せられるお問い合わせのひとつ、 Copilot Studio の生成 AI 機能におけるデータ移行の考え方についてご案内いたします。
 
 <!-- more -->
 
