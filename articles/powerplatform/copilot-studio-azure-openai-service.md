@@ -6,6 +6,7 @@ tags:
   - Power Platform
   - Dynamics 365
   - Power Virtual Agents
+  - AI builder
 
 ---
 
@@ -18,7 +19,9 @@ tags:
 
 ### お客様のデータ処理に関して
 Microsoft によるお客様のデータの処理は、お客様との合意に基づいてのみ行われるとともに、契約で合意した厳格なポリシーと手順に従って行われます。Microsoft の広告主によってサポートされるサービスとの間でお客様のデータを共有することはなく、マーケティングリサーチや広告などの目的でマイニングすることもありません。
+
 <br>
+
 ### Microsoft のコンプライアンスとデータプライバシー
 Microsoft は、信頼、透過性、標準への準拠、および法規制の順守に取り組んでいます。 Microsoft のクラウド製品およびサービスは、顧客の厳格なセキュリティとプライバシーに関する需要に対応するよう、しっかりした基盤の上に構築されています。
 
@@ -31,8 +34,14 @@ Microsoft は、信頼、透過性、標準への準拠、および法規制の�
 
 オンプレミスのデータゲートウェイ経由で転送されたデータも暗号化されます。 ユーザーがアップロードするデータは通常 Azure Blob Storage に送信され、システム自体のすべてのメタデータおよびアーティファクトは Azure SQL Database および Azure Table storage に保存されます。
 
+<br>
+
+参考 URL
+〇 [データ保護とプライバシー](https://www.microsoft.com/ja-jp/trust-center/privacy) 
+〇 [コンプライアンスとデータプライバシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-compliance-data-privacy)
 
 <br>
+
 
 ## Copilot Studio の生成 AI 機能
 Copilot Studio の生成 AI 機能 を使用すると、複雑な会話フローを作成したり、手作業で設定を行うことなく、Copilot を構築できます。これらの機能は、Azure OpenAI API Service と Bing Search を使用しており、米国およびその他のサポートされている地理的場所向けに作成された環境で利用できます。<br>
@@ -40,6 +49,12 @@ Power Virtual Agents は、コード不要のガイド付きグラフィカル�
 
 > [!NOTE]
 > Power Virtual Agents 機能は、生成 AI への投資と Microsoft Copilot 全体の統合の強化により、現在 Microsoft Copilot Studio の一部となっています。
+
+<br>
+
+参考 URL
+〇 [Microsoft Copilot Studio](https://www.microsoft.com/ja-jp/microsoft-copilot/microsoft-copilot-studio)
+〇 [責任ある AI プラクティスの強化](https://www.microsoft.com/ja-jp/ai/responsible-ai)
 
 <br>
 
@@ -72,8 +87,12 @@ Copilot と生成 AI 機能を使用すると、入力 (プロンプト) と出�
 
 *Power Platform と Dynamics 365 の環境が EU データ境界でホストされている場合、同じ境界で Azure OpenAI エンドポイントを使用します。
 
+<br>
 
-<br><br>
+参考URL
+〇 [コパイロットと生成 AI 機能をオンにする](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot)
+
+<br>
 
 ## Copilot と生成 AI 機能を有効化する
 Copilot および生成 AI 機能を使用するには、Power Platform 管理センターで利用規約に同意する必要があります。 同意するには、Microsoft 365 グローバル管理者、Power Platform 管理者、または Dynamics 365 管理者である必要があります。
@@ -116,7 +135,7 @@ Copilot は、サービスの不正使用や危険な使用を監視します。
 >Copilot は顧客データをどのように保護しますか？
 
 Copilot は Azure OpenAI Service を基盤としており、顧客に対する当社の既存のプライバシー、セキュリティ、規制の取り組みに準拠しています。
-
+<br>
 - セキュリティ、プライバシー、コンプライアンスに対する Microsoft の包括的なアプローチに基づいて構築されています。 Copilot は Dynamics 365 や Power Platform などの Microsoft サービスに統合されており、多要素認証やコンプライアンス境界など、セキュリティ、プライバシー、コンプライアンスのポリシーとプロセスを継承します。
   
 - 組織データは複数の保護形式により保護されます。サービス側のテクノロジにより、保存や転送に際して組織コンテンツを暗号化し、堅牢なセキュリティを実現します。 接続はトランスポート層セキュリティ ( TLS ) で保護され、Dynamics 365、Power Platform、Azure OpenAI 間のデータ転送は Microsoft バックボーンネットワーク経由で行われるため、信頼性と安全性が両方とも保証されます。
@@ -127,13 +146,29 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 >顧客データへのアクセスが可能な範囲はどうなっていますか？
 
 Azure OpenAI Service 上に保存された不正使用を監視するためのデータは不正利用の監視を目的として、必要な場合に限り Microsoft 従業員しか確認でません。
+<br><br>
+
+>Copilot は有害なコンテンツをどのようにブロックしますか？
+
+Azure OpenAI Service には、中核モデルと並列に動作するコンテンツフィルターシステムが含まれます。 このシステムは、有害なコンテンツの出力を特定し、ブロックするように設計された分類モデルにより、入力プロンプトと応答の両方を実行することで機能します。[Azure OpenAI コンテンツ フィルターの詳細情報](https://learn.microsoft.com/ja-jp/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython#harm-categories)
+
+<br>
+
+参考 URL
+〇 [コパイロットに関するよくあるご質問](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/faqs-copilot)
+〇[Copilot データ共有に関するよくあるご質問](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing)
+〇[Copilot のセキュリティとプライバシーに関するよくあるご質問](https://learn.microsoft.com/ja-jp/dynamics365/faqs-copilot-data-security-privacy)
+
 <br>
 
 ## AI Builder のテキスト生成モデル
 ### クラウドフローにおける Copilot と、AI Builder のテキスト生成モデル
 
-クラウドフローの Copilot は、Power Automate フローについて説明し、その過程で役立つガイダンスを提供するだけで、作成および編集ができるように設計されています。AI Builder Power Automate Power Apps のテキスト生成モデルを使用すると、テキストの要約、回答の下書き、テキストの分類など、さまざまなシナリオで、フローや組み込みアプリで GPT モデルを直接使用できます。
+クラウドフローの Copilot は、Power Automate フローについて説明し、その過程で役立つガイダンスを提供するだけで、作成および編集ができるように設計されています。
 
+AI Builder Power Automate Power Apps のテキスト生成モデルを使用すると、テキストの要約、回答の下書き、テキストの分類など、さまざまなシナリオで、フローや組み込みアプリで GPT モデルを直接使用できます。
+
+<br>
 AI Builder のテキスト生成モデルも、米国の環境が前提条件で、Azure OpenAI Service に搭載されています。そのため、格納場所は米国であり、使用用途や閲覧可能ユーザー、データ保護などもここまでの記載と同様の扱いになっています。
 
 <br>
@@ -153,7 +188,13 @@ are NOT used for automatically improving Azure OpenAI models for your use in you
 
 上記からも判断できる通り、テキストを作成の際のプロンプトの内容が、教師データとして用いられることはありません。
 
+<br>
+
+参考 URL
+〇[AI Builder プロンプトについて](https://learn.microsoft.com/ja-jp/ai-builder/create-a-custom-prompt)
+〇[AI Builder GPT Prompts are generally available](https://powerautomate.microsoft.com/en-us/blog/ai-builder-gpt-prompts-are-generally-available/)
 <br><br>
+
 
 免責事項
 ※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。<br>
