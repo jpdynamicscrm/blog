@@ -37,8 +37,8 @@ Microsoft は、信頼、透過性、標準への準拠、および法規制の�
 <br>
 
 参考 URL
-〇 [データ保護とプライバシー](https://www.microsoft.com/ja-jp/trust-center/privacy) 
-〇 [コンプライアンスとデータプライバシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-compliance-data-privacy)
+- [データ保護とプライバシー](https://www.microsoft.com/ja-jp/trust-center/privacy) 
+- [コンプライアンスとデータプライバシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-compliance-data-privacy)
 
 <br>
 
@@ -53,8 +53,8 @@ Power Virtual Agents は、コード不要のガイド付きグラフィカル�
 <br>
 
 参考 URL
-〇 [Microsoft Copilot Studio](https://www.microsoft.com/ja-jp/microsoft-copilot/microsoft-copilot-studio)
-〇 [責任ある AI プラクティスの強化](https://www.microsoft.com/ja-jp/ai/responsible-ai)
+- [Microsoft Copilot Studio](https://www.microsoft.com/ja-jp/microsoft-copilot/microsoft-copilot-studio)
+- [責任ある AI プラクティスの強化](https://www.microsoft.com/ja-jp/ai/responsible-ai)
 
 <br>
 
@@ -76,12 +76,12 @@ Copilot と生成 AI 機能を使用すると、入力 (プロンプト) と出�
 <br>
 次の表は、コパイロットと生成 AI 機能に関係する領域を示しています。<br>
 
-| Power Platform または Dynamics 365 環境が<br>ホストされている地域 | Azure OpenAI Service がホストされている地域 | Bing 検索のデータが保存および処理される地域 |
+| Power Platform または Dynamics 365 環境がホストされている地域 | Azure OpenAI Service がホストされている地域 | Bing 検索のデータが保存および処理される地域 |
 | ---- | ---- | ---- |
 | オーストラリア、インド、イギリス、アメリカ合衆国 | お客様の Power Platform または Dynamics 365 環境の<br>地理的地域内	 | アメリカ合衆国 |
 | ヨーロッパ* | スウェーデンまたはスイス | アメリカ合衆国 |
 | フランス、ドイツ、ノルウェイ、スイス | スウェーデンまたはスイス | アメリカ合衆国 |
-| アジア、ブラジル、カナダ、**日本**、韓国、シンガポール、<br>南アフリカ、アラブ首長国連邦 | アメリカ合衆国 | アメリカ合衆国 |
+| アジア、ブラジル、カナダ、**日本**、韓国、シンガポール、南アフリカ、アラブ首長国連邦 | アメリカ合衆国 | アメリカ合衆国 |
 | 政府機関クラウド (GCC、GCC High) | 米国 (商用クラウド) | アメリカ合衆国 |
 
 
@@ -89,8 +89,8 @@ Copilot と生成 AI 機能を使用すると、入力 (プロンプト) と出�
 
 <br>
 
-参考URL
-〇 [コパイロットと生成 AI 機能をオンにする](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot)
+参考 URL
+- [コパイロットと生成 AI 機能をオンにする](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot)
 
 <br>
 
@@ -155,9 +155,9 @@ Azure OpenAI Service には、中核モデルと並列に動作するコンテ�
 <br>
 
 参考 URL
-〇 [コパイロットに関するよくあるご質問](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/faqs-copilot)
-〇[Copilot データ共有に関するよくあるご質問](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing)
-〇[Copilot のセキュリティとプライバシーに関するよくあるご質問](https://learn.microsoft.com/ja-jp/dynamics365/faqs-copilot-data-security-privacy)
+- [コパイロットに関するよくあるご質問](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/faqs-copilot)
+- [Copilot データ共有に関するよくあるご質問](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing)
+- [Copilot のセキュリティとプライバシーに関するよくあるご質問](https://learn.microsoft.com/ja-jp/dynamics365/faqs-copilot-data-security-privacy)
 
 <br>
 
@@ -191,8 +191,8 @@ are NOT used for automatically improving Azure OpenAI models for your use in you
 <br>
 
 参考 URL
-〇[AI Builder プロンプトについて](https://learn.microsoft.com/ja-jp/ai-builder/create-a-custom-prompt)
-〇[AI Builder GPT Prompts are generally available](https://powerautomate.microsoft.com/en-us/blog/ai-builder-gpt-prompts-are-generally-available/)
+- [AI Builder プロンプトについて](https://learn.microsoft.com/ja-jp/ai-builder/create-a-custom-prompt)
+- [AI Builder GPT Prompts are generally available](https://powerautomate.microsoft.com/en-us/blog/ai-builder-gpt-prompts-are-generally-available/)
 <br><br>
 
 
