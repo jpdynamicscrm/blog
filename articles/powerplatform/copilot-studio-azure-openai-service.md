@@ -1,4 +1,4 @@
-
+---
 title: Copilot studio の生成 AI 機能を利用する際のデータ移行について
 date: 2024-06-14 13:30:00
 tags:
@@ -7,7 +7,6 @@ tags:
   - Dynamics 365
   - Power Virtual Agents
   - AI builder
-
 ---
 
 こんにちは。Power Platform サポートチームの トテ です。
