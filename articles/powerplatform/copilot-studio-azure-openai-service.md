@@ -1,5 +1,5 @@
 ---
-title: Copilot studio の生成 AI 機能を利用する際のデータ移行について
+title: Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて
 date: 2024-06-14 13:30:00
 tags:
   - Copilot studio
@@ -9,9 +9,9 @@ tags:
   - AI builder
 ---
 
-# Copilot studio の生成 AI 機能を利用する際のデータ移行について
+# Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて
 こんにちは。Power Platform サポートチームの トテ です。
-今回はよく寄せられるお問い合わせのひとつ、 Copilot Studio の生成 AI 機能におけるデータ移行の考え方についてご案内いたします。
+今回はよく寄せられるお問い合わせのひとつ、 Copilot Studio の生成 AI 機能におけるデータのお取り扱いについてご案内いたします。
 
 <!-- more -->
 
@@ -193,8 +193,8 @@ are NOT used for automatically improving Azure OpenAI models for your use in you
 参考 URL
 - [AI Builder プロンプトについて](https://learn.microsoft.com/ja-jp/ai-builder/create-a-custom-prompt)
 - [AI Builder GPT Prompts are generally available](https://powerautomate.microsoft.com/en-us/blog/ai-builder-gpt-prompts-are-generally-available/)
-<br><br>
+<br><br><br>
 
 
-免責事項
+免責事項<br>
 ※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。<br>
