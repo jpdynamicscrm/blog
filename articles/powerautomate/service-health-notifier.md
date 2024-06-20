@@ -32,7 +32,7 @@ Microsfot 365 管理センターのサービス正常性[（リンク）](https:
 
 下画像のように各サービスで発生している問題の有無を表すステータスや、何か問題がある場合にはその問題の内容と Microsoft がその問題に対して取り組んでいることを Microsoft が公表しています。  
 
-![](./ServiceHealthNotifier/image03.png)  
+![](./service-health-notifier/image03.png)  
 
 <br>
 
@@ -58,11 +58,11 @@ Microsfot 365 管理センターのサービス正常性[（リンク）](https:
 今回は定期的にフローを実行して更新情報の有無を確認するためのフローを作成します。
 そのため、スケジュール済みクラウドフローを構築します。
 
-![](./ServiceHealthNotifier/image04.png)  
+![](./service-health-notifier/image04.png)  
 
 構築するフローの全体像は下画像のようです。  
 
-![](./ServiceHealthNotifier/image05.png)  
+![](./service-health-notifier/image05.png)  
 
 まず、[繰り返し] コネクタで最新情報を取得するための実行間隔を設定します。ここでは例として 15 分と設定します。  
 次に、[過去の時間の取得] コネクタでその設定した時間間隔分、前回実行したときから時間が経っているので、前回実行した時間を取得します。先ほどの例ですと、15 分前の時間を取得します。  
@@ -79,7 +79,7 @@ Microsfot 365 管理センターのサービス正常性[（リンク）](https:
 ## サービス正常性情報の一覧表示を取得する
 今回は、[問題の一覧表示](https://learn.microsoft.com/ja-jp/graph/api/serviceannouncement-list-issues?view=graph-rest-1.0&preserve-view=true&tabs=http) という API を利用します。この API に対するアクセス許可は下画像のようになっております。
 
-![](./ServiceHealthNotifier/image01.png)  
+![](./service-health-notifier/image01.png)  
 
 今回は、アプリケーションのアクセス許可を使用して Microsoft 365 管理センターにアクセスします。フローに付与した認証情報を使用することで、ユーザーに割り当てられたサブスクリプションに依らず、任意のサブスクリプションでのサービス正常性情報を取得することができるようになります。そこで今回は HTTP コネクタを使用して API にアクセスします。  
 
@@ -92,7 +92,7 @@ Microsoft Graph では、[こちらのドキュメント](https://learn.microsof
 
 今回はクエリパラメーターの中でも[\$filter クエリパラメーターを使用する](https://learn.microsoft.com/ja-jp/graph/filter-query-parameter?tabs=http) ことで、取得した一覧情報にフィルタをかけます。$filter クエリパラメーターでサポートされる演算子などは上記リンクや下記画像をご参照ください。  
 
-![](./ServiceHealthNotifier/image02.png)  
+![](./service-health-notifier/image02.png)  
 
 例として、今回は Dynamics と Power Platform （除く Power BI）のサービスに関する情報のみを取得する際の API をご紹介いたします。後述の取得できる「サービス正常性情報」の項目と合わせてご参照ください。
 
