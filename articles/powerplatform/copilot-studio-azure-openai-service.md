@@ -33,7 +33,10 @@ Microsoft は、信頼、透過性、標準への準拠、および法規制の�
 ### Power Platform のデータの保護に関して
 ユーザーデバイスと Microsoft データセンター間で転送中のデータは、セキュリティ保護されます。 顧客と Microsoft データセンターの間で確立される接続は暗号化され、すべてのパブリックエンドポイントは業界標準の TLS を使用して保護されます。 TLS は、セキュリティが強化されたブラウザーからサーバーへの接続を確立し、デスクトップとデータセンターの間でデータの機密性と整合性を確保することができます。 また、顧客エンドポイントからサーバーへの API アクセスも同様に保護されます。
 
+### オンプレミスデータゲートウェイのデータ保護
 オンプレミスのデータゲートウェイ経由で転送されたデータも暗号化されます。 ユーザーがアップロードするデータは通常 Azure Blob Storage に送信され、システム自体のすべてのメタデータおよびアーティファクトは Azure SQL Database および Azure Table storage に保存されます。
+
+Dataverse データベースの環境は、SQL Server Transparent Data Encryption (TDE) を使用して、ディスクへの書き込み時にリアルタイムの暗号化を実行しています。
 
 <br>
 
@@ -112,15 +115,21 @@ Copilot および生成 AI 機能を使用するには、Power Platform 管理�
 ## Dynamics 365 と Power Platform の Copilot データ セキュリティとプライバシーに関する FAQ
 Copilot for Dynamics 365 と Power Platform の機能は、中核となる一連のセキュリティとプライバシーの取り組みおよび Microsoft [責任ある AI の原則](https://www.microsoft.com/ai/principles-and-approach) に従います。 Dynamics 365 と Power Platform のデータは、業界をリードする包括的なコンプライアンス、セキュリティ、プライバシーの制御によって保護されます。
 
-Copilot は  [Microsoft Azure OpenAI Service](https://learn.microsoft.com/ja-jp/azure/cognitive-services/openai/overview) を基盤として構築されており、完全に Azure Cloud 内で実行されます。 Azure OpenAI は、地域可用性と、責任ある AI のコンテンツ フィルターを提供します。 Copilot は [Microsoft Azure のセキュリティ機能](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/overview) をすべて備えた OpenAI モデルを使用します。 OpenAI は独立した組織です。**顧客のデータは OpenAI と共有されません。**
+Copilot は  [Microsoft Azure OpenAI Service](https://learn.microsoft.com/ja-jp/azure/cognitive-services/openai/overview) を基盤として構築されており、完全に Azure Cloud 内で実行されます。 Azure OpenAI は、地域可用性と、責任ある AI のコンテンツフィルターを提供します。<br> Copilot は [Microsoft Azure のセキュリティ機能](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/overview) をすべて備えた OpenAI モデルを使用します。 OpenAI は独立した組織です。**顧客のデータは OpenAI と共有されません。**
+
+<br><br>
+以降では、頻繁に寄せられる質問のうち、公式サイトで公開している FAQ を抜粋してご紹介させていただきます。
+[Dynamics 365 と Power Platform の Copilot データ セキュリティとプライバシーに関する FAQ 全文](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-security-privacy)
 
 
 <br>
 
 >Copilot を使用するとデータはどうなりますか？
 
-お客様のデータは、お客様がコントロールします。許可を付与しない限り、Microsoft は顧客のデータをサードパーティと共有しません。加えて、当社は顧客が同意しない場合は、Copilot やその AI 機能のトレーニングに顧客データを使用しません。 Copilot は既存のデータアクセス許可とポリシーに準拠しており、ユーザーに対する応答は、そのユーザーが個人的にアクセスできるデータのみに基づいています。 
-Copilot は、サービスの不正使用や危険な使用を監視します。当社は不正行為を監視する目的で、Copilot の入出力の保存や人間によるレビューは行いません。
+お客様のデータは、お客様がコントロールします。 許可を付与しない限り、Microsoft は顧客のデータをサードパーティと共有しません。 それに加えて、当社は顧客が同意しない場合は、Copilot やその AI 機能のトレーニングに顧客データを使用しません。 Copilot は既存のデータ アクセス許可とポリシーに準拠しており、ユーザーに対する応答は、そのユーザーが個人的にアクセスできるデータのみに基づいています。 データの制御方法と処理方法の詳細については、[Dynamics 365 アプリと Power Platform の Copilot](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-security-privacy#copilot-in-dynamics-365-apps-and-power-platform) の下にリストされた記事を参照してください。
+
+Copilot は瞬時の処理により、サービスの不正使用や危険な使用を監視します。 当社は不正行為を監視する目的で、Copilot の入出力の保存や人間によるレビューを行いません。
+
 <br><br>
 
 >Copilot は、どのようにユーザーのデータを使用しますか？
@@ -144,23 +153,55 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 - テナントレベルと環境レベルの両方でデータを保護するように設計されています。テナント管理者が当社とのデータ共有をオプトインしていない限り、Microsoft AI モデルはテナントデータやプロンプトに基づいてトレーニングされず、そこから学習もしません。 環境内では、設定したアクセス許可に基づいてアクセスを制御できます。認証と承認のメカニズムにより、テナント間の共有モデルへの要求が分離されます。顧客データを保護するために当社が長年使用してきたのと同様のテクノロジにより、Copilot は顧客がアクセスできるデータのみを利用します。
 <br><br>
 
->顧客データへのアクセスが可能な範囲はどうなっていますか？
+> [!NOTE]
+**Copilot AI 機能のデータ共有とは何ですか？**<br>
+マイクロソフトは、Dynamics 365 Copilot および Power Platform Copilot の新しい AI を活用した Copilot 機能の品質を向上させ、より正確な結果を生成するよう常に取り組んでいます。 Copilot 機能を改善する重要な方法の 1 つは、Copilot 機能へのユーザーの入力、関連する出力、およびテレメトリをより深く理解することです。<br> 
+***Power Platform 管理センターの Dynamics 365 Copilot および Power Platform Copilot AI 機能のデータ共有設定を有効にすると、*** マイクロソフトは、Dynamics 365 および Power Platform Copilot AI 機能、サービス、機械学習モデル、および関連システムを構築、改善、検証するために、ユーザーの自然言語入力、出力、および関連テレメトリを含め (ただし必ずしもこれらに限定されない)、顧客データを取得し、手動でレビューできるようになります。<br>
+当社は、Azure OpenAI Service基盤モデルの学習に顧客データを使用しません。
 
+<br>
+
+>[!NOTE]
+**顧客データへのアクセスが可能な範囲はどうなっていますか？**
 Azure OpenAI Service 上に保存された不正使用を監視するためのデータは不正利用の監視を目的として、必要な場合に限り Microsoft 従業員しか確認でません。
+
+<br>
+
+[データ共有のオプトインをはじめ上記 Note に関する詳細](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing)
+
+
+<br><br>
+
+>Copilot の回答は常に事実に基づいていますか？
+
+他の生成 AI と同様に、Copilot の応答が 100% 事実である保証はありません。 事実に基づいて問い合わせに回答するように当社は改善を継続していますが、他のユーザーに送信する前に必ず自分の判断で出力を確認する必要があります。 Copilot は下書きと概要を提供して作業を効率化しますが、これは完全に自動です。 AI で生成したコンテンツは常に確認する必要があります。
+
+当社のチームは[責任ある AI の原則](https://learn.microsoft.com/ja-jp/dynamics365/faqs-copilot-data-security-privacy)に沿って、誤報や偽情報、コンテンツのブロック、データの安全性、有害なコンテンツや差別的なコンテンツを助長するなどの問題に積極的に取り組んでいます。
+
 <br><br>
 
 >Copilot は有害なコンテンツをどのようにブロックしますか？
 
 Azure OpenAI Service には、中核モデルと並列に動作するコンテンツフィルターシステムが含まれます。 このシステムは、有害なコンテンツの出力を特定し、ブロックするように設計された分類モデルにより、入力プロンプトと応答の両方を実行することで機能します。[Azure OpenAI コンテンツ フィルターの詳細情報](https://learn.microsoft.com/ja-jp/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython#harm-categories)
 
-<br>
+
+
+<br><br>
 
 参考 URL
 - [コパイロットに関するよくあるご質問](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/faqs-copilot)
 - [Copilot データ共有に関するよくあるご質問](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing)
 - [Copilot のセキュリティとプライバシーに関するよくあるご質問](https://learn.microsoft.com/ja-jp/dynamics365/faqs-copilot-data-security-privacy)
 
+<br><br><br>
+
+
 <br>
+FAQ では実際にご質問をいただくことが多い内容を中心に取り上げさせていただきました。<br>ここからは少し毛色を変えて、同様に最近問い合わせの増えている AI Builder のデータの取り扱いについてご紹介させていただきます。
+<br>
+
+## Power Platform における AI Builder の位置づけ
+**AI Builder は、Microsoft Power Platform の一部です。** AI Builder を使えば、Microsoft Power Platform 機能を使用した際に、ビジネスプロセスを最適化する AI モデルを作成することができます。例えば、ニーズに合わせて調整されたカスタムモデルを作成したり、業務シナリオで使用できる事前構築済みモデルの選択が可能です。 <br>AI Builder を使用すると、インテリジェンスを使用してプロセスを自動化し、Power Apps と Power Automate でデータからインサイトを収集することができます。<br><br>
 
 ## AI Builder のテキスト生成モデル
 ### クラウドフローにおける Copilot と、AI Builder のテキスト生成モデル
