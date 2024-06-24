@@ -1,6 +1,6 @@
 ---
 title: Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法
-date: 2022-01-11 9:30:00
+date: 2024-06-24 14:00:00
 tags:
   - Power Automate
   - Cloud flow
@@ -8,18 +8,20 @@ tags:
   - How to
 ---
 
-こんにちは、Power Platform サポートチームの清水です。
+こんにちは、Power Platform サポートチームの清水、竹内です。
 この記事では、Power Automate を使用して、Microsoft Graph API を実行する方法についてご紹介いたします。
 
 <!-- more -->
 # 目次
 
-1. [はじめに](#anchor-intro)
-2. [必要なライセンス](#anchor-license-requirement)
-3. [使用する API を決定する](#anchor-decide-the-API)
-4. [必要なアクセス許可を確認する](#anchor-check-the-permission)
-5. [HTTP with Azure AD コネクタを使用する](#anchor-use-HTTP-with-Azure-AD-Connector)
-6. [HTTP コネクタを使用する](#anchor-use-HTTP-connector)
+- [目次](#目次)
+- [はじめに](#はじめに)
+- [必要なライセンス](#必要なライセンス)
+- [使用する API を決定する](#使用する-api-を決定する)
+- [必要なアクセス許可を確認する](#必要なアクセス許可を確認する)
+- [HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタを使用する](#http-with-microsoft-entra-id-preauthorized-コネクタまたは-http-with-microsoft-entra-id-コネクタを使用する)
+- [HTTP コネクタを使用する](#http-コネクタを使用する)
+  - [おわりに](#おわりに)
 
 <a id='anchor-Intro'></a>
 
@@ -72,27 +74,37 @@ Power Automate の Office 365 Outlook コネクタ「メールを送信する (V
   ユーザーなしでアクセスする際に使用いたします。  
   API を実行するアプリケーション自体にアクセス許可を付与します。  
 
-委任されたアクセス許可が使用できる場合は、ユーザーに変わって API を実行する HTTP with Azure AD コネクタが、  
+委任されたアクセス許可が使用できる場合は、ユーザーに変わって API を実行する HTTP with Entra ID (preauthorized) コネクタまたは HTTP with Entra ID コネクタが、  
 アプリケーションのアクセス許可が使用できる場合は、ユーザーなしで API を実行する HTTP コネクタが使用できます。  
 
 それぞれのコネクタの使い方について説明します。  
 
-<a id='anchor-use-HTTP-with-Azure-AD-Connector'></a>
+<a id='anchor-use-HTTP-with-Entra-ID-Connector'></a>
 
-# HTTP with Azure AD コネクタを使用する  
+# HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタを使用する  
 ---
-HTTP with Azure AD コネクタでは、接続でサインインしたユーザーに代わって API を実行できます。    
+HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタでは、接続でサインインしたユーザーに代わって API を実行できます。  
 
-1. HTTP with Azure AD コネクタの「HTTP 要求を呼び出します」アクションを挿入します。
+> [!NOTE]   
+> Microsoft Entra ID は Azure Active Directory の名称が変更されたものです。この変更の更なる詳細についてはこちらのドキュメント（[Azure Active Directory は Microsoft Entra ID に名称変更されています - Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/ja-jp/entra/fundamentals/compare)）をご参照ください。   
+> 
+> この変更に伴い、HTTP with Azure AD コネクタは HTTP with Microsoft Entra ID (preauthorized) コネクタに変更されました。  
+> また、利用者のアクセス可能な範囲の制御を容易にするため、HTTP with Microsoft Entra ID コネクタが作成されました。  
+> これらのコネクタについての更なる詳細については、こちらのドキュメント（[Microsoft Entra ID 付きの HTTP (事前承認済み) - Connectors | Microsoft Learn](https://learn.microsoft.com/ja-jp/connectors/webcontents/)）（[Microsoft Entra ID を使用した HTTP - Connectors | Microsoft Learn](https://learn.microsoft.com/ja-jp/connectors/webcontentsv2/)）をご参照ください。  
+
+
+以降では HTTP with Microsoft Entra ID (preauthorized) コネクタを使用した例をご紹介いたします。   
+1. HTTP with Microsoft Entra ID (preauthorized) コネクタの「HTTP 要求を呼び出します」アクションを挿入します。
 2. コネクタを初めて使用する場合、接続を作成します。  
-   今回は Graph API を実行するため、「基本リソース URL」と「Azure AD リソース URL」の両方に以下の URL を設定し、[サインイン] をクリックします。  
-   - URL: https://graph.microsoft.com  
+   今回は Graph API を実行するため、「基本リソース URL」と「Microsoft Entra ID リソース URI (アプリケーション ID URI)」の両方に以下の URI を設定し、[サインイン] をクリックします。  
+   - URI: https://graph.microsoft.com  
    
-   ![](./Graph-API/img02.png)  
+   ![](./Graph-API/img08.png)  
+
    ※ここでサインインしたユーザーのアクセス許可が委任され、API が実行されます。  
 3. [API のリファレンス](https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request) を参考に、リクエストを作成します。  
  
-   ![](./Graph-API/img03.png)  
+   ![](./Graph-API/img10.png)  
 
    <補足>  
    本文の指定方法は、各リソースのリファレンスを参考に変更してください。  
@@ -101,13 +113,13 @@ HTTP with Azure AD コネクタでは、接続でサインインしたユーザ�
    
    また、テキスト形式でメールを送信することが目的なので、 `message.body.contentType` を `Text` に設定します。  
    
-   ![](./Graph-API/img04.png)  
+   ![](./Graph-API/img09.png)  
    
 4. フローを実行し、正常に実行されるか確認します。  
 
->[!NOTE]  
->必要なアクセス許可の種類によっては、HTTP with Azure AD コネクタでは API が実行できない場合があります。  
->HTTP with Azure AD コネクタで実行できる権限スコープの一覧は現時点では公開されておりませんが、フローを実行した際に権限エラーが発生する場合、HTTP with Azure AD コネクタでは実行できない可能性がございますので、HTTP コネクタでの実行をお試しください。  
+> [!NOTE]  
+> 必要なアクセス許可の種類によっては、HTTP with Microsoft Entra ID (preauthorized) コネクタでは API が実行できない場合があります。  
+> HTTP with Microsoft Entra ID (preauthorized) コネクタで実行できる権限スコープの一覧は現時点では公開されておりませんが、フローを実行した際に権限エラーが発生する場合、HTTP with Microsoft Entra ID (preauthorized) コネクタでは実行できない可能性がございますので、HTTP with Microsoft Entra ID コネクタや HTTP コネクタでの実行をお試しください。  
 
 
 <a id='anchor-use-HTTP-connector'></a>
