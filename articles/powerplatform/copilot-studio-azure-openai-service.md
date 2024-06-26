@@ -94,16 +94,27 @@ Copilot と生成 AI 機能を使用すると、入力 (プロンプト) と出�
 <br>
 
 参考 URL
-- [コパイロットと生成 AI 機能をオンにする](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot)
+- https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot
 
 <br>
 
-## Copilot と生成 AI 機能を有効化する
-Copilot および生成 AI 機能を使用するには、Power Platform 管理センターで利用規約に同意する必要があります。 同意するには、Microsoft 365 グローバル管理者、Power Platform 管理者、または Dynamics 365 管理者である必要があります。
+## Copilot と生成 AI 機能の有効化について
+エリアが既定の日本の設定で、新しい環境を作成する場合、デフォルトの機能として生成 AI 機能が有効になっています。テナント設定では、「これらの設定は組織全体に適応されます。」との表示があります。（下記の図を参照）
+![alt text](image.png)
+
+<br>
+また、現時点では、新しい環境を作成する際に、既定の日本の設定の場合、新機能を早期に取得するの項目をオンにはできません。
+
+![alt text](image-2.png)
+
+<br><br>
+ただし、リージョンによっては、Copilot および生成 AI 機能を使用する際に、Power Platform 管理センターで利用規約に同意する必要がある場合もあります。 同意するには、Microsoft 365 グローバル管理者、Power Platform 管理者、または Dynamics 365 管理者である必要があります。その際の手順は下記のとおりです。
 
 1. [Power Platform 管理センター ](https://admin.powerplatform.microsoft.com/)にサインインします。
 2. 左側のパネルで 環境 を選択します。
 3. 生成 AI 機能 カードで、編集 を選択します。
+   >**ここまでに記載の通り、日本を含む[コパイロットと生成 AI 機能に関わるリージョン](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot#regions-involved-with-copilots-and-generative-ai-features)にリストされているリージョンでは表示されません。**
+
 4. 利用規約を確認し、地域間でデータを移動する チェックボックスを選択します。
     > 前述の通り、Copilot と生成 AI 機能を使用すると、入力 (プロンプト) と出力 (結果) がリージョン外、生成 AI 機能がホストされている場所に移動する場合があります。
 5. サービス利用条件を確認して、Bing 検索 チェックボックスを選択します。
@@ -120,6 +131,7 @@ Copilot は  [Microsoft Azure OpenAI Service](https://learn.microsoft.com/ja-jp/
 <br><br>
 以降では、頻繁に寄せられる質問のうち、公式サイトで公開している FAQ を抜粋してご紹介させていただきます。
 [Dynamics 365 と Power Platform の Copilot データ セキュリティとプライバシーに関する FAQ 全文](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-security-privacy)
+
 
 
 <br>
@@ -139,7 +151,7 @@ Copilot は瞬時の処理により、サービスの不正使用や危険な使
 プロンプト (入力) と Copilot の応答 (出力や結果):
 - 他のお客様はご利用いただけません。
 - サードパーティの製品やサービス (OpenAI モデルなど) のトレーニングや改善には使用されません。
-- テナント管理者が当社とのデータ共有をオプトインしない限り、Microsoft AI モデルのトレーニングや改善には使用されません。
+- テナント管理者が当社とのデータ共有をオプトインしない限り、Microsoft AI モデルのトレーニングや改善には使用されません。*
 
 <br><br>
 
@@ -151,8 +163,16 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
   
 - 組織データは複数の保護形式により保護されます。サービス側のテクノロジにより、保存や転送に際して組織コンテンツを暗号化し、堅牢なセキュリティを実現します。 接続はトランスポート層セキュリティ ( TLS ) で保護され、Dynamics 365、Power Platform、Azure OpenAI 間のデータ転送は Microsoft バックボーンネットワーク経由で行われるため、信頼性と安全性が両方とも保証されます。
   
-- テナントレベルと環境レベルの両方でデータを保護するように設計されています。テナント管理者が当社とのデータ共有をオプトインしていない限り、Microsoft AI モデルはテナントデータやプロンプトに基づいてトレーニングされず、そこから学習もしません。 環境内では、設定したアクセス許可に基づいてアクセスを制御できます。認証と承認のメカニズムにより、テナント間の共有モデルへの要求が分離されます。顧客データを保護するために当社が長年使用してきたのと同様のテクノロジにより、Copilot は顧客がアクセスできるデータのみを利用します。
+- テナントレベルと環境レベルの両方でデータを保護するように設計されています。テナント管理者が当社とのデータ共有をオプトインしていない限り、Microsoft AI モデルはテナントデータやプロンプトに基づいてトレーニングされず、そこから学習もしません。 環境内では、設定したアクセス許可に基づいてアクセスを制御できます。認証と承認のメカニズムにより、テナント間の共有モデルへの要求が分離されます。顧客データを保護するために当社が長年使用してきたのと同様のテクノロジにより、Copilot は顧客がアクセスできるデータのみを利用します。*
 <br><br>
+
+> [!IMPORTANT]
+**ここまでに記載の通り、Power PoltformのCopilot Studioで生成AI機能を利用してもデータをトレーニングに利用されることはありません。ただし、米国テナントに限り、お客さま自らが設定を有効化することで共有をすることも可能です。下記、参照の通り、この設定は現在、日本エリアの場合には選定できません。よって、米国エリア以外は、お客さまのご意思をもってしてもデータを共有することはできず、これに照らして、データがトレーニングに利用されることはございません。**
+![alt text](image-3.png)
+
+<br>
+
+米国テナントの場合にかぎるオプトインについての情報は次の通りです。米国テナントの環境で動作している且つ、お客さま自らがデータを共有したいと望む場合には下記を参照ください。
 
 > [!NOTE]
 **Copilot AI 機能のデータ共有とは何ですか？**<br><br>
@@ -162,13 +182,14 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 
 <br>
 
+
 >[!NOTE]
 **顧客データへのアクセスが可能な範囲はどうなっていますか？**<br><br>
 Azure OpenAI Service 上に保存された不正使用を監視するためのデータは不正利用の監視を目的として、必要な場合に限り Microsoft 従業員しか確認でません。
 
 <br>
-
-[データ共有のオプトインをはじめ上記 Note に関する詳細](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing)
+上記、Note 参考URL
+https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing
 
 
 <br><br>
