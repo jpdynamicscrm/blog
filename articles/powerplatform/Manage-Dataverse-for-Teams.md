@@ -31,7 +31,7 @@ Dataverse for Teams の環境は、Teams を通してのみ作成されます。
 - Teams 上の Power Virtual Agents アプリを使用して、初めて環境に紐づくボットを作成したとき
 - Teams のアプリ カタログから初めて Power Apps アプリ (※1) をインストールしたとき
 
-なお、Teams のチームと Dataverse for Teams の環境は 1:1 で紐づけらます。
+なお、Teams のチームと Dataverse for Teams の環境は 1:1 で紐づけられます。
 そのため、一つのチームで複数の環境を持つことはできません。
 また、異なるチームの Dataverse for Teams 環境にアクセスすることもできません。
 
@@ -72,7 +72,7 @@ Teams チームにゲストユーザーを招待している場合、ゲスト�
 最初に説明した通り、Dataverse for Teams 環境は、Teams 上でのアプリやボットの作成を通して作成されます。
 そのため、環境を作成させたくない場合、Teams 上でのアプリやボットの作成を禁止する、すなわち、Teams からのPower Apps および Power Virtual Agents の使用を禁止する必要がございます。
 
-Temas からの Power Apps/Power Virtual Agents の使用を禁止するには、Teams 管理センターからアプリのアクセス許可ポリシーの設定を行い、環境作成を許可しても良いユーザーにだけ以下 2 つのアプリを許可するよう設定してください。
+Teams からの Power Apps/Power Virtual Agents の使用を禁止するには、Teams 管理センターからアプリのアクセス許可ポリシーの設定を行い、環境作成を許可しても良いユーザーにだけ以下 2 つのアプリを許可するよう設定してください。
 
 ![](./Manage-Dataverse-for-Teams/Teams-app-policy.png)
 参考: [Microsoft Teams のアプリのアクセス許可ポリシーを管理する](https://learn.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies)
@@ -80,7 +80,7 @@ Temas からの Power Apps/Power Virtual Agents の使用を禁止するには�
 ## 環境の作成は禁止したいけど、アプリは使わせたい
 ---
 Teams 上の Power Apps/Power Virtual Agents アプリを禁止としても、引き続きアプリやボットを使用することは可能です。
-まず、アプリやボットの使用許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。
+まず、アプリやボットの使用を許可するには、組織全体のカスタム アプリ設定にて、カスタムアプリとの対話を許可してください。
 参考: [組織全体のカスタム アプリ設定](https://learn.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting)
 
 ### [同僚が作成] からアプリを取得する

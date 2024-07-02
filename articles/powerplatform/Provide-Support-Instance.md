@@ -35,7 +35,7 @@ tags:
 
 サポート インスタンスを作成するために、次の全ての条件を満たす必要がございます。
 * a. お問い合わせ起票者は、事象発生環境にて、システム管理者のセキュリティロールが割り当てられている。
-* b. お問い合わせの対象製品として Dynamics 365 Customer Enagagement が選択されている。
+* b. お問い合わせの対象製品として Dynamics 365 Customer Engagement が選択されている。
 ![](./Provide-Support-Instance/00_SR_product.png)
 * c. お問い合わせにて、サポート インスタンス作成の同意レベルが、次のいずれかに設定されている。
     * 診断情報へのアクセスで [最小限のコピー](https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-customizations-and-schemas-only) を許可する
@@ -64,7 +64,7 @@ __留意事項__
 
 
 <a id='anchor-create-instance'></a>
-## 3. サポートイインスタンスの作成（弊社の作業）
+## 3. サポートインスタンスの作成（弊社の作業）
 ご提供いただいた情報より、弊社にてサポート インスタンスを作成いたします。
 
 サポート エンジニアより、新規作成したサポート インスタンス環境名をお問い合わせ起票者へご連絡いたしますので、4. [サポートインスタンスのコピー](#anchor-about-copy) の手順でコピーを実施ください。
