@@ -28,7 +28,7 @@ tags:
 # はじめに
 ---
 ## Microsfot 365 管理センターのサービス正常性情報とは
-Microsfot 365 管理センターのサービス正常性[（リンク）](https://admin.microsoft.com/Adminportal/Home?#/servicehealth) とは、利用者のサブスクリプションで利用可能なすべてのサービスの問題と正常性ステータスを表示することができます。
+Microsfot 365 管理センターのサービス正常性（[リンク](https://admin.microsoft.com/Adminportal/Home?#/servicehealth)） とは、利用者のサブスクリプションで利用可能なすべてのサービスの問題と正常性ステータスを表示することができます。
 
 下画像のように各サービスで発生している問題の有無を表すステータスや、何か問題がある場合にはその問題の内容と Microsoft がその問題に対して取り組んでいることを Microsoft が公表しています。  
 
@@ -37,17 +37,14 @@ Microsfot 365 管理センターのサービス正常性[（リンク）](https:
 <br>
 
 ## 今回の目的
-本記事では利便性向上のため、クラウドフローを用いて、サービス正常性の情報の中から特定のサービスに発生した問題の情報のみを取得する方法についてご紹介します。更新情報を定期的に監視するフローを構築することで、常に最新の正常性情報を取得することができます。また Microsoft Teams 等の他のコネクタを用いることにより、取得した情報を通知するなどの応用をすることも可能となります。
-サービス正常性情報の取得には標準のコネクタが用意されておりませんので、 今回は Microsoft Graph APIを用います。Power Automate における Microsoft Graph API の利用方法等についての詳細は[こちらの記事（Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法）](https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/#HTTP-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B) をご参照ください。  
+本記事では利便性向上のため、クラウドフローを用いて、サービス正常性の情報の中から特定のサービスに発生した問題の情報のみを取得する方法についてご紹介します。更新情報を定期的に監視するフローを構築することで、常に最新の正常性情報を取得することができます。また Microsoft Teams 等の他のコネクタを用いることにより、取得した情報を通知するなどの応用をすることも可能となります。  
+サービス正常性情報の取得には標準のコネクタが用意されておりませんので、 今回は Microsoft Graph APIを用います。Power Automate における Microsoft Graph API の利用方法等についての詳細はこちらの記事（[Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法](https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/#HTTP-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B) ）をご参照ください。  
 
 <br>
 
 ## 必要なライセンス
 ---
-今回作成するフローではプレミアム コネクタを使用するため、以下のいずれかのライセンスが必要です。  
-
-- Power Automate Premium
-- Power Automate Process
+今回作成するフローではプレミアム コネクタを使用します。そのため、本記事でご紹介するフローを使用するためにはプレミアム コネクタが使用可能なライセンスをお持ちいただく必要がございます。ライセンスの詳細についてはこちらのドキュメント（[Power Automate の価格 | Microsoft Power Platform](https://www.microsoft.com/ja-jp/power-platform/products/power-automate/pricing)）をご参照ください。  
 
 <br>
 
@@ -88,13 +85,13 @@ Microsfot 365 管理センターのサービス正常性[（リンク）](https:
 ## 取得した一覧情報にフィルタをかけて、所望の情報のみを取得する
 上述の方法で取得した一覧情報は全サービスの問題情報になります。この中から、所望のサービスに関する情報のみを抽出する方法についてご紹介いたします。
 
-Microsoft Graph では、[こちらのドキュメント](https://learn.microsoft.com/ja-jp/graph/query-parameters?tabs=http#filter-parameter) に記載があるように、クエリパラメーターを使用して応答をカスタマイズすることができます。クエリパラメーターとは、取得した応答情報に対して操作を加えるためのパラメータであり、必要な情報のみを抽出したり、データの簡単な加工を行うことができるものです。  
+Microsoft Graph では、[こちらのドキュメント](https://learn.microsoft.com/ja-jp/graph/query-parameters) に記載があるように、クエリパラメーターを使用して応答をカスタマイズすることができます。クエリパラメーターとは、取得した応答情報に対して操作を加えるためのパラメータであり、必要な情報のみを抽出したり、データの簡単な加工を行うことができるものです。  
 
-今回はクエリパラメーターの中でも[\$filter クエリパラメーターを使用する](https://learn.microsoft.com/ja-jp/graph/filter-query-parameter?tabs=http) ことで、取得した一覧情報にフィルタをかけます。$filter クエリパラメーターでサポートされる演算子などは上記リンクや下記画像をご参照ください。  
+今回はクエリパラメーターの中でも [\$filter クエリパラメーターを使用する](https://learn.microsoft.com/ja-jp/graph/filter-query-parameter?tabs=http) ことで、取得した一覧情報にフィルタをかけます。$filter クエリパラメーターでサポートされる演算子などは上記リンクや下記画像をご参照ください。  
 
 ![](./service-health-notifier/image02.png)  
 
-例として、今回は Dynamics と Power Platform （除く Power BI）のサービスに関する情報のみを取得する際の API をご紹介いたします。後述の取得できる「サービス正常性情報」の項目と合わせてご参照ください。
+例として、ここでは Dynamics と Power Platform （除く Power BI）のサービスに関する情報のみを取得する際の API をご紹介いたします。後述の取得できる「サービス正常性情報」の項目と合わせてご参照ください。
 
 `
 https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/issues?$filter=startDateTime gt @{body('過去の時間の取得')} and (contains(service, 'Dynamics') or contains(service,'Power ') or not contains(service, 'Power BI'))
@@ -143,7 +140,7 @@ https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/issues?$filter=startD
 }
 ```
 上記応答中の "title" がサービスに発生した問題のタイトル（概要）を示しており、その内容や原因調査に関する更新情報があると "posts" の配列の中に履歴投稿が追記されていきます。  
-各プロパティの更なる詳細については、[こちらのドキュメント](https://learn.microsoft.com/ja-jp/graph/api/resources/servicehealthissue?view=graph-rest-1.0#properties) をご参照ください。
+各プロパティの更なる詳細については、こちらのドキュメント（[serviceHealthIssue リソースの種類 - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/ja-jp/graph/api/resources/servicehealthissue?view=graph-rest-1.0#properties) ）をご参照ください。
 
 <br>
 
@@ -152,7 +149,7 @@ https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/issues?$filter=startD
 # 取得したサービス正常性情報を活用する
 ---
 ここまでで取得したサービス正常性の応答情報 JSON データをクラウドフローで活用したい場合、[JSONの解析] コネクタを使用して解析します。
-なお、JSONの解析コネクタの詳細については[こちらのドキュメント](https://learn.microsoft.com/ja-jp/power-platform/power-fx/reference/function-parsejson) をご参照ください。
+なお、JSONの解析コネクタの詳細についてはこちらのドキュメント（[データの操作の実行 - Azure Logic Apps | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-perform-data-operations?tabs=standard#parse-json-action)） をご参照ください。
 
 解析したデータの中から、必要なプロパティを選択して他のコネクタで利活用することができます。例えば、取得した情報を Microsoft Teams のメッセージ内に含めて任意のチャネルに投稿したり、Microsoft Outlook からメールを送信することなどができます。  
 
