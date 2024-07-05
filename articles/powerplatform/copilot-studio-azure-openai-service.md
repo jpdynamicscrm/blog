@@ -94,12 +94,12 @@ Copilot と生成 AI 機能を使用すると、入力 (プロンプト) と出�
 <br>
 
 参考 URL
-- https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot
+- [コパイロットと生成 AI 機能をオンにする](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot)
 
 <br>
 
 ## Copilot と生成 AI 機能の無効化について
-Power Platform の管理センターで新たに環境を作る際は、環境を作成した段階で、デフォルト機能で生成 AI 機能がオンになっています。この機能をオフにするには、下記の手順を実行します。
+Power Platform の管理センターで新たに環境を作る際は、環境を作成した段階で、デフォルト機能で生成 AI 機能がオンになっています。お客さま自身が有効化を明示的に実行しない場合においてもデフォルト機能として有効化されていることをご認識ください。この機能をオフにするには、下記の手順を実行します。
 1. [Power Platform 管理センター ](https://admin.powerplatform.microsoft.com/)にサインインします。
 2. 左側のパネルで 環境 を選択します。
 3. 生成 AI 機能 カードで、編集 を選択します。（下記画像参照）
@@ -120,7 +120,7 @@ Copilot for Dynamics 365 と Power Platform の機能は、中核となる一連
 
 Copilot は  [Microsoft Azure OpenAI Service](https://learn.microsoft.com/ja-jp/azure/cognitive-services/openai/overview) を基盤として構築されており、完全に Azure Cloud 内で実行されます。 Azure OpenAI は、地域可用性と、責任ある AI のコンテンツフィルターを提供します。<br> Copilot は [Microsoft Azure のセキュリティ機能](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/overview) をすべて備えた OpenAI モデルを使用します。 OpenAI は独立した組織です。**顧客のデータは OpenAI と共有されません。**
 > [!IMPORTANT]
->ひとつ前の項では、Copilot と生成 AI 機能の無効化の方法をご紹介させていただきました。**ご説明させていただいた通り、デフォルト機能で生成 AI 機能は有効となっていますが、無効化にせず、そのまま使用していただいた場合においても、顧客のデータは OpenAI と共有されることはございません。**
+>ひとつ前の項では、Copilot と生成 AI 機能の無効化の方法をご紹介させていただきました。**ご説明させていただいた通り、デフォルト機能として生成 AI 機能は有効化されているため、お客さま自身が有効化を明示的に実行しない場合においてもその状態が保たれています。しかし、無効化に変更せずに、そのまま使用していただいた場合においても、顧客のデータは OpenAI と共有されることはございません。**
 
 <br><br>
 以降では、頻繁に寄せられる質問のうち、公式サイトで公開している FAQ を抜粋してご紹介させていただきます。
@@ -174,7 +174,7 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 **Copilot AI 機能のデータ共有とは何ですか？**<br><br>
 マイクロソフトは、Dynamics 365 Copilot および Power Platform Copilot の新しい AI を活用した Copilot 機能の品質を向上させ、より正確な結果を生成するよう常に取り組んでいます。 Copilot 機能を改善する重要な方法の 1 つは、Copilot 機能へのユーザーの入力、関連する出力、およびテレメトリをより深く理解することです。<br> 
 ***Power Platform 管理センターの Dynamics 365 Copilot および Power Platform Copilot AI 機能のデータ共有設定を有効にすると、*** マイクロソフトは、Dynamics 365 および Power Platform Copilot AI 機能、サービス、機械学習モデル、および関連システムを構築、改善、検証するために、ユーザーの自然言語入力、出力、および関連テレメトリを含め (ただし必ずしもこれらに限定されない)、顧客データを取得し、手動でレビューできるようになります。<br>
-当社は、Azure OpenAI Service基盤モデルの学習に顧客データを使用しません。
+当社は、Azure OpenAI Service 基盤モデルの学習に顧客データを使用しません。
 
 <br>
 
@@ -186,7 +186,7 @@ Azure OpenAI Service 上に保存された不正使用を監視するための�
 <br>
 上記、Note 参考URL
 
-https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing
+[Dynamics 365 および Power Platform における Copilot AI 機能のオプションのデータ共有に関する FAQ](https://learn.microsoft.com/ja-jp/power-platform/faqs-copilot-data-sharing)
 
 
 <br><br>
@@ -223,7 +223,7 @@ FAQ では実際にご質問をいただくことが多い内容を中心に取�
 **AI Builder は、Microsoft Power Platform の一部です。** AI Builder を使えば、Microsoft Power Platform 機能を使用した際に、ビジネスプロセスを最適化する AI モデルを作成することができます。例えば、ニーズに合わせて調整されたカスタムモデルを作成したり、業務シナリオで使用できる事前構築済みモデルの選択が可能です。 <br>AI Builder を使用すると、インテリジェンスを使用してプロセスを自動化し、Power Apps と Power Automate でデータからインサイトを収集することができます。<br><br>
 
 ## AI Builder のテキスト生成モデル
-### クラウドフローにおける Copilot と、AI Builder のテキスト生成モデル
+### クラウドフローにおける AI Builder のテキスト生成モデル
 
 クラウドフローの Copilot は、Power Automate フローについて説明し、その過程で役立つガイダンスを提供するだけで、作成および編集ができるように設計されています。
 
