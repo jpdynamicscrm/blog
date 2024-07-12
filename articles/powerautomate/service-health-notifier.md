@@ -44,10 +44,7 @@ Microsfot 365 管理センターのサービス正常性[（リンク）](https:
 
 ## 必要なライセンス
 ---
-今回作成するフローではプレミアム コネクタを使用するため、以下のいずれかのライセンスが必要です。  
-
-- Power Automate Premium
-- Power Automate Process
+今回作成するフローではプレミアム コネクタを使用いたします。プレミアム コネクタを使用可能なライセンスにつきましては、[こちらの公開文書](https://www.microsoft.com/ja-jp/power-platform/products/power-automate/pricing) をご参照ください。  
 
 <br>
 
@@ -88,11 +85,13 @@ Microsfot 365 管理センターのサービス正常性[（リンク）](https:
 ## 取得した一覧情報にフィルタをかけて、所望の情報のみを取得する
 上述の方法で取得した一覧情報は全サービスの問題情報になります。この中から、所望のサービスに関する情報のみを抽出する方法についてご紹介いたします。
 
-Microsoft Graph では、[こちらのドキュメント](https://learn.microsoft.com/ja-jp/graph/query-parameters?tabs=http#filter-parameter) に記載があるように、クエリパラメーターを使用して応答をカスタマイズすることができます。クエリパラメーターとは、取得した応答情報に対して操作を加えるためのパラメータであり、必要な情報のみを抽出したり、データの簡単な加工を行うことができるものです。  
+Microsoft Graph では、[こちらの公開文書](https://learn.microsoft.com/ja-jp/graph/query-parameters?tabs=http#filter-parameter) に記載があるように、クエリパラメーターを使用して応答をカスタマイズすることができます。クエリパラメーターとは、取得した応答情報に対して操作を加えるためのパラメータであり、必要な情報のみを抽出したり、データの簡単な加工を行うことができるものです。  
 
-今回はクエリパラメーターの中でも[\$filter クエリパラメーターを使用する](https://learn.microsoft.com/ja-jp/graph/filter-query-parameter?tabs=http) ことで、取得した一覧情報にフィルタをかけます。$filter クエリパラメーターでサポートされる演算子などは上記リンクや下記画像をご参照ください。  
+今回はクエリパラメーターの中でも[\$filter クエリパラメーターを使用する](https://learn.microsoft.com/ja-jp/graph/filter-query-parameter?tabs=http) ことで、取得した一覧情報にフィルタをかけます。$filter クエリパラメーターでサポートされる演算子などは上記リンクをご参照ください。  
 
+<!--
 ![](./service-health-notifier/image02.png)  
+-->
 
 例として、今回は Dynamics と Power Platform （除く Power BI）のサービスに関する情報のみを取得する際の API をご紹介いたします。後述の取得できる「サービス正常性情報」の項目と合わせてご参照ください。
 
@@ -143,7 +142,7 @@ https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/issues?$filter=startD
 }
 ```
 上記応答中の "title" がサービスに発生した問題のタイトル（概要）を示しており、その内容や原因調査に関する更新情報があると "posts" の配列の中に履歴投稿が追記されていきます。  
-各プロパティの更なる詳細については、[こちらのドキュメント](https://learn.microsoft.com/ja-jp/graph/api/resources/servicehealthissue?view=graph-rest-1.0#properties) をご参照ください。
+各プロパティの更なる詳細については、[こちらの公開文書](https://learn.microsoft.com/ja-jp/graph/api/resources/servicehealthissue?view=graph-rest-1.0#properties) をご参照ください。
 
 <br>
 
@@ -152,7 +151,7 @@ https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/issues?$filter=startD
 # 取得したサービス正常性情報を活用する
 ---
 ここまでで取得したサービス正常性の応答情報 JSON データをクラウドフローで活用したい場合、[JSONの解析] コネクタを使用して解析します。
-なお、JSONの解析コネクタの詳細については[こちらのドキュメント](https://learn.microsoft.com/ja-jp/power-platform/power-fx/reference/function-parsejson) をご参照ください。
+なお、JSONの解析コネクタの詳細については[こちらの公開文書](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-perform-data-operations?tabs=standard#parse-json-action) をご参照ください。
 
 解析したデータの中から、必要なプロパティを選択して他のコネクタで利活用することができます。例えば、取得した情報を Microsoft Teams のメッセージ内に含めて任意のチャネルに投稿したり、Microsoft Outlook からメールを送信することなどができます。  
 
