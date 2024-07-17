@@ -289,27 +289,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/</loc>
-    
-    <lastmod>2024-07-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/</loc>
-    
-    <lastmod>2024-07-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
-    
-    <lastmod>2024-07-17</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
     
     <lastmod>2024-07-17</lastmod>
@@ -338,6 +317,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/</loc>
+    
+    <lastmod>2024-07-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API_archived/</loc>
     
     <lastmod>2024-07-17</lastmod>
@@ -346,6 +332,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/</loc>
+    
+    <lastmod>2024-07-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Invalid-Connection/</loc>
+    
+    <lastmod>2024-07-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Look-up-internal-column-names-in-SPO/</loc>
     
     <lastmod>2024-07-17</lastmod>
     
@@ -387,20 +387,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
-    
-    <lastmod>2024-07-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
-    
-    <lastmod>2024-07-17</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/Send_data_from_automate_to_apps/</loc>
     
     <lastmod>2024-07-17</lastmod>
@@ -408,7 +394,21 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
+    
+    <lastmod>2024-07-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/Audit-log-for-Power-Apps/</loc>
+    
+    <lastmod>2024-07-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/</loc>
     
     <lastmod>2024-07-17</lastmod>
     
