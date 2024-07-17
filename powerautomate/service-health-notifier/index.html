@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Power Automate クラウド フローを使用して、Microsoft のサービス正常性に関する更新情報を取得する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの竹内です。この記事では、Power Automate クラウドフローと Microsoft Graph API を使用して、Microsoft 365 管理センター内にて発信されるサービス正常性の更新情報を取得する方法についてご紹介いたします。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power Automate クラウド フローを使用して、Microsoft のサービス正常性に関する更新情報を取得する方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの竹内です。この記事では、Power Automate クラウドフローと Microsoft Graph API を使用して、Microsoft 365 管理センター内にて発信されるサービス正常性の更新情報を取得する方法についてご紹介いたします。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/image03.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/image04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/image05.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/image01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/image02.png">
+<meta property="article:published_time" content="2022-06-18T04:40:00.000Z">
+<meta property="article:modified_time" content="2024-07-17T14:04:38.530Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Automate">
+<meta property="article:tag" content="Cloud flow">
+<meta property="article:tag" content="How to">
+<meta property="article:tag" content="Graph API">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/image03.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerautomate/service-health-notifier" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Power Automate クラウド フローを使用して、Microsoft のサービス正常性に関する更新情報を取得する方法
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2022-06-18T04:40:00.000Z" itemprop="datePublished">2022-06-18</time>
+</a>
+        
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8f06dc17-fbf0-5553-bcb4-617d0b0e792c%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%80%81Microsoft+%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%AD%A3%E5%B8%B8%E6%80%A7%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fservice-health-notifier%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fservice-health-notifier.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fservice-health-notifier.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/" data-id="clypwz2ck00230np1690d90ki" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの竹内です。<br>この記事では、Power Automate クラウドフローと Microsoft Graph API を使用して、Microsoft 365 管理センター内にて発信されるサービス正常性の更新情報を取得する方法についてご紹介いたします。</p>
+<span id="more"></span>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
+<li><a href="#anchor-intro">はじめに</a></li>
+<li><a href="#anchor-overview-of-the-flow">本記事で構築するフローの概要</a></li>
+<li><a href="#anchor-retrieve-health-data">Microsoft Graph API を使用して、サービス正常性情報を取得する</a></li>
+<li><a href="#anchor-use-health-data">取得したサービス正常性情報を活用する</a></li>
+</ol>
+<br>
+
+<p><a id='anchor-Intro'></a></p>
+<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><hr>
+<h2 id="Microsfot-365-管理センターのサービス正常性情報とは"><a href="#Microsfot-365-管理センターのサービス正常性情報とは" class="headerlink" title="Microsfot 365 管理センターのサービス正常性情報とは"></a>Microsfot 365 管理センターのサービス正常性情報とは</h2><p>Microsfot 365 管理センターのサービス正常性（<a target="_blank" rel="noopener" href="https://admin.microsoft.com/Adminportal/Home#/servicehealth">リンク</a>） とは、利用者のサブスクリプションで利用可能なすべてのサービスの問題と正常性ステータスを表示することができます。</p>
+<p>下画像のように各サービスで発生している問題の有無を表すステータスや、何か問題がある場合にはその問題の内容と Microsoft がその問題に対して取り組んでいることを Microsoft が公表しています。  </p>
+<p><img src="/blog/powerautomate/service-health-notifier/image03.png">  </p>
+<br>
+
+<h2 id="今回の目的"><a href="#今回の目的" class="headerlink" title="今回の目的"></a>今回の目的</h2><p>本記事では利便性向上のため、クラウドフローを用いて、サービス正常性の情報の中から特定のサービスに発生した問題の情報のみを取得する方法についてご紹介します。更新情報を定期的に監視するフローを構築することで、常に最新の正常性情報を取得することができます。また Microsoft Teams 等の他のコネクタを用いることにより、取得した情報を通知するなどの応用をすることも可能となります。<br>サービス正常性情報の取得には標準のコネクタが用意されておりませんので、 今回は Microsoft Graph APIを用います。Power Automate における Microsoft Graph API の利用方法等についての詳細はこちらの記事（<a href="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/#HTTP-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法</a> ）をご参照ください。  </p>
+<br>
+
+<h2 id="必要なライセンス"><a href="#必要なライセンス" class="headerlink" title="必要なライセンス"></a>必要なライセンス</h2><hr>
+<p>今回作成するフローではプレミアム コネクタを使用します。そのため、本記事でご紹介するフローを使用するためにはプレミアム コネクタが使用可能なライセンスをお持ちいただく必要がございます。ライセンスの詳細についてはこちらのドキュメント（<a target="_blank" rel="noopener" href="https://www.microsoft.com/ja-jp/power-platform/products/power-automate/pricing">Power Automate の価格 | Microsoft Power Platform</a>）をご参照ください。  </p>
+<br>
+
+<p><a id='anchor-overview-of-the-flow'></a></p>
+<h1 id="本記事で構築するフローの概要"><a href="#本記事で構築するフローの概要" class="headerlink" title="本記事で構築するフローの概要"></a>本記事で構築するフローの概要</h1><hr>
+<p>今回は定期的にフローを実行して更新情報の有無を確認するためのフローを作成します。<br>そのため、スケジュール済みクラウドフローを構築します。</p>
+<p><img src="/blog/powerautomate/service-health-notifier/image04.png">  </p>
+<p>構築するフローの全体像は下画像のようです。  </p>
+<p><img src="/blog/powerautomate/service-health-notifier/image05.png">  </p>
+<p>まず、[繰り返し] コネクタで最新情報を取得するための実行間隔を設定します。ここでは例として 15 分と設定します。<br>次に、[過去の時間の取得] コネクタでその設定した時間間隔分、前回実行したときから時間が経っているので、前回実行した時間を取得します。先ほどの例ですと、15 分前の時間を取得します。<br>そして、[HTTP] コネクタを使用し、サービス正常性情報を取得します。ここについては詳細を後述いたします。<br>最後に、[JSON の解析]コネクタを使用することで、取得した情報をその後のフローで利用しやすい形にパースします。<br>以上が今回構築するフローの全体像となります。ここからは、今回のポイントである、[HTTP] コネクタ内で Microsoft Graph API を使用して、サービス正常性情報を取得することについて解説いたします。  </p>
+<br>
+
+<p><a id='anchor-retrieve-health-data'></a></p>
+<h1 id="Microsoft-Graph-API-を使用して、サービス正常性情報を取得する"><a href="#Microsoft-Graph-API-を使用して、サービス正常性情報を取得する" class="headerlink" title="Microsoft Graph API を使用して、サービス正常性情報を取得する"></a>Microsoft Graph API を使用して、サービス正常性情報を取得する</h1><hr>
+<h2 id="サービス正常性情報の一覧表示を取得する"><a href="#サービス正常性情報の一覧表示を取得する" class="headerlink" title="サービス正常性情報の一覧表示を取得する"></a>サービス正常性情報の一覧表示を取得する</h2><p>今回は、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/serviceannouncement-list-issues?view=graph-rest-1.0&preserve-view=true&tabs=http">問題の一覧表示</a> という API を利用します。この API に対するアクセス許可は下画像のようになっております。</p>
+<p><img src="/blog/powerautomate/service-health-notifier/image01.png">  </p>
+<p>今回は、アプリケーションのアクセス許可を使用して Microsoft 365 管理センターにアクセスします。フローに付与した認証情報を使用することで、ユーザーに割り当てられたサブスクリプションに依らず、任意のサブスクリプションでのサービス正常性情報を取得することができるようになります。そこで今回は HTTP コネクタを使用して API にアクセスします。  </p>
+<p>アクセス許可や、それによるコネクタの選択についての詳細については、<a href="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/#HTTP-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">こちらの記事（Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法）</a> をご参照ください。  </p>
+<h2 id="取得した一覧情報にフィルタをかけて、所望の情報のみを取得する"><a href="#取得した一覧情報にフィルタをかけて、所望の情報のみを取得する" class="headerlink" title="取得した一覧情報にフィルタをかけて、所望の情報のみを取得する"></a>取得した一覧情報にフィルタをかけて、所望の情報のみを取得する</h2><p>上述の方法で取得した一覧情報は全サービスの問題情報になります。この中から、所望のサービスに関する情報のみを抽出する方法についてご紹介いたします。</p>
+<p>Microsoft Graph では、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/query-parameters">こちらのドキュメント</a> に記載があるように、クエリパラメーターを使用して応答をカスタマイズすることができます。クエリパラメーターとは、取得した応答情報に対して操作を加えるためのパラメータであり、必要な情報のみを抽出したり、データの簡単な加工を行うことができるものです。  </p>
+<p>今回はクエリパラメーターの中でも <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/filter-query-parameter?tabs=http">$filter クエリパラメーターを使用する</a> ことで、取得した一覧情報にフィルタをかけます。$filter クエリパラメーターでサポートされる演算子などは上記リンクや下記画像をご参照ください。  </p>
+<p><img src="/blog/powerautomate/service-health-notifier/image02.png">  </p>
+<p>例として、ここでは Dynamics と Power Platform （除く Power BI）のサービスに関する情報のみを取得する際の API をご紹介いたします。後述の取得できる「サービス正常性情報」の項目と合わせてご参照ください。</p>
+<p><code>https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/issues?$filter=startDateTime gt @&#123;body(&#39;過去の時間の取得&#39;)&#125; and (contains(service, &#39;Dynamics&#39;) or contains(service,&#39;Power &#39;) or not contains(service, &#39;Power BI&#39;))</code></p>
+<h2 id="取得できるサービス正常性情報"><a href="#取得できるサービス正常性情報" class="headerlink" title="取得できるサービス正常性情報"></a>取得できるサービス正常性情報</h2><p>ここまでの方法で取得できるサービス正常性の情報（JSON データ）は以下のようになります。<br>（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/serviceannouncement-list-issues?view=graph-rest-1.0&preserve-view=true&tabs=http#response-1">問題の一覧表示 - 応答</a> から引用）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;@odata.context&quot;: &quot;https://graph.microsoft.com/v1.0/$metadata#admin/serviceAnnouncement/issues&quot;,</span><br><span class="line">  &quot;@odata.nextLink&quot;: &quot;https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/issues?$skip=100&quot;,</span><br><span class="line">  &quot;value&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;startDateTime&quot;: &quot;2020-11-13T21:00:00Z&quot;,</span><br><span class="line">      &quot;endDateTime&quot;: &quot;2020-11-14T17:15:00Z&quot;,</span><br><span class="line">      &quot;lastModifiedDateTime&quot;: &quot;2020-11-14T18:20:24.767Z&quot;,</span><br><span class="line">      &quot;title&quot;: &quot;Limited number of users unable to send or receive email through the Exchange Online service&quot;,</span><br><span class="line">      &quot;id&quot;: &quot;EX226792&quot;,</span><br><span class="line">      &quot;impactDescription&quot;: &quot;Users may have been unable to send or receive email through the Exchange Online service.&quot;,</span><br><span class="line">      &quot;classification&quot;: &quot;Incident&quot;,</span><br><span class="line">      &quot;origin&quot;: &quot;Microsoft&quot;,</span><br><span class="line">      &quot;status&quot;: &quot;ServiceRestored&quot;,</span><br><span class="line">      &quot;service&quot;: &quot;Exchange Online&quot;,</span><br><span class="line">      &quot;feature&quot;: &quot;Mailflow - delayed delivery from Internet&quot;,</span><br><span class="line">      &quot;featureGroup&quot;: &quot;E-Mail timely delivery&quot;,</span><br><span class="line">      &quot;isResolved&quot;: true,</span><br><span class="line">      &quot;details&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;name&quot;: &quot;NotifyInApp&quot;,</span><br><span class="line">          &quot;value&quot;: &quot;True&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      &quot;posts&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;createdDateTime&quot;: &quot;2020-11-12T07:07:38.97Z&quot;,</span><br><span class="line">          &quot;postType&quot;: &quot;Regular&quot;,</span><br><span class="line">          &quot;description&quot;: &#123;</span><br><span class="line">            &quot;contentType&quot;: &quot;Html&quot;,</span><br><span class="line">            &quot;content&quot;: &quot;Title: Limited number of users unable to send or receive email through the Exchange Online service\n\nUser Impact: Users may be unable to send or receive email through the Exchange Online service.&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上記応答中の “title” がサービスに発生した問題のタイトル（概要）を示しており、その内容や原因調査に関する更新情報があると “posts” の配列の中に履歴投稿が追記されていきます。<br>各プロパティの更なる詳細については、こちらのドキュメント（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/resources/servicehealthissue?view=graph-rest-1.0#properties">serviceHealthIssue リソースの種類 - Microsoft Graph v1.0 | Microsoft Learn</a> ）をご参照ください。</p>
+<br>
+
+<p><a id='anchor-use-health-data'></a></p>
+<h1 id="取得したサービス正常性情報を活用する"><a href="#取得したサービス正常性情報を活用する" class="headerlink" title="取得したサービス正常性情報を活用する"></a>取得したサービス正常性情報を活用する</h1><hr>
+<p>ここまでで取得したサービス正常性の応答情報 JSON データをクラウドフローで活用したい場合、[JSONの解析] コネクタを使用して解析します。<br>なお、JSONの解析コネクタの詳細についてはこちらのドキュメント（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-perform-data-operations?tabs=standard#parse-json-action">データの操作の実行 - Azure Logic Apps | Microsoft Learn</a>） をご参照ください。</p>
+<p>解析したデータの中から、必要なプロパティを選択して他のコネクタで利活用することができます。例えば、取得した情報を Microsoft Teams のメッセージ内に含めて任意のチャネルに投稿したり、Microsoft Outlook からメールを送信することなどができます。  </p>
+<br>
+
+<hr>
+<h1 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h1><p>Power Automate を用いて情報の収集時に必要な一連の操作を自動化することで、業務の効率化を図ることができます。<br>今回紹介した例は Graph API を利用してサービス正常性情報の取得をしましたが、取得する情報を変更したりすることによって様々な応用をすることができます。 ぜひ、色々なシーンで活用してみてください。</p>
+<p>この記事が皆さまの自動化の一助になりましたら幸いです。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/service-health-notifier.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../Import-Csv-With-Standard-Connectors/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Power Automate で CSV ファイルを取り込む
+        
+      </div>
+    </a>
+  
+  
+    <a href="../MC362053/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">MC362053 Power Automate フローの IP アドレスのファイアウォール構成を 2022 年 5 月 15 日までに更新する</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+          </li>
+        
+          <li>
+            <a href="../Graph-API/">Power Automate クラウド フローを使用して、Microsoft Graph API を実行する方法</a>
+          </li>
+        
+          <li>
+            <a href="../resolve-infinite-loops-in-SharePoint-updates/">Power Automate のフローで無限トリガーループが起きる際の対処法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/copilot-studio-azure-openai-service/">Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/vnetgateway-support-status/">Power Platform での仮想ネットワーク データ ゲートウェイについて</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-builder/" rel="tag">AI builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-studio/" rel="tag">Copilot studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">Excel エクスポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95/" rel="tag">問い合わせ方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A8%A9%E9%99%90/" rel="tag">権限</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" rel="tag">自動フロー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Pages/Power-Apps-portal">Power Apps portal</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">11</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Audit-Log">Audit Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Canvas-app">Canvas app</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Inventory-Report">Inventory Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Automate">Power Automate</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC">Power Platform 管理センター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Tenant-level-Analytics">Tenant-level Analytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9">ライセンス</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">14</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/AI-builder">AI builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Copilot-studio">Copilot studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC">DLP ポリシー</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse">Dataverse</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8">Dataverse ストレージ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Developer-Environment">Developer Environment</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics-365">Dynamics 365</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Environment">Environment</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Virtual-Agents">Power Virtual Agents</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Settings">Settings</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB">セキュリティ ロール</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C">テナント移行</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9">ライセンス</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95">問い合わせ方法</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">33</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flow">Cloud flow</a><span class="tag-list-count">21</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Dataverse">Dataverse</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flow">Desktop flow</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/How-to">How to</a><span class="tag-list-count">14</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Office-365-Management-API">Office 365 Management API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-for-desktop">Power Automate for desktop</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4">オンプレミス データ ゲートウェイ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC">自動フロー</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Dataverse">Dataverse</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Environment">Environment</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/">Power Virtual Agents</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/AI-builder">AI builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Copilot-studio">Copilot studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Dynamics-365">Dynamics 365</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-builder/" style="font-size: 10px;">AI builder</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 14.55px;">Canvas app</a> <a href="../../tags/Cloud-flow/" style="font-size: 19.09px;">Cloud flow</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Copilot-studio/" style="font-size: 10px;">Copilot studio</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataverse/" style="font-size: 14.55px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10.91px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 15.45px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 16.36px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 10px;">Dynamics 365</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 13.64px;">Environment</a> <a href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">Excel エクスポート</a> <a href="../../tags/Graph-API/" style="font-size: 11.82px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 18.18px;">How to</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/Model-driven-app/" style="font-size: 13.64px;">Model-driven app</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.27px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 15.45px;">Power Automate for desktop</a> <a href="../../tags/Power-Pages/" style="font-size: 10px;">Power Pages</a> <a href="../../tags/Power-Platform/" style="font-size: 18.18px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 10px;">Power Virtual Agents</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 11.82px;">PowerShell</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 13.64px;">サポート</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 12.73px;">ライセンス</a> <a href="../../tags/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95/" style="font-size: 10px;">問い合わせ方法</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 12.73px;">情報採取</a> <a href="../../tags/%E6%A8%A9%E9%99%90/" style="font-size: 10px;">権限</a> <a href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" style="font-size: 10px;">自動フロー</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2024 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
