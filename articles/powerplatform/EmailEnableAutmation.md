@@ -30,7 +30,7 @@ Dynamics 365では、Dynamics 365と Exchange Online の同期を行うことが
 メールボックスの承認やテストと有効化は PowerShell で下記コマンドを入力することで実施いただくことが可能です。<br>
 そのため、タスク スケジューラや Power Automate を利用しPowerShell を実行いただくことで、任意のタイミングで自動的にメールボックスの承認やテストと有効化を行うことが可能となります。<br>また、反復処理などで各ユーザーの IDを置き換える処理を実装いただくことで、複数のメールボックスに対して一括でメールボックスの承認やテストと有効化を行うことが可能です。<br>Power Automate を使用して PowerShell を実行する方法に関しては、
 <a href="https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/#:~:text=Azure%20%E4%B8%8A%E3%81%A7%20PowerShell%20%E3%82%84%20Python%20%E3%81%AA%E3%81%A9%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD%E3%81%A7%E3%81%99%E3%80%82%20%E3%81%93%E3%81%AE%20Runbook,Forms%20%E3%81%A7%20Microsoft%20365%20%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%AB%E7%94%B3%E8%AB%8B%E3%82%92%E8%A1%8C%E3%81%84%E3%80%81%E6%89%BF%E8%AA%8D%E3%81%95%E3%82%8C%E3%81%9F%E3%82%89%E3%80%81%20PowerShell%20%E3%81%A7%E3%83%AD%E3%83%BC%E3%83%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B" target="_blank" rel="noopener noreferrer"> Power Automateを使用して PowerShell を実行する方法</a>
-こちらの記事をご参照ください。
+をご参照ください。
 
 1. 管理者として PowerShell を起動します。
 2. 以下のコマンドを実行し、 Microsoft.Xrm.Data.Poweshell のモジュールをダウンロードします。<br>

@@ -80,7 +80,7 @@ Attribute Audit Explorer の詳細については、下記をご参照くださ�
     *Before が取得終了日、After が取得開始日になりますので、ご注意ください。  
    ![](./export-audit-log/image07.png)
 
-5. Export to Excel をクリックすると、監査ログが csvファイル形式で出力されます。  
+5. Export to Excel をクリックすると、監査ログが CSV ファイル形式で出力されます。  
    ![](./export-audit-log/image08.png)
 
 
