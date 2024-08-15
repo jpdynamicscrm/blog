@@ -28,19 +28,24 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/http-start-subscription.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/init-variable-startTime.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/init-variable-endTime.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/http-content.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/http-content-result.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/init-variable-contents.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/init-variable-contentsAll.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/init-variable-contentslisturi.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/dountil.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/http-content.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/http-content-result.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/apply-to-each.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/http-contents.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/set-variable-contents.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/set-variable-contentsall.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/condition2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/set-variable-nextpageuri.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/set-variable-no-nextpageuri.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/create-csv-table.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/create-file.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/flow.png">
 <meta property="article:published_time" content="2023-11-13T07:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-15T05:49:10.238Z">
+<meta property="article:modified_time" content="2024-08-15T08:32:38.843Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
@@ -133,7 +138,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+544ab6fd-aa1e-520f-ba0f-6ff4f96a053a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7+Microsoft+Purview+%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fwork-with-audit-log%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fwork-with-audit-log.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fwork-with-audit-log.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/" data-id="clzuv1lb400bf0olh47o87hbm" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/" data-id="clzv0vtja00bf0no89nrz1q58" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -444,6 +449,7 @@
 </tbody></table>
 <h2 id="4-Office-365-Management-API-でコンテンツリストの取得"><a href="#4-Office-365-Management-API-でコンテンツリストの取得" class="headerlink" title="4. Office 365 Management API でコンテンツリストの取得"></a>4. Office 365 Management API でコンテンツリストの取得</h2><p>無事サブスクリプションが開始できたので、続いて、目的のコンテンツ タイプで現在取得できるコンテンツ一覧を取得します。<br>ここでは、以下の API を使用します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#list-available-content">利用可能なコンテンツのリストの作成</a>  </p>
 <p>API のリファレンスを読むと、取得したいコンテンツの時間範囲をパラメータとして指定できるようですが、時間範囲は 24 時間以内とするよう推奨されています。<br>そのため、本フローでは、フロー実行日の前日 24 時間分のコンテンツを取得するよう設定します。  </p>
+<p>また、本 API では、改ページが発生する可能性があるようです。<br>大量の監査ログが存在する場合に、改ページの処理を行わないと、全てのデータが取得できない恐れがあるため、Do until アクションを使用して、改ページへの対応も行っていきます。</p>
 <p><strong>4-1．startTime を前日の 00:00 JST (UTC: 15:00) に指定</strong><br>変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。  </p>
 <p><img src="/blog/powerautomate/work-with-audit-log/init-variable-startTime.png" alt="変数を初期化-startTime">  </p>
 <table>
@@ -488,59 +494,7 @@
 <td><code>@&#123;addDays(convertFromUtc(utcNow(), &#39;Tokyo Standard Time&#39;), -1, &#39;yyyy-MM-dd&#39;)&#125;</code>T14:59:59Z</td>
 </tr>
 </tbody></table>
-<p><strong>4-3．コンテンツリストの取得</strong><br>HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-content.png" alt="HTTPアクション-コンテンツリストの取得">  </p>
-<table>
-<thead>
-<tr>
-<th>パラメータ</th>
-<th>値</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>方法</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>URI</td>
-<td><code>@&#123;variables(&#39;endpoint&#39;)&#125;</code>/subscriptions/content?contentType=<code>@&#123;variables(&#39;contentType&#39;)&#125;</code>&amp;startTime=<code>@&#123;variables(&#39;startTime&#39;)&#125;</code>&amp;endTime=<code>@&#123;variables(&#39;endTime&#39;)&#125;</code></td>
-</tr>
-<tr>
-<td>認証</td>
-<td>Active Directory OAuth</td>
-</tr>
-<tr>
-<td>テナント</td>
-<td>動的なコンテンツ &gt; <code>tenantID</code></td>
-</tr>
-<tr>
-<td>対象ユーザー</td>
-<td><code>https://manage.office.com/</code></td>
-</tr>
-<tr>
-<td>クライアント ID</td>
-<td>動的なコンテンツ &gt; <code>clientID</code></td>
-</tr>
-<tr>
-<td>資格情報の種類</td>
-<td>シークレット</td>
-</tr>
-<tr>
-<td>シークレット</td>
-<td>動的なコンテンツ &gt; <code>secret</code></td>
-</tr>
-</tbody></table>
-<p>さて、ここまでで一度フローを実行してみましょう。  </p>
-<p>フローが正常に実行され、<code>HTTP | コンテンツリストの作成</code> アクションまで正常に完了しました。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-content-result.png" alt="コンテンツリストの作成結果">  </p>
-<p>さらに「HTTP | コンテンツリストの作成」アクションの本文を詳しく見てみると、以下のようなデータが取得されています。  </p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;contentUri&quot;</span>: <span class="string">&quot;https://manage.office.com/api/v1.0/&#123;tenantID&#125;/activity/feed/audit/20231016001037495037203$20231016005646231021586$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentId&quot;</span>: <span class="string">&quot;20231016001037495037203$20231016005646231021586$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span>: <span class="string">&quot;Audit.AzureActiveDirectory&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentCreated&quot;</span>: <span class="string">&quot;2023-10-16T00:56:46.231Z&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentExpiration&quot;</span>: <span class="string">&quot;2023-10-23T00:10:37.495Z&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;contentUri&quot;</span>: <span class="string">&quot;https://manage.office.com/api/v1.0/&#123;tenantID&#125;/activity/feed/audit/20231016010437450010083$20231016044336610021746$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentId&quot;</span>: <span class="string">&quot;20231016010437450010083$20231016044336610021746$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span>: <span class="string">&quot;Audit.AzureActiveDirectory&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentCreated&quot;</span>: <span class="string">&quot;2023-10-16T04:43:36.610Z&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentExpiration&quot;</span>: <span class="string">&quot;2023-10-23T00:10:37.495Z&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    …</span><br></pre></td></tr></table></figure>
-
-<p>このデータをどう活用していくのかを確認するために、Office 365 Management API のリファレンスを見てみると、上記のコンテンツ リストに含まれる <code>contentUri</code> に対して GET 要求を行うことで、コンテンツ (=アクションまたはイベントのコレクション) が取得できるようです。  </p>
-<p>そこで、次のアクションでは、コンテンツリスト内の各 contentUri に対して GET 要求を行っていきます。  </p>
-<h2 id="5-Office-365-Management-API-でコンテンツの取得"><a href="#5-Office-365-Management-API-でコンテンツの取得" class="headerlink" title="5. Office 365 Management API でコンテンツの取得"></a>5. Office 365 Management API でコンテンツの取得</h2><p>コンテンツの取得には、以下の API を使用します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#retrieving-content">コンテンツの取得</a>  </p>
-<p>リファレンスの “応答のサンプル” を見てみると、一つの contentUri に対して GET 要求を行うと、配列形式で複数のコンテンツが返却されるようです。<br>今回は、複数の contentUri に対して繰り返し GET 要求を行い、得られた配列を 1 つの CSV に出力したいので、事前に CSV 作成のための変数を用意しておき、各 contentUri から得られた配列は変数に格納していくこととします。  </p>
-<p><strong>5-1．配列変数を 2 つ用意</strong><br>変数コネクタ「変数を初期化する」アクションを 2 つフローに追加し、それぞれ以下のように設定します。<br>ここで、Power Automate の「変数の設定」アクションでは自己参照ができないため、配列を結合しながら CSV にまとめていくために、2 つの変数を用意しています。  </p>
+<p><strong>4-3．配列変数を 2 つ用意</strong><br>監査ログの取得結果を格納するための変数を事前に用意します。<br>変数コネクタ「変数を初期化する」アクションを 2 つフローに追加し、それぞれ以下のように設定します。   </p>
 <p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contents.png" alt="変数を初期化-contents">  </p>
 <table>
 <thead>
@@ -583,7 +537,103 @@
 <td>空欄のまま</td>
 </tr>
 </tbody></table>
-<p><strong>5-2．GET 要求を繰り返すためのループアクションを作成</strong><br>コントロールコネクタ「Apply to each」アクションをフローに追加し、以下のように設定します。  </p>
+<p><strong>4-4．改ページに対応するための変数と繰り返しアクションを用意</strong><br>変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。<br>ここでは、コンテンツリストを取得するための URI を変数に格納します。リファレンスに従って設定してください。  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contentslisturi.png" alt="変数を初期化-contentsListUri">  </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名前</td>
+<td>contentsListUri</td>
+</tr>
+<tr>
+<td>種類</td>
+<td>文字列</td>
+</tr>
+<tr>
+<td>値</td>
+<td><code>@&#123;variables(&#39;endpoint&#39;)&#125;/subscriptions/content?contentType=@&#123;variables(&#39;contentType&#39;)&#125;&amp;startTime=@&#123;variables(&#39;startTime&#39;)&#125;&amp;endTime=@&#123;variables(&#39;endTime&#39;)&#125;</code></td>
+</tr>
+</tbody></table>
+<p>コントロールコネクタ「Do until」アクションを追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/dountil.png" alt="Do until">    </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>左辺</td>
+<td>動的なコンテンツ &gt; <code>contentListUri</code></td>
+</tr>
+<tr>
+<td>条件</td>
+<td>次のもので始まらない</td>
+</tr>
+<tr>
+<td>右辺</td>
+<td><a target="_blank" rel="noopener" href="https://manage.office.com/">https://manage.office.com/</a></td>
+</tr>
+</tbody></table>
+<p><strong>4-5．コンテンツリストの取得</strong><br>Do until 内で HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-content.png" alt="HTTPアクション-コンテンツリストの取得">  </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URI</td>
+<td>動的なコンテンツ &gt; <code>contentListUri</code></td>
+</tr>
+<tr>
+<td>認証</td>
+<td>Active Directory OAuth</td>
+</tr>
+<tr>
+<td>テナント</td>
+<td>動的なコンテンツ &gt; <code>tenantID</code></td>
+</tr>
+<tr>
+<td>対象ユーザー</td>
+<td><code>https://manage.office.com/</code></td>
+</tr>
+<tr>
+<td>クライアント ID</td>
+<td>動的なコンテンツ &gt; <code>clientID</code></td>
+</tr>
+<tr>
+<td>資格情報の種類</td>
+<td>シークレット</td>
+</tr>
+<tr>
+<td>シークレット</td>
+<td>動的なコンテンツ &gt; <code>secret</code></td>
+</tr>
+</tbody></table>
+<p>さて、ここまでで一度フローを実行してみましょう。  </p>
+<p>フローが正常に実行され、<code>HTTP | コンテンツリストの作成</code> アクションまで正常に完了しました。  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-content-result.png" alt="コンテンツリストの作成結果">  </p>
+<p>さらに「HTTP | コンテンツリストの作成」アクションの本文を詳しく見てみると、以下のようなデータが取得されています。  </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;contentUri&quot;</span>: <span class="string">&quot;https://manage.office.com/api/v1.0/&#123;tenantID&#125;/activity/feed/audit/20231016001037495037203$20231016005646231021586$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentId&quot;</span>: <span class="string">&quot;20231016001037495037203$20231016005646231021586$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span>: <span class="string">&quot;Audit.AzureActiveDirectory&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentCreated&quot;</span>: <span class="string">&quot;2023-10-16T00:56:46.231Z&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentExpiration&quot;</span>: <span class="string">&quot;2023-10-23T00:10:37.495Z&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;contentUri&quot;</span>: <span class="string">&quot;https://manage.office.com/api/v1.0/&#123;tenantID&#125;/activity/feed/audit/20231016010437450010083$20231016044336610021746$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentId&quot;</span>: <span class="string">&quot;20231016010437450010083$20231016044336610021746$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span>: <span class="string">&quot;Audit.AzureActiveDirectory&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentCreated&quot;</span>: <span class="string">&quot;2023-10-16T04:43:36.610Z&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;contentExpiration&quot;</span>: <span class="string">&quot;2023-10-23T00:10:37.495Z&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    …</span><br></pre></td></tr></table></figure>
+
+<p>このデータをどう活用していくのかを確認するために、Office 365 Management API のリファレンスを見てみると、上記のコンテンツ リストに含まれる <code>contentUri</code> に対して GET 要求を行うことで、コンテンツ (=アクションまたはイベントのコレクション) が取得できるようです。  </p>
+<p>そこで、次のアクションでは、コンテンツリスト内の各 contentUri に対して GET 要求を行っていきます。  </p>
+<h2 id="5-Office-365-Management-API-でコンテンツの取得"><a href="#5-Office-365-Management-API-でコンテンツの取得" class="headerlink" title="5. Office 365 Management API でコンテンツの取得"></a>5. Office 365 Management API でコンテンツの取得</h2><p>コンテンツの取得には、以下の API を使用します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#retrieving-content">コンテンツの取得</a>  </p>
+<p>リファレンスの “応答のサンプル” を見てみると、一つの contentUri に対して GET 要求を行うと、配列形式で複数のコンテンツが返却されるようです。<br>今回は、複数の contentUri に対して繰り返し GET 要求を行い、得られた配列を 1 つの CSV に出力したいので、事前に CSV 作成のための変数を用意しておき、各 contentUri から得られた配列は変数に格納していくこととします。<br>Power Automate の「変数の設定」アクションでは、自己参照ができないため、配列を結合しながら CSV にまとめていくために、手順 4-3 で 2 つの変数を用意しています。  </p>
+<p><strong>5-1．GET 要求を繰り返すためのループアクションを作成</strong><br>Do until 内でコントロールコネクタ「Apply to each」アクションをフローに追加し、以下のように設定します。  </p>
 <p><img src="/blog/powerautomate/work-with-audit-log/apply-to-each.png" alt="Apply to each">  </p>
 <table>
 <thead>
@@ -597,7 +647,7 @@
 <td>動的なコンテンツ &gt; <code>HTTP | コンテンツリストの作成</code> &gt; <code>本文</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-3．コンテンツの取得</strong><br>Apply to each 内で HTTP コネクタ「HTTP」アクションを追加し、以下のように設定します。  </p>
+<p><strong>5-2．コンテンツの取得</strong><br>Apply to each 内で HTTP コネクタ「HTTP」アクションを追加し、以下のように設定します。  </p>
 <p><img src="/blog/powerautomate/work-with-audit-log/http-contents.png" alt="HTTP-コンテンツの取得">  </p>
 <table>
 <thead>
@@ -639,7 +689,7 @@
 <td>動的なコンテンツ &gt; <code>secret</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-4．contentsAll 変数の値を一時的に contents 変数に退避</strong><br>Apply to each 内で変数コネクタ「変数の設定」アクションを追加し、以下のように設定します。  </p>
+<p><strong>5-3．contentsAll 変数の値を一時的に contents 変数に退避</strong><br>Apply to each 内で変数コネクタ「変数の設定」アクションを追加し、以下のように設定します。  </p>
 <p><img src="/blog/powerautomate/work-with-audit-log/set-variable-contents.png" alt="変数の設定-contents"></p>
 <table>
 <thead>
@@ -673,6 +723,64 @@
 <tr>
 <td>値</td>
 <td>式 &gt; <code>union(json(body(&#39;HTTP_|_コンテンツの取得&#39;)), variables(&#39;contents&#39;))</code></td>
+</tr>
+</tbody></table>
+<p><strong>5-5．「HTTP | コンテンツリストの作成」のヘッダーに NextPageUri があるかを確認</strong><br>Do until 内でコントロールコネクタ「条件」アクションを追加し、以下のように設定します。  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/condition2.png" alt="条件">  </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>左辺</td>
+<td>式 &gt; <code>outputs(&#39;HTTP_|_コンテンツリストの作成&#39;)[&#39;headers&#39;]?[&#39;NextPageUri&#39;]</code></td>
+</tr>
+<tr>
+<td>条件</td>
+<td>次の値に等しくない</td>
+</tr>
+<tr>
+<td>右辺</td>
+<td>式 &gt; <code>Null</code></td>
+</tr>
+</tbody></table>
+<p><strong>5-6．NextPageUri が存在する場合、contentsListUri 変数を NextPageUri で更新</strong><br><code>はいの場合</code> 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-nextpageuri.png" alt="変数の設定-NextPageUri">  </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名前</td>
+<td>contentsListUri</td>
+</tr>
+<tr>
+<td>値</td>
+<td>式 &gt; <code>outputs(&#39;HTTP_|_コンテンツリストの作成&#39;)[&#39;headers&#39;]?[&#39;NextPageUri&#39;]</code></td>
+</tr>
+</tbody></table>
+<p><strong>5-7．NextPageUri が存在しない場合、contentsListUri 変数を 0 で更新</strong><br><code>いいえの場合</code> 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-no-nextpageuri.png" alt="変数の設定-NextPageUri">  </p>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名前</td>
+<td>contentsListUri</td>
+</tr>
+<tr>
+<td>値</td>
+<td>0</td>
 </tr>
 </tbody></table>
 <h2 id="6-CSVファイルの作成・保存"><a href="#6-CSVファイルの作成・保存" class="headerlink" title="6. CSVファイルの作成・保存"></a>6. CSVファイルの作成・保存</h2><p>これで監査ログの値を全て取得できたので、最後に CSV を作成してクラウド ストレージに保存します。  </p>

@@ -30,13 +30,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
-    
-    <lastmod>2024-08-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/about-power-platform-support/</loc>
     
     <lastmod>2024-08-15</lastmod>
@@ -51,6 +44,27 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
+    
+    <lastmod>2024-08-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
+    
+    <lastmod>2024-08-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    
+    <lastmod>2024-08-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Notes-when-using-support/</loc>
     
     <lastmod>2024-08-15</lastmod>
@@ -59,13 +73,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/</loc>
-    
-    <lastmod>2024-08-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
@@ -100,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
@@ -114,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
@@ -135,7 +142,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
@@ -156,13 +163,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/</loc>
-    
-    <lastmod>2024-08-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/</loc>
     
     <lastmod>2024-08-15</lastmod>
@@ -177,14 +177,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
@@ -261,6 +261,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/</loc>
+    
+    <lastmod>2024-08-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/</loc>
     
     <lastmod>2024-08-15</lastmod>
@@ -269,13 +276,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/fetch-xml/</loc>
-    
-    <lastmod>2024-08-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
@@ -394,14 +394,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/Send_data_from_automate_to_apps/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerapps/Send_data_from_automate_to_apps/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
@@ -457,6 +457,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/archive/odata-risk-in-portal/</loc>
+    
+    <lastmod>2024-08-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
     <lastmod>2024-08-15</lastmod>
@@ -472,13 +479,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
-    
-    <lastmod>2024-08-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/archive/odata-risk-in-portal/</loc>
     
     <lastmod>2024-08-15</lastmod>
     
