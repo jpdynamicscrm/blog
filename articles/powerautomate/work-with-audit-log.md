@@ -426,7 +426,7 @@ Do until 内でコントロールコネクタ「条件」アクションを追�
 
 |パラメータ|値|
 |---------|--|
-|左辺|式 > `outputs('HTTP_|_コンテンツリストの作成')['headers']?['NextPageUri']`|
+|左辺|式 > `outputs('HTTP_\|_コンテンツリストの作成')['headers']?['NextPageUri']`|
 |条件|次の値に等しくない|
 |右辺|式 > `Null`|
 
@@ -438,7 +438,7 @@ Do until 内でコントロールコネクタ「条件」アクションを追�
 |パラメータ|値|
 |---------|--|
 |名前|contentsListUri|
-|値|式 > `outputs('HTTP_|_コンテンツリストの作成')['headers']?['NextPageUri']`|
+|値|式 > `outputs('HTTP_\|_コンテンツリストの作成')['headers']?['NextPageUri']`|
 
 **5-7．NextPageUri が存在しない場合、contentsListUri 変数を 0 で更新**  
 `いいえの場合` 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。  
