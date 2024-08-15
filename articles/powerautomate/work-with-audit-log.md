@@ -251,6 +251,9 @@ HTTP コネクタ「HTTP」アクションをフローに追加し、API のリ�
 API のリファレンスを読むと、取得したいコンテンツの時間範囲をパラメータとして指定できるようですが、時間範囲は 24 時間以内とするよう推奨されています。  
 そのため、本フローでは、フロー実行日の前日 24 時間分のコンテンツを取得するよう設定します。  
 
+また、本 API では、改ページが発生する可能性があるようです。  
+大量の監査ログが存在する場合に、改ページの処理を行わないと、全てのデータが取得できない恐れがあるため、Do until アクションを使用して、改ページへの対応も行っていきます。
+
 **4-1．startTime を前日の 00:00 JST (UTC: 15:00) に指定**  
 変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。  
 
@@ -273,15 +276,57 @@ API のリファレンスを読むと、取得したいコンテンツの時間�
 |種類|文字列|
 |値|`@{addDays(convertFromUtc(utcNow(), 'Tokyo Standard Time'), -1, 'yyyy-MM-dd')}`T14:59:59Z|
 
-**4-3．コンテンツリストの取得**  
-HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  
+**4-3．配列変数を 2 つ用意**  
+監査ログの取得結果を格納するための変数を事前に用意します。  
+変数コネクタ「変数を初期化する」アクションを 2 つフローに追加し、それぞれ以下のように設定します。   
+
+![変数を初期化-contents](./work-with-audit-log/init-variable-contents.png)  
+
+|パラメータ|値|
+|---------|--|
+|名前|contents|
+|種類|アレイ|
+|値|空欄のまま|
+
+![変数を初期化-contentsAll](./work-with-audit-log/init-variable-contentsAll.png)  
+
+|パラメータ|値|
+|---------|--|
+|名前|contentsAll|
+|種類|アレイ|
+|値|空欄のまま|
+
+**4-4．改ページに対応するための変数と繰り返しアクションを用意**  
+変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。  
+ここでは、コンテンツリストを取得するための URI を変数に格納します。リファレンスに従って設定してください。  
+
+![変数を初期化-contentsListUri](./work-with-audit-log/init-variable-contentslisturi.png)  
+
+|パラメータ|値|
+|---------|--|
+|名前|contentsListUri|
+|種類|文字列|
+|値|`@{variables('endpoint')}/subscriptions/content?contentType=@{variables('contentType')}&startTime=@{variables('startTime')}&endTime=@{variables('endTime')}`|
+
+コントロールコネクタ「Do until」アクションを追加し、以下のように設定します。
+
+![Do until](./work-with-audit-log/dountil.png)    
+
+|パラメータ|値|
+|---------|--|
+|左辺|動的なコンテンツ > `contentListUri`|
+|条件|次のもので始まらない|
+|右辺|https://manage.office.com/|
+
+**4-5．コンテンツリストの取得**  
+Do until 内で HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  
 
 ![HTTPアクション-コンテンツリストの取得](./work-with-audit-log/http-content.png)  
 
 |パラメータ|値|
 |---------|--|
 |方法|GET|
-|URI|`@{variables('endpoint')}`/subscriptions/content?contentType=`@{variables('contentType')}`&startTime=`@{variables('startTime')}`&endTime=`@{variables('endTime')}`|
+|URI|動的なコンテンツ > `contentListUri`|
 |認証|Active Directory OAuth|
 |テナント|動的なコンテンツ > `tenantID`|
 |対象ユーザー|`https://manage.office.com/`|
@@ -326,29 +371,10 @@ HTTP コネクタ「HTTP」アクションをフローに追加し、API のリ�
 
 リファレンスの "応答のサンプル" を見てみると、一つの contentUri に対して GET 要求を行うと、配列形式で複数のコンテンツが返却されるようです。  
 今回は、複数の contentUri に対して繰り返し GET 要求を行い、得られた配列を 1 つの CSV に出力したいので、事前に CSV 作成のための変数を用意しておき、各 contentUri から得られた配列は変数に格納していくこととします。  
+Power Automate の「変数の設定」アクションでは、自己参照ができないため、配列を結合しながら CSV にまとめていくために、手順 4-3 で 2 つの変数を用意しています。  
 
-**5-1．配列変数を 2 つ用意**  
-変数コネクタ「変数を初期化する」アクションを 2 つフローに追加し、それぞれ以下のように設定します。  
-ここで、Power Automate の「変数の設定」アクションでは自己参照ができないため、配列を結合しながら CSV にまとめていくために、2 つの変数を用意しています。  
-
-![変数を初期化-contents](./work-with-audit-log/init-variable-contents.png)  
-
-|パラメータ|値|
-|---------|--|
-|名前|contents|
-|種類|アレイ|
-|値|空欄のまま|
-
-![変数を初期化-contentsAll](./work-with-audit-log/init-variable-contentsAll.png)  
-
-|パラメータ|値|
-|---------|--|
-|名前|contentsAll|
-|種類|アレイ|
-|値|空欄のまま|
-
-**5-2．GET 要求を繰り返すためのループアクションを作成**  
-コントロールコネクタ「Apply to each」アクションをフローに追加し、以下のように設定します。  
+**5-1．GET 要求を繰り返すためのループアクションを作成**  
+Do until 内でコントロールコネクタ「Apply to each」アクションをフローに追加し、以下のように設定します。  
 
 ![Apply to each](./work-with-audit-log/apply-to-each.png)  
 
@@ -356,7 +382,7 @@ HTTP コネクタ「HTTP」アクションをフローに追加し、API のリ�
 |---------|--|
 |以前の手順から出力を選択|動的なコンテンツ > `HTTP \| コンテンツリストの作成` > `本文`|
 
-**5-3．コンテンツの取得**  
+**5-2．コンテンツの取得**  
 Apply to each 内で HTTP コネクタ「HTTP」アクションを追加し、以下のように設定します。  
 
 ![HTTP-コンテンツの取得](./work-with-audit-log/http-contents.png)  
@@ -372,7 +398,7 @@ Apply to each 内で HTTP コネクタ「HTTP」アクションを追加し、�
 |資格情報の種類|シークレット|
 |シークレット|動的なコンテンツ > `secret`|
 
-**5-4．contentsAll 変数の値を一時的に contents 変数に退避**  
+**5-3．contentsAll 変数の値を一時的に contents 変数に退避**  
 Apply to each 内で変数コネクタ「変数の設定」アクションを追加し、以下のように設定します。  
 
 ![変数の設定-contents](./work-with-audit-log/set-variable-contents.png)
@@ -392,6 +418,37 @@ Apply to each 内で変数コネクタ「変数の設定」アクションを追
 |---------|--|
 |名前|contentsAll|
 |値|式 > `union(json(body('HTTP_\|_コンテンツの取得')), variables('contents'))`|
+
+**5-5．「HTTP | コンテンツリストの作成」のヘッダーに NextPageUri があるかを確認**  
+Do until 内でコントロールコネクタ「条件」アクションを追加し、以下のように設定します。  
+
+![条件](./work-with-audit-log/condition2.png)  
+
+|パラメータ|値|
+|---------|--|
+|左辺|式 > `outputs('HTTP_\|_コンテンツリストの作成')['headers']?['NextPageUri']`|
+|条件|次の値に等しくない|
+|右辺|式 > `Null`|
+
+**5-6．NextPageUri が存在する場合、contentsListUri 変数を NextPageUri で更新**  
+`はいの場合` 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。  
+
+![変数の設定-NextPageUri](./work-with-audit-log/set-variable-nextpageuri.png)  
+
+|パラメータ|値|
+|---------|--|
+|名前|contentsListUri|
+|値|式 > `outputs('HTTP_\|_コンテンツリストの作成')['headers']?['NextPageUri']`|
+
+**5-7．NextPageUri が存在しない場合、contentsListUri 変数を 0 で更新**  
+`いいえの場合` 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。  
+
+![変数の設定-NextPageUri](./work-with-audit-log/set-variable-no-nextpageuri.png)  
+
+|パラメータ|値|
+|---------|--|
+|名前|contentsListUri|
+|値|0|
 
 ## 6. CSVファイルの作成・保存  
 これで監査ログの値を全て取得できたので、最後に CSV を作成してクラウド ストレージに保存します。  
