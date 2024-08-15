@@ -65,9 +65,13 @@ Microsoft の提供する生成 AI の Copilot は Power Platform の随所で�
 
 ![](./pp-copilot-disable/img03.png) 
 
+![](./pp-copilot-disable/img04.png) 
+
+<!--
 <div align="center">
 <img src="./pp-copilot-disable/img04.png" width="50%">
 </div>
+-->
 
 <br>
 <br>
