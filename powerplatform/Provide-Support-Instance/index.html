@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/04_processing.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/07_search_instance.png">
 <meta property="article:published_time" content="2022-11-11T08:30:00.000Z">
-<meta property="article:modified_time" content="2024-08-15T08:32:38.915Z">
+<meta property="article:modified_time" content="2024-08-15T08:32:53.257Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Dynamics">
 <meta property="article:tag" content="Environment">
@@ -115,7 +115,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4f5d6141-6d4c-530b-9d3c-60b0e2a06576%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88+%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AE%E6%8F%90%E4%BE%9B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FProvide-Support-Instance%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FProvide-Support-Instance.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FProvide-Support-Instance.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="clzv0vthh00300no841wv72tx" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="clzv0w4k100300nqbcaetdp8b" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -137,7 +137,7 @@
 <h2 id="1-サポートインスタンス作成条件の確認（お客様の作業）"><a href="#1-サポートインスタンス作成条件の確認（お客様の作業）" class="headerlink" title="1. サポートインスタンス作成条件の確認（お客様の作業）"></a>1. サポートインスタンス作成条件の確認（お客様の作業）</h2><p>サポート インスタンスを作成するために、次の全ての条件を満たす必要がございます。</p>
 <ul>
 <li>a. お問い合わせ起票者は、事象発生環境にて、システム管理者のセキュリティロールが割り当てられている。</li>
-<li>b. お問い合わせの対象製品として Dynamics 365 Customer Enagagement が選択されている。<br><img src="/blog/powerplatform/Provide-Support-Instance/00_SR_product.png"></li>
+<li>b. お問い合わせの対象製品として Dynamics 365 Customer Engagement が選択されている。<br><img src="/blog/powerplatform/Provide-Support-Instance/00_SR_product.png"></li>
 <li>c. お問い合わせにて、サポート インスタンス作成の同意レベルが、次のいずれかに設定されている。<ul>
 <li>診断情報へのアクセスで <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-customizations-and-schemas-only">最小限のコピー</a> を許可する</li>
 <li>診断情報へのアクセスで <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-everything">フル コピー</a> を許可する</li>
@@ -161,7 +161,7 @@
 </li>
 </ul>
 <p><a id='anchor-create-instance'></a></p>
-<h2 id="3-サポートイインスタンスの作成（弊社の作業）"><a href="#3-サポートイインスタンスの作成（弊社の作業）" class="headerlink" title="3. サポートイインスタンスの作成（弊社の作業）"></a>3. サポートイインスタンスの作成（弊社の作業）</h2><p>ご提供いただいた情報より、弊社にてサポート インスタンスを作成いたします。</p>
+<h2 id="3-サポートインスタンスの作成（弊社の作業）"><a href="#3-サポートインスタンスの作成（弊社の作業）" class="headerlink" title="3. サポートインスタンスの作成（弊社の作業）"></a>3. サポートインスタンスの作成（弊社の作業）</h2><p>ご提供いただいた情報より、弊社にてサポート インスタンスを作成いたします。</p>
 <p>サポート エンジニアより、新規作成したサポート インスタンス環境名をお問い合わせ起票者へご連絡いたしますので、4. <a href="#anchor-about-copy">サポートインスタンスのコピー</a> の手順でコピーを実施ください。</p>
 <p><a id='anchor-about-copy'></a></p>
 <h2 id="4-サポートインスタンスのコピー（お客様の作業）"><a href="#4-サポートインスタンスのコピー（お客様の作業）" class="headerlink" title="4. サポートインスタンスのコピー（お客様の作業）"></a>4. サポートインスタンスのコピー（お客様の作業）</h2><p>弊社エンジニアより、サポートインスタンス環境名が通知されましたら、2. <a href="#anchor-about-information">情報の提供</a> でご共有いただきました UPN のユーザーにて、コピー操作をお願いいたします。</p>

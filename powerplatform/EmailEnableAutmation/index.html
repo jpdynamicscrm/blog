@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、Power Platform サポートチームの原です。本記事では Dynamics 365における、メールボックスの承認・テストと有効化の自動化についてご紹介いたします。また、メールボックスの承認・テスト有効化を自動化するための標準機能としてご提供している機能は現段階ではございませんが、代替案がございますので、本記事ではそちらの代替案をご紹介させていただきます。少しでもお客様の業務効率">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2024-08-15T08:32:42.523Z">
-<meta property="article:modified_time" content="2024-08-15T08:32:38.907Z">
+<meta property="article:published_time" content="2024-08-15T08:32:56.813Z">
+<meta property="article:modified_time" content="2024-08-15T08:32:53.249Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Dynamics">
 <meta property="article:tag" content="Environment">
@@ -99,14 +99,14 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2024-08-15T08:32:42.523Z" itemprop="datePublished">2024-08-15</time>
+  <time datetime="2024-08-15T08:32:56.813Z" itemprop="datePublished">2024-08-15</time>
 </a>
         
         
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+2a2e8a2d-a90a-5b42-b5b9-2a355334a5db%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%A1%E3%83%BC%E3%83%AB%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AE%E6%89%BF%E8%AA%8D%E3%83%BB%E3%83%86%E3%82%B9%E3%83%88%E3%81%A8%E6%9C%89%E5%8A%B9%E5%8C%96%E3%81%AE%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FEmailEnableAutmation%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FEmailEnableAutmation.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FEmailEnableAutmation.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/" data-id="clzv0vthc002m0no8epxagcp6" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/" data-id="clzv0w4jx002m0nqb5u1p8e95" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -115,7 +115,7 @@
 <p>なお、弊社検証環境では下記にご紹介するコマンドにて、電子メールの承認やテストと有効化が実行可能なことを確認しておりますが、下記でご案内いたします Microsoft.Xrm.Data.PowerShell モジュールにつきましては、コミュニティにより<br>提供・メンテナンスされるツールでございますため、本モジュールをご利用いただく中での<br>エラーやご不明点に関しましては弊社からサポートをご提供することがかないません。<br><br>そのため、ご確認いただく中で何か問題があった場合は、基本的には以下の New Issue より、Github 経由で問題を報告いただく必要がございます。<br>予めご了承いただきますようお願いいたします。<br>URL:<a target="_blank" rel="noopener" href="https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell/issues">https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell/issues</a></p>
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Dynamics 365では、Dynamics 365と Exchange Online の同期を行うことができます。これを行うことで、 Dynamics 365 のレコードから取引先担当者にメールを送信できるようになったり、営業案件のタイムラインで会話を追跡することができるようになります。<br><br>メールボックスを有効化するためには、承認とテストが既定では必須となっております。<br>メールボックスの承認・テストと有効化を手動で行う方法については、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online" target="_blank">Exchange Online への接続</a>をご参照ください。<br></p>
 <p><a id='anchor-powershell'></a></p>
-<h2 id="PowerShell-を使用して実行する"><a href="#PowerShell-を使用して実行する" class="headerlink" title="PowerShell を使用して実行する"></a>PowerShell を使用して実行する</h2><p>メールボックスの承認やテストと有効化は PowerShell で下記コマンドを入力することで実施いただくことが可能です。<br><br>そのため、タスク スケジューラや Power Automate を利用しPowerShell を実行いただくことで、任意のタイミングで自動的にメールボックスの承認やテストと有効化を行うことが可能となります。<br>また、反復処理などで各ユーザーの IDを置き換える処理を実装いただくことで、複数のメールボックスに対して一括でメールボックスの承認やテストと有効化を行うことが可能です。<br>Power Automate を使用して PowerShell を実行する方法に関しては、<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/#:~:text=Azure%20%E4%B8%8A%E3%81%A7%20PowerShell%20%E3%82%84%20Python%20%E3%81%AA%E3%81%A9%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD%E3%81%A7%E3%81%99%E3%80%82%20%E3%81%93%E3%81%AE%20Runbook,Forms%20%E3%81%A7%20Microsoft%20365%20%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%AB%E7%94%B3%E8%AB%8B%E3%82%92%E8%A1%8C%E3%81%84%E3%80%81%E6%89%BF%E8%AA%8D%E3%81%95%E3%82%8C%E3%81%9F%E3%82%89%E3%80%81%20PowerShell%20%E3%81%A7%E3%83%AD%E3%83%BC%E3%83%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B" target="_blank" rel="noopener noreferrer"> Power Automateを使用して PowerShell を実行する方法</a><br>こちらの記事をご参照ください。</p>
+<h2 id="PowerShell-を使用して実行する"><a href="#PowerShell-を使用して実行する" class="headerlink" title="PowerShell を使用して実行する"></a>PowerShell を使用して実行する</h2><p>メールボックスの承認やテストと有効化は PowerShell で下記コマンドを入力することで実施いただくことが可能です。<br><br>そのため、タスク スケジューラや Power Automate を利用しPowerShell を実行いただくことで、任意のタイミングで自動的にメールボックスの承認やテストと有効化を行うことが可能となります。<br>また、反復処理などで各ユーザーの IDを置き換える処理を実装いただくことで、複数のメールボックスに対して一括でメールボックスの承認やテストと有効化を行うことが可能です。<br>Power Automate を使用して PowerShell を実行する方法に関しては、<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/#:~:text=Azure%20%E4%B8%8A%E3%81%A7%20PowerShell%20%E3%82%84%20Python%20%E3%81%AA%E3%81%A9%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD%E3%81%A7%E3%81%99%E3%80%82%20%E3%81%93%E3%81%AE%20Runbook,Forms%20%E3%81%A7%20Microsoft%20365%20%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%AB%E7%94%B3%E8%AB%8B%E3%82%92%E8%A1%8C%E3%81%84%E3%80%81%E6%89%BF%E8%AA%8D%E3%81%95%E3%82%8C%E3%81%9F%E3%82%89%E3%80%81%20PowerShell%20%E3%81%A7%E3%83%AD%E3%83%BC%E3%83%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B" target="_blank" rel="noopener noreferrer"> Power Automateを使用して PowerShell を実行する方法</a><br>をご参照ください。</p>
 <ol>
 <li>管理者として PowerShell を起動します。</li>
 <li>以下のコマンドを実行し、 Microsoft.Xrm.Data.Poweshell のモジュールをダウンロードします。<br><br>Install-Module Microsoft.Xrm.Data.PowerShell -Scope CurrentUser</li>
