@@ -31,8 +31,11 @@ Microsoft の提供する生成 AI の Copilot は Power Platform の随所で�
 
 データをホストしているリージョンと Copilot 出力を得ることができるリージョンが異なるため、リージョン間データ移動をオフにすると、リージョンを跨いだデータ移動を要する Copilot 機能を使用することができなくなります。 
 
-なお、日本で Copilot を使用している場合、データをホストしているリージョンはアメリカとなります。
-(2024年7月10日時点)  
+なお、日本で Copilot を使用している場合、Power Platform または Dynamics 365 環境がホストされる地域は日本となり、Azure OpenAI Service および Bing 検索のデータをホストしているリージョンはアメリカとなります。
+(2024年8月15日時点)  
+
+最新情報については下記の公開情報をご参照ください。  
+[コパイロットと生成 AI 機能をオンにする](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot#regions-involved-with-copilots-and-generative-ai-features)
 
 <!-- 
 ![](./pp-copilot-disable/img02.png)
@@ -50,8 +53,15 @@ Microsoft の提供する生成 AI の Copilot は Power Platform の随所で�
 <br>
 
 ### Power Platform における Copilot 機能無効化の手順
-[Power Platform 管理センター (Power Platform Admin Center)](https://admin.powerplatform.microsoft.com/) で特定の環境を選択し、環境の「生成AI機能」カードを編集、「リージョン間データ移動 (the Move data across regions)」のチェックボックスをオフにします。  
-これにより、Power Platform 全体で Copilot の機能を無効化することができます。
+リージョン間のデータ移動をオフにすることで、Power Platform 全体で Copilot の一部機能を無効化することができます。 
+無効化できる機能の詳細については下記の公開文書をご参照ください。  
+[コパイロットと生成 AI 機能は、地域をまたいだデータ移動を可能にした場合に利用できます](https://learn.microsoft.com/ja-jp/power-platform/admin/geographical-availability-copilot#copilots-and-generative-ai-features-that-are-available-when-you-enable-data-movement-across-regions)
+
+
+具体的な手順は下記のとおりです。  
+[Power Platform 管理センター (Power Platform Admin Center)](https://admin.powerplatform.microsoft.com/) で特定の環境を選択し、環境の「生成AI機能」カードを編集します。  
+「リージョン間データ移動 (the Move data across regions)」のチェックボックスをオフにします。  
+ 
 
 ![](./pp-copilot-disable/img03.png) 
 
