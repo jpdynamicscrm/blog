@@ -1,6 +1,6 @@
 ---
 title: Power Automate for desktop お問い合わせの際の情報取得手順
-date: 2024-10-1 12:00
+date: 2022-12-28 12:00
 tags:
   - Power Automate
   - Desktop flow
@@ -82,9 +82,9 @@ Power Automate コンピュータ ランタイム > トラブルシューティ�
 > 公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。  
 > [Power Automate でのガバナンス - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/governance#configure-power-automate-for-desktop-to-keep-the-flow-run-details)
 
-      > [!WARNING]
-      > こちらのレジストリを有効にした状態のままご運用頂くと端末のストレージを逼迫させる場合があります。
-      > 情報ご取得後はレジストリの無効化をお勧め致します。
+> [!WARNING]
+> こちらのレジストリを有効にした状態のままご運用頂くと端末のストレージを逼迫させる場合があります。
+> 情報ご取得後はレジストリの無効化をお勧め致します。
 
    2. 事象を再現致します。
    3. ファイルをご取得ください。
