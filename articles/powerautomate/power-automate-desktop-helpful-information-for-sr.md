@@ -7,6 +7,7 @@ tags:
   - Power Automate for desktop
   - 情報採取
 ---
+# はじめに
 
 こんにちは。Power Platform サポートの大友です。  
 本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。
@@ -29,10 +30,9 @@ tags:
    1. [クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)](#anchor-cloudflow-raw-input-output)
 
 <a id='anchor-intro'></a>
+
 # 概要
-
 Power Automate for desktop に関するサポートサービスのお問い合わせの際の、情報取得手順についてご案内致します。
-
 
 <a id='anchor-how-to-collect'></a>
 
@@ -194,9 +194,6 @@ Power Automate ポータルの画面 > 監視 > マシン
 ---
 
 ## 補足
-
 本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。
-
-
 
 ---
