@@ -1,53 +1,65 @@
 ---
 title: Power Apps キャンバス アプリ お問い合わせの際の情報取得手順
-date: 2023-03-31 00:00:00
+date: 2023-03-31 00:00
 tags:
   - Power Apps
   - Canvas app
   - 情報採取
 ---
-
+# はじめに
 こんにちは、Power Platform サポートの大友です。  
 
-弊社サポートでは、キャンバス アプリが動作しない、エラーが発生する等のトラブルシューティングにおいてお問い合わせの内容をもとに調査方針を立てておりますが、発生している事象を明確に把握するためご利用者様の環境で発生している事象の切り分けや情報提供をお願いすることがあります。  
+本記事では、キャンバス アプリのトラブルシューティングを行うにあたって、必要となる情報の取得手順をご説明します。
 
-この記事では、キャンバス アプリのトラブルシューティングを行うにあたって、必要となる情報の取得手順をご説明します。
+<!-- more -->
+# 目次
+1. [概要](#anchor-intro)
+1. [情報取得手順詳細](#anchor-how-to-collect)
+   1. [事象の発生状況](#anchor-about-situation)
+   1. [事象発生時のエラーメッセージや画面キャプチャ・動画](#anchor-about-screencapture)
+   1. [アプリ チェッカーのエラーメッセージ　※編集中のみ](#anchor-about-appchecker)
+   1. [Power Apps バージョン](#anchor-about-versions)
+      - [キャンバス アプリ 編集時](#anchor-about-versions-edit)
+      - [キャンバス アプリ 実行時](#anchor-about-versions-play)
+   1. [Power Apps モニターログ](#anchor-about-monitorlog)
+      - [キャンバス アプリ 編集時](#anchor-about-monitorlog-edit)
+      - [キャンバス アプリ 実行時 (Webブラウザ) ](#anchor-about-monitorlog-web-play)
+      - [キャンバス アプリ 実行時 (モバイル アプリ) ](#anchor-about-monitorlog-mobile-play)
+   1. [Webブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
+   1. [セッションID](#anchor-about-sessionid)
+      - [編集セッション](#anchor-about-sessionid-web-edit)
+      - [実行セッション (Webブラウザ) ](#anchor-about-sessionid-web-play)
+      - [実行セッション (モバイル アプリ) ](#anchor-about-sessionid-mobile-play)
+      - [実行セッション (SharePoint カスタムフォーム ) ](#anchor-about-sessionid-web-sharepointcustomform)
+   1. [アプリURL (アプリID、テナントID) ](#anchor-about-app-tenant-ids)
+   1. [環境ID](#anchor-about-enviromentid)
+   1. [アプリ](#anchor-about-canvasapp)
+      - [公開済みアプリ](#anchor-about-canvasapp-published)
+      - [編集中アプリ](#anchor-about-canvasapp-edit)
+      - [ソリューション アプリ](#anchor-about-canvasapp-solutionapp)
+      - [SharePoint カスタムフォーム](#anchor-about-canvasapp-spocustomform)
+      - [コンポーネント単体](#anchor-about-canvasapp-componentlibrary)
 
----
-## 概要
-キャンバス アプリ編集時、また実行時に発生する問題解決におけるお問い合わせの際の情報取得手順についてご説明します。
+<a id='anchor-intro'></a>
 
-1. [事象の発生状況](#anchor-about-situation)
-1. [事象発生時のエラーメッセージや画面キャプチャ・動画](#anchor-about-screencapture)
-1. [アプリ チェッカーのエラーメッセージ　※編集中のみ](#anchor-about-appchecker)
-1. [Power Apps バージョン](#anchor-about-versions)
-   - [キャンバス アプリ 編集時](#anchor-about-versions-edit)
-   - [キャンバス アプリ 実行時](#anchor-about-versions-play)
-1. [Power Apps モニターログ](#anchor-about-monitorlog)
-   - [キャンバス アプリ 編集時](#anchor-about-monitorlog-edit)
-   - [キャンバス アプリ 実行時 (Webブラウザ) ](#anchor-about-monitorlog-web-play)
-   - [キャンバス アプリ 実行時 (モバイル アプリ) ](#anchor-about-monitorlog-mobile-play)
-1. [Webブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
-1. [セッションID](#anchor-about-sessionid)
-   - [編集セッション](#anchor-about-sessionid-web-edit)
-   - [実行セッション (Webブラウザ) ](#anchor-about-sessionid-web-play)
-   - [実行セッション (モバイル アプリ) ](#anchor-about-sessionid-mobile-play)
-   - [実行セッション (SharePoint カスタムフォーム ) ](#anchor-about-sessionid-web-sharepointcustomform)
-1. [アプリURL (アプリID、テナントID) ](#anchor-about-app-tenant-ids)
-1. [環境ID](#anchor-about-enviromentid)
-1. [アプリ](#anchor-about-canvasapp)
-   - [公開済みアプリ](#anchor-about-canvasapp-published)
-   - [編集中アプリ](#anchor-about-canvasapp-edit)
-   - [ソリューション アプリ](#anchor-about-canvasapp-solutionapp)
-   - [SharePoint カスタムフォーム](#anchor-about-canvasapp-spocustomform)
-   - [コンポーネント単体](#anchor-about-canvasapp-componentlibrary)
+# 概要
+弊社サポートではお問合せを頂いた際のトラブルシューティングにおいてお問い合わせの内容をもとに調査方針を立てております。  
+発生している事象の把握のため、直面されている事象の切り分けや情報提供をお願いすることがあります。  
+Power Apps キャンバスアプリに関するサポートサービスのお問合せの際の情報取得手順について以下のとおりご案内いたします。
 
----
-## 情報取得手順
+> [!IMPORTANT]
+> 以下の情報は事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。
+>   事象発生時の動画
+>   Power Apps モニターログ
+>   Webブラウザのネットワーク トレース・コンソール ログ
+  
+<a id='anchor-how-to-collect'></a>
+
+# 情報取得手順
 
 <a id='anchor-about-situation'></a>
 
-### 1. 事象の発生状況
+## 1. 事象の発生状況
 エラーや意図しない状況がどのような状況下で発生するかお知らせください。  
 事象の発生条件を特定することで、問題の特定だけではなく弊社環境での再現調査においても有用な情報が得られます。
 以下の情報をお知らせいただくことでより明確に事象を把握することができます。  
@@ -75,16 +87,20 @@ tags:
 
 <a id='anchor-about-screencapture'></a>
 
-### 2. 事象発生時のエラーメッセージや画面キャプチャ・動画
+## 2. 事象発生時のエラーメッセージや画面キャプチャ・動画
 エラーの内容を具体的に表すメッセージや画面キャプチャなどの情報をお寄せください。  
 事象再現時の動画がありますと事象の発生状況をより正確に把握することができます。  
 
-#### エラーメッセージや画面キャプチャ
+### エラーメッセージや画面キャプチャ
 エラーの内容が分かるよう画面キャプチャをご取得ください。  
 エラーメッセージ内にタイムスタンプやエラーコードが記載されている場合はそれらの情報を **テキスト形式** でご取得ください。  
 
-#### 動画
+### 動画
 以下のいずれかの方法で事象発生時の動画をご取得ください。  
+
+> [!IMPORTANT]
+> 事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。
+
 - Windows ゲーム バーでの画面収録  
   [ゲーム バーを使用して PC にゲーム クリップを記録する](https://support.microsoft.com/ja-jp/windows/%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%90%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-pc-%E3%81%AB%E3%82%B2%E3%83%BC%E3%83%A0-%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-2f477001-54d4-1276-9144-b0416a307f3c)
 - Power Point での画面収録  
@@ -94,7 +110,7 @@ tags:
 
 <a id='anchor-about-appchecker'></a>
 
-### 3. アプリ チェッカーのエラーメッセージ ※編集中のみ
+## 3. アプリ チェッカーのエラーメッセージ ※編集中のみ
 キャンバス アプリ編集中の場合、Power Apps Studio のアプリ チェッカーにエラーメッセージが記録されます。  
 エラーが発生している処理 (関数やコントロール等) と併せてアプリ チェッカーに記録されているエラーメッセージをご提供ください。
 
@@ -106,12 +122,12 @@ tags:
 
 <a id='anchor-about-versions'></a>
 
-### 4. Power Apps バージョン
+## 4. Power Apps バージョン
 バージョン差異による問題かどうかお調べする際に使用します。
 
 <a id='anchor-about-versions-edit'></a>
 
-#### キャンバス アプリ 編集時
+### キャンバス アプリ 編集時
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
 2. 対象のアプリ編集画面を表示します
 3. メニュー「設定」>「サポート」を選択します
@@ -120,7 +136,7 @@ tags:
 
 <a id='anchor-about-versions-play'></a>
 
-#### キャンバス アプリ 実行時
+### キャンバス アプリ 実行時
 本手順にてキャンバス アプリのリリース バージョンをご取得いただき、さらに、事象が発生している端末においてライブ バージョンをご取得ください。  
 ライブ バージョンはセッション情報から取得します。  
 Web ブラウザで事象が発生している場合、[セッションID (Webブラウザ)](#anchor-about-sessionid-web-play) をご参照ください。  
@@ -135,13 +151,12 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 
 <a id='anchor-about-monitorlog'></a>
 
-### 5. Power Apps モニターログ
+## 5. Power Apps モニターログ
 キャンバス アプリ編集中、あるいは実行中に発生するイベントを記録頂き、発生している事象を把握することができます。  
 ダウンロードしたファイル (PowerAppsTraceEvents.json) をご提供ください。  
 
-> [!NOTE]
-> 以下ブログ記事でもモニターログの取得方法をご説明しています。  
-> [キャンバス アプリのモニターログ取得手順](https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/)
+> [!IMPORTANT]
+> 事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。
 
 以下の設定を有効化することで編集時でなくとも数式の情報が記録されます。  
 実行時に発生するエラーの場合、可能でしたら以下設定を有効化しアプリ発行頂いたのちモニターログをご取得下さい。  
@@ -150,7 +165,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 
 <a id='anchor-about-monitorlog-edit'></a>
 
-#### キャンバス アプリ 編集時
+### キャンバス アプリ 編集時
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの編集画面を表示します  
 3. 画面左方にある　高度なツール > 監視 > モニターを開く を選択します
@@ -162,7 +177,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 
 <a id='anchor-about-monitorlog-web-play'></a>
 
-#### キャンバス アプリ 実行時 (Web ブラウザ)
+### キャンバス アプリ 実行時 (Web ブラウザ)
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「監視」を選択します  
     ![](./troubleshooting-general-canvasapp/uImage01.png)
@@ -174,7 +189,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 
 <a id='anchor-about-monitorlog-mobile-play'></a>
 
-#### キャンバス アプリ 実行時 (モバイル アプリ)
+### キャンバス アプリ 実行時 (モバイル アプリ)
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「監視」を選択します  
     ![](./troubleshooting-general-canvasapp/uImage05.png)
@@ -191,14 +206,22 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 8. 記録されたモニター結果を「ダウンロード」します 
     ![](./troubleshooting-general-canvasapp/uImage03.png)
 
+> [!NOTE]
+> 以下ブログ記事でもモニターログの取得方法をご説明しています。  
+> [キャンバス アプリのモニターログ取得手順](https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/)
+
 <a id='anchor-about-networkhar'></a>
 
-### 6. Web ブラウザのネットワーク トレース・コンソール ログ
+## 6. Web ブラウザのネットワーク トレース・コンソール ログ
 キャンバス アプリ編集中、あるいは実行中に Power Apps サービスへ送信する HTTP リクエストや Power Apps サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  
+
+> [!IMPORTANT]
+> 事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。
+
 > [!NOTE]
 > 事象の内容により、netsh trace コマンドやサードパーティ製のツール「Fiddler」によるネットワーク キャプチャの取得をお願いする場合があります。  
 
-#### ブラウザネットワークトレース
+### ブラウザネットワークトレース
 ご取得方法は以下公開情報をご参照ください。  
 [ブラウザーでネットワーク トレースを収集する (ブラウザーベースのアプリのみ)](https://learn.microsoft.com/ja-jp/azure/azure-web-pubsub/howto-troubleshoot-network-trace#collect-a-network-trace-in-the-browser-browser-based-apps-only)
 
@@ -206,16 +229,16 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 > ご取得の際は「ログの保持」「キャッシュを無効にする」にチェックを有効にしご取得ください。  
 > ![](./troubleshooting-general-canvasapp/image07.png)
 
-####  コンソールログ
+###  コンソールログ
 Console タブをクリックし、ログ領域を右クリックし**「名前を付けて保存」**にて保存いたします。  
 ![](./troubleshooting-general-canvasapp/image07-2.png)
 
 <a id='anchor-about-sessionid'></a>
 
-### 7. セッション ID
+## 7. セッション ID
 セッション情報から Power Apps サービス側の記録を確認し、発生している事象を調査します。
 
-#### Web ブラウザ
+### Web ブラウザ
 
 <a id='anchor-about-sessionid-web-edit'></a>
 
@@ -237,7 +260,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-sessionid-mobile-play'></a>
 
-#### モバイル アプリ
+### モバイル アプリ
 1. Power Apps モバイル アプリを起動します
 2. 画面左上部のユーザーアイコンを押下します  
     ![](./troubleshooting-general-canvasapp/image10.png)
@@ -250,7 +273,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-sessionid-web-sharepointcustomform'></a>
 
-#### SharePoint カスタム フォーム等、埋め込みのキャンバス アプリ
+### SharePoint カスタム フォーム等、埋め込みのキャンバス アプリ
 1. `Alt` キーを押下しながらフォームを右クリックします
 2. 「セッション詳細」を押下し、セッション ID を **テキスト形式** で取得します  
     ![](./troubleshooting-general-canvasapp/image14.png)
@@ -258,7 +281,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-app-tenant-ids'></a>
 
-### 8. アプリ URL (アプリ ID、テナント ID)
+## 8. アプリ URL (アプリ ID、テナント ID)
 アプリ ID、テナント ID の情報から Power Apps サービス側の記録を確認し、発生している事象を調査します。
 
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
@@ -269,7 +292,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-enviromentid'></a>
 
-### 9. 環境 ID
+## 9. 環境 ID
 環境 ID の情報から Power Apps サービス側の記録を確認し、発生している事象を調査します。
 
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
@@ -283,11 +306,11 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-canvasapp'></a>
 
-### 10. アプリ
+## 10. アプリ
 事象が発生しているアプリを調査し、問題の箇所を特定します。  
 アプリが接続するデータソースにより SharePoint リストのテンプレートや Dataverse テーブルのメタ情報をご提供いただく場合があります。
 
-#### アプリのエクスポートファイル
+### アプリのエクスポートファイル
 「エクスポート」機能によりエクスポートされるアプリのファイルは公開済みのバージョンです。  
 アプリを編集中の場合は msapp ファイルとしてローカルに保存したアプリのファイルをご取得ください。
 
@@ -312,7 +335,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-canvasapp-solutionapp'></a>
 
-#### アプリを含むソリューションファイル
+### アプリを含むソリューションファイル
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
 2. ソリューション一覧画面を表示します
 3. 「新しいソリューション」を押下します  
@@ -329,7 +352,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-canvasapp-spocustomform'></a>
 
-#### SharePoint カスタム フォーム
+### SharePoint カスタム フォーム
 1. カスタム フォームを設定している SharePoint リストを表示します
 2. 画面右上部の歯車アイコンを選択し、「リストの設定」を選択します  
     ![](./troubleshooting-general-canvasapp/image24.png)
@@ -344,7 +367,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-canvasapp-componentlibrary'></a>
 
-#### コンポーネント単体
+### コンポーネント単体
 ※キャンバス アプリ内でコンポーネントを使用している場合、[公開済みアプリのエクスポート ファイル](#anchor-about-canvasapp-published) (あるいは、[編集中アプリのエクスポート ファイル](#anchor-about-canvasapp-edit)) でご紹介している方法でエクスポートすると、コンポーネントが含まれた状態でエクスポートできます。
 
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
@@ -359,6 +382,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
     ![](./troubleshooting-general-canvasapp/image23.png)
 7. ローカルに zip ファイルがダウンロードされます
 
+---
 
 ## 補足
 本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。  
