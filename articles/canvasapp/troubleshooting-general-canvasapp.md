@@ -28,9 +28,16 @@ tags:
    1. [Webブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
    1. [セッションID](#anchor-about-sessionid)
       - [編集セッション](#anchor-about-sessionid-web-edit)
-      - [実行セッション (Webブラウザ) ](#anchor-about-sessionid-web-play)
-      - [実行セッション (モバイル アプリ) ](#anchor-about-sessionid-mobile-play)
-      - [実行セッション (SharePoint カスタムフォーム ) ](#anchor-about-sessionid-web-sharepointcustomform)
+      - Windows 端末での実行セッション
+        - [Webブラウザ](#anchor-about-sessionid-web-play)
+        - [SharePoint カスタム フォーム](#anchor-about-sessionid-web-sharepointcustomform)
+        - [Windows Teams アプリ上での実行](#anchor-about-sessionid-web-sharepointcustomform)
+        - [サイト埋め込みのキャンバス アプリ](#anchor-about-sessionid-web-sharepointcustomform)
+      - モバイル端末(iOS, Android)
+        - [モバイル アプリ](#anchor-about-sessionid-mobile-play)
+        - [Webブラウザ](#anchor-about-sessionid-teams-mobile)
+        - [モバイル版 Teams アプリ上での実行](#anchor-about-sessionid-teams-mobile)
+        - [サイト埋め込みのキャンバス アプリ](#anchor-about-sessionid-teams-mobile)
    1. [アプリURL (アプリID、テナントID) ](#anchor-about-app-tenant-ids)
    1. [環境ID](#anchor-about-enviromentid)
    1. [アプリ](#anchor-about-canvasapp)
@@ -48,10 +55,10 @@ tags:
 Power Apps キャンバスアプリに関するサポートサービスのお問合せの際の情報取得手順について以下のとおりご案内いたします。
 
 > [!IMPORTANT]
-> 以下の情報は事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。
->   事象発生時の動画
->   Power Apps モニターログ
->   Webブラウザのネットワーク トレース・コンソール ログ
+> 以下の情報は**事象再現の事前**に取得開始し、**事象を再現させた後**に採取を行う必要がございます。
+> ・事象発生時の動画
+> ・Power Apps モニターログ
+> ・Webブラウザのネットワーク トレース・コンソール ログ
   
 <a id='anchor-how-to-collect'></a>
 
@@ -238,11 +245,9 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 ## 7. セッション ID
 セッション情報から Power Apps サービス側の記録を確認し、発生している事象を調査します。
 
-### Web ブラウザ
-
 <a id='anchor-about-sessionid-web-edit'></a>
 
-- キャンバス アプリ編集時
+### キャンバス アプリ編集時
   1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
   2. アプリ一覧画面から対象のアプリのアプリ編集画面を表示します
   3. メニュー「設定」を選択します
@@ -252,11 +257,18 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 
 <a id='anchor-about-sessionid-web-play'></a>
 
-- キャンバス アプリ実行時
+### キャンバス アプリ実行時
   1. 対象のアプリを実行します
   2. 画面右上部の歯車アイコンを押下します
   3. 「セッション詳細」を選択し、Power Apps ライブ バージョンを含む、表示されている情報をすべてを **テキスト形式** で取得します  
         ![](./troubleshooting-general-canvasapp/image09.png)
+
+<a id='anchor-about-sessionid-web-sharepointcustomform'></a>
+
+### SharePoint カスタム フォーム、Windows Teams アプリ、Web 版 Teams、埋め込みのキャンバス アプリ  
+1. `Alt` キーを押下しながらフォームを右クリックします
+2. 表示される「セッション詳細」を押下し、セッション ID を **テキスト形式** で取得します  
+    ![](./troubleshooting-general-canvasapp/image14.png)
 
 <a id='anchor-about-sessionid-mobile-play'></a>
 
@@ -271,14 +283,13 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 5. クリップボードにコピーされた セッション ID を **テキスト形式** で取得します  
     ![](./troubleshooting-general-canvasapp/image13.png)
 
-<a id='anchor-about-sessionid-web-sharepointcustomform'></a>
+<a id='anchor-about-sessionid-teams-mobile'></a>
 
-### SharePoint カスタム フォーム等、埋め込みのキャンバス アプリ
-1. `Alt` キーを押下しながらフォームを右クリックします
-2. 「セッション詳細」を押下し、セッション ID を **テキスト形式** で取得します  
-    ![](./troubleshooting-general-canvasapp/image14.png)
-
-
+### モバイル(iOS, Android)端末の Web ブラウザ、Teams アプリ、Web 版 Teams、埋め込みのキャンバス アプリ  
+1. アプリ画面を二本指でロングタップ(長押し)しします
+2. 表示される「セッション詳細」を押下し、セッション ID を **テキスト形式** で取得します  
+    ![](./troubleshooting-general-canvasapp/image14-2.png)
+    
 <a id='anchor-about-app-tenant-ids'></a>
 
 ## 8. アプリ URL (アプリ ID、テナント ID)
