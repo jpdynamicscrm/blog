@@ -286,7 +286,7 @@ Console タブをクリックし、ログ領域を右クリックし**「名前�
 <a id='anchor-about-sessionid-teams-mobile'></a>
 
 ### モバイル(iOS, Android)端末の Web ブラウザ、Teams アプリ、Web 版 Teams、埋め込みのキャンバス アプリ  
-1. アプリ画面を二本指でロングタップ(長押し)しします
+1. アプリ画面を二本指でロングタップ(長押し)します
 2. 表示される「セッション詳細」を押下し、セッション ID を **テキスト形式** で取得します  
     ![](./troubleshooting-general-canvasapp/image14-2.png)
     
