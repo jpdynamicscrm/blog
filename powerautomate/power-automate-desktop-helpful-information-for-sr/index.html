@@ -6,23 +6,23 @@
   
   <title>Power Automate for desktop お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Power Platform サポートの原野です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
+  <meta name="description" content="こんにちは。Power Platform サポートの大友です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Power Automate for desktop お問い合わせの際の情報取得手順">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは。Power Platform サポートの原野です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
+<meta property="og:description" content="こんにちは。Power Platform サポートの大友です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version2.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version4.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/os-version1.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log3.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/fiddler-nonbrowser.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting3.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting4.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting3.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">
 <meta property="article:published_time" content="2022-12-28T03:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-15T08:56:04.448Z">
+<meta property="article:modified_time" content="2024-10-15T02:39:03.932Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="情報採取">
 <meta property="article:tag" content="Power Automate">
@@ -125,16 +125,14 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+5c35e7c6-9161-5604-9646-6907c69b398b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+for+desktop+%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E9%9A%9B%E3%81%AE%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fpower-automate-desktop-helpful-information-for-sr%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fpower-automate-desktop-helpful-information-for-sr.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fpower-automate-desktop-helpful-information-for-sr.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/" data-id="clzv1py8u001r0no115gnhxms" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/" data-id="cm29u42vk001r0np5hklj65yw" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Power Platform サポートの原野です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>
+        <p>こんにちは。Power Platform サポートの大友です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>
 <span id="more"></span>
-
-
-<ol>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
 <li><a href="#anchor-intro">概要</a></li>
 <li><a href="#anchor-how-to-collect">情報取得手順詳細</a><ol>
 <li><a href="#anchor-pad-version">Power Automate for desktop のバージョン</a></li>
@@ -146,8 +144,8 @@
 <li><a href="#anchor-registry-setting">レジストリの設定</a></li>
 <li><a href="#anchor-desktopflow">Power Automate for desktop のフロー</a></li>
 <li><a href="#anchor-desktopflow-url">デスクトップ フローの実行履歴 URL</a></li>
-<li><a href="#anchor-cloudflow-run-history-csv">クラウド フローの実行履歴 CSV</a></li>
-<li><a href="#anchor-cloudflow-raw-input-output">クラウド フローのアクションの未加工入力と未加工出力</a></li>
+<li><a href="#anchor-cloudflow-run-history-csv">クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</a></li>
+<li><a href="#anchor-cloudflow-raw-input-output">クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</a></li>
 </ol>
 </li>
 </ol>
@@ -157,86 +155,76 @@
 <h1 id="情報取得手順詳細"><a href="#情報取得手順詳細" class="headerlink" title="情報取得手順詳細"></a>情報取得手順詳細</h1><p><a id='anchor-pad-version'></a></p>
 <h2 id="1-Power-Automate-for-desktop-のバージョン"><a href="#1-Power-Automate-for-desktop-のバージョン" class="headerlink" title="1. Power Automate for desktop のバージョン"></a>1. Power Automate for desktop のバージョン</h2><p>Power Automate for desktop のバージョンが確認できる画面キャプチャをご提供ください。</p>
 <ol>
-<li>Power Automate for desktop &gt; ヘルプ &gt; バージョン情報 を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version.png">     </li>
-<li>以下の画面キャプチャを取得してご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version2.png"> </li>
+<li>Power Automate for desktop &gt; ヘルプ &gt; バージョン情報 を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version.png"></li>
+<li>以下の画面キャプチャを取得してご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version2.png"></li>
 </ol>
-<p>なお、Power Automate for desktop のバージョンは以下からもご確認いただけます。 </p>
-<ul>
-<li>Power Automate for desktop の exe ファイル &gt; プロパティ &gt; 詳細<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version4.png"> </li>
-</ul>
 <p><a id='anchor-os-version'></a></p>
-<h2 id="2-OS-のバージョン"><a href="#2-OS-のバージョン" class="headerlink" title="2. OS のバージョン"></a>2. OS のバージョン</h2><p>OS のバージョンが確認できる以下の画面キャプチャをご提供ください。</p>
+<h2 id="2-OS-のバージョン"><a href="#2-OS-のバージョン" class="headerlink" title="2. OS のバージョン"></a>2. OS のバージョン</h2><p>OS のバージョンが確認できる以下の画面キャプチャを取得しご提供ください。</p>
 <ul>
-<li>システム &gt; バージョン情報 を開き以下の画面キャプチャを取得します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/os-version1.png">  </li>
+<li>システム &gt; バージョン情報<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/os-version1.png">  </li>
 </ul>
 <p><a id='anchor-computer-log'></a></p>
-<h2 id="3-コンピューター-ログ"><a href="#3-コンピューター-ログ" class="headerlink" title="3. コンピューター ログ"></a>3. コンピューター ログ</h2><p>コンピューター ログの取得方法は大きく分けて 3 つございます。<br>Power Automate コンピューター ランタイムをご利用いただいている場合は a) の方法から、ご利用いただけない場合は b) の方法からログを取得してご提供ください。    </p>
-<p>また、RunDefinition.json ファイルと Actions.log ファイルを保持するレジストリを登録いただいている場合は、c) の方法で取得できるログも併せてご提供ください。</p>
-<h3 id="a-Power-Automate-コンピュータ-ランタイムからログを収集する"><a href="#a-Power-Automate-コンピュータ-ランタイムからログを収集する" class="headerlink" title="a) Power Automate コンピュータ ランタイムからログを収集する"></a>a) Power Automate コンピュータ ランタイムからログを収集する</h3><p>フロー実行後のログの出力に関して、過去 3 日間のログが Power Automate コンピューター ランタイムから出力いただけます。<br>Power Automate コンピュータ ランタイムからエクスポートした zip ファイルをご提供ください。  </p>
-<ul>
-<li>Power Automate コンピュータ ランタイム &gt; トラブルシューティング &gt; ログのエクスポート を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log.png"></li>
-</ul>
-<p>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/troubleshoot#collect-machine-logs">デスクトップ フローのトラブルシューティング - Power Automate | Microsoft Learn</a></p>
-<h3 id="b-管理者権限のあるアカウントでフォルダからログを収集する"><a href="#b-管理者権限のあるアカウントでフォルダからログを収集する" class="headerlink" title="b) 管理者権限のあるアカウントでフォルダからログを収集する"></a>b) 管理者権限のあるアカウントでフォルダからログを収集する</h3><p>管理者権限のあるアカウントで以下のフォルダ内にあるファイルを zip ファイルにまとめてご提供ください。  </p>
-<ul>
-<li>フォルダ：%ProgramData%\Microsoft\Power Automate\Logs</li>
-</ul>
-<h3 id="c-レジストリを設定いただいている場合に収集できるログ"><a href="#c-レジストリを設定いただいている場合に収集できるログ" class="headerlink" title="c) レジストリを設定いただいている場合に収集できるログ"></a>c) レジストリを設定いただいている場合に収集できるログ</h3><p>以下のレジストリを登録いただきマシンを再起動した上で、以下でご案内するフォルダに格納されているファイルを取得してご提供ください。</p>
-<ol>
-<li>必要となるレジストリを確認する<br>以下の公開情報を参考に、必要となるレジストリが登録されていることをご確認ください。<br>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/governance#configure-power-automate-for-desktop-to-keep-the-flow-run-details">Power Automate でのガバナンス - Power Automate | Microsoft Learn</a><br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log2.png"></li>
+<h2 id="3-コンピューター-ログ"><a href="#3-コンピューター-ログ" class="headerlink" title="3. コンピューター ログ"></a>3. コンピューター ログ</h2><p>Power Automate コンピューター ランタイムをご利用いただいている場合は <strong>a‐1</strong> の方法から、ご利用いただけない場合は <strong>a‐2</strong> の方法からログを取得してご提供ください。  </p>
+<p>デスクトップフロー実行時にエラーが発生する場合は、RunDefinition.json ファイルと Actions.log ファイルを保持するレジストリを登録いただき、<strong>b</strong> のログも併せてご提供ください。  </p>
+<h3 id="a-Power-Automate-for-desktop-動作ログ"><a href="#a-Power-Automate-for-desktop-動作ログ" class="headerlink" title="a) Power Automate for desktop 動作ログ"></a>a) Power Automate for desktop 動作ログ</h3><ol>
+<li>Power Automate コンピュータ ランタイムからログを収集<br>フロー実行後のログの出力に関して、過去 3 日間のログが Power Automate コンピューター ランタイムから出力いただけます。<br>Power Automate コンピュータ ランタイムからエクスポートした zip ファイルをご提供ください。<br>Power Automate コンピュータ ランタイム &gt; トラブルシューティング &gt; ログのエクスポート を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log.png">  <div class="alert is-info"><p class="alert-title">Note</p><p>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/troubleshoot#collect-machine-logs">デスクトップ フローのトラブルシューティング - Power Automate | Microsoft Learn</a></p></div>
+</li>
+<li>管理者権限のあるアカウントでフォルダからログを収集<br>管理者権限のあるアカウントで以下のフォルダ内にあるファイルを zip ファイルにまとめてご提供ください。<br>フォルダ：<code>%ProgramData%\Microsoft\Power Automate\Logs</code></li>
 </ol>
-<p>2．ファイルを取得する<br>以下のフォルダに格納されているファイルを取得し、ご提供ください。  </p>
-<ul>
-<li>フォルダ：%localappdata%\Microsoft\Power Automate Desktop\Scripts{scriptid}\Runs{runid}<br>a) Actions.log：デスクトップ フローに設定された各アクションの実行結果が記載されたログです。<br>b) RunDefinition.json：デスクトップ フローの実行開始日、実行終了日、フローの実行結果(成功、失敗)が記載されたログです。  </li>
+<h3 id="b-デスクトップフロー実行詳細ログおよびアクション詳細ログ"><a href="#b-デスクトップフロー実行詳細ログおよびアクション詳細ログ" class="headerlink" title="b) デスクトップフロー実行詳細ログおよびアクション詳細ログ"></a>b) デスクトップフロー実行詳細ログおよびアクション詳細ログ</h3><p>以下のレジストリを登録いただきマシンを再起動した上で、以下でご案内するフォルダに格納されているファイルを取得してご提供ください。</p>
+<ol>
+<li>以下の公開情報を参考に、必要となるレジストリを登録いただきマシンを再起動致します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log2.png"><div class="alert is-info"><p class="alert-title">Note</p><p>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/governance#configure-power-automate-for-desktop-to-keep-the-flow-run-details">Power Automate でのガバナンス - Power Automate | Microsoft Learn</a></p></div>
+</li>
+</ol>
+<div class="alert is-warning"><p class="alert-title">警告</p><p>こちらのレジストリを有効にした状態のままご運用頂くと端末のストレージを逼迫させる場合があります。</p><p>情報ご取得後はレジストリの無効化をお勧め致します。</p></div>
+<ol start="2">
+<li>事象を再現致します。</li>
+<li>ファイルをご取得ください。<br>以下のフォルダに格納されているファイルを取得し、ご提供ください。<br><code>%localappdata%\Microsoft\Power Automate Desktop\Scripts\&#123;scriptid&#125;\Runs\&#123;runid&#125;</code><br><code>&#123;ScriptId&#125;</code> にはデスクトップ フローの ID を、<code>&#123;RunId&#125;</code> にはフローの実行 ID を挿入します。<ul>
+<li>RunDefinition.json：デスクトップ フローの実行詳細が記録されたログです。</li>
+<li>Actions.log：デスクトップ フローに設定された各アクションの実行詳細が記録されたログです。</li>
 </ul>
-<p>{ScriptId} にはデスクトップ フローの ID を、{RunId} にはフローの実行 ID を挿入します。  </p>
-<p>&lt;デスクトップフローの ID とフローの実行 ID の確認方法&gt;<br>Power Automateポータルのデスクトップ フローの実行履歴からデスクトップ フローの ID とフローの実行 ID を確認いただけます。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log3.png"></p>
+</li>
+</ol>
+<div class="alert is-info"><p class="alert-title">Note</p><p>デスクトップフローの ID とフローの実行 ID はPower Automateポータルのデスクトップ フローの実行履歴のURLより確認いただけます。</p><p><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log3.png"></p></div>
 <p><a id='anchor-fiddler-log'></a></p>
-<h2 id="4-Fiddler-ログ"><a href="#4-Fiddler-ログ" class="headerlink" title="4. Fiddler ログ"></a>4. Fiddler ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br>なお、情報取得の際はキャプチャ対象を Non-Browser に変更いただくようお願いいたします。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler">Fiddler ログの採取手順 (microsoft.com)</a></p>
+<h2 id="4-Fiddler-ログ"><a href="#4-Fiddler-ログ" class="headerlink" title="4. Fiddler ログ"></a>4. Fiddler ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler">Fiddler ログの採取手順 (microsoft.com)</a></p>
+<p>なお、情報取得の際はキャプチャ対象を <strong>Non-Browser</strong> に変更いただくようお願いいたします。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/fiddler-nonbrowser.png"></p>
 <p><a id='anchor-machine-information'></a></p>
-<h2 id="5-マシン登録の情報"><a href="#5-マシン登録の情報" class="headerlink" title="5. マシン登録の情報"></a>5. マシン登録の情報</h2><p>該当のマシンの登録情報が確認できる画面キャプチャをご提供ください。</p>
-<ol>
-<li>Power Automate ポータルの画面 &gt; 監視 &gt; マシン<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png"></li>
-<li>マシンまたはコンピューター グループから該当のコンピューターの詳細が分かる画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information2.png"></li>
-</ol>
+<h2 id="5-マシン登録の情報"><a href="#5-マシン登録の情報" class="headerlink" title="5. マシン登録の情報"></a>5. マシン登録の情報</h2><p>Power Automate ポータルの画面 &gt; 監視 &gt; マシン<br>該当のコンピューターの詳細画面の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png"></p>
 <p><a id='anchor-remote-desktop-setting'></a></p>
-<h2 id="6-リモート-デスクトップ設定"><a href="#6-リモート-デスクトップ設定" class="headerlink" title="6. リモート デスクトップ設定"></a>6. リモート デスクトップ設定</h2><p>実行される端末のリモート デスクトップの設定の画面キャプチャをご提供ください。 </p>
+<h2 id="6-リモート-デスクトップ設定"><a href="#6-リモート-デスクトップ設定" class="headerlink" title="6. リモート デスクトップ設定"></a>6. リモート デスクトップ設定</h2><p>実行される端末の以下リモート デスクトップの設定の画面キャプチャをご提供ください。</p>
 <ul>
 <li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting2.png"></li>
+<li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ &gt; ユーザーの選択<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting3.png"></li>
 </ul>
 <p><a id='anchor-registry-setting'></a></p>
-<h2 id="7-レジストリの設定"><a href="#7-レジストリの設定" class="headerlink" title="7. レジストリの設定"></a>7. レジストリの設定</h2><p>以下のキーのレジストリの設定が確認できる画面キャプチャをご提供ください。   </p>
-<ul>
-<li>実行される端末 &gt; システムのプロパティ &gt; コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop\Registration<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting4.png"><br>弊社のサポートエンジニアから別のキーの画面キャプチャを依頼された場合は、指示されたキーの画面キャプチャのご提供をお願いいたします。  </li>
-</ul>
-<p>また、サービスアカウントをご利用の場合は、上記に加えて以下の画面キャプチャもご提供ください。  </p>
-<ul>
-<li>実行される端末 &gt; システムのプロパティ &gt; コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop\Registration &gt; Registration フォルダを右クリック &gt; アクセス許可 &gt; 詳細設定<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting3.png">  </li>
+<h2 id="7-レジストリの設定"><a href="#7-レジストリの設定" class="headerlink" title="7. レジストリの設定"></a>7. レジストリの設定</h2><ul>
+<li><p>レジストリ内容<br>レジストリエディタを起動し、以下のキーおよびその配下のレジストリの設定が確認できる画面キャプチャ、またはキーをエクスポートしたファイルをご提供ください。<br>キーが存在しない場合は、その旨をお知らせください。<br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Power Automate Desktop</code><br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop</code><br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting4.png">  </p>
+</li>
+<li><p>サービスアカウントをご利用の場合<br>上記に加えてレジストリの以下キーのセキュリティ画面キャプチャもご提供ください。<br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop\Registration</code> &gt; Registration キーを右クリック &gt; アクセス許可 &gt; 詳細設定<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting3.png">  </p>
+</li>
 </ul>
 <p><a id='anchor-desktopflow'></a></p>
-<h2 id="8-Power-Automate-for-desktop-のフロー"><a href="#8-Power-Automate-for-desktop-のフロー" class="headerlink" title="8. Power Automate for desktop のフロー"></a>8. Power Automate for desktop のフロー</h2><p>デスクトップ フローのデスクトップ フローの編集画面から、フロー内のアクション (Ctrl + C) をコピーし、テキストエディター (Ctrl + V) に貼り付けてご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow.png"><br>一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  </p>
-<p>ソリューションのエクスポートの詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a>  </p>
-<p>※なお、フロー内のアクションをコピーする方法では、コピー対象は、デスクトップフローのステップ情報でございます。<br>そのため、入出力変数の定義やフロー内のアクションで使用していない UI 要素など一部の情報がコピーの対象外となります。<br>エラーが発生しているアクションで入出力変数を使用している場合や、デスクトップ フロー全体の容量等を確認する必要がある場合は、弊社のサポートエンジニアから以下のソリューションごとエクスポートする方法での共有をお願いする可能性がございます。</p>
-<p>&lt; ソリューションごとエクスポートする方法 &gt;<br>弊社のサポートエンジニアからソリューションごとエクスポートする方法を依頼された場合は、エクスポートしたソリューション ファイル (zip) をご提供ください。<br>弊社環境にインポートできるよう、依存関係のあるコンポーネントを含めてご提供をお願い致します。  </p>
-<ol>
-<li>コピー元テナントでソリューション メニューより、新しいソリューションを追加します。  </li>
-<li>作成したソリューション &gt; 既存の追加 から、該当のデスクトップ フローを追加します。  </li>
-<li>作成したソリューションの概要画面 &gt;  エクスポート からエクスポートしたソリューション ファイル (zip) をご提供ください。  </li>
-</ol>
+<h2 id="8-Power-Automate-for-desktop-のフロー"><a href="#8-Power-Automate-for-desktop-のフロー" class="headerlink" title="8. Power Automate for desktop のフロー"></a>8. Power Automate for desktop のフロー</h2><p>デスクトップフロー本体をソリューションに追加し、エクスポート頂いたファイルをご提供下さい。<br>弊社環境にインポート出来るよう、依存関係のあるコンポーネント含めご提供をお願い致します。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>ソリューションのエクスポート手順は、以下記事に手順がございますのでご参照いただけますと幸いです。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a>  </p></div>
+<p>ソリューションでのご提供が難しい場合、テキストファイルでのご提供をお願いいたします。</p>
+<p>デスクトップ フローのデスクトップフローの編集画面から、エディタ領域をクリックしたのちアクションを全選択<code>Ctrl+A</code>し、コピー<code>Ctrl+C</code>し、テキストエディターに貼り付け<code>Ctrl+V</code>したファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow.png"><br>一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  </p>
+<div class="alert is-warning"><p class="alert-title">警告</p><p>テキストでのご提供手順では入出力変数の定義やフロー内のアクションで使用していない UI 要素など一部の情報が含まれません。</p><p>エラーが発生しているアクションで入出力変数を使用している場合や、デスクトップ フロー全体の容量等を確認する必要がある場合は、弊社のサポートエンジニアからソリューションでの提供のご検討をお願いする場合がございます。</p></div>
 <p><a id='anchor-desktopflow-url'></a></p>
 <h2 id="9-デスクトップ-フローの実行履歴-URL"><a href="#9-デスクトップ-フローの実行履歴-URL" class="headerlink" title="9. デスクトップ フローの実行履歴 URL"></a>9. デスクトップ フローの実行履歴 URL</h2><ol>
 <li>マイ フロー&gt;デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-url.png">  </li>
-<li>URLをコピーしてご提供ください。<br>エラー時にフローが実行されず実行履歴に残っていない場合は、1 の画面のURLをコピーしてご提供いただけますと幸いです。</li>
+<li>URLをコピーしてご提供ください。<br>エラー時にフローが実行されず実行履歴に残っていない場合は、1 の画面のURLをコピーしてご提供下さい。</li>
 </ol>
 <p><a id='anchor-cloudflow-run-history-csv'></a></p>
-<h2 id="10-クラウド-フローの実行履歴-CSV"><a href="#10-クラウド-フローの実行履歴-CSV" class="headerlink" title="10. クラウド フローの実行履歴 CSV"></a>10. クラウド フローの実行履歴 CSV</h2><ol>
+<h2 id="10-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合"><a href="#10-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合" class="headerlink" title="10. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)"></a>10. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローの実行履歴もご提供ください。</p>
+<ol>
 <li>デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png"></li>
 <li>「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png"></li>
 </ol>
-<p>クラウド フローの実行履歴 CSV の取得方法の詳細に関して、以下に記載がございますのでご参照いただけますと幸いです。<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローの実行履歴 CSV の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div>
 <p><a id='anchor-cloudflow-raw-input-output'></a></p>
-<h2 id="11-クラウド-フローのアクションの未加工入力と未加工出力"><a href="#11-クラウド-フローのアクションの未加工入力と未加工出力" class="headerlink" title="11. クラウド フローのアクションの未加工入力と未加工出力"></a>11. クラウド フローのアクションの未加工入力と未加工出力</h2><p>実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。<br>未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">  </p>
-<p>クラウド フローのアクションの未加工入力と未加工出力の取得方法の詳細に関して、以下にも記載がございますのでご参照いただけますと幸いです。<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-raw-input-output">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p>
+<h2 id="11-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合"><a href="#11-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合" class="headerlink" title="11. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)"></a>11. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローのアクションの未加工入力・未加工出力もご提供ください。<br>実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。<br>未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">  </p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローのアクションの未加工入力・出力の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-raw-input-output">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div>
 <hr>
 <h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p>
 <hr>
@@ -334,7 +322,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/08/">2024 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
     </div>
   </div>
 
