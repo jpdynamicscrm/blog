@@ -109,24 +109,26 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
 ![](./change-flow-owner/image01.png) 
 
 **<環境ID>の確認方法**
-- 管理者用 Power Apps コマンドレット「 [Get-AdminPowerAppEnvironment](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-a-list-of-all-environments)」コマンドで対象の 環境ID をご確認ください
-    - 例えば、以下のとおり実行いただきますとテナント内の全環境について 環境ID が取得できます。
-    - ```
+- 管理者用 Power Apps コマンドレット「 [Get-AdminPowerAppEnvironment](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-a-list-of-all-environments)」コマンドで対象の 環境ID をご確認ください。<br/>
+     例えば、以下のとおり実行いただきますとテナント内の全環境について 環境ID が取得できます。<br/>
+      ```
         Get-AdminPowerAppEnvironment
       ```
-    - ![](./change-flow-owner/image02.png)
+  <br>
+     ![](./change-flow-owner/image02.png)<br/>
 
 **<フローID>の確認方法**
-- 管理者用 Power Apps コマンドレット「[Get-AdminFlow](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-all-flows)」あるいはフロー編集画面のURLからご確認ください
-    - Get-AdminFlow実行例
-        - 例えば、以下のとおり実行いただきますと、環境内のすべてのフローが取得できます
-        - ```
+- 管理者用 Power Apps コマンドレット「[Get-AdminFlow](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-all-flows)」あるいはフロー編集画面のURLからご確認ください。<br/>
+     Get-AdminFlow実行例<br/>
+         例えば、以下のとおり実行いただきますと、環境内のすべてのフローが取得できます。<br/>
+          ```
             Get-AdminFlow -EnvironmentName <環境ID>
           ```
-        - ![](./change-flow-owner/image03.png)
-    - フロー編集画面におけるフローIDの確認例
-        - 対象のフローの編集画面のURLの一部がフローIDでございます
-        - ![](./change-flow-owner/image04.png)
+  <br>
+         ![](./change-flow-owner/image03.png)<br/>
+    - フロー編集画面におけるフローIDの確認例<br/>
+         対象のフローの編集画面のURLの一部がフローIDでございます。<br/>
+         ![](./change-flow-owner/image04.png)
 
 **<新所有者の ObjectID> の確認方法**
 - 「[Get-AzureADUser](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターでご確認ください
