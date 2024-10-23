@@ -51,6 +51,20 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Notes-when-using-support/</loc>
     
     <lastmod>2024-10-23</lastmod>
@@ -65,7 +79,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -93,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -107,14 +121,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/</loc>
-    
-    <lastmod>2024-10-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -122,13 +129,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/</loc>
-    
-    <lastmod>2024-10-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -184,20 +184,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/resolve-infinite-loops-in-SharePoint-updates/</loc>
-    
-    <lastmod>2024-10-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/retry-loop/</loc>
-    
-    <lastmod>2024-10-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/service-health-notifier/</loc>
     
     <lastmod>2024-10-23</lastmod>
@@ -206,6 +192,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-unattand-automation/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/resolve-infinite-loops-in-SharePoint-updates/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/retry-loop/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -226,14 +226,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-get-owner/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-get-owner/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -261,13 +261,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/fetch-xml/</loc>
-    
-    <lastmod>2024-10-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/</loc>
     
     <lastmod>2024-10-23</lastmod>
@@ -282,7 +275,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/fetch-xml/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -290,6 +283,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-trigger-condition/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/create-team-and-add-members/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -359,21 +359,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
-    
-    <lastmod>2024-10-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
-    
-    <lastmod>2024-10-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -387,7 +373,21 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/power-apps-per-app-license/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Avoid-Character-Corruption-Methods/</loc>
     
     <lastmod>2024-10-23</lastmod>
     
