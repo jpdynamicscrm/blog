@@ -24,8 +24,9 @@ tags:
       6. [事象再現時のスナップショット zip ファイル](#anchor-snapshot-zip)
       7. [ナレッジの有効化状態](#anchor-knowledge-enable-state)
       8. [会話入出力](#anchor-raw-input-output)
-      9.  [会話トランスクリプションテーブルデータ](#anchor-conversation-transcript)
-      10. [Web ブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkha)
+      9. [トピック画面](#anchor-topics-screen)
+      10. [会話トランスクリプションテーブルデータ](#anchor-conversation-transcript)
+      11. [Web ブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkha)
 
 <a id='anchor-intro'></a>
 
@@ -63,8 +64,11 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   > [!IMPORTANT]
   > 事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。
   - Windows ゲーム バーでの画面収録  
-    [ゲーム バーを使用して PC にゲーム クリップを記録する](https://support.microsoft.com/ja-jp/windows/%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%90%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-pc-%E3%81%AB%E3%82%B2%E3%83%BC%E3%83%A0-%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-2f477001-54d4-1276-9144-b0416a307f3c)
-  - Power Point での画面収録  
+    [ゲーム バーを使用して PC にゲーム クリップを記録する](https://support.microsoft.com/ja-jp/windows/%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%90%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-pc-%E3%81%AB%E3%82%B2%E3%83%BC%E3%83%A0-%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-2f477001-54d4-1276-9144-b0416a307f3c)  
+  - PowerPoint での画面収録  
+    [PowerPoint で画面を記録する](https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0)  
+   - Microsoft Teams での画面収録  
+    [Microsoft Teamsで会議を記録する](https://support.microsoft.com/ja-jp/office/microsoft-teams-%E3%81%A7%E4%BC%9A%E8%AD%B0%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-34dfbe7f-b07d-4a27-b4c6-de62f1348c24#:~:text=Microsoft)  
 
 <a id='anchor-environmentid'></a>
 
@@ -128,16 +132,26 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - その会話画面について、下画像と同様のスクリーンショットをご提供ください。  
   ![](./helpful-information-for-copilotstudio-sr/image_conversation_inout.png) 
 
+<a id='anchor-topics-screen'></a>
+
+## 9. トピック画面
+  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
+
+  - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロット＞トピックタブを開きます。  
+  - 事象に応じて対象のトピックの全体像や、対象のノードのプロパティなどを表示してください。  
+  - その画面について、下画像のようにスクリーンショットを撮影してご提供ください。  
+  ![](./helpful-information-for-copilotstudio-sr/image_topic_screen.png) 
+
 <a id='anchor-conversation-transcript'></a>
 
-## 9. 会話トランスクリプションテーブルデータ
+## 10. 会話トランスクリプションテーブルデータ
   下記公開情報にてご案内している方法で、会話トランスクリプションテーブルのデータを取得してください。  
   取得した zip ファイルをご提供ください。  
   https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts
 
 <a id='anchor-about-networkhar'></a>
 
-## 10. Web ブラウザのネットワーク トレース・コンソール ログ
+## 11. Web ブラウザのネットワーク トレース・コンソール ログ
   カスタム Copilot 編集中、あるいは実行中に Copilot Studio サービスへ送信する HTTP リクエストや Copilot Studio サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  
 
  > [!IMPORTANT]
