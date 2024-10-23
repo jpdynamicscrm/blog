@@ -14,8 +14,6 @@
 <meta property="og:description" content="こんにちは、Power Platform サポートの谷です。クラウド フロー所有者の退職・異動に際し、 クラウド フローの所有者を管理する方法についてご説明します。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image01.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image03.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image04.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image05.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image06.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image07.png">
@@ -30,7 +28,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image18.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image19.png">
 <meta property="article:published_time" content="2022-10-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-15T04:49:07.372Z">
+<meta property="article:modified_time" content="2024-10-23T07:25:14.498Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
@@ -122,7 +120,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+50b4fdae-ab7a-5fec-9b99-99b91e6bc7c3%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%83%95%E3%83%AD%E3%83%BC%E6%89%80%E6%9C%89%E8%80%85%E3%81%AE%E9%80%80%E8%81%B7%E3%83%BB%E7%95%B0%E5%8B%95%E3%81%B8%E3%81%AE%E5%82%99%E3%81%88%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fchange-flow-owner%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fchange-flow-owner.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fchange-flow-owner.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/" data-id="cm29yrcbf00180nno9u2uf777" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/" data-id="cm2ljux4i00180on62yh6h7n3" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -196,20 +194,21 @@
 <p><img src="/blog/powerautomate/change-flow-owner/image01.png"> </p>
 <p><strong>&lt;環境ID&gt;の確認方法</strong></p>
 <ul>
-<li>管理者用 Power Apps コマンドレット「 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-a-list-of-all-environments">Get-AdminPowerAppEnvironment</a>」コマンドで対象の 環境ID をご確認ください<ul>
-<li>例えば、以下のとおり実行いただきますとテナント内の全環境について 環境ID が取得できます。</li>
-<li>```<br>  Get-AdminPowerAppEnvironment<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    - ![](/blog/powerautomate/change-flow-owner/image02.png)</span><br><span class="line"></span><br><span class="line">**&lt;フローID&gt;の確認方法**</span><br><span class="line">- 管理者用 Power Apps コマンドレット「[Get-AdminFlow](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-all-flows)」あるいはフロー編集画面のURLからご確認ください</span><br><span class="line">    - Get-AdminFlow実行例</span><br><span class="line">        - 例えば、以下のとおり実行いただきますと、環境内のすべてのフローが取得できます</span><br><span class="line">        - ```</span><br><span class="line">            Get-AdminFlow -EnvironmentName &lt;環境ID&gt;</span><br></pre></td></tr></table></figure>
+<li>管理者用 Power Apps コマンドレット「 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-a-list-of-all-environments">Get-AdminPowerAppEnvironment</a>」コマンドで対象の 環境ID をご確認ください。<br/><br>   例えば、以下のとおり実行いただきますとテナント内の全環境について 環境ID が取得できます。<br/><pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-AdminPowerAppEnvironment</span><br></pre></td></tr></table></figure>
+</code></pre>
+<br>
+   ![](/blog/powerautomate/change-flow-owner/image02.png)<br/></li>
+</ul>
+<p><strong>&lt;フローID&gt;の確認方法</strong></p>
 <ul>
-<li><img src="/blog/powerautomate/change-flow-owner/image03.png"></li>
-</ul>
-</li>
-<li>フロー編集画面におけるフローIDの確認例<ul>
-<li>対象のフローの編集画面のURLの一部がフローIDでございます</li>
-<li><img src="/blog/powerautomate/change-flow-owner/image04.png"></li>
-</ul>
-</li>
-</ul>
-</li>
+<li>管理者用 Power Apps コマンドレット「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#display-all-flows">Get-AdminFlow</a>」あるいはフロー編集画面のURLからご確認ください。<br/><br>   Get-AdminFlow実行例<br/><pre><code>   例えば、以下のとおり実行いただきますと、環境内のすべてのフローが取得できます。&lt;br/&gt;
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-AdminFlow -EnvironmentName &lt;環境ID&gt;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<br>
+       ![](/blog/powerautomate/change-flow-owner/image03.png)<br/>
+  - フロー編集画面におけるフローIDの確認例<br/>
+       対象のフローの編集画面のURLの一部がフローIDでございます。<br/>
+       ![](/blog/powerautomate/change-flow-owner/image04.png)</li>
 </ul>
 <p><strong>&lt;新所有者の ObjectID&gt; の確認方法</strong></p>
 <ul>
