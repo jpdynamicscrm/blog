@@ -15,7 +15,7 @@ tags:
 ## 1 . 無限トリガーループ事象
 Power Automate フローを実行した際、ないしはフローチェッカー上に、「このフローでの操作は、無限トリガーループを引き起こす可能性があります」という警告メッセージが表示されてしまうケースがあります。
 
- ![alt text](image-5.png)
+ ![alt text](./resolve-infinite-loops-in-SharePoint-updates/image-5.png)
 
 <br>
 *無限トリガーループとは、ワークフローまたは自動化プロセスが無限にトリガーされる状態を指します。一度の動きを想定しているつもりが、フローをオフにしない限り、同じ動作が繰り返し起きてしまう状態です。
@@ -29,7 +29,7 @@ Power Automate フローを実行した際、ないしはフローチェッカ�
 ② Teams のチャネルに①の内容を投稿<br>
 ③ ②のメッセージリンクを①のリンク列に追加
 
-![alt text](image-7.png)
+![alt text](./resolve-infinite-loops-in-SharePoint-updates/image-7.png)
 
 上記において、無限トリガーループの警告メッセージが表示される場合には、フロー内での更新に対してもフローが起動してしまうことで、再度 SharePoint のアイテムが更新される状況になっていることが考えられます。<br><br>
 
@@ -50,7 +50,7 @@ Power Automate フローを実行した際、ないしはフローチェッカ�
 
 下記の画像のように、①の段階で、**「アイテムが作成または変更されたとき」** のトリガーではなく、**「項目が作成されたとき」** という SharePoint のトリガーをご使用いただくと、当該の警告事象は起こらずにご利用いただけます。
 
-![alt text](image-4.png)
+![alt text](./resolve-infinite-loops-in-SharePoint-updates/image-4.png)
 
 <br><br>
 
@@ -62,7 +62,7 @@ Power Automate フローを実行した際、ないしはフローチェッカ�
 
 既存のフローに SharePoint コネクタ の「アイテムやファイルの変更を取得する(プロパティのみ)」のアクションを追加します。<br>
 
-![alt text](image-6.png)
+![alt text](./resolve-infinite-loops-in-SharePoint-updates/image-6.png)
 
 パラメーターの内容における設定例
 - サイトのアドレスおよびリストやライブラリの名前 : 「アイテムが作成または変更されたとき」のアクション同じ SharePoint サイト・リスト を指定します。
@@ -76,7 +76,7 @@ Power Automate フローを実行した際、ないしはフローチェッカ�
 次に条件分岐を追加します。
 リンクが更新された場合には Teams に投稿をせず、新規作成またはそれ以外の列が更新された場合には Teams に投稿をする、という条件を作成します。
 
-![alt text](image-3.png)
+![alt text](./resolve-infinite-loops-in-SharePoint-updates/image-3.png)
 
 パラメーターの内容における設定例
 - 左辺： 「アイテムやファイルの変更を取得する(プロパティのみ)」の動的コンテンツより、SharePoint のリンクを格納している列に該当するものを取得し設定します。
