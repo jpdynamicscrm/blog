@@ -104,11 +104,11 @@ Power Platform の管理センターで新たに環境を作る際は、環境�
 2. 左側のパネルで 環境 を選択します。
 3. 生成 AI 機能 カードで、編集 を選択します。（下記画像参照）
 
-![alt text](image-4.png)
+![alt text](./copilot-studio-data-handling/image-4.png)
 <br>
 すると、生成 AI 機能に関する要件が表示されます。（下記画像参照）
 
-![alt text](image-5.png)
+![alt text](./copilot-studio-data-handling/image-5.png)
 
 4. 各要件内容のチェックボックスを外し、保存をクリックしていただくことにより、生成 AI 機能を無効化することができます。
     > リージョン間でデータを移動する チェックボックスがすでに選択されている場合にのみ、Bing 検索チェックボックスを選択できます。
@@ -164,7 +164,7 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 
 > [!IMPORTANT]
 **Power Poltform の Copilot Studio で生成 AI 機能を利用してもデータをトレーニングに利用されることはありません。ただし、米国テナントに限り、お客さま自らが設定を有効化することで共有をすることも可能です。下記を参照の通り、この設定は現在、日本エリアの場合には選定できません。よって、米国エリア以外は、お客さまのご意思をもってしてもデータを共有することはできず、これに照らして、データがトレーニングに利用されることはございません。**
-![alt text](image-3.png)
+![alt text](./copilot-studio-data-handling/image-3.png)
 
 <br>
 
