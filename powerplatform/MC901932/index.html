@@ -4,25 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>MC435264 (セキュリティ グループに関連付けられた Dataverse 環境でのキャンバス アプリの共有に関する更新プログラム) について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Power Platform - &#34;Http With Microsoft Entra ID (事前承認済み)&#34; コネクタのセキュリティ更新プログラム - MC901932 MC918447 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの谷です。メッセージセンターにてご確認いただける MC435264 について、ご利用のキャンバス アプリへの影響についてご説明します。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの網野です。2024 年 10 月 に MC901932 &#x2F; MC918447 にて通知された内容について、お客様への影響および対応方法についてご案内いたします。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MC435264 (セキュリティ グループに関連付けられた Dataverse 環境でのキャンバス アプリの共有に関する更新プログラム) について">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/index.html">
+<meta property="og:title" content="Power Platform - &quot;Http With Microsoft Entra ID (事前承認済み)&quot; コネクタのセキュリティ更新プログラム - MC901932 MC918447">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/MC901932/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの谷です。メッセージセンターにてご確認いただける MC435264 について、ご利用のキャンバス アプリへの影響についてご説明します。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの網野です。2024 年 10 月 に MC901932 &#x2F; MC918447 にて通知された内容について、お客様への影響および対応方法についてご案内いたします。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/image01.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/image02.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/image03.png">
-<meta property="article:published_time" content="2022-10-17T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-11-01T04:21:39.447Z">
+<meta property="article:published_time" content="2024-11-01T02:30:00.000Z">
+<meta property="article:modified_time" content="2024-11-01T04:21:39.655Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Canvas app">
 <meta property="article:tag" content="Power Apps">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="Power Automate">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/image01.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -85,7 +82,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-canvasapp/mc435264" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/MC901932" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -94,7 +91,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      MC435264 (セキュリティ グループに関連付けられた Dataverse 環境でのキャンバス アプリの共有に関する更新プログラム) について
+      Power Platform - &#34;Http With Microsoft Entra ID (事前承認済み)&#34; コネクタのセキュリティ更新プログラム - MC901932 MC918447
     </h1>
   
 
@@ -102,32 +99,149 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2022-10-17T00:00:00.000Z" itemprop="datePublished">2022-10-17</time>
+  <time datetime="2024-11-01T02:30:00.000Z" itemprop="datePublished">2024-11-01</time>
 </a>
         
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+f6644f1c-4257-5872-8dcf-66395650dc38%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMC435264+%28%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E9%96%A2%E9%80%A3%E4%BB%98%E3%81%91%E3%82%89%E3%82%8C%E3%81%9F+Dataverse+%E7%92%B0%E5%A2%83%E3%81%A7%E3%81%AE%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E5%85%B1%E6%9C%89%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%9B%B4%E6%96%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%29+%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2Fmc435264%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2Fmc435264.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcanvasapp%2Fmc435264.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+0bdfb77e-b7e7-5ac1-b559-cb5eee760033%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Platform+-+%22Http+With+Microsoft+Entra+ID+%28%E4%BA%8B%E5%89%8D%E6%89%BF%E8%AA%8D%E6%B8%88%E3%81%BF%29%22+%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E6%9B%B4%E6%96%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0+-+MC901932+MC918447%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FMC901932%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FMC901932.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FMC901932.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/mc435264/" data-id="cm2y89hmt00050nog8fppe3jh" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/MC901932/" data-id="cm2y89ho2002v0nogbi8yf38v" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートの谷です。<br/><br>メッセージセンターにてご確認いただける MC435264 について、ご利用のキャンバス アプリへの影響についてご説明します。</p>
+        <p>こんにちは、Power Platform サポートチームの網野です。<br>2024 年 10 月 に MC901932 / MC918447 にて通知された内容について、お客様への影響および対応方法についてご案内いたします。</p>
 <span id="more"></span>
 
-<h2 id="MC435264-の内容"><a href="#MC435264-の内容" class="headerlink" title="MC435264 の内容"></a>MC435264 の内容</h2><p>Power Platform 環境作成時にその環境にアクセスできるセキュリティ グループを指定すると、指定したセキュリティ グループのメンバーのみが当該の環境のキャンバス アプリを利用できるようになり、<br>それ以外のユーザーは当該環境のキャンバス アプリにアクセスが制限されます。</p>
-<p>これまでは、Power Platform 環境作成時に環境にアクセスできるセキュリティ グループを設定することができましたが、実際にセキュリティ グループよるキャンバス アプリへのアクセス制御を行う機能は実装されておりませんでした。<br/><br>この度の変更により、このセキュリティ グループによるアクセス制御機能を正式にリリースいたします。<br/><br>対象の環境に紐づくセキュリティ グループのメンバー (ユーザー) は当該環境のキャンバス アプリへのアクセス権を持ちますが、セキュリティ グループ外のユーザーは新規環境のキャンバス アプリへのアクセス権を持ちません。</p>
-<p>※環境作成 設定画面のセキュリティ グループ設定画面<br/><br><img src="/blog/canvasapp/mc435264/image01.png"></p>
-<p>※環境にアクセスできるセキュリティ グループが設定されている場合<br/><br><img src="/blog/canvasapp/mc435264/image02.png"></p>
-<p>※環境にアクセスできるセキュリティ グループが設定されていない場合<br/><br><img src="/blog/canvasapp/mc435264/image03.png"></p>
-<h2 id="ご利用のキャンバス-アプリへの影響"><a href="#ご利用のキャンバス-アプリへの影響" class="headerlink" title="ご利用のキャンバス アプリへの影響"></a>ご利用のキャンバス アプリへの影響</h2><p>環境へのアクセスをセキュリティ グループで制限している場合、当該環境のアプリの実行ユーザーが当該セキュリティ グループのメンバーである場合のみ利用できるようになります。<br/><br>引き続き、当該環境のアプリを実行、共有するためには、対象のユーザーを環境に紐づくセキュリティ グループのメンバーに追加します。</p>
-<h2 id="よくあるご質問"><a href="#よくあるご質問" class="headerlink" title="よくあるご質問"></a>よくあるご質問</h2><h3 id="いつからこの変更が適用されますか？"><a href="#いつからこの変更が適用されますか？" class="headerlink" title="いつからこの変更が適用されますか？"></a>いつからこの変更が適用されますか？</h3><p>2022 年 10 月 24 日以降に、当更新プログラムのリリースを開始します。2022 年 11 月 11 日までにすべてのリージョンで完全に完了する予定です。</p>
-<h3 id="キャンバス-アプリ以外への影響はありますか？"><a href="#キャンバス-アプリ以外への影響はありますか？" class="headerlink" title="キャンバス アプリ以外への影響はありますか？"></a>キャンバス アプリ以外への影響はありますか？</h3><p>キャンバス アプリ以外の機能への影響はありません。<br/><br>例えば、Power Automate やモデル駆動型 アプリなど Power Platform 上で動作する他のサービスへの影響はありません。</p>
-<h3 id="セキュリティ-グループにより環境へのアクセスを制御していませんが影響はありますか？"><a href="#セキュリティ-グループにより環境へのアクセスを制御していませんが影響はありますか？" class="headerlink" title="セキュリティ グループにより環境へのアクセスを制御していませんが影響はありますか？"></a>セキュリティ グループにより環境へのアクセスを制御していませんが影響はありますか？</h3><p>いいえ。セキュリティ グループによるアクセス制御を行っていない環境は当変更の影響はありません。これまでどおり、すべてのユーザーへキャンバス アプリを共有し、アプリを実行することができます。<br/><br>同様に、既定環境におきましてもセキュリティ グループによるアクセス制御が行えない環境でございますため、当変更による影響はありません。</p>
-<h3 id="Dataverse環境がありませんが影響はありますか？"><a href="#Dataverse環境がありませんが影響はありますか？" class="headerlink" title="Dataverse環境がありませんが影響はありますか？"></a>Dataverse環境がありませんが影響はありますか？</h3><p>いいえ。本変更は Dataverse データベースが作成されている環境のみ影響します。<br/><br>Dataverse データベースが作成されていない環境への影響はありません。これまでどおり、すべてのユーザーへキャンバス アプリを共有し、アプリを実行することができます。</p>
+<h2 id="MC901932-・-MC918447-の内容"><a href="#MC901932-・-MC918447-の内容" class="headerlink" title="MC901932 ・ MC918447 の内容"></a>MC901932 ・ MC918447 の内容</h2><hr>
+<h3 id="変更された内容"><a href="#変更された内容" class="headerlink" title="変更された内容"></a>変更された内容</h3><p>Http With Microsoft Entra ID コネクタを利用して API を実行する場合、管理者による API アクセス許可の承認が必要となります。<br><br>以下に詳細をご案内いたします。</p>
+<p>変更前の状態では、API のアクセス許可方式が異なる 2 種類の有効なコネクタがあります。 <br></p>
+<table>
+<thead>
+<tr>
+<th align="left">コネクタ ID</th>
+<th align="left">コネクタ表示名</th>
+<th align="left">アクセス許可</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">webcontents</td>
+<td align="left">Http With Microsoft Entra ID (事前承認済み)</td>
+<td align="left"><b><font color=red>マイクロソフト</font></b>がアクセス許可</td>
+</tr>
+<tr>
+<td align="left">webcontentsv2</td>
+<td align="left">Http With Microsoft Entra ID</td>
+<td align="left">管理者がアクセス許可</td>
+</tr>
+</tbody></table>
+<div class="alert is-info"><p class="alert-title">Note</p><p>コネクタ表示名は機能変更前後で変更となるため、本ブログではコネクタ ID を使ってご説明いたします。</p><p></p></div>
+<br>
+機能変更前の webcontents コネクタは信頼するファーストパーティのアプリに対してマイクロソフトが任意に API アクセス許可を与えていました。
+<br>
+<br>
+機能の変更が展開されますと、webcontents コネクタのアクセス許可を webcontentsv2 と同じ方式にし、webcontentsv2 コネクタを非推奨とします。<br>
+本機能変更によって管理者側で利用可能な API を必要最小限に制御し、お客様環境におけるセキュリティとデータプライバシーを強化することを目的としています。
+<br>
+<br>
+変更後はコネクタ表示名とアクセス許可が以下のように変更になります。
+
+<table>
+<thead>
+<tr>
+<th align="left">コネクタ ID</th>
+<th align="left">コネクタ表示名</th>
+<th align="left">アクセス許可</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">webcontents</td>
+<td align="left">Http With Microsoft Entra ID</td>
+<td align="left"><b><font color=red>管理者</font></b>がアクセス許可</td>
+</tr>
+<tr>
+<td align="left">webcontentsv2</td>
+<td align="left">Http With Microsoft Entra ID<b><font color=red>(deprecated)</font></b></td>
+<td align="left">管理者がアクセス許可</td>
+</tr>
+</tbody></table>
+<h3 id="影響範囲"><a href="#影響範囲" class="headerlink" title="影響範囲"></a>影響範囲</h3><p>機能の変更が展開された後に作成された接続から、変更後の動作になります。</p>
+<h3 id="対応方法"><a href="#対応方法" class="headerlink" title="対応方法"></a>対応方法</h3><ol>
+<li><u>webcontents コネクタを利用している</u>  <ul>
+<li>変更<b><font color=red>前</font></b>に作成した接続  →　現時点では対応は必要ありません。</li>
+<li>変更<b><font color=red>後</font></b>に作成した接続<br>→ <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/webcontentsv2/#%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%8C%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E3%82%8F%E3%82%8A%E3%81%AB%E5%8B%95%E4%BD%9C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B">こちらの手順</a> に従い、 API 実行に必要なアクセス許可をアプリに付与し、webcontentsv2 コネクタで動作検証を行ってください。</li>
+</ul>
+</li>
+<li><u>webcontentv2 コネクタを利用している</u><br>  2024 年 10 月時点では対応は必要ありませんが、今後 webcontentsv2 コネクタは非推奨となっていく予定です。</li>
+</ol>
+<div class="alert is-info"><p class="alert-title">Note</p><p>機能の変更が展開されると、webcontents コネクタと webcontentsv2 コネクタは内部的に同じアプリとなります。</p><p></p><p>一方にアクセス許可を与えると両方のコネクタに対してアクセスが許可されます。</p></div>
+<h2 id="メッセージセンター時系列"><a href="#メッセージセンター時系列" class="headerlink" title="メッセージセンター時系列"></a>メッセージセンター時系列</h2><table>
+<thead>
+<tr>
+<th align="left">日付</th>
+<th align="left">番号</th>
+<th align="left">タイトル</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2024 年 10 月 2 日</td>
+<td align="left">MC901932</td>
+<td align="left">Power Platform - “Http With Microsoft Entra ID (事前承認済み)” コネクタのセキュリティ更新プログラム</td>
+<td align="left">機能変更の内容詳細とスケジュール</td>
+</tr>
+<tr>
+<td align="left">2024 年 10 月 25 日</td>
+<td align="left">MC918447</td>
+<td align="left">Power Platform – [更新] “HTTP With Microsoft Entra ID (preauthorized)” コネクタのセキュリティ更新プログラム</td>
+<td align="left">適用延期</td>
+</tr>
+</tbody></table>
+<h3 id="MC901932"><a href="#MC901932" class="headerlink" title="MC901932"></a>MC901932</h3><p><b>Power Platform - “Http With Microsoft Entra ID (事前承認済み)” コネクタのセキュリティ更新プログラム</b><br></p>
+<p>セキュリティを強化するための “Http With Microsoft Entra ID (preauthorized)” (“Webcontents” と呼ばれることもあります) コネクタの更新を発表します。この変更は 2024 年 10 月 25 日にロールアウトを開始し、2024 年 11 月 15 日に全世界でのロールアウトを完了します。この変更の一環として、アクセス許可がアタッチされていないファーストパーティアプリを使用する新しい接続タイプが追加されます。これは、セキュリティの露出を必要なものだけに制限することで、ベスト プラクティスが守られるようにするためです。この変更に伴い、コネクタの名前は “Http With Microsoft Entra ID” に更新され、名前から “(preauthorized)” が削除されます。</p>
+<p><b>これにはどのような影響がありますか?</b><br></p>
+<p>既存の接続は引き続き機能します。既存の接続を新しい接続タイプに移行する必要がある場合は、後日フォローアップします。<br>以下で推奨されるアクションを実行しない場合、2024 年 10 月 25 日以降に行われた新しい接続は失敗します。</p>
+<p><b>準備するには何をする必要がありますか?</b><br></p>
+<ol>
+<li>この リンクされた記事 に記載されている手順に従って、2024 年 10 月 25 日より前にコネクタで使用されている最初の部分のアプリに必要なアクセス許可を追加してください。 </li>
+<li>“Http With Microsoft Entra ID” (WebcontentsV2 とも呼ばれます) コネクタに接続を追加してテストを実行し、すべてが正常に動作することを確認します。 </li>
+</ol>
+<h3 id="MC918447"><a href="#MC918447" class="headerlink" title="MC918447"></a>MC918447</h3><p><b>Power Platform – [更新] “HTTP With Microsoft Entra ID (preauthorized)” コネクタのセキュリティ更新プログラム</b><br></p>
+<p>この通信は、2024年10月1日に以前に伝達されたMC901932へのフォローアップメッセージです。以下の変更はまだ進行中ですが、当初2024年10月24日から2024年11月15日まで予定されていたロールアウト期間を延長します。 新しい推定タイムラインは、追加情報とともにできるだけ早く提供します。<br><br><br><br>セキュリティを強化するための “HTTP With Microsoft Entra ID (preauthorized)” (“Webcontents” と呼ばれることもあります) コネクタの更新を発表します。この変更の一環として、アクセス許可がアタッチされていないファーストパーティアプリを使用する新しい接続タイプが追加されます。これは、セキュリティの露出を必要なものだけに制限することで、ベストプラクティスが守られるようにするためです。この変更に合わせて、コネクタの名前は “HTTP With Microsoft Entra ID” に更新されます。</p>
+<p><b>これにはどのような影響がありますか?</b><br><br>既存の接続は引き続き機能します。<br><br>既存の接続を新しい接続タイプに移行する必要がある場合は、後日フォローアップします。<br></p>
+<p><b>準備するには何をする必要がありますか?</b><br></p>
+<ol>
+<li>「サインインしているユーザーに代わって動作するようにコネクタを承認する」の記事に記載されている手順に従って、コネクタで使用されているファーストパーティ アプリに必要なアクセス許可を追加してください。</li>
+<li>“HTTP With Microsoft Entra ID” (WebcontentsV2 とも呼ばれます) コネクタに接続を追加してテストを実行し、すべてが正常に動作することを確認します。</li>
+</ol>
+<h2 id="よくあるご質問"><a href="#よくあるご質問" class="headerlink" title="よくあるご質問"></a>よくあるご質問</h2><h3 id="両方のコネクタを利用していますが、影響はありますか。"><a href="#両方のコネクタを利用していますが、影響はありますか。" class="headerlink" title="両方のコネクタを利用していますが、影響はありますか。"></a>両方のコネクタを利用していますが、影響はありますか。</h3><p>ご利用中のフローやアプリ等につきましては、今のところ影響はありません。<br><br>しかしながら、コネクタに対して新しく接続を作成する場合は機能変更の影響を受けます。<br><br>意図しないフローやアプリの中断を防ぐため、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/webcontentsv2/#%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%8C%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E3%82%8F%E3%82%8A%E3%81%AB%E5%8B%95%E4%BD%9C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B">こちらの手順</a> に従って、 API 実行に必要なアクセス許可をアプリに付与し、webcontentsv2 コネクタで動作検証を行ってください。<br></p>
+<h3 id="自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。"><a href="#自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。" class="headerlink" title="自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。"></a>自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。</h3><p>恐れ入りますが、現時点で具体的な日にちはお伝えすることができません。<br><br>当初 2024 年 10 月 25 日 から 2024 年 11 月 15 日の間で適用される予定となっていましたが適用を延期しています。<br><br>適用予定日が決まり次第メッセージセンター等にて通知を行います。</p>
+<h3 id="webcontents-コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか"><a href="#webcontents-コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか" class="headerlink" title="webcontents コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか"></a>webcontents コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか</h3><p>お客様のフローが意図せず停止することのないよう古い接続をそのまま利用できるような形で機能変更を行っているためです。<br></p>
+<p>機能の変更が展開されますと、 webcontens コネクタに対して 2 種類の接続が存在するようになります。<br></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">作成時期</th>
+<th align="left">アクセス許可</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">接続Ａ</td>
+<td align="left">変更前に作成</td>
+<td align="left">APIのアクセス許可がマイクロソフトにより設定されている</td>
+</tr>
+<tr>
+<td align="left">接続Ｂ</td>
+<td align="left">変更後に作成</td>
+<td align="left">APIのアクセス許可をユーザーが設定する</td>
+</tr>
+</tbody></table>
+<p>接続Ａは引き続きご利用いただくことができますが、セキュリティの観点から管理者のアクセス許可を必要とする動作にしていく予定です。<br><br>接続Ａの対応については検討を行っているため、お客様側での対応が必要となりましたら改めてメッセージセンターで通知を行います。</p>
+<h3 id="両方のコネクタをDLPポリシーでブロックしているのですが、影響ありますか。"><a href="#両方のコネクタをDLPポリシーでブロックしているのですが、影響ありますか。" class="headerlink" title="両方のコネクタをDLPポリシーでブロックしているのですが、影響ありますか。"></a>両方のコネクタをDLPポリシーでブロックしているのですが、影響ありますか。</h3><p>ブロックしてコネクタ自体を利用していない場合は影響ありません。</p>
 <hr>
+<p>本ブログの内容は MC901932 / MC918447 通達時点の情報となりますので、最新情報についてはコネクタ等各種公開情報を随時ご参照ください。</p>
 
       
       
@@ -141,10 +255,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/canvasapp/mc435264.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/MC901932.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -152,19 +266,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerautomate/PowerAutomateDesktopSupportability/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../EmailEnableAutmation/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Power Automate for desktop のサポート範囲について
+          メールボックスの承認・テストと有効化の自動化について
         
       </div>
     </a>
   
   
-    <a href="../../powerplatform/Output-dlp-policy-connector-list/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../copilotstudio/helpful-information-for-copilotstudio-sr/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">DLP ポリシーに設定されているコネクタの一覧を出力する</div>
+      <div class="article-nav-title">Copilot Studio お問い合わせの際の情報取得手順</div>
     </a>
   
 </nav>
@@ -183,11 +297,11 @@
       <ul>
         
           <li>
-            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+            <a href="../EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/MC901932/">Power Platform - &#34;Http With Microsoft Entra ID (事前承認済み)&#34; コネクタのセキュリティ更新プログラム - MC901932 MC918447</a>
+            <a href="">Power Platform - &#34;Http With Microsoft Entra ID (事前承認済み)&#34; コネクタのセキュリティ更新プログラム - MC901932 MC918447</a>
           </li>
         
           <li>
@@ -195,7 +309,7 @@
           </li>
         
           <li>
-            <a href="../../powerplatform/pp-copilot-disable/">Power Platform における Copilot の無効化方法</a>
+            <a href="../pp-copilot-disable/">Power Platform における Copilot の無効化方法</a>
           </li>
         
           <li>
