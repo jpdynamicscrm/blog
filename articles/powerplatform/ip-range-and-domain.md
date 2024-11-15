@@ -50,7 +50,7 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
    モバイルアプリやデスクトップフローなど利用するサービスに応じて設定してください。<br>
    ![](./ip-range-and-domain/powerautomate-domain.png)
 
-1. コネクタ接続先に対して、[コネクタ](#anchor-connector) に必要な通信を許可してくださ
+1. コネクタ接続先に対して、[コネクタ](#anchor-connector) に必要な通信を許可してください。
 
 <a id='anchor-connector'></a>
 ### コネクタ
@@ -77,7 +77,6 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 | サービス | 公開情報 | サービスタグ | 受信 / 送信
 | :- | :- | :- | :- |
 | キャンバスアプリ | [ドメイン](https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#required-services)  | - | 両方
-|^| [IP アドレス/サービスタグ](https://learn.microsoft.com/ja-jp/power-platform/admin/online-requirements#ip-addresses-required)  | AzureCloud | 両方
 |^| + コネクタの IP アドレス |< | 
 | Power Automate| [ドメイン](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration)  | - | 両方
 |^| + コネクタの IP アドレス |< | 
@@ -112,7 +111,7 @@ IP アドレスについてはサービスタグや[パブリック IP アドレ
 
 ### IP アドレスやドメインをホワイトリストに追加しない状態で使うことができていますが、追加しなくてもいいですか。
 いいえ、ホワイトリストに追加し、接続できるようにしてください。<br>
-未利用の機能で使われているため新しく機能を使うときにエラーが出る可能性があります。<br>
+未利用の機能を利用しはじめるときにエラーが出る可能性があります。<br>
 また、機能変更で新しい接続先を使うようになり、急にエラーとなる可能性があります。
 
 
