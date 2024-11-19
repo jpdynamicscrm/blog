@@ -1,67 +1,56 @@
 ---
-title: Power Platform での仮想ネットワーク データ ゲートウェイについて
-date: 2024-01-20 00:00:00
+title: Power Platform Ideasサイトのご紹介
+date: 2024-11-20 00:00:00
 tags:
   - PowerPlatform
-  - VNetGateway
+  - Ideas
 ---
 
-# Power Platform での仮想ネットワーク データ ゲートウェイについて
+# Power Platform Ideas サイトのご紹介
 <!-- ここに 導入部分 -->
 こんにちは、Power Platform サポートチームの藤田です。
-今回は、最近お問い合わせの増えている仮想ネットワーク ゲートウェイについて、サポートされる機能をご紹介します。
-
-※2024-04-12 追記：仮想ネットワーク ゲートウェイに代わりご利用いただける、Power Platform の仮想ネットワーク サポートがパブリック プレビューとなりました。
-[Power Platform 向け Virtual Network のサポートの概要 (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/vnet-support-overview)
-[仮想ネットワーク データ ゲートウェイと Power Platform の Azure Virtual Network サポートの違いは何ですか?](https://learn.microsoft.com/en-in/power-platform/admin/vnet-support-overview#whats-the-difference-between-a-virtual-network-data-gateway-and-azure-virtual-network-support-for-power-platform)
-[Announcing public preview of virtual network support for Power Platform Dataverse plug-ins and Connectors](https://powerapps.microsoft.com/en-us/blog/announcing-public-preview-of-virtual-network-support-for-power-platform-dataverse-plug-ins-and-connectors/)
+今回は、製品に対して改善や実装要望を届けることのできる Ideas をご紹介します。
 
 <!-- more -->
 
 <!-- ここに Read more 以降の文章 -->
-> [!IMPORTANT] 
-> 本記事は弊社公式ドキュメントの公開情報を元に構成しておりますが、 本記事編集時点と実際の機能に相違がある場合がございます。 
-> 最新情報につきましては、参考情報として記載しておりますドキュメントをご確認ください
 
 ---
-## 仮想ネットワーク データ ゲートウェイとは？
+## Ideas とは？
 
-仮想ネットワーク データ ゲートウェイを使用すると、お使いの VNet 内の Azure サービスと Power Platform のサービスを安全に接続することが出来ます。
-詳細は以下の公開情報をご参照ください。
-[仮想ネットワーク (VNet) データ ゲートウェイ (プレビュー) とは](https://learn.microsoft.com/ja-jp/data-integration/vnet/overview)
-[仮想ネットワーク データ ゲートウェイのアーキテクチャ](https://learn.microsoft.com/ja-jp/data-integration/vnet/data-gateway-architecture)
+各製品の Ideas にご投稿いただくことで、お客様から直接製品チームにご意見やご要望をお伝えいただくことが可能です。
 
-※ 2024 年 1 月現在、上記の仮想ネットワーク データ ゲートウェイはプレビュー中の機能となっています。
+[Power Apps Ideas](https://ideas.powerapps.com/d365community/forum/f1458c72-ae29-ed11-9db2-000d3a8c451e)
+[Power Automate Ideas](https://ideas.powerautomate.com/d365community/forum/086dd68e-597f-ec11-8d21-0022482e8f9f)
+[Copilot Studio](https://ideas.powervirtualagents.com/d365community/forum/21a4f1f9-f7fc-ec11-82e6-000d3a8b109b)
 
-## 仮想ネットワーク データ ゲートウェイが使える機能
+投稿されたご意見の採用をお約束できるものではございませんが、
+投稿に対して Vote 数が多くなることで製品チームが確認を行い、機能強化が行われることもございますので、
+ぜひ、投稿をご検討ください。
 
-現在、仮想ネットワーク データ ゲートウェイが使える機能は以下の通りです。
-- Fabric Dataflow Gen2
-- Power BI データセット
-- Power Platform データフロー
-- Power BI のページ分割されたレポート
+このサイトは投稿した後に、状況に応じてご要望の機能の必要性やビジネスインパクトなどの確認を行う場合があるため、
+技術サポートからではなくお客様によるご投稿を推奨させていただいております。
 
-[仮想ネットワーク (VNet) データ ゲートウェイ (プレビュー) とは - 制限事項](https://learn.microsoft.com/ja-jp/data-integration/vnet/overview#limitations)
+## Ideas の利用方法について
 
-## Power Automate のカスタム コネクタと仮想ネットワーク データ ゲートウェイ
+新規投稿や、投票、コメント機能を利用するためには、Microsoft アカウントでサインインする必要があります。
+投稿を閲覧するのみの場合は、Microsoft アカウントでサインインする必要はありません。
+サインイン手順と、投稿の利用手順をご案内いたしますのでご確認ください。
 
-カスタム コネクタから仮想ネットワーク データ ゲートウェイを使用し、Azure OpenAI Service 等の Azure サービスに接続したいというお問い合わせが増えております。
-この機能については、2022 年 4 月頃にプレビューとして登場し、2023 年 8 月末頃にプレビューを取り下げた機能です。現在はサポートされておらず、公開情報等もございません。
-一方で、本記事執筆時点では機能自体は削除されていない状態であり、依然使用できる状態となっております。
+### Microsoft アカウントでサインインする手順
 
-プレビュー期間中に既にお試しいただいていた方や、使用してはいなかったが Microsoft 社外サイト等で機能を知った方等、現在も利用したい・試してみたいという状況はあるかと思います。
-その場合は、**本機能がプレビュー未満の状態であり、予告なく変更または削除される可能性がある点をご了承いただいた上で**お使いいただくようお願いいたします。
+1. 画面右上に表示される [Sign in] ボタンをクリックします。
+1. [サインイン] 画面にて Microsoft アカウントの情報を入力し、[サインイン] をクリックします。
+1. [要求されているアクセス許可] と表示された場合には、[承諾] をクリックします。
+1. [Complete your Profile] 画面で Usernameに任意のユーザー名を入力し、[Submit] ボタンをクリックします。
+1. サインインが完了します。
 
-## プレビュー機能とは？
+### 投稿方法
+1. 上記の [サインイン手順] を完了した状態で [新しいアイデアの投稿] をクリックします。
+1. [タイトル] [カテゴリ]及び [説明] に内容を記載の上 Post することで投稿ができます。
 
-プレビュー機能には、いくつかの免責事項があります。※
-- 個別の [追加使用条件](https://dynamics.microsoft.com/ja-jp/legaldocs/supp-dynamics365-preview/) に依存しています。
-- 運用環境での使用を目的としていません。
-- Microsoft サポートによる運用環境での使用はサポートされていません。 ただし、Microsoft サポートは、プレビュー機能に関するフィードバックをお伺いし、場合によってはベスト エフォート サポートを提供する場合があります。
-- 機能が制限される可能性があります。
-- 地域によっては利用できない場合があります。
+## 注意事項
 
-上記の通り、プレビュー機能のご利用で問題が発生し、お問い合わせいただいた場合、プレビュー機能を使用中止いただくようお願いすることとなってしまう場合がございます。
-ビジネス クリティカルなシナリオでは、プレビュー機能のご利用を避けていただくようお願いいたします。
-
-※ [プレビュー機能とは](https://learn.microsoft.com/ja-jp/dynamics365/sales/sales-previews-in-trial) より引用
+Ideasをはじめ、コミュニティ サイトは、海外のお客様もご利用いただいております。
+海外のお客様からVoteを集めたり、製品チームにて確認したりするために、可能な限り英語でご投稿をお願いいたします。
+日本語で記述いただく場合には、お手数ではございますが、英訳も併記いただけますようお願いいたします。
