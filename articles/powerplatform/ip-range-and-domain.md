@@ -26,42 +26,43 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 
 キャンバスアプリ / Power Automate  はクラウド上に展開されたサービスであり、クラウドサービスへアクセスする、またはクラウドサービスからアクセスされる際に、特定のドメインや IP アドレスへ片方向または双方向の通信が発生します。Power Platform では通信に必要な要件を定義し、通信要件として Power Platform の公開情報に記載しています。<br>
 
-例えば、会社に出社し、社内のネットワークから Power Automate ポータルにアクセスする場合、社内ネットワークから、"https://make.powerautomate.com/" へリクエストが投げられ、Power Automate ポータルから応答を受け取ります。<br>
+プロキシサーバー等を用いてネットワークに制限をかけている場合、製品利用に必要な通信がブロックされると問題が生じる恐れがあるため、必要な通信許可を設定してください。
+
+通信の種類には 2 種類があります。  
+<b>①クライアントとの通信</b>  
+クライアント端末とマイクロソフトクラウドサーバーとの通信です。クライアント端末から Power Automate ポータルにアクセスするときや、キャンバスアプリを実行するときなどに利用されます。
+
+<b>②接続先との通信</b>  
+マイクロソフトクラウドサーバーとコネクタ接続先との通信です。フローやアプリにてコネクタを通じてデータに接続するときに利用されます。  
 
 ![](./ip-range-and-domain/network.png)
-<br>
 
-このときに、社内ネットワークのセキュリティソフト等（盾マーク）にて通信が遮断されると、エラー等が発生し、製品利用に問題が生じる場合があります。<br>
-そのため、利用する IP アドレスやドメインに制限をかけている場合は、それぞれの製品に必要な IP アドレスやドメインを許可する必要があります。<br>
 
-以下に製品ごとに許可が必要なドメイン、IP アドレスを記載します。<br>
+① クライアントとの通信に必要な要件は  [キャンバスアプリ](#anchor-canvasapp) および [Power Automate](#anchor-powerautomate) を参照してください。  
+② 接続先との通信に必要な要件は [コネクタ](#anchor-connector) を参照してください。
 
+
+
+## クライアントとの通信
 <a id='anchor-canvasapp'></a>
 ### キャンバスアプリ
 
-1. キャンバスアプリにアクセスするネットワークに対して、[必要なサービス](https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#required-services)に記載されているすべてのドメインを許可してください。<br>
+1. [必要なサービス](https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#required-services)に記載されているすべてのドメインを許可してください。<br>
   ![](./ip-range-and-domain/powerapps-domain.png)
 
-1. コネクタ接続先に対して、[コネクタ](#anchor-connector) に必要な通信を許可してください。
 
 <a id='anchor-powerautomate'></a>
 ### Power Automate
-1. Power Automate にアクセスするネットワークに対して、[IP アドレスの構成](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration)ページに記載されているドメインを許可してください。<br>
+1. [IP アドレスの構成](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration) に記載されているドメインを許可してください。<br>
    モバイルアプリやデスクトップフローなど利用するサービスに応じて設定してください。<br>
    ![](./ip-range-and-domain/powerautomate-domain.png)
 
-1. コネクタ接続先に対して、[コネクタ](#anchor-connector) に必要な通信を許可してください。
+## 接続先との通信
 
 <a id='anchor-connector'></a>
 ### コネクタ
-コネクタと Azure SQL や Kinton などのコネクタ接続先との通信は、下図のようにマイクロソフトクラウドサーバーとコネクタ接続先で直接行われます。<br>
-コネクタ接続先でネットワークを制限している場合はコネクタからの通信に対して許可を行ってください。
-  ![](./ip-range-and-domain/connector-network.png)
-
-1. [コネクターの送信 IP アドレス](https://learn.microsoft.com/ja-jp/connectors/common/outbound-ip-addresses)に記載されているすべての IP アドレス、またはサービスタグを許可してください。<br>
+1. [コネクターの送信 IP アドレス](https://learn.microsoft.com/ja-jp/connectors/common/outbound-ip-addresses#power-platform) の Power Platform セクションに記載されているすべての IP アドレス、またはサービスタグを許可してください。<br>
    ほとんどのコネクタはこちらの IP アドレスから通信を行います。
-   * Azure Logic Apps 
-   * Power Platform
    ![](./ip-range-and-domain/connector-outbound.png)
 
 1. [ファイアウォールの構成:IP アドレスとサービス タグ](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)に記載されている IP アドレスまたはサービスタグを許可してください。
@@ -74,13 +75,11 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 
 ## まとめ
 
-| サービス | 公開情報 | サービスタグ | 受信 / 送信
+| サービス | 公開情報 | サービスタグ | 通信方向<br>(マイクロソフト起点) |
 | :- | :- | :- | :- |
-| キャンバスアプリ | [ドメイン](https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#required-services)  | - | 両方
-|^| + コネクタの IP アドレス |< | 
-| Power Automate| [ドメイン](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration)  | - | 両方
-|^| + コネクタの IP アドレス |< | 
-| コネクタ | [IP アドレス/サービスタグ](https://learn.microsoft.com/ja-jp/connectors/common/outbound-ip-addresses) | AzureConnectors | 両方
+| キャンバスアプリ | [ドメイン](https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#required-services)  | - | 送信/受信
+| Power Automate| [ドメイン](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration)  | - | 送信/受信
+| コネクタ | [IP アドレス/サービスタグ](https://learn.microsoft.com/ja-jp/connectors/common/outbound-ip-addresses) | AzureConnectors | 送信/受信
 | ^| [IP アドレス/サービス タグ](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | 受信 IP：LogicAppsManagement <br>送信 IP：LogicApps | 受信 IP：受信 <br>送信 IP：送信
 
 
@@ -111,8 +110,10 @@ IP アドレスについてはサービスタグや[パブリック IP アドレ
 
 ### IP アドレスやドメインをホワイトリストに追加しない状態で使うことができていますが、追加しなくてもいいですか。
 いいえ、ホワイトリストに追加し、接続できるようにしてください。<br>
-未利用の機能を利用しはじめるときにエラーが出る可能性があります。<br>
+未利用の機能で使われているため新しく機能を使うときにエラーが出る可能性があります。<br>
 また、機能変更で新しい接続先を使うようになり、急にエラーとなる可能性があります。
 
+### ドメイン指定時に * を指定しない方法はありますか。
+いいえ、FQDNs は公開されていないため * を指定せずにドメインを許可する方法はありません。
 
 ---
