@@ -61,7 +61,7 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 
 <a id='anchor-connector'></a>
 ### コネクタ
-1. [コネクターの送信 IP アドレス](https://learn.microsoft.com/ja-jp/connectors/common/outbound-ip-addresses#power-platform) の Power Platform セクションに記載されているすべての IP アドレス、またはサービスタグを許可してください。<br>
+1. [コネクターの送信 IP アドレス](https://learn.microsoft.com/ja-jp/connectors/common/outbound-ip-addresses#power-platform) の Power Platform セクションに記載されている IP アドレス、またはサービスタグを許可してください。<br>
    ほとんどのコネクタはこちらの IP アドレスから通信を行います。
    ![](./ip-range-and-domain/connector-outbound.png)
 
@@ -72,6 +72,10 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
    * マルチテナント - 送信 IP アドレス / サービスタグ <b>LogicApps</b> <br>
    （コネクタ接続先　←　コネクタサーバー）
    ![](./ip-range-and-domain/connector-logicapps.png)
+
+
+> [!NOTE]
+> 許可する  IP アドレスまたはサービスタグは、ご利用のPower Platfrom環境の地域に対応するものをご選択ください。
 
 ## まとめ
 
@@ -103,7 +107,7 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 
 ### IP アドレスやドメインの変更はメッセージセンター等で通知されますか
 影響範囲の大きい変更がある場合は通知されることもありますが、基本的には通知されませんのでお客様にて定期的な監視をお願いしています。<br>
-IP アドレスについてはサービスタグや[パブリック IP アドレス](https://learn.microsoft.com/ja-jp/power-platform/admin/online-requirements#ip-addresses-required) ファイルを提供していますので、こちらをご利用ください。ドメインについてはお手数ですが定期的に公開情報にて増減がないか確認をお願いいたします。今後、pac ファイルの提供等を行い、確認作業の簡易化について取り組んでいく予定です。
+IP アドレスについてはサービスタグや[パブリック IP アドレス](https://learn.microsoft.com/ja-jp/power-platform/admin/online-requirements#ip-addresses-required) ファイルを提供していますので、こちらをご利用ください。ドメインについてはお手数ですが定期的に公開情報にて増減がないか確認をお願いいたします。今後、確認作業の簡易化について取り組んでいく予定です。
 
 ### どれくらいの頻度で確認したほうがいいですか
 最低でも月に 1 度はご確認をお願いいたします。<br>
