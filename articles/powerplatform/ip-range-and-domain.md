@@ -84,7 +84,7 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 | キャンバスアプリ | [ドメイン](https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#required-services)  | - | 送信/受信
 | Power Automate| [ドメイン](https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration)  | - | 送信/受信
 | コネクタ | [IP アドレス/サービスタグ](https://learn.microsoft.com/ja-jp/connectors/common/outbound-ip-addresses) | AzureConnectors | 送信/受信
-| ^| [IP アドレス/サービス タグ](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | 受信 IP：LogicAppsManagement <br>送信 IP：LogicApps | 受信 IP：受信 <br>送信 IP：送信
+|  | [IP アドレス/サービス タグ](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | 受信 IP：LogicAppsManagement <br>送信 IP：LogicApps | 受信 IP：受信 <br>送信 IP：送信
 
 
 ## よくある質問
