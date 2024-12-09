@@ -61,9 +61,9 @@ Power Automate で使用するコネクタは、Azure AD での認証を行う�
 また、資格情報の変更や管理者の操作により、更新 トークン自体が無効となる場合もございます。
 原因として表に挙げた例の中では、以下が当てはまります。
 
-- ユーザーまたは管理者が PowerShell を使用して更新トークンを無効化
+- ユーザーまたは管理者が更新トークンを無効化
    Power Automate の接続は、「機密クライアントのトークン」として認識されます。
-   そのため、[公開情報の表](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/access-tokens#revocation)に記載の通り、更新トークンを無効化した場合のみトークンが取り消されます。
+   そのため、[公開情報の表](https://learn.microsoft.com/ja-jp/entra/identity-platform/refresh-tokens#token-revocation)に記載の通り、更新トークンを無効化した場合のみトークンが取り消されます。
    パスワード変更や期限切れでは、更新 トークンは無効となりません。
 
 - 接続が長期間 (90 日以上) 使用されていない
