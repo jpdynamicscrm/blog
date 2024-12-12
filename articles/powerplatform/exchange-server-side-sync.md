@@ -17,8 +17,8 @@ Dynamics 365 で使用される Dataverse と Outlook のメール サーバー�
 
 - [Power Platform 環境へのメールボックスの同期](#sync-mailbox-to-power-platform-environment)
 - [Dynamics 365 App for Outlook](#dynamics-365-app-for-outlook)
-- [メールの同期](#sync-email)
-- [予定の同期](#sync-shedule)
+- [メールの追跡](#sync-email)
+- [予定の追跡](#sync-shedule)
 - [個人設定](#personal-settings)
 - [Dynamics 365 から電子メールを送信](#send-email)
 - [補足](#additional-information)
@@ -46,26 +46,26 @@ Power Platform 管理センターからメールボックスを同期するこ�
 Dynamics 365 App for Outlook は Outlook から Dynamics 365 のレコードを閲覧、作成、編集、削除などができるアプリ (アドイン) です。Outlook から Dynamics 365 での追跡時の関連を設定したり、テーブルへレコードを作成したりできます。
 
 1. Power Platform 管理センターより [設定] > [Dynamics 365 App for Outlook] をクリック<br>![](./exchange-server-side-sync/ppac_setting_d365afo.png)
-2. Dynamics 365 App for Outlook を追加するユーザーにチェックを入れ、[OUTLOOK へのアプリの追加] をクリック<br>![](./exchange-server-side-sync/d365afo_sync.png)
+2. Dynamics 365 App for Outlook を追加するユーザーにチェックを入れ、[OUTLOOK へのアプリの追加] をクリック (対象ユーザーに割り当てられているセキュリティ ロールの中に use dynamics 365 app for outlook の特権がついている必要があります)<br>![](./exchange-server-side-sync/d365afo_sync.png)
 3. [状態] が [保留中] から [Outlook に追加済み] になったら完了 (完了までに 10 分から 30 分程度時間がかかります)<br>![](./exchange-server-side-sync/d365afo_done.png)
 4. [Outlook](https://outlook.office365.com/mail/) でメールを開き、[Dynamics 365] のアプリのアイコンが表示されることを確認<br>![](./exchange-server-side-sync/outlook_d365afo_icon.png)
 5. 初めて開くと認証画面が表示されるので、[許可] をクリックして認証<br>![](./exchange-server-side-sync/outlook_d365afo_auth.png)
 
-<h2 id="sync-email">メールの同期</h2>
+<h2 id="sync-email">メールの追跡</h2>
 
-以下のいずれかの方法でメールの同期が可能です。
+以下のいずれかの方法でメールの追跡が可能です。
 
-- 同期したいメールを選択した状態で **分類** をクリックし、Track To Dynamics 365 の分類を付与することで、対象のメールを同期できます。Dynamics 365 へ正しく連携できなかった場合、分類のタグが Tracked To Dynamics 365 (Undeliverable) になります。<br>![](./exchange-server-side-sync/outlook_classification.png)
+- 追跡したいメールを選択した状態で **分類** をクリックし、Track To Dynamics 365 の分類を付与することで、対象のメールを追跡できます。Dynamics 365 へ正しく連携できなかった場合、分類のタグが Tracked To Dynamics 365 (Undeliverable) になります。<br>![](./exchange-server-side-sync/outlook_classification.png)
 
-- Dynamics 365 App for Outlook を利用してメールを同期することもできます。追跡対象外のメールで [関連を設定せずに追跡] とすると上の方法と同じく Track To Dynamics 365 の分類タグがつき、メールを同期できます。<br>![](./exchange-server-side-sync/outlook_d365afo_track_mail.png)
+- Dynamics 365 App for Outlook を利用してメールを追跡することもできます。追跡対象外のメールで [関連を設定せずに追跡] とすると上の方法と同じく Track To Dynamics 365 の分類タグがつき、メールを追跡できます。<br>![](./exchange-server-side-sync/outlook_d365afo_track_mail.png)
 
-Dynamics 365 アプリの [営業ハブ] > [活動] > [すべての電子メール] より、上記の方法で同期した電子メールレコードが確認できます。同期には場合によって 5 分から 15 分程度時間がかかることがあります。
+Dynamics 365 アプリの [営業ハブ] > [活動] > [すべての電子メール] より、上記の方法で追跡した電子メール レコードが確認できます。同期には場合によって 5 分から 15 分程度時間がかかることがあります。
 <br>![](./exchange-server-side-sync/d365_mail_record.png)
 
-<h2 id="sync-shedule">予定の同期</h2>
+<h2 id="sync-shedule">予定の追跡</h2>
 
-Outlook より [予定表] を開き、同期対象の予定を右クリックして先ほどのメールの同期と同様に Track To Dynamics 365 の分類を付与することで、対象の予定を同期できます。<br>![](./exchange-server-side-sync/outlook_calender_sync.png)
-Dynamics 365 アプリの [営業ハブ] > [活動] > [すべての予定] より、上記の方法で同期した予定レコードが確認できます。同期には場合によって 5 分から 15 分程度時間がかかることがあります。<br>![](./exchange-server-side-sync/d365_schedule_record.png)
+Outlook より [予定表] を開き、追跡対象の予定を右クリックして先ほどのメールの追跡と同様に Track To Dynamics 365 の分類を付与することで、対象の予定を追跡できます。<br>![](./exchange-server-side-sync/outlook_calender_sync.png)
+Dynamics 365 アプリの [営業ハブ] > [活動] > [すべての予定] より、上記の方法で追跡した予定レコードが確認できます。同期には場合によって 5 分から 15 分程度時間がかかることがあります。<br>![](./exchange-server-side-sync/d365_schedule_record.png)
 
 <h2 id="personal-settings">個人設定</h2>
 
@@ -96,7 +96,7 @@ Outlook の指定したフォルダーと Dynamics 365 の特定のレコード�
 
 - 同期済みのメールボックスに対して同期を解除したい場合、[Power Platform 環境へのメールボックスの同期](#sync-mailbox-to-power-platform-environment) のステップ 6 の画面で [同期方法] のうち連携を解除したい項目を [なし] に設定し、[上書き保存] を押下します。
 
-- [Power Platform 環境へのメールボックスの同期](#sync-mailbox-to-power-platform-environment) のステップ 7 のメールボックスの承認は、[Power Platform 管理センター] > [設定] > [セキュリティ ロール] より [代理メールボックス承認者] を付与することで、システム管理者以外のユーザーが代理で実施することができるようになります。<br>参考: [Exchange Online への接続 > アクセス許可モデル](https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online#permissions-model)<br>![](./exchange-server-side-sync/ppac_security_role.png)
+- [Power Platform 環境へのメールボックスの同期](#sync-mailbox-to-power-platform-environment) のステップ 7 のメールボックスの承認は、[Power Platform 管理センター] > [設定] > [セキュリティ ロール] より [代理メールボックス承認者] を付与することで、グローバル管理者または Exchange 管理者でなくても、システム管理者セキュリティ ロールを持っていれば代理で実施することができるようになります。<br>参考: [Exchange Online への接続 > アクセス許可モデル](https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online#permissions-model)<br>![](./exchange-server-side-sync/ppac_security_role.png)
 
 <h2 id="troubleshooting">トラブルシューティング</h2>
 
