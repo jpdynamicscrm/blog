@@ -27,7 +27,7 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 
 キャンバスアプリ / Power Automate  はクラウド上に展開されたサービスであり、クラウドサービスへアクセスする、またはクラウドサービスからアクセスされる際に、特定のドメインや IP アドレスへ片方向または双方向の通信が発生します。Power Platform では通信に必要な要件を定義し、通信要件として Power Platform の公開情報に記載しています。<br>
 
-プロキシサーバー等を用いてネットワークに制限をかけている場合、製品利用に必要な通信がブロックされると問題が生じる恐れがあるため、必要な通信許可の設定を行ってください。
+プロキシサーバー等を用いてネットワークに制限をかけている場合、製品利用に必要な通信がブロックされると問題が生じる恐れがあるため、必要な通信許可の設定を行ってください。
 
 通信の種類には 2 種類があります。  
 <b>①クライアントとの通信</b>  
@@ -86,7 +86,7 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 | キャンバスアプリ | [ドメイン](https://learn.microsoft.com/en-us/power-apps/limits-and-config#required-services)  | - | 送信/受信
 | Power Automate| [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration)  | - | 送信/受信
 | コネクタ | [IP アドレス/サービスタグ](https://learn.microsoft.com/en-us/connectors/common/outbound-ip-addresses#power-platform) | AzureConnectors | 送信/受信
-| | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | 受信 IP：LogicAppsManagement <br>送信 IP：LogicApps | 受信 IP：受信 <br>送信 IP：送信
+| | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | 受信 IP：LogicAppsManagement <br>送信 IP：LogicApps | 受信 IP：受信 <br>送信 IP：送信
 
 
 ## よくある質問
