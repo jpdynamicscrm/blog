@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits-process.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/automated-or-instant.png">
 <meta property="article:published_time" content="2024-11-24T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-24T01:47:09.264Z">
+<meta property="article:modified_time" content="2024-12-24T02:24:03.508Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Power Automate">
@@ -110,7 +110,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+88d8f914-c7d2-58f3-ae75-ee09e1b5a48f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%2F+Power+Platform+%E8%A6%81%E6%B1%82%E6%95%B0%E5%88%B6%E9%99%90%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fpower-automate-ppr%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fpower-automate-ppr.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fpower-automate-ppr.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/" data-id="cm51t2yb500ca0np94c1m7b59" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/" data-id="cm51uef0b00ca0nrtebgu01pn" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -122,14 +122,13 @@
 <h2 id="Power-Platform-要求数とは"><a href="#Power-Platform-要求数とは" class="headerlink" title="Power Platform 要求数とは"></a>Power Platform 要求数とは</h2><p>Power Automate ではコネクタのアクションを組み合わせることで、複数の製品をまたいだ処理を自動化することができます。<br>アクションやトリガーでは、Power Platform 内部で実行するアクションを含め、API でデータのやり取りを行っており、Power Automate ではその API リクエストを Power Platform 要求数と呼びます。</p>
 <p>もう少し詳しくイメージをつかむために、単純なフローを用いて説明します。<br>指定のメールフォルダにメールが届いたときにメールの内容をエクセルに転記するフローを作成するとします。<br>このフローを実行すると、「新しいメールが届いたとき(V3)」トリガーと「表に行を追加」アクションでそれぞれ 1 回ずつ、合計 2 回分 Power Platform 要求数を消費します。<br><img src="/blog/powerautomate/power-automate-ppr/api-request.png"></p>
 <h2 id="Power-Platform-要求数の制限とは"><a href="#Power-Platform-要求数の制限とは" class="headerlink" title="Power Platform 要求数の制限とは"></a>Power Platform 要求数の制限とは</h2><p>フローは上記のように、内部的に Power Platform 要求数を消費して実行されます。<br>Power Platform 要求数はライセンスごとに上限値が決まっており、上限値を超えて利用するとフローが低速化する動作となります。<br>一例をあげますと、通常 1 分程度で完了するフローが完了まで 2 時間程度かかるというような動作になります。<br>この制限のことを Power Platform 要求数の制限と呼びます。</p>
-<div class="alert is-info"><p class="alert-title">Note</p><p></p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-can-i-do-if-my-flow-is-above-limits">フローが制限を超過している場合はどうすればよいですか?</a></li>
 <li><a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/">低速フローのトラブル シューティング</a></li>
 </ul>
-</blockquote>
-<p>フローは 24 時間あたりの Power Platform 要求数を随時監視しており、要求数がライセンスの制限値を上回りますと内部的にアクションが待機状態になります。待機状態になったアクションは、24 時間あたりの Power Platform 要求数がライセンスの制限値を下回りますと再び動き出します。</p><p>判定はスライディングウィンドウ方式で行われており、先に実行しているアクションが完了していくことで過去 24 時間の要求数が制限値を下回るようになり、待機状態のアクションが順次実行されていきます。</p>
-<h2 id="ライセンスごとの-API-リクエスト数"><a href="#ライセンスごとの-API-リクエスト数" class="headerlink" title="ライセンスごとの API リクエスト数"></a>ライセンスごとの API リクエスト数</h2><p>ライセンスごとの Power Platform 要求数は以下のとおりです。</p><p>2024 年 12 月現在は、「24時間あたりのリクエスト数（移行期間）」列に記載された制限が適用されています。</p><p>移行期間の終了日は決まっていませんが、移行期間後の制限に合わせてライセンスをご用意いただきますようお願いをしています。</p>
+<p>フローは 24 時間あたりの Power Platform 要求数を随時監視しており、要求数がライセンスの制限値を上回りますと内部的にアクションが待機状態になります。待機状態になったアクションは、24 時間あたりの Power Platform 要求数がライセンスの制限値を下回りますと再び動き出します。<br>判定はスライディングウィンドウ方式で行われており、先に実行しているアクションが完了していくことで過去 24 時間の要求数が制限値を下回るようになり、待機状態のアクションが順次実行されていきます。</p>
+<h2 id="ライセンスごとの-API-リクエスト数"><a href="#ライセンスごとの-API-リクエスト数" class="headerlink" title="ライセンスごとの API リクエスト数"></a>ライセンスごとの API リクエスト数</h2><p>ライセンスごとの Power Platform 要求数は以下のとおりです。<br>2024 年 12 月現在は、「24時間あたりのリクエスト数（移行期間）」列に記載された制限が適用されています。<br>移行期間の終了日は決まっていませんが、移行期間後の制限に合わせてライセンスをご用意いただきますようお願いをしています。</p>
 <table>
 <thead>
 <tr>
@@ -194,92 +193,79 @@
 <td align="right">クラウドフローあたり</br>10,000</td>
 </tr>
 </tbody></table>
-<p>なお、2024 年 12 月現在は Power Automate にのみ制限がかかっていますが、移行期間後は Power Apps / Copilot Studio / Dataverse にも Power Platform 要求数の制限が適用される予定です。</p><p>そのため、表の移行期間後の「ユーザーあたり」の制限値は<u> 4 製品合算での制限値</u>になります。</p><p>決まっている内容につきましては、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#what-is-a-microsoft-power-platform-request">要求の制限と割り当て</a> に記載していますのでご参照ください。</p>
-<blockquote>
-<p>[!IMPORTANT]</p><p>移行期間中の手動トリガーはクラウドフローあたり 20 万アクションの制限が適用されます。</p><p></p><p>手動トリガーの Power Platform 要求数はライセンスのアップグレード等により増やすことができます。  </p></div>
+<p>なお、2024 年 12 月現在は Power Automate にのみ制限がかかっていますが、移行期間後は Power Apps / Copilot Studio / Dataverse にも Power Platform 要求数の制限が適用される予定です。<br>そのため、表の移行期間後の「ユーザーあたり」の制限値は<u> 4 製品合算での制限値</u>になります。<br>決まっている内容につきましては、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#what-is-a-microsoft-power-platform-request">要求の制限と割り当て</a> に記載していますのでご参照ください。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>移行期間中の手動トリガーはクラウドフローあたり 20 万アクションの制限が適用されます。</p><p></p><p>手動トリガーの Power Platform 要求数はライセンスのアップグレード等により増やすことができます。  </p></div>
 <div class="alert is-important"><p class="alert-title">重要</p><p>移行期間中のみ、上記に加えて 1 日あたりユーザーごとに 100 万アクションの制限があります。</p><p></p><p>また、移行期間終了前後に関わらず、5 分あたり 100 万アクションの制限があります。</p><p></p><p>上記制限はライセンス等で拡張することはできません。</p></div>
-<div class="alert is-info"><p class="alert-title">Note</p><p></p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate">Power Automate の要求の制限</a></li>
-<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか? </a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか?</a></li>
 </ul>
-</blockquote>
 <h3 id="ユーザーライセンスを複数持っているときの考え方"><a href="#ユーザーライセンスを複数持っているときの考え方" class="headerlink" title="ユーザーライセンスを複数持っているときの考え方"></a>ユーザーライセンスを複数持っているときの考え方</h3><p>ユーザーライセンスを複数持っている場合、利用可能な Power Platform 要求数の計算は移行期間前後で異なります。</p>
-<p><b>移行期間中</b> ・・　Power Platform 要求数はお持ちのユーザーライセンスの中で最も要求数の多いライセンスに準じます。</p><p><b>移行期間後</b> ・・　ユーザーライセンスごとの Power Platform 要求数を合算した要求数を利用できます。</p>
-<blockquote>
-<p>[!NOTE]</p>
+<p><b>移行期間中</b> ・・　Power Platform 要求数はお持ちのユーザーライセンスの中で最も要求数の多いライセンスに準じます。<br><b>移行期間後</b> ・・　ユーザーライセンスごとの Power Platform 要求数を合算した要求数を利用できます。</p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#other-details">その他の詳細</a></li>
 </ul>
-</blockquote>
-<h2 id="テナント内の-Power-Platform-要求数を確認する方法"><a href="#テナント内の-Power-Platform-要求数を確認する方法" class="headerlink" title="テナント内の Power Platform 要求数を確認する方法"></a>テナント内の Power Platform 要求数を確認する方法</h2><h3 id="管理者"><a href="#管理者" class="headerlink" title="管理者"></a>管理者</h3><p>以下の３つのレポートから確認できます。</p><p>詳細はリンク先の公開情報をご参照ください。  </p>
+<h2 id="テナント内の-Power-Platform-要求数を確認する方法"><a href="#テナント内の-Power-Platform-要求数を確認する方法" class="headerlink" title="テナント内の Power Platform 要求数を確認する方法"></a>テナント内の Power Platform 要求数を確認する方法</h2><h3 id="管理者"><a href="#管理者" class="headerlink" title="管理者"></a>管理者</h3><p>以下の３つのレポートから確認できます。<br>詳細はリンク先の公開情報をご参照ください。  </p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#per-flow-report">フローごとのレポート</a> ・・フローごとのライセンスの Power Platform 要求数の消費状況を確認できます。</li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#licensed-user-report">ライセンスユーザーレポート</a> ・・ユーザーごとの Power Platform 要求数の消費状況を確認できます</li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#non-licensed-user-report">非ライセンスユーザーレポート</a>・・サービスプリンシパルが所有者のフローなど、テナントプールの Power Platform 要求数の消費状況を確認できます</li>
 </ul>
-<blockquote>
-<p>[!NOTE]</p><p>Power Platform 要求数のレポート機能は 2024 年 12 月現在、プレビュー機能として提供しています。</p></div>
-<div class="alert is-info"><p class="alert-title">Note</p><p></p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>Power Platform 要求数のレポート機能は 2024 年 12 月現在、プレビュー機能として提供しています。</p></div>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-an-admin-what-tools-do-i-have-to-analyze-my-environments-usage">管理者が環境の使用状況を分析するためのどのようなツールがありますか?</a></li>
 </ul>
-</blockquote>
-<h3 id="フロー作成者、共同所有者"><a href="#フロー作成者、共同所有者" class="headerlink" title="フロー作成者、共同所有者"></a>フロー作成者、共同所有者</h3><p>恐れ入りますが、フロー作成者や共同所有者が Power Platform 要求数の消費状況を確認する方法は現時点ではご用意がございません。</p><p>フロー単位で消費された Power Platform 要求数は <a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E6%95%B0%E3%81%88%E3%81%A6%E3%81%BF%E3%82%8B">フローのアクション要求数を数えてみる</a> に記載の方法で確認できます。</p>
-<blockquote>
-<p>[!NOTE]</p>
+<h3 id="フロー作成者、共同所有者"><a href="#フロー作成者、共同所有者" class="headerlink" title="フロー作成者、共同所有者"></a>フロー作成者、共同所有者</h3><p>恐れ入りますが、フロー作成者や共同所有者が Power Platform 要求数の消費状況を確認する方法は現時点ではご用意がございません。<br>フロー単位で消費された Power Platform 要求数は <a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E6%95%B0%E3%81%88%E3%81%A6%E3%81%BF%E3%82%8B">フローのアクション要求数を数えてみる</a> に記載の方法で確認できます。</p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-a-maker-what-tools-do-i-have-to-analyze-my-usage">作成者が使用状況を分析するためのどんなツールがありますか?</a></li>
 </ul>
-</blockquote>
 <h2 id="Power-Platform-要求数のカウント方法"><a href="#Power-Platform-要求数のカウント方法" class="headerlink" title="Power Platform 要求数のカウント方法"></a>Power Platform 要求数のカウント方法</h2><h3 id="Power-Platform-要求数を消費するケース"><a href="#Power-Platform-要求数を消費するケース" class="headerlink" title="Power Platform 要求数を消費するケース"></a>Power Platform 要求数を消費するケース</h3><ul>
-<li>フロー内のすべてのトリガー / アクション</p><p> 「変数の初期化」や「スコープ」アクションも Power Platform 要求数を 1 消費します。</li>
-<li>1 回のアクション実行で複数のレコードを操作するアクション</p><p> Power Platform 要求数を 1 消費します。更新対象のレコード数ではなく、Power Automate から実行する API の数がカウントされます。</li>
-<li>アクション実行時に行われたリトライ</p><p> コネクタから API を実行してリトライ可能なエラーコードが返ってきた場合、コネクタは各アクションの設定に応じてリトライ処理を行います。リトライの回数分 Power Platform 要求数を消費します。</li>
-<li>失敗したアクション</p><p> アクションがエラーとなった場合も Power Platform 要求数を消費します。</li>
-<li>ループ内のアクション</p><p> ループアクションがある場合、ループ内のアクションは実行された回数分の Power Platform 要求数を消費します。例えば、「Apply to each」の中に アクションが 3 つあり、3 回ループした場合、「3（アクション） × 3（ループ回数）+ 1 (Apply to each) = 10」と計算されます。</li>
-<li>ページング</p><p> アクションで取得する行数によっては内部的に複数回 API を実行してデータを取得する場合があります。見た目上のアクションは 1 つでも内部で実際に実行された数がカウントされます。</p><p> なお、1 度の API 実行で取得可能な行数は接続先の API の制限に依存するため、アクションによって異なります。</li>
+<li>フロー内のすべてのトリガー / アクション<br> 「変数の初期化」や「スコープ」アクションも Power Platform 要求数を 1 消費します。</li>
+<li>1 回のアクション実行で複数のレコードを操作するアクション<br> Power Platform 要求数を 1 消費します。更新対象のレコード数ではなく、Power Automate から実行する API の数がカウントされます。</li>
+<li>アクション実行時に行われたリトライ<br> コネクタから API を実行してリトライ可能なエラーコードが返ってきた場合、コネクタは各アクションの設定に応じてリトライ処理を行います。リトライの回数分 Power Platform 要求数を消費します。</li>
+<li>失敗したアクション<br> アクションがエラーとなった場合も Power Platform 要求数を消費します。</li>
+<li>ループ内のアクション<br> ループアクションがある場合、ループ内のアクションは実行された回数分の Power Platform 要求数を消費します。例えば、「Apply to each」の中に アクションが 3 つあり、3 回ループした場合、「3（アクション） × 3（ループ回数）+ 1 (Apply to each) = 10」と計算されます。</li>
+<li>ページング<br> アクションで取得する行数によっては内部的に複数回 API を実行してデータを取得する場合があります。見た目上のアクションは 1 つでも内部で実際に実行された数がカウントされます。<br> なお、1 度の API 実行で取得可能な行数は接続先の API の制限に依存するため、アクションによって異なります。</li>
 </ul>
 <h3 id="Power-Platform-要求数を消費しないケース"><a href="#Power-Platform-要求数を消費しないケース" class="headerlink" title="Power Platform 要求数を消費しないケース"></a>Power Platform 要求数を消費しないケース</h3><ul>
-<li>スキップされたアクション</p><p> スキップされて実行されなかったアクションは Power Platform 要求数を消費しません。</p><p> 例えば、更新を定期的に監視するポーリングトリガーのフローでは、データの更新があったときのみトリガーの Power Platform 要求数が消費されます。</li>
+<li>スキップされたアクション<br> スキップされて実行されなかったアクションは Power Platform 要求数を消費しません。<br> 例えば、更新を定期的に監視するポーリングトリガーのフローでは、データの更新があったときのみトリガーの Power Platform 要求数が消費されます。</li>
 </ul>
-<blockquote>
-<p>[!NOTE]</p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-counts-as-power-platform-request">何が Power Platform 要求と見なされますか?</a></li>
 </ul>
-</blockquote>
 <h2 id="Power-Platform-要求数の消費先"><a href="#Power-Platform-要求数の消費先" class="headerlink" title="Power Platform 要求数の消費先"></a>Power Platform 要求数の消費先</h2><p>Power Platform 要求数の消費先は以下の条件によって決まります。  </p>
 <ul>
 <li>ライセンス</li>
 <li>トリガー</li>
 <li>フローの所有者</li>
 </ul>
-<p>詳細は下図を参照してください。</p><p><img src="/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits.png"></p>
-<p>なお、親子フローの場合は単体のフローよりも複雑になります。</p><p>関連するフローのいずれかにフローライセンスが付与されていれば、フローライセンスが使用されます。</p><p>ユーザーライセンスで動作する場合は、単体のフローと同じルールで消費先が決まります。</p><p>留意点として、子フローのみ移行期間中は子フローの所有者のライセンスが利用されます。</p>
-<p>詳細は下図を参照してください。</p><p><img src="/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits-process.png"></p>
-<blockquote>
-<p>[!NOTE]</p>
+<p>詳細は下図を参照してください。<br><img src="/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits.png"></p>
+<p>なお、親子フローの場合は単体のフローよりも複雑になります。<br>関連するフローのいずれかにフローライセンスが付与されていれば、フローライセンスが使用されます。<br>ユーザーライセンスで動作する場合は、単体のフローと同じルールで消費先が決まります。<br>留意点として、子フローのみ移行期間中は子フローの所有者のライセンスが利用されます。</p>
+<p>詳細は下図を参照してください。<br><img src="/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits-process.png"></p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#whose-power-platform-request-limits-are-used-by-the-cloud-flow">クラウド フロー で使用されるリクエスト制限は誰のものですか?</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/service-principal-support#power-platform-request-limits">サービス プリンシパルが所有するフローのサポート</a></li>
 </ul>
-</blockquote>
-<h3 id="自動フローとインスタントフローの見分け方"><a href="#自動フローとインスタントフローの見分け方" class="headerlink" title="自動フローとインスタントフローの見分け方"></a>自動フローとインスタントフローの見分け方</h3><p>「＋新しいフロー」から確認することができます。</p><p><img src="/blog/powerautomate/power-automate-ppr/automated-or-instant.png"></p>
+<h3 id="自動フローとインスタントフローの見分け方"><a href="#自動フローとインスタントフローの見分け方" class="headerlink" title="自動フローとインスタントフローの見分け方"></a>自動フローとインスタントフローの見分け方</h3><p>「＋新しいフロー」から確認することができます。<br><img src="/blog/powerautomate/power-automate-ppr/automated-or-instant.png"></p>
 <h2 id="Power-Platform-要求数の制限に抵触した時"><a href="#Power-Platform-要求数の制限に抵触した時" class="headerlink" title="Power Platform 要求数の制限に抵触した時"></a>Power Platform 要求数の制限に抵触した時</h2><p>Power Automate において Power Platform 要求数の制限に抵触したときは以下の対応をご検討ください。</p>
 <ol>
-<li>フローの構成を見直し、呼び出すアクション数を減らす方法</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/#%E6%94%B9%E5%96%84%E7%AD%96">サポートブログ</a> に改善策を記載していますのでご参照ください。</li>
-<li><a href="">Power Platform 要求数を多く含むライセンス</a>を購入する方法</p><p>なお、Power Automate Process ライセンスは 1 つのフローに複数付与することで Power Platform 要求数を増やすことができるようになる予定です。</li>
+<li>フローの構成を見直し、呼び出すアクション数を減らす方法<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/#%E6%94%B9%E5%96%84%E7%AD%96">サポートブログ</a> に改善策を記載していますのでご参照ください。</li>
+<li><a href="">Power Platform 要求数を多く含むライセンス</a>を購入する方法<br>なお、Power Automate Process ライセンスは 1 つのフローに複数付与することで Power Platform 要求数を増やすことができるようになる予定です。</li>
 <li>環境を<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-overview">従量課金制</a>にする方法</li>
-<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#power-platform-request-capacity-add-on">Power Platform 要求数のアドオン</a>を購入し、サポートリクエストを通じて割り当てを行う方法</p><p>以下の情報を添えてマイクロソフトサポートまでご連絡ください。<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#power-platform-request-capacity-add-on">Power Platform 要求数のアドオン</a>を購入し、サポートリクエストを通じて割り当てを行う方法<br>以下の情報を添えてマイクロソフトサポートまでご連絡ください。<ul>
 <li><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowid">フロー識別子</a></li>
 <li>購入したライセンスの名称と型番(例. SEW-00001)</li>
 <li>付与したい数</li>
 </ul>
 </li>
 </ol>
-<blockquote>
-<p>[!NOTE]</p><p>2024 年 12 月現在、Power Platform 要求数のアドオンを割り当てる機能がリリースされていません。</p><p>Power Platform 要求数のアドオンをサポートリクエストを通じて割り当てる場合、上限値の引き上げには有効期限がございます。有効期限を延長する場合はお手数ではございますが再度お問い合わせをお願いいたします。</p><p>有効期限はお問い合わせいただいた際にお伝えいたします。</p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2024 年 12 月現在、Power Platform 要求数のアドオンを割り当てる機能がリリースされていません。</p><p>Power Platform 要求数のアドオンをサポートリクエストを通じて割り当てる場合、上限値の引き上げには有効期限がございます。有効期限を延長する場合はお手数ではございますが再度お問い合わせをお願いいたします。</p><p>有効期限はお問い合わせいただいた際にお伝えいたします。</p></div>
 <h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="アクションの接続をフロー所有者と別のユーザーに変更していますが、Power-Platform-要求数の消費先も変わりますか"><a href="#アクションの接続をフロー所有者と別のユーザーに変更していますが、Power-Platform-要求数の消費先も変わりますか" class="headerlink" title="アクションの接続をフロー所有者と別のユーザーに変更していますが、Power Platform 要求数の消費先も変わりますか"></a>アクションの接続をフロー所有者と別のユーザーに変更していますが、Power Platform 要求数の消費先も変わりますか</h3><p>いいえ、変わりません。<br>Power Platform 要求数の消費先は、アクションの接続先に依存しません。</p>
 <h3 id="制限値を超えたら追加請求が発生しますか。"><a href="#制限値を超えたら追加請求が発生しますか。" class="headerlink" title="制限値を超えたら追加請求が発生しますか。"></a>制限値を超えたら追加請求が発生しますか。</h3><p>いいえ、追加請求は発生しません。  </p>
 <h3 id="制限値を超えたら即時フローが低速化しますか"><a href="#制限値を超えたら即時フローが低速化しますか" class="headerlink" title="制限値を超えたら即時フローが低速化しますか"></a>制限値を超えたら即時フローが低速化しますか</h3><p>いいえ、多少の超過は許可していますので、即時低速化する動作にはなりません。<br>しかしながら、制限値を大きく超えた場合や、継続的に超えている場合はフローの動作が低速化します。</p>
@@ -288,22 +274,18 @@
 <h3 id="Power-Platform-要求数のレポートの一般公開はいつですか。"><a href="#Power-Platform-要求数のレポートの一般公開はいつですか。" class="headerlink" title="Power Platform 要求数のレポートの一般公開はいつですか。"></a>Power Platform 要求数のレポートの一般公開はいつですか。</h3><p>現時点で未定です。<br>実際の利用状況や利用ユーザーからのお問い合わせの状況等を踏まえて一般公開の日にちを決めていく予定です。</p>
 <h3 id="Power-Platform-要求数は使われなかった分を翌日や翌月に繰り越すことができますか。"><a href="#Power-Platform-要求数は使われなかった分を翌日や翌月に繰り越すことができますか。" class="headerlink" title="Power Platform 要求数は使われなかった分を翌日や翌月に繰り越すことができますか。"></a>Power Platform 要求数は使われなかった分を翌日や翌月に繰り越すことができますか。</h3><p>いいえ、繰り越すことはできません。</p>
 <h3 id="ユーザーライセンスに付与されている-Power-Platform-要求数を別のユーザーに振り分けることはできますか。"><a href="#ユーザーライセンスに付与されている-Power-Platform-要求数を別のユーザーに振り分けることはできますか。" class="headerlink" title="ユーザーライセンスに付与されている Power Platform 要求数を別のユーザーに振り分けることはできますか。"></a>ユーザーライセンスに付与されている Power Platform 要求数を別のユーザーに振り分けることはできますか。</h3><p>いいえ、ユーザーライセンスに付与されている Power Platform 要求数を他のユーザーに振り分けることはできません。<br>フローの所有者のライセンスを消費するフローの場合は、フローの所有者を変更することで Power Platform 要求数の消費先を変えることができます。</p>
-<blockquote>
-<p>[!NOTE]</p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a href="#power-platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E6%B6%88%E8%B2%BB%E5%85%88">Power Platform 要求数の消費先</a></li>
 <li><a href="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/#anchor-change-flow-owner">フロー作成者 (所有者) を変更したい場合はどうしたらいいか？</a></li>
 </ul>
-</blockquote>
 <h3 id="ユーザーライセンスレポートを見ると、想定している値よりも-2-000-Power-Platform-要求数分多く表示されています。なぜでしょうか。"><a href="#ユーザーライセンスレポートを見ると、想定している値よりも-2-000-Power-Platform-要求数分多く表示されています。なぜでしょうか。" class="headerlink" title="ユーザーライセンスレポートを見ると、想定している値よりも 2,000 Power Platform 要求数分多く表示されています。なぜでしょうか。"></a>ユーザーライセンスレポートを見ると、想定している値よりも 2,000 Power Platform 要求数分多く表示されています。なぜでしょうか。</h3><p>Common Data Service for Teams ライセンスをお持ちの場合、 2,000 Power Platform 要求が追加されます。</p>
 <h3 id="制限に抵触した時に影響を受けるのは誰ですか"><a href="#制限に抵触した時に影響を受けるのは誰ですか" class="headerlink" title="制限に抵触した時に影響を受けるのは誰ですか"></a>制限に抵触した時に影響を受けるのは誰ですか</h3><p>フローのライセンスで動作しているフローの場合は、そのフローのライセンスで動作しているフローのみ影響をうけます。他のフローには影響しません。<br>ユーザーライセンスで動作しているフローの場合は、そのユーザーのみ影響をうけます。他のユーザーは影響をうけません。  </p>
 <p>なお、移行期間終了前は 100 万アクションを超えない限りはフロー単位でのみ影響をうけます。</p>
-<blockquote>
-<p>[!NOTE]</p>
+<p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate">Power Automate の要求の制限</a></li>
 </ul>
-</blockquote>
 <h3 id="フローの実行回数に制限はありますか"><a href="#フローの実行回数に制限はありますか" class="headerlink" title="フローの実行回数に制限はありますか"></a>フローの実行回数に制限はありますか</h3><p>フローの実行回数には制限はありません。</p>
 <hr>
 
