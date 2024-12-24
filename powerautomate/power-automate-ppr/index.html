@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Power Automate / Power Platform 要求数制限 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの網野です。 今回は Power Automate における Power Platform 要求数の制限についてご案内いたします。  [!IMPORTANT]公開情報 が正となりますので、ライセンスをご用意する際は必ず最新の公開情報を確認してください。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power Automate &#x2F; Power Platform 要求数制限">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの網野です。 今回は Power Automate における Power Platform 要求数の制限についてご案内いたします。  [!IMPORTANT]公開情報 が正となりますので、ライセンスをご用意する際は必ず最新の公開情報を確認してください。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/api-request.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits-process.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/automated-or-instant.png">
+<meta property="article:published_time" content="2024-11-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-24T00:42:34.962Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="Power Automate">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/api-request.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerautomate/power-automate-ppr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Power Automate / Power Platform 要求数制限
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2024-11-24T00:00:00.000Z" itemprop="datePublished">2024-11-24</time>
+</a>
+        
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+88d8f914-c7d2-58f3-ae75-ee09e1b5a48f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%2F+Power+Platform+%E8%A6%81%E6%B1%82%E6%95%B0%E5%88%B6%E9%99%90%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fpower-automate-ppr%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fpower-automate-ppr.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fpower-automate-ppr.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/" data-id="cm51qrwor00ca0nlj46va3iul" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの網野です。 <br><br>今回は Power Automate における Power Platform 要求数の制限についてご案内いたします。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/online-requirements">公開情報</a> が正となりますので、ライセンスをご用意する際は必ず最新の公開情報を確認してください。</p></div>
+<span id="more"></span>
+
+<h2 id="Power-Platform-要求数とは"><a href="#Power-Platform-要求数とは" class="headerlink" title="Power Platform 要求数とは"></a>Power Platform 要求数とは</h2><p>Power Automate ではコネクタのアクションを組み合わせることで、複数の製品をまたいだ処理を自動化することができます。<br>アクションやトリガーでは、Power Platform 内部で実行するアクションを含め、API でデータのやり取りを行っており、Power Automate ではその API リクエストを Power Platform 要求数と呼びます。</p>
+<p>もう少し詳しくイメージをつかむために、単純なフローを用いて説明します。<br>指定のメールフォルダにメールが届いたときにメールの内容をエクセルに転記するフローを作成するとします。<br>このフローを実行すると、「新しいメールが届いたとき(V3)」トリガーと「表に行を追加」アクションでそれぞれ 1 回ずつ、合計 2 回分 Power Platform 要求数を消費します。<br><img src="/blog/powerautomate/power-automate-ppr/api-request.png"></p>
+<h2 id="Power-Platform-要求数の制限とは"><a href="#Power-Platform-要求数の制限とは" class="headerlink" title="Power Platform 要求数の制限とは"></a>Power Platform 要求数の制限とは</h2><p>フローは上記のように、内部的に Power Platform 要求数を消費して実行されます。<br>Power Platform 要求数はライセンスごとに上限値が決まっており、上限値を超えて利用するとフローが低速化する動作となります。<br>一例をあげますと、通常 1 分程度で完了するフローが完了まで 2 時間程度かかるというような動作になります。<br>この制限のことを Power Platform 要求数の制限と呼びます。</p>
+<div class="alert is-success"><p class="alert-title">ヒント</p><p></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-can-i-do-if-my-flow-is-above-limits">フローが制限を超過している場合はどうすればよいですか?</a></li>
+<li><a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/">低速フローのトラブル シューティング</a></li>
+</ul>
+</blockquote>
+<p>フローは 24 時間あたりの Power Platform 要求数を随時監視しており、要求数がライセンスの制限値を上回りますと内部的にアクションが待機状態になります。待機状態になったアクションは、24 時間あたりの Power Platform 要求数がライセンスの制限値を下回りますと再び動き出します。</p><p>判定はスライディングウィンドウ方式で行われており、先に実行しているアクションが完了していくことで過去 24 時間の要求数が制限値を下回るようになり、待機状態のアクションが順次実行されていきます。</p>
+<h2 id="ライセンスごとの-API-リクエスト数"><a href="#ライセンスごとの-API-リクエスト数" class="headerlink" title="ライセンスごとの API リクエスト数"></a>ライセンスごとの API リクエスト数</h2><p>ライセンスごとの Power Platform 要求数は以下のとおりです。</p><p>2024 年 12 月現在は、「24時間あたりのリクエスト数（移行期間）」列に記載された制限が適用されています。</p><p>移行期間の終了日は決まっていませんが、移行期間後の制限に合わせてライセンスをご用意いただきますようお願いをしています。</p>
+<table>
+<thead>
+<tr>
+<th align="left">ライセンス</th>
+<th align="right">24時間あたりのリクエスト数</br>（移行期間<b><font color=red>後</font></b>）</th>
+<th align="right">24時間あたりのリクエスト数</br>（移行期間）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Power Automate Premium</td>
+<td align="right">ユーザーあたり</br>40,000</td>
+<td align="right">クラウドフローあたり</br>200,000</td>
+</tr>
+<tr>
+<td align="left">Power Automate Process</td>
+<td align="right">ライセンスあたり</br>250,000</td>
+<td align="right">ライセンスあたり</br>500,000</td>
+</tr>
+<tr>
+<td align="left">Power Automate per user (レガシー)</td>
+<td align="right">ユーザーあたり</br>40,000</td>
+<td align="right">クラウドフローあたり</br>200,000</td>
+</tr>
+<tr>
+<td align="left">Power Automate per flow (レガシー)</td>
+<td align="right">ライセンスあたり</br>250,000</td>
+<td align="right">ライセンスあたり</br> 500,000</td>
+</tr>
+<tr>
+<td align="left">Power Automate free</td>
+<td align="right">ユーザーあたり</br>6,000</td>
+<td align="right">クラウドフローあたり</br>10,000</td>
+</tr>
+<tr>
+<td align="left">Power Automate 試用版</td>
+<td align="right">ユーザーあたり</br>6,000</td>
+<td align="right">クラウドフローあたり</br>10,000</td>
+</tr>
+<tr>
+<td align="left">Microsoft/Office 365</td>
+<td align="right">ユーザーあたり</br>6,000</td>
+<td align="right">クラウドフローあたり</br>10,000</td>
+</tr>
+<tr>
+<td align="left">Power Apps Premium</td>
+<td align="right">ユーザーあたり</br>40,000</td>
+<td align="right">クラウドフローあたり</br>200,000</td>
+</tr>
+<tr>
+<td align="left">Dynamics 365 Professional</td>
+<td align="right">ユーザーあたり</br>40,000</td>
+<td align="right">クラウドフローあたり</br>200,000</td>
+</tr>
+<tr>
+<td align="left">Dynamics 365 エンタープライズアプリケーション</td>
+<td align="right">ユーザーあたり</br>40,000</td>
+<td align="right">クラウドフローあたり</br>200,000</td>
+</tr>
+<tr>
+<td align="left">Dynamics 365 Team Members</td>
+<td align="right">ユーザーあたり</br>6,000</td>
+<td align="right">クラウドフローあたり</br>10,000</td>
+</tr>
+</tbody></table>
+<p>なお、2024 年 12 月現在は Power Automate にのみ制限がかかっていますが、移行期間後は Power Apps / Copilot Studio / Dataverse にも Power Platform 要求数の制限が適用される予定です。</p><p>そのため、表の移行期間後の「ユーザーあたり」の制限値は<u> 4 製品合算での制限値</u>になります。</p><p>決まっている内容につきましては、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#what-is-a-microsoft-power-platform-request">要求の制限と割り当て</a> に記載していますのでご参照ください。</p>
+<blockquote>
+<p>[!IMPORTANT]</p><p>移行期間中の手動トリガーはクラウドフローあたり 20 万アクションの制限が適用されます。</p><p></p><p>手動トリガーの Power Platform 要求数はライセンスのアップグレード等により増やすことができます。  </p></div>
+<div class="alert is-important"><p class="alert-title">重要</p><p>移行期間中のみ、上記に加えて 1 日あたりユーザーごとに 100 万アクションの制限があります。</p><p></p><p>また、移行期間終了前後に関わらず、5 分あたり 100 万アクションの制限があります。</p><p></p><p>上記制限はライセンス等で拡張することはできません。</p></div>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate">Power Automate の要求の制限</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか? </a></li>
+</ul>
+</blockquote>
+<h3 id="ユーザーライセンスを複数持っているときの考え方"><a href="#ユーザーライセンスを複数持っているときの考え方" class="headerlink" title="ユーザーライセンスを複数持っているときの考え方"></a>ユーザーライセンスを複数持っているときの考え方</h3><p>ユーザーライセンスを複数持っている場合、利用可能な Power Platform 要求数の計算は移行期間前後で異なります。</p>
+<p><b>移行期間中</b> ・・　Power Platform 要求数はお持ちのユーザーライセンスの中で最も要求数の多いライセンスに準じます。<br><b>移行期間後</b> ・・　ユーザーライセンスごとの Power Platform 要求数を合算した要求数を利用できます。</p>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#other-details">その他の詳細</a></li>
+</ul>
+</blockquote>
+<h2 id="テナント内の-Power-Platform-要求数を確認する方法"><a href="#テナント内の-Power-Platform-要求数を確認する方法" class="headerlink" title="テナント内の Power Platform 要求数を確認する方法"></a>テナント内の Power Platform 要求数を確認する方法</h2><h3 id="管理者"><a href="#管理者" class="headerlink" title="管理者"></a>管理者</h3><p>以下の３つのレポートから確認できます。<br>詳細はリンク先の公開情報をご参照ください。  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#per-flow-report">フローごとのレポート</a> ・・フローごとのライセンスの Power Platform 要求数の消費状況を確認できます。</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#licensed-user-report">ライセンスユーザーレポート</a> ・・ユーザーごとの Power Platform 要求数の消費状況を確認できます</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#non-licensed-user-report">非ライセンスユーザーレポート</a>・・サービスプリンシパルが所有者のフローなど、テナントプールの Power Platform 要求数の消費状況を確認できます</li>
+</ul>
+<div class="alert is-info"><p class="alert-title">Note</p><p>Power Platform 要求数のレポート機能は 2024 年 12 月現在、プレビュー機能として提供しています。</p></div>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-an-admin-what-tools-do-i-have-to-analyze-my-environments-usage">管理者が環境の使用状況を分析するためのどのようなツールがありますか?</a></li>
+</ul>
+</blockquote>
+<h3 id="フロー作成者、共同所有者"><a href="#フロー作成者、共同所有者" class="headerlink" title="フロー作成者、共同所有者"></a>フロー作成者、共同所有者</h3><p>恐れ入りますが、フロー作成者や共同所有者が Power Platform 要求数の消費状況を確認する方法は現時点ではご用意がございません。<br>フロー単位で消費された Power Platform 要求数は <a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E6%95%B0%E3%81%88%E3%81%A6%E3%81%BF%E3%82%8B">フローのアクション要求数を数えてみる</a> に記載の方法で確認できます。</p>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-a-maker-what-tools-do-i-have-to-analyze-my-usage">作成者が使用状況を分析するためのどんなツールがありますか?</a></li>
+</ul>
+</blockquote>
+<h2 id="Power-Platform-要求数のカウント方法"><a href="#Power-Platform-要求数のカウント方法" class="headerlink" title="Power Platform 要求数のカウント方法"></a>Power Platform 要求数のカウント方法</h2><h3 id="Power-Platform-要求数を消費するケース"><a href="#Power-Platform-要求数を消費するケース" class="headerlink" title="Power Platform 要求数を消費するケース"></a>Power Platform 要求数を消費するケース</h3><ul>
+<li>フロー内のすべてのトリガー / アクション<br> 「変数の初期化」や「スコープ」アクションも Power Platform 要求数を 1 消費します。</li>
+<li>1 回のアクション実行で複数のレコードを操作するアクション<br> Power Platform 要求数を 1 消費します。更新対象のレコード数ではなく、Power Automate から実行する API の数がカウントされます。</li>
+<li>アクション実行時に行われたリトライ<br> コネクタから API を実行してリトライ可能なエラーコードが返ってきた場合、コネクタは各アクションの設定に応じてリトライ処理を行います。リトライの回数分 Power Platform 要求数を消費します。</li>
+<li>失敗したアクション<br> アクションがエラーとなった場合も Power Platform 要求数を消費します。</li>
+<li>ループ内のアクション<br> ループアクションがある場合、ループ内のアクションは実行された回数分の Power Platform 要求数を消費します。例えば、「Apply to each」の中に アクションが 3 つあり、3 回ループした場合、「3（アクション） × 3（ループ回数）+ 1 (Apply to each) = 10」と計算されます。</li>
+<li>ページング<br> アクションで取得する行数によっては内部的に複数回 API を実行してデータを取得する場合があります。見た目上のアクションは 1 つでも内部で実際に実行された数がカウントされます。<br> なお、1 度の API 実行で取得可能な行数は接続先の API の制限に依存するため、アクションによって異なります。</li>
+</ul>
+<h3 id="Power-Platform-要求数を消費しないケース"><a href="#Power-Platform-要求数を消費しないケース" class="headerlink" title="Power Platform 要求数を消費しないケース"></a>Power Platform 要求数を消費しないケース</h3><ul>
+<li>スキップされたアクション<br> スキップされて実行されなかったアクションは Power Platform 要求数を消費しません。<br> 例えば、更新を定期的に監視するポーリングトリガーのフローでは、データの更新があったときのみトリガーの Power Platform 要求数が消費されます。</li>
+</ul>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-counts-as-power-platform-request">何が Power Platform 要求と見なされますか?</a></li>
+</ul>
+</blockquote>
+<h2 id="Power-Platform-要求数の消費先"><a href="#Power-Platform-要求数の消費先" class="headerlink" title="Power Platform 要求数の消費先"></a>Power Platform 要求数の消費先</h2><p>Power Platform 要求数の消費先は以下の条件によって決まります。  </p>
+<ul>
+<li>ライセンス</li>
+<li>トリガー</li>
+<li>フローの所有者</li>
+</ul>
+<p>詳細は下図を参照してください。<br><img src="/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits.png"></p>
+<p>なお、親子フローの場合は単体のフローよりも複雑になります。<br>関連するフローのいずれかにフローライセンスが付与されていれば、フローライセンスが使用されます。<br>ユーザーライセンスで動作する場合は、単体のフローと同じルールで消費先が決まります。<br>留意点として、子フローのみ移行期間中は子フローの所有者のライセンスが利用されます。</p>
+<p>詳細は下図を参照してください。<br><img src="/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits-process.png"></p>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#whose-power-platform-request-limits-are-used-by-the-cloud-flow">クラウド フロー で使用されるリクエスト制限は誰のものですか?</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/service-principal-support#power-platform-request-limits">サービス プリンシパルが所有するフローのサポート</a></li>
+</ul>
+</blockquote>
+<h3 id="自動フローとインスタントフローの見分け方"><a href="#自動フローとインスタントフローの見分け方" class="headerlink" title="自動フローとインスタントフローの見分け方"></a>自動フローとインスタントフローの見分け方</h3><p>「＋新しいフロー」から確認することができます。<br><img src="/blog/powerautomate/power-automate-ppr/automated-or-instant.png"></p>
+<h2 id="Power-Platform-要求数の制限に抵触した時"><a href="#Power-Platform-要求数の制限に抵触した時" class="headerlink" title="Power Platform 要求数の制限に抵触した時"></a>Power Platform 要求数の制限に抵触した時</h2><p>Power Automate において Power Platform 要求数の制限に抵触したときは以下の対応をご検討ください。</p>
+<ol>
+<li>フローの構成を見直し、呼び出すアクション数を減らす方法<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/#%E6%94%B9%E5%96%84%E7%AD%96">サポートブログ</a> に改善策を記載していますのでご参照ください。</li>
+<li><a href="">Power Platform 要求数を多く含むライセンス</a>を購入する方法<br>なお、Power Automate Process ライセンスは 1 つのフローに複数付与することで Power Platform 要求数を増やすことができるようになる予定です。</li>
+<li>環境を<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-overview">従量課金制</a>にする方法</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#power-platform-request-capacity-add-on">Power Platform 要求数のアドオン</a>を購入し、サポートリクエストを通じて割り当てを行う方法<br>以下の情報を添えてマイクロソフトサポートまでご連絡ください。<ul>
+<li><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowid">フロー識別子</a></li>
+<li>購入したライセンスの名称と型番(例. SEW-00001)</li>
+<li>付与したい数</li>
+</ul>
+</li>
+</ol>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2024 年 12 月現在、Power Platform 要求数のアドオンを割り当てる機能がリリースされていません。</p><p>Power Platform 要求数のアドオンをサポートリクエストを通じて割り当てる場合、上限値の引き上げには有効期限がございます。有効期限を延長する場合はお手数ではございますが再度お問い合わせをお願いいたします。</p><p>有効期限はお問い合わせいただいた際にお伝えいたします。</p></div>
+<h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="アクションの接続をフロー所有者と別のユーザーに変更していますが、Power-Platform-要求数の消費先も変わりますか"><a href="#アクションの接続をフロー所有者と別のユーザーに変更していますが、Power-Platform-要求数の消費先も変わりますか" class="headerlink" title="アクションの接続をフロー所有者と別のユーザーに変更していますが、Power Platform 要求数の消費先も変わりますか"></a>アクションの接続をフロー所有者と別のユーザーに変更していますが、Power Platform 要求数の消費先も変わりますか</h3><p>いいえ、変わりません。<br>Power Platform 要求数の消費先は、アクションの接続先に依存しません。</p>
+<h3 id="制限値を超えたら追加請求が発生しますか。"><a href="#制限値を超えたら追加請求が発生しますか。" class="headerlink" title="制限値を超えたら追加請求が発生しますか。"></a>制限値を超えたら追加請求が発生しますか。</h3><p>いいえ、追加請求は発生しません。  </p>
+<h3 id="制限値を超えたら即時フローが低速化しますか"><a href="#制限値を超えたら即時フローが低速化しますか" class="headerlink" title="制限値を超えたら即時フローが低速化しますか"></a>制限値を超えたら即時フローが低速化しますか</h3><p>いいえ、多少の超過は許可していますので、即時低速化する動作にはなりません。<br>しかしながら、制限値を大きく超えた場合や、継続的に超えている場合はフローの動作が低速化します。</p>
+<h3 id="フローの低速化が解消されるのは何時間後かわかりますか"><a href="#フローの低速化が解消されるのは何時間後かわかりますか" class="headerlink" title="フローの低速化が解消されるのは何時間後かわかりますか"></a>フローの低速化が解消されるのは何時間後かわかりますか</h3><p>恐れ入りますが、明示的に解消される時間帯をご案内することができません。<br>フローのアクション数が制限値を下回ったときに解消されます。</p>
+<h3 id="移行期間はいつまでですか"><a href="#移行期間はいつまでですか" class="headerlink" title="移行期間はいつまでですか"></a>移行期間はいつまでですか</h3><p>移行期間終了日につきましては現時点で未定です。<br>Power Platform 要求数のレポート機能が一般公開されてから、最低でも 6 カ月の猶予をもって移行期間を終了する予定です。<br>移行期間の終了日が決まりしたら、メッセージセンターやブログ等にて通知を行う予定です。  </p>
+<h3 id="Power-Platform-要求数のレポートの一般公開はいつですか。"><a href="#Power-Platform-要求数のレポートの一般公開はいつですか。" class="headerlink" title="Power Platform 要求数のレポートの一般公開はいつですか。"></a>Power Platform 要求数のレポートの一般公開はいつですか。</h3><p>現時点で未定です。<br>実際の利用状況や利用ユーザーからのお問い合わせの状況等を踏まえて一般公開の日にちを決めていく予定です。</p>
+<h3 id="Power-Platform-要求数は使われなかった分を翌日や翌月に繰り越すことができますか。"><a href="#Power-Platform-要求数は使われなかった分を翌日や翌月に繰り越すことができますか。" class="headerlink" title="Power Platform 要求数は使われなかった分を翌日や翌月に繰り越すことができますか。"></a>Power Platform 要求数は使われなかった分を翌日や翌月に繰り越すことができますか。</h3><p>いいえ、繰り越すことはできません。</p>
+<h3 id="ユーザーライセンスに付与されている-Power-Platform-要求数を別のユーザーに振り分けることはできますか。"><a href="#ユーザーライセンスに付与されている-Power-Platform-要求数を別のユーザーに振り分けることはできますか。" class="headerlink" title="ユーザーライセンスに付与されている Power Platform 要求数を別のユーザーに振り分けることはできますか。"></a>ユーザーライセンスに付与されている Power Platform 要求数を別のユーザーに振り分けることはできますか。</h3><p>いいえ、ユーザーライセンスに付与されている Power Platform 要求数を他のユーザーに振り分けることはできません。<br>フローの所有者のライセンスを消費するフローの場合は、フローの所有者を変更することで Power Platform 要求数の消費先を変えることができます。</p>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a href="#power-platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E6%B6%88%E8%B2%BB%E5%85%88">Power Platform 要求数の消費先</a></li>
+<li><a href="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/#anchor-change-flow-owner">フロー作成者 (所有者) を変更したい場合はどうしたらいいか？</a></li>
+</ul>
+</blockquote>
+<h3 id="ユーザーライセンスレポートを見ると、想定している値よりも-2-000-Power-Platform-要求数分多く表示されています。なぜでしょうか。"><a href="#ユーザーライセンスレポートを見ると、想定している値よりも-2-000-Power-Platform-要求数分多く表示されています。なぜでしょうか。" class="headerlink" title="ユーザーライセンスレポートを見ると、想定している値よりも 2,000 Power Platform 要求数分多く表示されています。なぜでしょうか。"></a>ユーザーライセンスレポートを見ると、想定している値よりも 2,000 Power Platform 要求数分多く表示されています。なぜでしょうか。</h3><p>Common Data Service for Teams ライセンスをお持ちの場合、 2,000 Power Platform 要求が追加されます。</p>
+<h3 id="制限に抵触した時に影響を受けるのは誰ですか"><a href="#制限に抵触した時に影響を受けるのは誰ですか" class="headerlink" title="制限に抵触した時に影響を受けるのは誰ですか"></a>制限に抵触した時に影響を受けるのは誰ですか</h3><p>フローのライセンスで動作しているフローの場合は、そのフローのライセンスで動作しているフローのみ影響をうけます。他のフローには影響しません。<br>ユーザーライセンスで動作しているフローの場合は、そのユーザーのみ影響をうけます。他のユーザーは影響をうけません。  </p>
+<p>なお、移行期間終了前は 100 万アクションを超えない限りはフロー単位でのみ影響をうけます。</p>
+<blockquote>
+<p>[!Tip]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate">Power Automate の要求の制限</a></li>
+</ul>
+</blockquote>
+<h3 id="フローの実行回数に制限はありますか"><a href="#フローの実行回数に制限はありますか" class="headerlink" title="フローの実行回数に制限はありますか"></a>フローの実行回数に制限はありますか</h3><p>フローの実行回数には制限はありません。</p>
+<hr>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/power-automate-ppr.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../powerplatform/exchange-server-side-sync/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Dataverse と Exchange Online のサーバー側同期
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../powerplatform/Power-platform-Ideas/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Platform Ideasサイトのご紹介</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/exchange-server-side-sync/">Dataverse と Exchange Online のサーバー側同期</a>
+          </li>
+        
+          <li>
+            <a href="">Power Automate / Power Platform 要求数制限</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/Power-platform-Ideas/">Power Platform Ideasサイトのご紹介</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/ip-range-and-domain/">キャンバスアプリ / Power Automate 利用時の通信要件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-builder/" rel="tag">AI builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-Studio/" rel="tag">Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-studio/" rel="tag">Copilot studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">Excel エクスポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95/" rel="tag">問い合わせ方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A8%A9%E9%99%90/" rel="tag">権限</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" rel="tag">自動フロー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Pages/Power-Apps-portal">Power Apps portal</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">14</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Audit-Log">Audit Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Canvas-app">Canvas app</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Copilot">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Inventory-Report">Inventory Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Automate">Power Automate</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Platform">Power Platform</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC">Power Platform 管理センター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Tenant-level-Analytics">Tenant-level Analytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA">キャンバスアプリ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9">ライセンス</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/">Power Virtual Agents</a><span class="tag-list-count">2</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/AI-builder">AI builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Copilot-Studio">Copilot Studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Copilot-studio">Copilot studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Dynamics-365">Dynamics 365</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">19</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/AI-builder">AI builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Copilot">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Copilot-studio">Copilot studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC">DLP ポリシー</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse">Dataverse</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8">Dataverse ストレージ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Developer-Environment">Developer Environment</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics-365">Dynamics 365</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Environment">Environment</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Exchange">Exchange</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Virtual-Agents">Power Virtual Agents</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Settings">Settings</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA">キャンバスアプリ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB">セキュリティ ロール</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">37</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flow">Cloud flow</a><span class="tag-list-count">21</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Copilot">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Dataverse">Dataverse</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flow">Desktop flow</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/How-to">How to</a><span class="tag-list-count">14</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Office-365-Management-API">Office 365 Management API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-for-desktop">Power Automate for desktop</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4">オンプレミス データ ゲートウェイ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA">キャンバスアプリ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC">自動フロー</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Dataverse">Dataverse</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Environment">Environment</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-builder/" style="font-size: 10px;">AI builder</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 14.17px;">Canvas app</a> <a href="../../tags/Cloud-flow/" style="font-size: 19.17px;">Cloud flow</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="../../tags/Copilot-Studio/" style="font-size: 10px;">Copilot Studio</a> <a href="../../tags/Copilot-studio/" style="font-size: 10px;">Copilot studio</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataverse/" style="font-size: 15px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10.83px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 15.83px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 16.67px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 10px;">Dynamics 365</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 13.33px;">Environment</a> <a href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">Excel エクスポート</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Graph-API/" style="font-size: 11.67px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 17.5px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/Model-driven-app/" style="font-size: 13.33px;">Model-driven app</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.5px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 15.83px;">Power Automate for desktop</a> <a href="../../tags/Power-Pages/" style="font-size: 10px;">Power Pages</a> <a href="../../tags/Power-Platform/" style="font-size: 18.33px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 10.83px;">Power Virtual Agents</a> <a href="../../tags/PowerPlatform/" style="font-size: 10.83px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 11.67px;">PowerShell</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバスアプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 13.33px;">サポート</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 12.5px;">ライセンス</a> <a href="../../tags/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95/" style="font-size: 10px;">問い合わせ方法</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 13.33px;">情報採取</a> <a href="../../tags/%E6%A8%A9%E9%99%90/" style="font-size: 10px;">権限</a> <a href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" style="font-size: 10px;">自動フロー</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2024 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
