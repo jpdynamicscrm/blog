@@ -56,7 +56,7 @@ tags:
 
 ### 5分ごと、および24時間ごとのPower Platform要求
 
-詳細については下記記事をご参照ください。
+詳細については下記記事をご参照ください。<br>
 [Power Automate / Power Platform 要求数制限](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/)
 
 <a id='anchor-concurrent-outbound-calls'></a>
