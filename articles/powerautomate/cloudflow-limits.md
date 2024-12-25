@@ -236,13 +236,23 @@ HTTP 要求に失敗しました: 'Cannot write more bytes to the buffer than th
 「1日」と設定しますと、「間隔」から算出された最大間隔に関わらず、1日以内に再試行されます。<br>
 「1時間」と設定しますと1時間以内に再試行されます。
 
-Power Automateでは、再試行ポリシー設定値の最大値が以下のように規定されています。<br>
-既定値
-- 最小間隔　5秒
-- 最大間隔　1日
-
 下記公開情報もご参照ください。<br>
-[](https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval)
+[指数間隔の再試行ポリシー](https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval)
+
+> [!NOTE]  
+> 再試行ポリシーの間隔、最小間隔、最大間隔は「ISO 8601」という形式を利用して設定します。
+>
+> 継続時間ということを表すため、「P」を先頭につけます。<br>
+> 時分秒を設定する時は「P」＋「T」＋数字＋「時分秒」という形で記載します。<br>
+> 例）<br>
+> 1時間　→PT1H<br>
+> 2時間　→PT2H<br>
+> 15分　→PT15M<br>
+> 30秒　→PT30S<br>
+>
+> 日を設定する時は、「P」＋数字＋「D」という形で記載します。<br>
+> 例）<br>
+> 1日　→P1D
 
 <a id='anchor-summary-list'></a>
 
