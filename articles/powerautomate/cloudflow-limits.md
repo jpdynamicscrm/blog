@@ -215,7 +215,7 @@ HTTP 要求に失敗しました: 'Cannot write more bytes to the buffer than th
 上限以上の設定は不可となり、フローが保存できません。
 
 再試行ポリシーに「指数の間隔」を設定しますと、設定された最小間隔、最大間隔の間でランダムに再試行が行われます。<br>
-例えば、「間隔」に設定した7秒に指数をかけて、以下のように最小間隔と最大間隔を算出します。
+例えば、「間隔」に "PT7S"＝7秒と設定した場合、7秒に指数をかけて、以下のように最小間隔と最大間隔を算出します。
 
 最小間隔　～　最大間隔
 - 1回目0秒　～7秒（7×0～7×1）
@@ -236,9 +236,13 @@ HTTP 要求に失敗しました: 'Cannot write more bytes to the buffer than th
 「1日」と設定しますと、「間隔」から算出された最大間隔に関わらず、1日以内に再試行されます。<br>
 「1時間」と設定しますと1時間以内に再試行されます。
 
+Power Automateでは、再試行ポリシー設定値の最大値が以下のように規定されています。<br>
 既定値
-- 最小間隔　–5秒
-- 最大間隔　–1日
+- 最小間隔　5秒
+- 最大間隔　1日
+
+下記公開情報もご参照ください。<br>
+[](https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval)
 
 <a id='anchor-summary-list'></a>
 
