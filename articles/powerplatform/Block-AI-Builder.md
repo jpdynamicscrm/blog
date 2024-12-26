@@ -16,28 +16,28 @@ AI BuilderはAIモデルを作成・カスタマイズしてPower Platformで利
 ## AI Builder の利用前提条件
 AI Builder を利用するためには、以下の条件を満たす必要があります：
 
-- ** ライセンスの保有：** 
+- **ライセンスの保有：** 
   - Power Automate や Power Apps にアクセスできるライセンスが必要です（試用版やMicrosoft 365付帯ライセンスを含む）。
   - Dynamics 365ライセンスを持つユーザーも利用可能です。
   - 具体的なライセンスや使用権の詳細は [ライセンスガイド](https://go.microsoft.com/fwlink/?LinkId=2085130) をご参照ください。
 
-- ** AI Builderクレジット：** 
+- **AI Builderクレジット：** 
   - テナントにAI Builder のクレジットがあることが必要です。
   - テナントにクレジットがない場合、ユーザー単位でAI Builder の試用版ライセンスを取得して利用することができます。
 
-- ** 環境設定：** 
+- **環境設定：** 
   - プレビュー段階のモデルを利用する場合、環境設定で「プレビュー中のAI Builderモデルの種類の使用を有効にする」をオンにする必要があります。
   - AIプロンプトを利用するためには、「Power PlatformやCopilot StudioでAIプロンプト機能を有効化する」と「リージョン間でデータを移動する」の設定がオンになっている必要があります。
 
 ## AI Builder の利用制限方法
 AI Builder の利用を制限するためには、以下の設定を行います。
 
-- ** AI プロンプトの無効化：** 
+- **AI プロンプトの無効化：** 
   - Power Platform 管理センター > 環境 > 対象環境 > 生成AI機能 – 「リージョン間でデータを移動する」 設定をオフにします。
   - Power Platform 管理センター > 環境 > 対象環境 > 設定 > 機能より、AI プロンプト – 「Power Platform や Copilot Studio で AI プロンプト機能を有効化する」 設定をオフにします。<br>
   公開情報：[AIプロンプトを有効または無効にする](https://learn.microsoft.com/ja-jp/ai-builder/administer#enable-or-disable-ai-prompts-in-power-platform-and-copilot-studio)
 
-- ** AI モデルの利用無効化：** 
+- **AI モデルの利用無効化：**
   - テナントにAI Builderのクレジットがない場合：
     - 試用版を無効にするために、[「ユーザーによる未割当のクレジットの使用を許可する」設定](https://learn.microsoft.com/ja-jp/ai-builder/ai-builder-trials#can-i-block-users-in-my-organization-from-signing-up-for-an-ai-builder-trial)をオフにします。
     - [「プレビュー中のAI Builderモデルの種類の使用を有効にする」設定](https://learn.microsoft.com/ja-jp/ai-builder/administer#enable-or-disable-ai-builder-preview-features)をオフにします。
