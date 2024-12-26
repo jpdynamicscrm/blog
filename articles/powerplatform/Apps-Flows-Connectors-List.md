@@ -10,24 +10,22 @@ tags:
 # キャンバス アプリ・クラウド フローで使用しているコネクタの一覧取得
 
 こんにちは、Power Platform サポートチームの藤田です。  
-
-
+よくお問合せをいただく、Power Apps キャンバス アプリ・Power Automate クラウド フローで使用されているコネクタの一覧取得方法についてご案内いたします。
+特定のコネクタが使用されているかどうか、どのフローやアプリでプレミアム コネクタが使用されているか、といったことを確認する際に是非お役立てください。
 <!-- more -->
 
 ---
-<Draft>
-
 # PowerShell による出力
 
 アプリ・フローで使用されているコネクタにつきましては、後述のPowerShell スクリプトをご実行いただくことで取得することが出来ます。
-前提として、Power Appsの管理モジュールのインストールが必要となります。
-既にご利用でない場合は、以下をご参照いただき導入いただきますようお願いいたします。
-Power Apps と Power Automate の PowerShell サポート
--	https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#cmdlets
 
-以下はスクリプトの例でございます。
-出力されたcsvファイルの　ConnectionName　の列にコネクタ名が表示されます。
-Tierの列に　Premium・Standard　の種別が表示されます。
+前提として、Power Appsの管理モジュールのインストールが必要となります。
+既にご利用でない場合は、以下をご参照いただき導入をお願いいたします。
+
+公開情報：[Power Apps と Power Automate の PowerShell サポート](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#cmdlets)
+
+以下はスクリプトの例です。<br>
+出力されたcsvファイルの　ConnectionName　の列にコネクタ名が、Tierの列に　Premium・Standard　の種別が表示されます。
 
 ```
 $outputFile=".\powerplatinventory.csv"
@@ -91,15 +89,22 @@ foreach ($e in $environments) {
 } #foreach environment
 $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 ```
-尚、上記の方法では、接続に基づいて出力を行うため、接続が作られないプレミアム コネクタであるHTTPコネクタを使用したフローが出力出来ない結果となります。
+※ [GitHub](https://gist.github.com/jameswh3/b1ddca1705a1e747ce3c8453e1f6dc7e) より一部引用し日本語に対応するよう追記しています。
+
+尚、上記の方法では、接続に基づいて出力を行うため、接続が作られないプレミアム コネクタであるHTTPコネクタは出力出来ない結果となります。
 
 # Microsoft Power Platform セルフサービス分析
 
-また、プレビュー機能とはなっておりますが、Power Apps・Power Automateの在庫情報をData Lakeへエクスポートすることが出来る機能もございます。
-ご参考情報：Microsoft Power Platform セルフサービス分析を設定して、インベントリと使用状況のデータをエクスポートする (プレビュー)
-https://learn.microsoft.com/ja-jp/power-platform/admin/self-service-analytics
+プレビュー機能とはなっておりますが、テナントの Power Appsキャンバス アプリ・Power Automateクラウド フローの在庫情報をData Lakeへエクスポートすることが出来る機能もございます。
 
-上記機能でData Lakeへ出力された情報のうち、Power Apps キャンバス アプリについてはpowerplatform  > powerapps > Connections および ConnectionReference
-Power Automate クラウド フローについては powerplatform > powerautomate > FlowConnectionReference に、各アプリ・フローで使用している接続・接続参照の情報が格納されます。
+公開情報：[Microsoft Power Platform セルフサービス分析を設定して、インベントリと使用状況のデータをエクスポートする (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/self-service-analytics)
 
-フロー毎・アプリごとのファイルとなっており、確認しやすい一覧の形となっておらず恐縮ではございますが、ご要件に合わせて格納された情報を用いていただくことが可能です。
+上記機能でData Lakeへ出力された情報のうち、<br>
+Power Apps キャンバス アプリについてはpowerplatform  > powerapps > Connections および ConnectionReference<br>
+Power Automate クラウド フローについては powerplatform > powerautomate > FlowConnectionReference <br>
+に、各アプリ・フローで使用している接続・接続参照の情報が格納されます。
+
+公開情報：[Microsoft Power Platform セルフサービス型の分析スキーマの定義 (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/self-service-analytics-schema-definition)
+
+フロー毎・アプリごとのファイルとなっており、そのままでは確認しやすい一覧の形となっておらず恐縮ではございますが、ご要件に合わせて格納された情報を用いていただくことが可能です。
+
