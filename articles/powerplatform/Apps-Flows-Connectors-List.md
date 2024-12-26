@@ -28,7 +28,7 @@ Power Apps と Power Automate の PowerShell サポート
 以下はスクリプトの例でございます。
 出力されたcsvファイルの　ConnectionName　の列にコネクタ名が表示されます。
 Tierの列に　Premium・Standard　の種別が表示されます。
-＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
 ```
 $outputFile=".\powerplatinventory.csv"
 
@@ -91,7 +91,6 @@ foreach ($e in $environments) {
 } #foreach environment
 $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 ```
-＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 尚、上記の方法では、接続に基づいて出力を行うため、接続が作られないプレミアム コネクタであるHTTPコネクタを使用したフローが出力出来ない結果となります。
 
 # Microsoft Power Platform セルフサービス分析
