@@ -35,9 +35,14 @@ AI Builder を利用するためには、以下の条件を満たす必要があ
 AI Builder の利用を制限するためには、以下の設定を行います。
 
 - **AI プロンプトの無効化：** 
-  - Power Platform 管理センター > 環境 > 対象環境 > 生成AI機能 – 「リージョン間でデータを移動する」 設定をオフにします。
-  - Power Platform 管理センター > 環境 > 対象環境 > 設定 > 機能より、AI プロンプト – 「Power Platform や Copilot Studio で AI プロンプト機能を有効化する」 設定をオフにします。<br>
+  - Power Platform 管理センター > 環境 > 対象環境 > 生成AI機能 – 「リージョン間でデータを移動する」 設定をオフにします。※
+  - Power Platform 管理センター > 環境 > 対象環境 > 設定 > 機能より、AI プロンプト – 「Power Platform や Copilot Studio で AI プロンプト機能を有効化する」 設定をオフにします。※<br>
   公開情報：[AIプロンプトを有効または無効にする](https://learn.microsoft.com/ja-jp/ai-builder/administer#enable-or-disable-ai-prompts-in-power-platform-and-copilot-studio)
+
+> [!NOTE]
+> ※ 「リージョン間でデータを移動する」 設定、「Power Platform や Copilot Studio で AI プロンプト機能を有効化する」 設定は、
+> AI Builder のみならず Copilot Studio 等、Power Platform 上の生成 AI 機能に影響しますのでご注意ください。
+> Copilot と生成 AI 機能の無効化について、[こちらのブログ記事](https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-data-handling/#Copilot-%E3%81%A8%E7%94%9F%E6%88%90-AI-%E6%A9%9F%E8%83%BD%E3%81%AE%E7%84%A1%E5%8A%B9%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)もご参照ください。
 
 - **AI モデルの利用無効化：**
   - テナントにAI Builderのクレジットがない場合：
