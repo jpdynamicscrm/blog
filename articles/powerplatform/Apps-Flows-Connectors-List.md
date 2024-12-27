@@ -17,7 +17,7 @@ tags:
 <!-- more -->
 
 ---
-# PowerShell による出力
+## PowerShell による出力
 
 アプリ・フローで使用されているコネクタにつきましては、後述のPowerShell スクリプトをご実行いただくことで取得することが出来ます。
 
@@ -95,7 +95,7 @@ $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 
 尚、上記の方法では、接続に基づいて出力を行うため、接続が作られないプレミアム コネクタであるHTTPコネクタは出力出来ない結果となります。
 
-# Microsoft Power Platform セルフサービス分析
+## Microsoft Power Platform セルフサービス分析
 
 プレビュー機能とはなっておりますが、テナントの Power Appsキャンバス アプリ・Power Automateクラウド フローの在庫情報をData Lakeへエクスポートすることが出来る機能もございます。
 
@@ -110,3 +110,4 @@ Power Automate クラウド フローについては powerplatform > powerautoma
 
 フロー毎・アプリごとのファイルとなっており、そのままでは確認しやすい一覧の形となっておらず恐縮ではございますが、ご要件に合わせて格納された情報を用いていただくことが可能です。
 
+## Power Automate クラウド フローを使用して取得する
