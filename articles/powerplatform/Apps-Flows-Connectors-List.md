@@ -29,6 +29,7 @@ tags:
 以下はスクリプトの例です。<br>
 出力されたcsvファイルの　ConnectionName　の列にコネクタ名が、Tierの列に　Premium・Standard　の種別が表示されます。
 
+![](./Apps-Flows-Connectors-List/csvimage.png)
 ```
 $outputFile=".\powerplatinventory.csv"
 
