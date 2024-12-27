@@ -58,7 +58,7 @@ Power Platfrom の接続からリクエストされたデータの取得は Azur
   
 > [!NOTE] 
 > 主にオンプレミス環境上に存在するデータを操作する際に用いられます。  
-> 関連記事：[クラウド フローとオンプレミス環境間でデータ連携する方法](https://jpdynamicscrm.github.io/blog//powerautomate/gateway-install/)  
+> 関連記事：[クラウド フローとオンプレミス環境間でデータ連携する方法](https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/)  
   
 Azure 仮想ネットワークのプライベートネットワークに属するリソースに接続する場合 Azure 仮想マシンに該当プライベートネットワークに属する NIC を構成する等**プライベートネットワークに存在するデータソースと通信可能な端末**を用意頂き、その端末にオンプレミスデータゲートウェイをインストールする必要があります。  
 ![](./Connect-private-datasource/image01.png)
