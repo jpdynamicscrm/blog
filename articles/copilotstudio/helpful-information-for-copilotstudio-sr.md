@@ -18,7 +18,7 @@ tags:
 1. [情報取得手順詳細](#anchor-how-to-collect)
       1. [事象の発生状況](#anchor-about-situation)
       2. [事象発生時のエラーメッセージや画面キャプチャ・動画](#anchor-about-screencapture)
-      3. [環境 ID](#anchor-flowrunhistory-csv)
+      3. [環境 ID](#anchor-environmentid)
       4. [Bot ID](#anchor-botid)
       5. [Conversation ID](#anchor-conversationid)
       6. [事象再現時のスナップショット zip ファイル](#anchor-snapshot-zip)
@@ -26,7 +26,7 @@ tags:
       8. [会話入出力](#anchor-raw-input-output)
       9. [トピック画面](#anchor-topics-screen)
       10. [会話トランスクリプションテーブルデータ](#anchor-conversation-transcript)
-      11. [Web ブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkha)
+      11. [Web ブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
 
 <a id='anchor-intro'></a>
 

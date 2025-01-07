@@ -85,7 +85,7 @@ Power Automate には、サービスを皆さまへ安定的に提供するた�
 
 フローをまだ実行していない、または机上でアクション要求数を求めたい場合は、下記公開情報の Power Platform 要求数の数え方をご参照ください。(アクション要求数と Power Platform 要求数は数え方が同じです)  
 
-[何が Power Platform 要求と見なされますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#what-counts-as-power-platform-request)
+[何が Power Platform 要求と見なされますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-counts-as-power-platform-request)
 
 実際のアクション要求数は再試行やページングで増えるので、見積もりの時点でフローの制限値を超えている場合は、対策が必要です。
 
