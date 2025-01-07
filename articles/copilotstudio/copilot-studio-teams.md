@@ -58,7 +58,13 @@ tags:
   作成したエージェントを、他のユーザーがで利用できるようにします。  
   他のユーザーとエージェントを共有するには 2 つの方法がございます。  
    1. セキュリティグループ、組織に利用者として共有する（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-chat)）
-   2. ユーザーに共同編集者として共有する（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-collaborative-authoring)）
+   2. ユーザーに共同編集者として共有する（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-collaborative-authoring)）  
+  
+  > [!NOTE]  
+  > 利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。  
+  > また、セキュリティロールを割り当てる必要もありません。  
+  > ただし、エージェントを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。  
+  > 一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、セキュリティロールを割り当てる必要はありません。
 
 ## 2-3. Teamsチャネルに接続する
   次に、公開したエージェントを Teams で使えるようにするため、Teams チャネルと接続します。  
@@ -67,6 +73,13 @@ tags:
   > Teams でエージェントを利用するためには、Teams 管理センターからカスタムアプリの使用を許可する必要があります。  
   > 具体的な設定方法は下記の公開情報をご参照ください。    
   > [Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する - Microsoft Teams | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)  
+
+  > [!NOTE]  
+  > Power Platform 管理センターより Teams チャネルへの接続を許可するよう DLP を設定しておく必要があります。  
+  > 下記の「Microsoft Teams + M365 Channel in Copilot Studio」のコネクタを許可してください。  
+  > ![](./copilot-studio-teams/DLP_teams_m365_channel.png)  
+  > なお、Copilot Studio に関する DLP の詳細については下記の公開情報をご参照ください。    
+  > [エージェントのデータ損失防止ポリシーを構成する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-data-loss-prevention#copilot-studio-connectors)  
 
   該当のエージェントを開き、画面上部の「チャネル」タブより「Microsoft Teams」をご選択ください。  
   ![](./copilot-studio-teams/select_channel.png)  
@@ -185,7 +198,13 @@ tags:
    2. ユーザーに共同編集者として共有する
   
   手順の詳細等については下記の公開情報をご参照ください。  
-  [他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=teams)
+  [他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=teams)  
+
+  > [!NOTE]  
+  > 利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。  
+  > また、セキュリティロールを割り当てる必要もありません。  
+  > ただし、エージェントを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。  
+  > 一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、セキュリティロールを割り当てる必要はありません。
 
 ## 3-3. 他のユーザーが Teams でエージェントを利用する
   Web 版 Copilot Studio でエージェントを公開した直後や、下記の画面で「このエージェントの試用を他のユーザーに許可する」を選択すると、次の画面が表示されます。  
