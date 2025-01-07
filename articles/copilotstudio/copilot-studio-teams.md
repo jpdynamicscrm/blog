@@ -55,10 +55,10 @@ tags:
   ![](./copilot-studio-teams/publishing.png)  
 
 ## 2-2. 他のユーザーと共有する
-  作成したエージェントを、他のユーザーがで利用できるようにします。  
+  作成したエージェントを、他のユーザーが利用できるようにします。  
   他のユーザーとエージェントを共有するには 2 つの方法がございます。  
-   1. セキュリティグループ、組織に利用者として共有する（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-chat)）
-   2. ユーザーに共同編集者として共有する（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-collaborative-authoring)）  
+   1. セキュリティグループ、組織に利用者として共有する（エージェントと会話するユーザーとして）（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-chat)）
+   2. ユーザーに共同編集者として共有する（エージェントと会話、およびエージェントを編集、管理するユーザーとして）（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-collaborative-authoring)）  
   
   > [!NOTE]  
   > 利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。  
@@ -194,8 +194,8 @@ tags:
 ## 3-2. 他のユーザーと共有する
   作成したエージェントを、他のユーザーがで利用できるようにします。  
   Web 版と同様に、他のユーザーとエージェントを共有するには 2 つの方法がございます。  
-   1. セキュリティグループに利用者として共有する
-   2. ユーザーに共同編集者として共有する
+   1. セキュリティグループに利用者として共有する（エージェントと会話するユーザーとして）
+   2. ユーザーに共同編集者として共有する（エージェントと会話、およびエージェントを編集、管理するユーザーとして）
   
   手順の詳細等については下記の公開情報をご参照ください。  
   [他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=teams)  
