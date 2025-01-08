@@ -106,16 +106,19 @@ tags:
   > [Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する - Microsoft Teams | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)  
 
 ## 2-4. 他のユーザーが Teams でエージェントを利用する
+  他のユーザーが Teams でこのエージェントと会話したり、エージェントにアクセスしたりできるようにするには、対象エージェントを他のユーザーが Teams で追加登録できるようにする作業が必要となります。  
+  その追加登録を可能にするための作業として、主に 3 つの方法があります。  
+  1. リンクの共有
+  2. Teams アプリストアに公開する
+  3. zip としてダウンロード・アップロード
+  
   Copilot Studio 「チャネル」タブより「Microsoft Teams」を選択すると、下記の画面が表示されます。  
   ![](./copilot-studio-teams/teams_agent_preview.png)  
 
   他のユーザーがこのエージェントを利用できるようにするには、「可用性オプション」をご選択ください。  
   ![](./copilot-studio-teams/teams_availability.png)  
 
-  上記画像中にもあるように、他のユーザーが Teams でエージェントを利用できるように共有するには主に 3 つの方法があります。
-  1. リンクの共有
-  2. Teams アプリストアに公開する
-  3. zip としてダウンロード・アップロード
+  以降、3 つの方法それぞれの手順等について説明します。  
 
 ### 2-4-1. リンクの共有
   まず、リンクの共有によって共有する方法です。  
