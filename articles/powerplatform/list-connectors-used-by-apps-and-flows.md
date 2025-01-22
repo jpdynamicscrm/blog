@@ -43,10 +43,10 @@ $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 "ConnectoinId" 列から "/providers/Microsoft.PowerApps/scopes/admin/apis/shared_" を削除すると、コネクタIDが取得できます。  
 取得したコネクタ ID を利用して、コネクタの公開情報へアクセスすることができます。  
 "https://learn.microsoft.com/ja-jp/connectors/{コネクタID}/"  
-例）
-Sharepoint : https://learn.microsoft.com/ja-jp/connectors/sharepointonline/
-SQL Server : https://learn.microsoft.com/ja-jp/connectors/sql/
 
+例)
+* Sharepoint : https://learn.microsoft.com/ja-jp/connectors/sharepointonline/  
+* SQL Server : https://learn.microsoft.com/ja-jp/connectors/sql/  
 
 #### ◆ フローやアプリでプレミアムコネクタが使われているか確認する
 "Tier" 列が "Premium" となっているコネクタがプレミアムコネクタとなります。
