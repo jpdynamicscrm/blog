@@ -1,6 +1,5 @@
 ---
 title: Power Automate / Power Platform 要求数制限
-date: 2024-11-24 09:00:00
 tags:
   - Power Platform
   - Power Automate
@@ -34,10 +33,9 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
 一例をあげますと、通常 1 分程度で完了するフローが完了まで 2 時間程度かかるというような動作になります。  
 この制限のことを Power Platform 要求数の制限と呼びます。
 
-> [!NOTE]
->
-> * [フローが制限を超過している場合はどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-can-i-do-if-my-flow-is-above-limits)
-> * [低速フローのトラブル シューティング](https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/)
+◆ 関連公開情報
+* [フローが制限を超過している場合はどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-can-i-do-if-my-flow-is-above-limits)
+* [低速フローのトラブル シューティング](https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/)
 
 
 フローは 24 時間あたりの Power Platform 要求数を随時監視しており、要求数がライセンスの制限値を上回りますと内部的にアクションが待機状態になります。待機状態になったアクションは、24 時間あたりの Power Platform 要求数がライセンスの制限値を下回りますと再び動き出します。  
@@ -76,10 +74,11 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
 > また、移行期間終了前後に関わらず、5 分あたり 100 万アクションの制限があります。<br>
 > 上記制限はライセンス等で拡張することはできません。
 
-> [!NOTE]
->
-> * [Power Automate の要求の制限](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate)
-> * [パフォーマンス プロファイルとは何ですか? ](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses)
+◆ 関連公開情報
+
+* [Power Automate の要求の制限](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate)
+* [パフォーマンス プロファイルとは何ですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses)
+
 
 ### ユーザーライセンスを複数持っているときの考え方
 ユーザーライセンスを複数持っている場合、利用可能な Power Platform 要求数の計算は移行期間前後で異なります。
@@ -87,9 +86,9 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
 <b>移行期間中</b> ・・　Power Platform 要求数はお持ちのユーザーライセンスの中で最も要求数の多いライセンスに準じます。  
 <b>移行期間後</b> ・・　ユーザーライセンスごとの Power Platform 要求数を合算した要求数を利用できます。
 
-> [!NOTE]
->
-> * [その他の詳細](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#other-details)
+◆ 関連公開情報
+
+* [その他の詳細](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#other-details)
 
 ## テナント内の Power Platform 要求数を確認する方法
 
@@ -104,18 +103,19 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
 > [!NOTE]
 > Power Platform 要求数のレポート機能は 2024 年 12 月現在、プレビュー機能として提供しています。
 
-> [!NOTE]
->
-> * [管理者が環境の使用状況を分析するためのどのようなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-an-admin-what-tools-do-i-have-to-analyze-my-environments-usage)
+
+◆ 関連公開情報
+
+* [管理者が環境の使用状況を分析するためのどのようなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-an-admin-what-tools-do-i-have-to-analyze-my-environments-usage)
 
 ### フロー作成者、共同所有者
 
 恐れ入りますが、フロー作成者や共同所有者が Power Platform 要求数の消費状況を確認する方法は現時点ではご用意がございません。  
 フロー単位で消費された Power Platform 要求数は [フローのアクション要求数を数えてみる](https://jpdynamicscrm.github.io/blog/powerautomate/troubleshoot-throttling-flow/#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E6%95%B0%E3%81%88%E3%81%A6%E3%81%BF%E3%82%8B) に記載の方法で確認できます。
 
-> [!NOTE]
->
-> * [作成者が使用状況を分析するためのどんなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-a-maker-what-tools-do-i-have-to-analyze-my-usage)
+◆ 関連公開情報
+
+* [作成者が使用状況を分析するためのどんなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-a-maker-what-tools-do-i-have-to-analyze-my-usage)
 
 ## Power Platform 要求数のカウント方法
 
@@ -142,9 +142,9 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
    スキップされて実行されなかったアクションは Power Platform 要求数を消費しません。  
    例えば、更新を定期的に監視するポーリングトリガーのフローでは、データの更新があったときのみトリガーの Power Platform 要求数が消費されます。
 
-> [!NOTE]
->
-> * [何が Power Platform 要求と見なされますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-counts-as-power-platform-request)
+◆ 関連公開情報
+
+* [何が Power Platform 要求と見なされますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-counts-as-power-platform-request)
 
 ## Power Platform 要求数の消費先
 
@@ -166,10 +166,10 @@ Power Platform 要求数の消費先は以下の条件によって決まりま�
 ![](power-automate-ppr/whose-power-platform-request-limits-process.png)
 
 
-> [!NOTE]
->
-> * [クラウド フロー で使用されるリクエスト制限は誰のものですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#whose-power-platform-request-limits-are-used-by-the-cloud-flow)
-> * [サービス プリンシパルが所有するフローのサポート](https://learn.microsoft.com/ja-jp/power-automate/service-principal-support#power-platform-request-limits)
+◆ 関連公開情報
+
+* [クラウド フロー で使用されるリクエスト制限は誰のものですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#whose-power-platform-request-limits-are-used-by-the-cloud-flow)
+* [サービス プリンシパルが所有するフローのサポート](https://learn.microsoft.com/ja-jp/power-automate/service-principal-support#power-platform-request-limits)
 
 ### 自動フローとインスタントフローの見分け方
 「＋新しいフロー」から確認することができます。
@@ -228,24 +228,28 @@ Power Platform 要求数のレポート機能が一般公開されてから、�
 いいえ、ユーザーライセンスに付与されている Power Platform 要求数を他のユーザーに振り分けることはできません。  
 フローの所有者のライセンスを消費するフローの場合は、フローの所有者を変更することで Power Platform 要求数の消費先を変えることができます。
 
-> [!NOTE]
->
-> * [Power Platform 要求数の消費先](#power-platform-要求数の消費先)
-> * [フロー作成者 (所有者) を変更したい場合はどうしたらいいか？](https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/#anchor-change-flow-owner)
+◆ 関連公開情報
+
+* [Power Platform 要求数の消費先](#power-platform-要求数の消費先)
+* [フロー作成者 (所有者) を変更したい場合はどうしたらいいか？](https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/#anchor-change-flow-owner)
+
 ### ユーザーライセンスレポートを見ると、想定している値よりも 2,000 Power Platform 要求数分多く表示されています。なぜでしょうか。
+
 Common Data Service for Teams ライセンスをお持ちの場合、 2,000 Power Platform 要求が追加されます。
 
 ### 制限に抵触した時に影響を受けるのは誰ですか
+
 フローのライセンスで動作しているフローの場合は、そのフローのライセンスで動作しているフローのみ影響をうけます。他のフローには影響しません。
 ユーザーライセンスで動作しているフローの場合は、そのユーザーのみ影響をうけます。他のユーザーは影響をうけません。  
 
 なお、移行期間終了前は 100 万アクションを超えない限りはフロー単位でのみ影響をうけます。
 
-> [!NOTE]
->
-> * [Power Automate の要求の制限](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate)
+◆ 関連公開情報
+
+* [Power Automate の要求の制限](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate)
 
 ### フローの実行回数に制限はありますか
+
 フローの実行回数には制限はありません。
 
 

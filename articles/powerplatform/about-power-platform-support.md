@@ -1,15 +1,15 @@
 ---
-title: Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項
+title: Power Apps/Power Automate/Copilot Studio お問い合わせ時の留意事項
 date: 2023-04-20 15:00:00
 tags:
 - Power Platform
 - サポート
 ---
 
-# Power Apps/Power Automate/Power Virtual Agents お問い合わせ時の留意事項
+# Power Apps/Power Automate/Copilot Studio お問い合わせ時の留意事項
 
 こんにちは、Power Platform サポートチームです。  
-今回は、Power Apps/Power Automate/Power Virtual Agents のお問い合わせをいただく際の留意事項、ご協力いただきたい事項についてご紹介します。  
+今回は、Power Apps/Power Automate/Copilot Studio のお問い合わせをいただく際の留意事項、ご協力いただきたい事項についてご紹介します。  
 
 我々サポートチームといたしましては、できる限りお客様のお役に立てるよう、日々調査に努めておりますが、お客様の協力があって初めてご支援ができることも多くございます。  
 また、クラウドサービスの性質や、成長スピードの速い Power Platform という製品の性質上、また情報保護の観点から、どうしてもお客様への情報のご提供が難しい場合もございます。  
@@ -59,9 +59,10 @@ Power Platform は、複数のサービスをつなぐという製品の性質�
 また、お問い合わせ時にお寄せいただきたい情報とその情報採取手順について、ブログ記事でご紹介しています。  
 事象によって必要な情報は異なるため、すべてを添付いただく必要はございませんが、お問い合わせいただく事象に関係のありそうなものをお問い合わせ時に添付いただけますと、調査がスムーズに進みますので、ご協力をお願いいたします。  
 
-[Power Apps キャンバス アプリ お問い合わせの際の情報取得手順](https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/)  
-[Power Automate お問い合わせの際の情報採取手順](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/)  
-[Power Automate for desktop お問い合わせの際の情報取得手順](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/)
+* [Power Apps キャンバス アプリ お問い合わせの際の情報取得手順](https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/)  
+* [Power Automate お問い合わせの際の情報採取手順](https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/)  
+* [Power Automate for desktop お問い合わせの際の情報取得手順](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/)
+* [Copilot Studio お問い合わせの際の情報取得手順](https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/)
 
 ### お問い合わせの分割起票にご協力ください  
 
@@ -152,7 +153,7 @@ Power Platform にてサードパーティ サービスをご使用の場合、�
 また、機能強化のご要望がございましたら、Ideas サイトまでご投稿ください。  
 [Power Apps Ideas](https://ideas.powerapps.com/)  
 [Power Automate Ideas](https://ideas.powerautomate.com/)  
-[Power Virtual Agents Ideas](https://ideas.powervirtualagents.com/)  
+[Copilot Studio Ideas](https://ideas.powervirtualagents.com/)  
 
 ### サポート外の機能について 
 
