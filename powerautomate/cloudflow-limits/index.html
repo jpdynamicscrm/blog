@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/read-calls-per-5-minutes.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/message-size-with-chunking.png">
 <meta property="article:published_time" content="2025-01-30T15:00:00.000Z">
-<meta property="article:modified_time" content="2025-01-31T07:11:10.722Z">
+<meta property="article:modified_time" content="2025-02-03T01:01:29.523Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
@@ -110,14 +110,14 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3392a8b7-127c-596b-9a8b-52118505bb41%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fcloudflow-limits%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fcloudflow-limits.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fcloudflow-limits.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cm6kfe16l00cl0ns825m92gub" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cm6oci5ei00cl0nqp6qoz8xcj" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートチームの山田です。<br>本記事では 下記公開情報でご案内のPower Automate クラウドフローの制限について、具体例などを用いてわかりやすく説明いたします。</p>
 <p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config">自動化フロー、スケジュールされたフロー、インスタント フローの制限事項</a></p>
-<p>本記事は上記公開情報の制限内容を補足・説明したものとなります。<br><br>実際の制限値などは上記公開情報をご確認ください。</p>
+<p>本記事は上記公開情報の制限内容を補足・説明したものとなります。<br>実際の制限値などは上記公開情報をご確認ください。</p>
 <span id="more"></span>
 <h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
 <li><a href="#anchor-throughput-limits">スループットの制限</a><ol>
@@ -150,114 +150,114 @@
 </ol>
 <hr>
 <p><a id='anchor-throughput-limits'></a></p>
-<h1 id="スループットの制限"><a href="#スループットの制限" class="headerlink" title="スループットの制限"></a>スループットの制限</h1><p>スループットの制限とは、単位時間あたりに処理できる数をチェックする、現時点で適用中のPower Automate 単独の制限でございます。<br><br>全てフロー単位での制限となり、フロー実行中にチェックされる制限となります。</p>
-<p>この項目でご案内する制限は「スループットの制限」に該当いたします。<br><br>スループットの制限には下記3種類がございます。</p>
+<h1 id="スループットの制限"><a href="#スループットの制限" class="headerlink" title="スループットの制限"></a>スループットの制限</h1><p>スループットの制限とは、単位時間あたりに処理できる数をチェックする、現時点で適用中のPower Automate 単独の制限でございます。<br>全てフロー単位での制限となり、フロー実行中にチェックされる制限となります。</p>
+<p>この項目でご案内する制限は「スループットの制限」に該当いたします。<br>スループットの制限には下記3種類がございます。</p>
 <ul>
 <li>Power Platform 要求の制限</li>
 <li>ランタイムエンドポイント要求</li>
 <li>コンテンツスループットの制限</li>
 </ul>
 <p>制限に抵触した場合の動作、制限の緩和可否などは各種類によって異なります。</p>
-<p>制限を決定する制限値は、ライセンスに基づくパフォーマンスプロファイルによって決定されます。<br><br>パフォーマンスプロファイルについては下記公開情報をご参照ください。<br><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles">パフォーマンス プロファイル</a><br><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか?</a></p>
-<p>制限の解除について、Power Automate のクラウドフローの場合はライセンス割り当て後にフローを再保存することで、新しいライセンスに紐づく制限を適用いたします。<br><br>再保存を行わなかった場合は、週に1度のバックグラウンド処理により適用いたします。</p>
+<p>制限を決定する制限値は、ライセンスに基づくパフォーマンスプロファイルによって決定されます。<br>パフォーマンスプロファイルについては下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles">パフォーマンス プロファイル</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか?</a></p>
+<p>制限の解除について、Power Automate のクラウドフローの場合はライセンス割り当て後にフローを再保存することで、新しいライセンスに紐づく制限を適用いたします。<br>再保存を行わなかった場合は、週に1度のバックグラウンド処理により適用いたします。</p>
 <p><a id='anchor-power-platform-request-limits'></a></p>
 <h2 id="Power-Platform-要求の制限"><a href="#Power-Platform-要求の制限" class="headerlink" title="Power Platform 要求の制限"></a>Power Platform 要求の制限</h2><p>Power Platform 要求の制限とは、フロー実行時のアクションに関する制限となります。</p>
-<p>フロー単位での制限となります。<br><br>制限に抵触すると、フローが低速実行（スロットリング状態）となります。<br><br>また、低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p>
+<p>フロー単位での制限となります。<br>制限に抵触すると、フローが低速実行（スロットリング状態）となります。<br>また、低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p>
 <p>下記の２種類がございます。</p>
 <ul>
 <li>5分ごと、および24時間ごとのPower Platform要求</li>
 <li>同時発信呼</li>
 </ul>
 <p><a id='anchor-power-platform-request-limits-per'></a></p>
-<h3 id="5分ごと、および24時間ごとのPower-Platform要求"><a href="#5分ごと、および24時間ごとのPower-Platform要求" class="headerlink" title="5分ごと、および24時間ごとのPower Platform要求"></a>5分ごと、および24時間ごとのPower Platform要求</h3><p>詳細については下記記事をご参照ください。<br><br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a></p>
+<h3 id="5分ごと、および24時間ごとのPower-Platform要求"><a href="#5分ごと、および24時間ごとのPower-Platform要求" class="headerlink" title="5分ごと、および24時間ごとのPower Platform要求"></a>5分ごと、および24時間ごとのPower Platform要求</h3><p>詳細については下記記事をご参照ください。<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a></p>
 <p><a id='anchor-concurrent-outbound-calls'></a></p>
-<h3 id="同時発信呼"><a href="#同時発信呼" class="headerlink" title="同時発信呼"></a>同時発信呼</h3><p>同時発信呼とは、ひとつのフローで同時に実行できるアクション数を指しております。<br><br>具体例として、フロー内でアクションが並列に実行されるよう構成されている場合や、複数のユーザーが同時にフローを実行する場合にこの制限に抵触する可能性が考えられます。</p>
+<h3 id="同時発信呼"><a href="#同時発信呼" class="headerlink" title="同時発信呼"></a>同時発信呼</h3><p>同時発信呼とは、ひとつのフローで同時に実行できるアクション数を指しております。<br>具体例として、フロー内でアクションが並列に実行されるよう構成されている場合や、複数のユーザーが同時にフローを実行する場合にこの制限に抵触する可能性が考えられます。</p>
 <p>制限に抵触した場合、フローの実行が失敗します。</p>
-<p>回避策として、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br><br>同時実行する処理数を制限することで、同時発信呼の制限への抵触を回避いただけます。<br><br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策として、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時実行する処理数を制限することで、同時発信呼の制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンス プロファイルをより高いものにしていただくこととなります。</p>
 <p><a id='anchor-runtime-endpoint-request-limits'></a></p>
-<h2 id="ランタイムエンドポイント要求"><a href="#ランタイムエンドポイント要求" class="headerlink" title="ランタイムエンドポイント要求"></a>ランタイムエンドポイント要求</h2><p>ランタイムエンドポイントとは、フロー自体のエンドポイントを指します。 (例: <a target="_blank" rel="noopener" href="https://prod-00.westus.logic.azure.com/">https://prod-00.westus.logic.azure.com:443/</a>)<br><br>例えば、下図の「HTTP要求の受信時」トリガー(manual)を使用するフローがある場合、「HTTP URL」に直接POSTリクエストを送信することで、フローを起動することが可能でございます。</p>
+<h2 id="ランタイムエンドポイント要求"><a href="#ランタイムエンドポイント要求" class="headerlink" title="ランタイムエンドポイント要求"></a>ランタイムエンドポイント要求</h2><p>ランタイムエンドポイントとは、フロー自体のエンドポイントを指します。 (例: <a target="_blank" rel="noopener" href="https://prod-00.westus.logic.azure.com/">https://prod-00.westus.logic.azure.com:443/</a>)<br>例えば、下図の「HTTP要求の受信時」トリガー(manual)を使用するフローがある場合、「HTTP URL」に直接POSTリクエストを送信することで、フローを起動することが可能でございます。</p>
 <p><img src="/blog/powerautomate/cloudflow-limits/http-requestes-recieve.png"> </p>
-<p>上記の例のように、フロー実行時のエンドポイントへ (から) の直接のアクセスをランタイムエンドポイント要求と呼びます。<br><br>エンドポイントごとに制限対象となり、制限に抵触した場合、フローの実行が失敗します。</p>
-<p>ランタイムエンドポイント要求には3つの制限がございます。<br></p>
+<p>上記の例のように、フロー実行時のエンドポイントへ (から) の直接のアクセスをランタイムエンドポイント要求と呼びます。<br>エンドポイントごとに制限対象となり、制限に抵触した場合、フローの実行が失敗します。</p>
+<p>ランタイムエンドポイント要求には3つの制限がございます。  </p>
 <ul>
 <li>同時着信</li>
 <li>5分ごとに通話を読み取る</li>
 <li>5分ごとの Invoke 呼び出し</li>
 </ul>
 <p><a id='anchor-concurrent-inbound-calls'></a></p>
-<h3 id="同時着信"><a href="#同時着信" class="headerlink" title="同時着信"></a>同時着信</h3><p>同時着信とは、ひとつのフローのランタイムエンドポイントにて、同時に受付可能な要求数を指します。<br><br>そのため、例えば、複数ユーザーでボタントリガーのフローを共有しており、1,000 名以上のユーザーが同時刻にフローを起動した場合、この制限に抵触いたします。</p>
+<h3 id="同時着信"><a href="#同時着信" class="headerlink" title="同時着信"></a>同時着信</h3><p>同時着信とは、ひとつのフローのランタイムエンドポイントにて、同時に受付可能な要求数を指します。<br>そのため、例えば、複数ユーザーでボタントリガーのフローを共有しており、1,000 名以上のユーザーが同時刻にフローを起動した場合、この制限に抵触いたします。</p>
 <p>制限に抵触した場合、フローの実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br><br>同時に実行する数を制限することで、同時着信の数を減らし、制限への抵触を回避いただけます。<br><br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
-<p>コンカレンシー制御=同時実行管理は、フロー編集画面でのトリガーの「設定」タブにてご利用いただけます。<br><br><img src="/blog/powerautomate/cloudflow-limits/concurrency-limit.png"> </p>
-<div class="alert is-important"><p class="alert-title">重要</p><p>サービス保護の制限のため、緩和策はございません。</p><p></p><p>回避策をご対応ください。制限の緩和策はございません。</p></div>
+<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、同時着信の数を減らし、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>コンカレンシー制御=同時実行管理は、フロー編集画面でのトリガーの「設定」タブにてご利用いただけます。<br><img src="/blog/powerautomate/cloudflow-limits/concurrency-limit.png"> </p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>サービス保護の制限のため、緩和策はございません。</p><p>回避策をご対応ください。</p></div>
 <p><a id='anchor-read-calls-per-5-minutes'></a></p>
-<h3 id="5分ごとに通話を読み取る"><a href="#5分ごとに通話を読み取る" class="headerlink" title="5分ごとに通話を読み取る"></a>5分ごとに通話を読み取る</h3><p>5分間に実行可能なランタイムエンドポイントへの読み取り要求を指します。<br><br>例えば、フローの実行履歴から生の入力や出力を取得する際がこれにあたります。</p>
-<p>例として、SharePoint コネクタの複数の項目の取得アクションを実行し、大量のデータを取得した場合、<br>生の出力データを確認するには、実行履歴詳細ページにて、「クリックしてダウンロードします」リンクをクリックする必要がある場合がございます。<br><br>リンクをクリックすると、ランタイムエンドポイントへの要求が実行され、生データをブラウザにて直接確認することが可能となります。<br><br>この要求が、ランタイムエンドポイントへの読み取り要求にあたります。</p>
+<h3 id="5分ごとに通話を読み取る"><a href="#5分ごとに通話を読み取る" class="headerlink" title="5分ごとに通話を読み取る"></a>5分ごとに通話を読み取る</h3><p>5分間に実行可能なランタイムエンドポイントへの読み取り要求を指します。<br>例えば、フローの実行履歴から生の入力や出力を取得する際がこれにあたります。</p>
+<p>例として、SharePoint コネクタの複数の項目の取得アクションを実行し、大量のデータを取得した場合、<br>生の出力データを確認するには、実行履歴詳細ページにて、「クリックしてダウンロードします」リンクをクリックする必要がある場合がございます。<br>リンクをクリックすると、ランタイムエンドポイントへの要求が実行され、生データをブラウザにて直接確認することが可能となります。<br>この要求が、ランタイムエンドポイントへの読み取り要求にあたります。</p>
 <p>下図は「クリックしてダウンロードします」リンクをクリックした場合の例ですが、URL よりランタイムエンドポイントへの要求が実行されていることがわかります。</p>
 <p><img src="/blog/powerautomate/cloudflow-limits/read-calls-per-5-minutes.png"></p>
 <p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br><br>同時に実行する数を制限することで、5分ごとの読み取り数を削減し、制限への抵触を回避いただけます。<br><br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの読み取り数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
 <p><a id='anchor-invoke-calls-per-5-minutes'></a></p>
-<h3 id="5分ごとの-Invoke-呼び出し"><a href="#5分ごとの-Invoke-呼び出し" class="headerlink" title="5分ごとの Invoke 呼び出し"></a>5分ごとの Invoke 呼び出し</h3><p>5 分間に実行可能なランタイムエンドポイントへの呼び出し要求を指します。<br><br>例えば、上記にご案内した 「HTTP 要求の受信時」トリガーを呼び出す場合など、フローを起動する操作がこれにあたります。</p>
+<h3 id="5分ごとの-Invoke-呼び出し"><a href="#5分ごとの-Invoke-呼び出し" class="headerlink" title="5分ごとの Invoke 呼び出し"></a>5分ごとの Invoke 呼び出し</h3><p>5 分間に実行可能なランタイムエンドポイントへの呼び出し要求を指します。<br>例えば、上記にご案内した 「HTTP 要求の受信時」トリガーを呼び出す場合など、フローを起動する操作がこれにあたります。</p>
 <p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br><br>同時に実行する数を制限することで、5分ごとの呼び出し数を削減し、制限への抵触を回避いただけます。<br><br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの呼び出し数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
 <p><a id='anchor-content-throughput-limits'></a></p>
-<h2 id="コンテンツスループットの制限"><a href="#コンテンツスループットの制限" class="headerlink" title="コンテンツスループットの制限"></a>コンテンツスループットの制限</h2><p>コンテンツスループットとは、フロー内の各アクションを実行後の入力および出力のデータサイズを指しております。<br><br>よって本制限は、フローの各実行において、単位時間に処理できるアクションで取り扱う情報量の制限となります。</p>
-<p>例えば、フロー内で SharePoint コネクタの「項目の取得」アクションが使用された場合、<br><br>実行履歴に表示される入力 (SharePoint に対して送信されたアドレスやリスト名など) と出力 (SharePoint から取得した項目の詳細情報) のデータサイズがカウントされます。<br><br>フロー毎に、全てのアクションをカウントした合計サイズによる制限となります。</p>
+<h2 id="コンテンツスループットの制限"><a href="#コンテンツスループットの制限" class="headerlink" title="コンテンツスループットの制限"></a>コンテンツスループットの制限</h2><p>コンテンツスループットとは、フロー内の各アクションを実行後の入力および出力のデータサイズを指しております。<br>よって本制限は、フローの各実行において、単位時間に処理できるアクションで取り扱う情報量の制限となります。</p>
+<p>例えば、フロー内で SharePoint コネクタの「項目の取得」アクションが使用された場合、<br>実行履歴に表示される入力 (SharePoint に対して送信されたアドレスやリスト名など) と出力 (SharePoint から取得した項目の詳細情報) のデータサイズがカウントされます。<br>フロー毎に、全てのアクションをカウントした合計サイズによる制限となります。</p>
 <p>継続した5分、または24時間におけるフローごとに制限対象となります。</p>
 <p>制限に抵触すると、フローが低速実行（スロットリング状態）となります。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br><br>同時に実行する数を制限することで、制限時間内の実行数を削減し、制限への抵触を回避いただけます。<br><br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、制限時間内の実行数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
 <blockquote>
 <p>[!Note]<br>低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p>
 </blockquote>
 <p><a id='anchor-request-limits'></a></p>
-<h1 id="要求の制限"><a href="#要求の制限" class="headerlink" title="要求の制限"></a>要求の制限</h1><p>HTTP要求の制限になります。<br><br>フロー実行では各アクションの中でHTTP要求を実行し、処理を行っております。<br><br>要求の制限は、各HTTP要求を実行するときにチェックされる制限でございます。</p>
+<h1 id="要求の制限"><a href="#要求の制限" class="headerlink" title="要求の制限"></a>要求の制限</h1><p>HTTP要求の制限になります。<br>フロー実行では各アクションの中でHTTP要求を実行し、処理を行っております。<br>要求の制限は、各HTTP要求を実行するときにチェックされる制限でございます。</p>
 <p><a id='anchor-timeout'></a></p>
-<h2 id="タイムアウトの制限"><a href="#タイムアウトの制限" class="headerlink" title="タイムアウトの制限"></a>タイムアウトの制限</h2><p>この項目ではタイムアウトとなる制限をご紹介します。<br><br>制限に抵触した場合、フローの実行が失敗します。<br></p>
-<p>下記3種類の制限がございます。<br></p>
+<h2 id="タイムアウトの制限"><a href="#タイムアウトの制限" class="headerlink" title="タイムアウトの制限"></a>タイムアウトの制限</h2><p>この項目ではタイムアウトとなる制限をご紹介します。<br>制限に抵触した場合、フローの実行が失敗します。  </p>
+<p>下記3種類の制限がございます。  </p>
 <ul>
 <li>送信同期要求</li>
 <li>送信非同期要求</li>
 <li>受信要求</li>
 </ul>
-<div class="alert is-important"><p class="alert-title">重要</p><p>サービス保護の制限のため、いずれの制限にも緩和策はございません。</p><p></p><p>タイムアウトの制限は緩和できない＝タイムアウトまでの時間を延ばすことはできないものとなっております。</p></div>
+<div class="alert is-important"><p class="alert-title">重要</p><p>サービス保護の制限のため、いずれの制限にも緩和策はございません。</p><p>タイムアウトの制限は緩和できない＝タイムアウトまでの時間を延ばすことはできないものとなっております。</p></div>
 <p><a id='anchor-outbound-synchronous-request'></a></p>
-<h3 id="送信同期要求"><a href="#送信同期要求" class="headerlink" title="送信同期要求"></a>送信同期要求</h3><p>フロー内の同期処理の待ち時間となります。<br><br>リクエストを投げてから待ち時間以内に応答がない場合、制限に抵触します。<br><br>INSERTやGET要求などAPIごとに制限対象となります。</p>
+<h3 id="送信同期要求"><a href="#送信同期要求" class="headerlink" title="送信同期要求"></a>送信同期要求</h3><p>フロー内の同期処理の待ち時間となります。<br>リクエストを投げてから待ち時間以内に応答がない場合、制限に抵触します。<br>INSERTやGET要求などAPIごとに制限対象となります。</p>
 <p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>例えば、DataverseやSQLテーブルの読み取りや書き込み時などが挙げられます。<br><br>テーブルに対する各操作をリクエストし、待ち時間以内に操作が完了せず、応答がない場合、フローの実行が失敗します。</p>
+<p>例えば、DataverseやSQLテーブルの読み取りや書き込み時などが挙げられます。<br>テーブルに対する各操作をリクエストし、待ち時間以内に操作が完了せず、応答がない場合、フローの実行が失敗します。</p>
 <p><a id='anchor-outbound-asynchronous-request'></a></p>
-<h3 id="送信非同期要求"><a href="#送信非同期要求" class="headerlink" title="送信非同期要求"></a>送信非同期要求</h3><p>アクションで実行されるHTTP要求（またはAPI）の非同期処理の待ち時間となります。<br><br>実行しているアクションごとでの時間となります。</p>
-<p>例えば、承認アクションなどが挙げられます。<br><br>承認コネクタを通じて、承認リクエストを投げると、承認者からの承認完了を待ちます。</p>
+<h3 id="送信非同期要求"><a href="#送信非同期要求" class="headerlink" title="送信非同期要求"></a>送信非同期要求</h3><p>アクションで実行されるHTTP要求（またはAPI）の非同期処理の待ち時間となります。<br>実行しているアクションごとでの時間となります。</p>
+<p>例えば、承認アクションなどが挙げられます。<br>承認コネクタを通じて、承認リクエストを投げると、承認者からの承認完了を待ちます。</p>
 <p>制限に抵触した場合（＝待ち時間以内に承認完了の応答がない場合）、フローの実行は失敗します。</p>
 <div class="alert is-important"><p class="alert-title">重要</p><p>制限の回避策はございません。</p></div>
 <p><a id='anchor-inbound-request'></a></p>
-<h3 id="受信要求"><a href="#受信要求" class="headerlink" title="受信要求"></a>受信要求</h3><p>応答アクションがフロー内で使用されている場合、受信要求120秒の制限が適用される場合がございます。<br><br>当制限は制限された時間のみ受信要求を待機する動作となります。</p>
+<h3 id="受信要求"><a href="#受信要求" class="headerlink" title="受信要求"></a>受信要求</h3><p>応答アクションがフロー内で使用されている場合、受信要求120秒の制限が適用される場合がございます。<br>当制限は制限された時間のみ受信要求を待機する動作となります。</p>
 <p>フロー実行単位での制限となります。</p>
 <p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>フローの実行開始からカウントし、受信要求の120秒を超えて、応答アクションを実行できない場合、<br>応答アクションで設定したレスポンスではなく、504 Bad Gateway Timeoutを返します。<br><br>応答アクションが使用されていないフローの場合は、呼び出し元にすぐに202 Acceptedを返します。</p>
+<p>フローの実行開始からカウントし、受信要求の120秒を超えて、応答アクションを実行できない場合、<br>応答アクションで設定したレスポンスではなく、504 Bad Gateway Timeoutを返します。<br>応答アクションが使用されていないフローの場合は、呼び出し元にすぐに202 Acceptedを返します。</p>
 <p>例えば、下記のような構成のフローがございます。</p>
 <ul>
 <li>「Power Apps がフローを呼び出したとき (V2)」トリガー</li>
 <li>トリガーに続いて、いくつかのアクション</li>
 <li>最後に「Power App またはフローに応答する」アクション</li>
 </ul>
-<p>上記フローはPower Appsキャンバスアプリから対象クラウドフローが呼び出され、「Power App またはフローに応答する」アクションによってそのフローからアプリに応答を返します。<br><br>トリガーと「Power App またはフローに応答する」アクションまでの間に、多くのアクションが設定されている場合、「Power App またはフローに応答する」アクションが実行されるまでに時間がかかることが想定されます。<br><br>トリガーが発動してから、「Power App またはフローに応答する」アクションを実行するまでに120秒を超える場合、制限に抵触いたします。</p>
-<p>回避策としては、「Power App またはフローに応答する」アクション前までのアクションを子フローとして実行します。<br><br>子フローでの実行時間は待機時間にカウントされないため、制限対象の時間の短縮が可能でございます。</p>
+<p>上記フローはPower Appsキャンバスアプリから対象クラウドフローが呼び出され、「Power App またはフローに応答する」アクションによってそのフローからアプリに応答を返します。<br>トリガーと「Power App またはフローに応答する」アクションまでの間に、多くのアクションが設定されている場合、「Power App またはフローに応答する」アクションが実行されるまでに時間がかかることが想定されます。<br>トリガーが発動してから、「Power App またはフローに応答する」アクションを実行するまでに120秒を超える場合、制限に抵触いたします。</p>
+<p>回避策としては、「Power App またはフローに応答する」アクション前までのアクションを子フローとして実行します。<br>子フローでの実行時間は待機時間にカウントされないため、制限対象の時間の短縮が可能でございます。</p>
 <p><a id='anchor-message-size'></a></p>
 <h2 id="メッセージサイズの制限"><a href="#メッセージサイズの制限" class="headerlink" title="メッセージサイズの制限"></a>メッセージサイズの制限</h2><p>1つのアクションでの、 HTTP要求可能なメッセージサイズの制限になります。</p>
-<p>この制限に抵触した場合、フロー実行が失敗します。<br><br>下記のようなメッセージと共にエラーが発生します。<br></p>
+<p>この制限に抵触した場合、フロー実行が失敗します。<br>下記のようなメッセージと共にエラーが発生します。  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTP 要求に失敗しました: &#x27;Cannot write more bytes to the buffer than the configured maximum buffer size: 104857600.&#x27;</span><br></pre></td></tr></table></figure>
 
-<p>回避策としては、アクションで処理するデータサイズを小さくします。<br><br>よりサイズが小さいデータを対象にアクションを設定ください。</p>
-<p>緩和策として、通常は100MBまでとなりますが、下記条件を満たす場合、この制限は1GBとなります。<br><br>・アクションがチャンクをサポートしている<br>・アクションの設定でチャンクを許可している</p>
+<p>回避策としては、アクションで処理するデータサイズを小さくします。<br>よりサイズが小さいデータを対象にアクションを設定ください。</p>
+<p>緩和策として、通常は100MBまでとなりますが、下記条件を満たす場合、この制限は1GBとなります。<br>・アクションがチャンクをサポートしている<br>・アクションの設定でチャンクを許可している</p>
 <p><img src="/blog/powerautomate/cloudflow-limits/message-size-with-chunking.png"></p>
 <p><a id='anchor-retry-policy'></a></p>
-<h2 id="再試行ポリシー"><a href="#再試行ポリシー" class="headerlink" title="再試行ポリシー"></a>再試行ポリシー</h2><p>フローが失敗した場合の再試行数の制限になります。<br><br>上限以上の設定は不可となり、フローが保存できません。</p>
-<p>再試行ポリシーに「指数の間隔」を設定しますと、設定された最小間隔、最大間隔の間でランダムに再試行が行われます。<br><br>例えば、「間隔」に “PT7S”＝7秒と設定した場合、7秒に指数をかけて、以下のように最小間隔と最大間隔を算出します。</p>
+<h2 id="再試行ポリシー"><a href="#再試行ポリシー" class="headerlink" title="再試行ポリシー"></a>再試行ポリシー</h2><p>フローが失敗した場合の再試行数の制限になります。<br>上限以上の設定は不可となり、フローが保存できません。</p>
+<p>再試行ポリシーに「指数の間隔」を設定しますと、設定された最小間隔、最大間隔の間でランダムに再試行が行われます。<br>例えば、「間隔」に “PT7S”＝7秒と設定した場合、7秒に指数をかけて、以下のように最小間隔と最大間隔を算出します。</p>
 <p>最小間隔　～　最大間隔</p>
 <ul>
 <li>1回目0秒　～7秒（7×0～7×1）</li>
@@ -268,13 +268,13 @@
 <li>6回目112秒　～224秒（7×16～7×32）</li>
 <li>7回目224秒　～448秒（7×32～7×64）</li>
 </ul>
-<p>算出された、最小間隔から最大間隔の間のどこかで、処理が再試行されます。<br><br>「最小間隔」「最大間隔」はオプション項目となり、設定しない場合は既定値で動作いたします。</p>
-<p>「最小間隔」は、再試行させたい最小の間隔を設定します。「5秒」と設定しますと<br><br>再試行間隔は「間隔」から算出された最小間隔に関わらず、前の実行から5秒経過後となります。</p>
-<p>「最大間隔」は、再試行させたい最大の間隔を設定します。<br><br>「1日」と設定しますと、「間隔」から算出された最大間隔に関わらず、1日以内に再試行されます。<br><br>「1時間」と設定しますと1時間以内に再試行されます。</p>
-<p>下記公開情報もご参照ください。<br><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval">指数間隔の再試行ポリシー</a></p>
+<p>算出された、最小間隔から最大間隔の間のどこかで、処理が再試行されます。<br>「最小間隔」「最大間隔」はオプション項目となり、設定しない場合は既定値で動作いたします。</p>
+<p>「最小間隔」は、再試行させたい最小の間隔を設定します。「5秒」と設定しますと<br>再試行間隔は「間隔」から算出された最小間隔に関わらず、前の実行から5秒経過後となります。</p>
+<p>「最大間隔」は、再試行させたい最大の間隔を設定します。<br>「1日」と設定しますと、「間隔」から算出された最大間隔に関わらず、1日以内に再試行されます。<br>「1時間」と設定しますと1時間以内に再試行されます。</p>
+<p>下記公開情報もご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval">指数間隔の再試行ポリシー</a></p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>再試行ポリシーの間隔、最小間隔、最大間隔は「ISO 8601」という形式を利用して設定します。</p>
-<p>継続時間ということを表すため、「P」を先頭につけます。</p><p></p><p>時分秒を設定する時は「P」＋「T」＋数字＋「時分秒」という形で記載します。</p><p></p><p>例）</p><p></p><p>1時間　→PT1H</p><p></p><p>2時間　→PT2H</p><p></p><p>15分　→PT15M</p><p></p><p>30秒　→PT30S</p><p></p>
-<p>日を設定する時は、「P」＋数字＋「D」という形で記載します。</p><p></p><p>例）</p><p></p><p>1日　→P1D</p></div>
+<p>継続時間ということを表すため、「P」を先頭につけます。</p><p>時分秒を設定する時は「P」＋「T」＋数字＋「時分秒」という形で記載します。</p><p>例）</p><p>1時間　→PT1H</p><p>2時間　→PT2H</p><p>15分　→PT15M</p><p>30秒　→PT30S  </p>
+<p>日を設定する時は、「P」＋数字＋「D」という形で記載します。</p><p>例）</p><p>1日　→P1D</p></div>
 <p><a id='anchor-summary-list'></a></p>
 <h1 id="制限対象単位と制限抵触時の動作まとめ"><a href="#制限対象単位と制限抵触時の動作まとめ" class="headerlink" title="制限対象単位と制限抵触時の動作まとめ"></a>制限対象単位と制限抵触時の動作まとめ</h1><table>
 <thead>
@@ -436,7 +436,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
     </div>
   </div>
 
