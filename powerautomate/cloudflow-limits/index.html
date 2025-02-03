@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/read-calls-per-5-minutes.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/message-size-with-chunking.png">
 <meta property="article:published_time" content="2025-01-30T15:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-03T01:01:29.523Z">
+<meta property="article:modified_time" content="2025-02-03T04:45:51.502Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
@@ -110,7 +110,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3392a8b7-127c-596b-9a8b-52118505bb41%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fcloudflow-limits%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fcloudflow-limits.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2Fcloudflow-limits.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cm6oci5ei00cl0nqp6qoz8xcj" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cm6okios600cl0nprdsvfh6tx" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -211,9 +211,7 @@
 <p>制限に抵触すると、フローが低速実行（スロットリング状態）となります。</p>
 <p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、制限時間内の実行数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
-<blockquote>
-<p>[!Note]<br>低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p>
-</blockquote>
+<div class="alert is-info"><p class="alert-title">Note</p><p>低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p></div>
 <p><a id='anchor-request-limits'></a></p>
 <h1 id="要求の制限"><a href="#要求の制限" class="headerlink" title="要求の制限"></a>要求の制限</h1><p>HTTP要求の制限になります。<br>フロー実行では各アクションの中でHTTP要求を実行し、処理を行っております。<br>要求の制限は、各HTTP要求を実行するときにチェックされる制限でございます。</p>
 <p><a id='anchor-timeout'></a></p>
@@ -366,11 +364,11 @@
     
 <nav id="article-nav">
   
-    <a href="../power-automate-ppr/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../powerplatform/EmailEnableAutmation/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Power Automate / Power Platform 要求数制限
+          メールボックスの承認・テストと有効化の自動化について
         
       </div>
     </a>
@@ -397,11 +395,11 @@
       <ul>
         
           <li>
-            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+            <a href="../power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
           </li>
         
           <li>
-            <a href="../power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
+            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
           </li>
         
           <li>
