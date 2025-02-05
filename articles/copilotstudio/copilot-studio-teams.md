@@ -38,6 +38,7 @@ tags:
 そのため、一部 Teams 管理センターにアクセスできる権限がある管理者にてご実行いただく必要がある操作もございますので、ご留意ください。  
 
 > [!NOTE]
+> <Teams管理者様がご確認ください>  
 > Teams 管理センターでアクセス許可ポリシーを設定している場合、事前にカスタムアプリのアクセスを許可するようポリシーを設定する必要がございます。  
 > 本記事執筆時点で、アクセス許可ポリシーからアプリ中心の管理への移行が推奨されておりますので、本記事では詳細は割愛します。  
 > アクセス許可ポリシーの設定方法等については下記の公開情報をご参照ください。  
@@ -45,6 +46,9 @@ tags:
 
 
 # 2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する
+![](./copilot-studio-teams/web_copilot_studio_overview.png)  
+
+※Dataverse for Teams 環境のボットをWeb版で作成することはサポートされていません。  
 
 ## 2-1. エージェントを公開する
   エージェントを作成、編集した場合、そのエージェントを他の人が使えるようにするため、まずは公開する必要があります。  
@@ -58,23 +62,31 @@ tags:
   作成したエージェントを、他のユーザーが利用できるようにします。  
   他のユーザーとエージェントを共有するには 2 つの方法がございます。  
    1. セキュリティグループ、組織に利用者として共有する（エージェントと会話するユーザーとして）（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-chat)）
+      > [!NOTE]  
+      > <Power Platform 管理者様がご確認ください>  
+      > 利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。  
+      > また、セキュリティロールを割り当てる必要もありません。  
+      > ただし、エージェントを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。  
+      > 一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、セキュリティロールを割り当てる必要はありません。  
+   
    2. ユーザーに共同編集者として共有する（エージェントと会話、およびエージェントを編集、管理するユーザーとして）（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-collaborative-authoring)）  
+      > [!NOTE]  
+      > <Power Platform 管理者様がご確認ください>  
+      > 協働編集者としてエージェントを共有する場合、共有先のユーザーは環境のメンバーであり、環境作成者以上のセキュリティロールを持っている必要があります。  
+      > 詳細については下記の公開情報をご参照ください。  
+      > [他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#insufficient-environment-permissions)
   
-  > [!NOTE]  
-  > 利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。  
-  > また、セキュリティロールを割り当てる必要もありません。  
-  > ただし、エージェントを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。  
-  > 一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、セキュリティロールを割り当てる必要はありません。
-
 ## 2-3. Teamsチャネルに接続する
   次に、公開したエージェントを Teams で使えるようにするため、Teams チャネルと接続します。  
 
   > [!IMPORTANT]
+  > <Teams管理者様がご確認ください>  
   > Teams でエージェントを利用するためには、Teams 管理センターからカスタムアプリの使用を許可する必要があります。  
   > 具体的な設定方法は下記の公開情報をご参照ください。    
   > [Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する - Microsoft Teams | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)  
 
   > [!NOTE]  
+  > <Power Platform 管理者様がご確認ください>  
   > Power Platform 管理センターより Teams チャネルへの接続を許可するよう DLP を設定しておく必要があります。  
   > 下記の「Microsoft Teams + M365 Channel in Copilot Studio」のコネクタを許可してください。  
   > ![](./copilot-studio-teams/DLP_teams_m365_channel.png)  
@@ -96,11 +108,12 @@ tags:
   ![](./copilot-studio-teams/teams_agent_add.png)    
   
   「追加」を選択することで、Teams でエージェントを利用することが可能になります。
-  ここまでの操作で、自分（作成者）だけが Teams で該当エージェントを使える状態となります。
+  ここまでの操作で、編集権限を持つユーザーだけが Teams で該当エージェントを使える状態となります。
 
   > [!WARNING]  
   > Teams 管理センターの設定が適切に行われていない場合、下画像のようなエラーが表示されることがあります。  
   > ![](./copilot-studio-teams/error_not_found.png)  
+  > <Teams管理者様がご確認ください>  
   > Teams 管理センターの設定をご確認ください。  
   > 具体的な設定方法は下記の公開情報をご参照ください。    
   > [Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する - Microsoft Teams | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)  
@@ -122,7 +135,7 @@ tags:
 
 ### 2-4-1. リンクの共有
   まず、リンクの共有によって共有する方法です。  
-  この方法は事前に共有先ユーザーに、エージェント自体を共有しておく必要があります。  
+  この方法は事前に共有したいユーザーを入れたセキュリティグループに、エージェント自体を共有しておく必要があります。  
   共有の方法については [2-2 項](#2-2-他のユーザーと共有する) をご参照ください。  
   
   下記の画面で「リンクのコピー」を選択します。  
@@ -142,7 +155,9 @@ tags:
   > [2-2 項](#2-2-他のユーザーと共有する) をご参照のうえ、適切にエージェントが共有されいているかご確認ください。  
 
 ### 2-4-2. Teamsアプリストアに公開する
-  次に、Teams アプリストアに公開する方法です。
+  次に、Teams アプリストアに公開する方法です。  
+  ※Teams チャネルに接続して公開する場合、Azure AD 認証 (Entra ID 認証) を利用していないとTeamsアプリストアに表示できません。  
+  
   Teams アプリストアに公開するには下記の二つの公開範囲別の方法があります。  
   ご要件の公開範囲に応じた設定を行ってください。  
 
@@ -188,6 +203,12 @@ tags:
 
 
 # 3. Teams 版 Copilot Studio で作成したエージェントを Teams で利用する
+![](./copilot-studio-teams/teams_copilot_studio_overview.png)  
+
+> [!NOTE]  
+> Dataverse for Teams 環境にCopilotを作成します。  
+> [Dataverse for Teams 環境の管理方法 | Japan Dynamics CRM & Power Platform Support Blog](https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/)  
+> ※作成されるのはクラシックボットで、Web版で作成されるボットと機能が異なります。  
 
 ## 3-1. エージェントを公開する
   エージェントを作成、編集した場合、そのエージェントを他の人が使えるようにするため、まずは公開する必要があります。  
@@ -204,13 +225,14 @@ tags:
   [他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=teams)  
 
   > [!NOTE]  
+  > <Power Platform 管理者様がご確認ください>  
   > 利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。  
   > また、セキュリティロールを割り当てる必要もありません。  
-  > ただし、エージェントを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。  
+  > ただし、エージェントのナレッジソースを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。  
   > 一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、セキュリティロールを割り当てる必要はありません。
 
 ## 3-3. 他のユーザーが Teams でエージェントを利用する
-  Web 版 Copilot Studio でエージェントを公開した直後や、下記の画面で「このエージェントの試用を他のユーザーに許可する」を選択すると、次の画面が表示されます。  
+  Web 版 Copilot Studio でエージェントを公開した直後や、下記の画面で「このエージェントの使用を他のユーザーに許可する」を選択すると、次の画面が表示されます。  
   ![](./copilot-studio-teams/teams_agent_allow_setting.png)  
   
   [2-4 項](#2-4-他のユーザーが-teams-でエージェントを利用する)で説明した画面と同様の画面となります。  
