@@ -67,12 +67,12 @@ tags:
       > 利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。  
       > また、セキュリティロールを割り当てる必要もありません。  
       > ただし、エージェントを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。  
-      > 一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、セキュリティロールを割り当てる必要はありません。  
+      > 一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、アクセス権限やセキュリティロールを割り当てる必要はありません。  
    
    2. ユーザーに共同編集者として共有する（エージェントと会話、およびエージェントを編集、管理するユーザーとして）（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-collaborative-authoring)）  
       > [!NOTE]  
       > <Power Platform 管理者様がご確認ください>  
-      > 協働編集者としてエージェントを共有する場合、共有先のユーザーは環境のメンバーであり、環境作成者以上のセキュリティロールを持っている必要があります。  
+      > 共同編集者としてエージェントを共有する場合、共有先のユーザーは環境のメンバーであり、環境作成者以上のセキュリティロールを持っている必要があります。  
       > 詳細については下記の公開情報をご参照ください。  
       > [他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#insufficient-environment-permissions)
   
