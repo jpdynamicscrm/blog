@@ -71,7 +71,7 @@ Power Platform も Azure サービスに属しているため、例として Azu
 Azure 仮想ネットワークのプライベートネットワークからのみアクセスを受け付けているリソースに接続する場合、以下のような**アクセス対象のデータソースと通信可能な端末**を用意頂き、その端末にオンプレミス データ ゲートウェイをインストールする必要があります。  
 * Azure 仮想マシンにAzure 仮想ネットワークに属する NIC を構成する  
 ![](./Connect-private-datasource/image01.png)
-* Azure 仮想ネットワークと接続可能な Express Route をご利用頂く  
+* お客様ネットワーク上にある端末を利用される場合、Azure 仮想ネットワークと接続可能な Express Route をご利用頂く  
 ![](./Connect-private-datasource/image03.png)
   
 ご利用頂くにあたり、以下の注意点があります。  
@@ -86,12 +86,12 @@ Azure 仮想ネットワークのプライベートネットワークからの�
 * オンプレミス データ ゲートウェイ用に端末を用意する必要があります。  
 * オンプレミス データ ゲートウェイやインストールされた端末自体のバージョン維持等のメンテナンスが必要です。  
 
-2025年1月現在では、以下のコネクタがオンプレミス データ ゲートウェイに対応しています。  
+以下のコネクタがオンプレミス データ ゲートウェイに対応しています。  
 [サポートされるデータ ソース](https://learn.microsoft.com/ja-jp/azure/logic-apps/connect-on-premises-data-sources?WT.mc_id=Portal-Microsoft_Azure_EMA#supported-data-sources)  
 
 > [!WARNING]
 > [Azure Blob Storage コネクタ](https://learn.microsoft.com/ja-jp/connectors/azureblobconnector/)は、接続作成画面上オンプレミス データ ゲートウェイの選択項目が表示されますが、オンプレミス データ ゲートウェイには対応しておりません。
-> 2025年1月現在「誤ったオプションである」旨が公開情報にも明記されていますのでご注意ください。
+> 「誤ったオプションである」旨が公開情報にも明記されていますのでご注意ください。
   
 <!--------------------------------------------------------->
 <a id='anchor-about-vndg'></a>
@@ -120,7 +120,7 @@ VNET for Power Platform は、Power Platform の環境をネットワーク委�
 > [Virtual Network のサポートの概要](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#supported-services)  
   
 オンプレミス データ ゲートウェイと比較し、以下のような差異があります。  
-* 2024年12月現在、オンプレミス データ ゲートウェイには対応していない Azure Blob Storage コネクタに対応しています。  
+* オンプレミス データ ゲートウェイには対応していない Azure Blob Storage コネクタに対応しています。  
 * カスタムコネクタや HTTP with Microsoft Entra ID コネクタに対応しているため、Azure OpenAI 等をはじめ Azure 仮想ネットワークに対応しているサービス上に公開された API があればご利用頂く事が可能です。  
 * 接続作成において特別な設定は不要です。  
 * 端末やオンプレミス データ ゲートウェイのバージョン維持をはじめとしたメンテナンスは不要です。  
