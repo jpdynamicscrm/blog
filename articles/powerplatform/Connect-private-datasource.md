@@ -19,8 +19,8 @@ tags:
 ## 目次
   
 1. [はじめに](#anchor-begin)
-2. [オンプレミスデータゲートウェイとは？](#anchor-about-opdg)
-3. [仮想ネットワークデータゲートウェイとは？](#anchor-about-vndg)
+2. [オンプレミス データ ゲートウェイとは？](#anchor-about-opdg)
+3. [仮想ネットワーク データ ゲートウェイとは？](#anchor-about-vndg)
 4. [VNET for Power Platform とは？](#anchor-about-vnet)
 5. [機能の比較](#anchor-diff)
 6. [おわりに](#anchor-finish)
@@ -40,41 +40,62 @@ Power Platform も Azure サービスに属しているため、例として Azu
 > 以下、機械翻訳での抜粋  
 > データセンター間の Azure トラフィックはネットワーク上にとどまり、インターネット経由では流れません。これには、世界中の Microsoft サービス間のすべてのトラフィックが含まれます。たとえば、Azure 内では、仮想マシン、ストレージ、SQL 通信間のトラフィックは、送信元と宛先のリージョンに関係なく、Microsoft ネットワークのみを経由します。  
   
-ご要件によってデータソースが Azure 仮想ネットワーク内にのみ公開されている必要がある、といった場合のために、それらのデータソースに対応頂くための手段として Power Platform では以下の機能が提供されています。  
-- オンプレミスデータゲートウェイ  
-- 仮想ネットワークデータゲートウェイ  
+ご利用の要件によってデータソースが Azure 仮想ネットワーク内にのみ公開されている必要がある、といった場合のために、それらのデータソースに対応頂くための手段として Power Platform では以下の機能が提供されています。  
+- オンプレミス データ ゲートウェイ  
+- 仮想ネットワーク データ ゲートウェイ  
 - VNET for Power Platform  
   
 この記事では、これらの機能について比較したいと思います。  
   
 <!--------------------------------------------------------->
 <a id='anchor-about-opdg'></a>
-## 2. オンプレミスデータゲートウェイとは？  
+## 2. オンプレミス データ ゲートウェイとは？  
 [オンプレミス データ ゲートウェイとは](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem)  
+
+簡単に説明すると…
+1. Power Platfrom は Azure Relay に向けリクエストを行います。  
+1. オンプレミス データ ゲートウェイがインストールされた端末は Azure Relay に未処理のリクエストがあるか確認します。  
+1. オンプレミス データ ゲートウェイがインストールされた端末からデータソースへデータのリクエストを行います。  
+1. オンプレミス データ ゲートウェイがインストールされた端末がデータソースからデータを取得します。  
+1. 応答は Azure Relay 経由で Power Platform へ返信します。  
   
-Power Platfrom の接続からリクエストされたデータの取得は Azure Relay を介し、ゲートウェイがインストールされた端末からのリクエストによりセッションを確立し、端末からデータソースへデータのリクエストを行い、応答を受け取り、Power Platform へ返送します。  
-[オンプレミスデータゲートウェイのしくみ](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem-indepth#how-the-gateway-works)  
+![](./Connect-private-datasource/image04.png)
+
+上記の図にもあるように、オンプレミス データ ゲートウェイがインストールされた端末から見ると Azure Relay に対して発信リクエストのみ行い通信を確立するため、外部から端末向けの、いわゆるインバウンドのポート解放は不要となっています。  
+[オンプレミス データ ゲートウェイのしくみ](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem-indepth#how-the-gateway-works)  
   
 > [!NOTE]  
-> 主にオンプレミス環境上に存在するデータを操作する際に用いられます。  
+> 主にオンプレミス環境(お客様の建屋等のネットワーク)上に存在するデータを操作する際に用いられます。  
 > 関連記事：[クラウド フローとオンプレミス環境間でデータ連携する方法](https://jpdynamicscrm.github.io/blog/powerautomate/gateway-install/)  
   
-Azure 仮想ネットワークのプライベートネットワークに属するリソースに接続する場合 Azure 仮想マシンに該当プライベートネットワークに属する NIC を構成する等**プライベートネットワークに存在するデータソースと通信可能な端末**を用意頂き、その端末にオンプレミスデータゲートウェイをインストールする必要があります。  
+Azure 仮想ネットワークのプライベートネットワークからのみアクセスを受け付けているリソースに接続する場合、以下のような**アクセス対象のデータソースと通信可能な端末**を用意頂き、その端末にオンプレミス データ ゲートウェイをインストールする必要があります。  
+* Azure 仮想マシンにAzure 仮想ネットワークに属する NIC を構成する  
 ![](./Connect-private-datasource/image01.png)
+* Azure 仮想ネットワークと接続可能な Express Route をご利用頂く  
+![](./Connect-private-datasource/image03.png)
   
 ご利用頂くにあたり、以下の注意点があります。  
 * インストールされた端末がシャットダウン状態だと動作しません。  
-* 環境と同じリージョンにゲートウェイを構成頂く必要があります。  
+* 環境と同じリージョンにオンプレミス データ ゲートウェイを構成頂く必要があります。  
+* オンプレミス データ ゲートウェイのインストールにあたってはプレミアムライセンスは必須ではありませんが、Power Apps や Power Automate で利用する際にはプレミアムライセンスが必要です。  
+* Azure Relay ～ Power Platform コネクタの間は閉域化できず弊社ネットワーク内での通信となるため、全経路を閉域化することはできません。 
   
 また、後述の VNET for Power Platform と比較し、以下のような差異があります。  
-* 接続単位でオンプレミスデータゲートウェイの利用可否を指定することが可能です。  
-* 接続毎にゲートウェイを利用する設定で接続を作成していただく必要があります。  
-* オンプレミスデータゲートウェイ用に端末を用意する必要があります。  
-* オンプレミスデータゲートウェイやインストールされた端末自体のバージョン維持等のメンテナンスが必要です。  
+* 接続単位でオンプレミス データ ゲートウェイの利用可否を指定することが可能です。  
+* 接続毎にオンプレミス データ ゲートウェイを利用する設定で接続を作成していただく必要があります。  
+* オンプレミス データ ゲートウェイ用に端末を用意する必要があります。  
+* オンプレミス データ ゲートウェイやインストールされた端末自体のバージョン維持等のメンテナンスが必要です。  
+
+2025年1月現在では、以下のコネクタがオンプレミス データ ゲートウェイに対応しています。  
+[サポートされるデータ ソース](https://learn.microsoft.com/ja-jp/azure/logic-apps/connect-on-premises-data-sources?WT.mc_id=Portal-Microsoft_Azure_EMA#supported-data-sources)  
+
+> [!WARNING]
+> [Azure Blob Storage コネクタ](https://learn.microsoft.com/ja-jp/connectors/azureblobconnector/)は、接続作成画面上オンプレミス データ ゲートウェイの選択項目が表示されますが、オンプレミス データ ゲートウェイには対応しておりません。
+> 2025年1月現在「誤ったオプションである」旨が公開情報にも明記されていますのでご注意ください。
   
 <!--------------------------------------------------------->
 <a id='anchor-about-vndg'></a>
-## 3. 仮想ネットワークデータゲートウェイとは？  
+## 3. 仮想ネットワーク データ ゲートウェイとは？  
 [仮想ネットワーク (VNet) データ ゲートウェイとは](https://learn.microsoft.com/en-us/data-integration/vnet/overview)  
   
 仮想ネットワーク (VNet) データ ゲートウェイは、Microsoft Fabric(旧 Power BI) や Power Platfrom のデータフローを Azure 仮想ネットワークへ接続するために利用されます。  
@@ -92,16 +113,18 @@ VNET for Power Platform は、Power Platform の環境をネットワーク委�
 ![](./Connect-private-datasource/image02.png)
   
 当機能に対応しているコネクタはすべて仮想ネットワーク経由でのリクエストを行います。  
+対応コネクタに限りますが、完全に Azure 仮想ネットワーク内にて完全閉域化が可能です。 
+   
 > [!NOTE]  
 > VNET for Power Platform に対応しているコネクタの一覧は、公開情報をご参照ください。  
 > [Virtual Network のサポートの概要](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#supported-services)  
   
-オンプレミスデータゲートウェイと比較し、以下のような差異があります。  
-* 2024年12月現在、オンプレミスデータゲートウェイには対応していない Azure Blob Storage コネクタに対応しています。  
+オンプレミス データ ゲートウェイと比較し、以下のような差異があります。  
+* 2024年12月現在、オンプレミス データ ゲートウェイには対応していない Azure Blob Storage コネクタに対応しています。  
 * カスタムコネクタや HTTP with Microsoft Entra ID コネクタに対応しているため、Azure OpenAI 等をはじめ Azure 仮想ネットワークに対応しているサービス上に公開された API があればご利用頂く事が可能です。  
 * 接続作成において特別な設定は不要です。  
-* 端末やオンプレミスデータゲートウェイのバージョン維持をはじめとしたメンテナンスは不要です。  
-* VNET にネットワーク委任をする Power Platform 環境はマネージド環境である必要があります。<br />※ マネージド環境を利用するユーザーはプレミアムライセンスが割り当てられている必要があります。  
+* 端末やオンプレミス データ ゲートウェイのバージョン維持をはじめとしたメンテナンスは不要です。  
+* VNET にネットワーク委任をする Power Platform 環境はマネージド環境である必要があります。<br />※マネージド環境を利用するユーザーはプレミアムライセンスが割り当てられている必要があります。 
   
 <!--------------------------------------------------------->
 <a id='anchor-diff'></a>
@@ -118,33 +141,37 @@ VNET for Power Platform は、Power Platform の環境をネットワーク委�
     <th>対象</th>
     <th>マネージド環境</th>
     <th>ゲートウェイ端末</th>
+    <th>完全閉域化</th>
   </tr>
   <tr>
-    <td>オンプレミスデータゲートウェイ</td>
+    <td>オンプレミス<br />データ ゲートウェイ</td>
     <td>Power Platform コネクタ</td>
-    <td>明示的に指定した接続のみ</td>
+    <td>指定した接続のみ</td>
     <td>不要</td>
     <td><b>必要</b></td>
+    <td>不可</td>
   </tr>
   <tr>
-    <td>仮想ネットワークデータゲートウェイ</td>
-    <td>データフロー、Microsoft Fabric</td>
-    <td>明示的に指定した接続のみ</td>
+    <td>仮想ネットワーク<br />データ ゲートウェイ</td>
+    <td><b>データフロー<br />Microsoft Fabric</b></td>
+    <td>指定した接続のみ</td>
     <td>不要</td>
     <td>不要</td>
+    <td>—</td>
   </tr>
   <tr>
     <td>VNET for Power Platform</td>
     <td>Power Platform コネクタ</td>
-    <td>環境内すべての対応コネクタによる通信</td>
+    <td><b>環境内の対応コネクタ<br />すべて</b></td>
     <td><b>必要</b></td>
     <td>不要</td>
+    <td><b>可能</b></td>
   </tr>
-</table>
-  
+</table>  
+
 <!--------------------------------------------------------->
 <a id='anchor-finish'></a>
-## 6. おわりに
+## 6. おわりに  
 当記事に関連した公開情報を掲載させていただきます。  
 [マイクロソフトは高速で信頼性の高いグローバル ネットワークをどのように構築しているのか (microsoft.com)](https://azure.microsoft.com/en-us/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)  
 [オンプレミス データ ゲートウェイとは](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem)  
