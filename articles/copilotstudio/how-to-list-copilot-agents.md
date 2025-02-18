@@ -36,8 +36,7 @@ Teams アプリの Copilot Studio から作成したエージェントは Datave
 ![](./how-to-list-copilot-agents/filter.png)
 1. 表示された「高度な検索」画面で、リボンの [結果 / Results] をクリックします。  
    * 検索対象テーブルに「Copilots / コパイロット」を選択下さい。
-   * 列の編集 / Edit Columns にて次の手順で表示される列を選択することができます。  
-
+   * 列の編集 / Edit Columns にて次の手順で表示される列を選択することができます。  
 ![](./how-to-list-copilot-agents/advanced_search.png)
 1. エージェント一覧が表示されます。表示された検索結果をExcel にエクスポートが可能です。  
 ![](./how-to-list-copilot-agents/export_excel.png)
@@ -61,9 +60,8 @@ Dataverse コネクタを利用し Copilots(bot) テーブルからエージェ�
    * 列を選択する：（表示したい列をカンマ区切りで記載）  
      取得可能な列は [Copilot (bot) table/entity reference](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/reference/entities/bot) を参照してください。
    * クエリの展開：（任意）  
-      値：createdby($select=internalemailaddress,lastname,firstname)  
+      サンプルではエージェント作成者＝CreatedBy の姓名とメールアドレスを取得しています。  
       値：createdby($select=internalemailaddress,lastname,firstname)  
-
    ![](./how-to-list-copilot-agents/dataverse2.png)
 1. ここで一度フローを実行し、実行履歴から「選択した環境の行を一覧表示する」アクションの body をコピーします。  
 ![](./how-to-list-copilot-agents/dataverse6.png)
@@ -72,35 +70,29 @@ Dataverse コネクタを利用し Copilots(bot) テーブルからエージェ�
    * Shema：以下の手順で作成します。
      1. 「サンプルペイロードを使用してスキーマを生成する」を選択します。
      1. 一つ前の手順で取得した実行履歴の body の値を貼り付けます。
-     1. 以下のように表示されていることを確認してください。  
+     1. 「完了」を押します。  
      ![](./how-to-list-copilot-agents/dataverse8.png)
      1. 以下のように表示されていることを確認してください。  
-
      ![](./how-to-list-copilot-agents/dataverse3.png) 
 1. 「CSV テーブルの作成」アクションを設定します。  
-   * Columns Value：（動的コンテンツ「JSON の解析」の任意の項目）  
-   ![](./how-to-list-copilot-agents/dataverse4.png)
+   * From ：動的コンテンツ「JSON の解析」の Body value
+   * Columns： カスタム
    * Columns Header： （CSV ヘッダーとして使用する任意の文字列）
    * Columns Value：（動的コンテンツ「JSON の解析」の任意の項目）  
-
 ![](./how-to-list-copilot-agents/dataverse4.png)
 1. 任意のコネクタを利用し CSV ファイルを作成します。  
    サンプルでは OneDrive for Business コネクタの「ファイルの作成」アクションを利用して CSV ファイルを作成します。  
-     ※BOM とは文字コードが UTF-8 であることを示すものです。  
-
+   * フォルダーのパス：（任意）
    * ファイル名：（任意）
    * ファイルコンテンツ：concat(decodeUriComponent('%EF%BB%BF'), body('CSV_テーブルの作成'))
      日本語が文字化けしないように、ファイルコンテンツの先頭に BOM=decodeUriComponent('%EF%BB%BF') を追加します。  
      ※BOM とは文字コードが UTF-8 であることを示すものです。  
-
-フローを実行すると指定したフォルダに CSV が出力されます。  
-
+![](./how-to-list-copilot-agents/dataverse5.png)
 
 これでフローの作成は完了です。
 
 #### フロー実行結果
 フローを実行すると指定したフォルダに CSV が出力されます。  
-
 ![](./how-to-list-copilot-agents/dataverse9.png)
 
 
@@ -125,25 +117,22 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 ![](./how-to-list-copilot-agents/dataverse2_1.png)
 
 #### 前作業
-  環境：@item()?['properties/linkedEnvironmentMetadata/instanceApiUrl']  
+全ての環境の Copilots テーブルにアクセスするために、自分自身を環境の管理者として追加します。  
 具体的な手順は [PowerShell による自己昇格](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-high-privileged-admin-roles#self-elevate-through-powershell) を参照してください。  
 
 ### フロー詳細
-1. 「ファイルの作成」アクションのファイル名に動的コンテンツ「リンクされたメタデータ フレンドリ名」を追加します。  
+1. 管理者向け Power Platform コネクタの「環境一覧を管理者として作成する」アクションを追加します。
 1. 「選択した環境の行を一覧表示する」アクションの「環境」を動的コンテンツ「リンクされたメタデータ インスタンス API の URL」に変更します。  
   環境：@item()?['properties/linkedEnvironmentMetadata/instanceApiUrl']  
-
 ![](./how-to-list-copilot-agents/dataverse2_3.png)
-フローを実行すると指定したフォルダに環境ごとの CSV が出力されます。  
+1. 「選択した環境の行を一覧表示する」アクションが 「For each」 コントロールで囲まれることを確認し、後続のアクションもすべて 「For each」 コントール内に追加します。  
 ![](./how-to-list-copilot-agents/dataverse2_4.png)
-1. 「ファイルの作成」アクションのファイル名に動的コンテンツ「リンクされたメタデータ フレンドリ名」を追加します。  
-
+1. 「ファイルの作成」アクションのファイル名に動的コンテンツ「リンクされたメタデータ フレンドリ名」を追加します。　　
    サンプルでは、フレンドリ名（＝環境名）を追加することで、環境ごとにファイルを作成し、他の環境のデータが上書きされる事を防ぎます。運用に合わせて任意の項目を設定してください。  
 ![](./how-to-list-copilot-agents/dataverse2_5.png)
 
-#### フロー実行結果
+#### フロー実行結果  
 フローを実行すると指定したフォルダに環境ごとの CSV が出力されます。  
-
 ![](./how-to-list-copilot-agents/dataverse2_2.png)
 
 ## よくある質問
