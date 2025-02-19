@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image015.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image016.png">
 <meta property="article:published_time" content="2022-08-19T09:40:17.000Z">
-<meta property="article:modified_time" content="2025-02-19T11:39:32.539Z">
+<meta property="article:modified_time" content="2025-02-19T11:40:21.827Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
@@ -120,11 +120,61 @@
   <time datetime="2022-08-19T09:40:17.000Z" itemprop="datePublished">2022-08-19</time>
 </a>
         
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpazureid/blog/blob/main/articles/powerautomate/Import-Csv-With-Standard-Connectors.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d9f92a21-3db8-531e-95ab-e86a9ffd659b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%81%A7+CSV+%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%8F%96%E3%82%8A%E8%BE%BC%E3%82%80%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/" data-id="cm7bucbio000w0nnp9a3t1h9z" class="article-share-link">共有</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d9f92a21-3db8-531e-95ab-e86a9ffd659b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%81%A7+CSV+%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%8F%96%E3%82%8A%E8%BE%BC%E3%82%80%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/" data-id="cm7buddex000w0ns8bpz1ajn0" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -225,7 +275,7 @@
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerautomate/Import-Csv-With-Standard-Connectors.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/powerautomate/Import-Csv-With-Standard-Connectors.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -264,11 +314,11 @@
       <ul>
         
           <li>
-            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+            <a href="../power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
           </li>
         
           <li>
-            <a href="../power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
+            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
           </li>
         
           <li>

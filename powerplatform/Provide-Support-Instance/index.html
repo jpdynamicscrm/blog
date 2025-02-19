@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/04_processing.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/07_search_instance.png">
 <meta property="article:published_time" content="2022-11-11T08:30:00.000Z">
-<meta property="article:modified_time" content="2025-02-19T11:39:32.676Z">
+<meta property="article:modified_time" content="2025-02-19T11:40:21.964Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Dynamics">
 <meta property="article:tag" content="Environment">
@@ -111,11 +111,61 @@
   <time datetime="2022-11-11T08:30:00.000Z" itemprop="datePublished">2022-11-11</time>
 </a>
         
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpazureid/blog/blob/main/articles/powerplatform/Provide-Support-Instance.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4f5d6141-6d4c-530b-9d3c-60b0e2a06576%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88+%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AE%E6%8F%90%E4%BE%9B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FProvide-Support-Instance%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FProvide-Support-Instance.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2FProvide-Support-Instance.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="cm7bucbjm00390nnp3qmo9jiu" class="article-share-link">共有</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4f5d6141-6d4c-530b-9d3c-60b0e2a06576%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88+%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AE%E6%8F%90%E4%BE%9B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FProvide-Support-Instance%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FProvide-Support-Instance.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fpowerplatform%2FProvide-Support-Instance.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="cm7buddfy00390ns83dxbaj35" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -247,7 +297,7 @@
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/Provide-Support-Instance.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/powerplatform/Provide-Support-Instance.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -286,11 +336,11 @@
       <ul>
         
           <li>
-            <a href="../EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+            <a href="../../powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
           </li>
         
           <li>
-            <a href="../../powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
+            <a href="../EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
           </li>
         
           <li>

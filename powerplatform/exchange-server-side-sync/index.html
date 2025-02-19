@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/outlook_d365afo_env.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/edge_cookie_delete.png">
 <meta property="article:published_time" content="2024-12-08T15:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-19T11:39:32.698Z">
+<meta property="article:modified_time" content="2025-02-19T11:40:21.985Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Dataverse">
@@ -132,11 +132,61 @@
   <time datetime="2024-12-08T15:00:00.000Z" itemprop="datePublished">2024-12-09</time>
 </a>
         
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpazureid/blog/blob/main/articles/powerplatform/exchange-server-side-sync.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d4b9ff4d-1e8b-5b71-a055-1463dea133d7%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%81%A8+Exchange+Online+%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E5%81%B4%E5%90%8C%E6%9C%9F%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fexchange-server-side-sync%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fexchange-server-side-sync.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2Fexchange-server-side-sync.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/" data-id="cm7bucbjo003e0nnpage41zbb" class="article-share-link">共有</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d4b9ff4d-1e8b-5b71-a055-1463dea133d7%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%81%A8+Exchange+Online+%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E5%81%B4%E5%90%8C%E6%9C%9F%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fexchange-server-side-sync%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fexchange-server-side-sync.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fpowerplatform%2Fexchange-server-side-sync.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/" data-id="cm7buddg0003e0ns8adpw8mkg" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -254,7 +304,7 @@
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/exchange-server-side-sync.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/powerplatform/exchange-server-side-sync.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -293,11 +343,11 @@
       <ul>
         
           <li>
-            <a href="../EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+            <a href="../../powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
           </li>
         
           <li>
-            <a href="../../powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
+            <a href="../EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
           </li>
         
           <li>

@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/06_advanced_search_content.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/07_dataverse_search_setting.png">
 <meta property="article:published_time" content="2021-11-16T04:45:00.000Z">
-<meta property="article:modified_time" content="2025-02-19T11:39:32.615Z">
+<meta property="article:modified_time" content="2025-02-19T11:40:21.903Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Model-driven app">
 <meta property="article:tag" content="Dynamics">
@@ -110,11 +110,61 @@
   <time datetime="2021-11-16T04:45:00.000Z" itemprop="datePublished">2021-11-16</time>
 </a>
         
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpazureid/blog/blob/main/articles/powerplatform/2021-wave2-added-search.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
         
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8020dac6-eb9e-597b-ac20-edda35607bcb%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B2021+%E5%B9%B4+Wave2+%E3%81%A7%E8%BF%BD%E5%8A%A0%E3%81%95%E3%82%8C%E3%81%9F%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E6%A4%9C%E7%B4%A2%E6%96%B9%E6%B3%95%E3%81%BE%E3%81%A8%E3%82%81%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2F2021-wave2-added-search%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2F2021-wave2-added-search.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fpowerplatform%2F2021-wave2-added-search.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/" data-id="cm7bucbj600260nnpa2359sn8" class="article-share-link">共有</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8020dac6-eb9e-597b-ac20-edda35607bcb%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B2021+%E5%B9%B4+Wave2+%E3%81%A7%E8%BF%BD%E5%8A%A0%E3%81%95%E3%82%8C%E3%81%9F%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E6%A4%9C%E7%B4%A2%E6%96%B9%E6%B3%95%E3%81%BE%E3%81%A8%E3%82%81%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2F2021-wave2-added-search%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2F2021-wave2-added-search.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fpowerplatform%2F2021-wave2-added-search.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/" data-id="cm7buddfi00260ns813m2ajrf" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -174,7 +224,7 @@
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/ma/articles/powerplatform/2021-wave2-added-search.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/powerplatform/2021-wave2-added-search.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -213,11 +263,11 @@
       <ul>
         
           <li>
-            <a href="../EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+            <a href="../../powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
           </li>
         
           <li>
-            <a href="../../powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>
+            <a href="../EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
           </li>
         
           <li>
