@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-teams/teams_agent_allow_setting.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-teams/teams_agent_menu.png">
 <meta property="article:published_time" content="2025-01-06T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-07T04:00:31.174Z">
+<meta property="article:modified_time" content="2025-02-19T11:39:32.479Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Copilot Studio">
 <meta property="article:tag" content="Power Virtual Agents">
@@ -131,7 +131,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+006d5e80-cad5-528e-ab3d-d04c202e24b8%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCopilot+Studio+%E3%81%AE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%82%92+Teams+%E3%81%AB%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcopilotstudio%2Fcopilot-studio-teams%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcopilotstudio%2Fcopilot-studio-teams.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fma%2Farticles%2Fcopilotstudio%2Fcopilot-studio-teams.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-teams/" data-id="cm6u8nsgx00cl0nqk4kor626u" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-teams/" data-id="cm7bucblu00cl0nnpfskie22j" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -164,12 +164,16 @@
 </li>
 <li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
 </ul>
+<p><a id='1-概要'></a></p>
 <h1 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h1><p>今回はよくあるお問い合わせとして、Copilot Studio で作成したエージェントを Teams に公開する方法についてご案内いたします。<br>この方法では Copilot Studio の設定だけでなく、Teams 管理センターなどの設定も必要となります。<br>そのため、一部 Teams 管理センターにアクセスできる権限がある管理者にてご実行いただく必要がある操作もございますので、ご留意ください。  </p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>&lt;Teams管理者様がご確認ください&gt;</p><p>Teams 管理センターでアクセス許可ポリシーを設定している場合、事前にカスタムアプリのアクセスを許可するようポリシーを設定する必要がございます。</p><p>本記事執筆時点で、アクセス許可ポリシーからアプリ中心の管理への移行が推奨されておりますので、本記事では詳細は割愛します。</p><p>アクセス許可ポリシーの設定方法等については下記の公開情報をご参照ください。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies">Microsoft Teams のアプリのアクセス許可ポリシーを管理する - Microsoft Teams | Microsoft Learn</a>  </p></div>
+<p><a id='2-web-版-copilot-studio-で作成したエージェントを-teams-で利用する'></a></p>
 <h1 id="2-Web-版-Copilot-Studio-で作成したエージェントを-Teams-で利用する"><a href="#2-Web-版-Copilot-Studio-で作成したエージェントを-Teams-で利用する" class="headerlink" title="2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する"></a>2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する</h1><p><img src="/blog/copilotstudio/copilot-studio-teams/web_copilot_studio_overview.png">  </p>
 <p>※Dataverse for Teams 環境のボットをWeb版で作成することはサポートされていません。  </p>
+<p><a id='2-1-エージェントを公開する'></a></p>
 <h2 id="2-1-エージェントを公開する"><a href="#2-1-エージェントを公開する" class="headerlink" title="2-1. エージェントを公開する"></a>2-1. エージェントを公開する</h2><p>  エージェントを作成、編集した場合、そのエージェントを他の人が使えるようにするため、まずは公開する必要があります。<br>  作成、編集したエージェントを開き、画面右上の「公開」ボタンよりエージェントを公開してください。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/publish.png">  </p>
 <p>  下記のようなロード画面が表示され、しばらくすると公開が完了します。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/publishing.png">  </p>
+<p><a id='2-2-他のユーザーと共有する'></a></p>
 <h2 id="2-2-他のユーザーと共有する"><a href="#2-2-他のユーザーと共有する" class="headerlink" title="2-2. 他のユーザーと共有する"></a>2-2. 他のユーザーと共有する</h2><p>  作成したエージェントを、他のユーザーが利用できるようにします。<br>  他のユーザーとエージェントを共有するには 2 つの方法がございます。  </p>
 <ol>
 <li>セキュリティグループ、組織に利用者として共有する（エージェントと会話するユーザーとして）（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-chat">設定方法はこちら</a>）<div class="alert is-info"><p class="alert-title">Note</p><p>&lt;Power Platform 管理者様がご確認ください&gt;</p><p>利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。</p><p>また、セキュリティロールを割り当てる必要もありません。</p><p>ただし、エージェントを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。</p><p>一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、アクセス権限やセキュリティロールを割り当てる必要はありません。  </p></div>
@@ -177,6 +181,7 @@
 <li>ユーザーに共同編集者として共有する（エージェントと会話、およびエージェントを編集、管理するユーザーとして）（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#share-an-agent-for-collaborative-authoring">設定方法はこちら</a>）  <div class="alert is-info"><p class="alert-title">Note</p><p>&lt;Power Platform 管理者様がご確認ください&gt;</p><p>共同編集者としてエージェントを共有する場合、共有先のユーザーは環境のメンバーであり、環境作成者以上のセキュリティロールを持っている必要があります。</p><p>詳細については下記の公開情報をご参照ください。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#insufficient-environment-permissions">他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn</a></p></div>
 </li>
 </ol>
+<p><a id='2-3-teamsチャネルに接続する'></a></p>
 <h2 id="2-3-Teamsチャネルに接続する"><a href="#2-3-Teamsチャネルに接続する" class="headerlink" title="2-3. Teamsチャネルに接続する"></a>2-3. Teamsチャネルに接続する</h2><p>  次に、公開したエージェントを Teams で使えるようにするため、Teams チャネルと接続します。  </p>
 <div class="alert is-important"><p class="alert-title">重要</p><p>&lt;Teams管理者様がご確認ください&gt;</p><p>Teams でエージェントを利用するためには、Teams 管理センターからカスタムアプリの使用を許可する必要があります。</p><p>具体的な設定方法は下記の公開情報をご参照ください。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps">Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する - Microsoft Teams | Microsoft Learn</a>  </p></div>
 <div class="alert is-info"><p class="alert-title">Note</p><p>&lt;Power Platform 管理者様がご確認ください&gt;</p><p>Power Platform 管理センターより Teams チャネルへの接続を許可するよう DLP を設定しておく必要があります。</p><p>下記の「Microsoft Teams + M365 Channel in Copilot Studio」のコネクタを許可してください。</p><p><img src="/blog/copilotstudio/copilot-studio-teams/DLP_teams_m365_channel.png"></p><p>なお、Copilot Studio に関する DLP の詳細については下記の公開情報をご参照ください。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-data-loss-prevention#copilot-studio-connectors">エージェントのデータ損失防止ポリシーを構成する - Microsoft Copilot Studio | Microsoft Learn</a>  </p></div>
@@ -186,6 +191,7 @@
 <p>  「エージェントを開く」を選択すると、Teams が開き、下記の画面が表示されます。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/teams_agent_add.png">    </p>
 <p>  「追加」を選択することで、Teams でエージェントを利用することが可能になります。<br>  ここまでの操作で、編集権限を持つユーザーだけが Teams で該当エージェントを使える状態となります。</p>
 <div class="alert is-warning"><p class="alert-title">警告</p><p>Teams 管理センターの設定が適切に行われていない場合、下画像のようなエラーが表示されることがあります。</p><p><img src="/blog/copilotstudio/copilot-studio-teams/error_not_found.png"></p><p>&lt;Teams管理者様がご確認ください&gt;</p><p>Teams 管理センターの設定をご確認ください。</p><p>具体的な設定方法は下記の公開情報をご参照ください。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps">Microsoft Teams 管理センターで Microsoft Power Platform アプリを管理する - Microsoft Teams | Microsoft Learn</a>  </p></div>
+<p><a id='2-4-他のユーザーが-teams-でエージェントを利用する'></a></p>
 <h2 id="2-4-他のユーザーが-Teams-でエージェントを利用する"><a href="#2-4-他のユーザーが-Teams-でエージェントを利用する" class="headerlink" title="2-4. 他のユーザーが Teams でエージェントを利用する"></a>2-4. 他のユーザーが Teams でエージェントを利用する</h2><p>  他のユーザーが Teams でこのエージェントと会話したり、エージェントにアクセスしたりできるようにするには、対象エージェントを他のユーザーが Teams で追加登録できるようにする作業が必要となります。<br>  その追加登録を可能にするための作業として、主に 3 つの方法があります。  </p>
 <ol>
 <li>リンクの共有</li>
@@ -195,11 +201,13 @@
 <p>  Copilot Studio 「チャネル」タブより「Microsoft Teams」を選択すると、下記の画面が表示されます。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/teams_agent_preview.png">  </p>
 <p>  他のユーザーがこのエージェントを利用できるようにするには、「可用性オプション」をご選択ください。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/teams_availability.png">  </p>
 <p>  以降、3 つの方法それぞれの手順等について説明します。  </p>
+<p><a id='2-4-1-リンクの共有'></a></p>
 <h3 id="2-4-1-リンクの共有"><a href="#2-4-1-リンクの共有" class="headerlink" title="2-4-1. リンクの共有"></a>2-4-1. リンクの共有</h3><p>  まず、リンクの共有によって共有する方法です。<br>  この方法は事前に共有したいユーザーを入れたセキュリティグループに、エージェント自体を共有しておく必要があります。<br>  共有の方法については <a href="#2-2-%E4%BB%96%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%A8%E5%85%B1%E6%9C%89%E3%81%99%E3%82%8B">2-2 項</a> をご参照ください。  </p>
 <p>  下記の画面で「リンクのコピー」を選択します。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/share_link.png">  </p>
 <p>  すると、クリップボートに Teams でエージェントを利用するための URL がコピーされます。<br>  エージェントにアクセス権がある他ユーザーがその URL を入力すると、下記画面が表示されます。<br>  「追加」を選択することで、Teams でエージェントを利用することが可能となります。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/teams_agent_add.png">  </p>
 <p>  この方法の詳細については下記の公開情報も合わせてご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#share-a-link-so-others-can-install-a-copilot">Microsoft Teams 用コパイロットの接続と構成 - Microsoft Copilot Studio | Microsoft Learn</a>  </p>
 <div class="alert is-warning"><p class="alert-title">警告</p><p>エージェントが共有されていないユーザーが、リンクにアクセスした場合、下画像のエラーが表示されます。</p><p><img src="/blog/copilotstudio/copilot-studio-teams/error_not_found.png"></p><p><a href="#2-2-%E4%BB%96%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%A8%E5%85%B1%E6%9C%89%E3%81%99%E3%82%8B">2-2 項</a> をご参照のうえ、適切にエージェントが共有されいているかご確認ください。  </p></div>
+<p><a id='2-4-2-teamsアプリストアに公開する'></a></p>
 <h3 id="2-4-2-Teamsアプリストアに公開する"><a href="#2-4-2-Teamsアプリストアに公開する" class="headerlink" title="2-4-2. Teamsアプリストアに公開する"></a>2-4-2. Teamsアプリストアに公開する</h3><p>  次に、Teams アプリストアに公開する方法です。<br>  ※Teams チャネルに接続して公開する場合、Azure AD 認証 (Entra ID 認証) を利用していないとTeamsアプリストアに表示できません。  </p>
 <p>  Teams アプリストアに公開するには下記の二つの公開範囲別の方法があります。<br>  ご要件の公開範囲に応じた設定を行ってください。  </p>
 <ol>
@@ -208,10 +216,12 @@
 </ol>
 <p>  なお、この手順全体の詳細については下記の公開情報をご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#show-an-agent-in-the-teams-app-store">接続 を設定し、エージェント を設定します Microsoft Teams - Microsoft Copilot Studio | Microsoft Learn</a>  </p>
 <p>  <img src="/blog/copilotstudio/copilot-studio-teams/show_in_teams_app_store.png">  </p>
+<p><a id='2-4-3-zipとしてダウンロードアップロード'></a></p>
 <h3 id="2-4-3-zipとしてダウンロード・アップロード"><a href="#2-4-3-zipとしてダウンロード・アップロード" class="headerlink" title="2-4-3. zipとしてダウンロード・アップロード"></a>2-4-3. zipとしてダウンロード・アップロード</h3><p>  この方法は .zip ファイルとしてエージェントをダウンロードし、直接マニフェストファイルを編集したり、他ユーザーと共有してアップロードする方法となります。</p>
 <p>  ダウンロードするには、下記の画面で「.zip のダウンロード」を選択します。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/download_upload_zip.png">  </p>
 <p>  ダウンロードしたファイルを Teams にアップロードして利用する方法については下記の公開情報をご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoftteams/platform/concepts/deploy-and-publish/apps-upload">カスタム アプリをアップロードする - Teams | Microsoft Learn</a></p>
 <p>  なお、この方法の詳細については下記の公開情報も合わせてご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#download-the-teams-app-manifest-for-an-agent-advanced">接続 を設定し、エージェント を設定します Microsoft Teams - Microsoft Copilot Studio | Microsoft Learn</a>  </p>
+<p><a id='2-5-teams-チームにエージェントをインストールする'></a></p>
 <h2 id="2-5-Teams-チームにエージェントをインストールする"><a href="#2-5-Teams-チームにエージェントをインストールする" class="headerlink" title="2-5. Teams チームにエージェントをインストールする"></a>2-5. Teams チームにエージェントをインストールする</h2><p>  Teams 内のチームにエージェントをインストールし、チームの他のメンバーがエージェントを利用できるように設定することができます。  </p>
 <p>  Copilot Studio 「チャネル」タブより「Microsoft Teams」を選択すると、下記の画面が表示されますので、「詳細の編集」をご選択ください。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/edit_detail.png">  </p>
 <p>  「このエージェントのチームへの追加をユーザーに許可する」のチェックボックスを埋めてください。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/add_to_team.png">  </p>
@@ -219,9 +229,12 @@
 <p>  すると、下記のように、Teams で開くか、特定のチームを選択してエージェントをインストールするか、選択が可能となります。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/select_install_team.png">  </p>
 <p>  チームにエージェントをインストールする場合、インストール先のチームを選択し、インストールしてください。</p>
 <p>  なお、この方法の詳細については下記の公開情報も合わせてご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#allow-users-to-add-an-agent-to-a-team-in-teams">Microsoft Teams のエージェントを接続して構成します - Microsoft Copilot Studio | Microsoft Learn</a></p>
+<p><a id='3-teams-版-copilot-studio-で作成したエージェントを-teams-で利用する'></a></p>
 <h1 id="3-Teams-版-Copilot-Studio-で作成したエージェントを-Teams-で利用する"><a href="#3-Teams-版-Copilot-Studio-で作成したエージェントを-Teams-で利用する" class="headerlink" title="3. Teams 版 Copilot Studio で作成したエージェントを Teams で利用する"></a>3. Teams 版 Copilot Studio で作成したエージェントを Teams で利用する</h1><p><img src="/blog/copilotstudio/copilot-studio-teams/teams_copilot_studio_overview.png">  </p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>Dataverse for Teams 環境にCopilotを作成します。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/">Dataverse for Teams 環境の管理方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</a></p><p>※作成されるのはクラシックボットで、Web版で作成されるボットと機能が異なります。  </p></div>
+<p><a id='3-1-エージェントを公開する'></a></p>
 <h2 id="3-1-エージェントを公開する"><a href="#3-1-エージェントを公開する" class="headerlink" title="3-1. エージェントを公開する"></a>3-1. エージェントを公開する</h2><p>  エージェントを作成、編集した場合、そのエージェントを他の人が使えるようにするため、まずは公開する必要があります。<br>  作成、編集したエージェントを開き、「公開」メニューより「公開」ボタンを選択し、エージェントを公開してください。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/teams_agent_publish.png">  </p>
+<p><a id='3-2-他のユーザーと共有する'></a></p>
 <h2 id="3-2-他のユーザーと共有する"><a href="#3-2-他のユーザーと共有する" class="headerlink" title="3-2. 他のユーザーと共有する"></a>3-2. 他のユーザーと共有する</h2><p>  作成したエージェントを、他のユーザーがで利用できるようにします。<br>  Web 版と同様に、他のユーザーとエージェントを共有するには 2 つの方法がございます。  </p>
 <ol>
 <li>セキュリティグループに利用者として共有する（エージェントと会話するユーザーとして）</li>
@@ -229,9 +242,11 @@
 </ol>
 <p>  手順の詳細等については下記の公開情報をご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=teams">他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn</a>  </p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>&lt;Power Platform 管理者様がご確認ください&gt;</p><p>利用者としてエージェントを共有する場合、利用者のユーザーは Power Platform 環境のメンバーである必要はありません。</p><p>また、セキュリティロールを割り当てる必要もありません。</p><p>ただし、エージェントのナレッジソースを通して環境内のデータやその他データソースへアクセスする場合には、別途データソースへのアクセス権限をユーザーに割り当てる必要があります。</p><p>一方、エージェントにナレッジとして直接追加されたファイルへアクセスする際には、セキュリティロールを割り当てる必要はありません。</p></div>
+<p><a id='3-3-他のユーザーが-teams-でエージェントを利用する'></a></p>
 <h2 id="3-3-他のユーザーが-Teams-でエージェントを利用する"><a href="#3-3-他のユーザーが-Teams-でエージェントを利用する" class="headerlink" title="3-3. 他のユーザーが Teams でエージェントを利用する"></a>3-3. 他のユーザーが Teams でエージェントを利用する</h2><p>  Web 版 Copilot Studio でエージェントを公開した直後や、下記の画面で「このエージェントの使用を他のユーザーに許可する」を選択すると、次の画面が表示されます。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/teams_agent_allow_setting.png">  </p>
 <p>  <a href="#2-4-%E4%BB%96%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C-teams-%E3%81%A7%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2-4 項</a>で説明した画面と同様の画面となります。<br>  それ以降の公開範囲に応じて、Web 版と同様の設定を行ってください。<br>  <img src="/blog/copilotstudio/copilot-studio-teams/teams_agent_menu.png">  </p>
 <hr>
+<p><a id='補足'></a></p>
 <h1 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h1><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって UI の遷移などが若干異なる場合があります。その場合は画面の指示に従って進めてください。  </p>
 
       
