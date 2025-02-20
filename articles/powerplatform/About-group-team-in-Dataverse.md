@@ -2,8 +2,7 @@
 title: Dataverse グループ チームの活用方法＆注意点
 date: 2022-01-07 13:45:00
 tags:
-  - Model-driven app
-  - Dynamics
+  - Dataverse
 ---
 
 #  Dataverse グループ チームの活用方法＆注意点

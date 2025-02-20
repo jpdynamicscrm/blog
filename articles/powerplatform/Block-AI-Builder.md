@@ -3,8 +3,6 @@ title: AI Builder 利用制限について
 date: 2024-12-27 11:30:00
 tags:
   - Power Platform
-  - AI Builder
-  - Governance
 ---
 
 # AI Builder 利用制限について

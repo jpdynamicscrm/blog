@@ -2,8 +2,6 @@
 title: 非アクティブな Microsoft Dataverse for Teams 環境の自動削除について
 date: 2022-12-28 12:00:00
 tags:
-  - Power Platform
-  - Dataverse
   - Dataverse for Teams 
 ---
 

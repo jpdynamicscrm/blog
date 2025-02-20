@@ -3,8 +3,6 @@ title: DLP ポリシーに設定されているコネクタの一覧を出力す
 date: 2022-10-12 19:23:09
 tags:
   - Power Platform
-  - PowerShell
-  - DLP ポリシー
 ---
 
 こんにちは、Power Platform サポートの瀬戸です。

@@ -2,8 +2,6 @@
 title: 環境内のデスクトップ フローの所有者、作成日、修正日を確認する方法
 date: 2022-11-15 12:00
 tags:
-  - Power Automate
-  - Desktop flow
   - Power Automate for desktop
 ---
 

@@ -2,8 +2,7 @@
 title: WS-Trust による Dataverse への接続は、2022 年 4 月以降、非推奨（廃止）になります
 date: 2022-01-24 9:30:00
 tags:
-  - Dynamics
-  - 重要な変更点 (廃止)
+  - Dataverse
 ---
 
 こんにちは。Power Platform サポートチームの金子です。  

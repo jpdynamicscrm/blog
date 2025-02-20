@@ -3,8 +3,6 @@ title: Power Apps キャンバス アプリ お問い合わせの際の情報取
 date: 2023-03-31 00:00
 tags:
   - Power Apps
-  - Canvas app
-  - 情報採取
 ---
 # はじめに
 こんにちは、Power Platform サポートの大友です。  

@@ -28,9 +28,12 @@ root_tag_generator:
     - Power Apps
     - Power Pages
     - Power Automate
-    - Power Virtual Agents
+    - Power Automate for desktop
+    - Microsoft Copilot Studio
     - Power Platform
-    - Dynamics
+    - Dataverse
+    - Dataverse for Teams
+    - Dynamics 365
     - On-premises
     - 重要な変更点 (廃止)
   sub_tag_limit: 20

@@ -3,8 +3,6 @@ title: Power Automate で CSV ファイルを取り込む
 date: 2022-08-19 18:40:17
 tags:
   - Power Automate
-  - Cloud flow
-  - How to
 ---
 
 # Power Automate で CSV ファイルを取り込む

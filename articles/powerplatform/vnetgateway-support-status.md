@@ -3,7 +3,6 @@ title: Power Platform での仮想ネットワーク データ ゲートウェ�
 date: 2024-01-20 00:00:00
 tags:
   - PowerPlatform
-  - VNetGateway
 ---
 
 # Power Platform での仮想ネットワーク データ ゲートウェイについて

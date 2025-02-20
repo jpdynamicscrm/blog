@@ -2,9 +2,7 @@
 title: Dataverse のストレージ容量について
 date: 2023-03-13 12:00:00
 tags:
-  - Power Platform
   - Dataverse
-  - Dataverse ストレージ
 ---
 
 こんにちは、Power Platform サポートの原です。

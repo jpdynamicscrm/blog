@@ -2,8 +2,7 @@
 title: Dataverse 環境のアクセス権制御方法
 date: 2021-10-11 13:45:00
 tags:
-  - Model-driven app
-  - Dynamics
+  - Dataverse
 ---
 
 #  Dataverse 環境のアクセス権制御方法

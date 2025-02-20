@@ -2,8 +2,6 @@
 title: Power Automate for desktop のインストール後に LAN が繋がらない場合の対応方法
 date: 2023-6-3 12:00
 tags:
-  - Power Automate
-  - Desktop flow
   - Power Automate for desktop
 ---
 

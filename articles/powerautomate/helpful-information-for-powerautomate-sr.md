@@ -3,8 +3,6 @@ title: Power Automate お問い合わせの際の情報取得手順
 date: 2022-03-16
 tags:
   - Power Automate
-  - 情報採取
-  - Cloud flow
 ---
 
 # はじめに

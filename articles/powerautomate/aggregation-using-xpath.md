@@ -3,8 +3,6 @@ title: XPath を活用した集計
 date: 2023-05-16 00:00
 tags:
   - Power Automate
-  - Cloud flow
-  - How to
 ---
 # XPath を活用した集計
 
