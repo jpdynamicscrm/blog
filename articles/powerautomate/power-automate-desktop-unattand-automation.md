@@ -2,8 +2,6 @@
 title: Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (無人実行)
 date: 2023-04-20 17:00
 tags:
-  - Power Automate
-  - Desktop flow
   - Power Automate for desktop
 ---
 

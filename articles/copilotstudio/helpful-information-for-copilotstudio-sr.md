@@ -2,9 +2,7 @@
 title: Copilot Studio お問い合わせの際の情報取得手順
 date: 2024-10-10 15:00:00
 tags:
-  - Copilot Studio
-  - 情報採取
-  - Power Virtual Agents
+  - Microsoft Copilot Studio
 ---
 
 こんにちは、Power Platform サポートチームの竹内です。  

@@ -2,9 +2,7 @@
 title: Dataverse と Exchange Online のサーバー側同期
 date: 2024-12-09 00:00:00
 tags:
-  - Dataverse
-  - Exchange
-  - Power Platform
+  - Dynamics 365
 ---
 
 # Dataverse と Exchange Online のサーバー側同期

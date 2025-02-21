@@ -3,7 +3,6 @@ title: 監査ログでのアプリ実行履歴等の確認について
 date: 2022-09-14 12:00:00
 tags:
   - Power Apps
-  - Audit Log
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>

@@ -2,8 +2,7 @@
 title: Power Apps Portal 上で意図せずデータが外部から参照される
 date: 2021-9-01 12:00
 tags:
-  - Power Apps portal
-  - Power Pages
+  - Archive
 ---
 
 こんにちは。Power Platform サポート チームの 王 です。

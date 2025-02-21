@@ -2,9 +2,7 @@
 title: キャンバス アプリ所有者の退職・異動への備え
 date: 2022-02-17 00:00:00
 tags:
-  - Canvas app
-  - Power Apps
-  - PowerShell
+  - Power Automate
 ---
 
 こんにちは、Power Platform サポートの谷です。<br/>

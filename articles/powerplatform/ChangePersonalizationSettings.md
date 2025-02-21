@@ -2,8 +2,7 @@
 title: ユーザーの個人設定を管理者が変更する方法
 date: 2023-08-23 12:00:00
 tags:
-  - Power Platform
-  - Settings
+  - Dynamics 365
 ---
 
 こんにちは、Power Platform サポートの原です。
