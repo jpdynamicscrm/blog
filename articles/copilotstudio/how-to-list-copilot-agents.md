@@ -3,6 +3,11 @@ title: Copilot studio のエージェントを一覧にする方法
 date: 2024-06-14 13:30:00
 tags:
   - Copilot studio
+toc:
+  enabled: true
+  min_depth: 1
+  max_depth: 2
+  list_number: false
 ---
 
 
@@ -34,15 +39,16 @@ Teams アプリの Copilot Studio から作成したエージェントは Datave
 ![](./how-to-list-copilot-agents/setting.png)
 1. 表示された Dynamics 365 画面右上のフィルタアイコンを選択します。  
 ![](./how-to-list-copilot-agents/filter.png)
-1. 表示された「高度な検索」画面で、リボンの [結果 / Results] をクリックします。  
-   * 検索対象テーブルに「Copilots / コパイロット」を選択下さい。
-   * 列の編集 / Edit Columns にて次の手順で表示される列を選択することができます。  
+1. 表示された「高度な検索」画面が開いたら以下の操作を行います。
+   * 検索対象テーブルに「Copilots/コパイロット」を選択します。
+   * 必要に応じて、「列の編集/Edit Columns」から表示する列を編集します。
+   * 「結果/Results」を押します。
 ![](./how-to-list-copilot-agents/advanced_search.png)
 1. エージェント一覧が表示されます。表示された検索結果をExcel にエクスポートが可能です。  
 ![](./how-to-list-copilot-agents/export_excel.png)
 1. エクスポートした Excel を開くと、エージェント名 (Name列) と所有者 (Owner) を確認することができます。  
 ![](./how-to-list-copilot-agents/excel_list.png)
-1. 以下の手順で表示列に所有者のメールアドレスを追加しますとエクスポート時にメールアドレスを一緒に出力することができます。  
+1. 手順4の画面で所有者のメールアドレスを追加しますと、エクスポート時にメールアドレスを一緒に出力することができます。  
 ![](./how-to-list-copilot-agents/add_owner_email.png)
 
 
