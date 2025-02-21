@@ -17,8 +17,8 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/whose-power-platform-request-limits-process.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/automated-or-instant.png">
-<meta property="article:published_time" content="2025-02-20T07:53:38.494Z">
-<meta property="article:modified_time" content="2025-02-20T07:53:34.808Z">
+<meta property="article:published_time" content="2024-12-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-21T08:56:24.484Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Power Automate">
@@ -103,7 +103,7 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2025-02-20T07:53:38.494Z" itemprop="datePublished">2025-02-20</time>
+  <time datetime="2024-12-24T00:00:00.000Z" itemprop="datePublished">2024-12-24</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
@@ -160,11 +160,17 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+88d8f914-c7d2-58f3-ae75-ee09e1b5a48f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%2F+Power+Platform+%E8%A6%81%E6%B1%82%E6%95%B0%E5%88%B6%E9%99%90%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fpower-automate-ppr%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fpower-automate-ppr.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fpowerautomate%2Fpower-automate-ppr.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/" data-id="cm7d1pkyj00d00nqk04b48j04" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/" data-id="cm7eje8ee00d00nqh6h1g851z" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
+        
+        <div class="toc-wrapper">
+          <h2 id="toc-header" class="toc-header">この記事の内容</h2>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%A8%E3%81%AF"><span class="toc-text">Power Platform 要求数とは</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E5%88%B6%E9%99%90%E3%81%A8%E3%81%AF"><span class="toc-text">Power Platform 要求数の制限とは</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%94%E3%81%A8%E3%81%AE-API-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E6%95%B0"><span class="toc-text">ライセンスごとの API リクエスト数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%82%92%E8%A4%87%E6%95%B0%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AE%E8%80%83%E3%81%88%E6%96%B9"><span class="toc-text">ユーザーライセンスを複数持っているときの考え方</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E5%86%85%E3%81%AE-Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"><span class="toc-text">テナント内の Power Platform 要求数を確認する方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E8%80%85"><span class="toc-text">管理者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%95%E3%83%AD%E3%83%BC%E4%BD%9C%E6%88%90%E8%80%85%E3%80%81%E5%85%B1%E5%90%8C%E6%89%80%E6%9C%89%E8%80%85"><span class="toc-text">フロー作成者、共同所有者</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%96%B9%E6%B3%95"><span class="toc-text">Power Platform 要求数のカウント方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E6%B6%88%E8%B2%BB%E3%81%99%E3%82%8B%E3%82%B1%E3%83%BC%E3%82%B9"><span class="toc-text">Power Platform 要求数を消費するケース</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E6%B6%88%E8%B2%BB%E3%81%97%E3%81%AA%E3%81%84%E3%82%B1%E3%83%BC%E3%82%B9"><span class="toc-text">Power Platform 要求数を消費しないケース</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E6%B6%88%E8%B2%BB%E5%85%88"><span class="toc-text">Power Platform 要求数の消費先</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A8%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E8%A6%8B%E5%88%86%E3%81%91%E6%96%B9"><span class="toc-text">自動フローとインスタントフローの見分け方</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E5%88%B6%E9%99%90%E3%81%AB%E6%8A%B5%E8%A7%A6%E3%81%97%E3%81%9F%E6%99%82"><span class="toc-text">Power Platform 要求数の制限に抵触した時</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F"><span class="toc-text">よくある質問</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%8E%A5%E7%B6%9A%E3%82%92%E3%83%95%E3%83%AD%E3%83%BC%E6%89%80%E6%9C%89%E8%80%85%E3%81%A8%E5%88%A5%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AB%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%81%8C%E3%80%81Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E6%B6%88%E8%B2%BB%E5%85%88%E3%82%82%E5%A4%89%E3%82%8F%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B"><span class="toc-text">アクションの接続をフロー所有者と別のユーザーに変更していますが、Power Platform 要求数の消費先も変わりますか</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B6%E9%99%90%E5%80%A4%E3%82%92%E8%B6%85%E3%81%88%E3%81%9F%E3%82%89%E8%BF%BD%E5%8A%A0%E8%AB%8B%E6%B1%82%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%E3%80%82"><span class="toc-text">制限値を超えたら追加請求が発生しますか。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B6%E9%99%90%E5%80%A4%E3%82%92%E8%B6%85%E3%81%88%E3%81%9F%E3%82%89%E5%8D%B3%E6%99%82%E3%83%95%E3%83%AD%E3%83%BC%E3%81%8C%E4%BD%8E%E9%80%9F%E5%8C%96%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B"><span class="toc-text">制限値を超えたら即時フローが低速化しますか</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E4%BD%8E%E9%80%9F%E5%8C%96%E3%81%8C%E8%A7%A3%E6%B6%88%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%AF%E4%BD%95%E6%99%82%E9%96%93%E5%BE%8C%E3%81%8B%E3%82%8F%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B"><span class="toc-text">フローの低速化が解消されるのは何時間後かわかりますか</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E8%A1%8C%E6%9C%9F%E9%96%93%E3%81%AF%E3%81%84%E3%81%A4%E3%81%BE%E3%81%A7%E3%81%A7%E3%81%99%E3%81%8B"><span class="toc-text">移行期間はいつまでですか</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AE%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E4%B8%80%E8%88%AC%E5%85%AC%E9%96%8B%E3%81%AF%E3%81%84%E3%81%A4%E3%81%A7%E3%81%99%E3%81%8B%E3%80%82"><span class="toc-text">Power Platform 要求数のレポートの一般公開はいつですか。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%81%AF%E4%BD%BF%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E5%88%86%E3%82%92%E7%BF%8C%E6%97%A5%E3%82%84%E7%BF%8C%E6%9C%88%E3%81%AB%E7%B9%B0%E3%82%8A%E8%B6%8A%E3%81%99%E3%81%93%E3%81%A8%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%E3%80%82"><span class="toc-text">Power Platform 要求数は使われなかった分を翌日や翌月に繰り越すことができますか。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AB%E4%BB%98%E4%B8%8E%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B-Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E3%82%92%E5%88%A5%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AB%E6%8C%AF%E3%82%8A%E5%88%86%E3%81%91%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%E3%80%82"><span class="toc-text">ユーザーライセンスに付与されている Power Platform 要求数を別のユーザーに振り分けることはできますか。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92%E8%A6%8B%E3%82%8B%E3%81%A8%E3%80%81%E6%83%B3%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E5%80%A4%E3%82%88%E3%82%8A%E3%82%82-2-000-Power-Platform-%E8%A6%81%E6%B1%82%E6%95%B0%E5%88%86%E5%A4%9A%E3%81%8F%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%AA%E3%81%9C%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B%E3%80%82"><span class="toc-text">ユーザーライセンスレポートを見ると、想定している値よりも 2,000 Power Platform 要求数分多く表示されています。なぜでしょうか。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B6%E9%99%90%E3%81%AB%E6%8A%B5%E8%A7%A6%E3%81%97%E3%81%9F%E6%99%82%E3%81%AB%E5%BD%B1%E9%9F%BF%E3%82%92%E5%8F%97%E3%81%91%E3%82%8B%E3%81%AE%E3%81%AF%E8%AA%B0%E3%81%A7%E3%81%99%E3%81%8B"><span class="toc-text">制限に抵触した時に影響を受けるのは誰ですか</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%AE%9F%E8%A1%8C%E5%9B%9E%E6%95%B0%E3%81%AB%E5%88%B6%E9%99%90%E3%81%AF%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B"><span class="toc-text">フローの実行回数に制限はありますか</span></a></li></ol></li></ol>
+        </div>
+          
         <p>こんにちは、Power Platform サポートチームの網野です。 <br><br>今回は Power Automate における Power Platform 要求数の制限についてご案内いたします。</p>
 <div class="alert is-important"><p class="alert-title">重要</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/online-requirements">公開情報</a> が正となりますので、ライセンスをご用意する際は必ず最新の公開情報を確認してください。</p></div>
 <span id="more"></span>
@@ -245,7 +251,7 @@
 </tbody></table>
 <p>なお、2024 年 12 月現在は Power Automate にのみ制限がかかっていますが、移行期間後は Power Apps / Copilot Studio / Dataverse にも Power Platform 要求数の制限が適用される予定です。<br>そのため、表の移行期間後の「ユーザーあたり」の制限値は<u> 4 製品合算での制限値</u>になります。<br>決まっている内容につきましては、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#what-is-a-microsoft-power-platform-request">要求の制限と割り当て</a> に記載していますのでご参照ください。</p>
 <div class="alert is-important"><p class="alert-title">重要</p><p>移行期間中の手動トリガーはクラウドフローあたり 20 万アクションの制限が適用されます。</p><p></p><p>手動トリガーの Power Platform 要求数はライセンスのアップグレード等により増やすことができます。  </p></div>
-<div class="alert is-important"><p class="alert-title">重要</p><p>移行期間中のみ、上記に加えて 1 日あたりユーザーごとに 100 万アクションの制限があります。</p><p></p><p>また、移行期間終了前後に関わらず、5 分あたり 100 万アクションの制限があります。</p><p></p><p>上記制限はライセンス等で拡張することはできません。</p></div>
+<div class="alert is-important"><p class="alert-title">重要</p><p>移行期間中のみ、上記に加えて 1 日あたりユーザーごとに 100 万アクションの制限があります。</p><p></p><p>また、移行期間終了前後に関わらず、5 分あたり 10 万アクションの制限があります。</p><p></p><p>上記制限はライセンス等で拡張することはできません。</p></div>
 <p>◆ 関連公開情報</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#request-limits-in-power-automate">Power Automate の要求の制限</a></li>
@@ -362,10 +368,19 @@
     
 <nav id="article-nav">
   
+    <a href="../../powerplatform/list-connectors-used-by-apps-and-flows/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          キャンバス アプリ・クラウド フローで使用しているコネクタの一覧取得
+        
+      </div>
+    </a>
   
-    <a href="../../powerplatform/EmailEnableAutmation/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="../../powerplatform/connect-private-datasource/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">メールボックスの承認・テストと有効化の自動化について</div>
+      <div class="article-nav-title">Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法</div>
     </a>
   
 </nav>
@@ -384,10 +399,6 @@
       <ul>
         
           <li>
-            <a href="">Power Automate / Power Platform 要求数制限</a>
-          </li>
-        
-          <li>
             <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
           </li>
         
@@ -401,6 +412,10 @@
         
           <li>
             <a href="../../powerplatform/Block-AI-Builder/">AI Builder 利用制限について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/list-connectors-used-by-apps-and-flows/">キャンバス アプリ・クラウド フローで使用しているコネクタの一覧取得</a>
           </li>
         
       </ul>
