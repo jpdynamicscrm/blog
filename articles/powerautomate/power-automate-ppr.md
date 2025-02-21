@@ -1,8 +1,14 @@
 ---
 title: Power Automate / Power Platform 要求数制限
+date: 2024-12-24 9:00:00
 tags:
   - Power Platform
   - Power Automate
+toc:
+  enabled: true
+  min_depth: 1
+  max_depth: 6
+  list_number: false
 ---
 
 # Power Automate / Power Platform 要求数制限
@@ -71,7 +77,7 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
 
 > [!IMPORTANT]  
 > 移行期間中のみ、上記に加えて 1 日あたりユーザーごとに 100 万アクションの制限があります。<br>
-> また、移行期間終了前後に関わらず、5 分あたり 100 万アクションの制限があります。<br>
+> また、移行期間終了前後に関わらず、5 分あたり 10 万アクションの制限があります。<br>
 > 上記制限はライセンス等で拡張することはできません。
 
 ◆ 関連公開情報
