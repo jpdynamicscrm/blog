@@ -1,6 +1,6 @@
 ---
 title: Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法
-date: 2024/12/23 12:00
+date: 2025/2/20 12:00
 tags:
   - Power Platform
   - オンプレミス データ ゲートウェイ
