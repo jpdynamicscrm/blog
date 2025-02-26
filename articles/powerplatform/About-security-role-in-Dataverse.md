@@ -1,12 +1,12 @@
 ---
-title: Dataverse 環境のアクセス権制御方法
+title: セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法
 date: 2025-02-26 00:00:00
 tags:
   - Model-driven app
   - Dynamics
 ---
 
-#  Dataverse 環境のアクセス権制御方法
+# セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法
 
 こんにちは、Power Platform サポートチームの鎌田です。
 
