@@ -51,13 +51,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
-    
-    <lastmod>2025-02-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/connect-private-datasource/</loc>
     
     <lastmod>2025-02-27</lastmod>
@@ -66,6 +59,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/about-power-platform-support/</loc>
+    
+    <lastmod>2025-02-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
     
     <lastmod>2025-02-27</lastmod>
     
@@ -100,13 +100,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
-    
-    <lastmod>2025-02-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901924/</loc>
     
     <lastmod>2025-02-27</lastmod>
@@ -115,6 +108,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901932/</loc>
+    
+    <lastmod>2025-02-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
     
     <lastmod>2025-02-27</lastmod>
     
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Block-AI-Builder/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/</loc>
     
     <lastmod>2025-02-27</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Block-AI-Builder/</loc>
     
     <lastmod>2025-02-27</lastmod>
     
@@ -548,14 +548,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
     
     <lastmod>2025-02-27</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-delegation/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
     
     <lastmod>2025-02-27</lastmod>
     
