@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Dataverse 環境のアクセス権制御方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの島です。 今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの鎌田です。 今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。 ビジネスユースで Dynamics 365 CRM やモデル駆動アプリを導入する場合、セキュアな環境管理のために必須となるのがこのアクセス権">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dataverse 環境のアクセス権制御方法">
+<meta property="og:title" content="セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの島です。 今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの鎌田です。 今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。 ビジネスユースで Dynamics 365 CRM やモデル駆動アプリを導入する場合、セキュアな環境管理のために必須となるのがこのアクセス権">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img00-overall.PNG">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img01-SGsetting.PNG">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/img02-rolesetting.PNG">
-<meta property="article:published_time" content="2021-10-11T04:45:00.000Z">
-<meta property="article:modified_time" content="2025-02-25T03:02:56.734Z">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_group.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_role_settings.png">
+<meta property="article:published_time" content="2025-02-25T15:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-27T06:04:53.328Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Model-driven app">
 <meta property="article:tag" content="Dynamics">
@@ -94,7 +94,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Dataverse 環境のアクセス権制御方法
+      セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法
     </h1>
   
 
@@ -102,7 +102,7 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2021-10-11T04:45:00.000Z" itemprop="datePublished">2021-10-11</time>
+  <time datetime="2025-02-25T15:00:00.000Z" itemprop="datePublished">2025-02-26</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
@@ -157,70 +157,64 @@
         
         
         
-        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d61c957b-e530-51a8-8d31-665a237b4daa%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E5%88%B6%E5%BE%A1%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-security-role-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d61c957b-e530-51a8-8d31-665a237b4daa%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A8%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3+%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AB%E3%82%88%E3%82%8B+Dataverse+%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E5%88%B6%E5%BE%A1%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-security-role-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cm7jwj2y3002c0nqucyyl2mwf" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cm7mxwrlu002c0nnz84cpe22g" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの島です。</p>
+        <p>こんにちは、Power Platform サポートチームの鎌田です。</p>
 <p>今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。</p>
-<span id="more"></span>
-
-<p>ビジネスユースで Dynamics 365 CRM やモデル駆動アプリを導入する場合、セキュアな環境管理のために必須となるのがこのアクセス権制御です。<br>特に今 Dataverse の導入にあたりセキュリティ面を検討されている方は、ぜひご覧ください！</p>
-<h2 id="アクセス権制御方法の概要"><a href="#アクセス権制御方法の概要" class="headerlink" title="アクセス権制御方法の概要"></a>アクセス権制御方法の概要</h2><hr>
-<p>Dataverse 環境のアクセス権は、おおまかに以下の構造で制御されています。</p>
+<p>ビジネスユースで Dynamics 365 CRM やモデル駆動アプリを導入する場合、セキュアな環境管理のために必須となるのがこのアクセス権制御です。<br>特に Dataverse の導入にあたりセキュリティ面を検討されている方は、ぜひご覧ください！</p>
+<h2 id="アクセス権制御方法の概要"><a href="#アクセス権制御方法の概要" class="headerlink" title="アクセス権制御方法の概要"></a>アクセス権制御方法の概要</h2><p>Dataverse 環境のアクセス権は、おおまかに以下の構造で制御されています。</p>
 <ol>
 <li><strong>ライセンス</strong> : テナントごとに、<strong>各ユーザーが Power Platform 製品を利用できるか</strong>を決定します。</li>
 <li><strong>セキュリティ グループ</strong> : テナントの各環境ごとに、<strong>ユーザーがその環境を利用できるか</strong>を決定します。</li>
 <li><strong>セキュリティ ロール</strong> : 環境の Dataverse 内の各テーブルごとに、<strong>環境における具体的なユーザーのアクセス権</strong>を決定します。</li>
 </ol>
 <p><img src="/blog/powerplatform/About-security-role-in-Dataverse/img00-overall.PNG"></p>
-<p>図に表すとこのようなイメージです。<br>たとえば同じテナント内に、<br>・グループ A (サポート部門) とグループ B (管理部門)<br>・環境A (サポート部門用の環境) と環境 B (管理部門用の環境)<br>があり、A 同士 / B 同士でそれぞれ環境にグループが割り当てられているとします。このとき、</p>
+<p>例えば上記の図のように、同じテナント内に複数のグループと複数の環境が存在し、それぞれ環境にグループが割り当てられているとします。</p>
+<ul>
+<li>グループ A (サポート部門) とグループ B (管理部門)</li>
+<li>環境A (サポート部門用の環境) と環境 B (管理部門用の環境)</li>
+</ul>
+<p>このとき、下記の 1 から 3 のアクセス権制御を組み合わせることで、ユーザーに対してどの環境でのどのような操作を許可するかを制御できます。</p>
 <ol>
 <li><strong>ライセンス</strong> :<br>グループ A 内のサポート部門のユーザーは、ライセンスを所有しているため、Power Platform 製品を利用できます。<br>グループ B 内のユーザーは、今回の図の場合ライセンスを保有していないため、Power Platform 製品を利用できません。</li>
-<li><strong>セキュリティ グループ</strong> :<br>グループ A のユーザーは、サポート部門用の環境 A にアクセスすることができますが、管理部門用の環境 B にはアクセスすることができません。</li>
-<li><strong>セキュリティ ロール</strong> :<br>グループ A のユーザーは、セキュリティ ロールによってアクセスするテーブルや、実行可能な操作を制限されます。<br>たとえば図中のユーザーにサポート部門用のセキュリティ ロールが割り当てられ、システム管理者が割り当てられていないとき、ユーザーはシステム管理に使うテーブルにはアクセスができません。</li>
+<li><strong>セキュリティ グループ</strong> :<br>サポート部門用の環境 A に対して、グループ A がセキュリティ グループとして設定されている場合、グループ A のユーザーは環境 A にアクセスすることができますが、管理部門用の環境 B のセキュリティ グループとしては登録されていないため、アクセスすることができません。</li>
+<li><strong>セキュリティ ロール</strong> :<br>グループ A のユーザーに対してセキュリティ ロールを付与することで、ユーザーがアクセスできるテーブルやアプリ、実行可能な操作を制限できます。<br>たとえば図中のユーザーにサポート部門用のセキュリティ ロールが割り当てられ、システム管理者が割り当てられていないとき、ユーザーはシステム管理に使うテーブルにはアクセスができません。</li>
 </ol>
-<p>1 から 3 を組み合わせることで、ユーザーに対してどの環境でのどのような操作を許可するかを制御できます。<br>今回の記事では 2 と 3 をより詳しく見ていきます。</p>
-<h3 id="環境へのセキュリティ-グループの割り当て"><a href="#環境へのセキュリティ-グループの割り当て" class="headerlink" title="環境へのセキュリティ グループの割り当て"></a>環境へのセキュリティ グループの割り当て</h3><hr>
-<p>Power Platform 環境には、デフォルトではテナントに所属する全ユーザーがアクセスできますが、<br>環境にセキュリティ グループを割り当てることで、<strong>割り当てられたセキュリティ グループに所属するユーザーのみにアクセスを限定</strong>することができます。<br>たとえば、「IT部門」用の環境を作成したときに、「IT部門」のセキュリティ グループを割り当てることで、その他の営業部門などのユーザーのアクセスを禁止する…というように、グループごとに環境の利用可否が異なる場合に、ぜひ設定いただきたい項目です。</p>
-<p>セキュリティ グループの割り当ては、環境作成時にオプションで指定できる他、Power Platform 管理センターから既存の環境に対しても指定できます。<br>ただし、既存の環境にセキュリティ グループを割り当てた場合、セキュリティ グループに所属していないユーザーはすべて無効化されるのでご注意ください。<br><img src="/blog/powerplatform/About-security-role-in-Dataverse/img01-SGsetting.PNG"></p>
-<h3 id="セキュリティ-ロールの設定"><a href="#セキュリティ-ロールの設定" class="headerlink" title="セキュリティ ロールの設定"></a>セキュリティ ロールの設定</h3><hr>
-<p>上記でご説明したセキュリティ グループでは、ユーザーに対して環境単位でのアクセス可否を決定します。<br>これに対して、ユーザーに割り当てることで、<strong>環境内でユーザーが行える操作を決定</strong>するのがセキュリティ ロールです。<br>Power Platform では、要件に合わせたさまざまな既定のセキュリティ ロールが存在します。一例をご紹介します。</p>
+<p>本記事では 2 と 3 について紹介します。</p>
+<h2 id="セキュリティ-グループについて"><a href="#セキュリティ-グループについて" class="headerlink" title="セキュリティ グループについて"></a>セキュリティ グループについて</h2><p>Power Platform 環境には、デフォルトではテナントに所属する全ユーザーがアクセスできますが、環境にセキュリティ グループを割り当てることで、<strong>割り当てられたセキュリティ グループに所属するユーザーのみにアクセスを限定</strong>することができます。<br>たとえば、「IT部門」用の環境を作成したときに、「IT部門」のセキュリティ グループを割り当てることで、その他の営業部門などのユーザーのアクセスを禁止することができます。このように、グループごとに環境の利用可否を制御したい場合に、セキュリティ グループが役立ちます。</p>
+<p>セキュリティ グループの割り当ては、環境作成時にオプションで指定できる他、Power Platform 管理センターから既存の環境に対しても指定できます。<br>ただし、既存の環境にセキュリティ グループを割り当てた場合、セキュリティ グループに所属していないユーザーはすべて無効化されるのでご注意ください。<br><img src="/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_group.png"></p>
+<h2 id="セキュリティ-ロールについて"><a href="#セキュリティ-ロールについて" class="headerlink" title="セキュリティ ロールについて"></a>セキュリティ ロールについて</h2><p>上記でご説明したセキュリティ グループでは、ユーザーに対して環境単位でのアクセス可否を決定します。<br>これに対して、ユーザーに割り当てることで、<strong>環境内でユーザーが行える操作を決定</strong>するのがセキュリティ ロールです。<br>Power Platform では、要件に合わせたさまざまな既定のセキュリティ ロールが存在します。特によく使用されるセキュリティ ロールの例を以下に紹介します。</p>
 <ul>
 <li>システム管理者 : 環境におけるすべての操作を実行できるロール。</li>
 <li>Basic User : 環境における一般的なアプリの利用ができるロール。管理操作が制限される他、自分以外のユーザーが作成したデータに対するアクセスも制限されます。</li>
 <li>システム カスタマイザー : 環境をカスタマイズするためのロール。多くの管理操作を実行できますが、自分以外のユーザーが作成したデータを参照できません。</li>
 </ul>
-<p>またこちらの公開情報にも、より多くのセキュリティ ロールのご説明が記載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security">環境のリソースに対するユーザー セキュリティの構成</a></p>
-<h3 id="セキュリティ-ロールの仕組みとカスタマイズ"><a href="#セキュリティ-ロールの仕組みとカスタマイズ" class="headerlink" title="セキュリティ ロールの仕組みとカスタマイズ"></a>セキュリティ ロールの仕組みとカスタマイズ</h3><hr>
-<p>セキュリティ ロールは、初期状態では、ユーザーのライセンスやMicrosoft 365 管理者役割に応じて自動的にユーザーに割り振られています。<br>ただ、デフォルトで割り当てられるセキュリティ ロールではなく、もっと具体的にアクセス権を管理したいという方に向けて、セキュリティ ロールの仕組みとカスタマイズ方法をご紹介します。</p>
-<p>セキュリティ ロールの実体は、Dataverse 上の各テーブルに対するアクセス権の集合体です。<br>セキュリティ ロール編集画面にて、各セキュリティ ロールごとに、以下のようなイメージでアクセス権が定義されているのが確認できます。<br><img src="/blog/powerplatform/About-security-role-in-Dataverse/img02-rolesetting.PNG"></p>
-<p>上図左の列に記載されているのがDataverse の各テーブルの名称、右側の列に記載されているのがテーブルに対する操作です。<br>このマトリクスに対して、アクセス許可レベルを設定することで、<strong>「(行)どのテーブルに対して × (列)どの操作を許可するか」</strong> を定義することができます。<br>たとえば上図の「お知らせ」テーブルで言えば、Basic User セキュリティ ロールではお知らせの読み込みは完全に許可されている一方で、お知らせの作成・書き込み・削除・追加…など、他の操作は禁止されている、ということが定義されています。</p>
-<p>また、上図では丸の色・塗られ方が権限によって様々ですが、これはアクセス許可のレベルを表現しています。<br>Power Platform ではアクセス許可レベルを 5 段階で設定しています。以下の公開情報に詳しく掲載されているので、ぜひご覧ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権</a></p>
-<p>このアクセス権の定義方法は、セキュリティ ロールのカスタマイズの考え方にもつながります。<br>例えば、</p>
+<p>またこちらの公開情報にも、より多くのセキュリティ ロールのご説明が記載されているので、ぜひご覧ください。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security">環境のリソースに対するユーザー セキュリティの構成</a></p>
+<h3 id="セキュリティ-ロールの仕組みとカスタマイズ"><a href="#セキュリティ-ロールの仕組みとカスタマイズ" class="headerlink" title="セキュリティ ロールの仕組みとカスタマイズ"></a>セキュリティ ロールの仕組みとカスタマイズ</h3><p>セキュリティ ロールは、Dataverse 上の各テーブルやその他の機能の使用等に対する <strong>特権</strong> (アクセス権) をひとまとめにしたものです。<br>Power Platform 管理センターから環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [セキュリティ ロール] から特定のセキュリティ ロールを開くことで、下図のように特権がどのように付与されているかを確認することができます。<br><br>各特権の項目に対して、作成・読み取り・書き込み等の動作ごとに、特権の種類を [なし / 部署 / 組織 / 部署配下 / ユーザー] に設定できます。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権</a><br><img src="/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_role_settings.png"></p>
+<p>前述のように、システム管理者や Basic User といった定義済みのセキュリティ ロールが存在するものの、カスタマイズにより細かく特権を定義することが可能です。これにより、お客様の使用シナリオやニーズに合わせて、柔軟なアクセス制御が可能となります。</p>
+<p>例えば、</p>
 <ul>
 <li>サポート部門の担当者には、自分が担当する「サポート案件」を参照可とする</li>
 <li>サポート部門の管理者は、全員のサポート案件を参照可とする</li>
 <li>経理部門の担当者には、サポート案件自体参照させたくない</li>
 </ul>
 <p>というような要件がある場合、サポート案件に対するアクセス許可を変更したロールを 3 種類作成し、各ユーザーに割り当てることで要件が実現できます。</p>
-<p>なお、セキュリティ ロールをカスタマイズする際は、既存のセキュリティ ロールは変更後に元々の状態にリセットできないので、<br>万が一に備えてカスタマイズ用のセキュリティ ロールを別途用意いただくことを推奨しています。<br>また、既存のセキュリティ ロールでは、内部処理に使われているさまざまなテーブルについても多数のアクセス制御が設定されています。<br>そのため、セキュリティ ロールを別途用意するときには、既存のセキュリティ ロールをコピーした上で、特定のテーブルのアクセス制御のみ変更することをお勧めいたします。</p>
-<h2 id="本記事からの発展"><a href="#本記事からの発展" class="headerlink" title="本記事からの発展"></a>本記事からの発展</h2><hr>
-<p>Dataverse では、これまでご案内してきたように、ライセンスやセキュリティ グループ、セキュリティ ロールの組み合わせでアクセス制御を行っています。<br>本記事では詳しくご紹介していませんが、より発展的な内容についても、公開情報をご案内いたします。</p>
-<h4 id="チーム単位でのセキュリティ-ロールの割り当て"><a href="#チーム単位でのセキュリティ-ロールの割り当て" class="headerlink" title="チーム単位でのセキュリティ ロールの割り当て"></a>チーム単位でのセキュリティ ロールの割り当て</h4><p>ユーザーが所属するDataverse 上の「チーム」に対してセキュリティ ロールを設定することで、ユーザーにもチームのセキュリティ ロールが引き継がれます。<br>また、この「チーム」を、Azure AD のセキュリティ グループと紐づけることで、Azure AD 側とのユーザー管理の一元化も可能です。<br>セキュリティ ロールをユーザーごとに設定するのは少し大変……という場合には、ぜひチームの導入をご検討ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a></p>
-<h4 id="フィールドレベルのセキュリティ付与"><a href="#フィールドレベルのセキュリティ付与" class="headerlink" title="フィールドレベルのセキュリティ付与"></a>フィールドレベルのセキュリティ付与</h4><p>本記事でご案内したユーザーごとのアクセス制御とは別に、Dataverse の各列ごとにアクセス制御を設定することができます。<br>住所や電話番号など、ユーザーを問わず隠しておきたいようなデータに対して、ぜひご設定ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/field-level-security">アクセスを制御する列レベルのセキュリティ</a></p>
-<h4 id="セキュリティ-グループを環境に割り当てた際のメンバー同期"><a href="#セキュリティ-グループを環境に割り当てた際のメンバー同期" class="headerlink" title="セキュリティ グループを環境に割り当てた際のメンバー同期"></a>セキュリティ グループを環境に割り当てた際のメンバー同期</h4><p>セキュリティ グループを環境に割り当てると、グループに所属するうちライセンスを保有するユーザーが、自動的に環境に追加されるようになります。<br>ただし以下のように、注意が必要な挙動もあります。</p>
+<p>定義済みセキュリティ ロールでは、モデル駆動型アプリで実際に使用されよく目にするテーブル以外にも、設定に関するものやプライバシー関連など、多数のアクセス制御が設定されています。そのため、カスタムでのセキュリティ ロールを作成する場合は、定義済みのセキュリティ ロールをコピーし、それをベースに修正が必要な特権のみ変更する運用が推奨されています。</p>
+<h2 id="その他"><a href="#その他" class="headerlink" title="その他"></a>その他</h2><h3 id="チーム単位でのセキュリティ-ロールの割り当て"><a href="#チーム単位でのセキュリティ-ロールの割り当て" class="headerlink" title="チーム単位でのセキュリティ ロールの割り当て"></a>チーム単位でのセキュリティ ロールの割り当て</h3><p>ユーザーに直接セキュリティ ロールを割り当てるのではなく、Dataverse 上に作成した <strong>チーム</strong> に対してもセキュリティ ロールの割り当てが可能です。<br>これにより、チームに所属するユーザー全員に対して、チームに付与されたセキュリティ ロールが継承されます。(チームのセキュリティ ロールが継承されていても、Power Platform 管理センターのユーザーごとのセキュリティ ロールには表示されません)<br><br>また、このチームを Microsoft Entra ID のセキュリティ グループと紐づけることで、Microsoft Entra ID と Power Platform でユーザー管理の体制を統一することができます。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a></p>
+<h3 id="フィールドレベルのセキュリティ付与"><a href="#フィールドレベルのセキュリティ付与" class="headerlink" title="フィールドレベルのセキュリティ付与"></a>フィールドレベルのセキュリティ付与</h3><p>本記事でご紹介したテーブルごとのアクセス制御とは別に、更に細かく Dataverse テーブルの列ごとにアクセス制御を設定することができます。<br>住所や電話番号など、特に重要で管理に留意する必要のある情報を扱う際に有効な機能です。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/field-level-security">アクセスを制御する列レベルのセキュリティ</a></p>
+<h3 id="セキュリティ-グループを環境に割り当てた際のメンバー同期"><a href="#セキュリティ-グループを環境に割り当てた際のメンバー同期" class="headerlink" title="セキュリティ グループを環境に割り当てた際のメンバー同期"></a>セキュリティ グループを環境に割り当てた際のメンバー同期</h3><p>セキュリティ グループを環境に割り当てると、グループに所属するライセンスを保有するユーザーが、自動的に環境に追加されるようになります。<br>ただし以下のように、注意が必要な挙動もあります。</p>
 <ul>
 <li>ライセンスを保有しないユーザーは環境に追加されない</li>
-<li>入れ子のセキュリティ グループのメンバーは、グループに「Azure AD グループ チーム」が割り当てられている場合を除いて、自動的に環境に追加されない</li>
+<li>入れ子のセキュリティ グループのメンバーは、グループに「Microsoft Entra ID グループ チーム」が割り当てられている場合を除いて、自動的に環境に追加されない</li>
 <li>ユーザーがグループから削除された際、Power Platform 側のユーザーは無効化される</li>
 </ul>
-<p>以下の公開情報に注意点が列挙されていますので、ぜひご参照ください。<br>ご参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス</a></p>
-<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
-<p>以上、Dataverse でのユーザーアクセスの制御についてご案内いたしました。<br>こちらの記事が皆様のセキュアな環境管理のお役に立ちましたら幸いです。</p>
+<p>以下の公開情報に注意点の記載がございますので、ぜひご参照ください。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス</a></p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>以上、Dataverse でのユーザーアクセスの制御についてご案内いたしました。<br>こちらの記事が皆様のセキュアな環境管理のお役に立ちましたら幸いです。</p>
 
       
       
@@ -245,19 +239,19 @@
     
 <nav id="article-nav">
   
-    <a href="../2021-wave2-added-search/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../EmailEnableAutmation/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ
+          メールボックスの承認・テストと有効化の自動化について
         
       </div>
     </a>
   
   
-    <a href="../../powerautomate/CloudFlow-ErrorHandling/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../connect-private-datasource/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">クラウド フローでのエラーハンドリングの方法</div>
+      <div class="article-nav-title">Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法</div>
     </a>
   
 </nav>
@@ -280,6 +274,10 @@
           </li>
         
           <li>
+            <a href="">セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法</a>
+          </li>
+        
+          <li>
             <a href="../connect-private-datasource/">Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法</a>
           </li>
         
@@ -289,10 +287,6 @@
         
           <li>
             <a href="../../copilotstudio/copilot-studio-teams/">Copilot Studio のエージェントを Teams に公開する方法</a>
-          </li>
-        
-          <li>
-            <a href="../Block-AI-Builder/">AI Builder 利用制限について</a>
           </li>
         
       </ul>
@@ -315,7 +309,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
     </div>
   </div>
 
