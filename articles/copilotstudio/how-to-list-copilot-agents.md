@@ -39,7 +39,7 @@ Teams アプリの Copilot Studio から作成したエージェントは Datave
 ![](./how-to-list-copilot-agents/setting.png)
 1. 表示された Dynamics 365 画面右上のフィルタアイコンを選択します。  
 ![](./how-to-list-copilot-agents/filter.png)
-1. 表示された「高度な検索」画面が開いたら以下の操作を行います。
+1. 「高度な検索」画面が開いたら以下の操作を行います。
    * 検索対象テーブルに「Copilots/コパイロット」を選択します。
    * 必要に応じて、「列の編集/Edit Columns」から表示する列を編集します。
    * 「結果/Results」を押します。  
