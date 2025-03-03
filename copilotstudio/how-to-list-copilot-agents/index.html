@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Copilot studio のエージェントを一覧にする方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの網野です。Copilot Studio にて作成されたエージェントは Dataverse または Dataverse for Teams に保存されます。本記事では Dataverse および Dataverse for Teams からエージェントを一覧を取得する方法をご案内いたします。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Copilot studio のエージェントを一覧にする方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの網野です。Copilot Studio にて作成されたエージェントは Dataverse または Dataverse for Teams に保存されます。本記事では Dataverse および Dataverse for Teams からエージェントを一覧を取得する方法をご案内いたします。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/environment-picker.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/setting.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/filter.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/advanced_search.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/export_excel.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/excel_list.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/add_owner_email.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse1.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse6.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse8.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse3.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse4.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse5.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse9.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/coe.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/coe2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_1.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_3.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_4.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_5.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_2.png">
+<meta property="article:published_time" content="2024-06-14T04:30:00.000Z">
+<meta property="article:modified_time" content="2025-03-03T04:18:47.451Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Copilot studio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/environment-picker.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-copilotstudio/how-to-list-copilot-agents" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Copilot studio のエージェントを一覧にする方法
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2024-06-14T04:30:00.000Z" itemprop="datePublished">2024-06-14</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/copilotstudio/how-to-list-copilot-agents.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+e40ac917-6e0f-5ad0-92b5-b86f077c47c9%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCopilot+studio+%E3%81%AE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%82%92%E4%B8%80%E8%A6%A7%E3%81%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcopilotstudio%2Fhow-to-list-copilot-agents%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcopilotstudio%2Fhow-to-list-copilot-agents.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcopilotstudio%2Fhow-to-list-copilot-agents.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/" data-id="cm7sjvqkh00080nlmfs8nechp" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <div class="toc-wrapper">
+          <h2 id="toc-header" class="toc-header">この記事の内容</h2>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%A6%81"><span class="toc-text">概要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%8F%90"><span class="toc-text">前提</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E3%81%AE%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%82%92%E4%B8%80%E8%A6%A7%E3%81%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"><span class="toc-text">特定の環境のエージェントを一覧にする方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E5%86%85%E3%81%AE%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%82%92%E4%B8%80%E8%A6%A7%E3%81%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"><span class="toc-text">テナント内の環境のエージェントを一覧にする方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F"><span class="toc-text">よくある質問</span></a></li></ol>
+        </div>
+          
+        <p>こんにちは、Power Platform サポートチームの網野です。<br>Copilot Studio にて作成されたエージェントは Dataverse または Dataverse for Teams に保存されます。本記事では Dataverse および Dataverse for Teams からエージェントを一覧を取得する方法をご案内いたします。</p>
+<span id="more"></span>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Copilot Studio は 2 つのルートでエージェントを作成することができます。</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing-subscriptions#standalone-copilot-studio-subscription">Copilot Studio ポータル</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing-subscriptions#copilot-studio-for-microsoft-teams-plans">Teams アプリの Copilot Studio</a></li>
+</ol>
+<p>Copilot Studio ポータルから作成したエージェントは Dataverse に保存されます。<br>Teams アプリの Copilot Studio から作成したエージェントは Dataverse for Teams に保存されます。Dataverse/Dataverse for Teams に格納されているデータは本記事に記載する方法で取得・確認することができます。</p>
+<p>なお、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-365-copilot/extensibility/copilot-studio-agent-builder">Agent Builder</a> を利用して作成したエージェントは Cosmos DB に保存されますので、本記事の方法では取得することができません。</p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>テナント内のエージェント一覧を取得するためには、取得する環境の Copilots テーブルに対して、組織レベルの読み取り権限が必要となります。  </p>
+<h2 id="特定の環境のエージェントを一覧にする方法"><a href="#特定の環境のエージェントを一覧にする方法" class="headerlink" title="特定の環境のエージェントを一覧にする方法"></a>特定の環境のエージェントを一覧にする方法</h2><h3 id="詳細検索を利用する方法-Dataverse-のみ"><a href="#詳細検索を利用する方法-Dataverse-のみ" class="headerlink" title="詳細検索を利用する方法 (Dataverse のみ)"></a>詳細検索を利用する方法 (Dataverse のみ)</h3><ol>
+<li><p><a target="_blank" rel="noopener" href="https://make.powerapps.com/">Power Apps ポータル</a> に接続し、エージェントを取得する環境を選択します。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/environment-picker.png"></p>
+</li>
+<li><p>右上のギアアイコンより、[詳細設定] を選択します。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/setting.png"></p>
+</li>
+<li><p>表示された Dynamics 365 画面右上のフィルタアイコンを選択します。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/filter.png"></p>
+</li>
+<li><p>「高度な検索」画面が開いたら以下の操作を行います。</p>
+<ul>
+<li>検索対象テーブルに「Copilots/コパイロット」を選択します。</li>
+<li>必要に応じて、「列の編集/Edit Columns」から表示する列を編集します。</li>
+<li>「結果/Results」を押します。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/advanced_search.png"></li>
+</ul>
+</li>
+<li><p>エージェント一覧が表示されます。表示された検索結果をExcel にエクスポートが可能です。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/export_excel.png"></p>
+</li>
+<li><p>エクスポートした Excel を開くと、エージェント名 (Name列) と所有者 (Owner) を確認することができます。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/excel_list.png"></p>
+</li>
+<li><p>手順4の画面で所有者のメールアドレスを追加しますと、エクスポート時にメールアドレスを一緒に出力することができます。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/add_owner_email.png"></p>
+</li>
+</ol>
+<h3 id="Dataverse-コネクタを利用する方法"><a href="#Dataverse-コネクタを利用する方法" class="headerlink" title="Dataverse コネクタを利用する方法"></a>Dataverse コネクタを利用する方法</h3><p>Dataverse コネクタを利用し Copilots(bot) テーブルからエージェント情報を取得します。  </p>
+<h4 id="フロー全体図"><a href="#フロー全体図" class="headerlink" title="フロー全体図"></a>フロー全体図</h4><p><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse1.png"></p>
+<h4 id="フロー詳細"><a href="#フロー詳細" class="headerlink" title="フロー詳細"></a>フロー詳細</h4><ol>
+<li>任意のトリガーを設定します  </li>
+<li>Dataverse コネクタ「選択した環境の行を一覧表示する」アクションを設定します。  <ul>
+<li>環境：（任意）</li>
+<li>テーブル名：Copilots</li>
+<li>列を選択する：（表示したい列をカンマ区切りで記載）<br>取得可能な列は <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/power-apps/developer/data-platform/reference/entities/bot">Copilot (bot) table/entity reference</a> を参照してください。</li>
+<li>クエリの展開：（任意）<br> サンプルではエージェント作成者＝CreatedBy の姓名とメールアドレスを取得しています。<br> 値：createdby($select=internalemailaddress,lastname,firstname)<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse2.png"></li>
+</ul>
+</li>
+<li>ここで一度フローを実行し、実行履歴から「選択した環境の行を一覧表示する」アクションの body をコピーします。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse6.png"></li>
+<li>「JSON の解析」アクションを設定します。  <ul>
+<li>Content：動的コンテンツ「選択した環境の行を一覧表示する」の本文</li>
+<li>Shema：以下の手順で作成します。<ol>
+<li>「サンプルペイロードを使用してスキーマを生成する」を選択します。</li>
+<li>一つ前の手順で取得した実行履歴の body の値を貼り付けます。</li>
+<li>「完了」を押します。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse8.png"></li>
+<li>以下のように表示されていることを確認してください。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse3.png"> </li>
+</ol>
+</li>
+</ul>
+</li>
+<li>「CSV テーブルの作成」アクションを設定します。  <ul>
+<li>From ：動的コンテンツ「JSON の解析」の Body value</li>
+<li>Columns： カスタム</li>
+<li>Columns Header： （CSV ヘッダーとして使用する任意の文字列）</li>
+<li>Columns Value：（動的コンテンツ「JSON の解析」の任意の項目）<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse4.png"></li>
+</ul>
+</li>
+<li>任意のコネクタを利用し CSV ファイルを作成します。<br>サンプルでは OneDrive for Business コネクタの「ファイルの作成」アクションを利用して CSV ファイルを作成します。  <ul>
+<li>フォルダーのパス：（任意）</li>
+<li>ファイル名：（任意）</li>
+<li>ファイルコンテンツ：concat(decodeUriComponent(‘%EF%BB%BF’), body(‘CSV_テーブルの作成’))<br>日本語が文字化けしないように、ファイルコンテンツの先頭に BOM=decodeUriComponent(‘%EF%BB%BF’) を追加します。<br>※BOM とは文字コードが UTF-8 であることを示すものです。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse5.png"></li>
+</ul>
+</li>
+</ol>
+<p>これでフローの作成は完了です。</p>
+<h4 id="フロー実行結果"><a href="#フロー実行結果" class="headerlink" title="フロー実行結果"></a>フロー実行結果</h4><p>フローを実行すると指定したフォルダに CSV が出力されます。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse9.png"></p>
+<h2 id="テナント内の環境のエージェントを一覧にする方法"><a href="#テナント内の環境のエージェントを一覧にする方法" class="headerlink" title="テナント内の環境のエージェントを一覧にする方法"></a>テナント内の環境のエージェントを一覧にする方法</h2><h3 id="CoE-を利用する方法-Dataverse-のみ"><a href="#CoE-を利用する方法-Dataverse-のみ" class="headerlink" title="CoE を利用する方法 (Dataverse のみ)"></a>CoE を利用する方法 (Dataverse のみ)</h3><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit">CoE Starter kit</a> を環境にインストールすることで、Datavese に作成されたエージェントの一覧を確認することができます。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/coe.png">  </p>
+<p>Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点で CoE Starter Kit から確認することはサポートされていません。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/coe2.png">  </p>
+<p>なお、 CoE Starter Kit は有志が作成するツールとなりますのでご不明点等ございましたら、<a target="_blank" rel="noopener" href="https://aka.ms/coe-starter-kit-issues">GitHub</a> へお問い合わせください。<br>関連リンク：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/feedback-support">CoE Starter Kit に関するフィードバックとサポート</a></p>
+<h3 id="Dataverse-コネクタを利用する方法-1"><a href="#Dataverse-コネクタを利用する方法-1" class="headerlink" title="Dataverse コネクタを利用する方法"></a>Dataverse コネクタを利用する方法</h3><p>上述のDataverse コネクタを利用する方法にて特定環境のエージェント一覧を取得する方法をご案内しました。その方法を全ての環境に対して行うことでテナント内の環境のエージェント一覧を取得することができます。<br>具体的には「環境一覧を管理者として作成する」アクションを利用して取得した、取得した環境ごとに CSV を出力することで、 Copilot 情報を取得します。</p>
+<h3 id="フロー全体図-1"><a href="#フロー全体図-1" class="headerlink" title="フロー全体図"></a>フロー全体図</h3><p><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_1.png"></p>
+<h4 id="前作業"><a href="#前作業" class="headerlink" title="前作業"></a>前作業</h4><p>全ての環境の Copilots テーブルにアクセスするために、自分自身を環境の管理者として追加します。<br>具体的な手順は <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-high-privileged-admin-roles#self-elevate-through-powershell">PowerShell による自己昇格</a> を参照してください。  </p>
+<h3 id="フロー詳細-1"><a href="#フロー詳細-1" class="headerlink" title="フロー詳細"></a>フロー詳細</h3><ol>
+<li>管理者向け Power Platform コネクタの「環境一覧を管理者として作成する」アクションを追加します。</li>
+<li>「選択した環境の行を一覧表示する」アクションの「環境」を動的コンテンツ「リンクされたメタデータ インスタンス API の URL」に変更します。<br>環境：@item()?[‘properties/linkedEnvironmentMetadata/instanceApiUrl’]<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_3.png"></li>
+<li>「選択した環境の行を一覧表示する」アクションが 「For each」 コントロールで囲まれることを確認し、後続のアクションもすべて 「For each」 コントール内に追加します。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_4.png"></li>
+<li>「ファイルの作成」アクションのファイル名に動的コンテンツ「リンクされたメタデータ フレンドリ名」を追加します。　　<br>サンプルでは、フレンドリ名（＝環境名）を追加することで、環境ごとにファイルを作成し、他の環境のデータが上書きされる事を防ぎます。運用に合わせて任意の項目を設定してください。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_5.png"></li>
+</ol>
+<h4 id="フロー実行結果-1"><a href="#フロー実行結果-1" class="headerlink" title="フロー実行結果"></a>フロー実行結果</h4><p>フローを実行すると指定したフォルダに環境ごとの CSV が出力されます。<br><img src="/blog/copilotstudio/how-to-list-copilot-agents/dataverse2_2.png"></p>
+<h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="Microsoft-365-Copilot-を拡張した-Copilot-の情報が取得できますか"><a href="#Microsoft-365-Copilot-を拡張した-Copilot-の情報が取得できますか" class="headerlink" title="Microsoft 365 Copilot を拡張した Copilot の情報が取得できますか"></a>Microsoft 365 Copilot を拡張した Copilot の情報が取得できますか</h3><p>はい、取得できます。<br>Copilot Studio から Copilot for Microsoft 365 を選択して作成した Copilot は Dataverse に保存されます。そのため、本手順でご案内した方法で取得することができます。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Copilot-studio/" rel="tag">Copilot studio</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/copilotstudio/how-to-list-copilot-agents.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../powerautomate/resolve-infinite-loops-in-SharePoint-updates/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Power Automate のフローで無限トリガーループが起きる際の対処法
+        
+      </div>
+    </a>
+  
+  
+    <a href="../copilot-studio-data-handling/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../powerplatform/EmailEnableAutmation/">メールボックスの承認・テストと有効化の自動化について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/About-security-role-in-Dataverse/">セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/connect-private-datasource/">Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/cloudflow-limits/">Power Automate クラウドフローの制限事項</a>
+          </li>
+        
+          <li>
+            <a href="../copilot-studio-teams/">Copilot Studio のエージェントを Teams に公開する方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-builder/" rel="tag">AI builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connection/" rel="tag">Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-Studio/" rel="tag">Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-studio/" rel="tag">Copilot studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">Excel エクスポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams/" rel="tag">Microsoft Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps-portal/" rel="tag">Power Apps portal</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNet-for-Power-Platform/" rel="tag">VNet for Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95/" rel="tag">問い合わせ方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A8%A9%E9%99%90/" rel="tag">権限</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" rel="tag">自動フロー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Pages/Power-Apps-portal">Power Apps portal</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">15</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Audit-Log">Audit Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Canvas-app">Canvas app</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Copilot">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Inventory-Report">Inventory Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Automate">Power Automate</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Platform">Power Platform</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC">Power Platform 管理センター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/Tenant-level-Analytics">Tenant-level Analytics</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA">キャンバスアプリ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC">モニター</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9">ライセンス</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E5%A7%94%E4%BB%BB">委任</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Apps/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/">Power Virtual Agents</a><span class="tag-list-count">3</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/AI-builder">AI builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Copilot-Studio">Copilot Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Copilot-studio">Copilot studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Dynamics-365">Dynamics 365</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Microsoft-Teams">Microsoft Teams</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/Power-Platform">Power Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Virtual-Agents/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">22</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/AI-Builder">AI Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/AI-builder">AI builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/App-Access-Checker">App Access Checker</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Copilot">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Copilot-studio">Copilot studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC">DLP ポリシー</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse">Dataverse</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-for-Teams">Dataverse for Teams</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8">Dataverse ストレージ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Developer-Environment">Developer Environment</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Dynamics-365">Dynamics 365</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Environment">Environment</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Exchange">Exchange</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Governance">Governance</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Apps">Power Apps</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Automate">Power Automate</a><span class="tag-list-count">7</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Power-Virtual-Agents">Power Virtual Agents</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/Settings">Settings</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Platform/VNet-for-Power-Platform">VNet for Power Platform</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">39</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Canvas-app">Canvas app</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Cloud-flow">Cloud flow</a><span class="tag-list-count">22</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Connection">Connection</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Copilot">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Dataverse">Dataverse</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Desktop-flow">Desktop flow</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Graph-API">Graph API</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/How-to">How to</a><span class="tag-list-count">14</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Office-365-Management-API">Office 365 Management API</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Apps">Power Apps</a><span class="tag-list-count">6</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Automate-for-desktop">Power Automate for desktop</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/Power-Platform">Power Platform</a><span class="tag-list-count">7</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/PowerShell">PowerShell</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/SharePoint-Online">SharePoint Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4">オンプレミス データ ゲートウェイ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA">キャンバスアプリ</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96">情報採取</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Power-Automate/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC">自動フロー</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Dataverse">Dataverse</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Environment">Environment</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/Model-driven-app">Model-driven app</a><span class="tag-list-count">5</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/Dynamics/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2">重要な変更点 (廃止)</a><span class="tag-list-count">1</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/Dynamics">Dynamics</a><span class="tag-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/AI-builder/" style="font-size: 10px;">AI builder</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 13.64px;">Canvas app</a> <a href="../../tags/Cloud-flow/" style="font-size: 19.09px;">Cloud flow</a> <a href="../../tags/Connection/" style="font-size: 10px;">Connection</a> <a href="../../tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="../../tags/Copilot-Studio/" style="font-size: 10.91px;">Copilot Studio</a> <a href="../../tags/Copilot-studio/" style="font-size: 10.91px;">Copilot studio</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataverse/" style="font-size: 14.55px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10.91px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 15.45px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 16.36px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 10px;">Dynamics 365</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 12.73px;">Environment</a> <a href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">Excel エクスポート</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 10px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 11.82px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 17.27px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 10px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/Microsoft-Teams/" style="font-size: 10px;">Microsoft Teams</a> <a href="../../tags/Model-driven-app/" style="font-size: 12.73px;">Model-driven app</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 18.18px;">Power Apps</a> <a href="../../tags/Power-Apps-portal/" style="font-size: 10px;">Power Apps portal</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 15.45px;">Power Automate for desktop</a> <a href="../../tags/Power-Pages/" style="font-size: 10px;">Power Pages</a> <a href="../../tags/Power-Platform/" style="font-size: 19.09px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 11.82px;">Power Virtual Agents</a> <a href="../../tags/PowerPlatform/" style="font-size: 11.82px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 11.82px;">PowerShell</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/VNet-for-Power-Platform/" style="font-size: 10px;">VNet for Power Platform</a> <a href="../../tags/VNetGateway/" style="font-size: 10.91px;">VNetGateway</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10.91px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバスアプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 12.73px;">サポート</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 12.73px;">ライセンス</a> <a href="../../tags/%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E6%96%B9%E6%B3%95/" style="font-size: 10px;">問い合わせ方法</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 12.73px;">情報採取</a> <a href="../../tags/%E6%A8%A9%E9%99%90/" style="font-size: 10px;">権限</a> <a href="../../tags/%E8%87%AA%E5%8B%95%E3%83%95%E3%83%AD%E3%83%BC/" style="font-size: 10px;">自動フロー</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2025 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
