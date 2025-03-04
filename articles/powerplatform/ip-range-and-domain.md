@@ -10,7 +10,7 @@ tags:
 
 # キャンバスアプリ / Power Automate  利用時の通信要件
 
-こんにちは、Power Platform サポートチームの網野です。  
+こんにちは、Power Platform サポートチームの網野、大友です。  
 今回は キャンバスアプリ / Power Automate  利用時の通信要件についてご案内します。<br>
 Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で通信要件を定義しており、別途対応が必要となりますのでご留意ください。
 
@@ -39,7 +39,7 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 ![](./ip-range-and-domain/network.png)
 
 
-① クライアントとの通信に必要な要件は  [キャンバスアプリ](#anchor-canvasapp) および [Power Automate](#anchor-powerautomate) を参照してください。  
+① クライアントとの通信に必要な要件は  [キャンバスアプリ](#anchor-canvasapp)、[Power Automate](#anchor-powerautomate) および [オンプレミスデータゲートウェイ](#anchor-onpremisedatagateway) を参照してください。  
 ② 接続先との通信に必要な要件は [コネクタ](#anchor-connector) を参照してください。
 
 
@@ -57,6 +57,21 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 1. [IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration) に記載されているドメインを許可してください。<br>
    モバイルアプリやデスクトップフローなど利用するサービスに応じて設定してください。<br>
    ![](./ip-range-and-domain/powerautomate-domain.png)
+
+<a id='anchor-onpremisedatagateway'></a>
+### オンプレミス データ ゲートウェイ
+
+1. [ゲートウェイが機能するために必要なポート](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-communication#required-ports-for-the-gateway-to-function)に記載されているすべてのドメインを許可してください。  
+![](./ip-range-and-domain/onpremisedatagateway.png)  
+
+   > [!NOTE]
+   > ドメインに加え、ポートも指定されています。  
+   > オンプレミス データ ゲートウェイではお客様からマイクロソフト向きのリクエストにより通信を確立します。  
+   > そのため、お客様のコンピューターをインターネット上に公開していただく必要はございません。  
+
+   端末にインストール済のオンプレミス データ ゲートウェイアプリにてマイクロソフトアカウントでのサインインに成功している場合には、診断メニューからネットワーク ポートのテストを実施頂く事で、問題なく通信が成功するか確認頂く事も可能です。  
+   ![](./ip-range-and-domain/onpremisedatagateway2.png)  
+   ![](./ip-range-and-domain/onpremisedatagateway3.png)  
 
 ## 接続先との通信
 
@@ -85,9 +100,9 @@ Microsoft 365 や Azure などの製品とは別に、Power Platform 独自で�
 | :- | :- | :- | :- |
 | キャンバスアプリ | [ドメイン](https://learn.microsoft.com/en-us/power-apps/limits-and-config#required-services)  | - | 送信/受信
 | Power Automate| [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration)  | - | 送信/受信
+| オンプレミス データ ゲートウェイ | [ドメイン/ポート](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-communication#required-ports-for-the-gateway-to-function) | - | 送信/受信
 | コネクタ | [IP アドレス/サービスタグ](https://learn.microsoft.com/en-us/connectors/common/outbound-ip-addresses#power-platform) | AzureConnectors | 送信/受信
 | | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | 受信 IP：LogicAppsManagement <br>送信 IP：LogicApps | 受信 IP：受信 <br>送信 IP：送信
-
 
 ## よくある質問
 
