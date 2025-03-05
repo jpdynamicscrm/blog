@@ -3,6 +3,8 @@ title: クラウド フローで Microsoft Purview の監査ログを取得す�
 date: 2023-11-13 16:00:00
 tags:
   - Power Automate
+  - Cloud flow
+  - Office 365 Management API
 ---
 
 # クラウド フローで Microsoft Purview の監査ログを取得する方法

@@ -2,6 +2,8 @@
 title: Power Automate for desktop のサポート範囲について
 date: 2022-11-11 12:00
 tags:
+  - Power Automate
+  - Desktop flow
   - Power Automate for desktop
 ---
 

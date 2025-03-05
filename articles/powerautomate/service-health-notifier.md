@@ -3,6 +3,9 @@ title: Power Automate クラウド フローを使用して、Microsoft のサ�
 date: 2022-06-18 13:40:00
 tags:
   - Power Automate
+  - Cloud flow
+  - Graph API
+  - How to
 ---
 
 # Power Automate クラウド フローを使用して、Microsoft のサービス正常性に関する更新情報を取得する方法

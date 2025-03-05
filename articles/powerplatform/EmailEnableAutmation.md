@@ -2,7 +2,9 @@
 title: メールボックスの承認・テストと有効化の自動化について
 date: 
 tags:
-  - Dynamics 365
+  - Dynamics
+  - サポート
+  - Environment
 ---
 
 # メールボックスの承認・テストと有効化の自動化について

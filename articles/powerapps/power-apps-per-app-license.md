@@ -3,6 +3,7 @@ title: アプリごとの Power Apps プラン (per app plan) ライセンスに
 date: 2022-11-18 12:00:00
 tags:
   - Power Apps
+  - ライセンス
 ---
 
 こんにちは、Power Platform サポートの山田です。<br/>

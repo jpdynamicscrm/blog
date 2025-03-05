@@ -3,6 +3,8 @@ title: Do Until で再試行を繰り返す (リトライループ)
 date: 2023-02-03 00:00
 tags:
   - Power Automate
+  - Cloud flow
+  - How to
 ---
 
 # Do Until で再試行を繰り返す (リトライループ)

@@ -3,6 +3,9 @@ title: Power Automate クラウド フローを使用して、Microsoft Graph AP
 date: 2024-06-24 14:00:00
 tags:
   - Power Automate
+  - Cloud flow
+  - Graph API
+  - How to
 ---
 
 こんにちは、Power Platform サポートチームの清水、竹内です。

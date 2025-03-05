@@ -2,7 +2,9 @@
 title: 環境のテナント移行について
 date: 2022-12-28 17:30:00
 tags:
-  - Dataverse
+  - Power Platform
+  - テナント移行
+  - Environment
 ---
 
 #  環境のテナント移行について

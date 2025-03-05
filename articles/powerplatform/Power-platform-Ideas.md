@@ -3,6 +3,7 @@ title: Power Platform Ideasサイトのご紹介
 date: 2024-11-20 00:00:00
 tags:
   - PowerPlatform
+  - Ideas
 ---
 
 # Power Platform Ideas サイトのご紹介

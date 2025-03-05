@@ -2,7 +2,8 @@
 title: Power Apps/Power Automate/Copilot Studio お問い合わせ時の留意事項
 date: 2023-04-20 15:00:00
 tags:
-  - Power Platform
+- Power Platform
+- サポート
 ---
 
 # Power Apps/Power Automate/Copilot Studio お問い合わせ時の留意事項

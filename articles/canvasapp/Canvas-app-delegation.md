@@ -2,6 +2,8 @@
 title: キャンバス アプリの委任について
 date: 2021-04-20 00:00:00
 tags:
+  - Canvas app
+  - 委任
   - Power Apps
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Power Automate / Power Platform 要求数制限
 tags:
+  - Power Platform
   - Power Automate
 ---
 

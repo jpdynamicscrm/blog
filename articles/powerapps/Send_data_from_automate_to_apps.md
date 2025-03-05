@@ -3,6 +3,8 @@ title: Power Automate からPower Apps へのデータ送信について
 date: 2022-08-031 12:00:00
 tags:
   - Power Apps
+  - Power Automate
+  - Canvas app
 ---
 
 こんにちは、Power Apps サポートの深津です。

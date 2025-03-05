@@ -3,6 +3,8 @@ title: SharePointの内部列名を確認する方法
 date: 2021-06-01 11:30:00
 tags:
   - Power Automate
+  - SharePoint Online
+  - Cloud flow
 ---
 
 # SharePointの内部列名を確認する方法
