@@ -4,6 +4,8 @@ date: 2025-01-31
 tags:
   - Power Automate
   - Cloud flow
+categories:
+  - [Power Platform, Power Automate, クラウドフロー]
 ---
 
 # はじめに

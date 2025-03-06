@@ -5,7 +5,10 @@ tags:
   - Model-driven app
   - Dynamics
   - Dataverse
-disableDisclaimer: false
+  - Governance
+categories:
+  - [Common, Dataverse]
+  - [Dynamics CE, Power Apps, モデル駆動型アプリ]
 ---
 #  Dataverse の監査ログをエクスポートする方法
 

@@ -5,6 +5,8 @@ tags:
   - Canvas app
   - Power Apps
   - PowerShell
+categories:
+  - [Power Platform, Power Apps, キャンバスアプリ]
 ---
 
 こんにちは、Power Platform サポートの谷です。<br/>

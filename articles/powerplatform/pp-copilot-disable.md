@@ -6,7 +6,10 @@ tags:
   - Power Apps
   - Power Automate
   - Copilot
-disableDisclaimer: false
+  - How to
+categories:
+  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Platform, Power Apps, キャンバスアプリ]
 ---
 
 

@@ -3,8 +3,10 @@ title: Power Automate for desktop のサポート範囲について
 date: 2022-11-11 12:00
 tags:
   - Power Automate
-  - Desktop flow
   - Power Automate for desktop
+  - お問い合わせ全般
+categories:
+  - [Power Platform, Power Automate, Power Automate for desktop]
 ---
 
 こんにちは。Power Platform サポート チームの 王 です。  

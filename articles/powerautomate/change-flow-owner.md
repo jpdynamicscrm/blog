@@ -4,6 +4,8 @@ date: 2022-10-01 9:00:00
 tags:
   - Power Automate
   - Cloud flow
+categories:
+  - [Power Platform, Power Automate, クラウドフロー]
 ---
 
 こんにちは、Power Platform サポートの谷です。<br/>

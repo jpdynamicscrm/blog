@@ -25,21 +25,43 @@ root_tag_generator:
   root_tag_names:
     - Information
     - Archive
+    - Governance
+    - How to
+    - Connector and Connection
+    - Microsoft Teams 連携
+    - Network
+    - License
+    - お問い合わせ全般
+    - 重要な変更点 (廃止)
     - Power Apps
-    - Power Pages
     - Power Automate
-    - Power Virtual Agents
+    - Power Automate for desktop
+    - Microsoft Copilot Studio
+    - Power Pages
     - Power Platform
     - Dynamics
-    - On-premises
-    - 重要な変更点 (廃止)
-  sub_tag_limit: 20
+    - Dynamics 365
+    - Dataverse
+    - Model-driven app
+    - PowerShell
+  sub_tag_limit: 0
 
 root_cat_generator:
   root_cat_names:
-    - [How-to, Microsoft Copilot Studio]
-    - [How-to, Microsoft Teams]
-    - [Copilot Studio]
+    - [Common]
+    - [Common, Dataverse]
+    - [Power Platform]
+    - [Power Platform, Power Automate]
+    - [Power Platform, Power Automate, クラウドフロー]
+    - [Power Platform, Power Automate, Power Automate for Desktop]
+    - [Power Platform, Power Apps]
+    - [Power Platform, Power Apps, キャンバスアプリ]
+    - [Power Platform, Microsoft Copilot Studio]
+    - [Dynamics CE]
+    - [Dynamics CE, Power Pages]
+    - [Dynamics CE, Dynamics 365]
+    - [Dynamics CE, Power Apps]
+    - [Dynamics CE, Power Apps, モデル駆動型アプリ]
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

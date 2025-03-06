@@ -6,6 +6,12 @@ tags:
   - Power Apps
   - キャンバスアプリ
   - Power Automate
+  - Network
+  - Governance
+categories:
+  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Platform, Power Automate, Power Automate for desktop]
+  - [Power Platform, Power Apps, キャンバスアプリ]
 ---
 
 # キャンバスアプリ / Power Automate  利用時の通信要件

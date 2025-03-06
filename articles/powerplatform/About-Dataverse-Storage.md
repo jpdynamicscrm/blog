@@ -5,6 +5,8 @@ tags:
   - Power Platform
   - Dataverse
   - Dataverse ストレージ
+categories:
+  - [Common, Dataverse]
 ---
 
 こんにちは、Power Platform サポートの原です。

@@ -5,6 +5,8 @@ tags:
   - Power Platform
   - AI Builder
   - Governance
+categories:
+  [Power Platform]
 ---
 
 # AI Builder 利用制限について

@@ -4,6 +4,11 @@ date: 2021-10-11 13:45:00
 tags:
   - Model-driven app
   - Dynamics
+  - Governance
+categories:
+  - [Dynamics CE, Power Apps, モデル駆動型アプリ]
+  - [Common, Dataverse]
+  - [Power Platform]
 ---
 
 #  Dataverse 環境のアクセス権制御方法

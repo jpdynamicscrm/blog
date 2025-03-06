@@ -6,6 +6,9 @@ tags:
   - Dataverse
   - Environment
   - Developer Environment 
+categories:
+  - [Power Platform]
+  - [Common, Dataverse]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>

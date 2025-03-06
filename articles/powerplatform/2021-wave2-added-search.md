@@ -4,6 +4,8 @@ date: 2021-11-16 13:45:00
 tags:
   - Model-driven app
   - Dynamics
+categories:
+  - [Dynamics CE, Power Apps, モデル駆動型アプリ]
 ---
 
 #  2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ

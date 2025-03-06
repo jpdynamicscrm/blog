@@ -4,7 +4,11 @@ date: 2022-09-22 12:00:00
 tags:
   - Excel エクスポート
   - Dynamics 365 Customer Engagement
+  - Dynamics 365
+categories:
+  - [Power Platform, Power Apps]
 ---
+
 こんにちは、Dynamics 365 Customer Engagement サポートの木村です。  
 本ブログでは、Excel エクスポート時の列幅が規定値で出力される件についてご説明いたします。
 

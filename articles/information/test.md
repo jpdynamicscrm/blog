@@ -3,6 +3,9 @@ title: Japan Dynamics CRM & Power Platform Support Blog 開設のお知らせ
 date: 2021-04-01 00:00:00
 tags:
   - Information
+  - お問い合わせ全般
+categories:
+  - [Common]
 ---
 
 # Japan Dynamics CRM & Power Platform Support Blog 開設のお知らせ

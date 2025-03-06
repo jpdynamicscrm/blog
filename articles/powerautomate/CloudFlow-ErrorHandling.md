@@ -2,9 +2,11 @@
 title: クラウド フローでのエラーハンドリングの方法
 date: 2021-09-24 00:00:00
 tags:
-  - Cloud flow
   - Power Automate
+  - Cloud flow
   - How to
+categories:
+  - [Power Platform, Power Automate, クラウドフロー]
 ---
 
 こんにちは、Power Platform サポートチームの三宅です。  

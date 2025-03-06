@@ -4,6 +4,8 @@ date: 2024-11-20 00:00:00
 tags:
   - PowerPlatform
   - Ideas
+categories:
+  - [Power Platform]
 ---
 
 # Power Platform Ideas サイトのご紹介

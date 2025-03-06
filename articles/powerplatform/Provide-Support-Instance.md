@@ -5,6 +5,9 @@ tags:
   - Dynamics
   - サポート
   - Environment
+  - お問い合わせ全般
+categories:
+  - [Dynamics CE]
 ---
 
 #  サポート インスタンスの提供

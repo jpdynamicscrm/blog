@@ -2,10 +2,11 @@
 title: デスクトップ フローを複製・共有する方法
 date: 2023-05-18 18:00
 tags:
-  - Desktop flow
   - Power Automate for desktop
   - Power Automate
   - How to
+categories:
+  - [Power Platform, Power Automate, Power Automate for desktop]
 ---
 
 こんにちは、Power Platform サポートの林です。  

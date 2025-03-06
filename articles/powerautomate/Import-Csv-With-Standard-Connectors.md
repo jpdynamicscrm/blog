@@ -5,6 +5,8 @@ tags:
   - Power Automate
   - Cloud flow
   - How to
+categories:
+  - [Power Platform, Power Automate, クラウドフロー]
 ---
 
 # Power Automate で CSV ファイルを取り込む

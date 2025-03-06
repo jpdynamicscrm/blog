@@ -5,6 +5,9 @@ tags:
   - Dataverse
   - Exchange
   - Power Platform
+categories:
+  - [Power Platform]
+  - [Common, Dataverse]
 ---
 
 # Dataverse と Exchange Online のサーバー側同期

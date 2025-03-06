@@ -3,6 +3,9 @@ title: Power Platform からプライベートな Azure 仮想ネットワーク
 date: 2025/02/20 12:00
 tags:
   - Power Platform
+  - Network
+categories:
+  - [Power Platform]
 ---
 
 # Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法

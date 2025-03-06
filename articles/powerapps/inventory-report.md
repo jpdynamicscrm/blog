@@ -3,9 +3,12 @@ title: テナント レベルでの分析のアプリ在庫について
 date: 2022-10-04 12:00:00
 tags:
   - Power Apps
-  - Power Platform 管理センター
+  - Power Platform
   - Tenant-level Analytics
   - Inventory Report
+  - Governance
+categories:
+  - [Power Platform, Power Apps]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>

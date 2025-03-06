@@ -4,6 +4,9 @@ date: 2022-01-24 9:30:00
 tags:
   - Dynamics
   - 重要な変更点 (廃止)
+  - Information
+categories:
+  - [Common, Dataverse]
 ---
 
 こんにちは。Power Platform サポートチームの金子です。  

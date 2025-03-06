@@ -2,11 +2,12 @@
 title: Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて
 date: 2024-06-14 13:30:00
 tags:
-  - Copilot studio
   - Power Platform
-  - Dynamics 365
   - Power Virtual Agents
+  - Microsoft Copilot Studio
   - AI builder
+categories:
+  - [Power Platform, Microsoft Copilot Studio]
 ---
 
 # Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて

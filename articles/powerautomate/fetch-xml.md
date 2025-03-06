@@ -6,6 +6,9 @@ tags:
   - Cloud flow
   - How to
   - Dataverse
+categories:
+  - [Power Platform]
+  - [Common, Dataverse]
 ---
 
 こんにちは、Power Platform サポート 谷です。<br/>
