@@ -3,6 +3,7 @@ title: Dynamics 365 Customer Engagement サポートチームより問題の早�
 date: 2022-11-28 09:00:00
 tags:
   - Dynamics
+  - Dynamics 365
   - お問い合わせ全般
 categories:
   - [Dynamics CE, Dynamics 365]

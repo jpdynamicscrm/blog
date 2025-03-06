@@ -6,7 +6,7 @@ tags:
   - Dynamics 365 Customer Engagement
   - Dynamics 365
 categories:
-  - [Power Platform, Power Apps]
+  - [Dynamics CE, Dynamics 365]
 ---
 
 こんにちは、Dynamics 365 Customer Engagement サポートの木村です。  

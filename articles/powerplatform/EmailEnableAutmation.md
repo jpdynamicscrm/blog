@@ -4,6 +4,7 @@ date:
 tags:
   - Dynamics
   - Environment
+  - Dynamics 365
 categories:
   - [Common]
   - [Dynamics CE, Dynamics 365]
