@@ -105,13 +105,15 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
 
 ## まとめ
 
-| サービス | 公開情報 | サービスタグ | 通信方向<br>(マイクロソフト起点) |
-| :- | :- | :- | :- |
-| キャンバスアプリ | [ドメイン](https://learn.microsoft.com/en-us/power-apps/limits-and-config#required-services)  | - | 送信/受信
-| Power Automate| [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration)  | - | 送信/受信
-| オンプレミス データ ゲートウェイ | [ドメイン/ポート](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-communication#required-ports-for-the-gateway-to-function) | - | 送信/受信
-| コネクタ | [IP アドレス/サービスタグ](https://learn.microsoft.com/en-us/connectors/common/outbound-ip-addresses#power-platform) | AzureConnectors | 送信/受信
-| | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | 受信 IP：LogicAppsManagement <br>送信 IP：LogicApps | 受信 IP：受信 <br>送信 IP：送信
+| サービス | 公開情報 | サービスタグ | 通信方向 | マイクロソフト視点 |
+| :- | :- | :- | :- | :- |
+| キャンバスアプリ | [ドメイン](https://learn.microsoft.com/en-us/power-apps/limits-and-config#required-services)  | - | クライアント ⇔ マイクロソフト | 送信/受信 |
+| Power Automate | [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration)  | - | クライアント ⇔ マイクロソフト | 送信/受信 |
+| オンプレミス<br>データ ゲートウェイ | [ドメイン/ポート](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-communication#required-ports-for-the-gateway-to-function) | - | クライアント ⇒ マイクロソフト | 受信 |
+| コネクタ | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/connectors/common/outbound-ip-addresses#power-platform) | AzureConnectors | 接続先サービス ⇔ マイクロソフト | 送信/受信 |
+| | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | LogicAppsManagement | 接続先サービス ⇒ マイクロソフト | 受信 |
+| | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags) | LogicApps | マイクロソフト ⇒ 接続先サービス | 送信 |
+
 
 ## よくある質問
 
