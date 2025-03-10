@@ -6,7 +6,7 @@ tags:
   - 委任
   - Power Apps
 categories:
-  - [Power Platform, Power Apps, キャンバスアプリ]
+  - [Power Apps, Canvas app]
 ---
 
 # キャンバス アプリの委任について

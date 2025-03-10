@@ -5,7 +5,7 @@ tags:
   - Power Apps
   - License
 categories:
-  - [Power Platform, Power Apps]
+  - [Power Apps]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br/>

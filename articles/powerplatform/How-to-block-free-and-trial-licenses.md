@@ -6,9 +6,9 @@ tags:
   - Governance
   - License  
 categories:
-  - [Power Platform]
-  - [Power Platform, Power Automate]
-  - [Power Platform, Power Apps]
+  - [Power Platform Admin Center]
+  - [Power Automate]
+  - [Power Apps]
 ---
 
 # Power Automate/Power Appsの試用版・無償版を利用不可にする方法

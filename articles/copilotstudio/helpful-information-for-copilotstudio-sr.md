@@ -7,7 +7,7 @@ tags:
   - Power Virtual Agents
   - お問い合わせ全般
 categories:
-  - [Power Platform, Microsoft Copilot Studio]
+  - [Microsoft Copilot Studio]
 ---
 
 こんにちは、Power Platform サポートチームの竹内です。  

@@ -9,9 +9,9 @@ tags:
   - Network
   - Governance
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
-  - [Power Platform, Power Automate, Power Automate for desktop]
-  - [Power Platform, Power Apps, キャンバスアプリ]
+  - [Power Automate, Cloud flow]
+  - [Power Automate, Desktop flow]
+  - [Power Apps, Canvas app]
 ---
 
 # キャンバスアプリ / Power Automate  利用時の通信要件

@@ -5,7 +5,7 @@ tags:
   - Power Automate
   - Connector and Connection
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 こんにちは、日本マイクロソフト Power Automate サポートの清水です。

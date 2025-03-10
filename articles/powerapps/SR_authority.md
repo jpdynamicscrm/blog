@@ -5,7 +5,7 @@ tags:
   - Power Platform
   - お問い合わせ全般
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 こんにちは、Power Apps サポートの深津です。  

@@ -5,7 +5,7 @@ tags:
   - Power Platform
   - Network
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 # Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法

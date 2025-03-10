@@ -5,7 +5,7 @@ tags:
   - Power Automate
   - Cloud flow
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate でテキストファイルの文字化けを回避する

@@ -5,7 +5,7 @@ tags:
   - Power Automate
   - Governance
 categories:
-  - [Power Platform, Power Automate, Power Automate for desktop]
+  - [Power Automate, Desktop flow]
 ---
 
 # Power Automate / Power Platform 要求数制限

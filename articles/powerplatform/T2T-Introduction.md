@@ -7,7 +7,7 @@ tags:
   - Environment
   - Governance
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 #  環境のテナント移行について

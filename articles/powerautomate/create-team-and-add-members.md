@@ -7,7 +7,7 @@ tags:
   - How to
   - Microsoft Teams 連携
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate で Teams のチーム作成とメンバー追加を自動化

@@ -7,8 +7,8 @@ tags:
   - Dataverse
   - Governance
 categories:
-  - [Common, Dataverse]
-  - [Dynamics CE, Power Apps, モデル駆動型アプリ]
+  - [Dataverse]
+  - [Power Apps, Model-driven app]
 ---
 #  Dataverse の監査ログをエクスポートする方法
 

@@ -5,8 +5,8 @@ tags:
   - Model-driven app
   - Dynamics
 categories:
-  - [Common, Dataverse]
-  - [Dynamics CE, Power Apps, モデル駆動型アプリ]
+  - [Dataverse]
+  - [Power Apps, Model-driven app]
 ---
 
 #  Dataverse グループ チームの活用方法＆注意点

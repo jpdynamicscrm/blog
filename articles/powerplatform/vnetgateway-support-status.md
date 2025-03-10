@@ -6,7 +6,7 @@ tags:
   - VNetGateway
   - Network
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 # Power Platform での仮想ネットワーク データ ゲートウェイについて

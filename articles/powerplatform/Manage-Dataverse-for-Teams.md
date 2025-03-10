@@ -7,7 +7,7 @@ tags:
   - Environment
   - Governance
 categories:
-  - [Common, Dataverse]
+  - [Dataverse]
 ---
 
 #  Dataverse for Teams 環境の管理方法

@@ -5,7 +5,7 @@ tags:
   - PowerPlatform
   - Ideas
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 # Power Platform Ideas サイトのご紹介

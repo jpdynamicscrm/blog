@@ -7,8 +7,8 @@ tags:
   - Dataverse for Teams 
   - Governance
 categories:
-  - [Common, Dataverse]
-  - [Power Platform]
+  - [Dataverse]
+  - [Power Platform Admin Center]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>

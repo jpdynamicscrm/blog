@@ -7,7 +7,7 @@ tags:
   - License
   - セキュリティ ロール
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 # モデル駆動型アプリにアクセスできないときの対処法

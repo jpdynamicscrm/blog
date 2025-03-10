@@ -7,8 +7,8 @@ tags:
   - How to
   - Dataverse
 categories:
-  - [Power Platform]
-  - [Common, Dataverse]
+  - [Power Platform Admin Center]
+  - [Dataverse]
 ---
 
 こんにちは、Power Platform サポート 谷です。<br/>

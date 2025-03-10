@@ -7,7 +7,7 @@ tags:
   - Cloud flow
   - お問い合わせ全般
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 # はじめに

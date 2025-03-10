@@ -8,8 +8,8 @@ tags:
   - Copilot
   - How to
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
-  - [Power Platform, Power Apps, キャンバスアプリ]
+  - [Power Automate, Cloud flow]
+  - [Power Apps, Canvas app]
 ---
 
 

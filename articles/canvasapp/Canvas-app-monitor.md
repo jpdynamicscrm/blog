@@ -8,7 +8,7 @@ tags:
   - 情報採取
   - お問い合わせ全般
 categories:
-  - [Power Platform, Power Apps, キャンバスアプリ]
+  - [Power Apps, Canvas app]
 ---
 
 こんにちは、Power Platform サポートの清水です。

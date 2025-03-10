@@ -7,7 +7,7 @@ tags:
   - Cloud flow
   - How to
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 # SharePointの内部列名を確認する方法

@@ -6,9 +6,9 @@ tags:
   - Dynamics
   - Governance
 categories:
-  - [Dynamics CE, Power Apps, モデル駆動型アプリ]
-  - [Common, Dataverse]
-  - [Power Platform]
+  - [Power Apps, Model-driven app]
+  - [Dataverse]
+  - [Power Platform Admin Center]
 ---
 
 #  Dataverse 環境のアクセス権制御方法

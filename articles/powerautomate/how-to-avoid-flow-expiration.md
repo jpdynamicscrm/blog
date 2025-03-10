@@ -6,7 +6,7 @@ tags:
   - Cloud flow
   - Governance
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate におけるフローの有効期限切れを防ぐ

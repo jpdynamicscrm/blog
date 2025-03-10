@@ -5,7 +5,7 @@ tags:
   - Information
   - お問い合わせ全般
 categories:
-  - [Common]
+  - [General]
 ---
 
 # Japan Dynamics CRM & Power Platform Support Blog 開設のお知らせ

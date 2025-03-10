@@ -5,7 +5,7 @@ tags:
   - Power Platform
   - お問い合わせ全般
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 # Power Apps/Power Automate/Copilot Studio お問い合わせ時の留意事項

@@ -7,8 +7,8 @@ tags:
   - Environment
   - Developer Environment 
 categories:
-  - [Power Platform]
-  - [Common, Dataverse]
+  - [Power Platform Admin Center]
+  - [Dataverse]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>

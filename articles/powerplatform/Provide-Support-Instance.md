@@ -7,7 +7,8 @@ tags:
   - Environment
   - お問い合わせ全般
 categories:
-  - [Dynamics CE]
+  - [General]
+  - [Dynamics 365]
 ---
 
 #  サポート インスタンスの提供

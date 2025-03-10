@@ -7,7 +7,7 @@ tags:
   - オンプレミス データ ゲートウェイ
   - How to
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 こんにちは、Power Platform サポートの林です。  

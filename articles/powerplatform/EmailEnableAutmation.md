@@ -6,8 +6,8 @@ tags:
   - Environment
   - Dynamics 365
 categories:
-  - [Common]
-  - [Dynamics CE, Dynamics 365]
+  - [General]
+  - [Dynamics 365]
 ---
 
 # メールボックスの承認・テストと有効化の自動化について

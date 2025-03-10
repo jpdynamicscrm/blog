@@ -7,7 +7,7 @@ tags:
   - Microsoft Copilot Studio
   - AI builder
 categories:
-  - [Power Platform, Microsoft Copilot Studio]
+  - [Microsoft Copilot Studio]
 ---
 
 # Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて

@@ -6,7 +6,7 @@ tags:
   - Dynamics
   - Dataverse
 categories:
-  - [Common, Dataverse]
+  - [Dataverse]
 ---
 #  テーブルのリレーションシップとカスケード
 

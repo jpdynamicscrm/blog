@@ -6,7 +6,7 @@ tags:
   - Dynamics 365
   - お問い合わせ全般
 categories:
-  - [Dynamics CE, Dynamics 365]
+  - [Dynamics 365]
 ---
 
 # Dynamics 365 Customer Engagement サポートチームより問題の早期解決に向けたお客様へのお願い

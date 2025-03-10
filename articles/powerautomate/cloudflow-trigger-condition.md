@@ -6,7 +6,7 @@ tags:
   - Cloud flow
   - How to
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 こんにちは、Power Platform サポート 谷です。<br/>

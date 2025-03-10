@@ -7,7 +7,7 @@ tags:
   - Microsoft Teams 連携
   - How to
 categories:
-  - [Power Platform, Microsoft Copilot Studio]
+  - [Microsoft Copilot Studio]
 ---
 
 こんにちは、Power Platform サポートチームの竹内です。  

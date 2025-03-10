@@ -6,8 +6,8 @@ tags:
   - Power Automate
   - Canvas app
 categories:
-  - [Power Platform, Power Apps]
-  - [Power Platform, Power Automate]
+  - [Power Apps]
+  - [Power Automate]
 ---
 
 こんにちは、Power Apps サポートの深津です。

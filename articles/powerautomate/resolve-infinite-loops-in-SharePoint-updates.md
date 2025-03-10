@@ -5,7 +5,7 @@ tags:
   - Power Automate
   - Power Platform
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate のフローで無限トリガーループが起きる際の対処法

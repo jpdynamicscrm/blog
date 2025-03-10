@@ -7,7 +7,7 @@ tags:
   - Graph API
   - How to
 categories:
-  - [Power Platform, Power Automate, クラウドフロー]
+  - [Power Automate, Cloud flow]
 ---
 
 こんにちは、Power Platform サポートチームの清水、竹内です。

@@ -6,7 +6,7 @@ tags:
   - Power Automate
   - How to
 categories:
-  - [Power Platform, Power Automate, Power Automate for desktop]
+  - [Power Automate, Desktop flow]
 ---
 
 こんにちは、Power Platform サポートの林です。  

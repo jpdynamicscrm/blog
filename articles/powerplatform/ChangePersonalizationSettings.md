@@ -6,7 +6,7 @@ tags:
   - Settings
   - Governance
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
 ---
 
 こんにちは、Power Platform サポートの原です。

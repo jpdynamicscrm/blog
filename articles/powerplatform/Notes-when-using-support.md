@@ -5,7 +5,8 @@ tags:
   - Dynamics
   - お問い合わせ全般
 categories:
-  - [Dynamics CE]
+  - [General]
+  - [Dynamics 365]
 ---
 
 # Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点

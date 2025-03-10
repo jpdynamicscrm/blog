@@ -6,7 +6,7 @@ tags:
   - 重要な変更点 (廃止)
   - Information
 categories:
-  - [Common, Dataverse]
+  - [Dataverse]
 ---
 
 こんにちは。Power Platform サポートチームの金子です。  

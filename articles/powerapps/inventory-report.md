@@ -8,7 +8,7 @@ tags:
   - Inventory Report
   - Governance
 categories:
-  - [Power Platform, Power Apps]
+  - [Power Apps]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>
