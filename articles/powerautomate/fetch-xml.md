@@ -7,7 +7,7 @@ tags:
   - How to
   - Dataverse
 categories:
-  - [Power Platform Admin Center]
+  - [Power Automate]
   - [Dataverse]
 ---
 

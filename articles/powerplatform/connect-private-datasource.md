@@ -4,8 +4,10 @@ date: 2025/02/20 12:00
 tags:
   - Power Platform
   - Network
+  - Connector and Connection
 categories:
-  - [Power Platform Admin Center]
+  - [Power Automate]
+  - [Power Apps]
 ---
 
 # Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法

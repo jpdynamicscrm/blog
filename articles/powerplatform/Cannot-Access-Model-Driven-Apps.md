@@ -8,6 +8,7 @@ tags:
   - セキュリティ ロール
 categories:
   - [Power Platform Admin Center]
+  - [Power Apps, Model-driven app]
 ---
 
 # モデル駆動型アプリにアクセスできないときの対処法

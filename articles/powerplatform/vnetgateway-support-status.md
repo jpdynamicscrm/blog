@@ -7,6 +7,8 @@ tags:
   - Network
 categories:
   - [Power Platform Admin Center]
+  - [Power Automate]
+  - [Power Apps]
 ---
 
 # Power Platform での仮想ネットワーク データ ゲートウェイについて

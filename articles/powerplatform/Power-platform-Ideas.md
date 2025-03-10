@@ -5,6 +5,7 @@ tags:
   - PowerPlatform
   - Ideas
 categories:
+  - [General]
   - [Power Platform Admin Center]
 ---
 
