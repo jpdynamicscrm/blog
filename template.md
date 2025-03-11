@@ -26,20 +26,19 @@ tags:
   - Model-driven app
   - PowerShell
 categories:
-  - [Common]
-  - [Common, Dataverse]
-  - [Power Platform]
-  - [Power Platform, Power Automate]
-  - [Power Platform, Power Automate, クラウドフロー]
-  - [Power Platform, Power Automate, Power Automate for Desktop]
-  - [Power Platform, Power Apps]
-  - [Power Platform, Power Apps, キャンバスアプリ]
-  - [Power Platform, Microsoft Copilot Studio]
-  - [Dynamics CE]
-  - [Dynamics CE, Power Pages]
-  - [Dynamics CE, Dynamics 365]
-  - [Dynamics CE, Power Apps]
-  - [Dynamics CE, Power Apps, モデル駆動型アプリ]
+  - [General]
+  - [Power Apps]
+  - [Power Apps, Canvas app]
+  - [Power Apps, Model-driven app]
+  - [Power Automate]
+  - [Power Automate, Cloud flow]
+  - [Power Automate, Desktop flow]
+  - [Dynamics 365]
+  - [Power Pages]
+  - [Power Platform Admin Center]
+  - [Dataverse]
+  - [Microsoft Copilot Studio]
+  - [AI Builder]
 ---
 
 
