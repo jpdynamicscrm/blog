@@ -97,7 +97,7 @@ CSVファイルには作成者、フロー名、作成日などの詳細な情�
 > [!NOTE]  
 > この方法は削除後 28 日以内のフローを取得することができます。  
 
-各フローの定義情報などを含めた詳細の取得がご入用である場合、下記のコマンドに対象のフローの FlowName と、そのフローが存在する環境の EnvironmentName を代入の上、実行してください。  
+各フローの詳細な情報の取得がご入用である場合、下記のコマンドに対象のフローの FlowName と、そのフローが存在する環境の EnvironmentName を代入の上、実行してください。  
 
 ```PowerShell
 Get-AdminFlow -FlowName *<FlowName>* -EnvironmentName *<EnvironmentName>* | %{$_ | ConvertTo-Json -Depth 3}
@@ -138,7 +138,9 @@ foreach ($env in $environments) {
 } 
 ```
 
-上記コードを実行すると、下記のように各フローについて、所有者や共同所有者、実行専用ユーザーをご確認することができます。  
+上記コードを実行すると、下記のように各フローについて、所有者や共同所有者、実行専用ユーザーをご確認することができます。
+> [!NOTE]  
+> テナント内のフロー数が多い場合、処理完了までに長時間を要する可能性がございます。    
 
 ![](./list-cloud-flow/powershell_export_people.png)  
 
