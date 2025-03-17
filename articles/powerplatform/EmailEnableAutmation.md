@@ -6,7 +6,6 @@ tags:
   - Environment
   - Dynamics 365
 categories:
-  - [General]
   - [Dynamics 365]
 ---
 
