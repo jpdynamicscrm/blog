@@ -5,7 +5,8 @@ tags:
   - Model-driven app
   - Dynamics
   - Dataverse
-disableDisclaimer: false
+categories:
+  - [Dataverse]
 ---
 #  テーブルのリレーションシップとカスケード
 

@@ -5,7 +5,11 @@ tags:
   - Power Apps
   - Canvas app
   - 情報採取
+  - お問い合わせ全般
+categories:
+  - [Power Apps, Canvas app]
 ---
+
 # はじめに
 こんにちは、Power Platform サポートの大友です。  
 

@@ -5,6 +5,10 @@ tags:
   - Power Platform
   - PowerShell
   - DLP ポリシー
+  - Governance
+  - Connector and Connection
+categories:
+  - [Power Platform Admin Center]
 ---
 
 こんにちは、Power Platform サポートの瀬戸です。

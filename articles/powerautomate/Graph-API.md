@@ -6,6 +6,8 @@ tags:
   - Cloud flow
   - Graph API
   - How to
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 こんにちは、Power Platform サポートチームの清水、竹内です。

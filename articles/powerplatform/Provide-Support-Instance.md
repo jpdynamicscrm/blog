@@ -5,6 +5,10 @@ tags:
   - Dynamics
   - サポート
   - Environment
+  - お問い合わせ全般
+categories:
+  - [サポートサービスのご利用について]
+  - [Dynamics 365]
 ---
 
 #  サポート インスタンスの提供

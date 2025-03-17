@@ -5,6 +5,9 @@ tags:
   - Power Automate
   - 情報採取
   - Cloud flow
+  - お問い合わせ全般
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # はじめに

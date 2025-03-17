@@ -3,9 +3,11 @@ title: Power Platform に問い合わせを行うための権限について
 date: 2022-09-016 12:00:00
 tags:
   - Power Platform
-  - 問い合わせ方法
-  - 権限 
+  - お問い合わせ全般
+categories:
+  - [Power Platform Admin Center]
 ---
+
 こんにちは、Power Apps サポートの深津です。  
 今回は、Power Platform に問い合わせを行うための最小の権限についてご説明いたします。
 

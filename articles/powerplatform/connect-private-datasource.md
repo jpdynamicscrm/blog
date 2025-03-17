@@ -1,11 +1,15 @@
 ---
 title: Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法
-date: 2025/2/20 12:00
+
+date: 2025/02/20 12:00
+
 tags:
   - Power Platform
-  - オンプレミス データ ゲートウェイ
-  - VNetGateway
-  - VNet for Power Platform
+  - Network
+  - Connector and Connection
+categories:
+  - [Power Automate]
+  - [Power Apps]
 ---
 
 # Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法

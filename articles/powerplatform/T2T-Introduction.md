@@ -5,6 +5,10 @@ tags:
   - Power Platform
   - テナント移行
   - Environment
+  - Governance
+categories:
+  - [Power Platform Admin Center]
+  - [Dataverse]
 ---
 
 #  環境のテナント移行について

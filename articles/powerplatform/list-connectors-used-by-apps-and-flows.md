@@ -5,6 +5,9 @@ tags:
   - Power Platform
   - Power Automate
   - Power Apps
+categories:
+  - [Power Automate, Cloud flow]
+  - [Power Apps, Canvas app]
 ---
 
 # キャンバス アプリ・クラウド フローで使用しているコネクタの一覧取得

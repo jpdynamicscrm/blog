@@ -5,6 +5,9 @@ tags:
   - Power Automate
   - SharePoint Online
   - Cloud flow
+  - How to
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # SharePointの内部列名を確認する方法

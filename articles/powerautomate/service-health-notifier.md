@@ -6,6 +6,8 @@ tags:
   - Cloud flow
   - Graph API
   - How to
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate クラウド フローを使用して、Microsoft のサービス正常性に関する更新情報を取得する方法

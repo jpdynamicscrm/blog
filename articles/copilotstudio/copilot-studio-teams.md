@@ -2,9 +2,12 @@
 title: Copilot Studio のエージェントを Teams に公開する方法
 date: 2025-01-06 16:00:00
 tags:
-  - Copilot Studio
+  - Microsoft Copilot Studio
   - Power Virtual Agents
-  - Microsoft Teams
+  - Microsoft Teams 連携
+  - How to
+categories:
+  - [Microsoft Copilot Studio]
 ---
 
 こんにちは、Power Platform サポートチームの竹内です。  

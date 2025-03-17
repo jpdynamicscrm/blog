@@ -4,11 +4,15 @@ date: 2024-12-24 9:00:00
 tags:
   - Power Platform
   - Power Automate
+  - Governance
+categories:
+  - [Power Automate, Desktop flow]
 toc:
   enabled: true
   min_depth: 1
   max_depth: 6
   list_number: false
+
 ---
 
 # Power Automate / Power Platform 要求数制限

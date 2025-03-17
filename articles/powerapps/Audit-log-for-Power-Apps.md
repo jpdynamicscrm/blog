@@ -4,6 +4,9 @@ date: 2022-09-14 12:00:00
 tags:
   - Power Apps
   - Audit Log
+  - Governance
+categories:
+  - [Power Apps]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>

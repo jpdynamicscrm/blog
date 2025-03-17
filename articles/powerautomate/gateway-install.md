@@ -6,6 +6,8 @@ tags:
   - Cloud flow
   - オンプレミス データ ゲートウェイ
   - How to
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 こんにちは、Power Platform サポートの林です。  

@@ -5,6 +5,10 @@ tags:
   - Power Platform
   - Dataverse
   - Dataverse for Teams 
+  - Governance
+categories:
+  - [Dataverse]
+  - [Power Platform Admin Center]
 ---
 
 こんにちは、Power Platform サポートの山田です。<br>

@@ -5,6 +5,9 @@ tags:
   - Power Platform
   - Dataverse for Teams
   - Environment
+  - Governance
+categories:
+  - [Dataverse]
 ---
 
 #  Dataverse for Teams 環境の管理方法

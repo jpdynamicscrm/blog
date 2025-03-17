@@ -5,6 +5,9 @@ tags:
   - Power Automate
   - Cloud flow
   - How to
+  - Microsoft Teams 連携
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate で Teams のチーム作成とメンバー追加を自動化

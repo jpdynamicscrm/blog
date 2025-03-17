@@ -5,6 +5,9 @@ tags:
   - Power Automate
   - Cloud flow
   - How to
+categories:
+  - [Power Automate, Cloud flow]
+  - [Power Automate, Desktop flow]
 ---
 # XPath を活用した集計
 

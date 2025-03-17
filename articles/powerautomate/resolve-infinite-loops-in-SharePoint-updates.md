@@ -4,6 +4,8 @@ date: 2024-06-19 13:30:00
 tags:
   - Power Automate
   - Power Platform
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate のフローで無限トリガーループが起きる際の対処法

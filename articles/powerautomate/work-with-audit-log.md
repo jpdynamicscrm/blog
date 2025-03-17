@@ -5,6 +5,8 @@ tags:
   - Power Automate
   - Cloud flow
   - Office 365 Management API
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # クラウド フローで Microsoft Purview の監査ログを取得する方法

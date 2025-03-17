@@ -4,6 +4,8 @@ date: 2022-01-20 9:00:00
 tags:
   - Power Automate
   - Cloud flow
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 こんにちは、日本マイクロソフト Power Automate サポートの清水です。  

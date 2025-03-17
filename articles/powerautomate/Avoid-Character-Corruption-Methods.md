@@ -4,6 +4,8 @@ date: 2022-09-21 09:07:00
 tags:
   - Power Automate
   - Cloud flow
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # Power Automate でテキストファイルの文字化けを回避する

@@ -6,6 +6,9 @@ tags:
   - Cloud flow
   - How to
   - Dataverse
+categories:
+  - [Power Automate]
+  - [Dataverse]
 ---
 
 こんにちは、Power Platform サポート 谷です。<br/>

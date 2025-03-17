@@ -5,6 +5,8 @@ tags:
   - Power Automate
   - Cloud flow
   - How to
+categories:
+  - [Power Automate, Cloud flow]
 ---
 
 # Do Until で再試行を繰り返す (リトライループ)

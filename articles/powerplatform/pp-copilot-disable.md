@@ -6,7 +6,10 @@ tags:
   - Power Apps
   - Power Automate
   - Copilot
-disableDisclaimer: false
+  - How to
+categories:
+  - [Power Automate, Cloud flow]
+  - [Power Apps, Canvas app]
 ---
 
 

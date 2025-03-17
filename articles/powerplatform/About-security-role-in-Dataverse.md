@@ -4,6 +4,11 @@ date: 2025-02-26 00:00:00
 tags:
   - Model-driven app
   - Dynamics
+  - Governance
+categories:
+  - [Power Apps, Model-driven app]
+  - [Dataverse]
+  - [Power Platform Admin Center]
 ---
 
 # セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法

@@ -6,11 +6,18 @@ tags:
   - Power Apps
   - キャンバスアプリ
   - Power Automate
+  - Network
+  - Governance
+categories:
+  - [Power Automate, Cloud flow]
+  - [Power Automate, Desktop flow]
+  - [Power Apps, Canvas app]
 toc:
   enabled: true
   min_depth: 1
   max_depth: 3
   list_number: false
+
 ---
 
 # キャンバスアプリ / Power Automate  利用時の通信要件
