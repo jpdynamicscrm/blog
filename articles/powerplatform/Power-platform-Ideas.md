@@ -5,7 +5,7 @@ tags:
   - PowerPlatform
   - Ideas
 categories:
-  - [General]
+  - [サポートサービスのご利用について]
   - [Power Platform Admin Center]
 ---
 

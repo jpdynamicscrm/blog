@@ -7,7 +7,7 @@ tags:
   - Environment
   - お問い合わせ全般
 categories:
-  - [General]
+  - [サポートサービスのご利用について]
   - [Dynamics 365]
 ---
 

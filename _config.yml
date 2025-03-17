@@ -48,7 +48,7 @@ root_tag_generator:
 
 root_cat_generator:
   root_cat_names:
-    - [General]
+    - [サポートサービスのご利用について]
     - [Power Apps]
     - [Power Apps, Canvas app]
     - [Power Apps, Model-driven app]

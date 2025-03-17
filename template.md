@@ -26,7 +26,7 @@ tags:
   - Model-driven app
   - PowerShell
 categories:
-  - [General]
+  - [サポートサービスのご利用について]
   - [Power Apps]
   - [Power Apps, Canvas app]
   - [Power Apps, Model-driven app]

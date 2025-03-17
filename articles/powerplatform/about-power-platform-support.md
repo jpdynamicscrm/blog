@@ -5,7 +5,7 @@ tags:
   - Power Platform
   - お問い合わせ全般
 categories:
-  - [General]
+  - [サポートサービスのご利用について]
   - [Power Platform Admin Center]
 ---
 
