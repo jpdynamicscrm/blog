@@ -45,8 +45,10 @@ categories:
 <br>
 ※2025年4月から、期間が上述のものに変更されました。
 本変更については、MC1041146にてアナウンスさせていただいております。  
+
 [MC1041146](https://admin.microsoft.com/Adminportal/Home#/MessageCenter/:/messages/MC1041146)  
-![](./Automatic-deletion-of-inactive-Developer-environments/MC1041146.png)  
+
+![](./Automatic-deletion-of-inactive-Developer-environments/MC1041146.png)
 <br>
 
 ## 2. 開発者環境の自動無効化/削除条件  
