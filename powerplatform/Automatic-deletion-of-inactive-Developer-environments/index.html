@@ -13,17 +13,17 @@
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Platform の開発者環境の自動削除について、下記項目の順にご説明いたします。    開発者環境の自動無効化&#x2F;削除メカニズムとは   自動無効化&#x2F;削除条件   自動無効化&#x2F;削除メカニズム自体の無効化の可否   無効化&#x2F;削除された環境の復元 環境の状態遷移 ご案内メール   ご案内メールを受信された際の対応">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC538688%20.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC1041146.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/ppac-resource.png">
 <meta property="article:published_time" content="2023-04-11T03:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-18T03:42:52.841Z">
+<meta property="article:modified_time" content="2025-03-27T04:58:54.718Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Dataverse">
 <meta property="article:tag" content="Environment">
 <meta property="article:tag" content="Developer Environment">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC538688%20.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC1041146.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -164,7 +164,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b781a7d0-9fc2-517a-a140-e6b46bf61510%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E9%9D%9E%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%81%AA%E9%96%8B%E7%99%BA%E8%80%85%E7%92%B0%E5%A2%83%E3%81%AE%E8%87%AA%E5%8B%95%E5%89%8A%E9%99%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Developer-environments%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Developer-environments.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Developer-environments.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/" data-id="cm8dy7c1c003f0nocg8sbh70s" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/" data-id="cm8qvvs1m003f0nqp0y1f3okq" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -180,23 +180,29 @@
 <li>ご案内メールを受信された際の対応   </li>
 <li>よくあるご質問  </li>
 </ol>
-<p>下記公開情報を基にご説明いたします。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic environment cleanup (英語)</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">自動環境クリーンアップ (上記の日本語訳)</a><br>各項目について公開情報内にも詳細を記載しておりますのでご参照ください。<br><br>なお、英語のページが更新されてから、日本語訳のページに同様の内容が反映されるまでに時間がかかる場合がございます。<br><br>そのため、最新情報については英語版も併せてご確認いただけますと幸いでございます。<br><br><br><br></p>
+<p>下記公開情報を基にご説明いたします。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (上記の日本語訳)</a><br>各項目について公開情報内にも詳細を記載しておりますのでご参照ください。<br><br>なお、英語のページが更新されてから、日本語訳のページに同様の内容が反映されるまでに時間がかかる場合がございます。<br><br>そのため、最新情報については英語版も併せてご確認いただけますと幸いでございます。<br><br><br><br></p>
 <span id="more"></span>  
 
 <hr>
-<p>本内容については、メッセージセンターにても <strong>MC538688</strong> (※) をご確認いただけますと幸いでございます。<br><br>※日本リージョンのテナントの場合の番号となります。<br><br>下図は 2023 年 4 月 10 時点での本メカニズムの停止に関するメッセージセンターの通知となります。<br><br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC538688%20.png"><br><br><br><br></p>
-<h2 id="1-開発者環境の自動無効化-削除メカニズムとは"><a href="#1-開発者環境の自動無効化-削除メカニズムとは" class="headerlink" title="1. 開発者環境の自動無効化/削除メカニズムとは"></a>1. 開発者環境の自動無効化/削除メカニズムとは</h2><p>本メカニズムは 2023 年 4 月中旬より徐々に展開されます。<br>ユーザーによる活動のない期間 (=非アクティブ期間) が 90 日間続いた場合、対象の開発者環境が無効化されます。<br>無効化状態が 30 日継続しますと、対象環境が自動削除されます。<br></p>
-<p>無効化された環境では、アプリやフロー、チャットボット等がご利用いただけません。<br><br><br></p>
+<h2 id="1-開発者環境の自動無効化-削除メカニズムとは"><a href="#1-開発者環境の自動無効化-削除メカニズムとは" class="headerlink" title="1. 開発者環境の自動無効化/削除メカニズムとは"></a>1. 開発者環境の自動無効化/削除メカニズムとは</h2><p>本メカニズムによって、ユーザーによる活動のない期間 (=非アクティブ期間) が30日間（※）続いた場合、対象の開発者環境が無効化されます。<br>開発者環境は30日間非アクティブになると無効になります。<br>無効化状態が15日（※）継続しますと、対象環境が自動削除されます。  </p>
+<p>無効化された環境では、アプリやフロー、チャットボット等がご利用いただけません。  </p>
+<br>
+※2025年4月から、期間が上述のものに変更されました。
+本変更については、MC1041146にてアナウンスさせていただいております。  
+
+<p><a target="_blank" rel="noopener" href="https://admin.microsoft.com/Adminportal/Home#/MessageCenter/:/messages/MC1041146">MC1041146</a>  </p>
+<p><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC1041146.png"><br><br></p>
 <h2 id="2-開発者環境の自動無効化-削除条件"><a href="#2-開発者環境の自動無効化-削除条件" class="headerlink" title="2. 開発者環境の自動無効化/削除条件"></a>2. 開発者環境の自動無効化/削除条件</h2><p>対象環境におけるユーザーのアプリ起動などの活動が設定期間中に実施されない場合、自動削除の対象となります。<br><br>対象の活動は下記の通りです。</p>
 <ul>
 <li> ユーザーの活動: アプリの起動、フローの実行、Power Virtual Agents ボットとのチャット</li>
 <li>作成者の活動: アプリ、フロー 、Power Virtual Agents ボット、カスタム コネクタの作成、読み取り、更新、削除</li>
-<li>管理者の活動: コピー、削除、バックアップ、復元、リセットなどの環境操作</li>
+<li>管理者の活動: コピー、削除、バックアップ、復元、リセットなどの環境操作<br></li>
 </ul>
-<h2 id="3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否"><a href="#3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否" class="headerlink" title="3. 開発者環境の自動無効化/削除メカニズム自体の無効化の可否"></a>3. 開発者環境の自動無効化/削除メカニズム自体の無効化の可否</h2><p>本メカニズムは無効化いただくことが出来ません。<br><br>何卒ご理解いただけますと幸いでございます。<br><br><br></p>
-<h2 id="4-自動無効化-削除された環境の復元"><a href="#4-自動無効化-削除された環境の復元" class="headerlink" title="4. 自動無効化/削除された環境の復元"></a>4. 自動無効化/削除された環境の復元</h2><p>環境無効化後、30 日以内であれば環境の再有効化が可能でございます。<br><br>また、環境削除後も、7 日以内であれば環境の復元が可能でございます。<br><br>どちらも Power Platform 管理センターよりご実施いただけます。<br></p>
-<p><strong>無効となった開発者環境の再有効化</strong><br><br>① Power Platform 管理センター にサインイン<br><br>② 環境 &gt; 無効化された 開発者環境を選択<br><br>③ 環境ページで 「環境を再度有効にする」を選択<br><br><br><br><strong>削除された開発者環境の復元</strong><br>① Power Platform 管理センター にサインイン<br><br>② 環境 &gt; 「削除された環境を復元する」を選択<br><br>③ 復元する対象環境 &gt; 復元 を選択<br><br><br><br>環境の復元の詳細については下記公開情報をご参照ください。<br><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment">環境の回復</a><br><br><br></p>
-<h2 id="5-環境の状態遷移"><a href="#5-環境の状態遷移" class="headerlink" title="5. 環境の状態遷移"></a>5. 環境の状態遷移</h2><h3 id="状態の種類"><a href="#状態の種類" class="headerlink" title="状態の種類"></a>状態の種類</h3><p>環境の状態は、以下 5 つの種類があり、状況にて自動で変更されます。</p>
+<h2 id="3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否"><a href="#3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否" class="headerlink" title="3. 開発者環境の自動無効化/削除メカニズム自体の無効化の可否"></a>3. 開発者環境の自動無効化/削除メカニズム自体の無効化の可否</h2><p>本メカニズムは無効化いただくことが出来ません。<br><br>何卒ご理解いただけますと幸いでございます。<br><br></p>
+<h2 id="4-自動無効化-削除された環境の復元"><a href="#4-自動無効化-削除された環境の復元" class="headerlink" title="4. 自動無効化/削除された環境の復元"></a>4. 自動無効化/削除された環境の復元</h2><p>環境無効化後、15日以内であれば環境の再有効化が可能でございます。<br>また、環境削除後も、7日以内であれば環境の復元が可能でございます。<br>どちらも Power Platform 管理センターよりご実施いただけます。  </p>
+<p><strong>無効となった開発者環境の再有効化</strong><br>① Power Platform 管理センター にサインイン<br>② 環境 &gt; 無効化された 開発者環境を選択<br>③ 環境ページで 「環境を再度有効にする」を選択<br><br><br><strong>削除された開発者環境の復元</strong><br>① Power Platform 管理センター にサインイン<br>② 環境 &gt; 「削除された環境を復元する」を選択<br>③ 復元する対象環境 &gt; 復元 を選択<br><br></p>
+<p>環境の復元の詳細については下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment">環境の回復</a><br><br></p>
+<h2 id="5-環境の状態遷移"><a href="#5-環境の状態遷移" class="headerlink" title="5. 環境の状態遷移"></a>5. 環境の状態遷移</h2><h3 id="状態の種類"><a href="#状態の種類" class="headerlink" title="状態の種類"></a>状態の種類</h3><p>環境の状態は、以下5つの種類があり、状況にて自動で変更されます。</p>
 <ol>
 <li>準備完了</li>
 <li>準備完了 (無効化まであと x 日)</li>
@@ -204,39 +210,39 @@
 <li>無効 (削除まであと x 日)</li>
 <li>無効 (操作が必要)</li>
 </ol>
-<h3 id="環境の自動削除までの流れ"><a href="#環境の自動削除までの流れ" class="headerlink" title="環境の自動削除までの流れ"></a>環境の自動削除までの流れ</h3><p>開発者環境や Dataverse for Teams は、一定期間以上環境を利用しない場合、自動削除されます。<br>環境が無効化から削除されるまで、環境の状態も以下のように変更されます。</p>
+<h3 id="環境の自動削除までの流れ"><a href="#環境の自動削除までの流れ" class="headerlink" title="環境の自動削除までの流れ"></a>環境の自動削除までの流れ</h3><p>開発者環境は、一定期間以上環境を利用しない場合、自動削除されます。<br>環境が無効化から削除されるまで、環境の状態も以下のように変更されます。</p>
 <p>[準備完了] → [準備完了 (無効化まであと x 日)] → [準備完了 (操作が必要)] → [無効 (削除まであと x 日)] → [無効 (操作が必要)]</p>
 <h3 id="各状態のご案内"><a href="#各状態のご案内" class="headerlink" title="各状態のご案内"></a>各状態のご案内</h3><ol>
-<li>準備完了<br>環境がアクティブとなっている、一定期間以上未使用になっていない環境の状態です。</li>
-<li>準備完了 (無効化まであと x 日)<br>環境を 90 日間非アクティブな状態が続く場合、自動削除される前に [環境の無効化] が行われます。<br>その際に状態は、無効化までの日数が記載された [無効化まであと x 日] で変更されます。</li>
-<li>準備完了 (操作が必要)<br>2 の [準備完了 (無効化まであと x 日)] で日数の [x 日] が [0 日] となった後、[準備完了 (操作が必要)] に変更されます。</li>
-<li>無効 (削除まであと x 日)<br>3 の 準備完了 (操作が必要) から 30 日間環境に対して何かのアクションをしない場合、[自動削除] が行われます。<br>その際に状態は、自動削除までの日数が記載された [削除まであと x 日] で変更されます。</li>
-<li>無効 (操作が必要)<br>4 の 無効 (削除まであと x 日) で日数の [x 日] が [0 日] となった場合、[無効 (操作が必要)] に変更されます。<br>無効 (操作が必要) 後には、環境は自動削除されます。</li>
+<li>準備完了<br>環境がアクティブとなっている、一定期間以上未使用になっていない環境の状態です。  </li>
+<li>準備完了 (無効化まであと x 日)<br>環境を30日間非アクティブな状態が続く場合、自動削除される前に [環境の無効化] が行われます。<br>その際に状態は、無効化までの日数が記載された [無効化まであと x 日] で変更されます。  </li>
+<li>準備完了 (操作が必要)<br>2の [準備完了 (無効化まであと x 日)] で日数の [x 日] が [0 日] となった後、[準備完了 (操作が必要)] に変更されます。  </li>
+<li>無効 (削除まであと x 日)<br>3の 準備完了 (操作が必要) から15日間環境に対して何かのアクションをしない場合、[自動削除] が行われます。<br>その際に状態は、自動削除までの日数が記載された [削除まであと x 日] で変更されます。  </li>
+<li>無効 (操作が必要)<br>4の 無効 (削除まであと x 日) で日数の [x 日] が [0 日] となった場合、[無効 (操作が必要)] に変更されます。<br>無効 (操作が必要) 後には、環境は自動削除されます。  <br></li>
 </ol>
-<p> 　　  </p>
-<h2 id="6-ご案内メール"><a href="#6-ご案内メール" class="headerlink" title="6. ご案内メール"></a>6. ご案内メール</h2><p>対象環境の無効化が実施される 7 日前より、その旨についてのご案内メールが次のユーザーに通知されます。<br></p>
+<h2 id="6-ご案内メール"><a href="#6-ご案内メール" class="headerlink" title="6. ご案内メール"></a>6. ご案内メール</h2><p>対象環境の無効化が実施される7日前より、その旨についてのご案内メールが次のユーザーに通知されます。  </p>
 <ul>
 <li>環境の管理者</li>
-<li>対象開発者環境の作成者</li>
+<li>対象開発者環境の作成者  </li>
 </ul>
-<h2 id="7-無効化対象のご案内メールを受信された際の対応"><a href="#7-無効化対象のご案内メールを受信された際の対応" class="headerlink" title="7. 無効化対象のご案内メールを受信された際の対応"></a>7. 無効化対象のご案内メールを受信された際の対応</h2><p>下記 2 通りの方法にて、無効化対象となる非アクティブな期間のカウントを一旦リセットいただけます。<br></p>
+<p>詳細なタイムラインについては公開情報もご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup#timeline-for-unused-environments">Timeline for unused environments（英語）</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup#timeline-for-unused-environments">未使用環境のタイムライン (上記の日本語訳)</a><br><br></p>
+<h2 id="7-無効化対象のご案内メールを受信された際の対応"><a href="#7-無効化対象のご案内メールを受信された際の対応" class="headerlink" title="7. 無効化対象のご案内メールを受信された際の対応"></a>7. 無効化対象のご案内メールを受信された際の対応</h2><p>下記2通りの方法にて、無効化対象となる非アクティブな期間のカウントを一旦リセットいただけます。  </p>
 <ul>
 <li>対象環境において、アプリやフローのご実行など上述のユーザー活動を実施</li>
-<li>Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」を実行</li>
+<li>Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」を実行    <br></li>
 </ul>
-<h2 id="8-よくあるご質問"><a href="#8-よくあるご質問" class="headerlink" title="8. よくあるご質問"></a>8. よくあるご質問</h2><p><strong>Q：開発者環境とは何か。無効化された場合、どのような影響があるか?</strong><br>A：開発者環境は、Power Apps 開発者プランライセンスを持つユーザーが作成できます。<br><br>無効化されると、環境内に作成されていたアプリやフロー、チャットボット等がご利用いただけなくなります。<br><br>開発者環境の詳細については、下記公開情報をご参照ください。<br><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan">Power Apps 開発者プランにサインアップ</a><br><br><br></p>
-<p><strong>Q：開発者環境にて無効化される際に配信される通知メールを配信停止することは可能か?</strong><br>A：恐れ入りますが、メール配信を停止することのできる機能はございません。<br><br>製品動作としてご理解賜りますようお願い申し上げます。<br><br><br></p>
-<p><strong>Q：Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」の実行は、通常ユーザにて操作可能なものか?</strong><br>A：Power Platform 管理センターにて開発者環境の「環境活動をトリガーする」を実行できるユーザーは以下の通りでございます。<br></p>
+<h2 id="8-よくあるご質問"><a href="#8-よくあるご質問" class="headerlink" title="8. よくあるご質問"></a>8. よくあるご質問</h2><p><strong>Q：開発者環境とは何か。無効化された場合、どのような影響があるか?</strong><br>A：開発者環境は、Power Apps開発者プランライセンスを持つユーザーが作成できます。<br>無効化されると、環境内に作成されていたアプリやフロー、チャットボット等がご利用いただけなくなります。<br>開発者環境の詳細については、下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan">Power Apps 開発者プランにサインアップ</a><br><br></p>
+<p><strong>Q：開発者環境にて無効化される際に配信される通知メールを配信停止することは可能か?</strong><br>A：恐れ入りますが、メール配信を停止することのできる機能はございません。<br>製品動作としてご理解賜りますようお願い申し上げます。<br><br></p>
+<p><strong>Q：Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」の実行は、通常ユーザにて操作可能なものか?</strong><br>A：Power Platform 管理センターにて開発者環境の「環境活動をトリガーする」を実行できるユーザーは以下の通りでございます。  </p>
 <ul>
 <li>対象開発者環境の作成者</li>
 <li>グローバル管理者</li>
 <li>Power Platform 管理者</li>
-<li>Dynamics 365 管理者</li>
+<li>Dynamics 365 管理者  <br></li>
 </ul>
-<p><strong>Q：「環境活動をトリガーする」を実行すると、有効期限は何日まで延びるのか?</strong><br>A：有効期限は90日間延長され、その 90 日の期間中に、対象環境におけるユーザーのアプリ起動などの活動が実施されない場合、<br><br>再び自動削除の対象となり、7 日前 (トリガー実行から 83 日後) にメールにて通知されます。<br><br><br></p>
-<p><strong>Q：無効化される環境内のアプリ等の詳細については、どこから確認できるか?</strong><br>A：下記より対象環境内のアプリ等をご確認いただけます。<br><br>Power Platform 管理センター &gt; 環境 &gt; 対象環境 &gt; リソース<br><br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/ppac-resource.png"><br><br><br></p>
-<p><strong>Q：再有効化した場合、無効化前の情報が維持されるか?</strong><br>A：再有効化後または復元後は、無効前の情報が維持されます。<br><br>完全に削除されてしまいますと、無効化前の情報は復元できなくなりますのでご注意ください。<br><br><br></p>
-<p>免責事項<br><br>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。<br></p>
+<p><strong>Q：「環境活動をトリガーする」を実行すると、有効期限は何日まで延びるのか?</strong><br>A：非アクティブ期間がリセットされ、有効期限は30日間延長されます。<br>その30日の期間中に、対象環境におけるユーザーのアプリ起動などの活動が実施されない場合、再び環境は無効化され自動削除の対象となります。<br><br></p>
+<p><strong>Q：無効化される環境内のアプリ等の詳細については、どこから確認できるか?</strong><br>A：下記より対象環境内のアプリ等をご確認いただけます。<br>Power Platform 管理センター &gt; 環境 &gt; 対象環境 &gt; リソース<br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/ppac-resource.png"><br><br></p>
+<p><strong>Q：再有効化した場合、無効化前の情報が維持されるか?</strong><br>A：再有効化後または復元後は、無効前の情報が維持されます。<br>完全に削除されてしまいますと、無効化前の情報は復元できなくなりますのでご注意ください。<br><br></p>
+<p>免責事項<br>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。  </p>
 
       
       
