@@ -30,6 +30,7 @@ categories:
       1. [会話入出力](#anchor-raw-input-output)
       1. [トピック画面](#anchor-topics-screen)
       1. [会話トランスクリプションテーブルデータ](#anchor-conversation-transcript)
+      1. [ソリューションエクスポートファイル](#anchor-solution-export-file)
       1. [Web ブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
 
 <a id='anchor-intro'></a>
@@ -162,9 +163,25 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   取得した zip ファイルをご提供ください。  
   https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts
 
+<a id='anchor-solution-export-file'></a>
+
+## 12. ソリューションエクスポートファイル
+
+1. エージェントのエクスポートを選択し、ソリューション画面を開きます。  
+起動経路：エージェント＞（任意のエージェント）…　＞　エージェントのエクスポート
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file1.png) 　
+1. 新しいソリューションを作成します。設定値は任意で構いません。
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file2.png) 　
+1. 「既存を追加」からエージェントをソリューションに追加します。  
+   必要に応じて同様の手順でクラウドフローもソリューションに追加し、一緒にご提供ください。
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file3.png) 　
+1. ソリューション一覧画面に戻り、作成したソリューションをエクスポートします。設定値は任意で構いません。
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file4.png) 　
+
+
 <a id='anchor-about-networkhar'></a>
 
-## 12. Web ブラウザのネットワーク トレース・コンソール ログ
+## 13. Web ブラウザのネットワーク トレース・コンソール ログ
   カスタム Copilot 編集中、あるいは実行中に Copilot Studio サービスへ送信する HTTP リクエストや Copilot Studio サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  
 
  > [!IMPORTANT]
