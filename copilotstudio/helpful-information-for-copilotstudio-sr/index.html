@@ -6,24 +6,29 @@
   
   <title>Copilot Studio お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの竹内です。本記事では Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの竹内です。本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Copilot Studio お問い合わせの際の情報取得手順">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの竹内です。本記事では Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの竹内です。本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_EnvironmentID.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_BotID.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_ConversationID.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_session_details.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_snapshot.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_knowledge_enabling.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_conversation_inout.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_topic_screen.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file1.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file3.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file4.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_browser_trace.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_console_log.png">
 <meta property="article:published_time" content="2024-10-10T06:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-03T06:53:34.091Z">
+<meta property="article:modified_time" content="2025-04-21T00:24:44.556Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="情報採取">
 <meta property="article:tag" content="お問い合わせ全般">
@@ -171,12 +176,12 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+e2b5d334-cf73-5de5-8498-b77c5eb3a3de%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCopilot+Studio+%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E9%9A%9B%E3%81%AE%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcopilotstudio%2Fhelpful-information-for-copilotstudio-sr%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcopilotstudio%2Fhelpful-information-for-copilotstudio-sr.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcopilotstudio%2Fhelpful-information-for-copilotstudio-sr.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/" data-id="cm91026vn00060npvcen17yd6" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/" data-id="cm9qc3hjd00060nqp4kpbfkka" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの竹内です。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。</p>
+        <p>こんにちは、Power Platform サポートチームの竹内です。<br>本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。</p>
 <span id="more"></span>
 
 
@@ -188,11 +193,13 @@
 <li><a href="#anchor-environmentid">環境 ID</a></li>
 <li><a href="#anchor-botid">Bot ID</a></li>
 <li><a href="#anchor-conversationid">Conversation ID</a></li>
+<li><a href="#anchor-session-details">セッション詳細</a></li>
 <li><a href="#anchor-snapshot-zip">事象再現時のスナップショット zip ファイル</a></li>
 <li><a href="#anchor-knowledge-enable-state">ナレッジの有効化状態</a></li>
 <li><a href="#anchor-raw-input-output">会話入出力</a></li>
 <li><a href="#anchor-topics-screen">トピック画面</a></li>
 <li><a href="#anchor-conversation-transcript">会話トランスクリプションテーブルデータ</a></li>
+<li><a href="#anchor-solution-export-file">ソリューションエクスポートファイル</a></li>
 <li><a href="#anchor-about-networkhar">Web ブラウザのネットワーク トレース・コンソール ログ</a></li>
 </ol>
 </li>
@@ -233,38 +240,51 @@
 <li>対象のコパイロットとのチャットウィンドウに ‘/debug conversationid’ とご入力ください。  </li>
 <li>得られた応答をテキストファイルとしてご提供ください。また、下画像と同様のスクリーンショットをご提供ください。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_ConversationID.png">  </li>
 </ul>
+<p><a id='anchor-session-details'></a></p>
+<h2 id="6-セッション詳細"><a href="#6-セッション詳細" class="headerlink" title="6. セッション詳細"></a>6. セッション詳細</h2><p>  以下の手順でセッション詳細を取得し、ご提供ください。</p>
+<ul>
+<li>Copilot Studio ポータル&gt;（対象の環境選択）＞歯車アイコン＞セッション詳細を開きます。</li>
+<li>表示された内容をコピーしてテキストファイルとしてご提供ください。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_session_details.png">  </li>
+</ul>
 <p><a id='anchor-snapshot-zip'></a></p>
-<h2 id="6-事象再現時のスナップショット-zip-ファイル"><a href="#6-事象再現時のスナップショット-zip-ファイル" class="headerlink" title="6. 事象再現時のスナップショット zip ファイル"></a>6. 事象再現時のスナップショット zip ファイル</h2><p>  以下の手順でスナップショット zip ファイルを取得し、ご提供ください。</p>
+<h2 id="7-事象再現時のスナップショット-zip-ファイル"><a href="#7-事象再現時のスナップショット-zip-ファイル" class="headerlink" title="7. 事象再現時のスナップショット zip ファイル"></a>7. 事象再現時のスナップショット zip ファイル</h2><p>  以下の手順でスナップショット zip ファイルを取得し、ご提供ください。</p>
 <ul>
 <li>Copilot Studio ポータル&gt;（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。  </li>
 <li>対象のコパイロットとのチャットウィンドウ右上の三点リーダーより、「スナップショットの保存」を選択します。  </li>
 <li>得られた zip ファイルをご提供ください。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_snapshot.png">  </li>
 </ul>
 <p><a id='anchor-knowledge-enable-state'></a></p>
-<h2 id="7-ナレッジの有効化状態"><a href="#7-ナレッジの有効化状態" class="headerlink" title="7. ナレッジの有効化状態"></a>7. ナレッジの有効化状態</h2><p>  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。</p>
+<h2 id="8-ナレッジの有効化状態"><a href="#8-ナレッジの有効化状態" class="headerlink" title="8. ナレッジの有効化状態"></a>8. ナレッジの有効化状態</h2><p>  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。</p>
 <ul>
 <li>Copilot Studio ポータル&gt;（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。  </li>
 <li>対象のコパイロットの「ナレッジ」セクションで「有効」のトグルボタンがオンであるかを確認します。  </li>
 <li>確認した際の、下画像と同様のスクリーンショットをご提供ください。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_knowledge_enabling.png">  </li>
 </ul>
 <p><a id='anchor-raw-input-output'></a></p>
-<h2 id="8-会話入出力"><a href="#8-会話入出力" class="headerlink" title="8. 会話入出力"></a>8. 会話入出力</h2><p>  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。</p>
+<h2 id="9-会話入出力"><a href="#9-会話入出力" class="headerlink" title="9. 会話入出力"></a>9. 会話入出力</h2><p>  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。</p>
 <ul>
 <li>Copilot Studio ポータル&gt;（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。  </li>
 <li>対象のコパイロットとのチャットウィンドウでコパイロットと会話を行ってください。  </li>
 <li>その会話画面について、下画像と同様のスクリーンショットをご提供ください。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_conversation_inout.png"> </li>
 </ul>
 <p><a id='anchor-topics-screen'></a></p>
-<h2 id="9-トピック画面"><a href="#9-トピック画面" class="headerlink" title="9. トピック画面"></a>9. トピック画面</h2><p>  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。</p>
+<h2 id="10-トピック画面"><a href="#10-トピック画面" class="headerlink" title="10. トピック画面"></a>10. トピック画面</h2><p>  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。</p>
 <ul>
 <li>Copilot Studio ポータル&gt;（対象の環境選択）＞カスタムコパイロット＞対象のコパイロット＞トピックタブを開きます。  </li>
 <li>事象に応じて対象のトピックの全体像や、対象のノードのプロパティなどを表示してください。  </li>
 <li>その画面について、下画像のようにスクリーンショットを撮影してご提供ください。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_topic_screen.png"> </li>
 </ul>
 <p><a id='anchor-conversation-transcript'></a></p>
-<h2 id="10-会話トランスクリプションテーブルデータ"><a href="#10-会話トランスクリプションテーブルデータ" class="headerlink" title="10. 会話トランスクリプションテーブルデータ"></a>10. 会話トランスクリプションテーブルデータ</h2><p>  下記公開情報にてご案内している方法で、会話トランスクリプションテーブルのデータを取得してください。<br>  取得した zip ファイルをご提供ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts</a></p>
+<h2 id="11-会話トランスクリプションテーブルデータ"><a href="#11-会話トランスクリプションテーブルデータ" class="headerlink" title="11. 会話トランスクリプションテーブルデータ"></a>11. 会話トランスクリプションテーブルデータ</h2><p>  下記公開情報にてご案内している方法で、会話トランスクリプションテーブルのデータを取得してください。<br>  取得した zip ファイルをご提供ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts</a></p>
+<p><a id='anchor-solution-export-file'></a></p>
+<h2 id="12-ソリューションエクスポートファイル"><a href="#12-ソリューションエクスポートファイル" class="headerlink" title="12. ソリューションエクスポートファイル"></a>12. ソリューションエクスポートファイル</h2><ol>
+<li>エージェントのエクスポートを選択し、ソリューション画面を開きます。<br>起動経路：エージェント＞（任意のエージェント）…　＞　エージェントのエクスポート<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file1.png"> 　</li>
+<li>新しいソリューションを作成します。設定値は任意で構いません。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file2.png"> 　</li>
+<li>「既存を追加」からエージェントをソリューションに追加します。<br>必要に応じて同様の手順でクラウドフローもソリューションに追加し、一緒にご提供ください。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file3.png"> 　</li>
+<li>ソリューション一覧画面に戻り、作成したソリューションをエクスポートします。設定値は任意で構いません。<br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file4.png"> 　</li>
+</ol>
 <p><a id='anchor-about-networkhar'></a></p>
-<h2 id="11-Web-ブラウザのネットワーク-トレース・コンソール-ログ"><a href="#11-Web-ブラウザのネットワーク-トレース・コンソール-ログ" class="headerlink" title="11. Web ブラウザのネットワーク トレース・コンソール ログ"></a>11. Web ブラウザのネットワーク トレース・コンソール ログ</h2><p>  カスタム Copilot 編集中、あるいは実行中に Copilot Studio サービスへ送信する HTTP リクエストや Copilot Studio サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  </p>
+<h2 id="13-Web-ブラウザのネットワーク-トレース・コンソール-ログ"><a href="#13-Web-ブラウザのネットワーク-トレース・コンソール-ログ" class="headerlink" title="13. Web ブラウザのネットワーク トレース・コンソール ログ"></a>13. Web ブラウザのネットワーク トレース・コンソール ログ</h2><p>  カスタム Copilot 編集中、あるいは実行中に Copilot Studio サービスへ送信する HTTP リクエストや Copilot Studio サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  </p>
 <div class="alert is-important"><p class="alert-title">重要</p><p>事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。 </p></div>
 <div class="alert is-info"><p class="alert-title">Note</p><p>事象の内容により、netsh trace コマンドやサードパーティ製のツール「Fiddler」によるネットワーク キャプチャの取得をお願いする場合があります。  </p></div>
 <h3 id="ブラウザネットワークトレース"><a href="#ブラウザネットワークトレース" class="headerlink" title="ブラウザネットワークトレース"></a>ブラウザネットワークトレース</h3><p>  ご取得方法は以下公開情報をご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/azure-web-pubsub/howto-troubleshoot-network-trace#collect-a-network-trace-in-the-browser-browser-based-apps-only">ブラウザーでネットワーク トレースを収集する (ブラウザーベースのアプリのみ)</a></p>
