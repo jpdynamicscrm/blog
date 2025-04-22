@@ -19,7 +19,7 @@ categories:
 
 - [目次](#目次)
 - [1. 概要](#1-概要)
-- [2. Web 版 Copilot Studio で作成したエージェントを Teams と Microsoft 365 Copilot で利用する](#2-web-版-copilot-studio-で作成したエージェントを-teams-と-microsoft-365-copilot-で利用する)
+- [2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する](#2-web-版-copilot-studio-で作成したエージェントを-teams-で利用する)
   - [2-1. エージェントを公開する](#2-1-エージェントを公開する)
   - [2-2. 他のユーザーと共有する](#2-2-他のユーザーと共有する)
   - [2-3. Teams と Microsoft 365 Copilot チャネルに接続する](#2-3-teams-と-microsoft-365-copilot-チャネルに接続する)
@@ -51,10 +51,11 @@ categories:
 
 <a id='2-web-版-copilot-studio-で作成したエージェントを-teams-で利用する'></a>
 
-# 2. Web 版 Copilot Studio で作成したエージェントを Teams と Microsoft 365 Copilot で利用する
+# 2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する
 ![](./copilot-studio-teams/web_copilot_studio_overview.png)  
 
-※Dataverse for Teams 環境のボットを Web 版で作成することはサポートされていません。  
+※Dataverse for Teams 環境のボットを Web 版で作成することはサポートされていません。
+※本稿では Microsoft 365 Copilot でのご利用方法については扱わず、 Teams でのご利用方法についてご案内いたします。  
 
 <a id='2-1-エージェントを公開する'></a>
 
@@ -89,7 +90,7 @@ categories:
 <a id='2-3-teams-チャネルに接続する'></a>
 
 ## 2-3. Teams と Microsoft 365 Copilot チャネルに接続する
-  次に、公開したエージェントを Teams と Microsoft 365 Copilot で使えるようにするため、Teams と Microsoft 365 Copilot チャネルと接続します。  
+  次に、公開したエージェントを Teams で使えるようにするため、Teams と Microsoft 365 Copilot チャネルと接続します。  
 
   > [!IMPORTANT]
   > <Teams管理者様がご確認ください>  
