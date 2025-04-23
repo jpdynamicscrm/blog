@@ -11,7 +11,7 @@ categories:
 ---
 
 こんにちは、Power Platform サポートチームの竹内です。  
-本記事では Copilot Studio (旧称 Power Virtual Agents) で作成したエージェントを Microsoft Teams (以降 Teams) と Microsoft 365 Copilot に公開する方法についてご案内致します。
+本記事では Copilot Studio (旧称 Power Virtual Agents) で作成したエージェントを Microsoft Teams (以降 Teams) に公開する方法についてご案内致します。
 
 
 <!-- more -->
@@ -38,9 +38,10 @@ categories:
 
 # 1. 概要
 
-今回はよくあるお問い合わせとして、Copilot Studio で作成したエージェントを Teams と Microsoft 365 Copilot に公開する方法についてご案内いたします。  
+今回はよくあるお問い合わせとして、Copilot Studio で作成したエージェントを Teams に公開する方法についてご案内いたします。  
 この方法では Copilot Studio の設定だけでなく、Teams 管理センターなどの設定も必要となります。  
 そのため、一部 Teams 管理センターにアクセスできる権限がある管理者にてご実行いただく必要がある操作もございますので、ご留意ください。  
+※本稿では Microsoft 365 Copilot への公開方法・ご利用方法については扱わず、 Teams でのご利用方法についてご案内いたします。  
 
 > [!NOTE]
 > <Teams 管理者様がご確認ください>  
@@ -54,8 +55,7 @@ categories:
 # 2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する
 ![](./copilot-studio-teams/web_copilot_studio_overview.png)  
 
-※Dataverse for Teams 環境のボットを Web 版で作成することはサポートされていません。
-※本稿では Microsoft 365 Copilot でのご利用方法については扱わず、 Teams でのご利用方法についてご案内いたします。  
+※Dataverse for Teams 環境のボットを Web 版で作成することはサポートされていません。  
 
 <a id='2-1-エージェントを公開する'></a>
 
