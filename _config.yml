@@ -107,7 +107,7 @@ permalink: :title/
 permalink_defaults: 
 
 language: ja
-timezone: asia/Tokyo
+timezone: Asia/Tokyo
 
 # Directory
 source_dir: source

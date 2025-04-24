@@ -1,6 +1,6 @@
 ---
 title: Copilot Studio のエージェントを Teams に公開する方法
-date: 2025-01-06 16:00:00
+date: 2025-04-22 16:00:00
 tags:
   - Microsoft Copilot Studio
   - Power Virtual Agents
@@ -22,11 +22,11 @@ categories:
 - [2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する](#2-web-版-copilot-studio-で作成したエージェントを-teams-で利用する)
   - [2-1. エージェントを公開する](#2-1-エージェントを公開する)
   - [2-2. 他のユーザーと共有する](#2-2-他のユーザーと共有する)
-  - [2-3. Teamsチャネルに接続する](#2-3-teamsチャネルに接続する)
+  - [2-3. Teams と Microsoft 365 Copilot チャネルに接続する](#2-3-teams-と-microsoft-365-copilot-チャネルに接続する)
   - [2-4. 他のユーザーが Teams でエージェントを利用する](#2-4-他のユーザーが-teams-でエージェントを利用する)
     - [2-4-1. リンクの共有](#2-4-1-リンクの共有)
-    - [2-4-2. Teamsアプリストアに公開する](#2-4-2-teamsアプリストアに公開する)
-    - [2-4-3. zipとしてダウンロード・アップロード](#2-4-3-zipとしてダウンロードアップロード)
+    - [2-4-2. Teams アプリストアに公開する](#2-4-2-teams-アプリストアに公開する)
+    - [2-4-3. zip としてダウンロード・アップロード](#2-4-3-zip-としてダウンロードアップロード)
   - [2-5. Teams チームにエージェントをインストールする](#2-5-teams-チームにエージェントをインストールする)
 - [3. Teams 版 Copilot Studio で作成したエージェントを Teams で利用する](#3-teams-版-copilot-studio-で作成したエージェントを-teams-で利用する)
   - [3-1. エージェントを公開する](#3-1-エージェントを公開する)
@@ -41,9 +41,10 @@ categories:
 今回はよくあるお問い合わせとして、Copilot Studio で作成したエージェントを Teams に公開する方法についてご案内いたします。  
 この方法では Copilot Studio の設定だけでなく、Teams 管理センターなどの設定も必要となります。  
 そのため、一部 Teams 管理センターにアクセスできる権限がある管理者にてご実行いただく必要がある操作もございますので、ご留意ください。  
+※本稿では Microsoft 365 Copilot への公開方法・ご利用方法については扱わず、 Teams でのご利用方法についてご案内いたします。  
 
 > [!NOTE]
-> <Teams管理者様がご確認ください>  
+> <Teams 管理者様がご確認ください>  
 > Teams 管理センターでアクセス許可ポリシーを設定している場合、事前にカスタムアプリのアクセスを許可するようポリシーを設定する必要がございます。  
 > 本記事執筆時点で、アクセス許可ポリシーからアプリ中心の管理への移行が推奨されておりますので、本記事では詳細は割愛します。  
 > アクセス許可ポリシーの設定方法等については下記の公開情報をご参照ください。  
@@ -54,7 +55,7 @@ categories:
 # 2. Web 版 Copilot Studio で作成したエージェントを Teams で利用する
 ![](./copilot-studio-teams/web_copilot_studio_overview.png)  
 
-※Dataverse for Teams 環境のボットをWeb版で作成することはサポートされていません。  
+※Dataverse for Teams 環境のボットを Web 版で作成することはサポートされていません。  
 
 <a id='2-1-エージェントを公開する'></a>
 
@@ -86,10 +87,10 @@ categories:
       > 詳細については下記の公開情報をご参照ください。  
       > [他のユーザーとエージェントを共有する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#insufficient-environment-permissions)
   
-<a id='2-3-teamsチャネルに接続する'></a>
+<a id='2-3-teams-チャネルに接続する'></a>
 
-## 2-3. Teamsチャネルに接続する
-  次に、公開したエージェントを Teams で使えるようにするため、Teams チャネルと接続します。  
+## 2-3. Teams と Microsoft 365 Copilot チャネルに接続する
+  次に、公開したエージェントを Teams で使えるようにするため、Teams と Microsoft 365 Copilot チャネルと接続します。  
 
   > [!IMPORTANT]
   > <Teams管理者様がご確認ください>  
@@ -105,7 +106,7 @@ categories:
   > なお、Copilot Studio に関する DLP の詳細については下記の公開情報をご参照ください。    
   > [エージェントのデータ損失防止ポリシーを構成する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-data-loss-prevention#copilot-studio-connectors)  
 
-  該当のエージェントを開き、画面上部の「チャネル」タブより「Microsoft Teams」をご選択ください。  
+  該当のエージェントを開き、画面上部の「チャネル」タブより「Microsoft Teams と Microsoft 365 Copilot」をご選択ください。  
   ![](./copilot-studio-teams/select_channel.png)  
 
   チャネルが追加されると下記の画面が表示されます。  
@@ -116,7 +117,7 @@ categories:
   エージェントを Teams チームに追加する詳細については、[2-5 項](#2-5-teams-チームにエージェントをインストールする)で後述します。
   ![](./copilot-studio-teams/teams_edit_detail.png)    
 
-  「エージェントを開く」を選択すると、Teams が開き、下記の画面が表示されます。
+  「Teams で エージェント を表示する」を選択すると、Teams が開き、下記の画面が表示されます。
   ![](./copilot-studio-teams/teams_agent_add.png)    
   
   「追加」を選択することで、Teams でエージェントを利用することが可能になります。
@@ -139,7 +140,7 @@ categories:
   2. Teams アプリストアに公開する
   3. zip としてダウンロード・アップロード
   
-  Copilot Studio 「チャネル」タブより「Microsoft Teams」を選択すると、下記の画面が表示されます。  
+  Copilot Studio 「チャネル」タブより「Microsoft Teams と Microsoft 365 Copilot」を選択すると、下記の画面が表示されます。  
   ![](./copilot-studio-teams/teams_agent_preview.png)  
 
   他のユーザーがこのエージェントを利用できるようにするには、「可用性オプション」をご選択ください。  
@@ -163,18 +164,18 @@ categories:
   ![](./copilot-studio-teams/teams_agent_add.png)  
 
   この方法の詳細については下記の公開情報も合わせてご参照ください。  
-  [Microsoft Teams 用コパイロットの接続と構成 - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#share-a-link-so-others-can-install-a-copilot)  
+  [Teams と Microsoft 365 Copilot 向けのエージェントを接続し、構成する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#share-a-link-so-others-can-install-a-copilot)  
 
   > [!WARNING]  
   > エージェントが共有されていないユーザーが、リンクにアクセスした場合、下画像のエラーが表示されます。  
   > ![](./copilot-studio-teams/error_not_found.png)  
   > [2-2 項](#2-2-他のユーザーと共有する) をご参照のうえ、適切にエージェントが共有されいているかご確認ください。  
 
-<a id='2-4-2-teamsアプリストアに公開する'></a>
+<a id='2-4-2-teams-アプリストアに公開する'></a>
 
-### 2-4-2. Teamsアプリストアに公開する
+### 2-4-2. Teams アプリストアに公開する
   次に、Teams アプリストアに公開する方法です。  
-  ※Teams チャネルに接続して公開する場合、Azure AD 認証 (Entra ID 認証) を利用していないとTeamsアプリストアに表示できません。  
+  ※Teams チャネルに接続して公開する場合、Microsoft 認証 (Entra ID 認証) を利用していないと Teams アプリストアに表示できません。  
   
   Teams アプリストアに公開するには下記の二つの公開範囲別の方法があります。  
   ご要件の公開範囲に応じた設定を行ってください。  
@@ -183,13 +184,13 @@ categories:
   2. 組織に表示する（[設定方法はこちら](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#show-to-the-organization)）
 
   なお、この手順全体の詳細については下記の公開情報をご参照ください。  
-  [接続 を設定し、エージェント を設定します Microsoft Teams - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#show-an-agent-in-the-teams-app-store)  
+  [Teams と Microsoft 365 Copilot 向けのエージェントを接続し、構成する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#show-an-agent-in-the-teams-app-store)  
 
   ![](./copilot-studio-teams/show_in_teams_app_store.png)  
 
-<a id='2-4-3-zipとしてダウンロードアップロード'></a>
+<a id='2-4-3-zip-としてダウンロードアップロード'></a>
 
-### 2-4-3. zipとしてダウンロード・アップロード
+### 2-4-3. zip としてダウンロード・アップロード
   この方法は .zip ファイルとしてエージェントをダウンロードし、直接マニフェストファイルを編集したり、他ユーザーと共有してアップロードする方法となります。
 
   ダウンロードするには、下記の画面で「.zip のダウンロード」を選択します。  
@@ -199,17 +200,17 @@ categories:
   [カスタム アプリをアップロードする - Teams | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
 
   なお、この方法の詳細については下記の公開情報も合わせてご参照ください。  
-  [接続 を設定し、エージェント を設定します Microsoft Teams - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#download-the-teams-app-manifest-for-an-agent-advanced)  
+  [Teams と Microsoft 365 Copilot 向けのエージェントを接続し、構成する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#download-the-teams-app-manifest-for-an-agent-advanced)  
 
 <a id='2-5-teams-チームにエージェントをインストールする'></a>
 
 ## 2-5. Teams チームにエージェントをインストールする
   Teams 内のチームにエージェントをインストールし、チームの他のメンバーがエージェントを利用できるように設定することができます。  
 
-  Copilot Studio 「チャネル」タブより「Microsoft Teams」を選択すると、下記の画面が表示されますので、「詳細の編集」をご選択ください。 
+  Copilot Studio 「チャネル」タブより「Microsoft Teams と Microsoft 365 Copilot」を選択すると、下記の画面が表示されますので、「詳細の編集」をご選択ください。 
   ![](./copilot-studio-teams/edit_detail.png)  
 
-  「このエージェントのチームへの追加をユーザーに許可する」のチェックボックスを埋めてください。  
+  「ユーザーはこの エージェント をチームに追加できます」のチェックボックスを埋めてください。  
   ![](./copilot-studio-teams/add_to_team.png)  
   
   上記の設定を行っている状態で、リンクの共有、または Teams アプリストアに公開を経由し、下記の「追加」ボタンを選択してください。
@@ -221,7 +222,7 @@ categories:
   チームにエージェントをインストールする場合、インストール先のチームを選択し、インストールしてください。
 
   なお、この方法の詳細については下記の公開情報も合わせてご参照ください。  
-  [Microsoft Teams のエージェントを接続して構成します - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#allow-users-to-add-an-agent-to-a-team-in-teams)
+  [Teams と Microsoft 365 Copilot 向けのエージェントを接続し、構成する - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams#allow-users-to-add-an-agent-to-a-team-in-teams)
 
 <a id='3-teams-版-copilot-studio-で作成したエージェントを-teams-で利用する'></a>
 
