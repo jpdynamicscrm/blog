@@ -126,11 +126,18 @@ Azure Entra Identity グループが入れ子になっており、かつ親グ�
 つまり、**親グループのグループ チームを作成することで、子グループのメンバーも自動で環境に追加される**ようになります
 これにより、メンバーが環境にアクセスする前に、子グループのメンバーを自動で環境に追加し、セキュリティ ロール追加やレコード共有などの追加の設定を行うことができるようになります。
 
+### チーム経由のセキュリティロール付与に対応していない機能はありますか。
+ほとんどの機能でチーム経由のセキュリティロール付与をサポートしていますが、一部の機能はサポートしておりません。  
+
+現時点でサポートしていないことを確認できているのは以下の２つの機能です。  
+* [環境ピッカー](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fja-jp%2Fpower-platform%2Fadmin%2Fmanage-teams%23types-of-teams&data=05%7C02%7Cmiyuki.amino%40microsoft.com%7Cb7c41d7bf2cd4bc0989408dd862f37bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638814259649052067%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=d%2Fs5FX4Un2J2DxqIum9pYsgtJ6BQLBbIS1ZZxLWsTEM%3D&reserved=0) - 所有者チームのセキュリティロールは継承されません。
+* [Copilot in Power Apps](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/ai-conversations-create-app) - セキュリティロールをユーザーに直接付与する必要がございます。
+
 
 ## 関連する公開情報
 ---
-・[Microsoft Dataverse チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams) : グループ チームを含め、Dataverse の各チームについてご案内しています。
-・[グループ チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams) : グループ チームの概要、また作成・編集手順をご案内しています。
+* [Microsoft Dataverse チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams) : グループ チームを含め、Dataverse の各チームについてご案内しています。
+* [グループ チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams) : グループ チームの概要、また作成・編集手順をご案内しています。
 
 ## おわりに
 ---
