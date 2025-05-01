@@ -173,7 +173,7 @@ VNET for Power Platform は、Power Platform の環境をネットワーク委�
   <tr>
     <td>VNET for Power Platform</td>
     <td>Power Platform コネクタ</td>
-    <td><b>環境内の対応コネクタ<br />すべて</b></td>
+    <td><b>環境内の全対応コネクタ</b></td>
     <td><b>必要</b></td>
     <td>不要</td>
     <td><b>可能(※)</b></td>
