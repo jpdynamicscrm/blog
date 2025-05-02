@@ -130,7 +130,7 @@ Azure Entra Identity グループが入れ子になっており、かつ親グ�
 ほとんどの機能でチーム経由のセキュリティロール付与をサポートしていますが、一部の機能はサポートしておりません。  
 
 現時点でサポートしていないことを確認できているのは以下の２つの機能です。  
-* [環境ピッカー](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fja-jp%2Fpower-platform%2Fadmin%2Fmanage-teams%23types-of-teams&data=05%7C02%7Cmiyuki.amino%40microsoft.com%7Cb7c41d7bf2cd4bc0989408dd862f37bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638814259649052067%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=d%2Fs5FX4Un2J2DxqIum9pYsgtJ6BQLBbIS1ZZxLWsTEM%3D&reserved=0) - 所有者チームのセキュリティロールは継承されません。
+* [環境ピッカー](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams#types-of-teams) - 所有者チームのセキュリティロールは継承されません。
 * [Copilot in Power Apps](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/ai-conversations-create-app) - セキュリティロールをユーザーに直接付与する必要がございます。
 
 
