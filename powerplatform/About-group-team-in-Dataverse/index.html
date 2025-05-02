@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image06-teamMember.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image05-accessCheck.png">
 <meta property="article:published_time" content="2022-01-07T04:45:00.000Z">
-<meta property="article:modified_time" content="2025-05-01T03:35:34.577Z">
+<meta property="article:modified_time" content="2025-05-02T01:04:00.788Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Model-driven app">
 <meta property="article:tag" content="Dynamics">
@@ -166,7 +166,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+ea72032b-bfab-5621-9019-a4b3c961f183%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%86%E6%B3%A8%E6%84%8F%E7%82%B9%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-group-team-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-group-team-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FAbout-group-team-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/" data-id="cma4tbexu003e0nrwdku74vpn" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/" data-id="cma63ccw7003e0nukct7ye394" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -210,8 +210,17 @@
 <p>ユーザーに対して直接付与されたロールと継承されたロールの両方を確認されたい場合には、特定データのフォームを開いた上で上部リボンの「アクセス権の確認」を選択いただくことで、当該データに関連するユーザーのすべての権限をご確認いただくことが可能です。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/image05-accessCheck.png"></p>
 <h3 id="入れ子のAzure-Entra-Identity-グループにグループ-チームを作成する際の留意点について"><a href="#入れ子のAzure-Entra-Identity-グループにグループ-チームを作成する際の留意点について" class="headerlink" title="入れ子のAzure Entra Identity グループにグループ チームを作成する際の留意点について"></a>入れ子のAzure Entra Identity グループにグループ チームを作成する際の留意点について</h3><p>Azure Entra Identity グループが入れ子になっており、かつ親グループと紐づくグループ チームが作成された場合、子グループのメンバーもグループ チーム内に追加されます。<br>なお、<strong>「入れ子のうち子セキュリティ グループのメンバーを環境に自動で追加したい・セキュリティ ロールを割り振りたい」</strong>というお問合せをよくいただきますが、その際にこの入れ子のグループ チームの手法を応用することができます。<br>環境にセキュリティ グループを追加し、かつセキュリティ グループに子となるセキュリティ グループが存在する場合、子グループのメンバーは環境に事前に追加されません。<br>ただし、親グループを含むグループにグループ チームが作成されている場合には、子グループのメンバーも自動で事前に追加されます。<br>(ご参考 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス</a>)<br><em>環境セキュリティ グループ内の入れ子のセキュリティ グループのメンバーは、事前にプロビジョニングされたり、Dataverse 環境に自動的に追加されたりすることは、ありません。 ただし、入れ子のセキュリティ グループに Dataverse グループ チーム を作成すると、環境に追加できます。</em></p>
 <p>つまり、<strong>親グループのグループ チームを作成することで、子グループのメンバーも自動で環境に追加される</strong>ようになります<br>これにより、メンバーが環境にアクセスする前に、子グループのメンバーを自動で環境に追加し、セキュリティ ロール追加やレコード共有などの追加の設定を行うことができるようになります。</p>
+<h3 id="チーム経由のセキュリティロール付与に対応していない機能はありますか。"><a href="#チーム経由のセキュリティロール付与に対応していない機能はありますか。" class="headerlink" title="チーム経由のセキュリティロール付与に対応していない機能はありますか。"></a>チーム経由のセキュリティロール付与に対応していない機能はありますか。</h3><p>ほとんどの機能でチーム経由のセキュリティロール付与をサポートしていますが、一部の機能はサポートしておりません。  </p>
+<p>現時点でサポートしていないことを確認できているのは以下の２つの機能です。  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams#types-of-teams">環境ピッカー</a> - 所有者チームのセキュリティロールは継承されません。</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/ai-conversations-create-app">Copilot in Power Apps</a> - セキュリティロールをユーザーに直接付与する必要がございます。</li>
+</ul>
 <h2 id="関連する公開情報"><a href="#関連する公開情報" class="headerlink" title="関連する公開情報"></a>関連する公開情報</h2><hr>
-<p>・<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a> : グループ チームを含め、Dataverse の各チームについてご案内しています。<br>・<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams">グループ チームの管理</a> : グループ チームの概要、また作成・編集手順をご案内しています。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a> : グループ チームを含め、Dataverse の各チームについてご案内しています。</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams">グループ チームの管理</a> : グループ チームの概要、また作成・編集手順をご案内しています。</li>
+</ul>
 <h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
 <p>以上、Azure Entra Identity グループ チームの概要、およびよくいただくお問合せについてご案内しました。<br>グループ チームを利用しない場合、ユーザーひとりひとりにアクセス権を付与する必要があるため、ユーザー数やセキュリティ ロール数が多い組織だと運用が煩雑になりがちです。<br>ぜひグループ チームを運用に導入いただき、効率的なユーザー管理にご活用ください！</p>
 
