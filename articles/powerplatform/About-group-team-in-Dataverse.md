@@ -126,11 +126,18 @@ Azure Entra Identity グループが入れ子になっており、かつ親グ�
 つまり、**親グループのグループ チームを作成することで、子グループのメンバーも自動で環境に追加される**ようになります
 これにより、メンバーが環境にアクセスする前に、子グループのメンバーを自動で環境に追加し、セキュリティ ロール追加やレコード共有などの追加の設定を行うことができるようになります。
 
+### チーム経由のセキュリティロール付与に対応していない機能はありますか。
+ほとんどの機能でチーム経由のセキュリティロール付与をサポートしていますが、一部の機能はサポートしておりません。  
+
+現時点でサポートしていないことを確認できているのは以下の２つの機能です。  
+* [環境ピッカー](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams#types-of-teams) - 所有者チームのセキュリティロールは継承されません。
+* [Copilot in Power Apps](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/ai-conversations-create-app) - セキュリティロールをユーザーに直接付与する必要がございます。
+
 
 ## 関連する公開情報
 ---
-・[Microsoft Dataverse チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams) : グループ チームを含め、Dataverse の各チームについてご案内しています。
-・[グループ チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams) : グループ チームの概要、また作成・編集手順をご案内しています。
+* [Microsoft Dataverse チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams) : グループ チームを含め、Dataverse の各チームについてご案内しています。
+* [グループ チームの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams) : グループ チームの概要、また作成・編集手順をご案内しています。
 
 ## おわりに
 ---
