@@ -34,6 +34,11 @@ categories:
 $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 ```
 
+実行時に 35 行目の "get-adminflow" コマンドでエラーになる場合は、末尾に "-EnvironmentName $e.EnvironmentName" を追加し、環境をして実行してください。
+```
+$fl=get-adminflow -FlowName $f.FlowName -EnvironmentName $e.EnvironmentName
+```
+
 ### 出力結果
 コマンド内で指定したフォルダに以下のような形式で CSV ファイルとして出力されます。
 ![](./list-connectors-used-by-apps-and-flows/csv.png)
