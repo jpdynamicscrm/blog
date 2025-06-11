@@ -71,7 +71,7 @@ Copilot Studioの各エージェントでは、複数の認証オプションが
 # 「管理者の承認」について  
 管理者の同意が必要なAPI/アクセス許可をご利用の場合や、APIのアクセス許可に対して、管理者同意を与えずにアプリをAzureポータルで登録し、管理者権限のないユーザーでエージェントにアクセスした場合、「管理者の承認」が必要な旨のメッセージが表示されます。  
 この場合、メッセージの通り、Entra観点によるテナントの管理者による同意が必要となります。  
-![](./copilotstudio-manual-auth/ad-consent.png)  
+![](./copilot-studio-manual-auth/ad-consent.png)  
 
 詳細は下記ブログ記事をご参照ください。  
 [「管理者の承認が必要」のメッセージが表示された場合の対処法](https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/)
