@@ -34,7 +34,7 @@ categories:
 $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 ```
 
-35 行目の "get-adminflow" コマンドで 404 エラーが発生する場合は、末尾に "-EnvironmentName $e.EnvironmentName" を追加してエラーが解消されるかお試しください。
+また、実行時に "get-adminflow" コマンドで 404 エラーが発生する場合は、末尾に "-EnvironmentName $e.EnvironmentName" を追加してエラーが解消されるかお試しください。
 ```
 $fl=get-adminflow -FlowName $f.FlowName -EnvironmentName $e.EnvironmentName
 ```
