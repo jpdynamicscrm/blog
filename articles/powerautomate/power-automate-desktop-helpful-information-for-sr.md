@@ -29,6 +29,8 @@ categories:
    1. [レジストリの設定](#anchor-registry-setting)
    1. [Power Automate for desktop のフロー](#anchor-desktopflow)
    1. [デスクトップ フローの実行履歴 URL](#anchor-desktopflow-url)
+   1. [デスクトップ フローの実行履歴の画面キャプチャ](#anchor-desktopflow-runhistory-screenshot)
+   1. [デスクトップ フローの実行履歴のエラー・入力・出力の詳細](#anchor-desktopflow-runhistory-error-input-output)
    1. [クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)](#anchor-cloudflow-run-history-csv)
    1. [クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)](#anchor-cloudflow-raw-input-output)
 
@@ -169,9 +171,44 @@ Power Automate ポータルの画面 > 監視 > マシン
 1. URLをコピーしてご提供ください。
 エラー時にフローが実行されず実行履歴に残っていない場合は、1 の画面のURLをコピーしてご提供下さい。
 
+<a id='anchor-desktopflow-runhistory-screenshot'></a>
+
+## 10. デスクトップ フローの実行履歴の画面キャプチャ
+1. 「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。
+    1. マイ フロー > デスクトップ フローから該当のフローを選択します。
+    1. 実行履歴から該当の日時を選択します。
+1. ページ全体の画面キャプチャをご提供ください。     
+![](./power-automate-desktop-helpful-information-for-sr/desktopflow-runhistory-screenshot.png)
+
+<a id='anchor-desktopflow-runhistory-error-input-output'></a>
+
+## 11. デスクトップ フローの実行履歴のエラー・入力・出力の詳細
+1. 「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。
+    1. マイ フロー > デスクトップ フローから該当のフローを選択します。
+    1. 実行履歴から該当の日時を選択します。
+1. 「アクションの詳細」パネルで、該当のアクションの「開始」列のリンクを押下します。
+
+![](./power-automate-desktop-helpful-information-for-sr/desktopflow-runhistory-error-input-output.png)
+
+【エラーの詳細】
+1. 「エラーの詳細」のテキストをコピーし、テキスト ファイルへ保存します。
+1. 「エラーのコンテキスト」の画像を右クリック > 名前を付けて画像を保存を押下します。
+1. 保存したテキスト ファイル、画像ファイルをご提供ください。
+
+【入力の詳細】
+1. 「入力の詳細を確認します」のリンクを押下します。
+1. 表示された入力の内容をコピーし、テキスト ファイルへ保存します。
+1. 保存したテキスト ファイルをご提供ください。
+
+【出力の詳細】
+1. 「出力の詳細を確認します」のリンクを押下します。
+1. 表示された出力の内容をコピーし、テキスト ファイルへ保存します。
+1. 保存したテキスト ファイルをご提供ください。
+
+
 <a id='anchor-cloudflow-run-history-csv'></a>
 
-## 10. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)
+## 12. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)
 デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローの実行履歴もご提供ください。
 1. デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。  
 ![](./power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png)
@@ -184,7 +221,7 @@ Power Automate ポータルの画面 > 監視 > マシン
 
 <a id='anchor-cloudflow-raw-input-output'></a>
 
-## 11. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)
+## 13. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)
 デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローのアクションの未加工入力・未加工出力もご提供ください。
 実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。  
 未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。  
