@@ -32,9 +32,10 @@ categories:
       - [キャンバス アプリ 実行時 (Webブラウザ) ](#anchor-about-monitorlog-web-play)
       - [キャンバス アプリ 実行時 (Power Appsモバイル アプリ) ](#anchor-about-monitorlog-mobile-play)
       - [キャンバス アプリ 実行時 (TeamsのPower Appsアプリ) ](#anchor-about-powerapps-for-teams)      
-   1. [Webブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
+   1. [ネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
       - [ネットワーク トレース](#anchor-networktrace)
       - [コンソール ログ](#anchor-consolelog)
+      - [Teamsクライアントのネットワーク トレース、診断ログ](#anchor-teamslog)
    1. [セッションID](#anchor-about-sessionid)
       - [編集セッション](#anchor-about-sessionid-web-edit)
       - Windows 端末での実行セッション
@@ -281,6 +282,7 @@ URL内の環境 IDはhttps://apps.powerapps.com/play/e/ 以降の文字列（以
 Console タブをクリックし、ログ領域を右クリックし**「名前を付けて保存」**にて保存いたします。  
 ![](./troubleshooting-general-canvasapp/image07-2.png)
 
+<a id='anchor-teamslog'></a>
 
 ### 6-3. Teamsクライアントのネットワーク トレース、診断ログ
 Teamsクライアントにおいてのみエラーが発生する場合、Teamsクライアントのネットワーク トレースやTeams 診断ログ　より、発生している事象を調査します。<br/>
@@ -288,9 +290,9 @@ Teamsクライアントにおいてのみエラーが発生する場合、Teams�
 1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
     ![](./troubleshooting-general-canvasapp/image36.png)　
 2. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
-※ 拡張子が .json になっていることをご確認お願いいたします<br/>
+※ 拡張子が .json となっていることをご確認ください<br/>
     ![](./troubleshooting-general-canvasapp/image37.png)　
-3. 2. で作成した "configuration.json" 以下パスのフィルダーに保存します<br/>
+3. 2. で作成した 「configuration.json」 を以下パスのフィルダーに保存します<br/>
 パス : %localappdata%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams<br/>
     ![](./troubleshooting-general-canvasapp/image38.png)　
 4. Teams をサインアウトし、一度閉じます
@@ -305,7 +307,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 8. 事象の再現が終わりましたら 「Export HAR」 にてファイルをダウンロードします
     ![](./troubleshooting-general-canvasapp/image42.png)　
 9. Teams に戻り、「Ctrl+Alt+Shift + 1 (数字) キー」 を同時に押下し、Microsoft Teams 診断ログがダウンロードされることを確認します<br/>
-※ ダウンロードが開始されましたら、以下のようなメッセージが表示されます<br/>
+※ ダウンロードが開始されると、以下のようなメッセージが表示されます<br/>
     ![](./troubleshooting-general-canvasapp/image43.png)　
 10. 「ダウンロード」 フォルダーに 「PROD-WebLogs ….zip」「MSTeams Support Logs …フォルダー」 が生成されていることを確認します<br/>
     ![](./troubleshooting-general-canvasapp/image44.png)　
