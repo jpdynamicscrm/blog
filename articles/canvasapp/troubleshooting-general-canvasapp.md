@@ -226,6 +226,8 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 8. 記録されたモニター結果を「ダウンロード」します 
     ![](./troubleshooting-general-canvasapp/uImage03.png)
 
+<a id='anchor-about-powerapps-for-teams'></a>
+
 ### 5-4. キャンバス アプリ 実行時 (TeamsのPower Appsアプリ)
 1. [Power Platform管理センター](https://admin.powerplatform.microsoft.com/)から、アプリが作成されているDataverse for Teams環境を選択します
 2. 遷移後の画面内の「詳細」ペインに記載の環境 IDをメモ帳等に控えます（後で使用します）
@@ -235,9 +237,9 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 5. 「詳細」タブ内に記載のアプリ IDをメモ帳等に控えます（後で使用します）
     ![](./troubleshooting-general-canvasapp/image32.png)　
 6. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
-7. アプリ一覧画面から、任意のアプリの「...」メニューを表示し、「詳細」内の「ライブ監視」を選択します
+7. アプリ一覧画面から、任意のアプリの「...」メニューを表示し、「詳細」内の「ライブ監視」を選択します<br/>
 ※モニターログの画面を開くための手順ですので、どのアプリを選択しても問題ありません
-8. 「ライブ監視のリンクをコピーする」に表示されるリンクをメモ帳等控えます（後で使用します）
+8. 「ライブ監視のリンクをコピーする」に表示されるリンクをメモ帳等控えます（後で使用します）<br/>
 なお、7.で開いたモニターログの画面は、閉じないでください
 9. 8.で控えたURL内の環境 ID、アプリ IDを置き換えます
 URL内の環境 IDはhttps://apps.powerapps.com/play/e/ 以降の文字列（以下赤枠）、アプリ IDは、この環境 ID/a/ 以降の文字列（以下青枠）になります。
@@ -254,7 +256,7 @@ URL内の環境 IDはhttps://apps.powerapps.com/play/e/ 以降の文字列（以
 
 <a id='anchor-about-networkhar'></a>
 
-## 6. Web ブラウザのネットワーク トレース・コンソール ログ
+## 6. ネットワーク トレース・コンソール ログ
 キャンバス アプリ編集中、あるいは実行中に Power Apps サービスへ送信する HTTP リクエストや Power Apps サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  
 
 > [!IMPORTANT]
@@ -265,7 +267,7 @@ URL内の環境 IDはhttps://apps.powerapps.com/play/e/ 以降の文字列（以
 
 <a id='anchor-networktrace'></a>
 
-### 6-1. ブラウザネットワークトレース
+### 6-1. ブラウザネットワーク トレース
 ご取得方法は以下公開情報をご参照ください。  
 [ブラウザーでネットワーク トレースを収集する (ブラウザーベースのアプリのみ)](https://learn.microsoft.com/ja-jp/azure/azure-web-pubsub/howto-troubleshoot-network-trace#collect-a-network-trace-in-the-browser-browser-based-apps-only)
 
@@ -275,9 +277,40 @@ URL内の環境 IDはhttps://apps.powerapps.com/play/e/ 以降の文字列（以
 
 <a id='anchor-consolelog'></a>
 
-### 6-2. コンソールログ
+### 6-2. コンソール ログ
 Console タブをクリックし、ログ領域を右クリックし**「名前を付けて保存」**にて保存いたします。  
 ![](./troubleshooting-general-canvasapp/image07-2.png)
+
+
+### 6-3. Teamsクライアントのネットワーク トレース、診断ログ
+Teamsクライアントにおいてのみエラーが発生する場合、Teamsクライアントのネットワーク トレースやTeams 診断ログ　より、発生している事象を調査します。<br/>
+
+1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
+    ![](./troubleshooting-general-canvasapp/image36.png)　
+2. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
+※ 拡張子が .json になっていることをご確認お願いいたします<br/>
+    ![](./troubleshooting-general-canvasapp/image37.png)　
+3. 2. で作成した "configuration.json" 以下パスのフィルダーに保存します<br/>
+パス : %localappdata%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams<br/>
+    ![](./troubleshooting-general-canvasapp/image38.png)　
+4. Teams をサインアウトし、一度閉じます
+5. 再度 Teams を起動し、以下の順で 「開発者ツール」 を起動します<br/>
+Windows のタスクバーにある 「隠れているインジケータを表示します」 > 「Teams アイコン」 の右クリック >「Engineering Tools」 > 「Open DevTools (Main Window)」<br/>
+    ![](./troubleshooting-general-canvasapp/image39.png)　
+6. 「Network」 タブを選択し、「Preserve log」 「Disable cache」 にチェックします
+    ![](./troubleshooting-general-canvasapp/image40.png)　
+7. Teams で事象が発生するように操作します<br/>
+※ 操作をすると以下のようにログが記録されます<br/>
+    ![](./troubleshooting-general-canvasapp/image41.png)　
+8. 事象の再現が終わりましたら 「Export HAR」 にてファイルをダウンロードします
+    ![](./troubleshooting-general-canvasapp/image42.png)　
+9. Teams に戻り、「Ctrl+Alt+Shift + 1 (数字) キー」 を同時に押下し、Microsoft Teams 診断ログがダウンロードされることを確認します<br/>
+※ ダウンロードが開始されましたら、以下のようなメッセージが表示されます<br/>
+    ![](./troubleshooting-general-canvasapp/image43.png)　
+10. 「ダウンロード」 フォルダーに 「PROD-WebLogs ….zip」「MSTeams Support Logs …フォルダー」 が生成されていることを確認します<br/>
+    ![](./troubleshooting-general-canvasapp/image44.png)　
+11. 8. で取得したHARファイルと、10. で取得した「PROD-WebLogs ….zip」 および 「MSTeams Support Logs … フォルダー」 を圧縮した .zip ファイル　のご提供をお願いします
+
 
 <a id='anchor-about-sessionid'></a>
 
