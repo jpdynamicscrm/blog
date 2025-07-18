@@ -59,10 +59,6 @@ Power Apps をご利用頂いているお客様より、管理者がテナント
 > 有効にする方法については下記の公開情報をご参照ください。  
 > [テナント レベルでの分析 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/tenant-level-analytics#how-do-i-enable-tenant-level-analytics)
 
-
-> [!NOTE]  
-> この方法は削除済みのフローを取得することはできません。  
-
 1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインします。
 2. 左側メニューの [分析] > [Power Apps] を選択します。
 3. 表示されるダッシュボードからアプリの使用状況や一覧を確認できます。
