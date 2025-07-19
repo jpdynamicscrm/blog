@@ -50,22 +50,18 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
 <b>②接続先との通信</b>  
 マイクロソフトクラウドサーバーとコネクタ接続先との通信です。  
 フローやアプリにてコネクタを通じてデータに接続するときに利用されます。  
-
-![](./ip-range-and-domain/network.png)
-
+  
+![](./ip-range-and-domain/network.png)  
 
 ① クライアントとの通信に必要な要件は  [キャンバスアプリ](#anchor-canvasapp)、[Power Automate](#anchor-powerautomate) および [オンプレミスデータゲートウェイ](#anchor-onpremisedatagateway) を参照してください。  
-② 接続先との通信に必要な要件は [コネクタ](#anchor-connector) を参照してください。
-
-
+② 接続先との通信に必要な要件は [コネクタ](#anchor-connector) を参照してください。  
 
 ## クライアントとの通信
 <a id='anchor-canvasapp'></a>
 ### キャンバスアプリ
 
 1. [必要なサービス](https://learn.microsoft.com/en-us/power-apps/limits-and-config#required-services)に記載されているすべてのドメインを許可してください。<br>
-  ![](./ip-range-and-domain/powerapps-domain.png)
-
+  ![](./ip-range-and-domain/powerapps-domain.png)  
 
 <a id='anchor-powerautomate'></a>
 ### Power Automate
@@ -99,27 +95,27 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
    ![](./ip-range-and-domain/connector-outbound.png)
 
 1. [ファイアウォールの構成:IP アドレスとサービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)に記載されている IP アドレスまたはサービスタグを許可してください。
-   HTTP コネクタや HTTP + OpenAPI コネクタ等一部のコネクタは Azure Logic Apps サービスと通信を行うため、LogicApps の IP アドレスを利用します。
+   HTTP アクション等一部の組込アクションは前述のコネクタではなく Power Automate サービスから直接通信を行うため、LogicApps および PowerPlatformPlex の IP アドレスを利用します。
 
-   * マルチテナント - 受信 IP アドレス / サービスタグ <b>LogicAppsManagement</b>  
-   （コネクタ接続先　→　コネクタサーバー）
-   * マルチテナント - 送信 IP アドレス / サービスタグ <b>LogicApps</b>   
-   （コネクタ接続先　←　コネクタサーバー）
-   ![](./ip-range-and-domain/connector-logicapps.png)
+   * マルチテナント - 送信 IP アドレス / サービスタグ <b>LogicApps、PowerPlatformPlex</b>   
+   （組込アクション → 利用するサービス）
+   ![](./ip-range-and-domain/connector-logicapps.png)  
+  
+  HTTP 要求受信時等一部の組込トリガーも Power Automate サービスに対し直接通信を行う必要がありますが、サービスタグのご用意はありませんのでドメインにて許可頂く必要があります。    
 
 > [!NOTE]
-> 許可する  IP アドレスまたはサービスタグは、ご利用のPower Platfrom環境の地域に対応するものをご選択ください。
+> 許可する IP アドレスまたはサービスタグ、ドメインは、ご利用の Power Platfrom 環境の地域に対応するものをご選択ください。
 
 ## まとめ
 
-| サービス | 公開情報 | サービスタグ | 通信方向 | マイクロソフト視点 |
+| サービス | 許可手段 | サービスタグ | 通信方向 | マイクロソフト視点 |
 | :- | :- | :- | :- | :- |
 | キャンバスアプリ | [ドメイン](https://learn.microsoft.com/en-us/power-apps/limits-and-config#required-services)  | - | クライアント ⇔ マイクロソフト | 送信/受信 |
 | Power Automate | [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration)  | - | クライアント ⇔ マイクロソフト | 送信/受信 |
 | オンプレミス<br>データ ゲートウェイ | [ドメイン/ポート](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-communication#required-ports-for-the-gateway-to-function) | - | クライアント ⇒ マイクロソフト | 受信 |
-| コネクタ | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/connectors/common/outbound-ip-addresses#power-platform) | AzureConnectors | 接続先サービス ⇔ マイクロソフト | 送信/受信 |
-| | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)  | LogicAppsManagement | 接続先サービス ⇒ マイクロソフト | 受信 |
-| | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags) | LogicApps | マイクロソフト ⇒ 接続先サービス | 送信 |
+| Power Platform コネクタ | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-connector-calls-to-your-services) | AzureConnectors | 接続先サービス ⇔ マイクロソフト | 送信/受信 |
+| 組込アクション | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) | LogicApps<br />PowerPlatfromPlex | マイクロソフト ⇒ 接続先サービス | 送信 |
+| 組込トリガー | [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-users-on-your-network-to-use-when-an-http-request-is-received-trigger)  | - | 接続先サービス ⇒ マイクロソフト | 受信 |
 
 
 ## よくある質問
