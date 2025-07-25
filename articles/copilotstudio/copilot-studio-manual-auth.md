@@ -31,7 +31,7 @@ categories:
 SSO（シングルサインオン）などの自動認証とは異なり、ユーザーが明示的に認証操作を行う必要があります。  
 
 Copilot Studioの各エージェントでは、複数の認証オプションが用意されています。  
-手動認証では、サポートされて認証プロバイダを利用しサインインし、エージェントを利用します。  
+「手動で認証する」オプションを選択して利用する手動認証では、サポートされて認証プロバイダを利用しサインインし、エージェントを利用します。  
 例えば、Generic OAuth 2 認証を選んだ場合は、OAuth 2.0 に対応しているプロバイダがご利用いただけます。  
 認証方式の種類については下記公開情報をご参照ください。  
 [Copilot Studio でユーザー認証の構成](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/configuration-end-user-authentication#authenticate-manually)
