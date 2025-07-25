@@ -55,6 +55,9 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image14-2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image15.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image16.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image17.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image18.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image19.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image20.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image21.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image30.png">
@@ -69,7 +72,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image29.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/image23.png">
 <meta property="article:published_time" content="2023-03-30T15:00:00.000Z">
-<meta property="article:modified_time" content="2025-07-24T01:49:44.150Z">
+<meta property="article:modified_time" content="2025-07-25T03:17:15.578Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Canvas app">
 <meta property="article:tag" content="Power Apps">
@@ -217,7 +220,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+26bfc702-5e53-54d9-88f2-f1ec350b5e10%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Apps+%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA+%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E9%9A%9B%E3%81%AE%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2Ftroubleshooting-general-canvasapp%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2Ftroubleshooting-general-canvasapp.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcanvasapp%2Ftroubleshooting-general-canvasapp.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/" data-id="cmdgqivco00jc0nru1to33l3b" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/" data-id="cmdi939u100jc0ns4hkgpbepx" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -490,20 +493,19 @@
 <h2 id="10-アプリ"><a href="#10-アプリ" class="headerlink" title="10. アプリ"></a>10. アプリ</h2><p>事象が発生しているアプリを調査し、問題の箇所を特定します。<br>アプリが接続するデータソースにより SharePoint リストのテンプレートや Dataverse テーブルのメタ情報をご提供いただく場合があります。</p>
 <p>「エクスポート」機能によりエクスポートされるアプリのファイルは公開済みのバージョンです。<br>アプリを編集中の場合は msapp ファイルとしてローカルに保存したアプリのファイルをご取得ください。</p>
 <p><a id='anchor-about-canvasapp-published'></a></p>
-<h3 id="10-1-公開済みアプリ"><a href="#10-1-公開済みアプリ" class="headerlink" title="10-1. 公開済みアプリ"></a>10-1. 公開済みアプリ</h3><pre><code>1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
-2. アプリ一覧画面から対象のアプリの「...」メニューを押下し、「エクスポート パッケージ」を選択します  
-    ![](/blog/canvasapp/troubleshooting-general-canvasapp/image17.png)
-3. 任意の名前を付けてエクスポートします
-4. ローカルに zip ファイルがダウンロードされます
-</code></pre>
+<h3 id="10-1-公開済みアプリ"><a href="#10-1-公開済みアプリ" class="headerlink" title="10-1. 公開済みアプリ"></a>10-1. 公開済みアプリ</h3><ol>
+<li><a target="_blank" rel="noopener" href="http://make.powerapps.com/">Power Apps 作成者ポータル</a> にサインインします</li>
+<li>アプリ一覧画面から対象のアプリの「…」メニューを押下し、「エクスポート パッケージ」を選択します<br> <img src="/blog/canvasapp/troubleshooting-general-canvasapp/image17.png"></li>
+<li>任意の名前を付けてエクスポートします</li>
+<li>ローカルに zip ファイルがダウンロードされます</li>
+</ol>
 <p><a id='anchor-about-canvasapp-edit'></a></p>
-<h3 id="10-2-編集中のアプリ"><a href="#10-2-編集中のアプリ" class="headerlink" title="10-2. 編集中のアプリ"></a>10-2. 編集中のアプリ</h3><pre><code>1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
-2. アプリ一覧画面から対象のアプリを編集します
-3. メニュー「∨」アイコン &gt; 「コピーのダウンロード」を選択します  
-    ![](/blog/canvasapp/troubleshooting-general-canvasapp/image18.png)
-4. ローカルに msapp ファイルをダウンロードします  
-    ![](/blog/canvasapp/troubleshooting-general-canvasapp/image19.png)
-</code></pre>
+<h3 id="10-2-編集中のアプリ"><a href="#10-2-編集中のアプリ" class="headerlink" title="10-2. 編集中のアプリ"></a>10-2. 編集中のアプリ</h3><ol>
+<li><a target="_blank" rel="noopener" href="http://make.powerapps.com/">Power Apps 作成者ポータル</a> にサインインします</li>
+<li>アプリ一覧画面から対象のアプリを編集します</li>
+<li>メニュー「∨」アイコン &gt; 「コピーのダウンロード」を選択します<br> <img src="/blog/canvasapp/troubleshooting-general-canvasapp/image18.png"></li>
+<li>ローカルに msapp ファイルをダウンロードします<br> <img src="/blog/canvasapp/troubleshooting-general-canvasapp/image19.png"></li>
+</ol>
 <p><a id='anchor-about-canvasapp-solutionapp'></a></p>
 <h3 id="10-3-アプリを含むソリューションファイル"><a href="#10-3-アプリを含むソリューションファイル" class="headerlink" title="10-3. アプリを含むソリューションファイル"></a>10-3. アプリを含むソリューションファイル</h3><ol>
 <li><a target="_blank" rel="noopener" href="http://make.powerapps.com/">Power Apps 作成者ポータル</a> にサインインします</li>
