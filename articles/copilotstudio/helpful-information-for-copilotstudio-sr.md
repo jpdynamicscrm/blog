@@ -10,7 +10,7 @@ categories:
   - [Microsoft Copilot Studio]
 ---
 
-こんにちは、Power Platform サポートチームの竹内です。  
+こんにちは、Power Platform サポートチームの竹内、原です。  
 本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。
 
 
@@ -32,6 +32,7 @@ categories:
       1. [会話トランスクリプションテーブルデータ](#anchor-conversation-transcript)
       1. [ソリューションエクスポートファイル](#anchor-solution-export-file)
       1. [Web ブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
+      1. [Teamsクライアントのネットワーク トレース、診断ログ](#anchor-teamslog)
 
 <a id='anchor-intro'></a>
 
@@ -203,6 +204,36 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   ![](./helpful-information-for-copilotstudio-sr/image_console_log.png)　　
 
 
+<a id='anchor-teamslog'></a>
+
+## 14. Teamsクライアントのネットワーク トレース、診断ログ
+Teamsクライアントにおいてのみエラーや問題が発生する場合、Teamsクライアントのネットワーク トレースやTeams 診断ログ　より、発生している事象を調査します。<br/>
+
+1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
+    ![](./helpful-information-for-copilotstudio-sr/image_Diagnosticlogs.png)　
+1. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
+※ 拡張子が .json となっていることをご確認ください<br/>
+    ![](./helpful-information-for-copilotstudio-sr/image_Configuration.png)　
+1. 2. で作成した 「configuration.json」 を以下パスのフィルダーに保存します<br/>
+パス : %localappdata%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams<br/>
+    ![](./helpful-information-for-copilotstudio-sr/image_ConfigurationPath.png)　
+1. Teams をサインアウトし、一度閉じます
+1. 再度 Teams を起動し、以下の順で 「開発者ツール」 を起動します<br/>
+Windows のタスクバーにある 「隠れているインジケータを表示します」 > 「Teams アイコン」 の右クリック >「Engineering Tools」 > 「Open DevTools (Main Window)」<br/>
+    ![](./helpful-information-for-copilotstudio-sr/image_OpenTeamsDevTools.png)　
+1. 「Network」 タブを選択し、「Preserve log」 「Disable cache」 にチェックします
+    ![](./helpful-information-for-copilotstudio-sr/image_TeamsDevToolsSetting.png)　
+1. Teams で事象が発生するように操作します<br/>
+※ 操作をすると以下のようにログが記録されます<br/>
+    ![](./helpful-information-for-copilotstudio-sr/image_TeamsDevToolsResult.png)　
+1. 事象の再現が終わりましたら 「Export HAR」 にてファイルをダウンロードします
+    ![](./helpful-information-for-copilotstudio-sr/image_TeamsHarDownload.png)　
+1. Teams に戻り、「Ctrl+Alt+Shift + 1 (数字) キー」 を同時に押下し、Microsoft Teams 診断ログがダウンロードされることを確認します<br/>
+※ ダウンロードが開始されると、以下のようなメッセージが表示されます<br/>
+    ![](./helpful-information-for-copilotstudio-sr/image_DiagnosticLogDownload.png)　
+1. 「ダウンロード」 フォルダーに 「PROD-WebLogs ….zip」「MSTeams Support Logs …フォルダー」 が生成されていることを確認します<br/>
+    ![](./helpful-information-for-copilotstudio-sr/image_TeamsLogResult.png)　
+1. 8. で取得したHARファイルと、10. で取得した「PROD-WebLogs ….zip」 および 「MSTeams Support Logs … フォルダー」 を圧縮した .zip ファイル　のご提供をお願いします
 
 ---
 
