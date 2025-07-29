@@ -6,12 +6,12 @@
   
   <title>Copilot Studio お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの竹内です。本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの竹内、原です。本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Copilot Studio お問い合わせの際の情報取得手順">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの竹内です。本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの竹内、原です。本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_EnvironmentID.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_BotID.png">
@@ -27,8 +27,17 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_solution_export_file4.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_browser_trace.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_console_log.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_Diagnosticlogs.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_Configuration.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_ConfigurationPath.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_OpenTeamsDevTools.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsDevToolsSetting.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsDevToolsResult.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsHarDownload.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_DiagnosticLogDownload.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsLogResult.png">
 <meta property="article:published_time" content="2024-10-10T06:00:00.000Z">
-<meta property="article:modified_time" content="2025-07-25T03:17:15.617Z">
+<meta property="article:modified_time" content="2025-07-29T12:39:17.207Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="情報採取">
 <meta property="article:tag" content="お問い合わせ全般">
@@ -176,12 +185,12 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+e2b5d334-cf73-5de5-8498-b77c5eb3a3de%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCopilot+Studio+%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E9%9A%9B%E3%81%AE%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcopilotstudio%2Fhelpful-information-for-copilotstudio-sr%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcopilotstudio%2Fhelpful-information-for-copilotstudio-sr.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcopilotstudio%2Fhelpful-information-for-copilotstudio-sr.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/" data-id="cmdi939p800060ns49q3d71fn" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/helpful-information-for-copilotstudio-sr/" data-id="cmdoixg5h00060nlaeu6ngibz" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの竹内です。<br>本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。</p>
+        <p>こんにちは、Power Platform サポートチームの竹内、原です。<br>本記事では Microsoft Copilot Studio (旧称 Power Virtual Agents) 関連のお問い合わせの際に、調査のために必要となる情報について、その取得手順をご案内致します。</p>
 <span id="more"></span>
 
 
@@ -201,6 +210,7 @@
 <li><a href="#anchor-conversation-transcript">会話トランスクリプションテーブルデータ</a></li>
 <li><a href="#anchor-solution-export-file">ソリューションエクスポートファイル</a></li>
 <li><a href="#anchor-about-networkhar">Web ブラウザのネットワーク トレース・コンソール ログ</a></li>
+<li><a href="#anchor-teamslog">Teamsクライアントのネットワーク トレース、診断ログ</a></li>
 </ol>
 </li>
 </ol>
@@ -290,6 +300,27 @@
 <h3 id="ブラウザネットワークトレース"><a href="#ブラウザネットワークトレース" class="headerlink" title="ブラウザネットワークトレース"></a>ブラウザネットワークトレース</h3><p>  ご取得方法は以下公開情報をご参照ください。<br>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/azure-web-pubsub/howto-troubleshoot-network-trace#collect-a-network-trace-in-the-browser-browser-based-apps-only">ブラウザーでネットワーク トレースを収集する (ブラウザーベースのアプリのみ)</a></p>
 <div class="alert is-important"><p class="alert-title">重要</p><p>ご取得の際は「ログの保持」「キャッシュを無効にする」にチェックを有効にしご取得ください。</p><p><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_browser_trace.png"> 　</p></div>
 <h3 id="コンソールログ"><a href="#コンソールログ" class="headerlink" title="コンソールログ"></a>コンソールログ</h3><p>  Console タブをクリックし、ログ領域を右クリックし <strong>「名前を付けて保存」</strong> にて保存いたします。<br>  <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_console_log.png">　　</p>
+<p><a id='anchor-teamslog'></a></p>
+<h2 id="14-Teamsクライアントのネットワーク-トレース、診断ログ"><a href="#14-Teamsクライアントのネットワーク-トレース、診断ログ" class="headerlink" title="14. Teamsクライアントのネットワーク トレース、診断ログ"></a>14. Teamsクライアントのネットワーク トレース、診断ログ</h2><p>Teamsクライアントにおいてのみエラーや問題が発生する場合、Teamsクライアントのネットワーク トレースやTeams 診断ログ　より、発生している事象を調査します。<br/></p>
+<ol>
+<li>Teams を起動し、「…」 &gt; 「設定」 &gt; 「プライバシー」 &gt; 「拡張診断データ」 でトグルをオンにします<br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_Diagnosticlogs.png">　</li>
+<li>ノートパットやメモ帳を使用し、{“core/devMenuEnabled”: true} の記入後、”configuration.json” のファイル名にて保存します<br/><br>※ 拡張子が .json となっていることをご確認ください<br/><br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_Configuration.png">　</li>
+<li><ol start="2">
+<li>で作成した 「configuration.json」 を以下パスのフィルダーに保存します<br/><br>パス : %localappdata%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams<br/><br><img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_ConfigurationPath.png">　</li>
+</ol>
+</li>
+<li>Teams をサインアウトし、一度閉じます</li>
+<li>再度 Teams を起動し、以下の順で 「開発者ツール」 を起動します<br/><br>Windows のタスクバーにある 「隠れているインジケータを表示します」 &gt; 「Teams アイコン」 の右クリック &gt;「Engineering Tools」 &gt; 「Open DevTools (Main Window)」<br/><br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_OpenTeamsDevTools.png">　</li>
+<li>「Network」 タブを選択し、「Preserve log」 「Disable cache」 にチェックします<br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsDevToolsSetting.png">　</li>
+<li>Teams で事象が発生するように操作します<br/><br>※ 操作をすると以下のようにログが記録されます<br/><br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsDevToolsResult.png">　</li>
+<li>事象の再現が終わりましたら 「Export HAR」 にてファイルをダウンロードします<br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsHarDownload.png">　</li>
+<li>Teams に戻り、「Ctrl+Alt+Shift + 1 (数字) キー」 を同時に押下し、Microsoft Teams 診断ログがダウンロードされることを確認します<br/><br>※ ダウンロードが開始されると、以下のようなメッセージが表示されます<br/><br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_DiagnosticLogDownload.png">　</li>
+<li>「ダウンロード」 フォルダーに 「PROD-WebLogs ….zip」「MSTeams Support Logs …フォルダー」 が生成されていることを確認します<br/><br> <img src="/blog/copilotstudio/helpful-information-for-copilotstudio-sr/image_TeamsLogResult.png">　</li>
+<li><ol start="8">
+<li>で取得したHARファイルと、10. で取得した「PROD-WebLogs ….zip」 および 「MSTeams Support Logs … フォルダー」 を圧縮した .zip ファイル　のご提供をお願いします</li>
+</ol>
+</li>
+</ol>
 <hr>
 <h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。  </p>
 
