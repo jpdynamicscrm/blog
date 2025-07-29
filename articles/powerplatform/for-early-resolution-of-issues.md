@@ -52,9 +52,16 @@ categories:
 - 事象発生時の操作内容や再現手順
 - 再現時のビデオや、[問題ステップ レコーダー (PSR)](https://learn.microsoft.com/ja-jp/office/troubleshoot/settings/how-to-use-problem-steps-recorder) ログ
 
+>[!NOTE]
+>事象再現時の動画は、**Snipping Tool** を使用することで、簡単に取得できます。
+>
+>1. Snipping Tool を起動し、動画ボタンをクリック、Windows + Shift + R を押します。<br>![launch snipping tool](for-early-resolution-of-issues/snipping_tool.png)
+>2. 録画する画面の範囲を四角で囲んだ後、「スタート」をクリックして動画の録画を開始します。<br>![start recording](for-early-resolution-of-issues/start_recording.png)
+>3. 事象の再現が完了したら、録画停止ボタンを押して終了です。
+
 また、事象再現時のクライアントとサーバー間の通信を確認するために下記ログの採取をご依頼する場合がございます。事象再現時時の RequestID や正確な日時がわかるため、エラーだけでなく、サーバーからの応答遅延などの問題にも素早く正確な調査を開始できます。
 
-- [Fiddler](https://social.technet.microsoft.com/Forums/azure/ja-JP/fe5f977a-2992-44c3-b643-38ad570a3d18/fiddler-12525124641239825505214622516338918?forum=DCRMSupport)
+- [Fiddler](https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler)
 - [ブラウザ トレース ログ](https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#google-chrome-and-microsoft-edge)
 ※上記リンクの手順にて、「Azure Portal」は、事象が発生する Dynamics 365 / Power Platform のアドレスへ読み替えてください。
 
@@ -88,7 +95,6 @@ categories:
 
 サポート インスタンスの詳細につきましては [サポート インスタンスの提供](https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/) をご参照ください。
 
-
 ## 仕様の確認に関する調査について
 
 Dynamics 365 の動作について、仕様の確認をお問い合わせいただく場合がありますが、Dynamics 365 では様々な修正やお客様からの機能実装などのご要望に応じて継続的に内部コンポーネントを更新していることから、個々のテナント環境での動作差異を含め、Dynamics 365 サービスの説明をはじめ弊社サイトに記載の内容以上の仕様に関する情報のご提供が困難な場合がございます。
@@ -104,7 +110,6 @@ Dynamics 365 の動作について、仕様の確認をお問い合わせいた�
 「スクリプトを変更していないが意図しない動作が発生している」旨のお問い合わせをいただくことがございますが、その場合であっても、まずはお客様にて、発生事象に対してスクリプトの切り分けや簡素化をご対応くださいますようお願いいたします。
 
 [カスタム スクリプトを簡略化する](https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-apps/isolate-model-app-issues#simplify-custom-scripts) も併せてご参照くださいますと幸いです。
-
 
 ## 参考
 

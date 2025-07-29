@@ -56,4 +56,4 @@ Dynamics 365 では、マイクロソフトがサービスの提供に影響を�
 
 以下の記事もあわせてご確認ください。
 
-- [サポートチームより問題の早期解決に向けたお客様へのお願い](https://jpdynamicscrm.github.io/blog/powerplatform/For-early-resolution-of-issues.md)
+- [サポートチームより問題の早期解決に向けたお客様へのお願い](https://jpdynamicscrm.github.io/blog/powerplatform/for-early-resolution-of-issues.md)
