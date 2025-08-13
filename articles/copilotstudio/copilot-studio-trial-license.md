@@ -26,6 +26,7 @@ Copilot Studio には主に以下の種類があります。
 個人の職場または学校アカウントを使用してサインアップし、Copilot Studio の機能を体験できます。試用期間を30日間延長は可能です。試用期間終了後、最大90日間はエージェントが引き続き機能します。
 
 詳細なサインアップ手順については、以下の公開文書を参照してください。
+
 [Copilot Studio試用版へのサインアップ](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/sign-up-individual)
 
 ![](./copilot-studio-trial-license/②Signup.png)
@@ -61,5 +62,6 @@ PowerShellモジュールを以下の公開文書の手順に従ってインス�
 Microsoft 365管理センターよりユーザーにCopilot Studio試用版ライセンスを付与されているかを確認できます。
 
 ![](./copilot-studio-trial-license/④M365AdmiCenter_LicenseAssignment.png)
+
 
 
