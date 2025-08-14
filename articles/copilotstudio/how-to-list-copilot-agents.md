@@ -1,8 +1,8 @@
 ---
-title: Copilot studio のエージェントを一覧にする方法
-date: 2024-06-14 13:30:00
+title: Copilot Studio のエージェントを一覧にする方法
+date: 2025-03-03 13:30:00
 tags:
-  - Copilot studio
+  - Copilot Studio
 toc:
   enabled: true
   min_depth: 1
