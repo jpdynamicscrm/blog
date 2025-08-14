@@ -20,15 +20,15 @@ keywords:
 
 author: Japan Dynamics CRM & Power Platform Support Team
 
-# Sidebar
-theme_config:
-  sidebar: right
-  widgets:
-    - category
-    - recent_posts
-    - tag
-    - archive
-    - tagcloud
+## Sidebar
+# theme_config:
+#   sidebar: right
+#   widgets:
+#     - category
+#     - recent_posts
+#     - tag
+#     - archive
+#     - tagcloud
 
 # Tag (hexo helper)
 root_tag_generator:
