@@ -80,7 +80,7 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
    > オンプレミス データ ゲートウェイではお客様からマイクロソフト向きのリクエストにより通信を確立します。  
    > そのため、お客様のコンピューターをインターネット上に公開していただく必要はございません。  
 
-   端末にインストール済のオンプレミス データ ゲートウェイアプリにてマイクロソフトアカウントでのサインインに成功している場合には、診断メニューからネットワーク ポートのテストを実施頂く事で、問題なく通信が成功するか確認頂く事も可能です。  
+   端末にインストール済のオンプレミス データ ゲートウェイアプリにて組織アカウントでのサインインに成功している場合には、診断メニューからネットワーク ポートのテストを実施頂く事で、問題なく通信が成功するか確認頂く事も可能です。  
    ![](./ip-range-and-domain/onpremisedatagateway2.png)  
    ![](./ip-range-and-domain/onpremisedatagateway3.png)  
 
@@ -89,23 +89,33 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
 <a id='anchor-connector'></a>
 ### コネクタ
 1. [コネクターの送信 IP アドレス](https://learn.microsoft.com/en-us/connectors/common/outbound-ip-addresses#power-platform) の Power Platform セクションに記載されているサービスタグおよびすべての IP アドレスを許可してください。  
-   各サービスタグには IP アドレスがグルーピングされているので、サービスタグを指定できない場合は、サービスタグに紐づく IP アドレスを許可してください。サービスタグに紐づく IP アドレスは、[PowerShell](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api) または [ダウンロードしたJSON ファイル](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) から確認できます。  
+   各サービスタグには IP アドレスがグルーピングされているので、サービスタグを指定できない場合は、サービスタグに紐づく IP アドレスを許可してください。  
+   サービスタグに紐づく IP アドレスは、[PowerShell](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api) または [ダウンロードしたJSON ファイル](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) から確認できます。  
 
    多くのコネクタはこちらの IP アドレスから通信を行います。
    ![](./ip-range-and-domain/connector-outbound.png)
 
-1. [ファイアウォールの構成:IP アドレスとサービス タグ](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption#firewall-configuration-ip-addresses-and-service-tags)に記載されている IP アドレスまたはサービスタグを許可してください。
-   HTTP アクション等一部の組込アクションは前述のコネクタではなく Power Automate サービスから直接通信を行うため、LogicApps および PowerPlatformPlex の IP アドレスを利用します。
+<a id='anchor-builtin'></a>
+### 組込アクション・トリガー
+組込アクションやトリガーは Power Automate サービスから直接通信を行うため、前述のコネクタとは異なる許可を構成頂く必要がございます。  
+要求を送信するアクションと要求を受信して動作するトリガーで異なるネットワーク設定が必要です。
+![](./ip-range-and-domain/builtin-action.png)  
 
-   * マルチテナント - 送信 IP アドレス / サービスタグ <b>LogicApps、PowerPlatformPlex</b>   
-   （組込アクション → 利用するサービス）
-   ![](./ip-range-and-domain/connector-logicapps.png)  
+1. HTTP、'HTTP + Swagger' 等、対向サービスへ要求を送信する組込アクション
+   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) の **サービスへの 'HTTP' よび 'HTTP + Swagger' 呼び出しを許可リストに載せる** セクションに記載されているサービスタグを許可してください。
+   
+   ![](./ip-range-and-domain/builtin-outbound.png)  
   
-   HTTP 要求受信時等一部の組込トリガーも Power Automate サービスに対し直接通信を行う必要がありますが、サービスタグのご用意はありませんのでドメインにて許可頂く必要があります。    
+1. HTTP 要求受信時トリガー等、対向サービスからの要求を受信する組込トリガー
+   サービスタグのご用意はありません。
+   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-users-on-your-network-to-use-when-an-http-request-is-received-trigger) の **ネットワーク上のユーザーが "HTTP 要求が受け取った時" トリガーを使用するのを許可する** セクションに記載されているドメインを許可してください。
+
+   ![](./ip-range-and-domain/builtin-inbound.png)  
 
 > [!NOTE]
-> 許可する IP アドレスまたはサービスタグ、ドメインは、ご利用の Power Platfrom 環境の地域に対応するものをご選択ください。
+> 許可する IP アドレスまたはサービスタグ、ドメインは、ご利用の Power Platfrom 環境の地域に対応するものをご選択頂く事が可能です。  
 
+<a id='anchor-summary'></a>
 ## まとめ
 
 | サービス | 許可手段 | サービスタグ | 通信方向 | マイクロソフト視点 |
@@ -114,7 +124,7 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
 | Power Automate | [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration)  | - | クライアント ⇔ マイクロソフト | 送信/受信 |
 | オンプレミス<br>データ ゲートウェイ | [ドメイン/ポート](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-communication#required-ports-for-the-gateway-to-function) | - | クライアント ⇒ マイクロソフト | 受信 |
 | Power Platform コネクタ | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-connector-calls-to-your-services) | AzureConnectors | 接続先サービス ⇔ マイクロソフト | 送信/受信 |
-| 組込アクション | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) | LogicApps<br />PowerPlatfromPlex | マイクロソフト ⇒ 接続先サービス | 送信 |
+| 組込アクション  | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) | LogicApps<br />PowerPlatfromPlex | マイクロソフト ⇒ 接続先サービス | 送信 |
 | 組込トリガー | [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-users-on-your-network-to-use-when-an-http-request-is-received-trigger)  | - | 接続先サービス ⇒ マイクロソフト | 受信 |
 
 
