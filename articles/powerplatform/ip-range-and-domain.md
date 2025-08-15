@@ -92,24 +92,24 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
    各サービスタグには IP アドレスがグルーピングされているので、サービスタグを指定できない場合は、サービスタグに紐づく IP アドレスを許可してください。  
    サービスタグに紐づく IP アドレスは、[PowerShell](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api) または [ダウンロードしたJSON ファイル](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) から確認できます。  
 
-   多くのコネクタはこちらの IP アドレスから通信を行います。
+   多くのコネクタはこちらの IP アドレスから通信を行います。  
    ![](./ip-range-and-domain/connector-outbound.png)
 
 <a id='anchor-builtin'></a>
-### 組込アクション・トリガー
+### 組込アクション・トリガー  
 組込アクションやトリガーは Power Automate サービスから直接通信を行うため、前述のコネクタとは異なる許可を構成頂く必要がございます。  
-要求を送信するアクションと要求を受信して動作するトリガーで異なるネットワーク設定が必要です。
+要求を送信するアクションと要求を受信して動作するトリガーで異なるネットワーク設定が必要です。  
 ![](./ip-range-and-domain/builtin-action.png)  
 
-1. HTTP、'HTTP + Swagger' 等、対向サービスへ要求を送信する組込アクション
-   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) の **サービスへの 'HTTP' よび 'HTTP + Swagger' 呼び出しを許可リストに載せる** セクションに記載されているサービスタグを許可してください。
+1. HTTP、'HTTP + Swagger' 等、対向サービスへ要求を送信する組込アクション  
+   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) の **サービスへの 'HTTP' よび 'HTTP + Swagger' 呼び出しを許可リストに載せる** セクションに記載されているサービスタグを許可してください。  
    
    ![](./ip-range-and-domain/builtin-outbound.png)  
   
-1. HTTP 要求受信時トリガー等、対向サービスからの要求を受信する組込トリガー
-   サービスタグのご用意はありません。
-   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-users-on-your-network-to-use-when-an-http-request-is-received-trigger) の **ネットワーク上のユーザーが "HTTP 要求が受け取った時" トリガーを使用するのを許可する** セクションに記載されているドメインを許可してください。
-
+1. HTTP 要求受信時トリガー等、対向サービスからの要求を受信する組込トリガー  
+   サービスタグのご用意はありません。  
+   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-users-on-your-network-to-use-when-an-http-request-is-received-trigger) の **ネットワーク上のユーザーが "HTTP 要求が受け取った時" トリガーを使用するのを許可する** セクションに記載されているドメインを許可してください。  
+  
    ![](./ip-range-and-domain/builtin-inbound.png)  
 
 > [!NOTE]
