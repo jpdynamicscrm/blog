@@ -30,8 +30,9 @@ categories:
 <a id='overview'></a>
 
 # 1. 概要
-Power Apps をご利用頂いているお客様より、管理者がテナント内で作成されたすべてのキャンバスアプリの確認のご要望のお問い合わせを多く頂いております。  
-本記事では、テナント全体のキャンバスアプリを一覧化するための具体的な方法を解説します。  
+Power Apps をご利用頂いているお客様より、テナント内で作成されたすべてのキャンバスアプリを管理者にて確認したいというお問い合わせを多く頂いております。  
+本記事では、テナント全体のキャンバスアプリを一覧化するための具体的な方法を解説します。(※ [Microsoft Power Platform CoE キット](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) は除いております。)  
+
 なお、本記事のアクションやコマンドは管理者 (グローバル管理者、Power Platform 管理者) アカウントを用いて実行する必要がございますので、ご注意ください。  
 
 > [!IMPORTANT]  
@@ -50,20 +51,21 @@ Power Apps をご利用頂いているお客様より、管理者がテナント
 
 ## 2-1. テナントレベルの分析を利用する
 
-<a id='with_analytics_ui'></a>
-
-### 2-1‐1. 分析レポート画面を利用する
-
 > [!IMPORTANT]  
 > この方法は事前にテナントレベルの分析を有効にする必要がございます。  
 > 有効にする方法については下記の公開情報をご参照ください。  
 > [テナント レベルでの分析 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/tenant-level-analytics#how-do-i-enable-tenant-level-analytics)
 
+<a id='with_analytics_ui'></a>
+
+### 2-1‐1. 分析レポート画面を利用する
+
+Power Platfrom 管理センターに用意されたレポートを参照する方法です。  
+
 1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインします。
-2. 左側メニューの [分析] > [Power Apps] を選択します。
+2. 左側メニューの [管理] > [Power Apps] を選択します。
 3. 表示されるダッシュボードからアプリの使用状況や一覧を確認できます。
 4. テナント内のアプリ一覧を取得する場合、[概要] > [アプリ在庫] タブをご確認ください。
-
 ![](./list-canvas-app/inventory_report.png)  
 
 テナントレベルの分析の詳細については下記の公開情報をご参照ください。  
@@ -72,6 +74,18 @@ Power Apps をご利用頂いているお客様より、管理者がテナント
 <a id='with_analytics_export'></a>
 
 ### 2-1-2. 分析データのエクスポート機能を利用する
+
+Power Platform 管理センターの分析レポートの基となるデータをエクスポートし、そのデータを利用することでご利用者様の用途に合わせて利用状況を分析頂く事ができます。  
+
+1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインします。
+2. 左側メニューの [管理] > [データ エクスポート] を選択します。
+3. 画面上部 [(+)新しいデータ エクスポート] より Azure Data Lake Storage へのエクスポートを構成いたします。
+![](./list-canvas-app/data_export_apps.png)
+4. 構成した宛先の Azure Data Lake Storage へ、分析画面の基となるデータがエクスポートされます。
+![](./list-canvas-app/data_export_apps2.png)
+
+データ エクスポートの詳細については下記の公開情報をご参照ください。  
+[Microsoft Power Platform セルフサービス分析](https://learn.microsoft.com/ja-jp/power-platform/admin/self-service-analytics)
 
 <a id='with_powershell'></a>
 
@@ -108,6 +122,7 @@ Get-AdminPowerApp -AppName *<AppName>* -EnvironmentName *<EnvironmentName>*
 ![](./list-canvas-app/powershell_apps.png)  
 
 上記コマンドを用いて、テナント内の全キャンバスアプリを取得する際のサンプルコードを下記に記載いたします。  
+こちらのコードを実行すると、各キャンバスアプリにて利用されている接続や連携しているフローを確認頂けます。  
 ご要件に合わせてご調整頂けましたら幸いでございます。  
 ※あくまでサンプルとなりますため、ご実行の前には本記事末尾の免責事項をご確認ください。  
 
@@ -161,7 +176,6 @@ foreach ($e in $environments) {
 $powerappsObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 ```
 
-上記コードを実行すると、各キャンバスアプリにて利用されている接続や連携しているフローを確認頂けます。
 > [!NOTE]  
 > テナント内のキャンバスアプリ数が多い場合、処理完了までに長時間を要する可能性がございます。    
 
