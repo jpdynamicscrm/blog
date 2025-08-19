@@ -21,9 +21,7 @@ categories:
 1. [概要](#anchor-intro)
 1. [情報取得手順詳細](#anchor-how-to-collect)
    1. [事象の発生状況](#anchor-about-situation)
-   1. [事象発生時のエラーメッセージや画面キャプチャ・動画](#anchor-about-screencapture)
-         - [エラーメッセージや画面キャプチャ](#anchor-errormessage-image)
-         - [動画](#anchor-video)
+   1. [事象発生時の動画](#anchor-video)
    1. [フローのパッケージ](#anchor-flowpackage)
       * [フローのパッケージ (マイフロー)](#anchor-flowpackage-myflow)
       * [フローのパッケージ (ソリューションフロー)](#anchor-flowpackage-in-solution)
@@ -67,22 +65,9 @@ Power Automate に関するサポートサービスのお問い合わせの際�
    * 事象が発生しているユーザーと事象が発生していないユーザーの差
      および、両者のメールアドレスやユーザープリンシパル名
 
-
-<a id='anchor-about-screencapture'></a>
-
-## 事象発生時のエラーメッセージや画面キャプチャ・動画
-エラーの内容を具体的に表すメッセージや画面キャプチャなどの情報をお寄せください。  
-事象再現時の動画がありますと事象の発生状況をより正確に把握することができます。  
-
-<a id='anchor-errormessage-image'></a>
-
-### エラーメッセージや画面キャプチャ
-エラーの内容が分かるよう画面キャプチャをご取得ください。  
-エラーメッセージ内にタイムスタンプやエラーコードが記載されている場合はそれらの情報を **テキスト形式** でご取得ください。  
-
 <a id='anchor-video'></a>
 
-### 動画
+## 事象発生時の動画
 以下のいずれかの方法で事象発生時の動画をご取得ください。  
 
 > [!IMPORTANT]
