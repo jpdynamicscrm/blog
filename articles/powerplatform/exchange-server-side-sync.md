@@ -35,14 +35,22 @@ Power Platform 管理センターからメールボックスを同期するこ�
 2. [設定] > [サーバー プロファイル] をクリック<br>![](./exchange-server-side-sync/ppac_setting_server_profile.png)
 3. Microsoft Exchange Online (既定) が存在することを確認<br>![](./exchange-server-side-sync/ppac_server_profile.png)
 4. [設定] に戻り [メールボックス] をクリック<br>![](./exchange-server-side-sync/ppac_setting_mailbox.png)
-5. 同期したいメールボックスにチェックを入れ、① [編集] をクリック<br>![](./exchange-server-side-sync/mailbox.png)
-6. 受信メール、送信メール、(メール以外も同期が必要な場合は) 予定、取引先担当者、タスクを [サーバー側同期] に変更して [保存して閉じる]<br>![](./exchange-server-side-sync/mailbox_edit.png)
-7. ステップ 5 の画像の ② [電子メールの承認] をクリック、ポップアップが出てきたら [OK] をクリック
-8. ステップ 5 の画像の ③ [メールボックスのテストと有効化] をクリック
-9. [電子メール アクセス構成のテスト] は同期したいレコードの種類を選び、[OK] をクリック
-![](./exchange-server-side-sync/mailbox_popup.png)
-10. テストの実行状態が [進行中] から [成功] になったら完了<br>![](./exchange-server-side-sync/mailbox_success.png)
-11. Outlook にもサーバー側同期の完了を通知するメールが届いていることを確認<br>![](./exchange-server-side-sync/outlook_notification.png)
+
+5. 同期したいメールボックスの [名前] をクリック<br>![](./exchange-server-side-sync/mailbox2.png)
+6. 受信メール、送信メール、(メール以外も同期が必要な場合は) 予定、取引先担当者、タスクを [サーバー側同期] に変更する<br>![](./exchange-server-side-sync/server_side_sync2.png)
+
+7. 画面上部の ① [電子メールの承認] をクリック、ポップアップが出てきたら [OK] をクリック
+<br>![](./exchange-server-side-sync/approve_test2.png)
+
+8. ステップ 7 の画像の ② [メールボックスのテストと有効化] をクリック、ポップアップがでてきたら受信開始日を設定して [OK] をクリック
+
+9. 受信メール、送信メール、(メール以外も同期が必要な場合は) 予定、取引先担当者、タスクが [成功] になれば完了
+<br>![](./exchange-server-side-sync/success_check3.png)
+
+10. Outlook にもサーバー側同期の完了を通知するメールが届いていることを確認<br>![](./exchange-server-side-sync/outlook_notification.png)
+
+
+
 
 <h2 id="dynamics-365-app-for-outlook">Dynamics 365 App for Outlook</h2>
 
@@ -51,7 +59,9 @@ Dynamics 365 App for Outlook は Outlook から Dynamics 365 のレコードを�
 1. Power Platform 管理センターより [設定] > [Dynamics 365 App for Outlook] をクリック<br>![](./exchange-server-side-sync/ppac_setting_d365afo.png)
 2. Dynamics 365 App for Outlook を追加するユーザーにチェックを入れ、[OUTLOOK へのアプリの追加] をクリック (対象ユーザーに割り当てられているセキュリティ ロールの中に use dynamics 365 app for outlook の特権がついている必要があります)<br>![](./exchange-server-side-sync/d365afo_sync.png)
 3. [状態] が [保留中] から [Outlook に追加済み] になったら完了 (完了までに 10 分から 30 分程度時間がかかります)<br>![](./exchange-server-side-sync/d365afo_done.png)
-4. [Outlook](https://outlook.office365.com/mail/) でメールを開き、[Dynamics 365] のアプリのアイコンが表示されることを確認<br>![](./exchange-server-side-sync/outlook_d365afo_icon.png)
+4. [Outlook](https://outlook.office365.com/mail/) でメールを開き、[Dynamics 365] のアプリのアイコンが表示されることを確認
+（反映されるまで1日かかる場合があります。）
+<br>![](./exchange-server-side-sync/outlook_d365afo_icon.png)
 5. 初めて開くと認証画面が表示されるので、[許可] をクリックして認証<br>![](./exchange-server-side-sync/outlook_d365afo_auth.png)
 
 <h2 id="sync-email">メールの追跡</h2>
@@ -117,3 +127,4 @@ Dynamics 365 App for Outlook によりメールを Dataverse に同期する際�
 - [電子メール、予定、取引先担当者、およびタスクのサーバー側同期の設定](https://learn.microsoft.com/ja-jp/power-platform/admin/set-up-server-side-synchronization-of-email-appointments-contacts-and-tasks)
 - [Exchange Online への接続](https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online)
 - [Dynamics 365 App for Outlook の展開およびインストール](https://learn.microsoft.com/ja-jp/dynamics365/outlook-app/deploy-dynamics-365-app-for-outlook)
+
