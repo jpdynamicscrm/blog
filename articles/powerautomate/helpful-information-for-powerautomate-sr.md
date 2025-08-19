@@ -21,6 +21,7 @@ categories:
 1. [概要](#anchor-intro)
 1. [情報取得手順詳細](#anchor-how-to-collect)
    1. [事象の発生状況](#anchor-about-situation)
+   1. [事象発生時の動画](#anchor-video)
    1. [フローのパッケージ](#anchor-flowpackage)
       * [フローのパッケージ (マイフロー)](#anchor-flowpackage-myflow)
       * [フローのパッケージ (ソリューションフロー)](#anchor-flowpackage-in-solution)
@@ -63,6 +64,21 @@ Power Automate に関するサポートサービスのお問い合わせの際�
    * 特定のユーザーか
    * 事象が発生しているユーザーと事象が発生していないユーザーの差
      および、両者のメールアドレスやユーザープリンシパル名
+
+<a id='anchor-video'></a>
+
+## 事象発生時の動画
+以下のいずれかの方法で事象発生時の動画をご取得ください。  
+
+> [!IMPORTANT]
+> 事象発生の事前に取得開始し、事象発生後に採取を行う必要がございます。
+
+- Windows ゲーム バーでの画面収録  
+  [ゲーム バーを使用して PC にゲーム クリップを記録する](https://support.microsoft.com/ja-jp/windows/%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%90%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-pc-%E3%81%AB%E3%82%B2%E3%83%BC%E3%83%A0-%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-2f477001-54d4-1276-9144-b0416a307f3c)
+- Power Point での画面収録  
+  [PowerPoint で画面を記録する](https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0)
+- Microsoft Teams での画面収録  
+  [Microsoft Teamsで会議を記録する](https://support.microsoft.com/ja-jp/office/microsoft-teams-%E3%81%A7%E4%BC%9A%E8%AD%B0%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-34dfbe7f-b07d-4a27-b4c6-de62f1348c24#:~:text=Microsoft)
 
 <a id='anchor-flowpackage'></a>
 
