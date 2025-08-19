@@ -16,10 +16,10 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/ppac_setting_server_profile.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/ppac_server_profile.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/ppac_setting_mailbox.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/mailbox.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/mailbox_edit.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/mailbox_popup.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/mailbox_success.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/mailbox2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/server_side_sync2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/approve_test2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/success_check3.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/outlook_notification.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/ppac_setting_d365afo.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/d365afo_sync.png">
@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/outlook_d365afo_env.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/edge_cookie_delete.png">
 <meta property="article:published_time" content="2024-12-08T15:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-14T05:38:57.408Z">
+<meta property="article:modified_time" content="2025-08-19T00:14:20.939Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Dataverse">
@@ -190,7 +190,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d4b9ff4d-1e8b-5b71-a055-1463dea133d7%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%81%A8+Exchange+Online+%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E5%81%B4%E5%90%8C%E6%9C%9F%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fexchange-server-side-sync%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fexchange-server-side-sync.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Fexchange-server-side-sync.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/" data-id="cmeayyiwc004y0no28oozgrrc" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/" data-id="cmehskc3r004y0nmr8iou05rg" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -212,17 +212,26 @@
 
 <p>Power Platform 管理センターからメールボックスを同期することで、Outlook のメールを Dynamics 365 アプリで閲覧できたり、Outlook と同じように Dynamics 365 アプリからメールを送信できたりするようになります。</p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/environments">Power Platform 管理センター</a> より環境を開く</li>
-<li>[設定] &gt; [サーバー プロファイル] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/ppac_setting_server_profile.png"></li>
-<li>Microsoft Exchange Online (既定) が存在することを確認<br><img src="/blog/powerplatform/exchange-server-side-sync/ppac_server_profile.png"></li>
-<li>[設定] に戻り [メールボックス] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/ppac_setting_mailbox.png"></li>
-<li>同期したいメールボックスにチェックを入れ、① [編集] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/mailbox.png"></li>
-<li>受信メール、送信メール、(メール以外も同期が必要な場合は) 予定、取引先担当者、タスクを [サーバー側同期] に変更して [保存して閉じる]<br><img src="/blog/powerplatform/exchange-server-side-sync/mailbox_edit.png"></li>
-<li>ステップ 5 の画像の ② [電子メールの承認] をクリック、ポップアップが出てきたら [OK] をクリック</li>
-<li>ステップ 5 の画像の ③ [メールボックスのテストと有効化] をクリック</li>
-<li>[電子メール アクセス構成のテスト] は同期したいレコードの種類を選び、[OK] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/mailbox_popup.png"></li>
-<li>テストの実行状態が [進行中] から [成功] になったら完了<br><img src="/blog/powerplatform/exchange-server-side-sync/mailbox_success.png"></li>
-<li>Outlook にもサーバー側同期の完了を通知するメールが届いていることを確認<br><img src="/blog/powerplatform/exchange-server-side-sync/outlook_notification.png"></li>
+<li><p><a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/environments">Power Platform 管理センター</a> より環境を開く</p>
+</li>
+<li><p>[設定] &gt; [サーバー プロファイル] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/ppac_setting_server_profile.png"></p>
+</li>
+<li><p>Microsoft Exchange Online (既定) が存在することを確認<br><img src="/blog/powerplatform/exchange-server-side-sync/ppac_server_profile.png"></p>
+</li>
+<li><p>[設定] に戻り [メールボックス] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/ppac_setting_mailbox.png"></p>
+</li>
+<li><p>同期したいメールボックスの [名前] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/mailbox2.png"></p>
+</li>
+<li><p>受信メール、送信メール、(メール以外も同期が必要な場合は) 予定、取引先担当者、タスクを [サーバー側同期] に変更する<br><img src="/blog/powerplatform/exchange-server-side-sync/server_side_sync2.png"></p>
+</li>
+<li><p>画面上部の ① [電子メールの承認] をクリック、ポップアップが出てきたら [OK] をクリック<br><br><img src="/blog/powerplatform/exchange-server-side-sync/approve_test2.png"></p>
+</li>
+<li><p>ステップ 7 の画像の ② [メールボックスのテストと有効化] をクリック、ポップアップがでてきたら受信開始日を設定して [OK] をクリック</p>
+</li>
+<li><p>受信メール、送信メール、(メール以外も同期が必要な場合は) 予定、取引先担当者、タスクが [成功] になれば完了<br><br><img src="/blog/powerplatform/exchange-server-side-sync/success_check3.png"></p>
+</li>
+<li><p>Outlook にもサーバー側同期の完了を通知するメールが届いていることを確認<br><img src="/blog/powerplatform/exchange-server-side-sync/outlook_notification.png"></p>
+</li>
 </ol>
 <h2 id="dynamics-365-app-for-outlook">Dynamics 365 App for Outlook</h2>
 
@@ -231,7 +240,7 @@
 <li>Power Platform 管理センターより [設定] &gt; [Dynamics 365 App for Outlook] をクリック<br><img src="/blog/powerplatform/exchange-server-side-sync/ppac_setting_d365afo.png"></li>
 <li>Dynamics 365 App for Outlook を追加するユーザーにチェックを入れ、[OUTLOOK へのアプリの追加] をクリック (対象ユーザーに割り当てられているセキュリティ ロールの中に use dynamics 365 app for outlook の特権がついている必要があります)<br><img src="/blog/powerplatform/exchange-server-side-sync/d365afo_sync.png"></li>
 <li>[状態] が [保留中] から [Outlook に追加済み] になったら完了 (完了までに 10 分から 30 分程度時間がかかります)<br><img src="/blog/powerplatform/exchange-server-side-sync/d365afo_done.png"></li>
-<li><a target="_blank" rel="noopener" href="https://outlook.office365.com/mail/">Outlook</a> でメールを開き、[Dynamics 365] のアプリのアイコンが表示されることを確認<br><img src="/blog/powerplatform/exchange-server-side-sync/outlook_d365afo_icon.png"></li>
+<li><a target="_blank" rel="noopener" href="https://outlook.office365.com/mail/">Outlook</a> でメールを開き、[Dynamics 365] のアプリのアイコンが表示されることを確認<br>（反映されるまで1日かかる場合があります。）<br><br><img src="/blog/powerplatform/exchange-server-side-sync/outlook_d365afo_icon.png"></li>
 <li>初めて開くと認証画面が表示されるので、[許可] をクリックして認証<br><img src="/blog/powerplatform/exchange-server-side-sync/outlook_d365afo_auth.png"></li>
 </ol>
 <h2 id="sync-email">メールの追跡</h2>
