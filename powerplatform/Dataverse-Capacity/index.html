@@ -19,9 +19,8 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/database.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/file.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/log.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/image.png">
 <meta property="article:published_time" content="2025-05-01T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-20T04:03:21.384Z">
+<meta property="article:modified_time" content="2025-08-21T02:16:56.586Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Dataverse">
@@ -168,29 +167,30 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+e21ad7d3-50f3-5b76-9c14-486950204fdc%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+Capacity+%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FDataverse-Capacity%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FDataverse-Capacity.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FDataverse-Capacity.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/" data-id="cmejg6pc2003m0nle03ri4plt" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/" data-id="cmekrtpor003m0nlcecd1dn74" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートチームの吉永です。  </p>
 <p>本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。<br><br>なお、Dataverse ストレージの基本的な考え方や Dataverse ストレージ超過時の影響などは、過去に公開させて頂いた後述の記事をご参考にしていただけますと幸いです。<br><br>参考情報 : <a href="https://jpdynamicscrm.github.io/blog/powerplatform/About-Dataverse-Storage/">Dataverse のストレージ容量について</a></p>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol>
-<li><a href="#anchor-begin">はじめに</a></li>
-<li><a href="#anchor-dataverse-storeage">テナントごとに付与されるストレージ容量のライセンスの概要</a></li>
-<li><a href="#anchor-default-storage">購入いただいたライセンスの種類によって決定する既定の容量</a></li>
-<li><a href="#anchor-addon-storage">ライセンスやアドオンの購入数に応じて付与される追加容量</a></li>
-<li><a href="#anchor-finish">おわりに</a></li>
-</ol>
+<h2 id="content">目次</h2>
+  
+1. [はじめに](#anchor-begin)
+2. [テナントごとに付与されるストレージ容量のライセンスの概要](#anchor-dataverse-storeage)
+3. [購入いただいたライセンスの種類によって決定する既定の容量](#anchor-default-storage)
+4. [ライセンスやアドオンの購入数に応じて付与される追加容量](#anchor-addon-storage)
+5. [おわりに](#anchor-finish)
+
 <div class="alert is-important"><p class="alert-title">重要</p><p>本記事は弊社公式ドキュメントの公開情報を元に構成しておりますが、 本記事編集時点と実際の機能に相違がある場合がございます。</p><p>最新情報につきましては、参考情報として記載しておりますドキュメントをご確認ください。  </p></div>
-<p><a id='anchor-begin'></a></p>
-<h2 id="1-はじめに"><a href="#1-はじめに" class="headerlink" title="1. はじめに"></a>1. はじめに</h2><p>Dataverse では各環境でご利用される容量を合計したものとをテナント全体の容量として管理する仕組みとなっております。<br>なお、実際のご利用にあたっては、ご契約いただいているライセンスの数や種類に応じて、テナントに付与される容量内でご利用いただく必要がございます。</p>
+<p><a id="anchor-begin"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Dataverse では各環境でご利用される容量を合計したものとをテナント全体の容量として管理する仕組みとなっております。<br>なお、実際のご利用にあたっては、ご契約いただいているライセンスの数や種類に応じて、テナントに付与される容量内でご利用いただく必要がございます。</p>
 <p>実際にテナントに割り当てられている以上の容量をご利用いただいている場合でも、環境の利用が停止するといったことはございませんが、新たな環境の作成などが行えなくなるなど管理上の影響が発生するため、容量の不足が発生する場合については、容量の削減やライセンスの追加購入を検討いただく必要がございます。</p>
 <blockquote>
 <p>[本記事でご紹介する内容について]<br><br>Dataverse の容量については、従量課金を利用しているかどうかによって動作が一部異なります。<br><br>本記事では「従量課金」をご利用いただいていない場合のシナリオを元にご紹介させて頂いております。<br>従量課金制プランをご利用いただいている場合については、以下のドキュメントを合わせてご確認いただけますと幸いです。<br><br>参考情報 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-meters?tabs=image#dataverse-capacity-meter">Dataverse 容量メーター</a></p>
 </blockquote>
 <p><a id='anchor-dataverse-storeage'></a></p>
-<h2 id="2-テナントごとに付与される容量のライセンスの概要"><a href="#2-テナントごとに付与される容量のライセンスの概要" class="headerlink" title="2. テナントごとに付与される容量のライセンスの概要"></a>2. テナントごとに付与される容量のライセンスの概要</h2><p>Dataverse で利用可能な容量はご契約いただくライセンスの数や種類によって決定いたします。</p>
+<h2 id="テナントごとに付与される容量のライセンスの概要"><a href="#テナントごとに付与される容量のライセンスの概要" class="headerlink" title="テナントごとに付与される容量のライセンスの概要"></a>テナントごとに付与される容量のライセンスの概要</h2><p>Dataverse で利用可能な容量はご契約いただくライセンスの数や種類によって決定いたします。</p>
 <p>なお、容量が割り当てられるかどうかや、割り当てられる場合の容量はライセンスによって異なるため、詳細についてはライセンスガイドをご確認頂きたくと存じますが、ライセンスのご契約によって割り当てられる容量には 2 種類の考え方がございます。</p>
 <p>1.契約いただいたライセンスの種類によって決定されるテナント「既定の容量」<br><br>2.ライセンスやアドオンの購入数に応じて付与される「追加の容量」</p>
 <blockquote>
@@ -199,7 +199,7 @@
 <p>つまり、Dataverse では以下の計算に基づきテナントに付与される容量が決定いたします。</p>
 <p>・「ライセンスの種類によって決定する<font color="green"> 既定の容量」</font>  +  「ライセンスごとに追加される<font color="blue"> 追加の容量」 </font>  =  「テナントに付与される容量」</p>
 <p><a id='anchor-default-storage'></a></p>
-<h2 id="3-購入いただいたライセンスの種類によって決定する既定の容量"><a href="#3-購入いただいたライセンスの種類によって決定する既定の容量" class="headerlink" title="3. 購入いただいたライセンスの種類によって決定する既定の容量"></a>3. 購入いただいたライセンスの種類によって決定する既定の容量</h2><p>Dataverese ではご購入いただくライセンスの種類によって、テナントに付与される「既定の容量」が異なります。<br><br>既定の容量が付与されるライセンスの種類としては、主に以下のような製品に関するライセンスがございます。<br><br>・Power Apps <br><br>・Power Automate <br><br>・Copilot Studio <br><br>・Power Pages <br><br>・Dynamics <br></p>
+<h2 id="購入いただいたライセンスの種類によって決定する既定の容量"><a href="#購入いただいたライセンスの種類によって決定する既定の容量" class="headerlink" title="購入いただいたライセンスの種類によって決定する既定の容量"></a>購入いただいたライセンスの種類によって決定する既定の容量</h2><p>Dataverese ではご購入いただくライセンスの種類によって、テナントに付与される「既定の容量」が異なります。<br><br>既定の容量が付与されるライセンスの種類としては、主に以下のような製品に関するライセンスがございます。<br><br>・Power Apps <br><br>・Power Automate <br><br>・Copilot Studio <br><br>・Power Pages <br><br>・Dynamics <br></p>
 <p>なお、具体的なライセンス例ごとに割り当てられる「既定の容量」は以下の通りとなります。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/default%20capacity.png"></p>
 <p>「既定の容量」はご契約いただいたライセンスごとの「既定の容量の合計値」ではなく、ご契約いただいたライセンスごとに定められた「既定の容量」の内、最も大きい容量が割り当てられる動作となります。</p>
 <p>上記の動作について、具体的なシナリオ例についても合わせてご紹介させて頂きます。</p>
@@ -209,7 +209,7 @@
 <p>上記のシナリオの場合、実際に適用される「既定の容量」は以下の通りとなります。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/capacity-sample.png"></p>
 <p>上記のシナリオでは、3 種類のライセンスをご契約いただいており、ライセンスごとに「既定の容量」が異なります。<br><br>ただし、テナントに割り当てられる「既定の容量」は、各ライセンスごとの「既定の容量」の合計値ではなく、最も大きい「既定の容量」が採用されます。<br><br>このため、本シナリオでは Power Apps Premium によって割り当てられる「既定の容量」がテナントに適用されます。</p>
 <p><a id='anchor-addon-storage'></a></p>
-<h2 id="4-ライセンスやアドオンの購入数に応じて付与される追加容量"><a href="#4-ライセンスやアドオンの購入数に応じて付与される追加容量" class="headerlink" title="4. ライセンスやアドオンの購入数に応じて付与される追加容量"></a>4. ライセンスやアドオンの購入数に応じて付与される追加容量</h2><p>Dataverse の容量は先述させて頂きました「既定の容量」とは別に、ライセンスやアドオンの購入数に応じてテナントに付与される追加容量がございます。<br><br>こちらは既定の容量とは異なり、購入いただいたライセンスとアドオンの数に応じて、付与される容量が変動する仕組みとなっております。<br><br>このため、ご契約いただくライセンスの数が多いほど、テナントに付与されるストレージ量は増加します。</p>
+<h2 id="ライセンスやアドオンの購入数に応じて付与される追加容量"><a href="#ライセンスやアドオンの購入数に応じて付与される追加容量" class="headerlink" title="ライセンスやアドオンの購入数に応じて付与される追加容量"></a>ライセンスやアドオンの購入数に応じて付与される追加容量</h2><p>Dataverse の容量は先述させて頂きました「既定の容量」とは別に、ライセンスやアドオンの購入数に応じてテナントに付与される追加容量がございます。<br><br>こちらは既定の容量とは異なり、購入いただいたライセンスとアドオンの数に応じて、付与される容量が変動する仕組みとなっております。<br><br>このため、ご契約いただくライセンスの数が多いほど、テナントに付与されるストレージ量は増加します。</p>
 <p>なお、ライセンスの種類によって、ストレージ量が付与されるかどうか、どの程度のサイズが付与されるかが異なり、具体的な例として以下のような違いがございます。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/add%20capacity.png"></p>
 <p>また、購入いただいたライセンスに応じて付与される追加容量とは別に、ストレージ量の追加を目的として購入いただくアドオンがございます。<br><br>参考情報 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/add-storage#purchase-dataverse-capacity-add-on">テナントに Microsoft Dataverse 容量を追加</a></p>
 <p>このアドオンは「データベース」「ファイル」「ログ」とストレージの種類ごとに購入いただくことが可能であり、いずれも 1 GB 単位で購入いただくことが可能です。<br><br>このため、お客様のテナントでストレージ量の不足が発生した場合については、ライセンスを追加でご契約いただくか、アドオンをご契約いただくことで、付与されるストレージ量を増加頂くことが可能です。</p>
@@ -222,9 +222,10 @@
 <p>ファイルの場合、「20 GB + 8 GB + 0 GB」で 28 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/file.png"></p>
 <p>ログの場合、「0 GB + 0 GB + 0 GB」で 0 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/log.png"></p>
 <p><a id='anchor-finish'></a></p>
-<h2 id="5-おわりに"><a href="#5-おわりに" class="headerlink" title="5.おわりに"></a>5.おわりに</h2><span id="more"></span>
-<p>本記事にてご説明させて頂きましたように Dataverse のキャパシティについては、ご契約いただいておりますライセンスの種類や数によって、利用可能なストレージ量が異なります。</p>
-<p>実際にお客様のテナントにおいて、どの程度の容量が割り当てられているかという点については、Power Platforom 管理センターから確認頂くことが可能です。<br><br><br>参考情報 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/view-self-service-capacity">セルフサービス ストレージ容量の表示</a><br><img src="image.png" alt="alt text"></p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>本記事にてご説明させて頂きましたように Dataverse のキャパシティについては、ご契約いただいておりますライセンスの種類や数によって、利用可能なストレージ量が異なります。</p>
+<p>実際にお客様のテナントにおいて、どの程度の容量が割り当てられているかという点については、Power Platforom 管理センターから確認頂くことが可能です。<br><br><br>参考情報 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/view-self-service-capacity">セルフサービス ストレージ容量の表示</a></p>
+<!-- ![alt text](image.png) -->
+
 <p>このため、お手元での計算と実際に割り当てられている容量が一致しない場合など、ご不明な点や、もし具体的にお困りの点などがございましたら、弊社サポート一同にてお待ち申し上げておりますので、ぜひお気軽にお問合せください。 </p>
 
       

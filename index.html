@@ -117,68 +117,22 @@
     <!-- post caption -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの吉永です。  </p>
-<p>本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。<br><br>なお、Dataverse ストレージの基本的な考え方や Dataverse ストレージ超過時の影響などは、過去に公開させて頂いた後述の記事をご参考にしていただけますと幸いです。<br><br>参考情報 : <a href="https://jpdynamicscrm.github.io/blog/powerplatform/About-Dataverse-Storage/">Dataverse のストレージ容量について</a></p>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol>
-<li><a href="#anchor-begin">はじめに</a></li>
-<li><a href="#anchor-dataverse-storeage">テナントごとに付与されるストレージ容量のライセンスの概要</a></li>
-<li><a href="#anchor-default-storage">購入いただいたライセンスの種類によって決定する既定の容量</a></li>
-<li><a href="#anchor-addon-storage">ライセンスやアドオンの購入数に応じて付与される追加容量</a></li>
-<li><a href="#anchor-finish">おわりに</a></li>
-</ol>
-<blockquote>
-<p>[!IMPORTANT]<br>本記事は弊社公式ドキュメントの公開情報を元に構成しておりますが、 本記事編集時点と実際の機能に相違がある場合がございます。<br>最新情報につきましては、参考情報として記載しておりますドキュメントをご確認ください。  </p>
-</blockquote>
-<p><a id='anchor-begin'></a></p>
-<h2 id="1-はじめに"><a href="#1-はじめに" class="headerlink" title="1. はじめに"></a>1. はじめに</h2><p>Dataverse では各環境でご利用される容量を合計したものとをテナント全体の容量として管理する仕組みとなっております。<br>なお、実際のご利用にあたっては、ご契約いただいているライセンスの数や種類に応じて、テナントに付与される容量内でご利用いただく必要がございます。</p>
-<p>実際にテナントに割り当てられている以上の容量をご利用いただいている場合でも、環境の利用が停止するといったことはございませんが、新たな環境の作成などが行えなくなるなど管理上の影響が発生するため、容量の不足が発生する場合については、容量の削減やライセンスの追加購入を検討いただく必要がございます。</p>
-<blockquote>
-<p>[本記事でご紹介する内容について]<br><br>Dataverse の容量については、従量課金を利用しているかどうかによって動作が一部異なります。<br><br>本記事では「従量課金」をご利用いただいていない場合のシナリオを元にご紹介させて頂いております。<br>従量課金制プランをご利用いただいている場合については、以下のドキュメントを合わせてご確認いただけますと幸いです。<br><br>参考情報 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-meters?tabs=image#dataverse-capacity-meter">Dataverse 容量メーター</a></p>
-</blockquote>
-<p><a id='anchor-dataverse-storeage'></a></p>
-<h2 id="2-テナントごとに付与される容量のライセンスの概要"><a href="#2-テナントごとに付与される容量のライセンスの概要" class="headerlink" title="2. テナントごとに付与される容量のライセンスの概要"></a>2. テナントごとに付与される容量のライセンスの概要</h2><p>Dataverse で利用可能な容量はご契約いただくライセンスの数や種類によって決定いたします。</p>
-<p>なお、容量が割り当てられるかどうかや、割り当てられる場合の容量はライセンスによって異なるため、詳細についてはライセンスガイドをご確認頂きたくと存じますが、ライセンスのご契約によって割り当てられる容量には 2 種類の考え方がございます。</p>
-<p>1.契約いただいたライセンスの種類によって決定されるテナント「既定の容量」<br><br>2.ライセンスやアドオンの購入数に応じて付与される「追加の容量」</p>
-<blockquote>
-<p>ライセンスガイドについては、以下のリンクからダウンロード可能でございます。<br><br>参考情報 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus">Microsoft Power Platform のライセンスの概要</a></p>
-</blockquote>
-<p>つまり、Dataverse では以下の計算に基づきテナントに付与される容量が決定いたします。</p>
-<p>・「ライセンスの種類によって決定する<font color="green"> 既定の容量」</font>  +  「ライセンスごとに追加される<font color="blue"> 追加の容量」 </font>  =  「テナントに付与される容量」</p>
-<p><a id='anchor-default-storage'></a></p>
-<h2 id="3-購入いただいたライセンスの種類によって決定する既定の容量"><a href="#3-購入いただいたライセンスの種類によって決定する既定の容量" class="headerlink" title="3. 購入いただいたライセンスの種類によって決定する既定の容量"></a>3. 購入いただいたライセンスの種類によって決定する既定の容量</h2><p>Dataverese ではご購入いただくライセンスの種類によって、テナントに付与される「既定の容量」が異なります。<br><br>既定の容量が付与されるライセンスの種類としては、主に以下のような製品に関するライセンスがございます。<br><br>・Power Apps <br><br>・Power Automate <br><br>・Copilot Studio <br><br>・Power Pages <br><br>・Dynamics <br></p>
-<p>なお、具体的なライセンス例ごとに割り当てられる「既定の容量」は以下の通りとなります。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/default%20capacity.png"></p>
-<p>「既定の容量」はご契約いただいたライセンスごとの「既定の容量の合計値」ではなく、ご契約いただいたライセンスごとに定められた「既定の容量」の内、最も大きい容量が割り当てられる動作となります。</p>
-<p>上記の動作について、具体的なシナリオ例についても合わせてご紹介させて頂きます。</p>
-<h3 id="参考シナリオ"><a href="#参考シナリオ" class="headerlink" title="参考シナリオ"></a>参考シナリオ<br></h3><blockquote>
-<p>購入ライセンス<br><br>・Power Apps Premium<br><br>・Power Apps Per App<br><br>・Copilot Studio<br></p>
-</blockquote>
-<p>上記のシナリオの場合、実際に適用される「既定の容量」は以下の通りとなります。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/capacity-sample.png"></p>
-<p>上記のシナリオでは、3 種類のライセンスをご契約いただいており、ライセンスごとに「既定の容量」が異なります。<br><br>ただし、テナントに割り当てられる「既定の容量」は、各ライセンスごとの「既定の容量」の合計値ではなく、最も大きい「既定の容量」が採用されます。<br><br>このため、本シナリオでは Power Apps Premium によって割り当てられる「既定の容量」がテナントに適用されます。</p>
-<p><a id='anchor-addon-storage'></a></p>
-<h2 id="4-ライセンスやアドオンの購入数に応じて付与される追加容量"><a href="#4-ライセンスやアドオンの購入数に応じて付与される追加容量" class="headerlink" title="4. ライセンスやアドオンの購入数に応じて付与される追加容量"></a>4. ライセンスやアドオンの購入数に応じて付与される追加容量</h2><p>Dataverse の容量は先述させて頂きました「既定の容量」とは別に、ライセンスやアドオンの購入数に応じてテナントに付与される追加容量がございます。<br><br>こちらは既定の容量とは異なり、購入いただいたライセンスとアドオンの数に応じて、付与される容量が変動する仕組みとなっております。<br><br>このため、ご契約いただくライセンスの数が多いほど、テナントに付与されるストレージ量は増加します。</p>
-<p>なお、ライセンスの種類によって、ストレージ量が付与されるかどうか、どの程度のサイズが付与されるかが異なり、具体的な例として以下のような違いがございます。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/add%20capacity.png"></p>
-<p>また、購入いただいたライセンスに応じて付与される追加容量とは別に、ストレージ量の追加を目的として購入いただくアドオンがございます。<br><br>参考情報 : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/add-storage#purchase-dataverse-capacity-add-on">テナントに Microsoft Dataverse 容量を追加</a></p>
-<p>このアドオンは「データベース」「ファイル」「ログ」とストレージの種類ごとに購入いただくことが可能であり、いずれも 1 GB 単位で購入いただくことが可能です。<br><br>このため、お客様のテナントでストレージ量の不足が発生した場合については、ライセンスを追加でご契約いただくか、アドオンをご契約いただくことで、付与されるストレージ量を増加頂くことが可能です。</p>
-<p>上記の動作について、具体的なシナリオ例についても合わせてご紹介させて頂きます。</p>
-<h3 id="参考シナリオ-1"><a href="#参考シナリオ-1" class="headerlink" title="参考シナリオ"></a>参考シナリオ<br></h3><blockquote>
-<p>購入ライセンス<br><br>・Power Apps Premium x 10<br><br>・Power Apps Per App x 20<br><br>・Copilot Studio x 5<br><br>・データベース キャパシティ アドオン (1 GB) x 10<br></p>
-</blockquote>
-<p>上記のシナリオの場合、実際に適用される「追加の容量」は、データベース、ファイル、ログごとに以下の通りとなります。<br></p>
-<p>データベースの場合、「2.5 GB + 10 GB + 0 GB + 10 GB」で 22.5 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/database.png"></p>
-<p>ファイルの場合、「20 GB + 8 GB + 0 GB」で 28 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/file.png"></p>
-<p>ログの場合、「0 GB + 0 GB + 0 GB」で 0 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/log.png"></p>
-<p><a id='anchor-finish'></a></p>
-<h2 id="5-おわりに"><a href="#5-おわりに" class="headerlink" title="5.おわりに"></a>5.おわりに</h2>
-        
-          <p class="article-more-link">
-            <a href="powerplatform/Dataverse-Capacity/#more">Read More</a>
-          </p>
-        
+        こんにちは、Power Platform サポートチームの吉永です。  
+本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。なお、Dataverse ストレージの基本的な考え方や Dataverse ストレージ超過時の影響などは、過去に公開させて頂いた後述の記事をご参考にしていただけますと幸いです。参考情報 : Dataverse のストレージ容量について
+目次
+  
+1. [はじめに](#anchor-begin)
+2. [テナントごとに付与されるストレージ容量のライセンスの概要](#anchor-dataverse-storeage)
+3. [購入いただいたライセンスの種類によって決定する既定の容量](#anchor-default-storage)
+4. [ライセンスやアドオンの購入数に応じて付与される追加容量](#...
+        <p class="article-readmore">
+          <a href="powerplatform/Dataverse-Capacity/">Read more</a>
+        </p>
       
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/" data-id="cmejg6pc2003m0nle03ri4plt" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/" data-id="cmekrtpor003m0nlcecd1dn74" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
@@ -232,7 +186,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-teams/" data-id="cmejg6pfk00ja0nleg9cwcj94" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-teams/" data-id="cmekrtpru00ja0nlc2wygh2lz" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li></ul>
@@ -287,7 +241,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="cmejg6pci004k0nle6o8mcsr0" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/" data-id="cmekrtpp5004k0nlc84h03gz7" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Environment/" rel="tag">Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li></ul>
@@ -341,7 +295,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/" data-id="cmejg6pbf002d0nlefwc4gl6o" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/" data-id="cmekrtpo5002d0nlc93iccicv" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Governance/" rel="tag">Governance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
@@ -391,7 +345,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/" data-id="cmejg6pai00090nle6y7a1nmp" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-list-copilot-agents/" data-id="cmekrtpn900090nlc7dnz4v4h" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Copilot-Studio/" rel="tag">Copilot Studio</a></li></ul>
@@ -449,7 +403,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cmejg6pbs00380nlecl3lf9fc" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cmekrtpoi00380nlc444u6rif" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Governance/" rel="tag">Governance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Model-driven-app/" rel="tag">Model-driven app</a></li></ul>
@@ -504,7 +458,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/connect-private-datasource/" data-id="cmejg6pck004s0nle4rt92nhm" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/connect-private-datasource/" data-id="cmekrtpp8004s0nlcbovr9f32" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Network/" rel="tag">Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
@@ -560,7 +514,7 @@
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cmejg6pfm00jd0nleejq76izx" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cmekrtpru00jd0nlchpvta8nl" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
@@ -621,7 +575,7 @@ Power Automate や Power Ap...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Block-AI-Builder/" data-id="cmejg6pbx003f0nle949040cv" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Block-AI-Builder/" data-id="cmekrtpom003f0nlcestfhglr" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Governance/" rel="tag">Governance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
@@ -677,7 +631,7 @@ Power Automate や Power Ap...
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/" data-id="cmejg6pcs00590nle148q12xl" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/" data-id="cmekrtppe00590nlcgu2mhp69" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
