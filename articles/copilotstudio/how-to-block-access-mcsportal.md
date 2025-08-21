@@ -18,18 +18,16 @@ toc:
 今回は Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内します。
 
 <!-- more -->
-## 目次
-
-
 ## はじめに
 本記事では Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内致します。
 
-ご留意点として、Copilot Studio は 2025 年 8 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際のご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。
+ご留意点として、Copilot Studio は 2025 年 8 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際にご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。
 
 ## 作成を制御する方法
-エージェントの作成を制御するためには、[Copilot Studio へのアクセス権](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license)と、エージェントを作成する環境への[セキュリティロール](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles)が必要です。
+エージェントの作成を制御するためには、[Copilot Studio へのアクセス権](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license)と、エージェントを作成する環境の[セキュリティロール](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles)が必要です。  
+以下それぞれについて説明します。
 
-### アクセス権
+### Copilot Studio へのアクセス権
 Copilot Studio ポータルにアクセスするためには、ユーザーに以下のいずれかのライセンスまたはロールが必要です。  
 ※以下のいずれかに該当するとアクセスできるようになります。
 
@@ -39,7 +37,7 @@ Copilot Studio ポータルにアクセスするためには、ユーザーに�
 * Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール
 
 
-### セキュリティロール
+### エージェントを作成する環境のセキュリティロール
 エージェントを作成するためには、エージェントを作成する環境に対してセキュリティロールが必要となります。  
 ご要件に合わせてユーザーにセキュリティロールを付与してください。
 
