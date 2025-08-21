@@ -1,18 +1,25 @@
 ---
 title: Copilot Studio エージェントの作成を制御する方法
-date: 2025-06-14 13:30:00
+date: 2025-08-01 13:30:00
 tags:
   - Power Platform
   - Power Virtual Agents
   - Microsoft Copilot Studio
 categories:
   - [Microsoft Copilot Studio]
+toc:
+  enabled: true
+  min_depth: 1
+  max_depth: 2
+  list_number: false
 ---
 
 こんにちは。Power Platform サポートチームの 網野 です。
 今回は Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内します。
 
 <!-- more -->
+## 目次
+
 
 ## はじめに
 本記事では Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内致します。
@@ -23,13 +30,13 @@ categories:
 エージェントの作成を制御するためには、[Copilot Studio へのアクセス権](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license)と、エージェントを作成する環境への[セキュリティロール](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles)が必要です。
 
 ### アクセス権
-Copilot Studio ポータルにアクセスするためには、以下のいずれかが必要です。  
+Copilot Studio ポータルにアクセスするためには、ユーザーに以下のいずれかのライセンスまたはロールが必要です。  
 ※以下のいずれかに該当するとアクセスできるようになります。
 
 * Copilot Studio ユーザーライセンス
 * Copilot Studio 試用版ライセンス
 * Microsoft 365 Copilot ライセンス
-* Power Platform 管理センター テナント設定の「Copilot Studio 作成者」
+* Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール
 
 
 ### セキュリティロール
@@ -37,9 +44,9 @@ Copilot Studio ポータルにアクセスするためには、以下のいず�
 ご要件に合わせてユーザーにセキュリティロールを付与してください。
 
 例）
-* 環境作成者　・・　作成したエージェントまたは共有されたエージェントにアクセスできます
-* システムカスタマイザー　・・　環境内のエージェントにアクセスできます
-* システム管理者　・・　環境内のエージェントにアクセスできます
+* 環境作成者
+* システムカスタマイザー
+* システム管理者
 
 
 ## アクセス権の詳細
@@ -60,9 +67,10 @@ Copilot Studio を通じて [Microsoft 365 Copilot](https://learn.microsoft.com/
 Copilot Studio だけなく、Microsoft 365 Copilot の使用権が含まれています。
 
 > [!IMPORTANT]
-> Copilot Studio にアクセスさせるためには、「Copilot Studio in Copilot for Microsoft 365」サービスを有効にする必要があります。
+> Copilot Studio にアクセスさせるためには、「Copilot Studio in Copilot for M365」サービスを有効にする必要があります。
+![](./how-to-block-access-mcsportal/m365copilot.png)
 
-### Power Platform 管理センター テナント設定の「Copilot Studio 作成者」
+### Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール
 従量課金環境のみを利用して Copilot Studio を利用するユーザー様向けに用意された機能が「Copilot Studio 作成者」機能です。  
 他のユーザーに付与するライセンスと異なり、ユーザーごとにライセンスを付与する必要はありません。  
 Copilot Studio でエージェントを作成したいユーザーをセキュリティグループに追加し、Copilot Studio へのアクセスを許可します。
@@ -87,5 +95,6 @@ https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensin
 ![](./how-to-block-access-mcsportal/c2licensing.png)
 
 ### 環境ごとにエージェントの作成を制限することはできますか
-はい、エージェントを作成させたい環境にのみセキュリティロールを付与することで、環境ごとにエージェントの作成を制限することができます。
+はい、エージェントを作成させたい環境にのみセキュリティロールを付与することで、環境ごとにエージェントの作成を制限することができます。  
+なお例外として既定環境はすべてのユーザーに「環境作成者」ロールが付与されるため、セキュリティロールで制御することはできません。
 
