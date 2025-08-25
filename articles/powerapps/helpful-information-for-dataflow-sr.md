@@ -61,7 +61,6 @@ categories:
 2. 事象の発生環境
    - 機種
    - OS およびバージョン
-   - Web ブラウザ or Power Apps アプリ
    - ブラウザ種類 ( Microsoft Edge、Google Chrome、Firefox など)
    - プラグインや拡張機能の有無
 3. 特定の利用で発生する事象か
@@ -88,7 +87,7 @@ categories:
 
 ![](./helpful-information-for-dataflow-sr/dataflow-diagram.png) 
   
-以下のような表示画面が出てきましたら、Source にカーソルを合わせていただき、どのようなデータソースをご使用になっているかご教示ください。　
+以下のような表示画面が出てきましたら、「ソース」にカーソルを合わせていただき、どのようなデータソースをご使用になっているかご教示ください。　
 （下画像では例として CSV ファイルを使用しております。）
 
 ![](./helpful-information-for-dataflow-sr/dataflow-datasource.png) 
