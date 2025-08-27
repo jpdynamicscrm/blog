@@ -102,7 +102,7 @@ categories:
 <a id='anchor-about-dataflow-type'></a>
 
 ## データフローの型
-対象となるデータフローの型については、 Standard V2 でお間違いないかご確認ください。
+対象となるデータフローの「型」列の値についてご教示ください。
 
 ![](./helpful-information-for-dataflow-sr/dataflow-type.png) 
 
@@ -130,13 +130,13 @@ https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#googl
 
 ![](./helpful-information-for-dataflow-sr/developer-resource.png) 
 
-2. [Web API エンドポイント] を取得し、末尾に /msdyn_dataflows を追加したリンクを作成します。
+2. [Web API エンドポイント] を取得し、末尾に /msdyn_dataflows を追加したリンクを作成します。<br>
 例 : https://org **bbca2a.api.crm7.dynamics.com/api/data/v9.2/msdyn_dataflows
 
 ![](./helpful-information-for-dataflow-sr/webapi-endpoint.png)
 
-3. 項番 2 にて作成したリンクにアクセスし、保存します。
-※ 以下の画面は Edge での例となります。
+3. 項番 2 にて作成したリンクにアクセスし、保存します。<br>
+※ 以下の画面は Edge での例となります。　
 ※ 保存時に、ファイル名に環境 ID などの記載いただけますと幸いです。
 
 ![](./helpful-information-for-dataflow-sr/access-link.png)
@@ -153,7 +153,7 @@ https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#googl
 <a id='anchor-solution-export'></a>
 
 ## ソリューションのエクスポート
-以下の手順にて対象のデータフローをソリューションに含めていただき、アンマネージメントソリューションにてエクスポートをいただけますようお願いいたします。（実装の内容やご利用のコネクタについて確認をさせていただきます。）
+以下の手順にて対象のデータフローをソリューションに含めていただき、アンマネージドにてエクスポートをいただけますようお願いいたします。（実装の内容やご利用のコネクタについて確認をさせていただきます。）
 1. Power Automate ( https://make.powerautomate.com/ )を開き、「ソリューション」をご選択ください（環境名がデータフローのものと一致しているかご確認ください）。<br>
 ![](./helpful-information-for-dataflow-sr/pa-solution.png)
 
@@ -191,7 +191,7 @@ https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#googl
 対象のデータフロー所有者のユーザーアカウントをご教示ください。
 もしご不明の場合は、対象のデータフローが含まれているソリューションをご選択いただき、
 下記画像の通りに表示名がございますので、そちらをご教示いただければ幸いです。
-※所有者の UPN もしくはオブジェクト ID がわかる場合は、そちらも合わせてご提供ください。
+※所有者の UPN もしくはオブジェクト ID がわかる場合は、そちらも併せてご提供ください。
 
 ![](./helpful-information-for-dataflow-sr/user-account.png)
 ---
