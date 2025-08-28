@@ -401,21 +401,21 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 <a id='anchor-about-canvasapp-published'></a>
 
 ### 10-1. 公開済みアプリ
-    1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
-    2. アプリ一覧画面から対象のアプリの「...」メニューを押下し、「エクスポート パッケージ」を選択します  
-        ![](./troubleshooting-general-canvasapp/image17.png)
-    3. 任意の名前を付けてエクスポートします
-    4. ローカルに zip ファイルがダウンロードされます
+1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+2. アプリ一覧画面から対象のアプリの「...」メニューを押下し、「エクスポート パッケージ」を選択します  
+    ![](./troubleshooting-general-canvasapp/image17.png)
+3. 任意の名前を付けてエクスポートします
+4. ローカルに zip ファイルがダウンロードされます
 
 <a id='anchor-about-canvasapp-edit'></a>
 
 ### 10-2. 編集中のアプリ
-    1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
-    2. アプリ一覧画面から対象のアプリを編集します
-    3. メニュー「∨」アイコン > 「コピーのダウンロード」を選択します  
-        ![](./troubleshooting-general-canvasapp/image18.png)
-    4. ローカルに msapp ファイルをダウンロードします  
-        ![](./troubleshooting-general-canvasapp/image19.png)
+1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+2. アプリ一覧画面から対象のアプリを編集します
+3. メニュー「∨」アイコン > 「コピーのダウンロード」を選択します  
+    ![](./troubleshooting-general-canvasapp/image18.png)
+4. ローカルに msapp ファイルをダウンロードします  
+    ![](./troubleshooting-general-canvasapp/image19.png)
 
 <a id='anchor-about-canvasapp-solutionapp'></a>
 
