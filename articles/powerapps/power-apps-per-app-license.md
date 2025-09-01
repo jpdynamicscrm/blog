@@ -121,13 +121,8 @@ Power Platform 管理センター > 設定 > アドオン容量の割り当て
 
 <br/><br/>
 
-## 7. レポート機能について
-現状、各種管理センターなどから、ユーザーに対してアプリごとの Power Apps プランライセンスが割り当てられたことを確認できる機能のご用意はない状況でございます。  
-アプリごとの Power Apps プランライセンスの使用レポート機能は現在開発中となっております。  
-下記公開情報にて最新情報を記載しておりますので、ご参照ください。  
-[アプリ ライセンスごとの Power Apps を使用しているユーザー リストを見ることができますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/about-powerapps-perapp#when-will-i-be-able-to-see-the-list-of-users-who-are-using-the-power-apps-per-app-license)   
-<br/>
-レポート機能が未実装のたため、現状ではライセンスを消費する制御も未実装となっております。
+## 7. ライセンス消費について
+現状ではライセンスを消費する制御が未実装となっております。
 
 1. 環境にライセンスを割り当てる  
 2. 該当のアプリの設定で「アプリごとのライセンス」をオンにする  
@@ -156,3 +151,4 @@ Power Platform 管理センター > 設定 > アドオン容量の割り当て
 従量課金のプランがございます。
 詳細については下記公開情報をご参照ください。  
 [従量課金制プランの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-overview)   
+
