@@ -1,5 +1,5 @@
 ---
-title: Power Automate で改行が反映されない場合の対応方法
+title: Power Automate で Teams コネクタを使う際に改行を反映する方法
 date: 2025-08-28 12:00:00
 tags:
   - How to
@@ -11,22 +11,26 @@ categories:
 # はじめに
 
 こんにちは、Power Platform サポートチームの宮﨑です。  
-本記事では Power Automate で文字列に含まれる改行が反映されない場合の対応方法についてご案内いたします。
+本記事では Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。
 
 
 <!-- more -->
 # 目次
 1. [概要](#anchor-intro)
 1. [解決したい事象](#anchor-line-break-issue)
-1. [改行を反映させる方法](#anchor-line-break)
-   1. [フローの例](#anchor-line-break-flow) 
-   1. [なぜこれで解消できるのか](#anchor-line-break-reason)
+1. [改行を反映する方法](#anchor-line-break)
+   1. [replace関数を使用する](#anchor-line-break-replace)
+      1. [フローの例](#anchor-line-break-replace-flow)
+      1. [なぜこれで解消できるのか](#anchor-line-break-replace-reason)
+   1. [preタグを使用する](#anchor-line-break-pre)
+      1. [フローの例](#anchor-line-break-pre-flow)
+      1. [なぜこれで解消できるのか](#anchor-line-break-pre-reason)
 1. [補足](#補足)
 
 <a id='anchor-intro'></a>
 
 # 概要
-今回はよくあるお問い合わせとして、 Power Automate で文字列を扱う際に改行が反映されない場合の対応方法についてご案内いたします。
+今回はよくあるお問い合わせとして、 Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。
 
 <a id='anchor-line-break-issue'></a>
 
@@ -39,15 +43,20 @@ categories:
 
 Teams に投稿すると改行が反映されないことがあります。
 
-以降では、このような事象の解決方法をご案内いたします。
+以降では、このような事象の解決方法をご案内いたします。  
+※今回は Teams コネクタを使用している想定での事象となります。コネクタにより動作が異なる可能性がございますのでご注意ください。
 
 <a id='anchor-line-break'></a>
 
-## 改行を反映させる方法
+## 改行を反映する方法
 
-<a id='anchor-line-break-flow'></a>
+<a id='anchor-line-break-replace'></a>
 
-### フローの例
+### replace 関数を使用する方法
+
+<a id='anchor-line-break-replace-flow'></a>
+
+#### フローの例
 今回の例では、以下の状況を想定しています。
 
 トリガー：SharePoint リストにアイテムが追加されたとき  
@@ -57,7 +66,7 @@ Teams に投稿すると改行が反映されないことがあります。
 ![](cloudflow-specialcharacters/line-break/flow-image.png)
 
 フローの全体図は以下の通りです。  
-![](cloudflow-specialcharacters/line-break/flow-outline.png)
+![](cloudflow-specialcharacters/line-break/replace/replace-flow-outline.png)
 
 ここから、フローの詳細を順を追って解説いたします。
 
@@ -71,23 +80,23 @@ Teams に投稿すると改行が反映されないことがあります。
 #### アクション：アイテムの内容を Teams に投稿する
 
 下画像のように、投稿先の情報についてご指定ください。<br>
-![](cloudflow-specialcharacters/line-break/teams.png)
+![](cloudflow-specialcharacters/line-break/replace/teams.png)
 
 #### メッセージ部分
 
-以下の式をアクション内で設定することで、投稿されたメッセージに改行が反映されるようになります。
+以下の式をアクション内で設定することで、投稿されたメッセージに改行を反映できるようになります。
 
 ```
-replace(改行を反映させたい文字列, decodeUriComponent('%0A'), '<br>')
+replace(改行を反映したい文字列, decodeUriComponent('%0A'), '<br>')
 ```
 
-![](cloudflow-specialcharacters/line-break/message.png)
+![](cloudflow-specialcharacters/line-break/replace/message.png)
 
 ---
 
-<a id='anchor-line-break-reason'></a>
+<a id='anchor-line-break-replace-reason'></a>
 
-### なぜこれで解消できるのか
+#### なぜこれで解消できるのか
 SharePoint リストや Microsoft Excel から取得した複数行テキスト（JSON形式）を Teams に HTML形式で投稿する際には、
 改行部分を「&lt;br&gt;」タグへ置換する必要がございます。
 
@@ -100,7 +109,53 @@ JSON形式での改行コードは「\n」となりますが、Power Automate �
 今回の方法では、decodeUriComponent 関数を使って「%0A」をデコードすることで、実際の改行文字（LF）を取得しています。  
 その改行文字を replace 関数で 「&lt;br&gt;」タグ に置換することで、Teams などに投稿する際に正しく改行が反映されるようになります。
 
-以上が、Power Automate で文字列を扱う際に改行が反映されない場合の対応方法でございます。
+<a id='anchor-line-break-pre'></a>
+
+### pre タグを使用する方法
+
+<a id='anchor-line-break-pre-flow'></a>
+
+#### フローの例
+
+今回の例では、以下の状況を想定しています。
+
+トリガー：SharePoint リストにアイテムが追加されたとき  
+アクション１：作成  pre タグの追加   
+アクション２：作成した変数の内容を Teams に投稿する
+
+イメージ図  
+![](cloudflow-specialcharacters/line-break/flow-image.png)
+
+フローの全体図は以下の通りです。<br>
+![](cloudflow-specialcharacters/line-break/pre/pre-flow-outline.png)
+
+ここから、フローの詳細を順を追って解説いたします。
+
+#### トリガー：SharePoint リストにアイテムが追加されたとき  
+※こちらのトリガーはあくまでも一例となります。
+
+下画像のように、ご自身の SharePoint リストをご指定ください。<br>
+![](cloudflow-specialcharacters/line-break/sharepoint.png)
+
+#### アクション１：作成 pre タグの追加
+
+下画像のように、取得したい文字列に &lt;pre&gt; タグを追加してください。
+![](cloudflow-specialcharacters/line-break/pre/create.png)
+
+
+#### アクション２：作成した変数を Teams に投稿する  
+
+上で作成した変数をメッセージに設定することで、改行が反映されるようになります。  
+![](cloudflow-specialcharacters/line-break/pre/teams.png)
+
+<a id='anchor-line-break-pre-reason'></a>
+
+#### なぜこれで解消できるのか
+
+HTML における &lt;pre&gt; タグは、整形済みのテキストとして表示するためのものになります。  
+これを使用することで、要素内に記述されたテキストの空白文字（スペース、タブ、改行）をまとめて反映できるようになります。
+
+以上が、Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法でございます。
 お役に立てましたら幸いです。
 
 <a id='補足'></a>
