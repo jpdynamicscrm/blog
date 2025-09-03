@@ -37,18 +37,20 @@ categories:
 ## 解決したい事象
 ![](cloudflow-specialcharacters/line-break/list.png)
 
-上のような SharePoint リストから、Power Automate のクラウドフローで 複数行テキスト を取得する際、
+上のような SharePoint リストから、Power Automate のクラウドフローで複数行テキストを取得する際、
 
 ![](cloudflow-specialcharacters/line-break/notify-failure.png)
 
 Teams に投稿すると改行が反映されないことがあります。
 
 以降では、このような事象の解決方法をご案内いたします。  
-※今回は Teams コネクタを使用している想定での事象となります。コネクタにより動作が異なる可能性がございますのでご注意ください。
+※今回は Teams コネクタを使用している想定での事象となります。コネクタにより動作が異なる可能性がございますのでご留意ください。
 
 <a id='anchor-line-break'></a>
 
 ## 改行を反映する方法
+
+今回は事象の解決方法として、replace 関数を使用する方法と、&lt;pre&gt;タグを使用する方法の２つをご案内いたします。
 
 <a id='anchor-line-break-replace'></a>
 
@@ -97,7 +99,7 @@ replace(改行を反映したい文字列, decodeUriComponent('%0A'), '<br>')
 <a id='anchor-line-break-replace-reason'></a>
 
 #### なぜこれで解消できるのか
-SharePoint リストや Microsoft Excel から取得した複数行テキスト（JSON形式）を Teams に HTML形式で投稿する際には、
+SharePoint リストや Microsoft Excel から取得した複数行テキストを Teams に HTML形式で投稿する際には、
 改行部分を「&lt;br&gt;」タグへ置換する必要がございます。
 
 特定の文字列を別の文字列に置換する replace 関数を用いることで、「&lt;br&gt;」タグを挿入することが可能となります。
