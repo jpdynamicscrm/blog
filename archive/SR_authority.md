@@ -8,6 +8,7 @@ categories:
   - [Power Platform Admin Center]
 ---
 
+
 こんにちは、Power Apps サポートの深津です。  
 今回は、Power Platform に問い合わせを行うための最小の権限についてご説明いたします。
 

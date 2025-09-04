@@ -14,7 +14,6 @@ categories:
 # Power Platform 管理センター からサポート リクエスト起票するために必要な権限について
 
 こんにちは、Power Platform サポート チームの三田です。
-
 本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。
 
 
