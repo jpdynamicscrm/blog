@@ -1,109 +1,95 @@
 ---
-title: サポート リクエスト起票をPowerPlatform管理センターからのみに制限する方法
+title: Power Platform 管理センター からサポート リクエストを起票するために必要な権限について
 date: 2025-09-01 00:00
 tags:
   - サポート リクエスト
   - SR
   - 役割
-  - RBAC
   - Power Platform 管理センター
-  - Azure ポータル
 categories:
   - [Power Platform, サポート]
 ---
 
 
-# サポート リクエスト起票をPowerPlatform管理センターからのみに制限する方法
+# Power Platform 管理センター からサポート リクエスト起票するために必要な権限について
 
 こんにちは、Power Platform サポート チームの三田です。
 
-本記事では、Power Platform 管理センター（PPAC）とAzure portal のサポート リクエスト起票が可能なロールと、サポート リクエストの起票をPPACからのみにする方法についてご紹介いたします。サポート リクエスト内容と起票する窓口が異なる場合、適切な担当者が見つかるまでお時間をいただく可能性がございますので、Power Platformに関するサポート リクエストはPPACから起票していただけますと幸いです。
+本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。
 
-以下の関連記事も併せてご参照ください。
 
-[Power Platform に問い合わせを行うための権限について](https://jpdynamicscrm.github.io/blog/powerapps/SR_authority/)
+### 【この記事からわかること】
+- PPAC における サポート リクエスト 起票が可能なロールについて
+- PPAC から サポート リクエスト を起票する方法
 
 
 ## 目次
-- [この記事からわかること](#この記事からわかること)
-- [PPACからサポート リクエストの起票が可能なロール](#ppacからsrの起票が可能なロール)
-- [Azure portalからサポート リクエストの起票が可能なロール](#azure-portalからsrの起票が可能なロール)
-- [サポート リクエストの起票をPPACからのみに制限する方法](#srの起票をppacからのみに制限する方法)
+- [PPAC から サポート リクエスト の起票が可能なロール](#PPACからサポートリクエストの起票が可能なロール)
+- [PPAC から サポート リクエスト を起票する方法](#PPACからサポートリクエストを起票する方法)
 - [まとめ](#まとめ)
 
-## この記事からわかること
-- PPAC における サポート リクエスト 起票が可能なロールの整理
-- Azure portal における サポート リクエスト 起票が可能なロールの整理（サブスクリプションあり／なし）
-- サポート リクエスト 起票を PPAC に限定するためのロールについて
 
-## PPACからサポート リクエストの起票が可能なロール
-Power Platform 管理センター（PPAC）では、サポート リクエストを作成するために、以下のサポート作成が有効化されたセキュリティ ロールのいずれかを保持している必要がございます。
+## PPAC から サポート リクエスト の起票が可能なロール
+Power Platform 管理センター（PPAC）では、サポート リクエストを作成するために、以下のサポート作成が有効化されたロールのいずれかを保持している必要がございます。
 
+＜Microsoft Entra ロール＞
 > - Microsoft Entra ロール管理者
-> - 環境管理者 (または Dataverse のシステム管理者ロール)
-> - 会社管理者
+> - 会社管理者 (グローバル管理者)
 > - 課金管理者
 > - サービス管理者
-> - CRM サービス管理者
-> - CRM 組織の管理者
-> - Power Platform 管理者
 > - セキュリティ管理者
-> - パートナー代理管理者
-> - SharePoint 管理者
-> - チーム管理者
-> - Exchange 管理者
-> - Power BI 管理者
-> - Power Apps 環境管理者
-> - Power Apps Full 管理者
 > - コンプライアンス管理者
 > - ヘルプデスク管理者
+> - パートナー代理管理者
+> - SharePoint 管理者
+> - チーム管理者 (Microsoft Teams 管理者)
+> - Exchange 管理者
+> - Power BI 管理者
+> - Power Platform 管理者
+> - CRM サービス管理者
+> - Power Apps Full 管理者
+
+＜セキュリティ ロール＞
+> - 環境管理者 (または Dataverse のシステム管理者ロール)
+> - CRM 組織の管理者 (Dataverse のシステム管理者ロール)
+> - Power Apps 環境管理者
 > - LCS ユーザー
+
 
 また、技術的サポートを受けるためには、ご契約のサポート プラン（Subscription／ProDirect／Unified など）が要件を満たしている必要がございますのでご留意ください。
 
-＜参考文献＞
+＜参考資料＞
 - [サポートを受ける](https://learn.microsoft.com/ja-jp/power-platform/admin/get-help-support)  
 
 - [サポートの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/support-overview#using-support)
 
 
-## Azure portalからSRの起票が可能なロール
+## PPAC から サポート リクエスト を起票する方法
+事前に、[上記の起票に使用するアカウントの権限](#PPACからサポートリクエストの起票が可能なロール)と、ご契約のサポート プランの要件をご確認ください。最小権限での実施を推奨いたします。
 
-1) サブスクリプションありの場合
+1) Power Platform 管理センター https://admin.powerplatform.microsoft.com/ にアクセスし、対象テナントのアカウントでサインイン
 
-    Azure portal から サポート リクエスト を作成する場合、サブスクリプションが関与するシナリオでは、対象サブスクリプションのスコープで [所有者]、[共同作成者]、または [サポートリクエスト共同作成者] のいずれか、もしくは [Microsoft.Support/*] アクションを含むカスタム ロールを保持している必要がございます。
+2)  左側ナビゲーションから「サポート」を選択し、「サポートを受ける」ボタンをクリック
+  ![PPAC サポート要求画面](./ppac-azure-sr-roles-restriction/step2_help+support.png)
 
-2) サブスクリプションなしの場合
+3) 項目に従って、以下の情報を入力
+  - 製品/サービス: 例）Power Apps / Power Automate / Power Pages / Dataverse など
+  - 環境: 影響している環境（開発/本番など）
+  - 問題の種類/カテゴリ: 最も近い項目を選択
+  - 重大度（影響度）: 影響範囲・業務影響に応じて選択
 
-    一方、サブスクリプションを伴わないシナリオ（例: Microsoft Entra の課題）では、管理者（Admin）ロールが必要条件として定義されております。
-
-
-    *＜注意＞
-[管理者]はテナント側の管理者でありサービスサポート管理者以上を指します。*
-
-
-なお、権限が不足している場合には Azure portal 上で「You don’t have permission to create a support request」といった表示が行われる可能性がございます。
-この場合は、Microsoft.Support/supportTickets/write を含むロール（例: Support Request Contributor）が適切なスコープで割り当てられているかをご確認ください。
-
-＜参考文献＞
-- [Azure サポート リクエストを作成する](https://learn.microsoft.com/ja-jp/azure/azure-portal/supportability/how-to-create-azure-support-request#getting-started) 
-
-- [サポート リクエスト共同作成者](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/built-in-roles/management-and-governance#support-request-contributor) 
-
-- [Azure RBAC のトラブルシューティング](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/troubleshooting#access-denied-or-permission-errors) 
+起票の際に「どんな動作を期待するか」など、詳細な情報をいただけますとより的確で迅速なご案内が可能でございます。ご協力よろしくお願いいたします。
 
 
-## サポート リクエストの起票をPPACからのみに制限する方法
+(補足)
+プレビュー機能で、[ステップ2](#左側ナビゲーションから「サポート」を選択し、「サポートを受ける」ボタンをクリック)の後に、サポートエージェントが起動します。サポートエージェントとのチャットボットを利用することで早期解決につなげることが可能でございますので、ぜひご活用ください。
 
-サブスクリプションが関与するシナリオの場合は、[PPACからサポート リクエストの起票が可能なロール](#PPACからSRの起票が可能なロール)を満たし、かつ[サブスクリプションありの場合](#サブスクリプションありの場合)を満たさないロールを割り当てることでサポート リクエストの起票をPPACからのみに制限することが可能でございます。
-
-一方で、サブスクリプションを伴わないシナリオの場合は[システム管理者]ロールを割り当てることでサポート リクエストの起票をPPACからのみに制限することが可能でございます。
-
+＜参考資料＞
+[サポート エージェントを使用してソリューションを表示するか、サポート要求を作成する (プレビュー)](#https://learn.microsoft.com/ja-jp/power-platform/admin/get-help-support#view-solutions-or-create-a-support-request-using-the-support-agent-preview)
 
 
 ## まとめ
-本記事では、Power Platform 管理センター（PPAC）とAzure portalのサポート リクエスト起票が可能な権限についてご紹介しました。原則、権限をお持ちであれば、どの窓口からでもサポート リクエストの起票は可能ではございますが、PPACからのみにサポート リクエスト起票を制限することをご希望される方は、本記事をご参考にしていただけますと幸いです。
-
+本記事では、Power Platform 管理センター（PPAC）でサポート リクエスト（SR）を起票するために必要な権限についてご紹介いたしました。Power Platform について少しでもお困りごとがございましたら、私どもサポート チームが全力でご支援いたします。どうぞ本記事を参考に、気兼ねなく SR を起票くださいますようお願い申し上げます。
 
 
 
