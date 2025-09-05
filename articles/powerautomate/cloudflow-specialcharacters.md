@@ -35,13 +35,15 @@ categories:
 <a id='anchor-line-break-issue'></a>
 
 ## 解決したい事象
+
+下のような SharePoint リストから、Power Automate のクラウドフローで複数行テキストを取得する際、
+
 ![](cloudflow-specialcharacters/line-break/list.png)
 
-上のような SharePoint リストから、Power Automate のクラウドフローで複数行テキストを取得する際、
+Teams に投稿すると改行が反映されないことがあります。
 
 ![](cloudflow-specialcharacters/line-break/notify-failure.png)
 
-Teams に投稿すると改行が反映されないことがあります。
 
 以降では、このような事象の解決方法をご案内いたします。  
 ※今回は Teams コネクタを使用している想定での事象となります。コネクタにより動作が異なる可能性がございますのでご留意ください。
@@ -105,11 +107,30 @@ SharePoint リストや Microsoft Excel から取得した複数行テキスト�
 特定の文字列を別の文字列に置換する replace 関数を用いることで、「&lt;br&gt;」タグを挿入することが可能となります。
 
 #### replace(文字列, '\n', '&lt;br&gt;') ではなぜ解消しないのか
-JSON形式での改行コードは「\n」となりますが、Power Automate における改行コードは LF（%0A）となっています。
+![](cloudflow-specialcharacters/line-break/replace/replace-json.png)
+
+フロー内で文字列を扱う際、改行コードは「\n」と表示されますが、Power Automate で変換するときに特殊文字はそのまま扱えません。  
 そのため、replace( 文字列, '\n', '&lt;br&gt;' ) では、Power Automate が認識する改行部分を取得・置換することができません。
 
 今回の方法では、decodeUriComponent 関数を使って「%0A」をデコードすることで、実際の改行文字（LF）を取得しています。  
 その改行文字を replace 関数で 「&lt;br&gt;」タグ に置換することで、Teams などに投稿する際に正しく改行が反映されるようになります。
+
+他のテキストファイルなどからコピーして取得した文字列では、改行コードが LF とは限らない可能性がございますので、　　
+上記方法で上手くいかない場合には、次の「pre タグを使用する方法」をお試しいただくか、以下の表をご参考ください。
+
+※ 改行コードとURLエンコードの対応表
+
+| 改行コード | 意味                          | エンコード後の文字列 |
+|------------|-------------------------------|-----------------------|
+| LF         | Line Feed（改行）             | `%0A`                |
+| CR         | Carriage Return（復帰）       | `%0D`                |
+| CRLF       | Carriage Return + Line Feed   | `%0D%0A`             |
+
+- `decodeUriComponent('%0A')` → LF（改行）を取得
+- `decodeUriComponent('%0D')` → CR（復帰）を取得
+- `decodeUriComponent('%0D%0A')` → CRLF（Windows系改行）を取得
+
+---
 
 <a id='anchor-line-break-pre'></a>
 
