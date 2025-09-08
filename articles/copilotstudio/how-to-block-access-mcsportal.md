@@ -1,6 +1,6 @@
 ---
 title: Copilot Studio エージェントの作成を制御する方法
-date: 2025-08-01 13:30:00
+date: 2025-09-10 13:30:00
 tags:
   - Power Platform
   - Power Virtual Agents
@@ -21,7 +21,7 @@ toc:
 ## はじめに
 本記事では Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内致します。
 
-ご留意点として、Copilot Studio は 2025 年 8 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際にご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。
+ご留意点として、Copilot Studio は 2025 年 9 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際にご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。
 
 ## 作成を制御する方法
 エージェントの作成を制御するためには、[Copilot Studio へのアクセス権](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license)と、エージェントを作成する環境の[セキュリティロール](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles)が必要です。  
@@ -69,7 +69,7 @@ Copilot Studio だけなく、Microsoft 365 Copilot の使用権が含まれて�
 ![](./how-to-block-access-mcsportal/m365copilot.png)
 
 ### Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール
-従量課金環境のみを利用して Copilot Studio を利用するユーザー様向けに用意された機能が「Copilot Studio 作成者」機能です。  
+従量課金環境のみを利用して Copilot Studio を利用するユーザー向けに用意された機能が「Copilot Studio 作成者」機能です。  
 他のユーザーに付与するライセンスと異なり、ユーザーごとにライセンスを付与する必要はありません。  
 Copilot Studio でエージェントを作成したいユーザーをセキュリティグループに追加し、Copilot Studio へのアクセスを許可します。
 
