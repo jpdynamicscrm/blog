@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/</loc>
-    
-    <lastmod>2025-09-08</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/ppac-azure-sr-roles-restriction/</loc>
     
     <lastmod>2025-09-08</lastmod>
@@ -23,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
@@ -31,6 +24,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/pp-copilot-disable/</loc>
+    
+    <lastmod>2025-09-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/connect-private-datasource/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/connect-private-datasource/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
@@ -114,6 +114,13 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901924/</loc>
+    
+    <lastmod>2025-09-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901932/</loc>
     
     <lastmod>2025-09-08</lastmod>
@@ -128,13 +135,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901924/</loc>
-    
-    <lastmod>2025-09-08</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC454715/</loc>
     
     <lastmod>2025-09-08</lastmod>
@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/How-to-block-free-and-trial-licenses/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/How-to-block-free-and-trial-licenses/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
@@ -268,14 +268,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-unattand-automation/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-unattand-automation/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
@@ -310,14 +310,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/logic-app-flow-template-was-invalid-error/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
@@ -367,6 +367,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-trigger-condition/</loc>
+    
+    <lastmod>2025-09-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-specialcharacters/</loc>
     
     <lastmod>2025-09-08</lastmod>
     
