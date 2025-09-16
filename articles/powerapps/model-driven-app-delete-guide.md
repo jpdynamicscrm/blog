@@ -38,7 +38,7 @@ categories:
 
 これら以外のカスタムロールで削除を許可したい場合、両既定ロールが保有する App (App Module) の Delete、関連 Solution 操作 (Read / Write / Delete / Append / Append To) および Publish Customizations などの権限セットを完全に再現する必要があります。
 
-マネージド ソリューション由来アプリはロールに関わらず個別削除できず、マネージド ソリューション全体を環境から削除する必要があります。
+マネージド ソリューションのアプリはロールに関わらず個別削除できず、マネージド ソリューション全体を環境から削除する必要があります。
 
 【ポイント】
 1. 既定ロール: システム管理者 (System Administrator) / システムカスタマイザー (System Customizer) 
@@ -72,7 +72,7 @@ categories:
 
 【ポイント】
 1. ブロック判定: “削除ブロック（Delete blocked by）” タブ列挙項目
-2. 代表要素: SiteMap / Table / SystemForm / SavedQuery / SavedQueryVisualization
+2. 代表的な要素: SiteMap / Table / SystemForm / SavedQuery / SavedQueryVisualization
 
 
 【補足】“使用者（Used by）” に表示されても “削除ブロック（Delete blocked by）” に現れない要素は削除ブロックではありません。無闇に削除すると他アプリや別ソリューションでリンク切れや機能欠落を生む恐れがあります。
@@ -126,7 +126,8 @@ Sql Number: 547
 
 
 エラー対処手順:
-1. システム管理者が対象モデル駆動型アプリを Power Apps (Maker ポータル) で開き「保存して公開」(Save & Publish) を実行（「保存して公開」が非活性の場合はページの追加など軽微な編集を行ってください）
+1. システム管理者が対象モデル駆動型アプリを Power Apps (Maker ポータル) で開き「保存して公開」(Save & Publish) を実行
+（「保存して公開」が非活性の場合はページの追加など軽微な編集を行ってください）
 2. 直後に「再生」(Play) を押下し一度アプリを起動
 
 
