@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処） | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、PowerPlatformサポートチームの三田です。 本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。  Q1: モデル駆動型アプリの削除に必要な権限は？ Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？ Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？  この記事でわかること 削">
+<meta property="og:type" content="article">
+<meta property="og:title" content="モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、PowerPlatformサポートチームの三田です。 本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。  Q1: モデル駆動型アプリの削除に必要な権限は？ Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？ Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？  この記事でわかること 削">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/solution_app.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/app_detail.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/view.png">
+<meta property="article:published_time" content="2025-09-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-17T08:20:26.087Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="powerapps">
+<meta property="article:tag" content="dataverse">
+<meta property="article:tag" content="governance">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/solution_app.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerapps/model-driven-app-delete-guide" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2025-09-15T16:00:00.000Z" itemprop="datePublished">2025-09-16</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerapps/model-driven-app-delete-guide.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/powerapps/">powerapps</a>
+  </div>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d2fc3d64-5857-5512-995e-38075dda0c79%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E5%89%8A%E9%99%A4%E3%82%AC%E3%82%A4%E3%83%89%EF%BC%88%E6%A8%A9%E9%99%90%E3%83%BB%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%83%BB%E5%89%8A%E9%99%A4%E5%A4%B1%E6%95%97%E6%99%82%E5%AF%BE%E5%87%A6%EF%BC%89%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2Fmodel-driven-app-delete-guide%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2Fmodel-driven-app-delete-guide.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerapps%2Fmodel-driven-app-delete-guide.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/" data-id="cmfnpp5yw000u0nnh0ue9f5mh" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、PowerPlatformサポートチームの三田です。</p>
+<p>本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。</p>
+<ul>
+<li><a href="#%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E5%89%8A%E9%99%A4%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%A8%A9%E9%99%90-q1">Q1: モデル駆動型アプリの削除に必要な権限は？</a></li>
+<li><a href="#%E5%89%8A%E9%99%A4%E5%89%8D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%99%E3%81%B9%E3%81%8D%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E6%95%B4%E7%90%86-q2">Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？</a></li>
+<li><a href="#%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%81%AE%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6-q3">Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？</a></li>
+</ul>
+<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<li>削除に必要な基本ロールと最低限の権限</li>
+<li>どの依存関係が削除を止めるのかの判断基準</li>
+<li>マネージド / 案マネージド の違いによる削除可否の差</li>
+<li>依存関係表示が空でも失敗する代表的内部要因</li>
+<li>外部キーエラー (SQL 547) 発生時の実務的回復手順</li>
+</ul>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
+<li><a href="#%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E5%89%8A%E9%99%A4%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%A8%A9%E9%99%90-q1">モデル駆動型アプリ削除に必要な権限 (Q1)</a></li>
+<li><a href="#%E5%89%8A%E9%99%A4%E5%89%8D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%99%E3%81%B9%E3%81%8D%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E6%95%B4%E7%90%86-q2">削除前に確認すべき依存関係の整理 (Q2)</a></li>
+<li><a href="#%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%81%AE%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6-q3">依存関係が表示されないのに削除できない場合の対処 (Q3)</a></li>
+<li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0%E5%8F%AF%E8%83%BD%E6%80%A7">注意事項（情報の更新可能性）</a></li>
+</ul>
+<h2 id="モデル駆動型アプリ削除に必要な権限-Q1"><a href="#モデル駆動型アプリ削除に必要な権限-Q1" class="headerlink" title="モデル駆動型アプリ削除に必要な権限 (Q1)"></a>モデル駆動型アプリ削除に必要な権限 (Q1)</h2><p>【結論】モデル駆動型アプリを削除できる主な既定ロールはシステム管理者 (System Administrator) とシステムカスタマイザー (System Customizer) です。</p>
+<p>これら以外のカスタムロールで削除を許可したい場合、両既定ロールが保有する App (App Module) の Delete、関連 Solution 操作 (Read / Write / Delete / Append / Append To) および Publish Customizations などの権限セットを完全に再現する必要があります。</p>
+<p>マネージド ソリューションのアプリはロールに関わらず個別削除できず、マネージド ソリューション全体を環境から削除する必要があります。</p>
+<p>【ポイント】</p>
+<ol>
+<li>既定ロール: システム管理者 (System Administrator) / システムカスタマイザー (System Customizer) </li>
+<li>必須操作: App Module Delete + Publish Customizations</li>
+<li>付随権限: Solution（Read / Write / Delete / Append / Append To）</li>
+<li>カスタムロール: 上記権限を完全複製で代替可</li>
+<li>マネージド 配下: 個別削除不可（ソリューション全体の削除）</li>
+</ol>
+<p> 【よくある誤解】</p>
+<ul>
+<li>誤解: アプリを作成したユーザなら誰でもそのアプリを削除できる。<ul>
+<li>→ 正しくは: 作成者であっても適切な Delete 権限と関連カスタマイズ権限がなければ削除できません。</li>
+</ul>
+</li>
+<li>誤解: マネージド ソリューションからインポートしたアプリも <a href="#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home">Power Apps ポータル</a>から直接削除できる。<ul>
+<li>→ 正しくは: マネージド ソリューション配下のコンポーネントは個別削除不可で、ソリューションの全体の削除が必要です。</li>
+</ul>
+</li>
+<li>誤解: Publish Customizations 権限は削除には無関係である。<ul>
+<li>→ 正しくは: 削除後の状態反映で公開処理が走るため関連カスタマイズ権限不足でエラーとなる場合があります。</li>
+</ul>
+</li>
+<li>誤解: App Module の Delete 権限さえ付与されていればアプリを削除できる。<ul>
+<li>→ 正しくは: Delete 単独では不十分で Solution への Read / Write / Delete / Append / Append To と Publish Customizations、および依存関係解消が揃って初めて削除可能です。誤設定リスク低減のため既定ロール (システム管理者 / システムカスタマイザー) の利用を推奨します。</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権 (Dataverse)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/privileges-required-customization">カスタマイズに必要な特権 (モデル駆動型アプリ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions">Managed と Unmanaged の違い</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app">モデル駆動型アプリを削除する</a></li>
+</ul>
+<h2 id="削除前に確認すべき依存関係の整理-Q2"><a href="#削除前に確認すべき依存関係の整理-Q2" class="headerlink" title="削除前に確認すべき依存関係の整理 (Q2)"></a>削除前に確認すべき依存関係の整理 (Q2)</h2><p>【結論】依存関係は「アプリが中で利用”している”項目 (用途：Uses)」と「そのアプリを利用”されている”項目 (使用者：Used by)」の 2 種類です。<br>削除を止めるのは依存関係ページの「削除ブロック（Delete blocked by）」タブに表示される項目だけです。</p>
+<p>代表例として SiteMap、テーブル (Table)、フォーム (SystemForm)、ビュー (SavedQuery)、ビューのチャート (SavedQueryVisualization)、ダッシュボード、Business Process Flow、ロール依存、Web リソース、URL Suffix などが該当します。</p>
+<p>【ポイント】</p>
+<ol>
+<li>ブロック判定: “削除ブロック（Delete blocked by）” タブ列挙項目</li>
+<li>代表的な要素: SiteMap / Table / SystemForm / SavedQuery / SavedQueryVisualization</li>
+</ol>
+<p>【補足】“使用者（Used by）” に表示されても “削除ブロック（Delete blocked by）” に現れない要素は削除ブロックではありません。無闇に削除すると他アプリや別ソリューションでリンク切れや機能欠落を生む恐れがあります。</p>
+<p><a href="#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home">Power Apps ポータル</a>で依存関係を確認する手順 (簡易):</p>
+<ol>
+<li>対象環境で ソリューション を開き、アプリを含むソリューションを選択<br> <img src="/blog/powerapps/model-driven-app-delete-guide/solution_app.png" alt="ソリューション内アプリ一覧"></li>
+<li>アプリ行を選択後、該当行のコマンドバー (… など) から「詳細 &gt; 依存関係を表示」をクリック<br> <img src="/blog/powerapps/model-driven-app-delete-guide/app_detail.png" alt="アプリ詳細から依存関係を表示"></li>
+<li>削除ブロック（Delete blocked by）/ 使用者 (Used by) / 用途 (Uses) の各タブで確認可能<br> <img src="/blog/powerapps/model-driven-app-delete-guide/view.png" alt="依存関係ビュー"></li>
+</ol>
+<p>【よくある誤解】</p>
+<ul>
+<li>誤解: アプリを削除すれば内部で参照しているビューやフォームも自動削除される。<ul>
+<li>→ 正しくは: 参照コンポーネントは独立しており自動削除されないため別途クリーンアップが必要です。</li>
+</ul>
+</li>
+<li>誤解: Used by に出た要素はすべて削除ブロックである。<ul>
+<li>→ 正しくは: Delete blocked by に現れない限り直接のブロックではありません。</li>
+</ul>
+</li>
+<li>誤解: マネージド コンポーネントは アンマネージド に変換しないと依存関係表示できない。<ul>
+<li>→ 正しくは: マネージド でも依存関係ビューから直接確認可能です。</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/view-component-dependencies">コンポーネントの依存関係を表示する</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/remove-table-app">テーブルとモデル駆動型アプリ間の依存関係を削除する</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/removing-dependencies">依存関係の削除の概要</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions">Managed と Unmanaged の違い</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app">モデル駆動型アプリを削除する</a></li>
+</ul>
+<h2 id="依存関係が表示されないのに削除できない場合の対処-Q3"><a href="#依存関係が表示されないのに削除できない場合の対処-Q3" class="headerlink" title="依存関係が表示されないのに削除できない場合の対処 (Q3)"></a>依存関係が表示されないのに削除できない場合の対処 (Q3)</h2><p>【結論】依存関係ページにブロック項目が無くても AppSettingBase など内部設定テーブルの参照（外部キー）が残っていると削除が失敗する事例があります。</p>
+<p>以下のようなエラーが発生しシステム管理者でも削除できない事例が複数報告されています。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Sql error: Statement conflicted with a constraint.</span><br><span class="line">The DELETE statement conflicted with the REFERENCE constraint &quot;appmodule_appsetting_parentappmoduleid&quot;.</span><br><span class="line">The conflict occurred in database &quot;db_crmcorejpn_********_********_****&quot;, table &quot;dbo.AppSettingBase&quot;, column &#x27;ParentAppModuleId&#x27;.</span><br><span class="line">The statement has been terminated.</span><br><span class="line">CRM ErrorCode: -2147185375</span><br><span class="line">Sql ErrorCode: -2146232060</span><br><span class="line">Sql Number: 547</span><br></pre></td></tr></table></figure>
+
+<p>エラー文の要点:</p>
+<ol>
+<li>Sql Number 547 は参照整合性 (外部キー) 違反を示す一般的エラー</li>
+<li>外部キー名 appmodule_appsetting_parentappmoduleid は AppSettingBase の ParentAppModuleId が対象 App Module を指しているレコードが残存していることを示唆</li>
+<li>一時的な未公開 / キャッシュ状態や App 設定レイヤー未更新により不要な AppSetting レコード参照が残留している可能性があります。</li>
+</ol>
+<p>エラー対処手順:</p>
+<ol>
+<li>システム管理者が対象モデル駆動型アプリを Power Apps (Maker ポータル) で開き「保存して公開」(Save &amp; Publish) を実行<br>（「保存して公開」が非活性の場合はページの追加など軽微な編集を行ってください）</li>
+<li>直後に「再生」(Play) を押下し一度アプリを起動</li>
+</ol>
+<p>【補足】上記手順でのエラーが解消されない場合は、問題発生直後のサポート リクエストの起票を推奨します。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/view-component-dependencies">コンポーネントの依存関係を表示する</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/removing-dependencies">依存関係の削除の概要</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions">Managed と Unmanaged の違い</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/troubleshoot-common-solution-issues">ソリューションの一般的な問題のトラブルシューティング</a></li>
+</ul>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul>
+<li>モデル駆動型アプリ削除には システム管理者 (System Administrator) / システムカスタマイザー (System Customizer)<br>または同等の削除権限を付与したカスタム セキュリティ ロール が必要です。</li>
+<li>依存関係は <a href="#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home">Power Apps ポータル</a> の「依存関係を表示」から 用途（Use） / 使用者（Used by） / 削除ブロック（Delete blocked by） を確認可能です。</li>
+<li>SQL Number 547 (appmodule_appsetting_parentappmoduleid) は AppSettingBase 残留参照が原因で「保存して公開 → 再生 → 削除」手順が有効です。</li>
+</ul>
+<h2 id="注意事項（情報の更新可能性）"><a href="#注意事項（情報の更新可能性）" class="headerlink" title="注意事項（情報の更新可能性）"></a>注意事項（情報の更新可能性）</h2><p>本記事の内容は執筆日時点の公開情報に基づいています。仕様や UI、権限名称、依存関係の表示挙動は将来変更される可能性があります。最新情報は公式ドキュメントをご確認ください。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dataverse/" rel="tag">dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/governance/" rel="tag">governance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/powerapps/" rel="tag">powerapps</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerapps/model-driven-app-delete-guide.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../powerpages/power-pages-licensing-guide/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Power Pages ライセンスについて
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../powerplatform/ppac-azure-sr-roles-restriction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../powerpages/power-pages-licensing-guide/">Power Pages ライセンスについて</a>
+          </li>
+        
+          <li>
+            <a href="">モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/ppac-azure-sr-roles-restriction/">Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/cloudflow-specialcharacters/">Power Automate で Teams コネクタを使う際に改行を反映する方法</a>
+          </li>
+        
+          <li>
+            <a href="../helpful-information-for-dataflow-sr/">Dataflow お問い合わせの際の情報取得手順</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-builder/" rel="tag">AI builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-Studio/" rel="tag">Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">Excel エクスポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SR/" rel="tag">SR</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/dataverse/" rel="tag">dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/governance/" rel="tag">governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/licensing/" rel="tag">licensing</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/powerapps/" rel="tag">powerapps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/powerpages/" rel="tag">powerpages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/" rel="tag">サポート リクエスト</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">12</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">25</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">19</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/AI-builder/" style="font-size: 10px;">AI builder</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 13.57px;">Canvas app</a> <a href="../../tags/Cloud-flow/" style="font-size: 18.57px;">Cloud flow</a> <a href="../../tags/Connector-and-Connection/" style="font-size: 12.14px;">Connector and Connection</a> <a href="../../tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="../../tags/Copilot-Studio/" style="font-size: 10px;">Copilot Studio</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataflow/" style="font-size: 10px;">Dataflow</a> <a href="../../tags/Dataverse/" style="font-size: 15px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10.71px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10.71px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 12.14px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 15.71px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 11.43px;">Dynamics 365</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 12.86px;">Environment</a> <a href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">Excel エクスポート</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 17.14px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 10.71px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 17.86px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 14.29px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/License/" style="font-size: 12.86px;">License</a> <a href="../../tags/Microsoft-Copilot-Studio/" style="font-size: 11.43px;">Microsoft Copilot Studio</a> <a href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" style="font-size: 10.71px;">Microsoft Teams 連携</a> <a href="../../tags/Model-driven-app/" style="font-size: 12.86px;">Model-driven app</a> <a href="../../tags/Network/" style="font-size: 12.14px;">Network</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.14px;">Power Apps</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 15px;">Power Automate for desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 19.29px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 11.43px;">Power Virtual Agents</a> <a href="../../tags/PowerPlatform/" style="font-size: 11.43px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 11.43px;">PowerShell</a> <a href="../../tags/SR/" style="font-size: 10px;">SR</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/dataverse/" style="font-size: 10px;">dataverse</a> <a href="../../tags/governance/" style="font-size: 10.71px;">governance</a> <a href="../../tags/licensing/" style="font-size: 10px;">licensing</a> <a href="../../tags/powerapps/" style="font-size: 10px;">powerapps</a> <a href="../../tags/powerpages/" style="font-size: 10px;">powerpages</a> <a href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" style="font-size: 16.43px;">お問い合わせ全般</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバスアプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">サポート</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/" style="font-size: 10px;">サポート リクエスト</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E5%BD%B9%E5%89%B2/" style="font-size: 10px;">役割</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 13.57px;">情報採取</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-App/">Canvas App</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/">サポート</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/powerapps/">powerapps</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/powerplatform/">powerplatform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2025 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

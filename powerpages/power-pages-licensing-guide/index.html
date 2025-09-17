@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Power Pages ライセンスについて | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、PowerPlatformサポートチームの三田です。 本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。  Q1: Power Pages の基本的なライセンスモデル（何をどの単位で購入 &#x2F; 課金するか）は？ Q2: 認証ユーザー (Authenticated) と匿名ユーザー (Anonymous) のカウント方式の違いは？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power Pages ライセンスについて">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-licensing-guide/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、PowerPlatformサポートチームの三田です。 本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。  Q1: Power Pages の基本的なライセンスモデル（何をどの単位で購入 &#x2F; 課金するか）は？ Q2: 認証ユーザー (Authenticated) と匿名ユーザー (Anonymous) のカウント方式の違いは？">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2025-09-15T16:30:00.000Z">
+<meta property="article:modified_time" content="2025-09-17T08:20:26.199Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="governance">
+<meta property="article:tag" content="powerpages">
+<meta property="article:tag" content="licensing">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerpages/power-pages-licensing-guide" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Power Pages ライセンスについて
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2025-09-15T16:30:00.000Z" itemprop="datePublished">2025-09-16</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerpages/power-pages-licensing-guide.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/powerplatform/">powerplatform</a>
+  </div>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+38bb8a07-385f-525e-be5c-e536c1e7a84a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Pages+%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerpages%2Fpower-pages-licensing-guide%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerpages%2Fpower-pages-licensing-guide.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerpages%2Fpower-pages-licensing-guide.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-licensing-guide/" data-id="cmfnpp5zu003e0nnhh7q7ggmv" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、PowerPlatformサポートチームの三田です。</p>
+<p>本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。</p>
+<ul>
+<li><a href="#power-pages-%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%83%A2%E3%83%87%E3%83%AB-q1">Q1: Power Pages の基本的なライセンスモデル（何をどの単位で購入 / 課金するか）は？</a></li>
+<li><a href="#%E8%AA%8D%E8%A8%BC%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%A8%E5%8C%BF%E5%90%8D%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%96%B9%E5%BC%8F-q2">Q2: 認証ユーザー (Authenticated) と匿名ユーザー (Anonymous) のカウント方式の違いは？</a></li>
+<li><a href="#%E5%88%A9%E7%94%A8%E3%81%8C%E8%B6%85%E9%81%8E%E3%81%97%E3%81%9D%E3%81%86%E3%81%BE%E3%81%9F%E3%81%AF%E8%B6%85%E9%81%8E%E3%81%97%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%BF%9C-q3">Q3: 月中で想定より利用が増えた（超過しそう / した）場合はどう判断・対応する？</a></li>
+<li><a href="#%E8%AA%8D%E8%A8%BC%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%83%A6%E3%83%8B%E3%83%BC%E3%82%AF%E5%88%A4%E5%AE%9A-%E9%87%8D%E8%A4%87%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%AE%E6%89%B1%E3%81%84-q4">Q4: 認証ユーザー数の「ユニーク」判定はどのように行われる？（複数回ログイン時の扱い）</a></li>
+<li><a href="#%E5%86%85%E9%83%A8%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E6%97%A2%E5%AD%98%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%A8%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E9%99%A4%E5%A4%96-q5">Q5: 既に Power Apps / Dynamics 365 ライセンスを持つ社内（内部）ユーザーは別途カウント / 課金が必要か？</a></li>
+<li><a href="#%E5%8C%BF%E5%90%8D%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%B8%80%E6%84%8F%E5%88%A4%E5%AE%9A%E3%81%A8%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%B7%AE%E7%95%B0cookie%E5%89%8A%E9%99%A4%E3%81%AE%E5%BD%B1%E9%9F%BF-q6">Q6: 匿名ユーザー数はどのように一意判定され異なるデバイスやCookie削除時はどう扱われるか？</a></li>
+</ul>
+<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<li>現行 Power Pages の容量（Capacity）ベース課金モデルの全体像</li>
+<li>認証 / 匿名ユーザーの「月次ユニーク」測定基準と非カウント条件</li>
+<li>既存 Power Apps / Dynamics 365 ライセンス保有ユーザーの扱い（重複課金回避）</li>
+<li>超過（Overage）したときの対処法</li>
+<li>よくある誤解（旧ポータル Login/Page View モデルとの混同 など）の整理</li>
+</ul>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
+<li><a href="#power-pages-%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%83%A2%E3%83%87%E3%83%AB-q1">Power Pages の基本ライセンスモデル (Q1)</a></li>
+<li><a href="#%E8%AA%8D%E8%A8%BC%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%A8%E5%8C%BF%E5%90%8D%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%96%B9%E5%BC%8F-q2">認証ユーザーと匿名ユーザーのカウント方式 (Q2)</a></li>
+<li><a href="#%E5%88%A9%E7%94%A8%E3%81%8C%E8%B6%85%E9%81%8E%E3%81%97%E3%81%9D%E3%81%86%E3%81%BE%E3%81%9F%E3%81%AF%E8%B6%85%E9%81%8E%E3%81%97%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%BF%9C-q3">利用が超過しそうまたは超過した場合の対応 (Q3)</a></li>
+<li><a href="#%E8%AA%8D%E8%A8%BC%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%83%A6%E3%83%8B%E3%83%BC%E3%82%AF%E5%88%A4%E5%AE%9A-%E9%87%8D%E8%A4%87%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%AE%E6%89%B1%E3%81%84-q4">認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)</a></li>
+<li><a href="#%E5%86%85%E9%83%A8%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E6%97%A2%E5%AD%98%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%A8%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E9%99%A4%E5%A4%96-q5">内部ユーザー既存ライセンスとカウント除外 (Q5)</a></li>
+<li><a href="#%E5%8C%BF%E5%90%8D%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%B8%80%E6%84%8F%E5%88%A4%E5%AE%9A%E3%81%A8%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%B7%AE%E7%95%B0cookie%E5%89%8A%E9%99%A4%E3%81%AE%E5%BD%B1%E9%9F%BF-q6">匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)</a></li>
+<li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0%E5%8F%AF%E8%83%BD%E6%80%A7">注意事項（情報の更新可能性）</a></li>
+</ul>
+<h2 id="Power-Pages-の基本ライセンスモデル-Q1"><a href="#Power-Pages-の基本ライセンスモデル-Q1" class="headerlink" title="Power Pages の基本ライセンスモデル (Q1)"></a>Power Pages の基本ライセンスモデル (Q1)</h2><p>【結論】Power Pages は「月次ユニークユーザー数」を軸にした Capacity（容量）ベースのライセンスモデルです。<br>対象は (1) 認証ユーザー (Authenticated users) と (2) 匿名ユーザー (Anonymous users) の 2 系列です。<br>サブスクリプション購入（事前割当）と Pay-as-you-go メーター（実使用後精算）が併存します。</p>
+<p>【ポイント】</p>
+<ol>
+<li>ライセンス対象単位: 「サイト単位の月次ユニークユーザー数」</li>
+<li>種別: 認証ユーザー (Authenticated users) と 匿名ユーザー (Anonymous users) は人数を「別々に」数える（互いに混ざらない・合算しない）</li>
+<li>購入形態: 容量パック (100 認証 / 500 匿名 単位) のサブスクリプション、または Azure 課金の Pay-as-you-go メーター</li>
+<li>認証/匿名いずれも「その月に 1 回以上アクセスした一意ユーザー」で 1 カウント（基本的には複数回アクセスしても追加カウントされない）</li>
+<li>旧モデル (ログイン数 / ページビュー) とは測定概念が異なる（ログイン回数ではなくユーザー人数）</li>
+</ol>
+<p>【サブスクリプション 容量パック 概要（抜粋）】</p>
+<ul>
+<li>認証: 1 パック = 100 ユーザー / 月</li>
+<li>匿名: 1 パック = 500 ユーザー / 月</li>
+</ul>
+<p>（複数 パック 積み上げでサイト想定上限を設計。内部的には環境ごとに最小割当値: 認証 25 / 匿名 200）</p>
+<p>【よくある誤解】</p>
+<ul>
+<li>誤解: 「ログイン回数が課金対象である」<ul>
+<li>→ 正しくは: 月内ユニークユーザー数。1 ユーザーが 30 回ログインしても 1 です。</li>
+</ul>
+</li>
+<li>誤解: 「容量パック を買うと未使用ぶんは翌月に繰り越せる」<ul>
+<li>→ 正しくは: 繰り越し不可（月ごとリセット）。</li>
+</ul>
+</li>
+<li>誤解: 「サイト数に比例して必ず追加 Dataverse 容量が必要」<ul>
+<li>→ 正しくは: 今の Power Pages ではサイトを作るときに Dataverse の容量を新しく買い足す必要はありません（最初からある分で始められます）。</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#how-is-power-pages-licensed">Power Pages のライセンス体系 (FAQ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-main-differences-between-power-pages-and-power-apps-portals-licensing">Power Pages と旧 Power Apps ポータル ライセンス比較 (FAQ)</a></li>
+</ul>
+<h2 id="認証ユーザーと匿名ユーザーのカウント方式-Q2"><a href="#認証ユーザーと匿名ユーザーのカウント方式-Q2" class="headerlink" title="認証ユーザーと匿名ユーザーのカウント方式 (Q2)"></a>認証ユーザーと匿名ユーザーのカウント方式 (Q2)</h2><p>【結論】認証ユーザーは Dataverse の Contact レコード ID で一意判定し、匿名ユーザーはブラウザ Cookie に保持される匿名ユーザー ID で一意化されます。いずれも「その暦月に初めてカウントされた時点で 1」となり再度ログイン（または閲覧）しても加算されません。</p>
+<p>【ポイント】</p>
+<ol>
+<li>認証ユーザー: ログインに成功した Contact 1 件 = 1（同月内複数回ログインは再カウント無し）</li>
+<li>匿名ユーザー: 匿名ページを閲覧したブラウザ Cookie 単位で初回のみカウント（同月内の複数回訪問は再カウント無し）</li>
+<li>匿名ユーザーとして数えない主なケース：「テスト用で触っているだけ」「ログインするための画面だけ見た」「機械（検索ロボット）が来た」「その日あとでログインして本人だと分かった」など。（こうした場合は匿名人数を増やさず、必要なら認証ユーザー側だけ数えます。）</li>
+<li>同一人物が異なるブラウザ・端末・Cookie クリアを行うと別匿名ユーザーとして計上され得る</li>
+<li>匿名→同日内ログイン移行時は「認証ユーザーのみ」計上（匿名側重複排除）</li>
+</ol>
+<p>【よくある誤解】</p>
+<ul>
+<li>誤解: 「匿名はページビュー合計」<ul>
+<li>→ 正しくは: ユニーク匿名ユーザー（Cookie ベース）</li>
+</ul>
+</li>
+<li>誤解: 「ログインページ（サインイン）閲覧も匿名ユーザーとしてカウントされる」<ul>
+<li>→ 正しくは: ログインページは非カウント対象</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-authenticated-user-and-how-are-authenticated-users-per-websitemonth-calculated">認証ユーザーの定義と算出方法 (FAQ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-anonymous-user-and-how-are-anonymous-users-per-websitemonth-calculated">匿名ユーザーの定義と算出方法 (FAQ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-scenarios-in-which-a-user-isnt-counted-as-an-anonymous-user-even-though-the-user-browses-an-anonymous-page-on-the-website">匿名ユーザーにカウントされないシナリオ (FAQ)</a></li>
+</ul>
+<h2 id="利用が超過しそうまたは超過した場合の対応-Q3"><a href="#利用が超過しそうまたは超過した場合の対応-Q3" class="headerlink" title="利用が超過しそうまたは超過した場合の対応 (Q3)"></a>利用が超過しそうまたは超過した場合の対応 (Q3)</h2><p>【結論】月次集計は月初にリセットされ日次累積で増加します。想定上限に近づいたら (1) 追加 容量パック 割当、(2) 他環境からの再配分、(3) Pay-as-you-go への紐付け検討 の順に評価することを推奨します。また、超過した場合、即座にサイトが停止したり、超過分の料金を請求されることはありません。</p>
+<p>【補足】データが反映されるまでに 1 日程度かかることがあります。</p>
+<p>【ポイント】</p>
+<ol>
+<li>対応オプション: 追加購入・未割当容量の再割当・Pay-as-you-go 化（Azure サブスクリプション）</li>
+<li>計画: 事前に、季節変動がある場合はピーク月を基準に容量パックの検討</li>
+</ol>
+<p>【よくある誤解】</p>
+<ul>
+<li>誤解: 「超過したら即座にサイト停止や罰金のような追加請求が起きる」<ul>
+<li>→ 正しくは: 即時停止・即ペナルティ的課金はありませんが、継続超過は早期の容量見直しが必要です。</li>
+</ul>
+</li>
+<li>誤解: 「Pay-as-you-go にするとサブスクリプション容量は不要になる」<ul>
+<li>→ 正しくは: 併用設計可。ベース容量 + 変動部を Pay-as-you-go で吸収するハイブリッドが実務上多い。</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-pages/admin/capacity-management#licensing-summary-view">容量の監視: ライセンス サマリービュー (Docs)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-pages/admin/capacity-management#capacity-management">容量管理ペイン (Docs)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#for-subscription-based-licenses-what-is-the-minimum-number-of-authenticated-and-anonymous-user-capacity-i-need-to-assign-to-an-environment">最小割り当て数 / パック (FAQ)</a></li>
+</ul>
+<h2 id="認証ユーザーのユニーク判定（重複ログインの扱い）-Q4"><a href="#認証ユーザーのユニーク判定（重複ログインの扱い）-Q4" class="headerlink" title="認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)"></a>認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)</h2><p>【結論】同一 Contact に紐づくユーザーが暦月中に複数回ログインしても 1 カウントのみです。判定キーは Dataverse Contact レコード ID で、月初リセット後に再度初回ログインした時点で新しい月の 1 として加算されます。</p>
+<p>【ポイント】</p>
+<ol>
+<li>判定キー: Dataverse Contact ID</li>
+<li>同月内複数ログイン: 再カウント無し</li>
+<li>翌月: 初回アクセス時に再び 1 としてカウント</li>
+<li>旧“ログイン” 課金との比較: 旧 Portals Login (日次ユニーク * 日数) と違い総ログイン回数増加は費用へ直結しない</li>
+</ol>
+<p>【よくある誤解】</p>
+<ul>
+<li>誤解: 「同じ人が 1 日に何回もログインすると、その回数分追加料金がかかる」<ul>
+<li>→ 正: その月に 1 回でもログインした“その人”は 1 人として数えます。翌月になるまで同じ人が何十回ログインしても増えません。</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-authenticated-user-and-how-are-authenticated-users-per-websitemonth-calculated">認証ユーザー月次カウント方法 (FAQ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-the-difference-between-power-apps-portals-login-capacity-and-power-pages-authenticated-per-usermonth-capacity">旧ログイン容量との違い (FAQ)</a></li>
+</ul>
+<h2 id="内部ユーザー既存ライセンスとカウント除外-Q5"><a href="#内部ユーザー既存ライセンスとカウント除外-Q5" class="headerlink" title="内部ユーザー既存ライセンスとカウント除外 (Q5)"></a>内部ユーザー既存ライセンスとカウント除外 (Q5)</h2><p>【結論】社内の人がすでに以下のいずれかのライセンスを持っていて（同じテナントで付与済み）、会社のアカウント（Entra ID）で Power Pages サイトに入るなら、その人は「Power Pages の認証ユーザー数」には数えません。ライセンスが無い社内ユーザーや会社外の人だけが、Power Pages 認証容量を消費します。</p>
+<p>対象となる既存ライセンス（どれか 1 つ持っていれば除外）:</p>
+<ul>
+<li>Power Apps per user（1 人で複数アプリ使えるライセンス）</li>
+<li>Power Apps per app（指定された 1 サイト/アプリ分の利用権）</li>
+<li>Dynamics 365 Enterprise ライセンス（該当業務アプリの利用権）</li>
+</ul>
+<p>【ポイント】</p>
+<ol>
+<li>すでに 上記既存ライセンスを保持しているユーザー → Power Pages の認証ユーザー容量を消費しない（カウント除外）</li>
+<li>上記いずれのライセンスも持っていない社内ユーザー / 社外ユーザー（取引先・お客様など） → Power Pages の認証ユーザー容量を消費する</li>
+</ol>
+<p>【よくある誤解】</p>
+<ul>
+<li>誤解: 「社内ユーザーは全員 認証ユーザーとしてカウントされる」<ul>
+<li>→ 正しくは: 上記の既存ライセンス保持者はカウントされません（容量を消費しません）。</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-power-pages-use-rights-included-with-power-apps-and-dynamics-365-enterprise-licenses">Power Apps / Dynamics 365 に含まれる利用権 (FAQ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#if-im-building-a-power-pages-website-for-my-employees-who-log-in-using-their-microsoft-entra-credentials-what-power-pages-licenses-do-i-need">社内ユーザー向けライセンス選択 (FAQ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-pages/faq#are-the-guest-users-treated-as-internal-users-for-licensing">ゲスト ユーザーは内部扱いか (FAQ)</a></li>
+</ul>
+<h2 id="匿名ユーザーの一意判定とブラウザ差異-Cookie削除の影響-Q6"><a href="#匿名ユーザーの一意判定とブラウザ差異-Cookie削除の影響-Q6" class="headerlink" title="匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)"></a>匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)</h2><p>【結論】匿名ユーザーはブラウザ Cookie に保存される匿名 ID で月内ユニーク判定します。別ブラウザ・別端末・Cookie 削除で ID が変われば別ユーザーとしてカウントされます。</p>
+<p>【ポイント】</p>
+<ol>
+<li>判定キー: 匿名 Cookie ID（ブラウザ/端末単位）</li>
+<li>Cookie クリア / ブラウザ変更 / 端末変更: 新規ユーザーとして再カウントされ得る</li>
+<li>同日匿名→認証ログイン: 認証側のみ残る（匿名で閲覧した後、認証ログインした場合は、認証ユーザーとしてのみカウントされる）</li>
+<li>ログインページ / エラーページ等への訪問はカウントされない</li>
+</ol>
+<p>【よくある誤解】</p>
+<ul>
+<li>誤解: 「匿名はページビュー合計なので画像読み込み等も増加させる」<ul>
+<li>→ 正しくは: 静的リソースのみではカウントされません。</li>
+</ul>
+</li>
+<li>誤解: 「匿名で閲覧した後、ログイン認証した場合は、匿名ユーザーと認証ユーザーで 2 重計上される」<ul>
+<li>→ 正しくは: 当日内は認証ユーザーとしてカウントされ、匿名ユーザーではカウントされません。</li>
+</ul>
+</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-anonymous-user-and-how-are-anonymous-users-per-websitemonth-calculated">匿名ユーザー月次カウント方法 (FAQ)</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-scenarios-in-which-a-user-isnt-counted-as-an-anonymous-user-even-though-the-user-browses-an-anonymous-page-on-the-website">匿名にカウントされないシナリオ (FAQ)</a></li>
+</ul>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul>
+<li>Power Pages は 認証 / 匿名 の月次ユニークユーザー Capacity モデル。旧 Portals の「Login / Page View」課金とは概念が異なります。</li>
+<li>認証ユニーク: Contact ID ベース。匿名ユニーク: Cookie ID ベース。どちらも月初リセット。</li>
+<li>超過が懸念される場合は、追加購入・再割当・Pay-as-you-go を使い分けます。</li>
+<li>超過してしまっても、即停止・追加請求の心配はありません。</li>
+<li>内部ユーザーで Power Apps per user / per app / Dynamics 365 Enterprise ライセンス保持者は条件を満たせば認証容量を消費しません。</li>
+</ul>
+<h2 id="注意事項（情報の更新可能性）"><a href="#注意事項（情報の更新可能性）" class="headerlink" title="注意事項（情報の更新可能性）"></a>注意事項（情報の更新可能性）</h2><p>本記事は執筆日時点の公開情報に基づいています。ライセンス体系・容量定義・ UI 表示・最小割当値などは将来変更される可能性があります。最新情報は必ず公式ドキュメント（Power Pages Licensing FAQ / 管理センター画面 / 最新 Licensing Guide）でご確認ください。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/governance/" rel="tag">governance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/licensing/" rel="tag">licensing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/powerpages/" rel="tag">powerpages</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerpages/power-pages-licensing-guide.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerapps/model-driven-app-delete-guide/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Power Pages ライセンスについて</a>
+          </li>
+        
+          <li>
+            <a href="../../powerapps/model-driven-app-delete-guide/">モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/ppac-azure-sr-roles-restriction/">Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerautomate/cloudflow-specialcharacters/">Power Automate で Teams コネクタを使う際に改行を反映する方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerapps/helpful-information-for-dataflow-sr/">Dataflow お問い合わせの際の情報取得手順</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-builder/" rel="tag">AI builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-Studio/" rel="tag">Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">Excel エクスポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SR/" rel="tag">SR</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/dataverse/" rel="tag">dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/governance/" rel="tag">governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/licensing/" rel="tag">licensing</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/powerapps/" rel="tag">powerapps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/powerpages/" rel="tag">powerpages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/" rel="tag">サポート リクエスト</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">12</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">25</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">19</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/AI-builder/" style="font-size: 10px;">AI builder</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 13.57px;">Canvas app</a> <a href="../../tags/Cloud-flow/" style="font-size: 18.57px;">Cloud flow</a> <a href="../../tags/Connector-and-Connection/" style="font-size: 12.14px;">Connector and Connection</a> <a href="../../tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="../../tags/Copilot-Studio/" style="font-size: 10px;">Copilot Studio</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataflow/" style="font-size: 10px;">Dataflow</a> <a href="../../tags/Dataverse/" style="font-size: 15px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10.71px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10.71px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 12.14px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 15.71px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 11.43px;">Dynamics 365</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 12.86px;">Environment</a> <a href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">Excel エクスポート</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 17.14px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 10.71px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 17.86px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 14.29px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/License/" style="font-size: 12.86px;">License</a> <a href="../../tags/Microsoft-Copilot-Studio/" style="font-size: 11.43px;">Microsoft Copilot Studio</a> <a href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" style="font-size: 10.71px;">Microsoft Teams 連携</a> <a href="../../tags/Model-driven-app/" style="font-size: 12.86px;">Model-driven app</a> <a href="../../tags/Network/" style="font-size: 12.14px;">Network</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.14px;">Power Apps</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 15px;">Power Automate for desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 19.29px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 11.43px;">Power Virtual Agents</a> <a href="../../tags/PowerPlatform/" style="font-size: 11.43px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 11.43px;">PowerShell</a> <a href="../../tags/SR/" style="font-size: 10px;">SR</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/dataverse/" style="font-size: 10px;">dataverse</a> <a href="../../tags/governance/" style="font-size: 10.71px;">governance</a> <a href="../../tags/licensing/" style="font-size: 10px;">licensing</a> <a href="../../tags/powerapps/" style="font-size: 10px;">powerapps</a> <a href="../../tags/powerpages/" style="font-size: 10px;">powerpages</a> <a href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" style="font-size: 16.43px;">お問い合わせ全般</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバスアプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">サポート</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/" style="font-size: 10px;">サポート リクエスト</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E5%BD%B9%E5%89%B2/" style="font-size: 10px;">役割</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 13.57px;">情報採取</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-App/">Canvas App</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/">サポート</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/powerapps/">powerapps</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/powerplatform/">powerplatform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2025 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
