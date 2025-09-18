@@ -15,12 +15,12 @@ categories:
 
 本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。
 
-- [Q1: Power Pages の基本的なライセンスモデル（何をどの単位で購入 / 課金するか）は？](#power-pages-の基本ライセンスモデル-q1)
-- [Q2: 認証ユーザー (Authenticated) と匿名ユーザー (Anonymous) のカウント方式の違いは？](#認証ユーザーと匿名ユーザーのカウント方式-q2)
-- [Q3: 月中で想定より利用が増えた（超過しそう / した）場合はどう判断・対応する？](#利用が超過しそうまたは超過した場合の対応-q3)
-- [Q4: 認証ユーザー数の「ユニーク」判定はどのように行われる？（複数回ログイン時の扱い）](#認証ユーザーのユニーク判定-重複ログインの扱い-q4)
-- [Q5: 既に Power Apps / Dynamics 365 ライセンスを持つ社内（内部）ユーザーは別途カウント / 課金が必要か？](#内部ユーザー既存ライセンスとカウント除外-q5)
-- [Q6: 匿名ユーザー数はどのように一意判定され異なるデバイスやCookie削除時はどう扱われるか？](#匿名ユーザーの一意判定とブラウザ差異cookie削除の影響-q6)
+- [Q1: Power Pages の基本的なライセンスモデル（何をどの単位で購入 / 課金するか）は？](#q1)
+- [Q2: 認証ユーザー (Authenticated) と匿名ユーザー (Anonymous) のカウント方式の違いは？](#q2)
+- [Q3: 月中で想定より利用が増えた（超過しそう / した）場合はどう判断・対応する？](#q3)
+- [Q4: 認証ユーザー数の「ユニーク」判定はどのように行われる？（複数回ログイン時の扱い）](#q4)
+- [Q5: 既に Power Apps / Dynamics 365 ライセンスを持つ社内（内部）ユーザーは別途カウント / 課金が必要か？](#q5)
+- [Q6: 匿名ユーザー数はどのように一意判定され異なるデバイスやCookie削除時はどう扱われるか？](#q6)
 
 ### この記事でわかること
 - 現行 Power Pages の容量（Capacity）ベース課金モデルの全体像
@@ -30,16 +30,16 @@ categories:
 - よくある誤解（旧ポータル Login/Page View モデルとの混同 など）の整理
 
 ## 目次
-- [Power Pages の基本ライセンスモデル (Q1)](#power-pages-の基本ライセンスモデル-q1)
-- [認証ユーザーと匿名ユーザーのカウント方式 (Q2)](#認証ユーザーと匿名ユーザーのカウント方式-q2)
-- [利用が超過しそうまたは超過した場合の対応 (Q3)](#利用が超過しそうまたは超過した場合の対応-q3)
-- [認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)](#認証ユーザーのユニーク判定-重複ログインの扱い-q4)
-- [内部ユーザー既存ライセンスとカウント除外 (Q5)](#内部ユーザー既存ライセンスとカウント除外-q5)
-- [匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)](#匿名ユーザーの一意判定とブラウザ差異cookie削除の影響-q6)
-- [まとめ](#まとめ)
-- [注意事項（情報の更新可能性）](#注意事項情報の更新可能性)
+- [Power Pages の基本ライセンスモデル (Q1)](#q1)
+- [認証ユーザーと匿名ユーザーのカウント方式 (Q2)](#q2)
+- [利用が超過しそうまたは超過した場合の対応 (Q3)](#q3)
+- [認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)](#q4)
+- [内部ユーザー既存ライセンスとカウント除外 (Q5)](#q5)
+- [匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)](#q6)
+- [まとめ](#summary)
+- [注意事項（情報の更新可能性）](#notice)
 
-## Power Pages の基本ライセンスモデル (Q1)
+<h2 id="q1">Power Pages の基本ライセンスモデル (Q1)</h2>
 【結論】Power Pages は「月次ユニークユーザー数」を軸にした Capacity（容量）ベースのライセンスモデルです。
 対象は (1) 認証ユーザー (Authenticated users) と (2) 匿名ユーザー (Anonymous users) の 2 系列です。
 サブスクリプション購入（事前割当）と Pay-as-you-go メーター（実使用後精算）が併存します。
@@ -69,7 +69,7 @@ categories:
 - [Power Pages のライセンス体系 (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#how-is-power-pages-licensed)
 - [Power Pages と旧 Power Apps ポータル ライセンス比較 (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-main-differences-between-power-pages-and-power-apps-portals-licensing)
 
-## 認証ユーザーと匿名ユーザーのカウント方式 (Q2)
+<h2 id="q2">認証ユーザーと匿名ユーザーのカウント方式 (Q2)</h2>
 【結論】認証ユーザーは Dataverse の Contact レコード ID で一意判定し、匿名ユーザーはブラウザ Cookie に保持される匿名ユーザー ID で一意化されます。いずれも「その暦月に初めてカウントされた時点で 1」となり再度ログイン（または閲覧）しても加算されません。
 
 【ポイント】
@@ -90,7 +90,7 @@ categories:
 - [匿名ユーザーの定義と算出方法 (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-anonymous-user-and-how-are-anonymous-users-per-websitemonth-calculated)
 - [匿名ユーザーにカウントされないシナリオ (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-scenarios-in-which-a-user-isnt-counted-as-an-anonymous-user-even-though-the-user-browses-an-anonymous-page-on-the-website)
 
-## 利用が超過しそうまたは超過した場合の対応 (Q3)
+<h2 id="q3">利用が超過しそうまたは超過した場合の対応 (Q3)</h2>
 【結論】月次集計は月初にリセットされ日次累積で増加します。想定上限に近づいたら (1) 追加 容量パック 割当、(2) 他環境からの再配分、(3) Pay-as-you-go への紐付け検討 の順に評価することを推奨します。また、超過した場合、即座にサイトが停止したり、超過分の料金を請求されることはありません。
 
 【補足】データが反映されるまでに 1 日程度かかることがあります。
@@ -112,7 +112,7 @@ categories:
 - [最小割り当て数 / パック (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#for-subscription-based-licenses-what-is-the-minimum-number-of-authenticated-and-anonymous-user-capacity-i-need-to-assign-to-an-environment)
 
 
-## 認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)
+<h2 id="q4">認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)</h2>
 【結論】同一 Contact に紐づくユーザーが暦月中に複数回ログインしても 1 カウントのみです。判定キーは Dataverse Contact レコード ID で、月初リセット後に再度初回ログインした時点で新しい月の 1 として加算されます。
 
 【ポイント】
@@ -130,7 +130,7 @@ categories:
 - [認証ユーザー月次カウント方法 (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-authenticated-user-and-how-are-authenticated-users-per-websitemonth-calculated)
 - [旧ログイン容量との違い (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-the-difference-between-power-apps-portals-login-capacity-and-power-pages-authenticated-per-usermonth-capacity)
 
-## 内部ユーザー既存ライセンスとカウント除外 (Q5)
+<h2 id="q5">内部ユーザー既存ライセンスとカウント除外 (Q5)</h2>
 【結論】社内の人がすでに以下のいずれかのライセンスを持っていて（同じテナントで付与済み）、会社のアカウント（Entra ID）で Power Pages サイトに入るなら、その人は「Power Pages の認証ユーザー数」には数えません。ライセンスが無い社内ユーザーや会社外の人だけが、Power Pages 認証容量を消費します。
 
 対象となる既存ライセンス（どれか 1 つ持っていれば除外）:
@@ -153,7 +153,7 @@ categories:
 - [社内ユーザー向けライセンス選択 (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#if-im-building-a-power-pages-website-for-my-employees-who-log-in-using-their-microsoft-entra-credentials-what-power-pages-licenses-do-i-need)
 - [ゲスト ユーザーは内部扱いか (FAQ)](https://learn.microsoft.com/ja-jp/power-pages/faq#are-the-guest-users-treated-as-internal-users-for-licensing)
 
-## 匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)
+<h2 id="q6">匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)</h2>
 【結論】匿名ユーザーはブラウザ Cookie に保存される匿名 ID で月内ユニーク判定します。別ブラウザ・別端末・Cookie 削除で ID が変われば別ユーザーとしてカウントされます。
 
 【ポイント】
@@ -172,12 +172,13 @@ categories:
 - [匿名ユーザー月次カウント方法 (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-anonymous-user-and-how-are-anonymous-users-per-websitemonth-calculated)
 - [匿名にカウントされないシナリオ (FAQ)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-scenarios-in-which-a-user-isnt-counted-as-an-anonymous-user-even-though-the-user-browses-an-anonymous-page-on-the-website)
 
-## まとめ
+<h2 id="summary">まとめ</h2>
 - Power Pages は 認証 / 匿名 の月次ユニークユーザー Capacity モデル。旧 Portals の「Login / Page View」課金とは概念が異なります。
 - 認証ユニーク: Contact ID ベース。匿名ユニーク: Cookie ID ベース。どちらも月初リセット。
 - 超過が懸念される場合は、追加購入・再割当・Pay-as-you-go を使い分けます。
 - 超過してしまっても、即停止・追加請求の心配はありません。
 - 内部ユーザーで Power Apps per user / per app / Dynamics 365 Enterprise ライセンス保持者は条件を満たせば認証容量を消費しません。
 
-## 注意事項（情報の更新可能性）
+<h2 id="notice">注意事項（情報の更新可能性）</h2>
 本記事は執筆日時点の公開情報に基づいています。ライセンス体系・容量定義・ UI 表示・最小割当値などは将来変更される可能性があります。最新情報は必ず公式ドキュメント（Power Pages Licensing FAQ / 管理センター画面 / 最新 Licensing Guide）でご確認ください。
+
