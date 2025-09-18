@@ -7,7 +7,7 @@ tags:
   - Power Platform
   - Power Automate
 categories:
-  - [Power Automate]
+  - [Power Platform]
 ---
 
 
