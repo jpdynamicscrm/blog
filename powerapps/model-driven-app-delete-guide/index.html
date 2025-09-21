@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   
   
-  <title>モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処） | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>モデル駆動型アプリ削除ガイド | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="こんにちは、PowerPlatformサポートチームの三田です。 本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。  Q1: モデル駆動型アプリの削除に必要な権限は？ Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？ Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？  この記事でわかること 削">
 <meta property="og:type" content="article">
-<meta property="og:title" content="モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）">
+<meta property="og:title" content="モデル駆動型アプリ削除ガイド">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、PowerPlatformサポートチームの三田です。 本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。  Q1: モデル駆動型アプリの削除に必要な権限は？ Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？ Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？  この記事でわかること 削">
@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/app_detail.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/view.png">
 <meta property="article:published_time" content="2025-09-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-17T08:20:26.087Z">
+<meta property="article:modified_time" content="2025-09-21T07:14:58.608Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="powerapps">
 <meta property="article:tag" content="dataverse">
@@ -95,7 +95,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）
+      モデル駆動型アプリ削除ガイド
     </h1>
   
 
@@ -162,9 +162,9 @@
   </div>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d2fc3d64-5857-5512-995e-38075dda0c79%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E5%89%8A%E9%99%A4%E3%82%AC%E3%82%A4%E3%83%89%EF%BC%88%E6%A8%A9%E9%99%90%E3%83%BB%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%83%BB%E5%89%8A%E9%99%A4%E5%A4%B1%E6%95%97%E6%99%82%E5%AF%BE%E5%87%A6%EF%BC%89%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2Fmodel-driven-app-delete-guide%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2Fmodel-driven-app-delete-guide.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerapps%2Fmodel-driven-app-delete-guide.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d2fc3d64-5857-5512-995e-38075dda0c79%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E5%89%8A%E9%99%A4%E3%82%AC%E3%82%A4%E3%83%89%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2Fmodel-driven-app-delete-guide%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2Fmodel-driven-app-delete-guide.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerapps%2Fmodel-driven-app-delete-guide.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/" data-id="cmfnpp5yw000u0nnh0ue9f5mh" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/" data-id="cmftd4eju000u0nqc7ixqgzal" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -172,9 +172,9 @@
         <p>こんにちは、PowerPlatformサポートチームの三田です。</p>
 <p>本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。</p>
 <ul>
-<li><a href="#%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E5%89%8A%E9%99%A4%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%A8%A9%E9%99%90-q1">Q1: モデル駆動型アプリの削除に必要な権限は？</a></li>
-<li><a href="#%E5%89%8A%E9%99%A4%E5%89%8D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%99%E3%81%B9%E3%81%8D%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E6%95%B4%E7%90%86-q2">Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？</a></li>
-<li><a href="#%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%81%AE%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6-q3">Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？</a></li>
+<li><a href="#q1">Q1: モデル駆動型アプリの削除に必要な権限は？</a></li>
+<li><a href="#q2">Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？</a></li>
+<li><a href="#q3">Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？</a></li>
 </ul>
 <h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
 <li>削除に必要な基本ロールと最低限の権限</li>
@@ -184,13 +184,15 @@
 <li>外部キーエラー (SQL 547) 発生時の実務的回復手順</li>
 </ul>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
-<li><a href="#%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E5%9E%8B%E3%82%A2%E3%83%97%E3%83%AA%E5%89%8A%E9%99%A4%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%A8%A9%E9%99%90-q1">モデル駆動型アプリ削除に必要な権限 (Q1)</a></li>
-<li><a href="#%E5%89%8A%E9%99%A4%E5%89%8D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%99%E3%81%B9%E3%81%8D%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E6%95%B4%E7%90%86-q2">削除前に確認すべき依存関係の整理 (Q2)</a></li>
-<li><a href="#%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%81%AE%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6-q3">依存関係が表示されないのに削除できない場合の対処 (Q3)</a></li>
-<li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li>
-<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0%E5%8F%AF%E8%83%BD%E6%80%A7">注意事項（情報の更新可能性）</a></li>
+<li><a href="#q1">モデル駆動型アプリ削除に必要な権限 (Q1)</a></li>
+<li><a href="#q2">削除前に確認すべき依存関係の整理 (Q2)</a></li>
+<li><a href="#q3">依存関係が表示されないのに削除できない場合の対処 (Q3)</a></li>
+<li><a href="#summary">まとめ</a></li>
+<li><a href="#notice">注意事項（情報の更新可能性）</a></li>
 </ul>
-<h2 id="モデル駆動型アプリ削除に必要な権限-Q1"><a href="#モデル駆動型アプリ削除に必要な権限-Q1" class="headerlink" title="モデル駆動型アプリ削除に必要な権限 (Q1)"></a>モデル駆動型アプリ削除に必要な権限 (Q1)</h2><p>【結論】モデル駆動型アプリを削除できる主な既定ロールはシステム管理者 (System Administrator) とシステムカスタマイザー (System Customizer) です。</p>
+<h2 id="q1">モデル駆動型アプリ削除に必要な権限 (Q1)</h2>
+【結論】モデル駆動型アプリを削除できる主な既定ロールはシステム管理者 (System Administrator) とシステムカスタマイザー (System Customizer) です。
+
 <p>これら以外のカスタムロールで削除を許可したい場合、両既定ロールが保有する App (App Module) の Delete、関連 Solution 操作 (Read / Write / Delete / Append / Append To) および Publish Customizations などの権限セットを完全に再現する必要があります。</p>
 <p>マネージド ソリューションのアプリはロールに関わらず個別削除できず、マネージド ソリューション全体を環境から削除する必要があります。</p>
 <p>【ポイント】</p>
@@ -227,7 +229,10 @@
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions">Managed と Unmanaged の違い</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app">モデル駆動型アプリを削除する</a></li>
 </ul>
-<h2 id="削除前に確認すべき依存関係の整理-Q2"><a href="#削除前に確認すべき依存関係の整理-Q2" class="headerlink" title="削除前に確認すべき依存関係の整理 (Q2)"></a>削除前に確認すべき依存関係の整理 (Q2)</h2><p>【結論】依存関係は「アプリが中で利用”している”項目 (用途：Uses)」と「そのアプリを利用”されている”項目 (使用者：Used by)」の 2 種類です。<br>削除を止めるのは依存関係ページの「削除ブロック（Delete blocked by）」タブに表示される項目だけです。</p>
+<h2 id="q2">削除前に確認すべき依存関係の整理 (Q2)</h2>
+【結論】依存関係は「アプリが中で利用"している"項目 (用途：Uses)」と「そのアプリを利用"されている"項目 (使用者：Used by)」の 2 種類です。
+削除を止めるのは依存関係ページの「削除ブロック（Delete blocked by）」タブに表示される項目だけです。
+
 <p>代表例として SiteMap、テーブル (Table)、フォーム (SystemForm)、ビュー (SavedQuery)、ビューのチャート (SavedQueryVisualization)、ダッシュボード、Business Process Flow、ロール依存、Web リソース、URL Suffix などが該当します。</p>
 <p>【ポイント】</p>
 <ol>
@@ -264,7 +269,9 @@
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions">Managed と Unmanaged の違い</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app">モデル駆動型アプリを削除する</a></li>
 </ul>
-<h2 id="依存関係が表示されないのに削除できない場合の対処-Q3"><a href="#依存関係が表示されないのに削除できない場合の対処-Q3" class="headerlink" title="依存関係が表示されないのに削除できない場合の対処 (Q3)"></a>依存関係が表示されないのに削除できない場合の対処 (Q3)</h2><p>【結論】依存関係ページにブロック項目が無くても AppSettingBase など内部設定テーブルの参照（外部キー）が残っていると削除が失敗する事例があります。</p>
+<h2 id="q3">依存関係が表示されないのに削除できない場合の対処 (Q3)</h2>
+【結論】依存関係ページにブロック項目が無くても AppSettingBase など内部設定テーブルの参照（外部キー）が残っていると削除が失敗する事例があります。
+
 <p>以下のようなエラーが発生しシステム管理者でも削除できない事例が複数報告されています。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Sql error: Statement conflicted with a constraint.</span><br><span class="line">The DELETE statement conflicted with the REFERENCE constraint &quot;appmodule_appsetting_parentappmoduleid&quot;.</span><br><span class="line">The conflict occurred in database &quot;db_crmcorejpn_********_********_****&quot;, table &quot;dbo.AppSettingBase&quot;, column &#x27;ParentAppModuleId&#x27;.</span><br><span class="line">The statement has been terminated.</span><br><span class="line">CRM ErrorCode: -2147185375</span><br><span class="line">Sql ErrorCode: -2146232060</span><br><span class="line">Sql Number: 547</span><br></pre></td></tr></table></figure>
 
@@ -287,12 +294,14 @@
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions">Managed と Unmanaged の違い</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/troubleshoot-common-solution-issues">ソリューションの一般的な問題のトラブルシューティング</a></li>
 </ul>
-<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul>
-<li>モデル駆動型アプリ削除には システム管理者 (System Administrator) / システムカスタマイザー (System Customizer)<br>または同等の削除権限を付与したカスタム セキュリティ ロール が必要です。</li>
-<li>依存関係は <a href="#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home">Power Apps ポータル</a> の「依存関係を表示」から 用途（Use） / 使用者（Used by） / 削除ブロック（Delete blocked by） を確認可能です。</li>
-<li>SQL Number 547 (appmodule_appsetting_parentappmoduleid) は AppSettingBase 残留参照が原因で「保存して公開 → 再生 → 削除」手順が有効です。</li>
-</ul>
-<h2 id="注意事項（情報の更新可能性）"><a href="#注意事項（情報の更新可能性）" class="headerlink" title="注意事項（情報の更新可能性）"></a>注意事項（情報の更新可能性）</h2><p>本記事の内容は執筆日時点の公開情報に基づいています。仕様や UI、権限名称、依存関係の表示挙動は将来変更される可能性があります。最新情報は公式ドキュメントをご確認ください。</p>
+<h2 id="summary">まとめ</h2>
+- モデル駆動型アプリ削除には システム管理者 (System Administrator) / システムカスタマイザー (System Customizer) 
+または同等の削除権限を付与したカスタム セキュリティ ロール が必要です。
+- 依存関係は [Power Apps ポータル](#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home) の「依存関係を表示」から 用途（Use） / 使用者（Used by） / 削除ブロック（Delete blocked by） を確認可能です。
+- SQL Number 547 (appmodule_appsetting_parentappmoduleid) は AppSettingBase 残留参照が原因で「保存して公開 → 再生 → 削除」手順が有効です。
+
+<h2 id="notice">注意事項（情報の更新可能性）</h2>
+本記事の内容は執筆日時点の公開情報に基づいています。仕様や UI、権限名称、依存関係の表示挙動は将来変更される可能性があります。最新情報は公式ドキュメントをご確認ください。
 
       
       
@@ -352,7 +361,7 @@
           </li>
         
           <li>
-            <a href="">モデル駆動型アプリ削除ガイド（権限・依存関係・削除失敗時対処）</a>
+            <a href="">モデル駆動型アプリ削除ガイド</a>
           </li>
         
           <li>
