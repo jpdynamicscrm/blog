@@ -119,12 +119,13 @@ DLP ポリシーの変更内容については、**Microsoft Purview** の「**�
 
 # Q4. 新しいコネクタが追加されたときの分類
 
-新しいコネクタがリリースされたとき、そのコネクタはデフォルトで「**非ビジネス | 既定**」に分類されます。
+新しいコネクタがリリースされたとき、そのコネクタは**既定グループ**に分類されます。<br>
+既定グループは、デフォルトで「非ビジネス」グループに分類されます。
 
 ![](./overlapped-dlppolicy/image.png)
 
-DLP ポリシーを作成するにあたって、「業務」や「ブロック済み」にコネクタを移動することはできますが、
-最初から「業務」と「ブロック済み」に分類されるコネクタはございません。
+DLP ポリシーを作成するにあたって、任意のコネクタを他のグループに移動することはできますが、
+最初からに既定グループ以外に分類されるコネクタはございません。
 
 デフォルトで分類されるグループを変更されたい場合は、以下の公開情報に手順がございますので、ご参照ください。<br>
 (参考：[Microsoft Learn - データポリシーを管理する](https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss?tabs=new#change-the-default-data-group))
@@ -134,6 +135,7 @@ DLP ポリシーを作成するにあたって、「業務」や「ブロック�
 # Q5. DLP ポリシーに設定されているコネクタの一覧を出力する
 
 以下のブログにて、DLP ポリシーに設定されたコネクタの一覧を CSV ファイルに出力する方法をご案内しておりますので、ご参照ください。
+
 [DLP ポリシーに設定されているコネクタの一覧を出力する | Japan Dynamics CRM & Power Platform Support Blog](https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/)
 
 
@@ -146,7 +148,7 @@ DLP ポリシーを作成してから、実際に適用されるようになる�
 ほとんどの場合、1 時間ほどで反映されますが、ポリシーの適用範囲によっても変動いたします。 
 ご使用のアプリ、フローの数が多いほど、変更が完全に有効になるまでの時間が長くなります。
 
-公開情報については、以下をご参照ください。
+公開情報については、以下をご参照ください。<br>
 (参考：[Microsoft Learn - 待機時間に関する考慮事項](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention#latency-considerations))
 
 <a id='anchor-affect-to-app-flow'></a>
