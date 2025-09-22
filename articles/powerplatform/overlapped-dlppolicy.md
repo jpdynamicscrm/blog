@@ -120,14 +120,14 @@ DLP ポリシーの変更内容については、**Microsoft Purview** の「**�
 # Q4. 新しいコネクタが追加されたときの分類
 
 新しいコネクタがリリースされたとき、そのコネクタは**既定グループ**に分類されます。<br>
-既定グループは、デフォルトで「非ビジネス」グループに分類されます。
+既定グループは、デフォルトで「非ビジネス」グループとなっております。
 
 ![](./overlapped-dlppolicy/image.png)
 
 DLP ポリシーを作成するにあたって、任意のコネクタを他のグループに移動することはできますが、
 最初からに既定グループ以外に分類されるコネクタはございません。
 
-デフォルトで分類されるグループを変更されたい場合は、以下の公開情報に手順がございますので、ご参照ください。<br>
+既定グループを変更されたい場合は、以下の公開情報に手順がございますので、ご参照ください。<br>
 (参考：[Microsoft Learn - データポリシーを管理する](https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss?tabs=new#change-the-default-data-group))
 
 <a id='anchor-export-all-connectors'></a>
