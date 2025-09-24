@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>DLP ポリシーに関する様々な Q&amp;A について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの宮﨑です。本記事では、DLP ポリシーに関する様々な Q&amp;A についてご案内いたします。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DLP ポリシーに関する様々な Q&amp;A について">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/overlapped-dlppolicy/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの宮﨑です。本記事では、DLP ポリシーに関する様々な Q&amp;A についてご案内いたします。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/overlapped-dlppolicy/purview-log.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/overlapped-dlppolicy/image.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/overlapped-dlppolicy/image2.png">
+<meta property="article:published_time" content="2025-09-12T03:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-24T04:08:23.641Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Power Platform">
+<meta property="article:tag" content="Connector and Connection">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/overlapped-dlppolicy/purview-log.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerplatform/overlapped-dlppolicy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DLP ポリシーに関する様々な Q&amp;A について
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2025-09-12T03:00:00.000Z" itemprop="datePublished">2025-09-12</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/overlapped-dlppolicy.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Power-Platform/">Power Platform</a>
+  </div>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+6271d750-bdef-566c-b6a6-eddad8419329%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDLP+%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%A7%98%E3%80%85%E3%81%AA+Q%26A+%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Foverlapped-dlppolicy%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Foverlapped-dlppolicy.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Foverlapped-dlppolicy.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/overlapped-dlppolicy/" data-id="cmfxgs00l005q0nry2tfshv5p" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では、DLP ポリシーに関する様々な Q&amp;A についてご案内いたします。</p>
+<span id="more"></span>
+
+
+<ul>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+<li><a href="#%E6%A6%82%E8%A6%81">概要</a><ul>
+<li><a href="#anchor-about-dlp">Q1. DLP ポリシーとは</a></li>
+<li><a href="#anchor-multi-dlp-applied">Q2. 個別環境に複数の DLP ポリシーが適用された場合</a></li>
+<li><a href="#anchor-dlp-edit-history">Q3. DLP ポリシーの変更履歴を確認する方法</a></li>
+<li><a href="#anchor-default-new-connector-classification">Q4. 新しいコネクタが追加されたときの分類</a></li>
+<li><a href="#anchor-export-all-connectors">Q5. DLP ポリシーに設定されているコネクタの一覧を出力する</a></li>
+<li><a href="#anchor-time-to-be-applied">Q6. DLP ポリシーを作成してから適用されるまでの時間</a></li>
+<li><a href="#anchor-affect-to-app-flow">Q7. アプリとフローへの DLP ポリシーの影響</a><ul>
+<li><a href="#anchor-affect-to-app-flow-create">1. アプリやフローを設計する段階での影響</a></li>
+<li><a href="#anchor-affect-to-app-flow-run">2. アプリやフローを実行する段階での影響</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
+</ul>
+<p><a id='概要'></a></p>
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>今回はよくあるお問い合わせとして、DLP ポリシーに関する様々な Q&amp;A についてご案内いたします。</p>
+<p><a id='anchor-about-dlp'></a></p>
+<h1 id="Q1-DLP-ポリシーとは"><a href="#Q1-DLP-ポリシーとは" class="headerlink" title="Q1. DLP ポリシーとは"></a>Q1. DLP ポリシーとは</h1><p>DLP ポリシーとは、「Data Loss Prevention (データ損失防止) ポリシー」の略で、企業や組織の重要なデータを守るための仕組みです。  </p>
+<p>Power Platform では、様々な「コネクタ」を使用して Microsoft 365 や 外部サービスとデータをやり取りすることが可能です。<br>便利な反面、誤って社内機密を外部に送ってしまうというリスクも存在しています。  </p>
+<p>DLP ポリシーはこのようなリスクを防ぐために、コネクタの利用範囲を制限することができます。<br>具体的には、「社内データは SharePoint や Outlook などのビジネスコネクタだけと連携可能」や、「SNS系コネクタは使用禁止」というルールを設定できます。  </p>
+<p>(参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention">データの消失防止 (DLP) ポリシー</a>)</p>
+<p><a id='anchor-multi-dlp-applied'></a></p>
+<h1 id="Q2-個別環境に複数の-DLP-ポリシーが適用された場合"><a href="#Q2-個別環境に複数の-DLP-ポリシーが適用された場合" class="headerlink" title="Q2. 個別環境に複数の DLP ポリシーが適用された場合"></a>Q2. 個別環境に複数の DLP ポリシーが適用された場合</h1><p>ある環境に対して、テナント全体に適用される DLP ポリシーとその環境のみに適用される DLP ポリシーが存在した場合の挙動について、詳細をご説明します。</p>
+<h2 id="評価の基本ルール"><a href="#評価の基本ルール" class="headerlink" title="評価の基本ルール"></a>評価の基本ルール</h2><ol>
+<li>すべての DLP ポリシーが同時に評価され、<strong>最も制限の厳しい設定が優先</strong>されます。<br>特に「ブロック済み」に分類されているコネクタは、他の DLP ポリシーで許可されている場合でも使用はできません。<br>例えば、全体に適用されている DLP ポリシーにおいて HTTP コネクタが「ブロック済み」に分類されている場合、<br>個別環境の DLP ポリシーで許可されていたとしても、使用することはできません。</li>
+</ol>
+<ol start="2">
+<li><p>同じコネクタが、ある DLP ポリシーでは「業務」、別の DLP ポリシーでは「非ビジネス」と分類されていた場合：<br> そのコネクタは <strong>単体では使用可能ですが、他のコネクタと一緒に使うことができなくなります</strong>。<br> これは、Power Platform ではアプリやフロー内で使用されるすべてのコネクタが、同じ「分類グループ」に属している必要があるためです。</p>
+<p> 具体的には：</p>
+<ul>
+<li>「業務」に分類されているコネクタ同士は 併用可能  </li>
+<li>「非ビジネス」に分類されているコネクタ同士は 併用可能  </li>
+<li>「業務」と「非ビジネス」にまたがるコネクタは <strong>併用不可</strong></li>
+</ul>
+<p> となっています。</p>
+</li>
+</ol>
+<p>(参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/dlp-combined-effect-multiple-policies">Microsoft Learn - DLP ポリシーの組み合わせ効果</a>)</p>
+<h2 id="実際の例"><a href="#実際の例" class="headerlink" title="実際の例"></a>実際の例</h2><p>以降では、簡単な例を用いてより具体的な挙動について解説します。</p>
+<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>テナント全体に適用されている DLP ポリシーをグループ A 、個別環境に適用されている DLP ポリシーをグループ B という前提のもと、進めていきます。</p>
+<h3 id="実際の挙動"><a href="#実際の挙動" class="headerlink" title="実際の挙動"></a>実際の挙動</h3><p>こちらが、グループＡとグループＢでのコネクタ分類と、それに基づく実際の挙動をまとめた表になります。</p>
+<table>
+<thead>
+<tr>
+<th>コネクタ名</th>
+<th>グループＡ (全体 DLP)</th>
+<th>グループＢ (個別 DLP)</th>
+<th>個別環境での実際の挙動</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Salesforce</td>
+<td>業務</td>
+<td>ブロック済み</td>
+<td>使用不可(「ブロック済み」が優先)</td>
+</tr>
+<tr>
+<td>Dropbox</td>
+<td>ブロック済み</td>
+<td>非ビジネス</td>
+<td>使用不可(「ブロック済み」が優先)</td>
+</tr>
+<tr>
+<td>Excel Online (Business)</td>
+<td>業務</td>
+<td>業務</td>
+<td>他の「業務」コネクタとの併用可能</td>
+</tr>
+<tr>
+<td>Office 365 Outlook</td>
+<td>非ビジネス</td>
+<td>非ビジネス</td>
+<td>他の「非ビジネス」コネクタとの併用可能</td>
+</tr>
+<tr>
+<td>SharePoint</td>
+<td>業務</td>
+<td>非ビジネス</td>
+<td>単体使用は可能。他のコネクタとの併用不可。</td>
+</tr>
+</tbody></table>
+<p>このように、<strong>同じコネクタでもポリシーごとに分類が異なる場合、アプリやフロー内でのコネクタ使用に制限が生じてしまいます</strong>。<br>そのため、環境に適用する DLP ポリシーの数は最小限に抑えることが推奨されております。<br>また、同じコネクタに対して異なる分類 (業務／非ビジネス／ブロック済み) を設定しないようご留意ください。</p>
+<p><a id='anchor-dlp-edit-history'></a></p>
+<h1 id="Q3-設定した-DLP-ポリシーの変更履歴を確認する方法"><a href="#Q3-設定した-DLP-ポリシーの変更履歴を確認する方法" class="headerlink" title="Q3. 設定した DLP ポリシーの変更履歴を確認する方法"></a>Q3. 設定した DLP ポリシーの変更履歴を確認する方法</h1><p>DLP ポリシーの変更内容については、<strong>Microsoft Purview</strong> の「<strong>監査ログ</strong>」から確認いただけます。</p>
+<p>以下の手順で変更履歴を取得することが可能です。</p>
+<ol>
+<li>アクセス権をもつアカウントで、Microsoft Purview 管理センターにアクセスしてください。</li>
+<li>「監査＞検索」を選択し、「アクティビティ – 操作名」に「GovernanceApiPolicyOperation」を入力してください。</li>
+<li>検索対象となる時間範囲を指定して「検索」を選択いただくことで、指定の時間範囲内の DLP ポリシーの変更履歴を確認することが可能です。</li>
+</ol>
+<p><img src="/blog/powerplatform/overlapped-dlppolicy/purview-log.png"></p>
+<p>表示されますデータの例等の詳細につきましては、下記の公開情報をご参照ください。<br><br>(参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/admin-activity-logging#activity-category-data-policy-events">Microsoft Learn - Microsoft Purview のソリューションの概要を使用して Power Platform 管理ログを表示する</a>)</p>
+<p><a id='anchor-default-new-connector-classification'></a></p>
+<h1 id="Q4-新しいコネクタが追加されたときの分類"><a href="#Q4-新しいコネクタが追加されたときの分類" class="headerlink" title="Q4. 新しいコネクタが追加されたときの分類"></a>Q4. 新しいコネクタが追加されたときの分類</h1><p>新しいコネクタがリリースされたとき、そのコネクタは<strong>既定グループ</strong>に分類されます。<br><br>既定グループは、デフォルトで「<strong>非ビジネス</strong>」グループとなっております。</p>
+<p><img src="/blog/powerplatform/overlapped-dlppolicy/image.png"></p>
+<p>DLP ポリシーを作成するにあたって、任意のコネクタを他のグループに移動することはできますが、<br>最初からに既定グループ以外に分類されるコネクタはございません。</p>
+<p>既定グループを変更されたい場合は、以下の公開情報に手順がございますので、ご参照ください。<br><br>(参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss?tabs=new#change-the-default-data-group">Microsoft Learn - データポリシーを管理する</a>)</p>
+<p><a id='anchor-export-all-connectors'></a></p>
+<h1 id="Q5-DLP-ポリシーに設定されているコネクタの一覧を出力する"><a href="#Q5-DLP-ポリシーに設定されているコネクタの一覧を出力する" class="headerlink" title="Q5. DLP ポリシーに設定されているコネクタの一覧を出力する"></a>Q5. DLP ポリシーに設定されているコネクタの一覧を出力する</h1><p>以下のブログにて、DLP ポリシーに設定されたコネクタの一覧を CSV ファイルに出力する方法をご案内しておりますので、ご参照ください。</p>
+<p><a href="https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/">DLP ポリシーに設定されているコネクタの一覧を出力する | Japan Dynamics CRM &amp; Power Platform Support Blog</a></p>
+<p><a id='anchor-time-to-be-applied'></a></p>
+<h1 id="Q6-DLP-ポリシーを作成してから適用されるまでの時間"><a href="#Q6-DLP-ポリシーを作成してから適用されるまでの時間" class="headerlink" title="Q6. DLP ポリシーを作成してから適用されるまでの時間"></a>Q6. DLP ポリシーを作成してから適用されるまでの時間</h1><p>DLP ポリシーを作成してから、実際に適用されるようになるまでに<strong>最大 24 時間</strong>かかります。</p>
+<p>ほとんどの場合、1 時間ほどで反映されますが、ポリシーの適用範囲によっても変動いたします。<br>ご使用のアプリ、フローの数が多いほど、変更が完全に有効になるまでの時間が長くなります。</p>
+<p>公開情報については、以下をご参照ください。<br><br>(参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention#latency-considerations">Microsoft Learn - 待機時間に関する考慮事項</a>)</p>
+<p><a id='anchor-affect-to-app-flow'></a></p>
+<h1 id="Q7-アプリとフローへの-DLP-ポリシーの影響"><a href="#Q7-アプリとフローへの-DLP-ポリシーの影響" class="headerlink" title="Q7. アプリとフローへの DLP ポリシーの影響"></a>Q7. アプリとフローへの DLP ポリシーの影響</h1><p>DLP ポリシーの追加・更新により、既存のアプリやフローにどのような影響がありうるかをご案内いたします。</p>
+<p><a id='anchor-affect-to-app-flow-create'></a></p>
+<h2 id="1-アプリやフローを設計する段階での影響"><a href="#1-アプリやフローを設計する段階での影響" class="headerlink" title="1. アプリやフローを設計する段階での影響"></a>1. アプリやフローを設計する段階での影響</h2><p>アプリやフローを構築する際、同じグループに属さないコネクタや、ポリシーでブロックされたコネクタを追加しようとすると、以下のようなエラーメッセージが表示されます。</p>
+<p><img src="/blog/powerplatform/overlapped-dlppolicy/image2.png"></p>
+<p><a id='anchor-affect-to-app-flow-run'></a></p>
+<h2 id="2-アプリやフローを実行する段階への影響"><a href="#2-アプリやフローを実行する段階への影響" class="headerlink" title="2. アプリやフローを実行する段階への影響"></a>2. アプリやフローを実行する段階への影響</h2><p>アプリやフローは、作成当時の DLP ポリシーに従って設計されています。<br>DLP ポリシーが更新されると、<strong>更新後の DLP ポリシーで再評価されます</strong>。<br>その結果、それまでには問題がなかったアプリやフローの構成が違反として扱われる場合があります。</p>
+<p>最新の DLP ポリシーに違反しているアプリやフローを実行しようとすると、以下のような状態になります。</p>
+<ul>
+<li><p>Power Automate の場合<br><strong>違反するフローは実行できなくなり、「中断（Suspended）」状態</strong> になります。<br>この状態では、DLP ポリシー違反を解消するまで、フローは実行できません。</p>
+</li>
+<li><p>Power Apps の場合<br>同じグループに属さないコネクタや、ブロックされたコネクタを含む<strong>アプリを開くことはできなくなります</strong>。</p>
+</li>
+</ul>
+<p>(参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/dlp-impact-policies-apps-flows">Microsoft Learn - アプリとフローへのデータ ポリシーの影響</a>)</p>
+<hr>
+<p><a id='補足'></a></p>
+<h1 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h1><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。<br>バージョンアップによって UI の遷移などが若干異なる場合があります。<br>その場合は画面の指示に従って進めてください。  </p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/overlapped-dlppolicy.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../powerapps/model-driven-app-delete-guide/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          モデル駆動型アプリ削除ガイド
+        
+      </div>
+    </a>
+  
+  
+    <a href="../ppac-azure-sr-roles-restriction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../information/network-trace-har-collection-and-pii-submission-guide/">ネットワークトレースの取り方と機密情報を含む場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="../../powerpages/power-pages-licensing-guide/">Power Pages ライセンスについて</a>
+          </li>
+        
+          <li>
+            <a href="../../powerapps/model-driven-app-delete-guide/">モデル駆動型アプリ削除ガイド</a>
+          </li>
+        
+          <li>
+            <a href="">DLP ポリシーに関する様々な Q&amp;A について</a>
+          </li>
+        
+          <li>
+            <a href="../ppac-azure-sr-roles-restriction/">Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-builder/" rel="tag">AI builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot-Studio/" rel="tag">Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365-Customer-Engagement/" rel="tag">Dynamics 365 Customer Engagement</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">Excel エクスポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/HAR/" rel="tag">HAR</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Inventory-Report/" rel="tag">Inventory Report</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SR/" rel="tag">SR</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint-Online/" rel="tag">SharePoint Online</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Tenant-level-Analytics/" rel="tag">Tenant-level Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/dataverse/" rel="tag">dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/governance/" rel="tag">governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/licensing/" rel="tag">licensing</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/powerapps/" rel="tag">powerapps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/powerpages/" rel="tag">powerpages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/" rel="tag">サポート リクエスト</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B9/" rel="tag">ネットワークトレース</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A9%9F%E5%AF%86%E6%83%85%E5%A0%B1/" rel="tag">機密情報</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">12</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">26</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">19</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/AI-builder/" style="font-size: 10px;">AI builder</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 13.57px;">Canvas app</a> <a href="../../tags/Cloud-flow/" style="font-size: 18.57px;">Cloud flow</a> <a href="../../tags/Connector-and-Connection/" style="font-size: 12.86px;">Connector and Connection</a> <a href="../../tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="../../tags/Copilot-Studio/" style="font-size: 10px;">Copilot Studio</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataflow/" style="font-size: 10px;">Dataflow</a> <a href="../../tags/Dataverse/" style="font-size: 15px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 10.71px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10.71px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 12.14px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 15.71px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 11.43px;">Dynamics 365</a> <a href="../../tags/Dynamics-365-Customer-Engagement/" style="font-size: 10px;">Dynamics 365 Customer Engagement</a> <a href="../../tags/Environment/" style="font-size: 12.86px;">Environment</a> <a href="../../tags/Excel-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10px;">Excel エクスポート</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 17.14px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 10.71px;">Graph API</a> <a href="../../tags/HAR/" style="font-size: 10px;">HAR</a> <a href="../../tags/How-to/" style="font-size: 17.86px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 14.29px;">Information</a> <a href="../../tags/Inventory-Report/" style="font-size: 10px;">Inventory Report</a> <a href="../../tags/License/" style="font-size: 12.86px;">License</a> <a href="../../tags/Microsoft-Copilot-Studio/" style="font-size: 11.43px;">Microsoft Copilot Studio</a> <a href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" style="font-size: 10.71px;">Microsoft Teams 連携</a> <a href="../../tags/Model-driven-app/" style="font-size: 12.86px;">Model-driven app</a> <a href="../../tags/Network/" style="font-size: 12.14px;">Network</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.14px;">Power Apps</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 15px;">Power Automate for desktop</a> <a href="../../tags/Power-Platform/" style="font-size: 19.29px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 11.43px;">Power Virtual Agents</a> <a href="../../tags/PowerPlatform/" style="font-size: 11.43px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 11.43px;">PowerShell</a> <a href="../../tags/SR/" style="font-size: 10px;">SR</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint-Online/" style="font-size: 10px;">SharePoint Online</a> <a href="../../tags/Tenant-level-Analytics/" style="font-size: 10px;">Tenant-level Analytics</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/dataverse/" style="font-size: 10px;">dataverse</a> <a href="../../tags/governance/" style="font-size: 10.71px;">governance</a> <a href="../../tags/licensing/" style="font-size: 10px;">licensing</a> <a href="../../tags/powerapps/" style="font-size: 10px;">powerapps</a> <a href="../../tags/powerpages/" style="font-size: 10px;">powerpages</a> <a href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" style="font-size: 16.43px;">お問い合わせ全般</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバスアプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10.71px;">サポート</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/" style="font-size: 10px;">サポート リクエスト</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B9/" style="font-size: 10px;">ネットワークトレース</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E5%BD%B9%E5%89%B2/" style="font-size: 10px;">役割</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 13.57px;">情報採取</a> <a href="../../tags/%E6%A9%9F%E5%AF%86%E6%83%85%E5%A0%B1/" style="font-size: 10px;">機密情報</a> <a href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" style="font-size: 10px;">重要な変更点 (廃止)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-App/">Canvas App</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/">サポート</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/information/">information</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/powerapps/">powerapps</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/powerplatform/">powerplatform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2025 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
