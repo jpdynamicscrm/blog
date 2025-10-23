@@ -4,21 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>Copilot Studio エージェントの作成を制御する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Copilot Studio エージェントの作成に必要な権限について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Power Platform サポートチームの 網野 です。今回は Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内します。">
+  <meta name="description" content="こんにちは。Power Platform サポートチームの 網野 です。今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Copilot Studio エージェントの作成を制御する方法">
+<meta property="og:title" content="Copilot Studio エージェントの作成に必要な権限について">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは。Power Platform サポートチームの 網野 です。今回は Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内します。">
+<meta property="og:description" content="こんにちは。Power Platform サポートチームの 網野 です。今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/m365copilot.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/securitygroup.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/tenant_setting.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/c2licensing.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/control.png">
 <meta property="article:published_time" content="2025-09-10T04:30:00.000Z">
-<meta property="article:modified_time" content="2025-10-21T10:52:58.894Z">
+<meta property="article:modified_time" content="2025-10-23T09:00:12.919Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Power Virtual Agents">
@@ -96,7 +97,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Copilot Studio エージェントの作成を制御する方法
+      Copilot Studio エージェントの作成に必要な権限について
     </h1>
   
 
@@ -163,9 +164,9 @@
   </div>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+1073ce74-0364-5af2-97c6-ebc0cdfb8efb%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCopilot+Studio+%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcopilotstudio%2Fhow-to-block-access-mcsportal%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcopilotstudio%2Fhow-to-block-access-mcsportal.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcopilotstudio%2Fhow-to-block-access-mcsportal.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+1073ce74-0364-5af2-97c6-ebc0cdfb8efb%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCopilot+Studio+%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%A8%A9%E9%99%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcopilotstudio%2Fhow-to-block-access-mcsportal%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcopilotstudio%2Fhow-to-block-access-mcsportal.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcopilotstudio%2Fhow-to-block-access-mcsportal.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/" data-id="cmh0g4b61000d0np04zxf79gy" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/" data-id="cmh36yzhf000d0npq64lodwc5" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -173,28 +174,33 @@
         
         <div class="toc-wrapper">
           <h2 id="toc-header" class="toc-header">この記事の内容</h2>
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><span class="toc-text">はじめに</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E6%88%90%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"><span class="toc-text">作成を制御する方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E3%81%AE%E8%A9%B3%E7%B4%B0"><span class="toc-text">アクセス権の詳細</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F"><span class="toc-text">よくある質問</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><span class="toc-text">はじめに</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copilot-Studio%E3%81%A7%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E4%BD%9C%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%A8%A9%E9%99%90%E3%81%A8%E3%81%AF%EF%BC%9F"><span class="toc-text">Copilot Studioでエージェント作成に必要な権限とは？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E3%81%AE%E8%A9%B3%E7%B4%B0"><span class="toc-text">アクセス権の詳細</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F"><span class="toc-text">よくある質問</span></a></li></ol>
         </div>
           
-        <p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内します。</p>
+        <p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>
 <span id="more"></span>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事では Copilot Studio でエージェントを作成できるユーザーを制御する方法をご案内致します。</p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Copilot Studioでエージェントを作成できるユーザーに、どのような権限が必要なのかを解説します。</p>
 <p>ご留意点として、Copilot Studio は 2025 年 9 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際にご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。</p>
-<h2 id="作成を制御する方法"><a href="#作成を制御する方法" class="headerlink" title="作成を制御する方法"></a>作成を制御する方法</h2><p>エージェントの作成を制御するためには、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license">Copilot Studio へのアクセス権</a>と、エージェントを作成する環境の<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles">セキュリティロール</a>が必要です。<br>以下それぞれについて説明します。</p>
+<h2 id="Copilot-Studioでエージェント作成に必要な権限とは？"><a href="#Copilot-Studioでエージェント作成に必要な権限とは？" class="headerlink" title="Copilot Studioでエージェント作成に必要な権限とは？"></a>Copilot Studioでエージェント作成に必要な権限とは？</h2><p>Copilot Studio でエージェントを作成するには、ユーザーに <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license">Copilot Studio へのアクセス権</a>と、対象環境でリソースを作成するための<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles">セキュリティロール</a>が割り当てられている必要があります。<br>この2つの権限が揃っていないと、エージェントの作成や管理ができません。</p>
 <h3 id="Copilot-Studio-へのアクセス権"><a href="#Copilot-Studio-へのアクセス権" class="headerlink" title="Copilot Studio へのアクセス権"></a>Copilot Studio へのアクセス権</h3><p>Copilot Studio ポータルにアクセスするためには、ユーザーに以下のいずれかのライセンスまたはロールが必要です。<br>※以下のいずれかに該当するとアクセスできるようになります。</p>
 <ul>
 <li>Copilot Studio ユーザーライセンス</li>
 <li>Copilot Studio 試用版ライセンス</li>
 <li>Microsoft 365 Copilot ライセンス</li>
-<li>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール</li>
+<li>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール（※）<blockquote>
+<p>※ 重量課金のみのライセンスでエージェントを作成する際に必要なロールです。<br>詳細は<a href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E3%81%AE%E8%A9%B3%E7%B4%B0">アクセス権の詳細</a>で説明します。</p>
+</blockquote>
+</li>
 </ul>
-<h3 id="エージェントを作成する環境のセキュリティロール"><a href="#エージェントを作成する環境のセキュリティロール" class="headerlink" title="エージェントを作成する環境のセキュリティロール"></a>エージェントを作成する環境のセキュリティロール</h3><p>エージェントを作成するためには、エージェントを作成する環境に対してセキュリティロールが必要となります。<br>ご要件に合わせてユーザーにセキュリティロールを付与してください。</p>
-<p>例）</p>
+<h3 id="対象環境でリソースを作成するためのセキュリティロール"><a href="#対象環境でリソースを作成するためのセキュリティロール" class="headerlink" title="対象環境でリソースを作成するためのセキュリティロール"></a>対象環境でリソースを作成するためのセキュリティロール</h3><p>エージェントを作成するためには、エージェントを作成する環境に対してセキュリティロールが必要となります。<br>リソースを作成するために必要なセキュリティロールは以下になります。</p>
 <ul>
 <li>環境作成者</li>
 <li>システムカスタマイザー</li>
 <li>システム管理者</li>
 </ul>
+<blockquote>
+<p>※ 詳細は公開情報を参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role">https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role</a></p>
+</blockquote>
 <h2 id="アクセス権の詳細"><a href="#アクセス権の詳細" class="headerlink" title="アクセス権の詳細"></a>アクセス権の詳細</h2><h3 id="Copilot-Studio-ユーザーライセンス"><a href="#Copilot-Studio-ユーザーライセンス" class="headerlink" title="Copilot Studio ユーザーライセンス"></a>Copilot Studio ユーザーライセンス</h3><p>Copilot Studio メッセージパックに含まれるライセンスで、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web#assign-licenses-to-users">Microsoft 365 管理センター等から付与</a>することができます。<br>Copilot Studio の使用権が含まれています。</p>
 <h3 id="Copilot-Studio-試用版ライセンス"><a href="#Copilot-Studio-試用版ライセンス" class="headerlink" title="Copilot Studio 試用版ライセンス"></a>Copilot Studio 試用版ライセンス</h3><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/sign-up-individual">ユーザーがセルフサービスサインアップで取得できる</a>期間限定のライセンスです。<br>有償ライセンスを購入いただく前のお試し用として、Copilot Studio ユーザーライセンスと同じ機能が利用できます。</p>
 <h3 id="Microsoft-365-Copilot-ライセンス"><a href="#Microsoft-365-Copilot-ライセンス" class="headerlink" title="Microsoft 365 Copilot ライセンス"></a>Microsoft 365 Copilot ライセンス</h3><p>Copilot Studio を通じて <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-overview">Microsoft 365 Copilot</a> を拡張することができるため、Microsoft 365 Copilot ライセンスを持つユーザーは Copilot Studio を利用することができます。  </p>
@@ -210,7 +216,9 @@
 </ol>
 <h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。"><a href="#テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。" class="headerlink" title="テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。"></a>テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。</h3><p>いいえ、「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーも、ユーザーライセンスを持っていれば Copilot Studio にアクセスできます。</p>
 <h3 id="Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか"><a href="#Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか" class="headerlink" title="Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか"></a>Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか</h3><p>はい、利用できます。エージェントの利用者は、Copilot Studio にアクセスできる必要はありません。<br>ただし、Teams やカスタム Web サイトなど、エージェントを公開した場所にアクセスできる必要がございます。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/c2licensing.png"></p>
-<h3 id="環境ごとにエージェントの作成を制限することはできますか"><a href="#環境ごとにエージェントの作成を制限することはできますか" class="headerlink" title="環境ごとにエージェントの作成を制限することはできますか"></a>環境ごとにエージェントの作成を制限することはできますか</h3><p>はい、エージェントを作成させたい環境にのみセキュリティロールを付与することで、環境ごとにエージェントの作成を制限することができます。<br>なお例外として既定環境はすべてのユーザーに「環境作成者」ロールが付与されるため、セキュリティロールで制御することはできません。</p>
+<h3 id="環境ごとにエージェントの作成を制限することはできますか"><a href="#環境ごとにエージェントの作成を制限することはできますか" class="headerlink" title="環境ごとにエージェントの作成を制限することはできますか"></a>環境ごとにエージェントの作成を制限することはできますか</h3><p>現時点では、エージェントの作成を制御するための機能はありません。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/control.png"></p>
+<p>ただし、既定環境以外の環境では、 [対象環境でリソースを作成するためのセキュリティロール]を付与しないことで、環境へのアクセスを制御することが可能です。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>※ 既定環境では、「環境作成者」ロールが自動付与されるため、アクセスを制御することはできません。</p></div>
 
       
       
@@ -282,7 +290,7 @@
           </li>
         
           <li>
-            <a href="">Copilot Studio エージェントの作成を制御する方法</a>
+            <a href="">Copilot Studio エージェントの作成に必要な権限について</a>
           </li>
         
       </ul>
