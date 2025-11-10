@@ -90,7 +90,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 <a id='anchor-botid'></a>
 
 ## 4. Bot ID
-  以下の手順で環境 ID を取得し、ご提供ください。
+  以下の手順で Bot ID を取得し、ご提供ください。
   必要に応じて URL をそのままご提供ください。
 
   - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。
