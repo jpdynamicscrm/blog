@@ -6,12 +6,12 @@
   
   <title>Power Automate for desktop お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Power Platform サポートの大友です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
+  <meta name="description" content="こんにちは。Power Platform サポートの大友、竹内です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Power Automate for desktop お問い合わせの際の情報取得手順">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは。Power Platform サポートの大友です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
+<meta property="og:description" content="こんにちは。Power Platform サポートの大友、竹内です。本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version2.png">
@@ -19,6 +19,14 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log3.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result3.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log1.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log2.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log1.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/fiddler-nonbrowser.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting2.png">
@@ -32,8 +40,8 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">
-<meta property="article:published_time" content="2022-12-28T03:00:00.000Z">
-<meta property="article:modified_time" content="2025-11-06T09:09:02.617Z">
+<meta property="article:published_time" content="2025-10-29T03:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-11T00:56:07.941Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="情報採取">
 <meta property="article:tag" content="お問い合わせ全般">
@@ -120,7 +128,7 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2022-12-28T03:00:00.000Z" itemprop="datePublished">2022-12-28</time>
+  <time datetime="2025-10-29T03:00:00.000Z" itemprop="datePublished">2025-10-29</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
@@ -181,12 +189,12 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+5c35e7c6-9161-5604-9646-6907c69b398b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+for+desktop+%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E9%9A%9B%E3%81%AE%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fpower-automate-desktop-helpful-information-for-sr%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fpower-automate-desktop-helpful-information-for-sr.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fpower-automate-desktop-helpful-information-for-sr.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/" data-id="cmhn7g9sb00lk0nmkbqvo3ign" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/" data-id="cmhtv1ngj00ll0nnzenfnbziv" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Power Platform サポートの大友です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>
+        <p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>
 <span id="more"></span>
 <h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
 <li><a href="#anchor-intro">概要</a></li>
@@ -194,6 +202,9 @@
 <li><a href="#anchor-pad-version">Power Automate for desktop のバージョン</a></li>
 <li><a href="#anchor-os-version">OS のバージョン</a></li>
 <li><a href="#anchor-computer-log">コンピューター ログ</a></li>
+<li><a href="#anchor-analysis-result">トラブルシューティングの診断実行結果</a></li>
+<li><a href="#anchor-verbose-log">詳細ログ</a></li>
+<li><a href="#anchor-event-log">イベントログ</a></li>
 <li><a href="#anchor-fiddler-log">Fiddler ログ</a></li>
 <li><a href="#anchor-machine-information">マシン登録の情報</a></li>
 <li><a href="#anchor-remote-desktop-setting">リモートデスクトップ設定</a></li>
@@ -204,6 +215,7 @@
 <li><a href="#anchor-desktopflow-runhistory-error-input-output">デスクトップ フローの実行履歴のエラー・入力・出力の詳細</a></li>
 <li><a href="#anchor-cloudflow-run-history-csv">クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</a></li>
 <li><a href="#anchor-cloudflow-raw-input-output">クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</a></li>
+<li><a href="#anchor-installer-log">インストーラー ログ</a></li>
 </ol>
 </li>
 </ol>
@@ -244,37 +256,56 @@
 </li>
 </ol>
 <div class="alert is-info"><p class="alert-title">Note</p><p>デスクトップフローの ID とフローの実行 ID はPower Automateポータルのデスクトップ フローの実行履歴のURLより確認いただけます。</p><p><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log3.png"></p></div>
+<p><a id='anchor-analysis-result'></a></p>
+<h2 id="4-トラブルシューティングの診断実行結果"><a href="#4-トラブルシューティングの診断実行結果" class="headerlink" title="4. トラブルシューティングの診断実行結果"></a>4. トラブルシューティングの診断実行結果</h2><ol>
+<li>Power Automate for desktop &gt; ヘルプ &gt; トラブルシューティング を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png"></li>
+<li>事象に関連する診断の”実行”を選択してください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result2.png"></li>
+<li>表示された画面のスクリーンショットおよび画面右下部から生成されるレポートCSVファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result3.png"></li>
+</ol>
+<p><a id='anchor-verbose-log'></a></p>
+<h2 id="5-詳細ログ"><a href="#5-詳細ログ" class="headerlink" title="5. 詳細ログ"></a>5. 詳細ログ</h2><ol>
+<li>Power Automate for desktop &gt; ヘルプ &gt; トラブルシューティング を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png"></li>
+<li>“詳細なログ” をオンにします。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log1.png"></li>
+<li>発生している事象を再現させてください。  </li>
+<li>“詳細なログ” をオフにし、”ログのエクスポート” からエクスポートされた zip ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log2.png"></li>
+</ol>
+<p><a id='anchor-event-log'></a></p>
+<h2 id="6-イベントログ"><a href="#6-イベントログ" class="headerlink" title="6. イベントログ"></a>6. イベントログ</h2><ol>
+<li>Windows にインストールされている “イベントビューアー” を実行してください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log1.png"></li>
+<li>Windows ログ &gt; Application を選択します。<br>画面右部 “現在のログをフィルター…” から事象発生日時が含まれるようフィルター処理を設定してください。<br>画面右部 “フィルターされたログ ファイルの名前を付けて保存…” から保存された evtx ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log2.png"></li>
+</ol>
+<p>なお、イベントログについては、下記の公開情報にも記載がございます。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/desktop-flows/how-to-get-power-automate-desktop-installer-logs#event-viewer-logs">ログのイベント ビューアー</a>  </p>
 <p><a id='anchor-fiddler-log'></a></p>
-<h2 id="4-Fiddler-ログ"><a href="#4-Fiddler-ログ" class="headerlink" title="4. Fiddler ログ"></a>4. Fiddler ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler">Fiddler ログの採取手順 (microsoft.com)</a></p>
+<h2 id="7-Fiddler-ログ"><a href="#7-Fiddler-ログ" class="headerlink" title="7. Fiddler ログ"></a>7. Fiddler ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler">Fiddler ログの採取手順 (microsoft.com)</a></p>
 <p>なお、情報取得の際はキャプチャ対象を <strong>Non-Browser</strong> に変更いただくようお願いいたします。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/fiddler-nonbrowser.png"></p>
 <p><a id='anchor-machine-information'></a></p>
-<h2 id="5-マシン登録の情報"><a href="#5-マシン登録の情報" class="headerlink" title="5. マシン登録の情報"></a>5. マシン登録の情報</h2><p>Power Automate ポータルの画面 &gt; 監視 &gt; マシン<br>該当のコンピューターの詳細画面の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png"></p>
+<h2 id="8-マシン登録の情報"><a href="#8-マシン登録の情報" class="headerlink" title="8. マシン登録の情報"></a>8. マシン登録の情報</h2><p>Power Automate ポータルの画面 &gt; 監視 &gt; マシン<br>該当のコンピューターの詳細画面の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png"></p>
 <p><a id='anchor-remote-desktop-setting'></a></p>
-<h2 id="6-リモート-デスクトップ設定"><a href="#6-リモート-デスクトップ設定" class="headerlink" title="6. リモート デスクトップ設定"></a>6. リモート デスクトップ設定</h2><p>実行される端末の以下リモート デスクトップの設定の画面キャプチャをご提供ください。</p>
+<h2 id="9-リモート-デスクトップ設定"><a href="#9-リモート-デスクトップ設定" class="headerlink" title="9. リモート デスクトップ設定"></a>9. リモート デスクトップ設定</h2><p>実行される端末の以下リモート デスクトップの設定の画面キャプチャをご提供ください。</p>
 <ul>
 <li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting2.png"></li>
 <li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ &gt; ユーザーの選択<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting3.png"></li>
 </ul>
 <p><a id='anchor-registry-setting'></a></p>
-<h2 id="7-レジストリの設定"><a href="#7-レジストリの設定" class="headerlink" title="7. レジストリの設定"></a>7. レジストリの設定</h2><ul>
+<h2 id="10-レジストリの設定"><a href="#10-レジストリの設定" class="headerlink" title="10. レジストリの設定"></a>10. レジストリの設定</h2><ul>
 <li><p>レジストリ内容<br>レジストリエディタを起動し、以下のキーおよびその配下のレジストリの設定が確認できる画面キャプチャ、またはキーをエクスポートしたファイルをご提供ください。<br>キーが存在しない場合は、その旨をお知らせください。<br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Power Automate Desktop</code><br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop</code><br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting4.png">  </p>
 </li>
 <li><p>サービスアカウントをご利用の場合<br>上記に加えてレジストリの以下キーのセキュリティ画面キャプチャもご提供ください。<br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop\Registration</code> &gt; Registration キーを右クリック &gt; アクセス許可 &gt; 詳細設定<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting3.png">  </p>
 </li>
 </ul>
 <p><a id='anchor-desktopflow'></a></p>
-<h2 id="8-Power-Automate-for-desktop-のフロー"><a href="#8-Power-Automate-for-desktop-のフロー" class="headerlink" title="8. Power Automate for desktop のフロー"></a>8. Power Automate for desktop のフロー</h2><p>デスクトップフロー本体をソリューションに追加し、エクスポート頂いたファイルをご提供下さい。<br>弊社環境にインポート出来るよう、依存関係のあるコンポーネント含めご提供をお願い致します。</p>
+<h2 id="11-Power-Automate-for-desktop-のフロー"><a href="#11-Power-Automate-for-desktop-のフロー" class="headerlink" title="11. Power Automate for desktop のフロー"></a>11. Power Automate for desktop のフロー</h2><p>デスクトップフロー本体をソリューションに追加し、エクスポート頂いたファイルをご提供下さい。<br>弊社環境にインポート出来るよう、依存関係のあるコンポーネント含めご提供をお願い致します。</p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>ソリューションのエクスポート手順は、以下記事に手順がございますのでご参照いただけますと幸いです。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a>  </p></div>
 <p>ソリューションでのご提供が難しい場合、テキストファイルでのご提供をお願いいたします。</p>
 <p>デスクトップ フローのデスクトップフローの編集画面から、エディタ領域をクリックしたのちアクションを全選択<code>Ctrl+A</code>し、コピー<code>Ctrl+C</code>し、テキストエディターに貼り付け<code>Ctrl+V</code>したファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow.png"><br>一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  </p>
 <div class="alert is-warning"><p class="alert-title">警告</p><p>テキストでのご提供手順では入出力変数の定義やフロー内のアクションで使用していない UI 要素など一部の情報が含まれません。</p><p>エラーが発生しているアクションで入出力変数を使用している場合や、デスクトップ フロー全体の容量等を確認する必要がある場合は、弊社のサポートエンジニアからソリューションでの提供のご検討をお願いする場合がございます。</p></div>
 <p><a id='anchor-desktopflow-url'></a></p>
-<h2 id="9-デスクトップ-フローの実行履歴-URL"><a href="#9-デスクトップ-フローの実行履歴-URL" class="headerlink" title="9. デスクトップ フローの実行履歴 URL"></a>9. デスクトップ フローの実行履歴 URL</h2><ol>
+<h2 id="12-デスクトップ-フローの実行履歴-URL"><a href="#12-デスクトップ-フローの実行履歴-URL" class="headerlink" title="12. デスクトップ フローの実行履歴 URL"></a>12. デスクトップ フローの実行履歴 URL</h2><ol>
 <li>マイ フロー&gt;デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-url.png">  </li>
 <li>URLをコピーしてご提供ください。<br>エラー時にフローが実行されず実行履歴に残っていない場合は、1 の画面のURLをコピーしてご提供下さい。</li>
 </ol>
 <p><a id='anchor-desktopflow-runhistory-screenshot'></a></p>
-<h2 id="10-デスクトップ-フローの実行履歴の画面キャプチャ"><a href="#10-デスクトップ-フローの実行履歴の画面キャプチャ" class="headerlink" title="10. デスクトップ フローの実行履歴の画面キャプチャ"></a>10. デスクトップ フローの実行履歴の画面キャプチャ</h2><ol>
+<h2 id="13-デスクトップ-フローの実行履歴の画面キャプチャ"><a href="#13-デスクトップ-フローの実行履歴の画面キャプチャ" class="headerlink" title="13. デスクトップ フローの実行履歴の画面キャプチャ"></a>13. デスクトップ フローの実行履歴の画面キャプチャ</h2><ol>
 <li>「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。<ol>
 <li>マイ フロー &gt; デスクトップ フローから該当のフローを選択します。</li>
 <li>実行履歴から該当の日時を選択します。</li>
@@ -283,7 +314,7 @@
 <li>ページ全体の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-runhistory-screenshot.png"></li>
 </ol>
 <p><a id='anchor-desktopflow-runhistory-error-input-output'></a></p>
-<h2 id="11-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細"><a href="#11-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細" class="headerlink" title="11. デスクトップ フローの実行履歴のエラー・入力・出力の詳細"></a>11. デスクトップ フローの実行履歴のエラー・入力・出力の詳細</h2><ol>
+<h2 id="14-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細"><a href="#14-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細" class="headerlink" title="14. デスクトップ フローの実行履歴のエラー・入力・出力の詳細"></a>14. デスクトップ フローの実行履歴のエラー・入力・出力の詳細</h2><ol>
 <li>「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。<ol>
 <li>マイ フロー &gt; デスクトップ フローから該当のフローを選択します。</li>
 <li>実行履歴から該当の日時を選択します。</li>
@@ -311,15 +342,17 @@
 <li>保存したテキスト ファイルをご提供ください。</li>
 </ol>
 <p><a id='anchor-cloudflow-run-history-csv'></a></p>
-<h2 id="12-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合"><a href="#12-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合" class="headerlink" title="12. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)"></a>12. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローの実行履歴もご提供ください。</p>
+<h2 id="15-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合"><a href="#15-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合" class="headerlink" title="15. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)"></a>15. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローの実行履歴もご提供ください。</p>
 <ol>
 <li>デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png"></li>
 <li>「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png"></li>
 </ol>
 <div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローの実行履歴 CSV の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div>
 <p><a id='anchor-cloudflow-raw-input-output'></a></p>
-<h2 id="13-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合"><a href="#13-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合" class="headerlink" title="13. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)"></a>13. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローのアクションの未加工入力・未加工出力もご提供ください。<br>実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。<br>未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">  </p>
+<h2 id="16-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合"><a href="#16-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合" class="headerlink" title="16. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)"></a>16. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローのアクションの未加工入力・未加工出力もご提供ください。<br>実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。<br>未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">  </p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローのアクションの未加工入力・出力の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-raw-input-output">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div>
+<p><a id='anchor-installer-log'></a></p>
+<h2 id="17-インストーラー-ログ"><a href="#17-インストーラー-ログ" class="headerlink" title="17. インストーラー ログ"></a>17. インストーラー ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/desktop-flows/how-to-get-power-automate-desktop-installer-logs#installer-logs">インストーラー ログ</a></p>
 <hr>
 <h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p>
 <hr>
@@ -347,19 +380,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerplatform/Automatic-deletion-of-inactive-Microsoft-Dataverse-for-Teams-environments/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          非アクティブな Microsoft Dataverse for Teams 環境の自動削除について
-        
-      </div>
-    </a>
   
-  
-    <a href="../../powerplatform/Notes-when-using-support/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../information/network-trace-har-collection-and-pii-submission-guide/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Dynamics 365 Customer Engagement のクラウド サポートをご利用いただく際の留意点</div>
+      <div class="article-nav-title">ネットワークトレースの取り方と機密情報を含む場合の対処</div>
     </a>
   
 </nav>
@@ -378,6 +402,10 @@
       <ul>
         
           <li>
+            <a href="">Power Automate for desktop お問い合わせの際の情報取得手順</a>
+          </li>
+        
+          <li>
             <a href="../../information/network-trace-har-collection-and-pii-submission-guide/">ネットワークトレースの取り方と機密情報を含む場合の対処</a>
           </li>
         
@@ -391,10 +419,6 @@
         
           <li>
             <a href="../../powerplatform/overlapped-dlppolicy/">DLP ポリシーに関する様々な Q&amp;A について</a>
-          </li>
-        
-          <li>
-            <a href="../../copilotstudio/how-to-block-access-mcsportal/">Copilot Studio エージェントの作成に必要な権限について</a>
           </li>
         
       </ul>
@@ -417,7 +441,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
     </div>
   </div>
 
