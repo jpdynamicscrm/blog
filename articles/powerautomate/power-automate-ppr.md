@@ -21,7 +21,7 @@ toc:
 今回は Power Automate における Power Platform 要求数の制限についてご案内いたします。
 
 > [!IMPORTANT]
-> [公開情報](https://learn.microsoft.com/ja-jp/power-platform/admin/online-requirements) が正となりますので、ライセンスをご用意する際は必ず最新の公開情報を確認してください。
+> [公開情報](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations) が正となりますので、ライセンスをご用意する際は必ず最新の公開情報を確認してください。
 
 
 <!-- more -->
@@ -264,3 +264,4 @@ Common Data Service for Teams ライセンスをお持ちの場合、 2,000 Powe
 
 
 ----
+
