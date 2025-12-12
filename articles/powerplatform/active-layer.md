@@ -36,7 +36,7 @@ Power Platform（特にモデル駆動型アプリ、テーブル、フォーム
 * マネージドレイヤー内のシステムソリューション  
 の順に積み上がっており、上位レイヤーのカスタマイズが実際の動作(ランタイム動作)として反映されます。  
 
-![](./About-active-layer/solution-layer-diagram.png)   
+![](./active-layer/solution-layer-diagram.png)   
 
 ## アクティブレイヤー = ユーザーが加えたアンマネージド変更  
 アクティブレイヤーは上記図のアンマネージドレイヤーであり、**環境で直接行ったカスタマイズと環境にインポートしたアンマネージドのソリューションを組み合わせたカスタマイズの層**を指します。  
@@ -55,32 +55,32 @@ Power Platform（特にモデル駆動型アプリ、テーブル、フォーム
 3.	ソリューション一覧から対象のコンポーネントを含むソリューションを開く
 4.	対象のコンポーネント（例：フォーム、ビュー、テーブルなど）右側にある三点リーダー(︙) をクリックし、「詳細」->「ソリューション レイヤーの表示」を選択
 
-![](./About-active-layer/display-solution-layer.png)
+![](./active-layer/display-solution-layer.png)
 
 5.  レイヤー一覧の最上部に Activeが表示されていれば、それがアクティブレイヤー
 
-![](./About-active-layer/solution-layer-list.png)
+![](./active-layer/solution-layer-list.png)
 
 6.	アクティブレイヤーを選択し、アクティブレイヤーの内容を表示
 
 **ここで確認できるもの**
 * 「更新済み」タブからアクティブレイヤーで変更されている項目の内容を確認できます。  
 
-![](./About-active-layer/updated-components.png)
+![](./active-layer/updated-components.png)
 
 * 「すべて」タブから該当コンポーネントに含まれているすべての項目の内容を確認できます。  
 
-![](./About-active-layer/all-components.png)
+![](./active-layer/all-components.png)
 
 * 「ローカライズされたラベル」タブからアクティブレイヤーで実施されたラベルのカスタマイズ内容を確認することができます。  
 
-![](./About-active-layer/localized-label-tab.png)
+![](./active-layer/localized-label-tab.png)
 
 * ローカライズラベルの列名リンクをクリックすることで、ローカライズラベルのソリューションレイヤーも確認できます。  
 
-![](./About-active-layer/localized-label-layer1.png)
+![](./active-layer/localized-label-layer1.png)
 
-![](./About-active-layer/localized-label-layer2.png)
+![](./active-layer/localized-label-layer2.png)
 
 ## アクティブレイヤーの削除手順
 
@@ -90,7 +90,7 @@ Power Platform（特にモデル駆動型アプリ、テーブル、フォーム
 1.	ソリューションレイヤー一覧画面で Activeレイヤーを選択
 2.	コマンドバーから 「アクティブなカスタマイズを削除する」 をクリック  
 
-![](./About-active-layer/delete-active-layer.png)  
+![](./active-layer/delete-active-layer.png)  
 
 3.	確認ダイアログで 「削除」ボタンを押す
 4.	完了後、コンポーネントが下層レイヤーのマネージドソリューションの定義に戻る
@@ -126,4 +126,5 @@ Power Platform のカスタマイズを健全に保つためには、アクテ�
 
 以上、Power Platform のアクティブレイヤーの確認・削除方法についてご案内いたしました。  
 こちらの記事が皆様の環境カスタマイズの管理のお役に立ちましたら幸いです。
+
 
