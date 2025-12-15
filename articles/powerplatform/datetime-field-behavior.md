@@ -1,3 +1,21 @@
+
+---
+title: Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について
+date: 2025-12-15 00:00:00
+tags:
+  - Model-driven app
+  - Dynamics
+  - Dataverse
+  - How to
+  - Power Apps
+categories:
+  - [Power Apps, Model-driven app]
+  - [Dataverse]
+  - [Dynamics 365]
+  - [powerapps]
+
+---
+
 # Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について
 
 こんにちは。マイクロソフト サポート エンジニアの王です。
