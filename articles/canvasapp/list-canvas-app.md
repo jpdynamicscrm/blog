@@ -18,14 +18,13 @@ categories:
 
 # 目次
 
-- [目次](#目次)
-- [1. 概要](#1-概要)
-- [2. キャンバスアプリ一覧を取得する方法](#2-キャンバスアプリ一覧を取得する方法)
-  - [2-1. テナントレベルの分析を利用する](#2-1-テナントレベルの分析を利用する)
-    - [2-1‐1. 分析レポート画面を利用する](#2-11-分析レポート画面を利用する)
-    - [2-1-2. 分析データのエクスポート機能を利用する](#2-1-2-分析データのエクスポート機能を利用する)
-  - [2-2. PowerShell を利用する](#2-2-powershell-を利用する)
-  - [2-3. Power Apps for Admins コネクタを利用する](#2-3-power-apps-for-admins-コネクタを利用する)
+- [1. 概要](#overview)
+- [2. キャンバスアプリの一覧を取得する方法](#how_to_list_canvas_app)
+  - [2-1. テナントレベルの分析を利用する](#with_analytics_feature)
+    - [2-1‐1. 分析レポート画面を利用する](#with_analytics_ui)
+    - [2-1-2. 分析データのエクスポート機能を利用する](#with_analytics_export)
+  - [2-2. PowerShell を利用する](#with_powershell)
+  - [2-3. Power Apps for Admins コネクタを利用する](#with_connector)
 - [まとめ](#まとめ)
 
 <a id='overview'></a>
