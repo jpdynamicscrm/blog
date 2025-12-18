@@ -89,4 +89,6 @@ Dataverse (Dynamics 365) を利用したアプリケーション開発におい�
     *   動作設定の変更は、既存データの表示に影響を与えます。変更が必要な場合は、データ修正の計画も合わせて立てる必要があります。
 
 ### 参考情報
-*   [日付と時刻列の動作と形式 (Microsoft Learn)](https://learn.microsoft.com/ja-jp/dynamics365/customerengagement/on-premises/customize/behavior-format-date-time-field?view=op-9-1)
+*   [日時の列の動作と形式（オンライン版）](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/behavior-format-date-time-field)
+*   [フィールドの動作と書式のオプション (オンプレ版)](https://learn.microsoft.com/ja-jp/dynamics365/customerengagement/on-premises/customize/behavior-format-date-time-field?view=op-9-1)
+
