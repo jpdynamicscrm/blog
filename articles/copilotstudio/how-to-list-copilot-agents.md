@@ -103,6 +103,11 @@ Dataverse コネクタを利用し Copilots(bot) テーブルからエージェ�
 
 
 ## テナント内の環境のエージェントを一覧にする方法
+### Power Platform 管理センターの在庫を利用する方法 (プレビュー)
+[Power Platform 管理センター](https://admin.powerplatform.microsoft.com) の [管理] > [Copilot Studio] の画面よりご確認いただくことができます。
+この方法の詳細については、下記の公開情報をご参照ください。  
+[Power Platform インベントリ (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory)  
+
 ### CoE を利用する方法 (Dataverse のみ)
 [CoE Starter kit](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) を環境にインストールすることで、Datavese に作成されたエージェントの一覧を確認することができます。  
 ![](./how-to-list-copilot-agents/coe.png)  
