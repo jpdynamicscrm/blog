@@ -103,7 +103,7 @@ Dataverse コネクタを利用し Copilots(bot) テーブルからエージェ�
 
 
 ## テナント内の環境のエージェントを一覧にする方法
-### Power Platform 管理センターの在庫を利用する方法 (プレビュー)
+### Power Platform 管理センターで用意されたレポートを利用する方法
 [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) の [管理] > [Copilot Studio] の画面よりご確認いただくことができます。
 この方法の詳細については、下記の公開情報をご参照ください。  
 [Power Platform インベントリ (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory)  
@@ -150,5 +150,6 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 ### Microsoft 365 Copilot を拡張した Copilot の情報が取得できますか
 はい、取得できます。  
 Copilot Studio から Copilot for Microsoft 365 を選択して作成した Copilot は Dataverse に保存されます。そのため、本手順でご案内した方法で取得することができます。
+
 
 
