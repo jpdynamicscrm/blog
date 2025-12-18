@@ -13,7 +13,6 @@
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、Power Platform サポートチームの大友です。本記事では、Power Apps のキャンバスアプリの一覧を取得する方法を詳しくご案内します。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/inventory_report.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/data_export_apps.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/data_export_apps2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/powershell_export_csv.png">
@@ -23,14 +22,14 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/flow-list-apps2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/flow-list-apps3.png">
 <meta property="article:published_time" content="2025-03-11T03:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-17T00:37:47.377Z">
+<meta property="article:modified_time" content="2025-12-18T05:53:53.262Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Apps">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Governance">
 <meta property="article:tag" content="How to">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/inventory_report.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/data_export_apps.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -171,7 +170,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+1c1cc166-5bc0-51a0-ba2f-d5e6c78f0383%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Apps+%E3%81%AE%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E4%B8%80%E8%A6%A7%E3%82%92%E7%AE%A1%E7%90%86%E8%80%85%E3%81%8C%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2Flist-canvas-app%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2Flist-canvas-app.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcanvasapp%2Flist-canvas-app.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/" data-id="cmj9a8pnz00050nnzcbgx8lav" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/list-canvas-app/" data-id="cmjb0z2og00050nqg0ig338y1" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -209,14 +208,9 @@
 <p><a id='with_analytics_feature'></a></p>
 <h2 id="2-1-テナントレベルの分析を利用する"><a href="#2-1-テナントレベルの分析を利用する" class="headerlink" title="2-1. テナントレベルの分析を利用する"></a>2-1. テナントレベルの分析を利用する</h2><div class="alert is-important"><p class="alert-title">重要</p><p>この方法は事前にテナントレベルの分析を有効にする必要がございます。</p><p>有効にする方法については下記の公開情報をご参照ください。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/tenant-level-analytics#how-do-i-enable-tenant-level-analytics">テナント レベルでの分析 - Power Platform | Microsoft Learn</a></p></div>
 <p><a id='with_analytics_ui'></a></p>
-<h3 id="2-1‐1-分析レポート画面を利用する"><a href="#2-1‐1-分析レポート画面を利用する" class="headerlink" title="2-1‐1. 分析レポート画面を利用する"></a>2-1‐1. 分析レポート画面を利用する</h3><p>Power Platfrom 管理センターに用意されたレポートを参照する方法です。  </p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> にサインインします。</li>
-<li>左側メニューの [管理] &gt; [Power Apps] を選択します。</li>
-<li>表示されるダッシュボードからアプリの使用状況や一覧を確認できます。</li>
-<li>テナント内のアプリ一覧を取得する場合、[概要] &gt; [アプリ在庫] タブをご確認ください。<br><img src="/blog/canvasapp/list-canvas-app/inventory_report.png">  </li>
-</ol>
-<p>テナントレベルの分析の詳細については下記の公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-analytics-reports">Power Apps のテナント レベルの分析</a>  </p>
+<h3 id="2-1‐1-分析レポート画面を利用する"><a href="#2-1‐1-分析レポート画面を利用する" class="headerlink" title="2-1‐1. 分析レポート画面を利用する"></a>2-1‐1. 分析レポート画面を利用する</h3><p>Power Platfrom 管理センターに用意されたレポートを参照する方法です。<br><a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> の [管理] &gt; [Power Apps] の画面よりご確認いただくことができます。  </p>
+<p>この方法の詳細については、下記の公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory">Power Platform インベントリ (プレビュー)</a>  </p>
+<p>テナントレベルの分析で表示される各項目の詳細等については下記の公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-analytics-reports">Power Apps のテナント レベルの分析</a>  </p>
 <p><a id='with_analytics_export'></a></p>
 <h3 id="2-1-2-分析データのエクスポート機能を利用する"><a href="#2-1-2-分析データのエクスポート機能を利用する" class="headerlink" title="2-1-2. 分析データのエクスポート機能を利用する"></a>2-1-2. 分析データのエクスポート機能を利用する</h3><p>Power Platform 管理センターの分析レポートの基となるデータをエクスポートし、そのデータを利用することでご利用者様の用途に合わせて利用状況を分析頂く事ができます。  </p>
 <ol>

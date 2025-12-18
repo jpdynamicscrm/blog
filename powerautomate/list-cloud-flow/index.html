@@ -13,7 +13,6 @@
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
 <meta property="og:description" content="こんにちは、Power Platform サポートチームの竹内です。本記事では、Power Automate のクラウドフローをテナント全体で効率的に管理するために、フローの一覧を取得する 3 つの方法を詳しくご案内します。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/inventory_report.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/powershell_export_csv.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/powershell_detail_export.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/powershell_export_people.png">
@@ -22,14 +21,14 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/flow-list-flow.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/flow-list-flow3.png">
 <meta property="article:published_time" content="2025-03-11T03:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-17T00:37:47.530Z">
+<meta property="article:modified_time" content="2025-12-18T05:53:53.414Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Governance">
 <meta property="article:tag" content="How to">
 <meta property="article:tag" content="Power Automate">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/inventory_report.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/powershell_export_csv.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -170,7 +169,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8683abc8-1f3e-50df-9ef5-2246a311080f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E4%B8%80%E8%A6%A7%E3%82%92%E7%AE%A1%E7%90%86%E8%80%85%E3%81%8C%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Flist-cloud-flow%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Flist-cloud-flow.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Flist-cloud-flow.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/" data-id="cmj9a8pp2002l0nnzees86tex" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/" data-id="cmjb0z2pl002l0nqg0kwv53jm" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -203,15 +202,9 @@
 </ul>
 <p><a id='2-1-テナントレベルの分析を利用する'></a></p>
 <h2 id="2-1-テナントレベルの分析を利用する"><a href="#2-1-テナントレベルの分析を利用する" class="headerlink" title="2-1. テナントレベルの分析を利用する"></a>2-1. テナントレベルの分析を利用する</h2><div class="alert is-important"><p class="alert-title">重要</p><p>この方法は事前にテナントレベルの分析を有効にする必要がございます。</p><p>有効にする方法については下記の公開情報をご参照ください。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/tenant-level-analytics#how-do-i-enable-tenant-level-analytics">テナント レベルでの分析 - Power Platform | Microsoft Learn</a></p></div>
-<div class="alert is-info"><p class="alert-title">Note</p><p>この方法は削除済みのフローを取得することはできません。  </p></div>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> にサインインします。</li>
-<li>左側メニューの [分析] &gt; [Power Automate] を選択します。</li>
-<li>表示されるダッシュボードからフローの使用状況や一覧を確認できます。</li>
-<li>特にテナント内のフロー一覧を取得する場合、[概要] &gt; [在庫] タブをご確認ください。</li>
-</ol>
-<p><img src="/blog/powerautomate/list-cloud-flow/inventory_report.png">  </p>
-<p>テナントレベルの分析の詳細については下記の公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-analytics-reports">Power Automate のテナント レベルの分析 - Power Platform | Microsoft Learn</a>  </p>
+<p>Power Platfrom 管理センターに用意されたレポートを参照する方法です。<br><a target="_blank" rel="noopener" href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> の [管理] &gt; [Power Automate] の画面よりご確認いただくことができます。  </p>
+<p>この方法の詳細については、下記の公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory">Power Platform インベントリ (プレビュー)</a>  </p>
+<p>テナントレベルの分析で表示される各項目の詳細等については下記の公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-analytics-reports">Power Automate のテナント レベルの分析 - Power Platform | Microsoft Learn</a>  </p>
 <p><a id='2-2-powershellを利用する'></a></p>
 <h2 id="2-2-PowerShell-を利用する"><a href="#2-2-PowerShell-を利用する" class="headerlink" title="2-2. PowerShell を利用する"></a>2-2. PowerShell を利用する</h2><p>PowerShellを使用すると、詳細なフロー情報をCSV形式でエクスポートし、分析に役立てることができます。</p>
 <ol>
