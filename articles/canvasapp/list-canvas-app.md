@@ -18,13 +18,14 @@ categories:
 
 # 目次
 
-- [1. 概要](#overview)
-- [2. キャンバスアプリの一覧を取得する方法](#how_to_list_canvas_app)
-  - [2-1. テナントレベルの分析を利用する](#with_analytics_feature)
-    - [2-1‐1. 分析レポート画面を利用する](#with_analytics_ui)
-    - [2-1-2. 分析データのエクスポート機能を利用する](#with_analytics_export)
-  - [2-2. PowerShell を利用する](#with_powershell)
-  - [2-3. Power Apps for Admins コネクタを利用する](#with_connector)
+- [目次](#目次)
+- [1. 概要](#1-概要)
+- [2. キャンバスアプリ一覧を取得する方法](#2-キャンバスアプリ一覧を取得する方法)
+  - [2-1. テナントレベルの分析を利用する](#2-1-テナントレベルの分析を利用する)
+    - [2-1‐1. 分析レポート画面を利用する](#2-11-分析レポート画面を利用する)
+    - [2-1-2. 分析データのエクスポート機能を利用する](#2-1-2-分析データのエクスポート機能を利用する)
+  - [2-2. PowerShell を利用する](#2-2-powershell-を利用する)
+  - [2-3. Power Apps for Admins コネクタを利用する](#2-3-power-apps-for-admins-コネクタを利用する)
 - [まとめ](#まとめ)
 
 <a id='overview'></a>
@@ -61,14 +62,12 @@ Power Apps をご利用頂いているお客様より、テナント内で作成
 ### 2-1‐1. 分析レポート画面を利用する
 
 Power Platfrom 管理センターに用意されたレポートを参照する方法です。  
+[Power Platform 管理センター](https://admin.powerplatform.microsoft.com) の [管理] > [Power Apps] の画面よりご確認いただくことができます。  
 
-1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインします。
-2. 左側メニューの [管理] > [Power Apps] を選択します。
-3. 表示されるダッシュボードからアプリの使用状況や一覧を確認できます。
-4. テナント内のアプリ一覧を取得する場合、[概要] > [アプリ在庫] タブをご確認ください。
-![](./list-canvas-app/inventory_report.png)  
+この方法の詳細については、下記の公開情報をご参照ください。  
+[Power Platform インベントリ (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory)  
 
-テナントレベルの分析の詳細については下記の公開情報をご参照ください。  
+テナントレベルの分析で表示される各項目の詳細等については下記の公開情報をご参照ください。  
 [Power Apps のテナント レベルの分析](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-analytics-reports)  
 
 <a id='with_analytics_export'></a>
