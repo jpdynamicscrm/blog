@@ -179,4 +179,3 @@ Power Platform にてサードパーティ サービスをご使用の場合、�
  ### 参考
  以下の記事も併せてお読みください。  
 [サポートの概要 | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/support-overview)  
-[プロフェッショナル サポートをご利用の皆様へ - Microsoft Services](https://www.microsoft.com/ja-jp/services/professional-supportqa.aspx)
