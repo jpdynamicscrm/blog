@@ -42,7 +42,7 @@ categories:
 ご案内するコマンドを実行しますと、以下のすべてのライセンスが制限されます。
 
 - Power Automate Free
-- Power Apps コミュニティプラン
+- Power Apps 開発者プラン (コミュニティプラン)
 - Power Automate 試用版
 - Power Apps 試用版
 
