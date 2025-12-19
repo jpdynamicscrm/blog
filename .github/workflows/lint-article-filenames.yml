@@ -25,7 +25,12 @@ jobs:
           base_sha="${{ github.event.pull_request.base.sha }}"
           head_sha="${{ github.event.pull_request.head.sha }}"
 
-          echo "Diff: ${base_sha}..${head_sha}"
+          # Use merge-base to compare the PR tip against the point where it diverged from the base.
+          # This avoids flagging files that were deleted in the base branch but still exist in the PR branch
+          # (because the PR is behind) as "Added".
+          common_ancestor=$(git merge-base "${base_sha}" "${head_sha}")
+
+          echo "Diff: ${common_ancestor}..${head_sha}"
 
           # ---------------------------------------------------------
           # Goal: Enforce kebab-case filenames for NEW or RENAMED articles.
@@ -36,7 +41,7 @@ jobs:
           # that might not follow the kebab-case convention.
           # ---------------------------------------------------------
 
-          mapfile -t changed_lines < <(git diff --name-status "${base_sha}" "${head_sha}")
+          mapfile -t changed_lines < <(git diff --name-status "${common_ancestor}" "${head_sha}")
           if [[ ${#changed_lines[@]} -eq 0 ]]; then
             echo "No changed files."
             exit 0
