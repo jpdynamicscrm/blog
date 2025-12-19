@@ -9,14 +9,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/ppac-azure-sr-roles-restriction/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/ppac-azure-sr-roles-restriction/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/T2T-Introduction/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
@@ -135,13 +135,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901924/</loc>
-    
-    <lastmod>2025-12-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901932/</loc>
     
     <lastmod>2025-12-19</lastmod>
@@ -150,6 +143,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    
+    <lastmod>2025-12-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901924/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Block-AI-Builder/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Cannot-Access-Model-Driven-Apps/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Block-AI-Builder/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
@@ -422,20 +422,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
-    
-    <lastmod>2025-12-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/aggregation-using-xpath/</loc>
-    
-    <lastmod>2025-12-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/MC362053/</loc>
     
     <lastmod>2025-12-19</lastmod>
@@ -444,6 +430,20 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
+    
+    <lastmod>2025-12-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
+    
+    <lastmod>2025-12-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/aggregation-using-xpath/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
@@ -507,13 +507,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/</loc>
-    
-    <lastmod>2025-12-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerapps/inventory-report/</loc>
     
     <lastmod>2025-12-19</lastmod>
     
@@ -761,20 +754,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Dataflow/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Tenant-level-Analytics/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Inventory-Report/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1154,13 +1133,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/categories/Dataflow/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/categories/Power-Automate/Cloud-flow/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>daily</changefreq>
@@ -1168,7 +1140,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/categories/Dataverse/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/categories/Dataflow/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1190,6 +1162,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Model-driven-app/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/categories/Dataverse/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
