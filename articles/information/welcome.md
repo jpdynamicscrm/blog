@@ -9,6 +9,7 @@ categories:
 ---
 
 # Japan Dynamics CRM & Power Platform Support Blog 開設のお知らせ
+
 こんにちは、日本マイクロソフト Dynamics CRM & Power Platform サポート チームです。
 
 
