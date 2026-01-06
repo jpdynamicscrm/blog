@@ -7,7 +7,8 @@ tags:
   - ネットワークトレース
   - 機密情報
 categories:
-  - [information]
+  - [Dynamics 365]
+  - [Power Platform Admin Center]
 ---
 
 # ネットワークトレースの取り方と機密情報を含む場合の対処

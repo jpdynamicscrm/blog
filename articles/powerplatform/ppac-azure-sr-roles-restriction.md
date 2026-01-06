@@ -7,7 +7,7 @@ tags:
   - 役割
   - Power Platform 管理センター
 categories:
-  - [Power Platform, サポート]
+  - [Power Platform Admin Center]
 ---
 
 

@@ -12,7 +12,6 @@ categories:
   - [Power Apps, Model-driven app]
   - [Dataverse]
   - [Dynamics 365]
-  - [powerapps]
 
 ---
 # Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について
