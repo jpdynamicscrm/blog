@@ -6,7 +6,7 @@ tags:
 	- licensing
 	- governance
 categories:
-	- [powerplatform]
+	- [Power Pages]
 ---
 
 # Power Pages ライセンスについて

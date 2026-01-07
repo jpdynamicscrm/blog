@@ -11,7 +11,6 @@ categories:
   - [Power Apps, Model-driven app]
   - [Dataverse]
   - [Dynamics 365]
-  - [powerapps]
 
 ---
 
