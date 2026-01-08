@@ -12,7 +12,7 @@ toc:
 
 
 こんにちは、Power Platform サポートチームの網野です。  
-Copilot Studio にて作成されたエージェントは Dataverse または Dataverse for Teams に保存されます。本記事では Dataverse および Dataverse for Teams からエージェントを一覧を取得する方法をご案内いたします。
+Copilot Studio にて作成されたエージェントは Dataverse または Dataverse for Teams に保存されます。本記事では Dataverse および Dataverse for Teams からエージェントを一覧を取得する方法と Power Platform 管理センターで用意されたレポートで確認する方法をご案内いたします。
 
 
 <!-- more -->
@@ -150,6 +150,7 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 ### Microsoft 365 Copilot を拡張した Copilot の情報が取得できますか
 はい、取得できます。  
 Copilot Studio から Copilot for Microsoft 365 を選択して作成した Copilot は Dataverse に保存されます。そのため、本手順でご案内した方法で取得することができます。
+
 
 
 
