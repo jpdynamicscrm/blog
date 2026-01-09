@@ -27,13 +27,13 @@ categories:
 
 ---
 
-1. [サポート インスタンス作成条件の確認](#anchor-about-criteria)
-2. [情報の提供](#anchor-about-information)
-3. [サポート インスタンスの作成](#anchor-create-instance)（当社の作業）
+1. [サポート インスタンス作成条件の確認](#criteria)
+2. [情報の提供](#information)
+3. [サポート インスタンスの作成](#create-instance)（当社の作業）
 
 ---
 
-<a id='anchor-about-criteria'></a>
+<a id='criteria'></a>
 
 ## 1. サポート インスタンス作成条件の確認
 
@@ -56,13 +56,13 @@ categories:
 > OrgURL: 事象が発生している環境 URL (例: https://xxx.crm7.dynamics.com)<br>
 > Consent: 変更する同意レベル Full or Minimal (例: Full)<br>
 
-<a id='anchor-about-information'></a>
+<a id='information'></a>
 
 ## 2. 情報の提供
 
 ステップ 1 完了後、サポート エンジニアへ **事象発生環境 URL (\*.crm\*.dynamics.com)** をご提供ください。
 
-<a id='anchor-create-instance'></a>
+<a id='create-instance'></a>
 
 ## 3. サポート インスタンスの作成（当社の作業）
 
@@ -88,10 +88,6 @@ categories:
 > これを実施するため、まずエンジニアから共有された環境 URL に一度アクセスし、環境を開けない旨が表示されることを確認してください。
 > この操作により、当該ユーザーがサポート インスタンスにプロビジョニングされます。<br>
 > ここまで操作が完了したら、担当エンジニアへ当該ユーザーの UPN をお伝えください。管理者ロールが付与されたという連絡を受けたら、サポート インスタンスを表示できるようになっているため、再度コピー操作の実施をお願いいたします。
-
-> [!NOTE]
-> UPN は Power Platform 管理センター > 環境 > 設定 > ユーザー のユーザー名よりご確認いただけます。
-> ![](./Provide-Support-Instance/upn.png)
 
 ## 参考情報
 
