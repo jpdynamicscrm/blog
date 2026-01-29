@@ -10,7 +10,6 @@ categories:
   - [Power Apps]
 ---
 
-※本記事の執筆には生成 AI を使用しています。
 こんにちは、Power Platform サポートの竹内です。  
 今回は、モバイル端末で SharePoint をデータソースとしたキャンバスアプリを利用する際に、画像やメディアファイルが表示されない問題について、下記項目の順にご説明いたします。
 
@@ -124,6 +123,7 @@ Zscaler、Blue Coat などのプロキシサーバーが Power Apps のリクエ
 - [リッチ テキスト エディター コントロール](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/controls/control-richtexteditor#pasted-images-may-not-appear-consistently)
 - [SharePoint コネクタの制限事項](https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#limits)
 
+※本記事の執筆には生成 AI を使用しています。[参考](https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content)  
 
 ---
 免責事項  
