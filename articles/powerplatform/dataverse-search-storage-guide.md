@@ -67,20 +67,17 @@ Power Platform 管理センター のテーブル容量画面では合計のみ�
 【結論】構造化インデックスは、Copilot や AI エージェントが Dataverse のテーブルデータを理解し、関係性をたどって推論するための索引です。
 App Copilot や Copilot Studio のエージェント、Dynamics 365 の一部 Copilot が利用します。
 
-【補足】不要なアプリでの App Copilot 無効化、未使用エージェントや知識ソースの削除で容量を抑えられます。
+【補足】不要なアプリでの App Copilot 無効化、未使用エージェントやナレッジソースの削除で容量を抑えられます。
 一部のファーストパーティ Copilot は専用の管理画面で無効化が必要です。
 
 【容量削減のためのポイント】
 1. アプリ単位で App Copilot を無効化。
 2. 環境設定で Copilot をオフ。
-3. Copilot Studio の未使用エージェントや Dataverse 知識ソースの削除。
+3. Copilot Studio の未使用エージェントや Dataverse ナレッジソースの削除。
+4. 営業ハブや Customer Service における Copilot をオフ。
 
-【補足】Dynamics 365 Sales Close Agent（SCA）で製品（Product）向けのセマンティック検索が有効だと、構造化インデックスが増えることがあります。
-無効化により当該インデックスが削除され、容量が削減される見込みです。
-
-【運用ベストプラクティス】
-Dynamics 365 Sales Close Agent（SCA）機能において、Product（製品）エンティティ向けのセマンティック検索（Semantic Search） が有効化されたことで、構造化インデックス（Structured）の容量増加となる場合があります。
-利用されない場合は、以下の方法で当該機能の無効化を行うことが可能です。
+【補足】Dynamics 365 Sales Close Agent（SCA）機能において、Product（製品）エンティティ向けのセマンティック検索（Semantic Search） が有効化されたことで、構造化インデックス（Structured）の容量増加となる場合があります。
+無効化により当該インデックスが削除され、容量が削減される見込みです。利用されない場合は、以下の方法で当該機能の無効化を行うことが可能です。
 1. 対象環境のモデル駆動型アプリへ管理者権限でアクセスします。
 2. F12 で開発者ツールを開き、コンソールタブを表示します。
 3. 次の JavaScript を実行して該当の検索スキルレコードを無効化します。
@@ -120,11 +117,15 @@ Xrm.WebApi.retrieveMultipleRecords(
 
 
 ＜参考資料＞
-- [モデル駆動型アプリの Copilot チャット](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#disable-copilot-chat-for-a-model-driven-app)
-- [環境内のモデル駆動型アプリの Copilot ](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#enable-copilot-for-model-driven-apps-in-your-environment)
+- [モデル駆動型アプリの Copilot チャット の有効/無効化](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#disable-copilot-chat-for-a-model-driven-app)
+- [環境内のモデル駆動型アプリの Copilot の有効/無効化](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#enable-copilot-for-model-driven-apps-in-your-environment)
 - [MCS（Microsoft Copilot Studio）で Knowledge Source の追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-dataverse)
 - [営業ハブ における Copilot の機能](https://learn.microsoft.com/ja-jp/dynamics365/sales/enable-setup-copilot#turn-copilot-features-on-or-off-in-sales-hub)
 - [Customer Service における Copilot の機能](https://learn.microsoft.com/en-us/dynamics365/customer-service/administer/configure-copilot-features#opt-out-of-using-copilot-features)
+  Copilot Service 管理センター アプリにアクセスし、以下から確認できる各機能を利用いただいていない場合には、無効化することは可能です。
+  - サポートエクスペリエンス > 生産性 > 質問やメールに使用する Copilot
+  - サポートエクスペリエンス > 生産性 > 要約
+  ※画面下部に「この機能のオプトアウト」の設定があります。
 
 
 <h2 id="q4">テキストデータインデックス（TextData）の中身と削減のコツは？ (Q4)</h2>
@@ -139,8 +140,8 @@ Xrm.WebApi.retrieveMultipleRecords(
 3. 必要なファイルやフォルダのみを選ぶ（深いフォルダを丸ごと選ばない）。
 
 ＜参考資料＞
-- [Copilot Studio: ファイルを知識ソースに追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-file-upload)
-- [Copilot Studio: SharePoint を知識ソースに追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-sharepoint)
+- [Copilot Studio: ファイルをナレッジソースに追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-file-upload)
+- [Copilot Studio: SharePoint をナレッジソースに追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-sharepoint)
 - [Copilot Studio: 非構造化データの追加 ](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-unstructured-data)
 
 <h2 id="q5">画面で見えない内訳をどう管理すればよいですか？ (Q5)</h2>
