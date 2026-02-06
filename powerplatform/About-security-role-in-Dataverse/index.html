@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_group.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_role_settings.png">
 <meta property="article:published_time" content="2025-02-25T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-06T01:30:21.053Z">
+<meta property="article:modified_time" content="2026-02-06T09:22:27.537Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Governance">
 <meta property="article:tag" content="Model-driven app">
@@ -164,7 +164,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d61c957b-e530-51a8-8d31-665a237b4daa%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A8%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3+%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AB%E3%82%88%E3%82%8B+Dataverse+%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E5%88%B6%E5%BE%A1%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-security-role-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FAbout-security-role-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cmla7kr70003k0noffas729q0" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-security-role-in-Dataverse/" data-id="cmlaofwbp003k0ns53rwg4w4l" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -184,20 +184,27 @@
 <li>グループ A (サポート部門) とグループ B (管理部門)</li>
 <li>環境A (サポート部門用の環境) と環境 B (管理部門用の環境)</li>
 </ul>
-<p>このとき、下記の 1 から 3 のアクセス権制御を組み合わせることで、ユーザーに対してどの環境でのどのような操作を許可するかを制御できます。</p>
+<p>このとき、下記の 1 から 3 のアクセス制御を組み合わせることで、ユーザーに対してどの環境でのどのような操作を許可するかを制御できます。</p>
 <ol>
-<li><strong>ライセンス</strong> :<br>グループ A 内のサポート部門のユーザーは、ライセンスを所有しているため、Power Platform 製品を利用できます。<br>グループ B 内のユーザーは、今回の図の場合ライセンスを保有していないため、Power Platform 製品を利用できません。</li>
+<li><strong>ライセンス</strong> :<br>グループ A 内のサポート部門のユーザーは、ライセンスを所有しているため、Power Platform 製品を利用できます。<br>グループ B 内のユーザーは、今回の図の場合ライセンスを所有していないため、Power Platform 製品を利用できません。</li>
 <li><strong>セキュリティ グループ</strong> :<br>サポート部門用の環境 A に対して、グループ A がセキュリティ グループとして設定されている場合、グループ A のユーザーは環境 A にアクセスすることができますが、管理部門用の環境 B のセキュリティ グループとしては登録されていないため、アクセスすることができません。</li>
-<li><strong>セキュリティ ロール</strong> :<br>グループ A のユーザーに対してセキュリティ ロールを付与することで、ユーザーがアクセスできるテーブルやアプリ、実行可能な操作を制限できます。<br>たとえば図中のユーザーにサポート部門用のセキュリティ ロールが割り当てられ、システム管理者が割り当てられていないとき、ユーザーはシステム管理に使うテーブルにはアクセスができません。</li>
+<li><strong>セキュリティ ロール</strong> :<br>グループ A のユーザーに対してセキュリティ ロールを付与することで、ユーザーがアクセスできるテーブルやアプリ、実行可能な操作を制限できます。<br>たとえば図中のユーザーにサポート部門用のセキュリティ ロールが割り当てられ、システム管理者が割り当てられていないとき、ユーザーはシステム管理用のテーブルにはアクセスできません。</li>
 </ol>
 <p>本記事では 2 と 3 について紹介します。</p>
-<h2 id="セキュリティ-グループについて"><a href="#セキュリティ-グループについて" class="headerlink" title="セキュリティ グループについて"></a>セキュリティ グループについて</h2><p>Power Platform 環境には、デフォルトではテナントに所属する全ユーザーがアクセスできますが、環境にセキュリティ グループを割り当てることで、<strong>割り当てられたセキュリティ グループに所属するユーザーのみにアクセスを限定</strong>することができます。<br>たとえば、「IT部門」用の環境を作成したときに、「IT部門」のセキュリティ グループを割り当てることで、その他の営業部門などのユーザーのアクセスを禁止することができます。このように、グループごとに環境の利用可否を制御したい場合に、セキュリティ グループが役立ちます。</p>
-<p>セキュリティ グループの割り当ては、環境作成時にオプションで指定できる他、Power Platform 管理センターから既存の環境に対しても指定できます。<br>ただし、既存の環境にセキュリティ グループを割り当てた場合、セキュリティ グループに所属していないユーザーはすべて無効化されるのでご注意ください。<br><img src="/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_group.png"></p>
+<h2 id="セキュリティ-グループについて"><a href="#セキュリティ-グループについて" class="headerlink" title="セキュリティ グループについて"></a>セキュリティ グループについて</h2><p>Power Platform 環境には、デフォルトではテナントに所属する全ユーザーがアクセスできますが、環境にセキュリティ グループを割り当てることで、<strong>割り当てられたセキュリティ グループに所属するユーザーのみにアクセスを限定</strong>することができます。<br>たとえば、「IT部門」用の環境を作成したときに、「IT部門」のセキュリティ グループを割り当てることで、その他の営業部門などのユーザーのアクセスを禁止することができます。このように、グループごとに環境の利用可否を制御したい場合に、セキュリティ グループでのアクセス制御が役立ちます。</p>
+<p>セキュリティ グループの割り当ては、環境作成時にオプションで指定できる他、Power Platform 管理センターから既存の環境に対しても指定できます。<br>ただし、セキュリティ グループに所属していない環境内ユーザーは無効化されるためご注意ください (例：既存の環境にセキュリティ グループを割り当てた場合)。<br><br>なお、無効化されるまで数時間掛かることがあります。<br><br>セキュリティ グループによる環境アクセス制御には以下のような補足事項があります。</p>
+<ul>
+<li>既定の環境タイプと開発者環境タイプにはセキュリティ グループを割り当てできません。</li>
+<li>環境は、Microsoft Entra の「セキュリティ グループ」および「Microsoft 365 グループ」との関連付けをサポートします。</li>
+<li>Power Platform の管理者ロールを持つユーザーは、環境に割り当てられたセキュリティ グループに属していない場合でも、アクティブ ユーザーとして表示されサインインできます。</li>
+<li>アプリケーション ユーザーは、セキュリティ グループのメンバーでなくても追加することができます。</li>
+</ul>
+<p>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス</a><br><img src="/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_group.png"></p>
 <h2 id="セキュリティ-ロールについて"><a href="#セキュリティ-ロールについて" class="headerlink" title="セキュリティ ロールについて"></a>セキュリティ ロールについて</h2><p>上記でご説明したセキュリティ グループでは、ユーザーに対して環境単位でのアクセス可否を決定します。<br>これに対して、ユーザーに割り当てることで、<strong>環境内でユーザーが行える操作を決定</strong>するのがセキュリティ ロールです。<br>Power Platform では、要件に合わせたさまざまな既定のセキュリティ ロールが存在します。特によく使用されるセキュリティ ロールの例を以下に紹介します。</p>
 <ul>
 <li>システム管理者 : 環境におけるすべての操作を実行できるロール。</li>
-<li>Basic User : 環境における一般的なアプリの利用ができるロール。管理操作が制限される他、自分以外のユーザーが作成したデータに対するアクセスも制限されます。</li>
-<li>システム カスタマイザー : 環境をカスタマイズするためのロール。多くの管理操作を実行できますが、自分以外のユーザーが作成したデータを参照できません。</li>
+<li>Basic User : 環境における一般的なアプリの利用ができるロール (必要最小限のアクセスのテンプレートとしても利用されます)。テーブル/特権の設定によって参照可能なレコード範囲が決まります。</li>
+<li>システム カスタマイザー : 環境をカスタマイズするためのロール。環境内のすべてのカスタム テーブル データを表示できますが、標準の Account/Contact/Activity テーブルでは作成したレコードのみ表示できる、といったテーブル種別による差があります。</li>
 </ul>
 <p>またこちらの公開情報にも、より多くのセキュリティ ロールのご説明が記載されているので、ぜひご覧ください。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security">環境のリソースに対するユーザー セキュリティの構成</a></p>
 <h3 id="セキュリティ-ロールの仕組みとカスタマイズ"><a href="#セキュリティ-ロールの仕組みとカスタマイズ" class="headerlink" title="セキュリティ ロールの仕組みとカスタマイズ"></a>セキュリティ ロールの仕組みとカスタマイズ</h3><p>セキュリティ ロールは、Dataverse 上の各テーブルやその他の機能の使用等に対する <strong>特権</strong> (アクセス権) をひとまとめにしたものです。<br>Power Platform 管理センターから環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [セキュリティ ロール] から特定のセキュリティ ロールを開くことで、下図のように特権がどのように付与されているかを確認することができます。<br><br>各特権の項目に対して、作成・読み取り・書き込み等の動作ごとに、特権の種類を [なし / 部署 / 組織 / 部署配下 / ユーザー] に設定できます。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権</a><br><img src="/blog/powerplatform/About-security-role-in-Dataverse/ppac_security_role_settings.png"></p>
@@ -210,12 +217,12 @@
 </ul>
 <p>というような要件がある場合、サポート案件に対するアクセス許可を変更したロールを 3 種類作成し、各ユーザーに割り当てることで要件が実現できます。</p>
 <p>定義済みセキュリティ ロールでは、モデル駆動型アプリで実際に使用されよく目にするテーブル以外にも、設定に関するものやプライバシー関連など、多数のアクセス制御が設定されています。そのため、カスタムでのセキュリティ ロールを作成する場合は、定義済みのセキュリティ ロールをコピーし、それをベースに修正が必要な特権のみ変更する運用が推奨されています。</p>
-<h2 id="その他"><a href="#その他" class="headerlink" title="その他"></a>その他</h2><h3 id="チーム単位でのセキュリティ-ロールの割り当て"><a href="#チーム単位でのセキュリティ-ロールの割り当て" class="headerlink" title="チーム単位でのセキュリティ ロールの割り当て"></a>チーム単位でのセキュリティ ロールの割り当て</h3><p>ユーザーに直接セキュリティ ロールを割り当てるのではなく、Dataverse 上に作成した <strong>チーム</strong> に対してもセキュリティ ロールの割り当てが可能です。<br>これにより、チームに所属するユーザー全員に対して、チームに付与されたセキュリティ ロールが継承されます。(チームのセキュリティ ロールが継承されていても、Power Platform 管理センターのユーザーごとのセキュリティ ロールには表示されません)<br><br>また、このチームを Microsoft Entra ID のセキュリティ グループと紐づけることで、Microsoft Entra ID と Power Platform でユーザー管理の体制を統一することができます。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a></p>
+<h2 id="その他"><a href="#その他" class="headerlink" title="その他"></a>その他</h2><h3 id="チーム単位でのセキュリティ-ロールの割り当て"><a href="#チーム単位でのセキュリティ-ロールの割り当て" class="headerlink" title="チーム単位でのセキュリティ ロールの割り当て"></a>チーム単位でのセキュリティ ロールの割り当て</h3><p>ユーザーに直接セキュリティ ロールを割り当てるのではなく、Dataverse 上に作成した <strong>チーム</strong> に対してもセキュリティ ロールの割り当てが可能です。<br>これにより、チームに所属するユーザーに対して、チームに付与されたセキュリティ ロールの特権が有効になります。<br>ただし、Dataverse のチームには種別があり、セキュリティ ロールを割り当てできるチーム/できないチームがあります (例: アクセス チーム はセキュリティ ロールを割り当てられません)。<br>セキュリティ ロール側の設定である <strong>メンバーの特権継承オプション</strong> により、特にチーム経由で付与される特権の有効範囲や見え方が変わる場合があります。<br><br>また、このチームを Microsoft Entra ID のセキュリティ グループと紐づけることで、Microsoft Entra ID と Power Platform でユーザー管理の体制を統一することができます。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権</a><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/how-record-access-determined">レコードへのアクセスの決定方法</a></p>
 <h3 id="フィールドレベルのセキュリティ付与"><a href="#フィールドレベルのセキュリティ付与" class="headerlink" title="フィールドレベルのセキュリティ付与"></a>フィールドレベルのセキュリティ付与</h3><p>本記事でご紹介したテーブルごとのアクセス制御とは別に、更に細かく Dataverse テーブルの列ごとにアクセス制御を設定することができます。<br>住所や電話番号など、特に重要で管理に留意する必要のある情報を扱う際に有効な機能です。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/field-level-security">アクセスを制御する列レベルのセキュリティ</a></p>
 <h3 id="セキュリティ-グループを環境に割り当てた際のメンバー同期"><a href="#セキュリティ-グループを環境に割り当てた際のメンバー同期" class="headerlink" title="セキュリティ グループを環境に割り当てた際のメンバー同期"></a>セキュリティ グループを環境に割り当てた際のメンバー同期</h3><p>セキュリティ グループを環境に割り当てると、グループに所属するライセンスを保有するユーザーが、自動的に環境に追加されるようになります。<br>ただし以下のように、注意が必要な挙動もあります。</p>
 <ul>
 <li>ライセンスを保有しないユーザーは環境に追加されない</li>
-<li>入れ子のセキュリティ グループのメンバーは、グループに「Microsoft Entra ID グループ チーム」が割り当てられている場合を除いて、自動的に環境に追加されない</li>
+<li>入れ子のセキュリティ グループのメンバーは、事前にプロビジョニングされたり自動的に環境に追加されたりしません。ただし、入れ子のセキュリティ グループに所属するユーザーが初めて環境にアクセスしたタイミングで環境へ追加されます (ただし、セキュリティ ロールが割り当てられるまでモデル駆動型アプリや Dataverse データにアクセスできません)。</li>
 <li>ユーザーがグループから削除された際、Power Platform 側のユーザーは無効化される</li>
 </ul>
 <p>以下の公開情報に注意点の記載がございますので、ぜひご参照ください。<br><br>参考: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス</a></p>
