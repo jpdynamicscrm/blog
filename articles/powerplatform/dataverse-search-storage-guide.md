@@ -12,7 +12,7 @@ categories:
 
 # Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）
 
-こんにちは、PowerPlatformサポートチームの鈴木です。
+こんにちは、Power Platformサポートチームの鈴木です。
 
 本記事ではDataverse Search のストレージ内訳について、以下の Q1〜Q5 の質問に回答する形でご説明させていただきます。
 
@@ -121,7 +121,7 @@ Xrm.WebApi.retrieveMultipleRecords(
 - [環境内のモデル駆動型アプリの Copilot の有効/無効化](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#enable-copilot-for-model-driven-apps-in-your-environment)
 - [MCS（Microsoft Copilot Studio）で Knowledge Source の追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-dataverse)
 - [営業ハブ における Copilot の機能](https://learn.microsoft.com/ja-jp/dynamics365/sales/enable-setup-copilot#turn-copilot-features-on-or-off-in-sales-hub)
-- [Customer Service における Copilot の機能](https://learn.microsoft.com/en-us/dynamics365/customer-service/administer/configure-copilot-features#opt-out-of-using-copilot-features)
+- [Customer Service における Copilot の機能](https://learn.microsoft.com/ja-jp/dynamics365/customer-service/administer/configure-copilot-features#opt-out-of-using-copilot-features)
   Copilot Service 管理センター アプリにアクセスし、以下から確認できる各機能を利用いただいていない場合には、無効化することは可能です。
   - サポートエクスペリエンス > 生産性 > 質問やメールに使用する Copilot
   - サポートエクスペリエンス > 生産性 > 要約
@@ -158,11 +158,15 @@ Xrm.WebApi.retrieveMultipleRecords(
 
 <h2 id="summary">まとめ</h2>
 - Power Platform 管理センター の Dataverse Search ストレージは検索・構造化・テキストの 3 インデックスの合算です。
+
 - 検索インデックスは、グローバル検索対象のテーブル/列/レコード数の見直しで削減できます。
+
 - 構造化インデックスは Copilot/エージェントの無効化・対象縮小で抑えられます。
+
 - テキストデータインデックスは未使用ファイル削除・連携解除で減らせます。
 
 <h2 id="notice">注意事項（情報の更新可能性）</h2>
 本記事の内容は執筆日時点の公開情報に基づいております。
 仕様や UI、制限事項は将来変更される可能性がございます。
 最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。
+
