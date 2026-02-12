@@ -190,7 +190,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの編集画面を表示します  
 3. 画面左方にある　「...」メニューを表示し、「高度なツール」を選択します
-![](./troubleshooting-general-canvasapp/uImage04-1.png)
+    ![](./troubleshooting-general-canvasapp/uImage04-1.png)
 4. 「ライブ監視」>「ライブ監視を開く」を選択します
     - 別タブで監視ウィンドウが表示されます  
       ![](./troubleshooting-general-canvasapp/uImage04-2.png)
