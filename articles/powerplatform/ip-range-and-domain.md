@@ -102,7 +102,7 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
 ![](./ip-range-and-domain/builtin-action.png)  
 
 1. HTTP、'HTTP + Swagger' 等、対向サービスへ要求を送信する組込アクション  
-   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) の **サービスへの 'HTTP' よび 'HTTP + Swagger' 呼び出しを許可リストに載せる** セクションに記載されているサービスタグを許可してください。  
+   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) の **サービスへの 'HTTP' および 'HTTP + Swagger' 呼び出しを許可リストに載せる** セクションに記載されているサービスタグを許可してください。  
    
    ![](./ip-range-and-domain/builtin-outbound.png)  
   

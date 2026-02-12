@@ -10,7 +10,7 @@ categories:
 
 こんにちは、日本マイクロソフト Power Automate サポートの清水です。
 
-今回は、Power Automate で Azure AD 認証の「接続」が無効になってしまうケースとその仕組みについてご説明いたします。
+今回は、Power Automate で Microsoft Entra ID 認証の「接続」が無効になってしまうケースとその仕組みについてご説明いたします。
 
 <!-- more -->
 
@@ -18,7 +18,7 @@ categories:
 
 Power Automate を業務で使用するうえで、気になるのが「接続」の有効期限です。
 
-Power Automate の「接続」は、ユーザーの資格情報を使用して Azure AD からトークンを取得しています。
+Power Automate の「接続」は、ユーザーの資格情報を使用して Microsoft Entra ID からトークンを取得しています。
 そのため、資格情報に変更があった場合に接続が無効となる場合があることは、ご存じの方も多いかと存じますが、
 
 「実際にパスワードを変更しても接続が切れない」
@@ -42,15 +42,15 @@ Power Automate の「接続」は、ユーザーの資格情報を使用して A
 
 さて、具体的な Power Automate での認証の仕組みについて、ご説明します。
 
-Power Automate で使用するコネクタは、Azure AD での認証を行うことで、下記 2 種類のトークンを取得しています。
+Power Automate で使用するコネクタは、Microsoft Entra ID での認証を行うことで、下記 2 種類のトークンを取得しています。
 
 - リソースに対するトークン (アクセス トークン)
 - 継続的なアクセスを行うためのトークン (更新 トークン)
 
 トークンの取得後、コネクタは上記のうちアクセス トークンを利用してリソースにアクセスします。
-なお、[アクセス トークンは取り消すことはできず、有効期限が切れるまでの間は使用可能](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/configurable-token-lifetimes#access-tokens)です。
+なお、[アクセス トークンは取り消すことはできず、有効期限が切れるまでの間は使用可能](https://learn.microsoft.com/ja-jp/entra/identity-platform/configurable-token-lifetimes#access-tokens)です。
 
-アクセス トークンの有効期限なそれほど長くないため、有効期限が切れた場合には、
+アクセス トークンの有効期限はそれほど長くないため、有効期限が切れた場合には、
 更新 トークンを利用してアクセス トークンを更新することで、継続的にリソースに対してアクセス可能な仕組みとなっています。
 
 また、更新 トークンには、認証を行った際の IP アドレスや条件付きアクセス ポリシーの情報など、
@@ -69,7 +69,7 @@ Power Automate で使用するコネクタは、Azure AD での認証を行う�
    パスワード変更や期限切れでは、更新 トークンは無効となりません。
 
 - 接続が長期間 (90 日以上) 使用されていない
-  [更新 トークンの最大非アクティブ時間](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/configurable-token-lifetimes#refresh-and-session-token-lifetime-policy-properties)の制限により、接続が 90 日以上使用されていない場合、更新 トークンは失効いたします。
+  [更新 トークンの最大非アクティブ時間](https://learn.microsoft.com/ja-jp/entra/identity-platform/configurable-token-lifetimes#refresh-and-session-token-lifetime-policy-properties)の制限により、接続が 90 日以上使用されていない場合、更新 トークンは失効いたします。
 
 上記の場合、更新 トークンが失効してアクセス トークンの更新ができないため、「無効な接続」となってしまいます。
 

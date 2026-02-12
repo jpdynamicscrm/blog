@@ -55,7 +55,7 @@ Power Automate をご利用いただく際、管理者がテナント内で作�
 > 有効にする方法については下記の公開情報をご参照ください。  
 > [テナント レベルでの分析 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/tenant-level-analytics#how-do-i-enable-tenant-level-analytics)
 
-Power Platfrom 管理センターに用意されたレポートを参照する方法です。  
+Power Platform 管理センターに用意されたレポートを参照する方法です。  
 [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) の [管理] > [Power Automate] の画面よりご確認いただくことができます。  
 
 この方法の詳細については、下記の公開情報をご参照ください。  

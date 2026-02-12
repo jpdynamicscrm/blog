@@ -35,7 +35,7 @@ Office 365 Management API を使用するために必要なアクセス許可を
 フローは大きく 7 つのステップで構成されます。  
 
 0. 事前準備
-Office 365 Management API を使用する準備として、Azure AD へのアプリケーションの登録およびアクセス許可の付与などを行います。  
+Office 365 Management API を使用する準備として、Microsoft Entra ID へのアプリケーションの登録およびアクセス許可の付与などを行います。  
 ここでは Power Automate は使用いたしません。  
 1. 事前準備で取得したパラメータを変数に格納  
 2. Office 365 Management API で既存のサブスクリプションの確認  
@@ -57,7 +57,7 @@ CSV ファイルを作成し、クラウド ストレージに保存したら完
 **0-1．アプリの登録**  
 Office 365 Management API の利用を開始するため、[Office 365 Management API の使用を開始する](https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#register-your-application-in-azure-ad) の下記の箇所を実施してください。  
 
-- [Azure portal を使用してアプリケーションを Azure AD で登録する](https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#use-the-azure-portal-to-register-your-application-in-azure-ad)
+- [Azure Portal を使用してアプリケーションを Microsoft Entra ID に登録する](https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#use-the-azure-portal-to-register-your-application-in-azure-ad)
 ※リダイレクト URI は空のまま作成します。  
 - [アプリケーションの新しいキーを生成する](https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#generate-a-new-key-for-your-application) 
 - [アプリが Office 365 Management APIにアクセスするために必要な許可を指定します。](https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#specify-the-permissions-your-app-requires-to-access-the-office-365-management-apis)  
@@ -95,7 +95,7 @@ https://manage.office.com/api/v1.0/{tenant_id}/activity/feed/{operation}
 今回は日次でログを取得することにしたいので、繰り返しトリガーを選択します。  
 トリガーの設定は要件に合わせてご設定ください。  
 
-![triigger](./work-with-audit-log/trigger.png)  
+![trigger](./work-with-audit-log/trigger.png)  
 
 **1-2．事前準備で取得した 5 つの値を変数に格納**  
 変数コネクタ「変数を初期化する」アクションを 5 つフローに追加し、それぞれ以下のように設定します。
@@ -486,5 +486,5 @@ SharePoint コネクタ「ファイルの作成」アクションを追加し、
 ![フロー全体像](./work-with-audit-log/flow.png)
 
 ## 補足
-Power Autoamte のテンプレートギャラリーには、"[Office 365 の監査ログで特定の詳細を監視してアラートを送信](https://make.powerautomate.com/galleries/public/templates/4a7ea95259f1404e95855f6b053360b1/office-365-%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E7%9B%A3%E8%A6%96%E3%81%97%E3%81%A6%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E3%82%92%E9%80%81%E4%BF%A1)" というテンプレートがありますが、こちらは古い API を使用しているため、現時点では使用が推奨されておりません。
+Power Automate のテンプレートギャラリーには、"[Office 365 の監査ログで特定の詳細を監視してアラートを送信](https://make.powerautomate.com/galleries/public/templates/4a7ea95259f1404e95855f6b053360b1/office-365-%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E7%9B%A3%E8%A6%96%E3%81%97%E3%81%A6%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E3%82%92%E9%80%81%E4%BF%A1)" というテンプレートがありますが、こちらは古い API を使用しているため、現時点では使用が推奨されておりません。
 監査ログの取得については、Office 365 Management API でのフローの作成をご検討ください。
