@@ -29,7 +29,7 @@ categories:
       * [同時着信](#anchor-concurrent-inbound-calls)
       * [5分ごとに通話を読み取る](#anchor-read-calls-per-5-minutes)
       * [5分ごとの Invoke 呼び出し](#anchor-invoke-calls-per-5-minutes)
-   1. [コンテンツスループットの制限](#anchor-content-throughput-limit)
+   1. [コンテンツスループットの制限](#anchor-content-throughput-limits)
 1. [要求の制限](#anchor-request-limits)
    1. [タイムアウトの制限](#anchor-timeout)
       * [送信同期要求](#anchor-outbound-synchronous-request)
@@ -343,7 +343,7 @@ HTTP 要求に失敗しました: 'Cannot write more bytes to the buffer than th
 | [同時着信](#anchor-concurrent-inbound-calls) | エンドポイントごと | フローの実行が失敗 |
 | [5分ごとに通話を読み取る](#anchor-read-calls-per-5-minutes) | エンドポイントごと | フローの実行が失敗 |
 | [5分ごとの Invoke 呼び出し](#anchor-invoke-calls-per-5-minutes) | エンドポイントごと | フローの実行が失敗 |
-| [コンテンツスループットの制限](#anchor-content-throughput-limit) | フローの実行ごと | フローの実行が低速化 |
+| [コンテンツスループットの制限](#anchor-content-throughput-limits) | フローの実行ごと | フローの実行が低速化 |
 | [送信同期要求](#anchor-outbound-synchronous-request) | 実行するAPI≒アクションごと | フローの実行が失敗 |
 | [送信非同期要求](#anchor-outbound-asynchronous-request) | 実行するAPI≒アクションごと | フローの実行が失敗 |
 | [受信要求](#anchor-inbound-request) | フローごと | フローの実行が失敗 |

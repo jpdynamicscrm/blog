@@ -29,7 +29,7 @@ categories:
 
 具体的なコマンドは [Gist - Get-PowerAppsFlowsConnections.ps1](https://gist.github.com/jameswh3/b1ddca1705a1e747ce3c8453e1f6dc7e) をご参照ください。
 
-日本語が含まれるアプリやフローの情報を取得する場合は、PowerShell コマンドの最終行に "-Encofing UTF8" を追加し、文字コードの指定してください。
+日本語が含まれるアプリやフローの情報を取得する場合は、PowerShell コマンドの最終行に "-Encoding UTF8" を追加し、文字コードを指定してください。
 ```
 $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 ```
@@ -43,7 +43,7 @@ $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 "ConnectorName" 列または"ConnectionId" 列から確認できます。
 ![](./list-connectors-used-by-apps-and-flows/csv-connector.png)
 
-"ConnectoinId" 列から "/providers/Microsoft.PowerApps/scopes/admin/apis/shared_" を削除すると、コネクタIDが取得できます。  
+"ConnectionId" 列から "/providers/Microsoft.PowerApps/scopes/admin/apis/shared_" を削除すると、コネクタIDが取得できます。  
 取得したコネクタ ID を利用して、コネクタの公開情報へアクセスすることができます。  
 "https://learn.microsoft.com/ja-jp/connectors/{コネクタID}/"  
 

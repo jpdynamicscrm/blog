@@ -125,7 +125,7 @@ DLP ポリシーの変更内容については、**Microsoft Purview** の「**�
 ![](./overlapped-dlppolicy/image.png)
 
 DLP ポリシーを作成するにあたって、任意のコネクタを他のグループに移動することはできますが、
-最初からに既定グループ以外に分類されるコネクタはございません。
+最初から既定グループ以外に分類されるコネクタはございません。
 
 既定グループを変更されたい場合は、以下の公開情報に手順がございますので、ご参照ください。<br>
 (参考：[Microsoft Learn - データポリシーを管理する](https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-data-loss?tabs=new#change-the-default-data-group))
