@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/fetch-xml/image07.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/fetch-xml/image08.png">
 <meta property="article:published_time" content="2023-05-31T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T06:07:12.830Z">
+<meta property="article:modified_time" content="2026-02-13T01:27:48.086Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="How to">
 <meta property="article:tag" content="Power Automate">
@@ -173,7 +173,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+701868ca-7358-51e3-b14d-a821e9149c0e%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B+5%2C000+%E4%BB%B6%E3%82%92%E8%B6%85%E3%81%88%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92+FetchXML+%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Ffetch-xml%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Ffetch-xml.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Ffetch-xml.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/fetch-xml/" data-id="cmlj23wp3002c0nqkasnf9nr9" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/fetch-xml/" data-id="cmlk7kgzn002e0nqwhrwl8q95" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -181,7 +181,7 @@
         <p>こんにちは、Power Platform サポート 谷です。<br/><br>この記事では Dataverse テーブルに登録されている 5,000 件を超えるデータを取得する方法について、FetchXML クエリを使用した方法をご紹介します。</p>
 <span id="more"></span>
 
-<h2 id="Dataverse-テーブルから-5-000-件を超えるデータを取得する方法"><a href="#Dataverse-テーブルから-5-000-件を超えるデータを取得する方法" class="headerlink" title="Dataverse テーブルから 5,000 件を超えるデータを取得する方法"></a>Dataverse テーブルから 5,000 件を超えるデータを取得する方法</h2><p>Power Platform の Dataverse コネクタ「行を一覧にする」アクションを使用すると、取得する列の選択や行のフィルターなどを設定することで、取得されたいデータをローコードで絞り込むことができます。<br/><br>多くの場合、この方法で Dataverse からデータを取得していると思います。<br/><br>「行を一覧にする」アクションは 1 回の実行で最大 5,000 件のデータを取得しますので、 5,000 件を超えるデータを取得したい場合は、当アクションのオプション「改ページ」を設定します。<br/><br>複雑なフローを構成することなく、5,000 件を超える 100,000件(※) までのデータをページングしながら取得することができます。<br/><br>※ 100,000 件は Power Automate クラウド フローで取得可能なページ付けされた項目数の上限です。<br><br/><br><br/><br>アクションの 3 点メニュー &gt; 設定 にて改ページの設定を行います。</p>
+<h2 id="Dataverse-テーブルから-5-000-件を超えるデータを取得する方法"><a href="#Dataverse-テーブルから-5-000-件を超えるデータを取得する方法" class="headerlink" title="Dataverse テーブルから 5,000 件を超えるデータを取得する方法"></a>Dataverse テーブルから 5,000 件を超えるデータを取得する方法</h2><p>Power Platform の Dataverse コネクタ「行を一覧にする」アクションを使用すると、取得する列の選択や行のフィルターなどを設定することで、取得したいデータをローコードで絞り込むことができます。<br/><br>多くの場合、この方法で Dataverse からデータを取得していると思います。<br/><br>「行を一覧にする」アクションは 1 回の実行で最大 5,000 件のデータを取得しますので、 5,000 件を超えるデータを取得したい場合は、当アクションのオプション「改ページ」を設定します。<br/><br>複雑なフローを構成することなく、5,000 件を超える 100,000件(※) までのデータをページングしながら取得することができます。<br/><br>※ 100,000 件は Power Automate クラウド フローで取得可能なページ付けされた項目数の上限です。<br><br/><br><br/><br>アクションの 3 点メニュー &gt; 設定 にて改ページの設定を行います。</p>
 <p><img src="/blog/powerautomate/fetch-xml/image01.png"> </p>
 <p>さて、Dataverse では FetchXML という独自の XML ベースのクエリ言語を使用することができます。<br/><br>複雑なクエリでデータを検索したり、100,000 件を超える大量のデータを取得したり、柔軟できめ細やかな条件にてデータを取得することが可能になります。</p>
 <p>しかし、FetchXML クエリをコーディングしたり、フロー側で <code>Do until</code> アクションを使用して 5,000 件を超えるデータをページングして取得するようフローを構成する必要があります。<br/><br>FetchXML を使用した実装方法をより身近に感じていただきたく、以降では、実際に FetchXML を使用して 5,000 件を超えるデータをページングしながら取得するサンプル フローをご紹介します。</p>
@@ -202,8 +202,8 @@
 <p>[左辺] 手順 2 で定義した変数<br>[条件] 次の値に等しい<br>[右辺] 0    </p>
 <p><img src="/blog/powerautomate/fetch-xml/image05.png"> </p>
 <h3 id="4-FetchXML-を使用して-Dataverse-からデータを取得する"><a href="#4-FetchXML-を使用して-Dataverse-からデータを取得する" class="headerlink" title="4. FetchXML を使用して Dataverse からデータを取得する"></a>4. FetchXML を使用して Dataverse からデータを取得する</h3><p>FetchXML クエリを使用して Dataverse への検索を行います。<br/><br><code>page</code> プロパティに、手順 1 で定義した変数に格納しておいたページ番号を指定して、取得対象のページのデータを取得します。<br/><br>本サンプルでは検索条件などは設定していませんが、要件に応じて柔軟にクエリをカスタマイズできます。詳細は手順 0 にてご紹介しています。</p>
-<p>[テーブル名] 対象の Dateverse テーブルを指定ください<br>[Fetch Xml クエリ]    </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fetch</span></span></span><br><span class="line"><span class="tag">   <span class="attr">page</span>=<span class="string">&quot;【ページ番号を定義した変数名】&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">&quot;【Dataverse テーブル名】&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">name</span>=<span class="string">&quot;【取得されたい列名】&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fetch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>[テーブル名] 対象の Dataverse テーブルを指定ください<br>[Fetch Xml クエリ]    </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fetch</span></span></span><br><span class="line"><span class="tag">   <span class="attr">page</span>=<span class="string">&quot;【ページ番号を定義した変数名】&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">&quot;【Dataverse テーブル名】&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">name</span>=<span class="string">&quot;【取得したい列名】&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fetch</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><code>ページ番号</code>は動的コンテンツから手順 1 で定義した変数名をご指定ください</p>
 <p><img src="/blog/powerautomate/fetch-xml/image06.png"> </p>

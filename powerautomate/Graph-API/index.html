@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/img06.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/img05.png">
 <meta property="article:published_time" content="2024-06-24T05:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T06:07:12.808Z">
+<meta property="article:modified_time" content="2026-02-13T01:27:48.064Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="How to">
 <meta property="article:tag" content="Power Automate">
@@ -169,7 +169,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8a4dc6bd-8ca9-59ca-9f6a-cbbd2b769980%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%80%81Microsoft+Graph+API+%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FGraph-API%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FGraph-API.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2FGraph-API.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/" data-id="cmlj23wop00180nqk88u85l7s" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/" data-id="cmlk7kgzb001c0nqw0ogk04b7" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -215,7 +215,7 @@
 <li>委任されたアクセス許可<br>ユーザーの代わりにアクセスする際に使用いたします。<br>API を実際に実行するアプリケーションに対し、サインインしているユーザーとして動作するためのアクセス許可が委任されます。  </li>
 <li>アプリケーションのアクセス許可<br>ユーザーなしでアクセスする際に使用いたします。<br>API を実行するアプリケーション自体にアクセス許可を付与します。  </li>
 </ul>
-<p>委任されたアクセス許可が使用できる場合は、ユーザーに変わって API を実行する HTTP with Entra ID (preauthorized) コネクタまたは HTTP with Entra ID コネクタが、<br>アプリケーションのアクセス許可が使用できる場合は、ユーザーなしで API を実行する HTTP コネクタが使用できます。  </p>
+<p>委任されたアクセス許可が使用できる場合は、ユーザーに代わって API を実行する HTTP with Entra ID (preauthorized) コネクタまたは HTTP with Entra ID コネクタが、<br>アプリケーションのアクセス許可が使用できる場合は、ユーザーなしで API を実行する HTTP コネクタが使用できます。  </p>
 <p>それぞれのコネクタの使い方について説明します。  </p>
 <p><a id='anchor-use-HTTP-with-Entra-ID-Connector'></a></p>
 <h1 id="HTTP-with-Microsoft-Entra-ID-preauthorized-コネクタまたは-HTTP-with-Microsoft-Entra-ID-コネクタを使用する"><a href="#HTTP-with-Microsoft-Entra-ID-preauthorized-コネクタまたは-HTTP-with-Microsoft-Entra-ID-コネクタを使用する" class="headerlink" title="HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタを使用する"></a>HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタを使用する</h1><hr>
@@ -245,10 +245,10 @@
 <div class="alert is-info"><p class="alert-title">Note</p><p>必要なアクセス許可の種類によっては、HTTP with Microsoft Entra ID (preauthorized) コネクタでは API が実行できない場合があります。</p><p>HTTP with Microsoft Entra ID (preauthorized) コネクタで実行できる権限スコープの一覧は現時点では公開されておりませんが、フローを実行した際に権限エラーが発生する場合、HTTP with Microsoft Entra ID (preauthorized) コネクタでは実行できない可能性がございますので、HTTP with Microsoft Entra ID コネクタや HTTP コネクタでの実行をお試しください。  </p></div>
 <p><a id='anchor-use-HTTP-connector'></a></p>
 <h1 id="HTTP-コネクタを使用する"><a href="#HTTP-コネクタを使用する" class="headerlink" title="HTTP コネクタを使用する"></a>HTTP コネクタを使用する</h1><hr>
-<p>HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に登録したアプリから API を実行できます。  </p>
+<p>HTTP コネクタでは、ユーザーのサインインなしに、Microsoft Entra ID に登録したアプリから API を実行できます。  </p>
 <ol>
-<li>Azure AD にアプリを登録します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph/api/1.0&view=graph-rest-1.0">アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Learn</a> にしたがって、 Azure AD にアプリを登録します。<br>また、登録したアプリの [API のアクセス許可] のページにて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  <img src="/blog/powerautomate/Graph-API/img07.png">   </li>
-<li>HTTP コネクタの「HTTP」アクションを挿入します。<br>2-1. <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request">API のリファレンス</a> を参考に、リクエストを作成します。<br>   HTTP コネクタを使用する場合、サインイン中のユーザーがいないため、<code>/me/sendMail</code>ではなく、<code>/users/&#123;id | userPrincipalName&#125;/sendMail</code> の要求方法を使用することに注意してください。     <img src="/blog/powerautomate/Graph-API/img06.png">  2-2. 認証を「Active Directory OAuth」に設定し、Azure AD に登録したアプリから取得した情報を設定します。  <ul>
+<li>Microsoft Entra ID にアプリを登録します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph/api/1.0&view=graph-rest-1.0">アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Learn</a> にしたがって、 Microsoft Entra ID にアプリを登録します。<br>また、登録したアプリの [API のアクセス許可] のページにて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  <img src="/blog/powerautomate/Graph-API/img07.png">   </li>
+<li>HTTP コネクタの「HTTP」アクションを挿入します。<br>2-1. <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request">API のリファレンス</a> を参考に、リクエストを作成します。<br>   HTTP コネクタを使用する場合、サインイン中のユーザーがいないため、<code>/me/sendMail</code>ではなく、<code>/users/&#123;id | userPrincipalName&#125;/sendMail</code> の要求方法を使用することに注意してください。     <img src="/blog/powerautomate/Graph-API/img06.png">  2-2. 認証を「Active Directory OAuth」に設定し、Microsoft Entra ID に登録したアプリから取得した情報を設定します。  <ul>
 <li>テナント: ディレクトリ (テナント) ID  </li>
 <li>対象ユーザー: <a target="_blank" rel="noopener" href="https://graph.microsoft.com/">https://graph.microsoft.com</a>  </li>
 <li>クライアント ID: アプリケーション (クライアント) ID  </li>

@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image18.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/image19.png">
 <meta property="article:published_time" content="2022-10-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T06:07:12.818Z">
+<meta property="article:modified_time" content="2026-02-13T01:27:48.074Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
@@ -177,7 +177,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+50b4fdae-ab7a-5fec-9b99-99b91e6bc7c3%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%83%95%E3%83%AD%E3%83%BC%E6%89%80%E6%9C%89%E8%80%85%E3%81%AE%E9%80%80%E8%81%B7%E3%83%BB%E7%95%B0%E5%8B%95%E3%81%B8%E3%81%AE%E5%82%99%E3%81%88%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fchange-flow-owner%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fchange-flow-owner.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fchange-flow-owner.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/" data-id="cmlj23wp000220nqkhx08gvp5" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/change-flow-owner/" data-id="cmlk7kgzk00260nqw39a3fbnu" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -223,7 +223,7 @@
 </ol>
 <p>したがいまして、引き続きご利用いただくためには以下のいずれかの対応を行ってください。</p>
 <ol>
-<li>フローに Power Automate per flow ライセンスを割り当て、接続を修正する。</li>
+<li>フローに Power Automate Process ライセンスを割り当て、接続を修正する。</li>
 <li>新たなフローとして保存し、新たな所有者でフローを実行する。<br/><br> なお、現時点では、一部のフローのみ、既存のフローの作成者 (所有者) を変更することができます。<br/></li>
 </ol>
 <h3 id="編集・削除・共有について"><a href="#編集・削除・共有について" class="headerlink" title="編集・削除・共有について"></a>編集・削除・共有について</h3><p>フローの所有者がいる場合、フローを編集・削除・共有することができます。<br/><br>所有者は以下のいずれかの方法で追加いただけます。</p>
@@ -268,7 +268,7 @@
 </ul>
 <p><strong>&lt;新所有者の ObjectID&gt; の確認方法</strong></p>
 <ul>
-<li>「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account">Get-AzureADUser</a>」コマンド、あるいは Azure Active Directory 管理センターでご確認ください</li>
+<li>「<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account">Get-AzureADUser</a>」コマンド、あるいは Microsoft Entra 管理センターでご確認ください</li>
 <li>Get-AzureADUser 実行例<ul>
 <li>例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて ObjectId が取得できます。</li>
 <li><pre><code>  Get-AzureADUser | Select DisplayName, UserPrincipalName, ObjectId
@@ -277,8 +277,8 @@
 <li><img src="/blog/powerautomate/change-flow-owner/image05.png"></li>
 </ul>
 </li>
-<li>Azure Active Directory 管理センターにおけるユーザーの ObjectID の確認例<ul>
-<li><a target="_blank" rel="noopener" href="https://aad.portal.azure.com/">Azure Active Directory 管理センター</a> &gt; ユーザー &gt; 対象のユーザー</li>
+<li>Microsoft Entra 管理センターにおけるユーザーの ObjectID の確認例<ul>
+<li><a target="_blank" rel="noopener" href="https://entra.microsoft.com/">Microsoft Entra 管理センター</a> &gt; ユーザー &gt; 対象のユーザー</li>
 <li><img src="/blog/powerautomate/change-flow-owner/image06.png"></li>
 </ul>
 </li>
@@ -326,7 +326,7 @@
 <li>フローを保存します</li>
 </ol>
 <p><a id='anchor-change-flow-export'></a></p>
-<h3 id="＜非ソリューション-フロー＞-フローのエクスポートを行い、新たなユーザーでインポートする方法"><a href="#＜非ソリューション-フロー＞-フローのエクスポートを行い、新たなユーザーでインポートする方法" class="headerlink" title="＜非ソリューション フロー＞　フローのエクスポートを行い、新たなユーザーでインポートする方法"></a>＜非ソリューション フロー＞　フローのエクスポートを行い、新たなユーザーでインポートする方法</h3><p>フローのパッケージファイルをしてエクスポートし、エクスポートしたファイルを変更先ユーザーにご送付いただきます。<br/><br>変更先ユーザーは当該エクスポートファイルをPower Automate ポータル画面よりインポートすることで、同一構成のフローを自身のフローとして保存いただけます。<br/><br>なお、パッケージのエクスポート後のインポートはテナントや環境をまたいだ実施が可能です。</p>
+<h3 id="＜非ソリューション-フロー＞-フローのエクスポートを行い、新たなユーザーでインポートする方法"><a href="#＜非ソリューション-フロー＞-フローのエクスポートを行い、新たなユーザーでインポートする方法" class="headerlink" title="＜非ソリューション フロー＞　フローのエクスポートを行い、新たなユーザーでインポートする方法"></a>＜非ソリューション フロー＞　フローのエクスポートを行い、新たなユーザーでインポートする方法</h3><p>フローのパッケージファイルとしてエクスポートし、エクスポートしたファイルを変更先ユーザーにご送付いただきます。<br/><br>変更先ユーザーは当該エクスポートファイルをPower Automate ポータル画面よりインポートすることで、同一構成のフローを自身のフローとして保存いただけます。<br/><br>なお、パッケージのエクスポート後のインポートはテナントや環境をまたいだ実施が可能です。</p>
 <p><strong>実行例</strong></p>
 <ol>
 <li>フロー編集画面から「エクスポート」を実行します<br> <img src="/blog/powerautomate/change-flow-owner/image15.png"> </li>

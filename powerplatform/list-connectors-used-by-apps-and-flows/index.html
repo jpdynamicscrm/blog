@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/csv-connector.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/csv-premium.png">
 <meta property="article:published_time" content="2024-12-27T02:30:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T06:07:13.023Z">
+<meta property="article:modified_time" content="2026-02-13T01:27:48.280Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Apps">
 <meta property="article:tag" content="Power Platform">
@@ -164,7 +164,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8e9e78e5-be4b-509a-a3fa-382a92f2d16a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9+%E3%82%A2%E3%83%97%E3%83%AA%E3%83%BB%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%AE%E4%B8%80%E8%A6%A7%E5%8F%96%E5%BE%97%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Flist-connectors-used-by-apps-and-flows%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Flist-connectors-used-by-apps-and-flows.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Flist-connectors-used-by-apps-and-flows.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/" data-id="cmlj23wqo00620nqk50u2cdma" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/list-connectors-used-by-apps-and-flows/" data-id="cmlk7kh1700620nqwh7bt7bd9" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -178,12 +178,12 @@
 <h2 id="PowerShell-による出力"><a href="#PowerShell-による出力" class="headerlink" title="PowerShell による出力"></a>PowerShell による出力</h2><h3 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h3><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#cmdlets">公開情報 - Power Apps と Power Automate の PowerShell サポート</a> に従い、PowerApps の管理モジュールを PowerShell を実行する端末にインストールしてください。</p>
 <h3 id="コマンド"><a href="#コマンド" class="headerlink" title="コマンド"></a>コマンド</h3><p>アプリ・フローで使用されている接続を使用するコネクタにつきましては、Gist に登録されている PowerShell スクリプトをご実行いただくことで取得することが出来ます。</p>
 <p>具体的なコマンドは <a target="_blank" rel="noopener" href="https://gist.github.com/jameswh3/b1ddca1705a1e747ce3c8453e1f6dc7e">Gist - Get-PowerAppsFlowsConnections.ps1</a> をご参照ください。</p>
-<p>日本語が含まれるアプリやフローの情報を取得する場合は、PowerShell コマンドの最終行に “-Encofing UTF8” を追加し、文字コードの指定してください。</p>
+<p>日本語が含まれるアプリやフローの情報を取得する場合は、PowerShell コマンドの最終行に “-Encoding UTF8” を追加し、文字コードを指定してください。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8</span><br></pre></td></tr></table></figure>
 
 <h3 id="出力結果"><a href="#出力結果" class="headerlink" title="出力結果"></a>出力結果</h3><p>コマンド内で指定したフォルダに以下のような形式で CSV ファイルとして出力されます。<br><img src="/blog/powerplatform/list-connectors-used-by-apps-and-flows/csv.png"></p>
 <h3 id="活用例"><a href="#活用例" class="headerlink" title="活用例"></a>活用例</h3><h4 id="◆-フローやアプリで使用しているコネクタを確認する"><a href="#◆-フローやアプリで使用しているコネクタを確認する" class="headerlink" title="◆ フローやアプリで使用しているコネクタを確認する"></a>◆ フローやアプリで使用しているコネクタを確認する</h4><p>“ConnectorName” 列または”ConnectionId” 列から確認できます。<br><img src="/blog/powerplatform/list-connectors-used-by-apps-and-flows/csv-connector.png"></p>
-<p>“ConnectoinId” 列から “/providers/Microsoft.PowerApps/scopes/admin/apis/shared_” を削除すると、コネクタIDが取得できます。<br>取得したコネクタ ID を利用して、コネクタの公開情報へアクセスすることができます。<br>“<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/%7B%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BFID%7D/&quot;">https://learn.microsoft.com/ja-jp/connectors/{コネクタID}/&quot;</a>  </p>
+<p>“ConnectionId” 列から “/providers/Microsoft.PowerApps/scopes/admin/apis/shared_” を削除すると、コネクタIDが取得できます。<br>取得したコネクタ ID を利用して、コネクタの公開情報へアクセスすることができます。<br>“<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/%7B%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BFID%7D/&quot;">https://learn.microsoft.com/ja-jp/connectors/{コネクタID}/&quot;</a>  </p>
 <p>例)</p>
 <ul>
 <li>Sharepoint : <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/sharepointonline/">https://learn.microsoft.com/ja-jp/connectors/sharepointonline/</a>  </li>

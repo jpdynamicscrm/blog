@@ -14,7 +14,7 @@
 <meta property="og:description" content="こんにちは、Power Platform サポートチームの網野です。2024 年 10 月 に MC901932 &#x2F; MC918447 にて通知された内容について、お客様への影響および対応方法についてご案内いたします。">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2024-11-01T02:30:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T06:07:12.964Z">
+<meta property="article:modified_time" content="2026-02-13T01:27:48.221Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Apps">
 <meta property="article:tag" content="Power Platform">
@@ -162,7 +162,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+0bdfb77e-b7e7-5ac1-b559-cb5eee760033%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Platform+-+%22Http+With+Microsoft+Entra+ID+%28%E4%BA%8B%E5%89%8D%E6%89%BF%E8%AA%8D%E6%B8%88%E3%81%BF%29%22+%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E6%9B%B4%E6%96%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0+-+MC901932+MC918447%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FMC901932%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FMC901932.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FMC901932.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/MC901932/" data-id="cmlj23wq4004g0nqk6h8jdq7p" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/MC901932/" data-id="cmlk7kh0l004h0nqw55pq5q6j" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -229,7 +229,7 @@
 <li>変更<b><font color=red>後</font></b>に作成した接続<br>→ <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/webcontentsv2/#%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%8C%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E3%82%8F%E3%82%8A%E3%81%AB%E5%8B%95%E4%BD%9C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B">こちらの手順</a> に従い、 API 実行に必要なアクセス許可をアプリに付与し、webcontentsv2 コネクタで動作検証を行ってください。</li>
 </ul>
 </li>
-<li><u>webcontentv2 コネクタを利用している</u><br>  2024 年 10 月時点では対応は必要ありませんが、今後 webcontentsv2 コネクタは非推奨となっていく予定です。</li>
+<li><u>webcontentsv2 コネクタを利用している</u><br>  2024 年 10 月時点では対応は必要ありませんが、今後 webcontentsv2 コネクタは非推奨となっていく予定です。</li>
 </ol>
 <div class="alert is-info"><p class="alert-title">Note</p><p>機能の変更が展開されると、webcontents コネクタと webcontentsv2 コネクタは内部的に同じアプリとなります。</p><p></p><p>一方にアクセス許可を与えると両方のコネクタに対してアクセスが許可されます。</p></div>
 <h2 id="メッセージセンター時系列"><a href="#メッセージセンター時系列" class="headerlink" title="メッセージセンター時系列"></a>メッセージセンター時系列</h2><table>
@@ -274,7 +274,7 @@
 <h2 id="よくあるご質問"><a href="#よくあるご質問" class="headerlink" title="よくあるご質問"></a>よくあるご質問</h2><h3 id="両方のコネクタを利用していますが、影響はありますか。"><a href="#両方のコネクタを利用していますが、影響はありますか。" class="headerlink" title="両方のコネクタを利用していますが、影響はありますか。"></a>両方のコネクタを利用していますが、影響はありますか。</h3><p>ご利用中のフローやアプリ等につきましては、今のところ影響はありません。<br><br>しかしながら、コネクタに対して新しく接続を作成する場合は機能変更の影響を受けます。<br><br>意図しないフローやアプリの中断を防ぐため、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/webcontentsv2/#%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%81%8C%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E3%82%8F%E3%82%8A%E3%81%AB%E5%8B%95%E4%BD%9C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B">こちらの手順</a> に従って、 API 実行に必要なアクセス許可をアプリに付与し、webcontentsv2 コネクタで動作検証を行ってください。<br></p>
 <h3 id="自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。"><a href="#自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。" class="headerlink" title="自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。"></a>自分のテナントに機能の変更が展開される具体的な日にちはわかりますか。</h3><p>恐れ入りますが、現時点で具体的な日にちはお伝えすることができません。<br><br>当初 2024 年 10 月 25 日 から 2024 年 11 月 15 日の間で適用される予定となっていましたが適用を延期しています。<br><br>適用予定日が決まり次第メッセージセンター等にて通知を行います。</p>
 <h3 id="webcontents-コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか"><a href="#webcontents-コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか" class="headerlink" title="webcontents コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか"></a>webcontents コネクタを使っていますが、古い接続には影響が出ず、新しい接続にのみ影響が出るのはなぜですか</h3><p>お客様のフローが意図せず停止することのないよう古い接続をそのまま利用できるような形で機能変更を行っているためです。<br></p>
-<p>機能の変更が展開されますと、 webcontens コネクタに対して 2 種類の接続が存在するようになります。<br></p>
+<p>機能の変更が展開されますと、 webcontents コネクタに対して 2 種類の接続が存在するようになります。<br></p>
 <table>
 <thead>
 <tr>

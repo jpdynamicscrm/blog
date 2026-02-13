@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/create-file.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/flow.png">
 <meta property="article:published_time" content="2023-11-13T07:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-12T06:07:12.903Z">
+<meta property="article:modified_time" content="2026-02-13T01:27:48.159Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
@@ -192,7 +192,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+544ab6fd-aa1e-520f-ba0f-6ff4f96a053a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7+Microsoft+Purview+%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fwork-with-audit-log%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fwork-with-audit-log.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fwork-with-audit-log.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/" data-id="cmlj23wto00m70nqk2kmbavku" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/" data-id="cmlk7kh4500m60nqw9w126g05" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -210,7 +210,7 @@
 <h2 id="必要な権限について"><a href="#必要な権限について" class="headerlink" title="必要な権限について"></a>必要な権限について</h2><p>Office 365 Management API を使用するために必要なアクセス許可を付与する際、テナント管理者の同意が必要となります。<br>同意の付与には、グローバル管理者の権限が必要です。</p>
 <h2 id="手順の概要"><a href="#手順の概要" class="headerlink" title="手順の概要"></a>手順の概要</h2><p>フローは大きく 7 つのステップで構成されます。  </p>
 <ol start="0">
-<li>事前準備<br>Office 365 Management API を使用する準備として、Azure AD へのアプリケーションの登録およびアクセス許可の付与などを行います。<br>ここでは Power Automate は使用いたしません。  </li>
+<li>事前準備<br>Office 365 Management API を使用する準備として、Microsoft Entra ID へのアプリケーションの登録およびアクセス許可の付与などを行います。<br>ここでは Power Automate は使用いたしません。  </li>
 <li>事前準備で取得したパラメータを変数に格納  </li>
 <li>Office 365 Management API で既存のサブスクリプションの確認<br>監査ログを API から取得するために、まずはサブスクリプションを開始する必要があります。<br>既に開始済みで有効な状態であれば、サブスクリプションを新しく開始する必要はないので、本ステップでは、既存のサブスクリプションがあるかどうかを確認します。  </li>
 <li>(既存のサブスクリプションが存在しない場合) Office 365 Management API でサブスクリプションの開始<br>手順 1 で既存のサブスクリプションの一覧を取得したので、目的のサブスクリプションがないか、無効な状態の場合には、サブスクリプションを開始します。  </li>
@@ -221,7 +221,7 @@
 <p>それでは、詳細な手順について見ていきましょう。  </p>
 <h2 id="0-事前準備"><a href="#0-事前準備" class="headerlink" title="0. 事前準備"></a>0. 事前準備</h2><p><strong>0-1．アプリの登録</strong><br>Office 365 Management API の利用を開始するため、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#register-your-application-in-azure-ad">Office 365 Management API の使用を開始する</a> の下記の箇所を実施してください。  </p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#use-the-azure-portal-to-register-your-application-in-azure-ad">Azure portal を使用してアプリケーションを Azure AD で登録する</a><br>※リダイレクト URI は空のまま作成します。  </li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#use-the-azure-portal-to-register-your-application-in-azure-ad">Azure Portal を使用してアプリケーションを Microsoft Entra ID に登録する</a><br>※リダイレクト URI は空のまま作成します。  </li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#generate-a-new-key-for-your-application">アプリケーションの新しいキーを生成する</a> </li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#specify-the-permissions-your-app-requires-to-access-the-office-365-management-apis">アプリが Office 365 Management APIにアクセスするために必要な許可を指定します。</a><br>※今回は HTTP コネクタを使用するため、手順 3 では「b. アプリケーションのアクセス許可」を選択してください。</li>
 </ul>
@@ -242,7 +242,7 @@
 <p>本ブログでは、<code>Audit.AzureActiveDirectory</code> を対象とすることとします。  </p>
 <h2 id="1-事前準備で取得したパラメータをフローの変数に格納"><a href="#1-事前準備で取得したパラメータをフローの変数に格納" class="headerlink" title="1. 事前準備で取得したパラメータをフローの変数に格納"></a>1. 事前準備で取得したパラメータをフローの変数に格納</h2><p>ここからフローの作成に入っていきます。  </p>
 <p><strong>1-1．トリガーを決定し、フローを一から作成</strong><br>今回は日次でログを取得することにしたいので、繰り返しトリガーを選択します。<br>トリガーの設定は要件に合わせてご設定ください。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/trigger.png" alt="triigger">  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/trigger.png" alt="trigger">  </p>
 <p><strong>1-2．事前準備で取得した 5 つの値を変数に格納</strong><br>変数コネクタ「変数を初期化する」アクションを 5 つフローに追加し、それぞれ以下のように設定します。</p>
 <ul>
 <li>テナント ID</li>
@@ -881,7 +881,7 @@
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>長大なフローになりましたので、最後にフローの全体像を貼っておきます。<br>全体の構成に誤りがないか、以下のキャプチャと見比べて確認してみてください。  </p>
 <p>今回は <code>Audit.AzureActiveDirectory</code> のコンテンツ タイプを対象に API を実行しましたが、SharePoint など他のコンテンツ タイプについても同じ構成のフローで実行できますので、ぜひカスタマイズして便利なフローを作ってみてください。  </p>
 <p><img src="/blog/powerautomate/work-with-audit-log/flow.png" alt="フロー全体像"></p>
-<h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>Power Autoamte のテンプレートギャラリーには、”<a target="_blank" rel="noopener" href="https://make.powerautomate.com/galleries/public/templates/4a7ea95259f1404e95855f6b053360b1/office-365-%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E7%9B%A3%E8%A6%96%E3%81%97%E3%81%A6%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E3%82%92%E9%80%81%E4%BF%A1">Office 365 の監査ログで特定の詳細を監視してアラートを送信</a>“ というテンプレートがありますが、こちらは古い API を使用しているため、現時点では使用が推奨されておりません。<br>監査ログの取得については、Office 365 Management API でのフローの作成をご検討ください。</p>
+<h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>Power Automate のテンプレートギャラリーには、”<a target="_blank" rel="noopener" href="https://make.powerautomate.com/galleries/public/templates/4a7ea95259f1404e95855f6b053360b1/office-365-%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E7%9B%A3%E8%A6%96%E3%81%97%E3%81%A6%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E3%82%92%E9%80%81%E4%BF%A1">Office 365 の監査ログで特定の詳細を監視してアラートを送信</a>“ というテンプレートがありますが、こちらは古い API を使用しているため、現時点では使用が推奨されておりません。<br>監査ログの取得については、Office 365 Management API でのフローの作成をご検討ください。</p>
 
       
       
