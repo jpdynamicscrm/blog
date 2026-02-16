@@ -24,8 +24,7 @@ Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定
 - [Q1: Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？](#auth-key-overview)
 - [Q2: 認証キーの有効期限が切れるとどうなりますか？](#expiration-impact)
 - [Q3: どうやってキーを更新すればいいですか？](#renewal-steps)
-- [Q4: 更新作業中にウェブサイトは停止しますか？](#downtime-info)
-- [Q5: 認証キーはどのように管理すればいいですか？](#auth-key-management)
+- [Q4: 認証キーはどのように管理すればいいですか？](#auth-key-management)
 
 ### この記事でわかること
 - Power Pages が Dataverse (データ置き場) に接続するための「鍵」の仕組み
@@ -37,7 +36,6 @@ Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定
 - [Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？](#auth-key-overview)
 - [認証キーの有効期限が切れるとどうなりますか？](#expiration-impact)
 - [どうやってキーを更新すればいいですか？](#renewal-steps)
-- [更新作業中にウェブサイトは停止しますか？](#downtime-info)
 - [認証キーはどのように管理すればいいですか？](#auth-key-management)
 
 <h2 id="auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？ (Q1)</h2>
@@ -98,9 +96,7 @@ Power Pages 認証キーは以下の手順で更新可能です。
 
 3.認証キーを更新する際、ウェブサイトの再起動が発生します。この再起動では  Web サイトが完全に停止するわけではございませんが、数分程度の間、利用者がサイトにアクセスしづらくなる可能性があるため、必要に応じて、夜間帯などでの実行をご検討ください。
 
-- [Q4: 認証キーはどのように管理すればいいですか？](#auth-key-management)
-
-<h2 id="auth-key-management">どうやってキーを更新すればいいですか？ (Q5)</h2>
+<h2 id="auth-key-management">どうやってキーを更新すればいいですか？ (Q4)</h2>
 Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。
 ・電子メール
 ・Power Platform 管理センター
