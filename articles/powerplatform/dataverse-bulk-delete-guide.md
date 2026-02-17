@@ -1,6 +1,6 @@
 ---
 title: Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ
-date: 2026-02-13
+date: 2026-02-19
 tags:
 - Dataverse
 - PowerPlatform
