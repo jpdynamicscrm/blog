@@ -11,7 +11,7 @@ categories:
 
 # Power Pages 認証キーの更新ガイド ～有効期限切れを防ぐ方法～
 
-こんにちは、PowerPlatformサポートチームの吉永です。
+こんにちは、Power Platformサポートチームの吉永です。
 
 本記事では Power Pages 認証キーに関するご説明を行わせて頂きます。
 
@@ -57,10 +57,11 @@ Web サイト認証キーの管理
 【補足 : 認証キーの実体】
 先述させて頂きましたように、 Power Pages では Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。
 
-このため、この Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で制される仕組みとなっており、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。
-![](Power-Pages-Auth-Key/Power-Pages-Auth-Key.png)  
+このため、Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で作成される仕組みとなっております。
+このことから、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。
+![](Power-Pages-Auth-Key/Power-Pages-Azure-App.png) 
 
-Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。
+なお、Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。
 
 <h2 id="expiration-impact">認証キーの有効期限が切れるとどうなりますか？ (Q2)</h2>
 「認証キー」の有効期限が切れた場合、Web サイトは Dataverse にアクセスできなくなります。
@@ -83,12 +84,12 @@ Power Pages 認証キーは以下の手順で更新可能です。
 3. 対象のウェブサイトを選択し、画面上部のメニューまたは詳細画面から [管理] (または [設定]) を探します。
 4. [セキュリティ] セクションにある **[Web サイト認証キー]** をクリックします。
 5. 表示された画面で **[キーの更新]** ボタンを押し、確認画面で [OK] を選択します。
-![](Power-Pages-Auth-Key/Power-Pages-Azure-App.png) 
+![](Power-Pages-Auth-Key/Power-Pages-Auth-Key.png)  
 
 これにより更新処理が始まり、自動でキーの更新が完了となります。
 
 【ポイント】
-1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。
+1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。<br>
 ＜参考資料＞
 - [Web サイト管理に必要なロール (Docs)](https://learn.microsoft.com/ja-jp/power-pages/admin/admin-roles)
 
@@ -97,11 +98,11 @@ Power Pages 認証キーは以下の手順で更新可能です。
 3.認証キーを更新する際、ウェブサイトの再起動が発生します。この再起動では  Web サイトが完全に停止するわけではございませんが、数分程度の間、利用者がサイトにアクセスしづらくなる可能性があるため、必要に応じて、夜間帯などでの実行をご検討ください。
 
 <h2 id="auth-key-management">どうやってキーを更新すればいいですか？ (Q4)</h2>
-Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。
-・電子メール
-・Power Platform 管理センター
-・Web サイト上
-
+Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。<br>
+・電子メール<br>
+・Power Platform 管理センター<br>
+・Web サイト上<br>
+<br>
 ＜参考資料＞
 - [認証キーの有効期限切れを確認する (Docs)](https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-authentication-key-expiration-notification)
 
