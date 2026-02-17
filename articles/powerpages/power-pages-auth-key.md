@@ -90,19 +90,18 @@ Power Pages 認証キーは以下の手順で更新可能です。
 
 【ポイント】
 1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。<br>
-＜参考資料＞
-- [Web サイト管理に必要なロール (Docs)](https://learn.microsoft.com/ja-jp/power-pages/admin/admin-roles)
-
-2. 「キーの更新」ボタンを押すことで、新しいキーが自動生成されますが、新たなキーの有効期限は 1 年後となります。
-
+2.「キーの更新」ボタンを押すことで、新しいキーが自動生成されますが、新たなキーの有効期限は 1 年後となります。
 3.認証キーを更新する際、ウェブサイトの再起動が発生します。この再起動では  Web サイトが完全に停止するわけではございませんが、数分程度の間、利用者がサイトにアクセスしづらくなる可能性があるため、必要に応じて、夜間帯などでの実行をご検討ください。
 
-<h2 id="auth-key-management">どうやってキーを更新すればいいですか？ (Q4)</h2>
+＜参考資料＞
+- [Web サイト管理に必要なロール (Docs)](https://learn.microsoft.com/ja-jp/power-pages/admin/admin-roles)
+ 
+<h2 id="auth-key-management">認証キーはどのように管理すればいいですか？ (Q4)</h2>
 Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。<br>
 ・電子メール<br>
 ・Power Platform 管理センター<br>
 ・Web サイト上<br>
-<br>
+
 ＜参考資料＞
 - [認証キーの有効期限切れを確認する (Docs)](https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-authentication-key-expiration-notification)
 
