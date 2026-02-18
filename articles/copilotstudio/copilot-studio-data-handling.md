@@ -3,7 +3,6 @@ title: Copilot studio の生成 AI 機能を利用する際のデータのお取
 date: 2024-06-14 13:30:00
 tags:
   - Power Platform
-  - Power Virtual Agents
   - Microsoft Copilot Studio
   - AI builder
 categories:
@@ -50,10 +49,10 @@ Dataverse データベースの環境は、SQL Server Transparent Data Encryptio
 
 ## Copilot Studio の生成 AI 機能
 Copilot Studio の生成 AI 機能 を使用すると、複雑な会話フローを作成したり、手作業で設定を行うことなく、Copilot を構築できます。これらの機能は、Azure OpenAI API Service と Bing Search を使用しており、米国およびその他のサポートされている地理的場所向けに作成された環境で利用できます。<br>
-Power Virtual Agents は、コード不要のガイド付きグラフィカルインターフェイスソリューションであり、チームのすべてのメンバーが、Teams プラットフォームと簡単に統合できる会話型のチャットボットの作成が可能です。
+また、Copilot Studio は、コード不要のガイド付きグラフィカルインターフェイスソリューションであり、チームのすべてのメンバーが、Teams プラットフォームと簡単に統合できる会話型のチャットボットの作成が可能です。
 
 > [!NOTE]
-> Power Virtual Agents 機能は、生成 AI への投資と Microsoft Copilot 全体の統合の強化により、現在 Microsoft Copilot Studio の一部となっています。
+> Copilot Studio 機能は、生成 AI への投資と Microsoft Copilot 全体の統合の強化により、現在 Microsoft Copilot Studio の一部となっています。
 
 <br>
 
@@ -164,7 +163,7 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 ここまでの質疑の回答内にありました「許可を付与しない限り」、「オプトインしない限り」の詳細につきましては以降の説明をご覧ください。
 
 > [!IMPORTANT]
-**Power Poltform の Copilot Studio で生成 AI 機能を利用してもデータをトレーニングに利用されることはありません。ただし、米国テナントに限り、お客さま自らが設定を有効化することで共有をすることも可能です。下記を参照の通り、この設定は現在、日本エリアの場合には選定できません。よって、米国エリア以外は、お客さまのご意思をもってしてもデータを共有することはできず、これに照らして、データがトレーニングに利用されることはございません。**
+**Power Platform の Copilot Studio で生成 AI 機能を利用してもデータをトレーニングに利用されることはありません。ただし、米国テナントに限り、お客さま自らが設定を有効化することで共有をすることも可能です。下記を参照の通り、この設定は現在、日本エリアの場合には選定できません。よって、米国エリア以外は、お客さまのご意思をもってしてもデータを共有することはできず、これに照らして、データがトレーニングに利用されることはございません。**
 ![alt text](./copilot-studio-data-handling/image-3.png)
 
 <br>
