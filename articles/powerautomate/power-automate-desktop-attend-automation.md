@@ -84,13 +84,13 @@ Power Automate コンピュータ ランタイム アプリを使用して、該
 1. Power Automate コンピュータ ランタイム アプリケーションをインストールする  
     * Power Automate for desktop をまだインストールしていない場合  
     Power Automate for desktop のインストール時に「Power Automate コンピュータ ランタイム アプリをインストールして、Power Automate クラウド ポータルに接続する 」にチェックを入れます。  
-    ![](./power-automate-desktop-attand-automation/register-computers3.png)
+    ![](./power-automate-desktop-attend-automation/register-computers3.png)
     * 既にPower Automate for desktop インストールしている場合  
     設定 > コンピューターの設定を開く > アプリのインストールを選択します。  
-    ![](./power-automate-desktop-attand-automation/register-computers.png)  
+    ![](./power-automate-desktop-attend-automation/register-computers.png)  
 
 1. Power Automate コンピュータ ランタイム アプリケーションを起動すると端末が自動的に現在の環境に登録されます。  
-![](./power-automate-desktop-attand-automation/register-computers2.png)  
+![](./power-automate-desktop-attend-automation/register-computers2.png)  
 上記の手順について公開情報にも記載がございますので、ご参照ください。  
 [コンピュータの管理 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/manage-machines#register-a-new-machine)  
 
@@ -101,13 +101,13 @@ Power Automate コンピュータ ランタイム アプリを使用して、該
 
 1. デスクトップ フローを作成します。  
 既にデスクトップ フローを作成済みの場合は手順 2 にお進みください。  
-![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow.png)  
+![](./power-automate-desktop-attend-automation/call-desktopflow-from-cloudflow.png)  
 
 1. デスクトップ フローを呼び出すためのクラウド フローを作成し、新しいステップ > 「Desktop flows」コネクタの「デスクトップ用 Power Automate で構築したフローを実行する」アクションを選択します。  
-![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow4.png)  
+![](./power-automate-desktop-attend-automation/call-desktopflow-from-cloudflow4.png)  
 
 1. デスクトップ フローへの接続を設定します。  
-![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow5.png)  
+![](./power-automate-desktop-attend-automation/call-desktopflow-from-cloudflow5.png)  
     * 接続：コンピューターに直接送信をご指定ください。  
     * コンピューターまたはコンピューター グループ：登録済みの端末をご指定ください。  
     * ドメインとユーザー名：「ドメイン名\ユーザー名」の形式でご指定ください。  
@@ -121,7 +121,7 @@ Power Automate コンピュータ ランタイム アプリを使用して、該
     [コンピュータの管理 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/manage-machines#trigger-a-desktop-flow-to-run-on-your-machine)  
 
 1. 「デスクトップ用 Power Automate で構築したフローを実行する」アクションで呼び出したいデスクトップ フローと実行モードを選択します。  
-![](./power-automate-desktop-attand-automation/call-desktopflow-from-cloudflow6.png)  
+![](./power-automate-desktop-attend-automation/call-desktopflow-from-cloudflow6.png)  
     * Desktop フロー：呼び出したいデスクトップ フローをご指定ください。  
     * 実行モード：アテンド型をご指定ください。  
 
@@ -137,7 +137,7 @@ Power Automate コンピュータ ランタイム アプリを使用して、該
 
 ## 実行結果  
 Power Automate for desktop で作成したデスクトップ フローをクラウド フローからアテンド型 (有人) で呼び出して実行することができました。  
-![](./power-automate-desktop-attand-automation/result-of-attended-automation-flow.png)  
+![](./power-automate-desktop-attend-automation/result-of-attended-automation-flow.png)  
 
 ---
 
@@ -148,3 +148,4 @@ Power Automate for desktop で作成したデスクトップ フローをクラ�
 
 
 ---
+
