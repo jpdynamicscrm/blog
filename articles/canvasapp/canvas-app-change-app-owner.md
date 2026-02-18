@@ -67,7 +67,7 @@ categories:
 
 ## 管理者用 Power Apps コマンドレットでアプリの所有者を変更する方法
 
-Microsoft Entra ID グローバル管理者、Dynamics 365 管理者などの管理者はアプリの所有者を変更することができます。<br/>
+Microsoft Entra ID グローバル管理者、Power Platform 管理者、Dynamics 365 管理者などの管理者はアプリの所有者を変更することができます。<br/>
 当コマンドレットは所有者のアカウントが存在する場合でも所有者を変更することが可能です。<br/>
 
 なお、管理者用 Power Apps コマンドレットをご利用前に PowerShell モジュールをインストールいただく必要があります。<br/>
