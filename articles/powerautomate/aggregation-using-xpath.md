@@ -173,7 +173,7 @@ XML はルート要素が 1 つという決まりがあるため、JSON のル�
 
 ![](aggregation-using-xpath/image07.png)
 
-amout1 と amount2 の集計を求められました。
+amount1 と amount2 の集計を求められました。
 
 ## 最後に
 ローコード ツールである Power Automate はできることが少ないと思いがちですが、やりたいことを意外な方法で解決できることもあります。ぜひご活用ください。

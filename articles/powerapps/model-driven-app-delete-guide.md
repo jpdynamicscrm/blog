@@ -6,7 +6,7 @@ tags:
 	- dataverse
 	- governance
 categories:
-	- [powerapps]
+	- [Power Apps, Model-driven app]
 ---
 
 # モデル駆動型アプリ削除ガイド

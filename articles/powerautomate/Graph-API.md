@@ -76,7 +76,7 @@ Power Automate の Office 365 Outlook コネクタ「メールを送信する (V
   ユーザーなしでアクセスする際に使用いたします。  
   API を実行するアプリケーション自体にアクセス許可を付与します。  
 
-委任されたアクセス許可が使用できる場合は、ユーザーに変わって API を実行する HTTP with Entra ID (preauthorized) コネクタまたは HTTP with Entra ID コネクタが、  
+委任されたアクセス許可が使用できる場合は、ユーザーに代わって API を実行する HTTP with Entra ID (preauthorized) コネクタまたは HTTP with Entra ID コネクタが、  
 アプリケーションのアクセス許可が使用できる場合は、ユーザーなしで API を実行する HTTP コネクタが使用できます。  
 
 それぞれのコネクタの使い方について説明します。  
@@ -128,10 +128,10 @@ HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Mic
 
 # HTTP コネクタを使用する  
 ---
-HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に登録したアプリから API を実行できます。  
+HTTP コネクタでは、ユーザーのサインインなしに、Microsoft Entra ID に登録したアプリから API を実行できます。  
 
-1. Azure AD にアプリを登録します。  
-   [アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Learn](https://learn.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) にしたがって、 Azure AD にアプリを登録します。  
+1. Microsoft Entra ID にアプリを登録します。  
+   [アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Learn](https://learn.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) にしたがって、 Microsoft Entra ID にアプリを登録します。  
    また、登録したアプリの [API のアクセス許可] のページにて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  
    
    ![](./Graph-API/img07.png)   
@@ -142,7 +142,7 @@ HTTP コネクタでは、ユーザーのサインインなしに、Azure AD に
       
       ![](./Graph-API/img06.png)  
    
-   2-2. 認証を「Active Directory OAuth」に設定し、Azure AD に登録したアプリから取得した情報を設定します。  
+   2-2. 認証を「Active Directory OAuth」に設定し、Microsoft Entra ID に登録したアプリから取得した情報を設定します。  
    - テナント: ディレクトリ (テナント) ID  
    - 対象ユーザー: https://graph.microsoft.com  
    - クライアント ID: アプリケーション (クライアント) ID  

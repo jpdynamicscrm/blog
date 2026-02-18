@@ -63,7 +63,7 @@ Power Apps の場合はブラウザ上で動作するため、お客様ネット
   
 以下にリクエストと応答の流れを番号と矢印で表しました。  
 ![](./connect-private-datasource/image04.png)  
-1. Power Platfrom は Azure Relay に向けリクエストを行います。  
+1. Power Platform は Azure Relay に向けリクエストを行います。  
 1. オンプレミス データ ゲートウェイがインストールされた端末は Azure Relay に未処理のリクエストがあるか確認します。  
 1. Azure Relay からオンプレミス データ ゲートウェイがインストールされた端末へ未処理のリクエストを返答します。  
 1. オンプレミス データ ゲートウェイがインストールされた端末からデータソースへデータのリクエストを行います。  
@@ -108,7 +108,7 @@ Azure 仮想ネットワークのプライベートネットワークからの�
 ## 3. 仮想ネットワーク データ ゲートウェイとは？  
 [仮想ネットワーク (VNet) データ ゲートウェイとは](https://learn.microsoft.com/en-us/data-integration/vnet/overview)  
   
-仮想ネットワーク (VNet) データ ゲートウェイは、Microsoft Fabric(旧 Power BI) や Power Platfrom のデータフローを Azure 仮想ネットワークへ接続するために利用されます。  
+仮想ネットワーク (VNet) データ ゲートウェイは、Microsoft Fabric(旧 Power BI) や Power Platform のデータフローを Azure 仮想ネットワークへ接続するために利用されます。  
   
 > [!WARNING]  
 > **Power Apps や Power Automate ではご利用いただくことはできません**のでご注意ください。  
@@ -144,7 +144,7 @@ VNET for Power Platform は、Power Platform の環境をネットワーク委�
   
 <table>
   <caption>
-    Power Platfrom ネットワーク機能の比較
+    Power Platform ネットワーク機能の比較
   </caption>
   <tr>
     <th>機能名</th>

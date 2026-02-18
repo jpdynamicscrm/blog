@@ -61,7 +61,7 @@ categories:
     ※フロー作成者 (所有者) の変更および、接続の修正が必要になる場合があります。
 
 したがいまして、引き続きご利用いただくためには以下のいずれかの対応を行ってください。
-1. フローに Power Automate per flow ライセンスを割り当て、接続を修正する。
+1. フローに Power Automate Process ライセンスを割り当て、接続を修正する。
 2.  新たなフローとして保存し、新たな所有者でフローを実行する。<br/>
     なお、現時点では、一部のフローのみ、既存のフローの作成者 (所有者) を変更することができます。<br/>
 
@@ -132,15 +132,15 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
     ![](./change-flow-owner/image04.png)
 
 **<新所有者の ObjectID> の確認方法**
-- 「[Get-AzureADUser](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターでご確認ください
+- 「[Get-AzureADUser](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Microsoft Entra 管理センターでご確認ください
 - Get-AzureADUser 実行例
     - 例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて ObjectId が取得できます。
     - ```
         Get-AzureADUser | Select DisplayName, UserPrincipalName, ObjectId
       ```
     - ![](./change-flow-owner/image05.png)
-- Azure Active Directory 管理センターにおけるユーザーの ObjectID の確認例
-    - [Azure Active Directory 管理センター](https://aad.portal.azure.com) > ユーザー > 対象のユーザー
+- Microsoft Entra 管理センターにおけるユーザーの ObjectID の確認例
+    - [Microsoft Entra 管理センター](https://entra.microsoft.com) > ユーザー > 対象のユーザー
     - ![](./change-flow-owner/image06.png)
 
 <a id='anchor-add-flow-co-owner-ppac'></a>
@@ -213,7 +213,7 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
 <a id='anchor-change-flow-export'></a>
 
 ### ＜非ソリューション フロー＞　フローのエクスポートを行い、新たなユーザーでインポートする方法
-フローのパッケージファイルをしてエクスポートし、エクスポートしたファイルを変更先ユーザーにご送付いただきます。<br/>
+フローのパッケージファイルとしてエクスポートし、エクスポートしたファイルを変更先ユーザーにご送付いただきます。<br/>
 変更先ユーザーは当該エクスポートファイルをPower Automate ポータル画面よりインポートすることで、同一構成のフローを自身のフローとして保存いただけます。<br/>
 なお、パッケージのエクスポート後のインポートはテナントや環境をまたいだ実施が可能です。
 

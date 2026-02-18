@@ -102,7 +102,7 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
 ![](./ip-range-and-domain/builtin-action.png)  
 
 1. HTTP、'HTTP + Swagger' 等、対向サービスへ要求を送信する組込アクション  
-   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) の **サービスへの 'HTTP' よび 'HTTP + Swagger' 呼び出しを許可リストに載せる** セクションに記載されているサービスタグを許可してください。  
+   [Power Automate の IP アドレスの構成](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) の **サービスへの 'HTTP' および 'HTTP + Swagger' 呼び出しを許可リストに載せる** セクションに記載されているサービスタグを許可してください。  
    
    ![](./ip-range-and-domain/builtin-outbound.png)  
   
@@ -113,7 +113,7 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
    ![](./ip-range-and-domain/builtin-inbound.png)  
 
 > [!NOTE]
-> 許可する IP アドレスまたはサービスタグ、ドメインは、ご利用の Power Platfrom 環境の地域に対応するものをご選択頂く事が可能です。  
+> 許可する IP アドレスまたはサービスタグ、ドメインは、ご利用の Power Platform 環境の地域に対応するものをご選択頂く事が可能です。  
 
 <a id='anchor-summary'></a>
 ## まとめ
@@ -124,7 +124,7 @@ Power Platform では通信に必要な要件を定義し、通信要件とし�
 | Power Automate | [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration)  | - | クライアント ⇔ マイクロソフト | 送信/受信 |
 | オンプレミス<br>データ ゲートウェイ | [ドメイン/ポート](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-communication#required-ports-for-the-gateway-to-function) | - | クライアント ⇒ マイクロソフト | 受信 |
 | Power Platform コネクタ | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-connector-calls-to-your-services) | AzureConnectors | 接続先サービス ⇔ マイクロソフト | 送信/受信 |
-| 組込アクション | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) | LogicApps<br />PowerPlatfromPlex | マイクロソフト ⇒ 接続先サービス | 送信 |
+| 組込アクション | [IP アドレス/サービス タグ](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allowlist-http-and-http--swagger-calls-to-your-services) | LogicApps<br/>PowerPlatformPlex<br/>PowerPlatformInfra | マイクロソフト ⇒ 接続先サービス | 送信 |
 | 組込トリガー | [ドメイン](https://learn.microsoft.com/en-us/power-automate/ip-address-configuration#allow-users-on-your-network-to-use-when-an-http-request-is-received-trigger)  | - | 接続先サービス ⇒ マイクロソフト | 受信 |
 
 

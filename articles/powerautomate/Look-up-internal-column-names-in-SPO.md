@@ -121,7 +121,7 @@ Power Automate から SharePoint の列を扱うときも、同様の理由で�
 
 ## 内部列名を Power Automate で利用するために
 
-Powre Automate 利用時に注意が必要になるのが、内部列名はそのままで利用できる場合と、加工が必要な場合があります。<br>
+Power Automate 利用時に注意が必要になるのが、内部列名はそのままで利用できる場合と、加工が必要な場合があります。<br>
 決まりなので覚えていきましょう。<br>
 
 <br>
@@ -184,4 +184,4 @@ Powre Automate 利用時に注意が必要になるのが、内部列名はそ�
 <br>
 
 ---
-Hope to acceralate your business with Power Automate!
+Hope to accelerate your business with Power Automate!
