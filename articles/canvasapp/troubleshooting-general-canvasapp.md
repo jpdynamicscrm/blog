@@ -135,7 +135,7 @@ Power Apps キャンバスアプリに関するサポートサービスのお問
 キャンバス アプリ編集中の場合、Power Apps Studio のアプリ チェッカーにエラーメッセージが記録されます。  
 エラーが発生している処理 (関数やコントロール等) と併せてアプリ チェッカーに記録されているエラーメッセージをご提供ください。
 
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
 2. 対象のアプリの編集画面を表示します
 3. 事象を発生させます
 4. アプリ チェッカーに記録されるエラーメッセージを **画面キャプチャ** などで取得します  
@@ -149,7 +149,7 @@ Power Apps キャンバスアプリに関するサポートサービスのお問
 <a id='anchor-about-versions-edit'></a>
 
 ### 4-1. キャンバス アプリ 編集時
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
 2. 対象のアプリ編集画面を表示します
 3. メニュー「設定」>「サポート」を選択します
 4. 作成バージョンを **テキスト形式** で取得します  
@@ -163,7 +163,7 @@ Power Apps キャンバスアプリに関するサポートサービスのお問
 Web ブラウザで事象が発生している場合、[セッションID (Webブラウザ)](#anchor-about-sessionid-web-play) をご参照ください。  
 モバイル アプリで事象が発生している場合、[セッションID (モバイルアプリ)](#anchor-about-sessionid-mobile-play) をご参照ください。
 
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
 2. 対象のアプリの「…」メニュー>「詳細」を選択します  
     ![](./troubleshooting-general-canvasapp/image05.png)
 3. 「バージョン」タブを押下し、Power Apps リリース バージョンを **テキスト形式** で取得します  
@@ -187,7 +187,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 <a id='anchor-about-monitorlog-edit'></a>
 
 ### 5-1. キャンバス アプリ 編集時
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの編集画面を表示します  
 3. 画面左方にある　高度なツール > 監視 > モニターを開く を選択します
     - 別タブで監視ウィンドウが表示されます  
@@ -199,7 +199,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 <a id='anchor-about-monitorlog-web-play'></a>
 
 ### 5-2. キャンバス アプリ 実行時 (Web ブラウザ)
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「監視」を選択します  
     ![](./troubleshooting-general-canvasapp/uImage01.png)
 3. 別タブで監視ウィンドウが表示されるので「公開したアプリの再生」を行います  
@@ -211,7 +211,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 <a id='anchor-about-monitorlog-mobile-play'></a>
 
 ### 5-3. キャンバス アプリ 実行時 (Power Appsモバイル アプリ)
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「監視」を選択します  
     ![](./troubleshooting-general-canvasapp/uImage05.png)
 3. ユーザー接続からセッションへのユーザー接続メニューを開きます  
@@ -220,7 +220,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
     ![](./troubleshooting-general-canvasapp/uImage07.png)
 5. 得られたリンクをメールやチャットなどでモバイル端末に送ります
 6. モバイル端末で URL へアクセスすると、 Power Apps モバイルが起動されますので事象を発生させます
-    下図のとおり、デバックセッションに接続する旨メッセージが表示されます  
+    下図のとおり、デバッグセッションに接続する旨メッセージが表示されます  
     ![](./troubleshooting-general-canvasapp/uImage08.png)
 7. モニターログに Power Apps モバイルの操作が記録されます  
     ![](./troubleshooting-general-canvasapp/uImage09.png)
@@ -237,7 +237,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 4. 遷移後の画面から対象のアプリを検索し、アプリの「...」メニューから「詳細」を選択します
 5. 「詳細」タブ内に記載のアプリ IDをメモ帳等に控えます（後で使用します）
     ![](./troubleshooting-general-canvasapp/image32.png)　
-6. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
+6. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 7. アプリ一覧画面から、任意のアプリの「...」メニューを表示し、「詳細」内の「ライブ監視」を選択します<br/>
 ※モニターログの画面を開くための手順ですので、どのアプリを選択しても問題ありません
 8. 「ライブ監視のリンクをコピーする」に表示されるリンクをメモ帳等控えます（後で使用します）<br/>
@@ -292,7 +292,7 @@ Teamsクライアントにおいてのみエラーが発生する場合、Teams�
 2. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
 ※ 拡張子が .json となっていることをご確認ください<br/>
     ![](./troubleshooting-general-canvasapp/image37.png)　
-3. 2. で作成した 「configuration.json」 を以下パスのフィルダーに保存します<br/>
+3. 2. で作成した 「configuration.json」 を以下パスのフォルダーに保存します<br/>
 パス : %localappdata%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams<br/>
     ![](./troubleshooting-general-canvasapp/image38.png)　
 4. Teams をサインアウトし、一度閉じます
@@ -322,7 +322,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 <a id='anchor-about-sessionid-web-edit'></a>
 
 ### 7-1. キャンバス アプリ編集時
-  1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+  1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
   2. アプリ一覧画面から対象のアプリのアプリ編集画面を表示します
   3. メニュー「設定」を選択します
   4. ポップアップの左メニューから「サポート」を選択します
@@ -369,7 +369,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 ## 8. アプリ URL (アプリ ID、テナント ID)
 アプリ ID、テナント ID の情報から Power Apps サービス側の記録を確認し、発生している事象を調査します。
 
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを押下し、「詳細」を選択します
 3. Web リンク、アプリ ID を **テキスト形式** で取得します  
     ![](./troubleshooting-general-canvasapp/image15.png)
@@ -380,7 +380,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 ## 9. 環境 ID
 環境 ID の情報から Power Apps サービス側の記録を確認し、発生している事象を調査します。
 
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にアクセスします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. 事象が発生している環境に切り替えます (❶)
 3. 画面右上部の歯車アイコンを押下します (❷)
 4. 「セッション詳細」を選択します (❸)
@@ -401,7 +401,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 <a id='anchor-about-canvasapp-published'></a>
 
 ### 10-1. 公開済みアプリ
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
 2. アプリ一覧画面から対象のアプリの「...」メニューを押下し、「エクスポート パッケージ」を選択します  
     ![](./troubleshooting-general-canvasapp/image17.png)
 3. 任意の名前を付けてエクスポートします
@@ -410,7 +410,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 <a id='anchor-about-canvasapp-edit'></a>
 
 ### 10-2. 編集中のアプリ
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
 2. アプリ一覧画面から対象のアプリを編集します
 3. メニュー「∨」アイコン > 「コピーのダウンロード」を選択します  
     ![](./troubleshooting-general-canvasapp/image18.png)
@@ -420,7 +420,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 <a id='anchor-about-canvasapp-solutionapp'></a>
 
 ### 10-3. アプリを含むソリューションファイル
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
 2. ソリューション一覧画面を表示します
 3. 「新しいソリューション」を押下します  
     ![](./troubleshooting-general-canvasapp/image20.png)
@@ -454,7 +454,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 ### 10-5. コンポーネント単体
 ※キャンバス アプリ内でコンポーネントを使用している場合、[公開済みアプリのエクスポート ファイル](#anchor-about-canvasapp-published) (あるいは、[編集中アプリのエクスポート ファイル](#anchor-about-canvasapp-edit)) でご紹介している方法でエクスポートすると、コンポーネントが含まれた状態でエクスポートできます。
 
-1. [Power Apps 作成者ポータル](http://make.powerapps.com) にサインインします
+1. [Power Apps 作成者ポータル](https://make.powerapps.com) にサインインします
 2. ソリューション一覧画面を表示します
 3. 「新しいソリューション」を押下します  
     ![](./troubleshooting-general-canvasapp/image20.png)

@@ -67,8 +67,8 @@ categories:
 
 ## 管理者用 Power Apps コマンドレットでアプリの所有者を変更する方法
 
-グローバル管理者、Azure Active Directory グローバル管理者、Dynamics 365 管理者などの管理者はアプリの所有者を変更することができます。<br/>
-当コマンドレットは所有者のアカウントが存在する場合でも所有者を変更することが可能です。
+Microsoft Entra ID グローバル管理者、Dynamics 365 管理者などの管理者はアプリの所有者を変更することができます。<br/>
+当コマンドレットは所有者のアカウントが存在する場合でも所有者を変更することが可能です。<br/>
 
 なお、管理者用 Power Apps コマンドレットをご利用前に PowerShell モジュールをインストールいただく必要があります。<br/>
 [インストール手順](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#installation)
@@ -88,22 +88,22 @@ Set-AdminPowerAppOwner –AppName '<アプリの GUID>' -AppOwner '<新たな所
     - 管理者用 Power Apps コマンドレット「[Get-AdminPowerApp](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/get-adminpowerapp?view=pa-ps-latest)」コマンドでご取得ください
     - ![](./canvas-app-change-app-owner/image01.png)
 - <新たな所有者の GUID>
-    - 「[Get-AzureADUser](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/view-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#view-additional-property-values-for-a-specific-account)」コマンド、あるいは Azure Active Directory 管理センターご確認ください
-    - Get-AzureADUser 実行例
-        - 例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて ObjectId (AppOwner に指定する値) が取得できます。
+    - 「[Get-MgUser](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.users/get-mguser)」コマンド、あるいは Microsoft Entra 管理センターでご確認ください
+    - Get-MgUser 実行例
+        - 例えば、以下のとおり実行いただきますとテナント内の全ユーザーについて Id (AppOwner に指定する値) が取得できます。
         - ```
-          Get-AzureADUser | Select DisplayName, UserPrincipalName, ObjectId
+          Get-MgUser -All | Select-Object DisplayName, UserPrincipalName, Id
           ```
-        -![](./canvas-app-change-app-owner/image02.png)
-    - Azure Active Directory 管理センターにおけるユーザーの GUID の確認例
-        - [Azure Active Directory 管理センター](https://aad.portal.azure.com) > ユーザー > 対象のユーザー
+        - ![](./canvas-app-change-app-owner/image02.png)
+    - Microsoft Entra 管理センターにおけるユーザーの GUID の確認例
+        - [Microsoft Entra 管理センター](https://entra.microsoft.com) > ユーザー > 対象のユーザー
         - ![](./canvas-app-change-app-owner/image03.png)
 
 ## Power Platform 管理センターでアプリの共同所有者を追加する、あるいは削除する方法
 
 **実行例**
-1. 管理者の役割を持つユーザーで [Power Platform 管理センター](https://admin.powerplatform.com) にアクセスします
-2. 対象の環境の「…」メニューから「Power Apps」を選択します
+1. 管理者の役割を持つユーザーで [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にアクセスします
+2. 対象の環境の「…」メニューから「Power Apps」を選択します  
     ![](./canvas-app-change-app-owner/image04.png)
 3. 対象のアプリの「…」メニューから、共同所有者を追加する場合「共有」を、アプリを削除する場合「削除」を選択します
     ![](./canvas-app-change-app-owner/image05.png)
@@ -111,6 +111,6 @@ Set-AdminPowerAppOwner –AppName '<アプリの GUID>' -AppOwner '<新たな所
 ## 参考情報
 - [キャンバス アプリのオーナーとしてログイン ユーザーを設定する](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#set-logged-in-user-as-the-owner-of-a-canvas-app)
 - [Power Appsの管理](https://learn.microsoft.com/ja-jp/power-platform/admin/admin-manage-apps)
-- [キャンパス アプリを削除する](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/delete-app)
+- [キャンバス アプリを削除する](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/delete-app)
 
 ---
