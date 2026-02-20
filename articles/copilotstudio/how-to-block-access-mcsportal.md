@@ -3,7 +3,6 @@ title: Copilot Studio エージェントの作成に必要な権限について
 date: 2025-09-10 13:30:00
 tags:
   - Power Platform
-  - Power Virtual Agents
   - Microsoft Copilot Studio
 categories:
   - [Microsoft Copilot Studio]

@@ -4,7 +4,6 @@ date: 2024-10-10 15:00:00
 tags:
   - Microsoft Copilot Studio
   - 情報採取
-  - Power Virtual Agents
   - お問い合わせ全般
 categories:
   - [Microsoft Copilot Studio]
@@ -93,7 +92,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   以下の手順で Bot ID を取得し、ご提供ください。
   必要に応じて URL をそのままご提供ください。
 
-  - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。
+  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。
   - URL 内の bots/ の直後にある ID が Bot ID です。
   - URL をテキストファイル、あるいは文字列としてメール等に張り付けてご提供ください。
   ![](./helpful-information-for-copilotstudio-sr/image_BotID.png)  
@@ -103,7 +102,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 ## 5. Conversation ID
   以下の手順で Conversation ID を取得し、ご提供ください。
 
-  - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。  
+  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットとのチャットウィンドウに '/debug conversationid' とご入力ください。  
   - 得られた応答をテキストファイルとしてご提供ください。また、下画像と同様のスクリーンショットをご提供ください。  
   ![](./helpful-information-for-copilotstudio-sr/image_ConversationID.png)  
@@ -122,7 +121,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 ## 7. 事象再現時のスナップショット zip ファイル
   以下の手順でスナップショット zip ファイルを取得し、ご提供ください。
 
-  - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。  
+  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットとのチャットウィンドウ右上の三点リーダーより、「スナップショットの保存」を選択します。  
   - 得られた zip ファイルをご提供ください。  
   ![](./helpful-information-for-copilotstudio-sr/image_snapshot.png)  
@@ -132,7 +131,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 ## 8. ナレッジの有効化状態
   以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
 
-  - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。  
+  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットの「ナレッジ」セクションで「有効」のトグルボタンがオンであるかを確認します。  
   - 確認した際の、下画像と同様のスクリーンショットをご提供ください。  
   ![](./helpful-information-for-copilotstudio-sr/image_knowledge_enabling.png)  
@@ -142,7 +141,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 ## 9. 会話入出力 
   以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
 
-  - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロットを開きます。  
+  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットとのチャットウィンドウでコパイロットと会話を行ってください。  
   - その会話画面について、下画像と同様のスクリーンショットをご提供ください。  
   ![](./helpful-information-for-copilotstudio-sr/image_conversation_inout.png) 
@@ -152,7 +151,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 ## 10. トピック画面
   以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
 
-  - Copilot Studio ポータル>（対象の環境選択）＞カスタムコパイロット＞対象のコパイロット＞トピックタブを開きます。  
+  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロット＞トピックタブを開きます。  
   - 事象に応じて対象のトピックの全体像や、対象のノードのプロパティなどを表示してください。  
   - その画面について、下画像のようにスクリーンショットを撮影してご提供ください。  
   ![](./helpful-information-for-copilotstudio-sr/image_topic_screen.png) 
