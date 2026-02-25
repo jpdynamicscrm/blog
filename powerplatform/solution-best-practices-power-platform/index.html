@@ -4,26 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Power Automate クラウドフローの制限事項 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Power Platform ソリューション運用のベストプラクティス | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの山田です。本記事では 下記公開情報でご案内のPower Automate クラウドフローの制限について、具体例などを用いてわかりやすく説明いたします。 自動化フロー、スケジュールされたフロー、インスタント フローの制限事項 本記事は上記公開情報の制限内容を補足・説明したものとなります。実際の制限値などは上記公開情報をご確認ください。">
+  <meta name="description" content="はじめにこんにちは、Power Platform サポートチームの 早川 です。本記事では、Power Platform のソリューションを運用するうえで押さえておきたいベストプラクティスについてご案内いたします。 ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Power Automate クラウドフローの制限事項">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/index.html">
+<meta property="og:title" content="Power Platform ソリューション運用のベストプラクティス">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/solution-best-practices-power-platform/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの山田です。本記事では 下記公開情報でご案内のPower Automate クラウドフローの制限について、具体例などを用いてわかりやすく説明いたします。 自動化フロー、スケジュールされたフロー、インスタント フローの制限事項 本記事は上記公開情報の制限内容を補足・説明したものとなります。実際の制限値などは上記公開情報をご確認ください。">
+<meta property="og:description" content="はじめにこんにちは、Power Platform サポートチームの 早川 です。本記事では、Power Platform のソリューションを運用するうえで押さえておきたいベストプラクティスについてご案内いたします。 ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/http-requestes-recieve.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/concurrency-limit.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/read-calls-per-5-minutes.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/message-size-with-chunking.png">
-<meta property="article:published_time" content="2025-01-30T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-25T06:09:40.576Z">
+<meta property="article:published_time" content="2026-02-10T03:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-25T06:09:40.786Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Power Automate">
-<meta property="article:tag" content="Cloud flow">
+<meta property="article:tag" content="Dataverse">
+<meta property="article:tag" content="PowerPlatform">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/http-requestes-recieve.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -86,7 +81,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerautomate/cloudflow-limits" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/solution-best-practices-power-platform" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -95,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Power Automate クラウドフローの制限事項
+      Power Platform ソリューション運用のベストプラクティス
     </h1>
   
 
@@ -103,14 +98,14 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2025-01-30T15:00:00.000Z" itemprop="datePublished">2025-01-31</time>
+  <time datetime="2026-02-10T03:00:00.000Z" itemprop="datePublished">2026-02-10</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
 / Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
 
 <script type="text/javascript">
-  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerautomate/cloudflow-limits.md";
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/solution-best-practices-power-platform.md";
   const urlParts = sourceUrl.split("/");
   const user = urlParts[3];
   const repo = urlParts[4];
@@ -157,243 +152,117 @@
 </script>
         
         
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Power-Automate/">Power Automate</a>►<a class="article-category-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a>
-  </div>
-
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3392a8b7-127c-596b-9a8b-52118505bb41%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fcloudflow-limits%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fcloudflow-limits.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fcloudflow-limits.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+e5f8fc42-e166-575d-b36b-8585e155491a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Platform+%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fsolution-best-practices-power-platform%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fsolution-best-practices-power-platform.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Fsolution-best-practices-power-platform.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cmm1mx4ll00mg0nnedmdy7nw3" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/solution-best-practices-power-platform/" data-id="cmm1mx4iw006s0nneez54gojg" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの山田です。<br>本記事では 下記公開情報でご案内のPower Automate クラウドフローの制限について、具体例などを用いてわかりやすく説明いたします。</p>
-<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config">自動化フロー、スケジュールされたフロー、インスタント フローの制限事項</a></p>
-<p>本記事は上記公開情報の制限内容を補足・説明したものとなります。<br>実際の制限値などは上記公開情報をご確認ください。</p>
+        <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Power Platform のソリューションを運用するうえで押さえておきたいベストプラクティスについてご案内いたします。</p>
+<p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>
 <span id="more"></span>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
-<li><a href="#anchor-throughput-limits">スループットの制限</a><ol>
-<li><a href="#anchor-power-platform-request-limits">Power Platform 要求の制限</a><ul>
-<li><a href="#anchor-power-platform-request-limits-per">5分ごと、および24時間ごとのPower Platform要求</a></li>
-<li><a href="#anchor-concurrent-outbound-calls">同時発信呼</a></li>
-</ul>
-</li>
-<li><a href="#anchor-runtime-endpoint-request-limits">ランタイムエンドポイント要求</a><ul>
-<li><a href="#anchor-concurrent-inbound-calls">同時着信</a></li>
-<li><a href="#anchor-read-calls-per-5-minutes">5分ごとに通話を読み取る</a></li>
-<li><a href="#anchor-invoke-calls-per-5-minutes">5分ごとの Invoke 呼び出し</a></li>
-</ul>
-</li>
-<li><a href="#anchor-content-throughput-limits">コンテンツスループットの制限</a></li>
-</ol>
-</li>
-<li><a href="#anchor-request-limits">要求の制限</a><ol>
-<li><a href="#anchor-timeout">タイムアウトの制限</a><ul>
-<li><a href="#anchor-outbound-synchronous-request">送信同期要求</a></li>
-<li><a href="#anchor-outbound-asynchronous-request">送信非同期要求</a></li>
-<li><a href="#anchor-inbound-request">受信要求</a></li>
-</ul>
-</li>
-<li><a href="#anchor-message-size">メッセージサイズの制限</a></li>
-<li><a href="#anchor-retry-policy">再試行ポリシー</a></li>
-</ol>
-</li>
-<li><a href="#anchor-summary-list">制限対象単位と制限抵触時の動作まとめ</a></li>
-</ol>
-<hr>
-<p><a id='anchor-throughput-limits'></a></p>
-<h1 id="スループットの制限"><a href="#スループットの制限" class="headerlink" title="スループットの制限"></a>スループットの制限</h1><p>スループットの制限とは、単位時間あたりに処理できる数をチェックする、現時点で適用中のPower Automate 単独の制限でございます。<br>全てフロー単位での制限となり、フロー実行中にチェックされる制限となります。</p>
-<p>この項目でご案内する制限は「スループットの制限」に該当いたします。<br>スループットの制限には下記3種類がございます。</p>
-<ul>
-<li>Power Platform 要求の制限</li>
-<li>ランタイムエンドポイント要求</li>
-<li>コンテンツスループットの制限</li>
-</ul>
-<p>制限に抵触した場合の動作、制限の緩和可否などは各種類によって異なります。</p>
-<p>制限を決定する制限値は、ライセンスに基づくパフォーマンスプロファイルによって決定されます。<br>パフォーマンスプロファイルについては下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles">パフォーマンス プロファイル</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか?</a></p>
-<p>制限の解除について、Power Automate のクラウドフローの場合はライセンス割り当て後にフローを再保存することで、新しいライセンスに紐づく制限を適用いたします。<br>再保存を行わなかった場合は、週に1度のバックグラウンド処理により適用いたします。</p>
-<p><a id='anchor-power-platform-request-limits'></a></p>
-<h2 id="Power-Platform-要求の制限"><a href="#Power-Platform-要求の制限" class="headerlink" title="Power Platform 要求の制限"></a>Power Platform 要求の制限</h2><p>Power Platform 要求の制限とは、フロー実行時のアクションに関する制限となります。</p>
-<p>フロー単位での制限となります。<br>制限に抵触すると、フローが低速実行（スロットリング状態）となります。<br>また、低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p>
-<p>下記の２種類がございます。</p>
-<ul>
-<li>5分ごと、および24時間ごとのPower Platform要求</li>
-<li>同時発信呼</li>
-</ul>
-<p><a id='anchor-power-platform-request-limits-per'></a></p>
-<h3 id="5分ごと、および24時間ごとのPower-Platform要求"><a href="#5分ごと、および24時間ごとのPower-Platform要求" class="headerlink" title="5分ごと、および24時間ごとのPower Platform要求"></a>5分ごと、および24時間ごとのPower Platform要求</h3><p>詳細については下記記事をご参照ください。<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a></p>
-<p><a id='anchor-concurrent-outbound-calls'></a></p>
-<h3 id="同時発信呼"><a href="#同時発信呼" class="headerlink" title="同時発信呼"></a>同時発信呼</h3><p>同時発信呼とは、ひとつのフローで同時に実行できるアクション数を指しております。<br>具体例として、フロー内でアクションが並列に実行されるよう構成されている場合や、複数のユーザーが同時にフローを実行する場合にこの制限に抵触する可能性が考えられます。</p>
-<p>制限に抵触した場合、フローの実行が失敗します。</p>
-<p>回避策として、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時実行する処理数を制限することで、同時発信呼の制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
-<p>制限の緩和策としては、パフォーマンス プロファイルをより高いものにしていただくこととなります。</p>
-<p><a id='anchor-runtime-endpoint-request-limits'></a></p>
-<h2 id="ランタイムエンドポイント要求"><a href="#ランタイムエンドポイント要求" class="headerlink" title="ランタイムエンドポイント要求"></a>ランタイムエンドポイント要求</h2><p>ランタイムエンドポイントとは、フロー自体のエンドポイントを指します。 (例: <a target="_blank" rel="noopener" href="https://prod-00.westus.logic.azure.com/">https://prod-00.westus.logic.azure.com:443/</a>)<br>例えば、下図の「HTTP要求の受信時」トリガー(manual)を使用するフローがある場合、「HTTP URL」に直接POSTリクエストを送信することで、フローを起動することが可能でございます。</p>
-<p><img src="/blog/powerautomate/cloudflow-limits/http-requestes-recieve.png"> </p>
-<p>上記の例のように、フロー実行時のエンドポイントへ (から) の直接のアクセスをランタイムエンドポイント要求と呼びます。<br>エンドポイントごとに制限対象となり、制限に抵触した場合、フローの実行が失敗します。</p>
-<p>ランタイムエンドポイント要求には3つの制限がございます。  </p>
-<ul>
-<li>同時着信</li>
-<li>5分ごとに通話を読み取る</li>
-<li>5分ごとの Invoke 呼び出し</li>
-</ul>
-<p><a id='anchor-concurrent-inbound-calls'></a></p>
-<h3 id="同時着信"><a href="#同時着信" class="headerlink" title="同時着信"></a>同時着信</h3><p>同時着信とは、ひとつのフローのランタイムエンドポイントにて、同時に受付可能な要求数を指します。<br>そのため、例えば、複数ユーザーでボタントリガーのフローを共有しており、1,000 名以上のユーザーが同時刻にフローを起動した場合、この制限に抵触いたします。</p>
-<p>制限に抵触した場合、フローの実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、同時着信の数を減らし、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
-<p>コンカレンシー制御=同時実行管理は、フロー編集画面でのトリガーの「設定」タブにてご利用いただけます。<br><img src="/blog/powerautomate/cloudflow-limits/concurrency-limit.png"> </p>
-<div class="alert is-important"><p class="alert-title">重要</p><p>サービス保護の制限のため、緩和策はございません。</p><p>回避策をご対応ください。</p></div>
-<p><a id='anchor-read-calls-per-5-minutes'></a></p>
-<h3 id="5分ごとに通話を読み取る"><a href="#5分ごとに通話を読み取る" class="headerlink" title="5分ごとに通話を読み取る"></a>5分ごとに通話を読み取る</h3><p>5分間に実行可能なランタイムエンドポイントへの読み取り要求を指します。<br>例えば、フローの実行履歴から生の入力や出力を取得する際がこれにあたります。</p>
-<p>例として、SharePoint コネクタの複数の項目の取得アクションを実行し、大量のデータを取得した場合、<br>生の出力データを確認するには、実行履歴詳細ページにて、「クリックしてダウンロードします」リンクをクリックする必要がある場合がございます。<br>リンクをクリックすると、ランタイムエンドポイントへの要求が実行され、生データをブラウザにて直接確認することが可能となります。<br>この要求が、ランタイムエンドポイントへの読み取り要求にあたります。</p>
-<p>下図は「クリックしてダウンロードします」リンクをクリックした場合の例ですが、URL よりランタイムエンドポイントへの要求が実行されていることがわかります。</p>
-<p><img src="/blog/powerautomate/cloudflow-limits/read-calls-per-5-minutes.png"></p>
-<p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの読み取り数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
-<p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
-<p><a id='anchor-invoke-calls-per-5-minutes'></a></p>
-<h3 id="5分ごとの-Invoke-呼び出し"><a href="#5分ごとの-Invoke-呼び出し" class="headerlink" title="5分ごとの Invoke 呼び出し"></a>5分ごとの Invoke 呼び出し</h3><p>5 分間に実行可能なランタイムエンドポイントへの呼び出し要求を指します。<br>例えば、上記にご案内した 「HTTP 要求の受信時」トリガーを呼び出す場合など、フローを起動する操作がこれにあたります。</p>
-<p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの呼び出し数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
-<p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
-<p><a id='anchor-content-throughput-limits'></a></p>
-<h2 id="コンテンツスループットの制限"><a href="#コンテンツスループットの制限" class="headerlink" title="コンテンツスループットの制限"></a>コンテンツスループットの制限</h2><p>コンテンツスループットとは、フロー内の各アクションを実行後の入力および出力のデータサイズを指しております。<br>よって本制限は、フローの各実行において、単位時間に処理できるアクションで取り扱う情報量の制限となります。</p>
-<p>例えば、フロー内で SharePoint コネクタの「項目の取得」アクションが使用された場合、<br>実行履歴に表示される入力 (SharePoint に対して送信されたアドレスやリスト名など) と出力 (SharePoint から取得した項目の詳細情報) のデータサイズがカウントされます。<br>フロー毎に、全てのアクションをカウントした合計サイズによる制限となります。</p>
-<p>継続した5分、または24時間におけるフローごとに制限対象となります。</p>
-<p>制限に抵触すると、フローが低速実行（スロットリング状態）となります。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、制限時間内の実行数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
-<p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
-<div class="alert is-info"><p class="alert-title">Note</p><p>低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p></div>
-<p><a id='anchor-request-limits'></a></p>
-<h1 id="要求の制限"><a href="#要求の制限" class="headerlink" title="要求の制限"></a>要求の制限</h1><p>HTTP要求の制限になります。<br>フロー実行では各アクションの中でHTTP要求を実行し、処理を行っております。<br>要求の制限は、各HTTP要求を実行するときにチェックされる制限でございます。</p>
-<p><a id='anchor-timeout'></a></p>
-<h2 id="タイムアウトの制限"><a href="#タイムアウトの制限" class="headerlink" title="タイムアウトの制限"></a>タイムアウトの制限</h2><p>この項目ではタイムアウトとなる制限をご紹介します。<br>制限に抵触した場合、フローの実行が失敗します。  </p>
-<p>下記3種類の制限がございます。  </p>
-<ul>
-<li>送信同期要求</li>
-<li>送信非同期要求</li>
-<li>受信要求</li>
-</ul>
-<div class="alert is-important"><p class="alert-title">重要</p><p>サービス保護の制限のため、いずれの制限にも緩和策はございません。</p><p>タイムアウトの制限は緩和できない＝タイムアウトまでの時間を延ばすことはできないものとなっております。</p></div>
-<p><a id='anchor-outbound-synchronous-request'></a></p>
-<h3 id="送信同期要求"><a href="#送信同期要求" class="headerlink" title="送信同期要求"></a>送信同期要求</h3><p>フロー内の同期処理の待ち時間となります。<br>リクエストを投げてから待ち時間以内に応答がない場合、制限に抵触します。<br>INSERTやGET要求などAPIごとに制限対象となります。</p>
-<p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>例えば、DataverseやSQLテーブルの読み取りや書き込み時などが挙げられます。<br>テーブルに対する各操作をリクエストし、待ち時間以内に操作が完了せず、応答がない場合、フローの実行が失敗します。</p>
-<p><a id='anchor-outbound-asynchronous-request'></a></p>
-<h3 id="送信非同期要求"><a href="#送信非同期要求" class="headerlink" title="送信非同期要求"></a>送信非同期要求</h3><p>アクションで実行されるHTTP要求（またはAPI）の非同期処理の待ち時間となります。<br>実行しているアクションごとでの時間となります。</p>
-<p>例えば、承認アクションなどが挙げられます。<br>承認コネクタを通じて、承認リクエストを投げると、承認者からの承認完了を待ちます。</p>
-<p>制限に抵触した場合（＝待ち時間以内に承認完了の応答がない場合）、フローの実行は失敗します。</p>
-<div class="alert is-important"><p class="alert-title">重要</p><p>制限の回避策はございません。</p></div>
-<p><a id='anchor-inbound-request'></a></p>
-<h3 id="受信要求"><a href="#受信要求" class="headerlink" title="受信要求"></a>受信要求</h3><p>応答アクションがフロー内で使用されている場合、受信要求120秒の制限が適用される場合がございます。<br>当制限は制限された時間のみ受信要求を待機する動作となります。</p>
-<p>フロー実行単位での制限となります。</p>
-<p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>フローの実行開始からカウントし、受信要求の120秒を超えて、応答アクションを実行できない場合、<br>応答アクションで設定したレスポンスではなく、504 Bad Gateway Timeoutを返します。<br>応答アクションが使用されていないフローの場合は、呼び出し元にすぐに202 Acceptedを返します。</p>
-<p>例えば、下記のような構成のフローがございます。</p>
-<ul>
-<li>「Power Apps がフローを呼び出したとき (V2)」トリガー</li>
-<li>トリガーに続いて、いくつかのアクション</li>
-<li>最後に「Power App またはフローに応答する」アクション</li>
-</ul>
-<p>上記フローはPower Appsキャンバスアプリから対象クラウドフローが呼び出され、「Power App またはフローに応答する」アクションによってそのフローからアプリに応答を返します。<br>トリガーと「Power App またはフローに応答する」アクションまでの間に、多くのアクションが設定されている場合、「Power App またはフローに応答する」アクションが実行されるまでに時間がかかることが想定されます。<br>トリガーが発動してから、「Power App またはフローに応答する」アクションを実行するまでに120秒を超える場合、制限に抵触いたします。</p>
-<p>回避策としては、「Power App またはフローに応答する」アクション前までのアクションを子フローとして実行します。<br>子フローでの実行時間は待機時間にカウントされないため、制限対象の時間の短縮が可能でございます。</p>
-<p><a id='anchor-message-size'></a></p>
-<h2 id="メッセージサイズの制限"><a href="#メッセージサイズの制限" class="headerlink" title="メッセージサイズの制限"></a>メッセージサイズの制限</h2><p>1つのアクションでの、 HTTP要求可能なメッセージサイズの制限になります。</p>
-<p>この制限に抵触した場合、フロー実行が失敗します。<br>下記のようなメッセージと共にエラーが発生します。  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTP 要求に失敗しました: &#x27;Cannot write more bytes to the buffer than the configured maximum buffer size: 104857600.&#x27;</span><br></pre></td></tr></table></figure>
 
-<p>回避策としては、アクションで処理するデータサイズを小さくします。<br>よりサイズが小さいデータを対象にアクションを設定ください。</p>
-<p>緩和策として、通常は100MBまでとなりますが、下記条件を満たす場合、この制限は1GBとなります。<br>・アクションがチャンクをサポートしている<br>・アクションの設定でチャンクを許可している</p>
-<p><img src="/blog/powerautomate/cloudflow-limits/message-size-with-chunking.png"></p>
-<p><a id='anchor-retry-policy'></a></p>
-<h2 id="再試行ポリシー"><a href="#再試行ポリシー" class="headerlink" title="再試行ポリシー"></a>再試行ポリシー</h2><p>フローが失敗した場合の再試行数の制限になります。<br>上限以上の設定は不可となり、フローが保存できません。</p>
-<p>再試行ポリシーに「指数の間隔」を設定しますと、設定された最小間隔、最大間隔の間でランダムに再試行が行われます。<br>例えば、「間隔」に “PT7S”＝7秒と設定した場合、7秒に指数をかけて、以下のように最小間隔と最大間隔を算出します。</p>
-<p>最小間隔　～　最大間隔</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>本記事は執筆時点の情報に基づいています。製品の仕様は予告なく変更される場合がありますので、最新の情報は公式ドキュメントをご確認ください。</p></div>
+<h2 id="ソリューションとは"><a href="#ソリューションとは" class="headerlink" title="ソリューションとは"></a>ソリューションとは</h2><p>Power Platform のソリューションとは、Power Apps のアプリや Power Automate のフロー、Dataverse のテーブルなどのコンポーネントをひとまとめにして管理するための「入れ物」です。</p>
+<p>Power Apps や Power Automate で作成したコンポーネントは、既定では「既定のソリューション（Default Solution）」に含まれます。<br>しかし、本番運用を見据える場合はカスタムソリューションを作成し、関連するコンポーネントをまとめて管理することが推奨されます。</p>
+<p>ソリューションを利用するメリットは主に以下のとおりです。</p>
 <ul>
-<li>1回目0秒　～7秒（7×0～7×1）</li>
-<li>2回目7秒　～14秒（7×1～7×2）</li>
-<li>3回目14秒　～28秒（7×2～7×4）</li>
-<li>4回目28秒　～56秒（7×4～7×8）</li>
-<li>5回目56秒　～112秒（7×8～7×16）</li>
-<li>6回目112秒　～224秒（7×16～7×32）</li>
-<li>7回目224秒　～448秒（7×32～7×64）</li>
+<li>開発環境から本番環境へコンポーネントをまとめて移行できる</li>
+<li>変更履歴やバージョンの管理がしやすくなる</li>
+<li>コンポーネント間の依存関係を把握しやすくなる</li>
+<li>不要になった機能をまとめて削除（アンインストール）できる</li>
 </ul>
-<p>算出された、最小間隔から最大間隔の間のどこかで、処理が再試行されます。<br>「最小間隔」「最大間隔」はオプション項目となり、設定しない場合は既定値で動作いたします。</p>
-<p>「最小間隔」は、再試行させたい最小の間隔を設定します。「5秒」と設定しますと<br>再試行間隔は「間隔」から算出された最小間隔に関わらず、前の実行から5秒経過後となります。</p>
-<p>「最大間隔」は、再試行させたい最大の間隔を設定します。<br>「1日」と設定しますと、「間隔」から算出された最大間隔に関わらず、1日以内に再試行されます。<br>「1時間」と設定しますと1時間以内に再試行されます。</p>
-<p>下記公開情報もご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval">指数間隔の再試行ポリシー</a></p>
-<div class="alert is-info"><p class="alert-title">Note</p><p>再試行ポリシーの間隔、最小間隔、最大間隔は「ISO 8601」という形式を利用して設定します。</p>
-<p>継続時間ということを表すため、「P」を先頭につけます。</p><p>時分秒を設定する時は「P」＋「T」＋数字＋「時分秒」という形で記載します。</p><p>例）</p><p>1時間　→PT1H</p><p>2時間　→PT2H</p><p>15分　→PT15M</p><p>30秒　→PT30S  </p>
-<p>日を設定する時は、「P」＋数字＋「D」という形で記載します。</p><p>例）</p><p>1日　→P1D</p></div>
-<p><a id='anchor-summary-list'></a></p>
-<h1 id="制限対象単位と制限抵触時の動作まとめ"><a href="#制限対象単位と制限抵触時の動作まとめ" class="headerlink" title="制限対象単位と制限抵触時の動作まとめ"></a>制限対象単位と制限抵触時の動作まとめ</h1><table>
+<div class="alert is-important"><p class="alert-title">重要</p><p>小規模な開発であっても、カスタムソリューションを使うことで変更管理やバックアップが容易になります。既定のソリューションのみでの運用は推奨されません。</p></div>
+<h2 id="マネージドソリューションとアンマネージドソリューション"><a href="#マネージドソリューションとアンマネージドソリューション" class="headerlink" title="マネージドソリューションとアンマネージドソリューション"></a>マネージドソリューションとアンマネージドソリューション</h2><p>ソリューションには「マネージドソリューション」と「アンマネージドソリューション」の 2 種類があります。<br>それぞれの特徴は以下のとおりです。</p>
+<table>
 <thead>
 <tr>
-<th align="left">制限種類</th>
-<th align="left">制限対象単位</th>
-<th align="left">制限抵触時の動作</th>
+<th>項目</th>
+<th>アンマネージドソリューション</th>
+<th>マネージドソリューション</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><a href="#anchor-power-platform-request-limits-per">5分ごと、および24時間ごとのPower Platform要求</a></td>
-<td align="left"><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>を参照</td>
-<td align="left">フローの実行が低速化</td>
+<td>主な用途</td>
+<td>開発環境での編集・作業用</td>
+<td>テスト環境・本番環境への展開用</td>
 </tr>
 <tr>
-<td align="left"><a href="#anchor-concurrent-outbound-calls">同時発信呼</a></td>
-<td align="left">フローごと</td>
-<td align="left">フローの実行が失敗</td>
+<td>コンポーネントの編集</td>
+<td>可能</td>
+<td>不可（意図しない変更を防止）</td>
 </tr>
 <tr>
-<td align="left"><a href="#anchor-concurrent-inbound-calls">同時着信</a></td>
-<td align="left">エンドポイントごと</td>
-<td align="left">フローの実行が失敗</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-read-calls-per-5-minutes">5分ごとに通話を読み取る</a></td>
-<td align="left">エンドポイントごと</td>
-<td align="left">フローの実行が失敗</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-invoke-calls-per-5-minutes">5分ごとの Invoke 呼び出し</a></td>
-<td align="left">エンドポイントごと</td>
-<td align="left">フローの実行が失敗</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-content-throughput-limits">コンテンツスループットの制限</a></td>
-<td align="left">フローの実行ごと</td>
-<td align="left">フローの実行が低速化</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-outbound-synchronous-request">送信同期要求</a></td>
-<td align="left">実行するAPI≒アクションごと</td>
-<td align="left">フローの実行が失敗</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-outbound-asynchronous-request">送信非同期要求</a></td>
-<td align="left">実行するAPI≒アクションごと</td>
-<td align="left">フローの実行が失敗</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-inbound-request">受信要求</a></td>
-<td align="left">フローごと</td>
-<td align="left">フローの実行が失敗</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-message-size">メッセージサイズの制限</a></td>
-<td align="left">アクションごと</td>
-<td align="left">フローの実行が失敗</td>
-</tr>
-<tr>
-<td align="left"><a href="#anchor-retry-policy">再試行ポリシー</a></td>
-<td align="left">フローごと</td>
-<td align="left">フローの保存が不可</td>
+<td>アンインストール</td>
+<td>コンポーネントは環境に残る</td>
+<td>コンポーネントごと削除される</td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p>
+<p>基本的な運用として、以下のフローが推奨されます。</p>
+<ol>
+<li>開発環境でアンマネージドソリューションとしてコンポーネントを編集する</li>
+<li>マネージドソリューションとしてエクスポートする</li>
+<li>テスト環境や本番環境にマネージドソリューションとしてインポートする</li>
+</ol>
+<div class="alert is-warning"><p class="alert-title">警告</p><p>アンマネージドソリューションを本番環境に直接インポートすると、コンポーネントの削除やバージョン管理が困難になります。本番環境にはマネージドソリューションとして展開してください。</p></div>
+<h2 id="発行元（パブリッシャー）の設定"><a href="#発行元（パブリッシャー）の設定" class="headerlink" title="発行元（パブリッシャー）の設定"></a>発行元（パブリッシャー）の設定</h2><p>ソリューションの発行元（パブリッシャー）は、テーブルや列の論理名に付与されるプレフィックスを決定する重要な設定です。<br>以下のポイントに注意して設定してください。</p>
+<h3 id="組織で発行元を統一する"><a href="#組織で発行元を統一する" class="headerlink" title="組織で発行元を統一する"></a>組織で発行元を統一する</h3><p>発行元は組織ごとにひとつ作成し、すべてのソリューションで同じ発行元を使用することが推奨されます。<br>発行元が異なるとコンポーネントの依存関係が複雑になり、管理が難しくなります。</p>
+<h3 id="プレフィックスを適切に設定する"><a href="#プレフィックスを適切に設定する" class="headerlink" title="プレフィックスを適切に設定する"></a>プレフィックスを適切に設定する</h3><p>プレフィックスは組織を識別できる短い文字列（例: <code>contoso</code>）に設定します。<br>プレフィックスを <code>contoso</code> に設定した場合、新しく作成したテーブルの論理名は <code>contoso_テーブル名</code> のように自動的に付与されます。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>一度設定したプレフィックスはあとから変更できません。最初に慎重に決定してください。</p></div>
+<h3 id="既定の発行元を使用しない"><a href="#既定の発行元を使用しない" class="headerlink" title="既定の発行元を使用しない"></a>既定の発行元を使用しない</h3><p>既定の発行元（プレフィックス: <code>new</code>）は使用しないでください。<br>他の組織が作成したコンポーネントと名前が競合する恐れがあります。</p>
+<h2 id="ソリューションの設計"><a href="#ソリューションの設計" class="headerlink" title="ソリューションの設計"></a>ソリューションの設計</h2><p>ソリューションを適切に設計することで、変更の影響範囲を限定でき、展開やテストが容易になります。</p>
+<h3 id="機能単位でソリューションを分割する"><a href="#機能単位でソリューションを分割する" class="headerlink" title="機能単位でソリューションを分割する"></a>機能単位でソリューションを分割する</h3><p>ひとつのソリューションにすべてのコンポーネントを詰め込むのではなく、機能や業務の単位で分割します。<br>たとえば「営業管理アプリ」と「経費申請フロー」がある場合、それぞれ別のソリューションとして管理します。</p>
+<p>コンポーネントが多すぎるソリューションは、エクスポートやインポートに時間がかかり、エラー発生時の原因特定も難しくなります。</p>
+<h3 id="共通コンポーネントはベースソリューションにまとめる"><a href="#共通コンポーネントはベースソリューションにまとめる" class="headerlink" title="共通コンポーネントはベースソリューションにまとめる"></a>共通コンポーネントはベースソリューションにまとめる</h3><p>複数のソリューションで共有するコンポーネント（テーブル、セキュリティロールなど）は、専用のベースソリューションにまとめます。<br>各機能ソリューションはベースソリューションに依存する形にすることで、整理された構成になります。</p>
+<h3 id="循環参照を避ける"><a href="#循環参照を避ける" class="headerlink" title="循環参照を避ける"></a>循環参照を避ける</h3><p>ソリューション間の依存関係は一方向に保ち、循環参照が発生しないように設計します。<br>循環参照が発生すると、インポートの順序管理が複雑になり、展開に失敗する場合があります。</p>
+<h2 id="環境間のソリューション移行"><a href="#環境間のソリューション移行" class="headerlink" title="環境間のソリューション移行"></a>環境間のソリューション移行</h2><p>ソリューションを環境間で移行する際は、以下のベストプラクティスに従ってください。</p>
+<h3 id="最低-3-つの環境を用意する"><a href="#最低-3-つの環境を用意する" class="headerlink" title="最低 3 つの環境を用意する"></a>最低 3 つの環境を用意する</h3><ul>
+<li><strong>開発環境</strong>: コンポーネントの編集・開発を行う環境</li>
+<li><strong>テスト環境</strong>: 動作確認・検証を行う環境</li>
+<li><strong>本番環境</strong>: 実際のユーザーが利用する環境</li>
+</ul>
+<p>テスト環境がないと、本番環境で初めて問題が発覚するリスクが高くなります。</p>
+<h3 id="接続参照と環境変数を活用する"><a href="#接続参照と環境変数を活用する" class="headerlink" title="接続参照と環境変数を活用する"></a>接続参照と環境変数を活用する</h3><p>接続参照は、フローやアプリが外部サービスに接続するための設定を環境ごとに分けるために使用します。<br>環境変数は、環境ごとに異なる値（URL、API キーなど）を管理するために使用します。</p>
+<p>これらを活用することで、ソリューション自体を変更することなく環境に応じた設定が可能になります。<br>「開発環境の接続情報が本番環境に持ち込まれる」という事故を防ぐことができます。</p>
+<h2 id="バージョン管理と-ALM"><a href="#バージョン管理と-ALM" class="headerlink" title="バージョン管理と ALM"></a>バージョン管理と ALM</h2><p>ソリューションのライフサイクルを適切に管理するために、バージョン管理と ALM（Application Lifecycle Management）の仕組みを取り入れることを推奨します。</p>
+<h3 id="バージョン番号の運用"><a href="#バージョン番号の運用" class="headerlink" title="バージョン番号の運用"></a>バージョン番号の運用</h3><p>ソリューションのバージョン番号は「メジャー.マイナー.ビルド.リビジョン」の 4 桁構成です。<br>以下のようなルールで運用すると管理がしやすくなります。</p>
+<ul>
+<li>初回リリース: <code>1.0.0.0</code></li>
+<li>軽微な修正: リビジョンを上げる（例: <code>1.0.0.1</code>）</li>
+<li>機能追加: マイナーバージョンを上げる（例: <code>1.1.0.0</code>）</li>
+<li>大規模な変更: メジャーバージョンを上げる（例: <code>2.0.0.0</code>）</li>
+</ul>
+<h3 id="パイプラインによる展開の自動化"><a href="#パイプラインによる展開の自動化" class="headerlink" title="パイプラインによる展開の自動化"></a>パイプラインによる展開の自動化</h3><p>Power Platform のパイプライン機能を使うと、開発環境からテスト環境・本番環境への展開を効率的に行えます。</p>
+<ol>
+<li>Power Platform 管理センターでパイプラインを有効化します</li>
+<li>開発環境とターゲット環境（テスト・本番）を登録します</li>
+<li>ソリューションの <strong>[パイプラインで展開]</strong> を選択して展開を実行します</li>
+</ol>
+<h3 id="ソース管理との連携"><a href="#ソース管理との連携" class="headerlink" title="ソース管理との連携"></a>ソース管理との連携</h3><p>Azure DevOps や GitHub と連携することで、ソリューションの変更履歴をリポジトリで管理できます。<br>変更の追跡やコードレビューを行う本格的な ALM を実現したい場合に有効です。</p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事では、Power Platform のソリューション運用におけるベストプラクティスをご紹介しました。<br>主なポイントは以下のとおりです。</p>
+<ul>
+<li>ソリューションは小規模な開発でもカスタムソリューションを作成して管理する</li>
+<li>開発環境ではアンマネージド、本番環境にはマネージドソリューションとして展開する</li>
+<li>発行元は組織で統一し、既定の発行元（プレフィックス: <code>new</code>）は使用しない</li>
+<li>機能や業務単位でソリューションを分割し、循環参照を避ける</li>
+<li>開発・テスト・本番の 3 環境を用意し、接続参照と環境変数で設定を分離する</li>
+<li>バージョン番号を適切に管理し、パイプラインやソース管理を活用する</li>
+</ul>
+<h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm">ソリューションの概要 - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/overview-alm">Power Platform の ALM の概要 - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions">マネージドソリューションとアンマネージドソリューション - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/change-solution-publisher-prefix">ソリューション発行元のプレフィックス - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-layers-alm">ソリューションのレイヤー - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/environment-strategy-alm">環境戦略 - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-connection-reference">接続参照の概要 - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/environmentvariables">環境変数の概要 - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines">Power Platform のパイプライン - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/devops-build-tools">Power Platform 向け Azure DevOps ビルドツール - Microsoft Learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/alm/devops-github-actions">Power Platform 向け GitHub Actions - Microsoft Learn</a></li>
+</ul>
 
       
       
@@ -407,10 +276,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerautomate/cloudflow-limits.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/solution-best-practices-power-platform.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -418,19 +287,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerplatform/connect-private-datasource/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../powerpages/power-pages-auth-key/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法
+          Power Pages 認証キーの更新ガイド
         
       </div>
     </a>
   
   
-    <a href="../../powerplatform/list-connectors-used-by-apps-and-flows/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../power-platform-powershell-admin-guide/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">キャンバス アプリ・クラウド フローで使用しているコネクタの一覧取得</div>
+      <div class="article-nav-title">Power Platform 管理者向け PowerShell でできること代表例まとめ</div>
     </a>
   
 </nav>
@@ -449,7 +318,7 @@
       <ul>
         
           <li>
-            <a href="../../powerplatform/dataverse-bulk-delete-guide/">Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</a>
+            <a href="../dataverse-bulk-delete-guide/">Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</a>
           </li>
         
           <li>
@@ -457,15 +326,15 @@
           </li>
         
           <li>
-            <a href="../../powerplatform/solution-best-practices-power-platform/">Power Platform ソリューション運用のベストプラクティス</a>
+            <a href="">Power Platform ソリューション運用のベストプラクティス</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/power-platform-powershell-admin-guide/">Power Platform 管理者向け PowerShell でできること代表例まとめ</a>
+            <a href="../power-platform-powershell-admin-guide/">Power Platform 管理者向け PowerShell でできること代表例まとめ</a>
           </li>
         
           <li>
-            <a href="../../powerplatform/dataverse-search-storage-guide/">Dataverse Search のストレージ内訳と削減の考え方（Q&amp;Aガイド）</a>
+            <a href="../dataverse-search-storage-guide/">Dataverse Search のストレージ内訳と削減の考え方（Q&amp;Aガイド）</a>
           </li>
         
       </ul>
