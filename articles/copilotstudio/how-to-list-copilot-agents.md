@@ -2,21 +2,32 @@
 title: Copilot Studio のエージェントを一覧にする方法
 date: 2025-03-03 13:30:00
 tags:
-  - Copilot Studio
-toc:
-  enabled: true
-  min_depth: 1
-  max_depth: 2
-  list_number: false
+  - Microsoft Copilot Studio
+  - How to
+categories:
+  - [Microsoft Copilot Studio]
 ---
 
 
 こんにちは、Power Platform サポートチームの網野です。  
-Copilot Studio にて作成されたエージェントは Dataverse または Dataverse for Teams に保存されます。本記事では Dataverse および Dataverse for Teams からエージェントを一覧を取得する方法をご案内いたします。
-
+Copilot Studio にて作成されたエージェントは Dataverse または Dataverse for Teams に保存されます。本記事では Dataverse / Dataverse for Teams ならびに Power Platform 管理センターのレポートからエージェントの一覧を取得する方法をご案内いたします。
 
 <!-- more -->
-## 概要
+## 目次
+
+- [目次](#目次)
+- [1. 概要](#1-概要)
+- [2. 前提](#2-前提)
+- [3. 特定の環境のエージェントを一覧にする方法](#3-特定の環境のエージェントを一覧にする方法)
+  - [3-1. 詳細検索を利用する方法 (Dataverse のみ)](#3-1-詳細検索を利用する方法-Dataverse-のみ)
+  - [3-2. Dataverse コネクタを利用する方法](#3-2-Dataverse-コネクタを利用する方法)
+- [4. テナント内の環境のエージェントを一覧にする方法](#4-テナント内の環境のエージェントを一覧にする方法)
+  - [4-1. Power Platform 管理センターで用意されたレポートを利用する方法](#4-1-Power-Platform-管理センターで用意されたレポートを利用する方法)
+  - [4-2. CoE を利用する方法 (Dataverse のみ)](#4-2-CoE-を利用する方法-Dataverse-のみ)
+  - [4-3. Dataverse コネクタを利用する方法](#4-3-Dataverse-コネクタを利用する方法)
+- [5. よくある質問](#5-よくある質問)
+
+## 1. 概要
 Copilot Studio は 2 つのルートでエージェントを作成することができます。
 1. [Copilot Studio ポータル](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing-subscriptions#standalone-copilot-studio-subscription)
 1. [Teams アプリの Copilot Studio](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing-subscriptions#copilot-studio-for-microsoft-teams-plans)
@@ -26,12 +37,12 @@ Teams アプリの Copilot Studio から作成したエージェントは Datave
 
 なお、[Agent Builder](https://learn.microsoft.com/ja-jp/microsoft-365-copilot/extensibility/copilot-studio-agent-builder) を利用して作成したエージェントは Cosmos DB に保存されますので、本記事の方法では取得することができません。
 
-## 前提
+## 2. 前提
 テナント内のエージェント一覧を取得するためには、取得する環境の Copilots テーブルに対して、組織レベルの読み取り権限が必要となります。  
 
 
-## 特定の環境のエージェントを一覧にする方法
-### 詳細検索を利用する方法 (Dataverse のみ)
+## 3. 特定の環境のエージェントを一覧にする方法
+### 3-1. 詳細検索を利用する方法 (Dataverse のみ)
 1. [Power Apps ポータル](https://make.powerapps.com/) に接続し、エージェントを取得する環境を選択します。
 ![](./how-to-list-copilot-agents/environment-picker.png)
 
@@ -53,7 +64,7 @@ Teams アプリの Copilot Studio から作成したエージェントは Datave
 
 
 
-### Dataverse コネクタを利用する方法
+### 3-2. Dataverse コネクタを利用する方法
 Dataverse コネクタを利用し Copilots(bot) テーブルからエージェント情報を取得します。  
 
 #### フロー全体図
@@ -102,8 +113,13 @@ Dataverse コネクタを利用し Copilots(bot) テーブルからエージェ�
 ![](./how-to-list-copilot-agents/dataverse9.png)
 
 
-## テナント内の環境のエージェントを一覧にする方法
-### CoE を利用する方法 (Dataverse のみ)
+## 4. テナント内の環境のエージェントを一覧にする方法
+### 4-1. Power Platform 管理センターで用意されたレポートを利用する方法
+[Power Platform 管理センター](https://admin.powerplatform.microsoft.com) の [管理] > [Copilot Studio] の画面よりご確認いただくことができます。
+この方法の詳細については、下記の公開情報をご参照ください。  
+[Power Platform インベントリ (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory)  
+
+### 4-2. CoE を利用する方法 (Dataverse のみ)
 [CoE Starter kit](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) を環境にインストールすることで、Datavese に作成されたエージェントの一覧を確認することができます。  
 ![](./how-to-list-copilot-agents/coe.png)  
 
@@ -115,11 +131,11 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 
 
 
-### Dataverse コネクタを利用する方法
+### 4-3. Dataverse コネクタを利用する方法
 上述のDataverse コネクタを利用する方法にて特定環境のエージェント一覧を取得する方法をご案内しました。その方法を全ての環境に対して行うことでテナント内の環境のエージェント一覧を取得することができます。  
 具体的には「環境一覧を管理者として作成する」アクションを利用して取得した、取得した環境ごとに CSV を出力することで、 Copilot 情報を取得します。
 
-### フロー全体図
+#### フロー全体図
 ![](./how-to-list-copilot-agents/dataverse2_1.png)
 
 #### 前作業
@@ -141,9 +157,8 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 フローを実行すると指定したフォルダに環境ごとの CSV が出力されます。  
 ![](./how-to-list-copilot-agents/dataverse2_2.png)
 
-## よくある質問
+## 5. よくある質問
 ### Microsoft 365 Copilot を拡張した Copilot の情報が取得できますか
 はい、取得できます。  
 Copilot Studio から Copilot for Microsoft 365 を選択して作成した Copilot は Dataverse に保存されます。そのため、本手順でご案内した方法で取得することができます。
-
 
