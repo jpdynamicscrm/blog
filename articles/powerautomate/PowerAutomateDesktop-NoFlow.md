@@ -51,7 +51,7 @@ Power Automate for desktop に最初にログインした際には、テナン�
 なお、過去に一度も Power Automate にアクセスしたことがない場合は、[Power Automate ポータル](https://japan.flow.microsoft.com)にアクセスすると、
 自動で既定の環境に追加されます。
 管理者でのユーザーの確認が難しい場合は、一度 Power Automate ポータルにアクセスしてから
-少し時間を置いて Powre Automate for desktop にアクセスするなどの操作もお試しください。
+少し時間を置いて Power Automate for desktop にアクセスするなどの操作もお試しください。
 
 ## 3. Dataverse (旧名: Common Data Service) のライセンスの確認
 

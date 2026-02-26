@@ -84,7 +84,7 @@ categories:
   
 1. リモート デスクトップの設定  
   実行する端末 > システムのプロパティ > リモート デスクトップにて、以下のように設定します。  
-  ![](./power-automate-desktop-unattand-automation/register-computers4.png)  
+  ![](./power-automate-desktop-unattend-automation/register-computers4.png)  
      * 「このコンピューターへのリモート接続を許可する」を選択する  
      * 「ネットワークレベル認証でのリモート デスクトップを実行しているコンピューターからのみ接続を許可する」のチェックを外す  
 
@@ -95,7 +95,7 @@ categories:
 以下の記事の手順 6 で実行モードを非アテンド型に変更することで、デスクトップ フローを無人実行で呼び出すことができます。   
 [クラウド フローからデスクトップ フローを呼び出す方法 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/#anchor-call-desktopflow-from-cloudflow)
 
-![](./power-automate-desktop-unattand-automation/call-desktopflow-from-cloudflow.png)  
+![](./power-automate-desktop-unattend-automation/call-desktopflow-from-cloudflow.png)  
   * Desktop フロー：呼び出したいデスクトップ フローをご指定ください。  
   * 実行モード：非アテンド型をご指定ください。  
 
@@ -118,7 +118,7 @@ categories:
 
 ## 実行結果  
 クラウド フローからデスクトップ フローを呼び出して無人実行することができました。  
-![](./power-automate-desktop-unattand-automation/result-of-unattended-automation-flow.png)  
+![](./power-automate-desktop-unattend-automation/result-of-unattended-automation-flow.png)  
 
 ---
 
@@ -129,3 +129,4 @@ categories:
 
 
 ---
+
