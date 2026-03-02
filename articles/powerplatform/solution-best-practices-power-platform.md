@@ -2,7 +2,7 @@
 title: "Power Platform ソリューション運用のベストプラクティス"
 date: 2026-02-10 12:00
 tags:
-  - PowerPlatform
+  - Power Platform
   - Dataverse
 ---
 

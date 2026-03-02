@@ -7,7 +7,7 @@ tags:
 	- ストレージ
 	- Copilot
 categories:
-	- [powerplatform]
+	- [Dataverse]
 ---
 
 # Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）
