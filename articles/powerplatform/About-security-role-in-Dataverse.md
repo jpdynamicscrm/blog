@@ -2,11 +2,10 @@
 title: セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法
 date: 2025-02-26 00:00:00
 tags:
-  - Model-driven app
-  - Dynamics
+  - Dataverse
   - Governance
+  - セキュリティ ロール
 categories:
-  - [Power Apps, Model-driven app]
   - [Dataverse]
   - [Power Platform Admin Center]
 ---
@@ -19,7 +18,6 @@ categories:
 
 ビジネスユースで Dynamics 365 CRM やモデル駆動アプリを導入する場合、セキュアな環境管理のために必須となるのがこのアクセス権制御です。
 特に Dataverse の導入にあたりセキュリティ面を検討されている方は、ぜひご覧ください！
-
 
 ## アクセス権制御方法の概要
 

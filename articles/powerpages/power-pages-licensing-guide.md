@@ -2,9 +2,9 @@
 title: Power Pages ライセンスについて
 date: 2025-09-16 10:30:00 +0900
 tags:
-	- powerpages
-	- licensing
-	- governance
+	- Power Pages
+	- License
+	- Governance
 categories:
 	- [Power Pages]
 ---

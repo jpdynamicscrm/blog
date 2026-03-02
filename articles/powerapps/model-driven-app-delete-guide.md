@@ -2,9 +2,9 @@
 title: モデル駆動型アプリ削除ガイド
 date: 2025-09-16 10:00:00 +0900
 tags:
-	- powerapps
-	- dataverse
-	- governance
+	- Power Apps
+	- Dataverse
+	- Governance
 categories:
 	- [Power Apps, Model-driven app]
 ---
@@ -41,7 +41,7 @@ categories:
 マネージド ソリューションのアプリはロールに関わらず個別削除できず、マネージド ソリューション全体を環境から削除する必要があります。
 
 【ポイント】
-1. 既定ロール: システム管理者 (System Administrator) / システムカスタマイザー (System Customizer) 
+1. 既定ロール: システム管理者 (System Administrator) / システムカスタマイザー (System Customizer)
 2. 必須操作: App Module Delete + Publish Customizations
 3. 付随権限: Solution（Read / Write / Delete / Append / Append To）
 4. カスタムロール: 上記権限を完全複製で代替可
@@ -140,7 +140,7 @@ Sql Number: 547
 - [ソリューションの一般的な問題のトラブルシューティング](https://learn.microsoft.com/ja-jp/power-platform/alm/troubleshoot-common-solution-issues)
 
 <h2 id="summary">まとめ</h2>
-- モデル駆動型アプリ削除には システム管理者 (System Administrator) / システムカスタマイザー (System Customizer) 
+- モデル駆動型アプリ削除には システム管理者 (System Administrator) / システムカスタマイザー (System Customizer)
 または同等の削除権限を付与したカスタム セキュリティ ロール が必要です。
 - 依存関係は [Power Apps ポータル](#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home) の「依存関係を表示」から 用途（Use） / 使用者（Used by） / 削除ブロック（Delete blocked by） を確認可能です。
 - SQL Number 547 (appmodule_appsetting_parentappmoduleid) は AppSettingBase 残留参照が原因で「保存して公開 → 再生 → 削除」手順が有効です。
