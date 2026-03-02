@@ -27,7 +27,7 @@ Dataverse 環境のアクセス権は、おおまかに以下の構造で制御�
 2. **セキュリティ グループ** : テナントの各環境ごとに、**ユーザーがその環境を利用できるか**を決定します。
 3. **セキュリティ ロール** : 環境の Dataverse 内の各テーブルごとに、**環境における具体的なユーザーのアクセス権**を決定します。
 
-![](./About-security-role-in-Dataverse/img00-overall.PNG)
+![](./security-role-and-group/img00-overall.png)
 
 例えば上記の図のように、同じテナント内に複数のグループと複数の環境が存在し、それぞれ環境にグループが割り当てられているとします。
 * グループ A (サポート部門) とグループ B (管理部門)
@@ -63,7 +63,7 @@ Power Platform 環境には、デフォルトではテナントに所属する�
 - アプリケーション ユーザーは、セキュリティ グループのメンバーでなくても追加することができます。
 
 参考: [環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス](https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access)
-![](./About-security-role-in-Dataverse/ppac_security_group.png)
+![](./security-role-and-group/ppac_security_group.png)
 
 
 ## セキュリティ ロールについて
@@ -86,7 +86,7 @@ Power Platform では、要件に合わせたさまざまな既定のセキュ�
 Power Platform 管理センターから環境を開き、[設定] > [ユーザーとアクセス許可] > [セキュリティ ロール] から特定のセキュリティ ロールを開くことで、下図のように特権がどのように付与されているかを確認することができます。<br>
 各特権の項目に対して、作成・読み取り・書き込み等の動作ごとに、特権の種類を [なし / 部署 / 組織 / 部署配下 / ユーザー] に設定できます。<br>
 参考: [セキュリティ ロールおよび特権](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges)
-![](./About-security-role-in-Dataverse/ppac_security_role_settings.png)
+![](./security-role-and-group/ppac_security_role_settings.png)
 
 前述のように、システム管理者や Basic User といった定義済みのセキュリティ ロールが存在するものの、カスタマイズにより細かく特権を定義することが可能です。これにより、お客様の使用シナリオやニーズに合わせて、柔軟なアクセス制御が可能となります。
 
