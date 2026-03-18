@@ -60,6 +60,7 @@ Dataverse の TDS endpoint は、Power BI Desktop、SSMS、Excel などの外部
 
 - TDS endpoint への接続には TCP 1433 または 5558 が必要
 - 1433 が使えない場合は 5558 を利用できるが、接続先 URL に ,5558 を付与する必要がある
+  *Power BI DesktopのDataverse接続はURLの指定がご利用いただけません。
 - 多くのプロキシ サーバーは TDS プロトコルを適切に処理できない
 - TDS 通信では 1433/5558 から 443 へのポート リダイレクトが発生し、SSL inspection が干渉することがある
 - TDS endpoint のユーザーレベル制御が有効な場合、権限不足で authentication error や missing privilege error になることがある
