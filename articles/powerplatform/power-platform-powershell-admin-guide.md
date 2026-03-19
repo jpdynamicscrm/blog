@@ -6,9 +6,9 @@ tags:
   - PowerShell
   - 環境管理
   - ユーザー管理
-  - セキュリティロール
+  - セキュリティ ロール
 categories:
-  - Power Platform
+  - [Power Platform Admin Center]
 ---
 
 # Power Platform 管理者向け PowerShell でできること代表例まとめ

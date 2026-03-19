@@ -6,7 +6,7 @@ tags:
     - Security
     - Administration
 categories:
-    - [Power Platform]
+    - [Power Pages]
 ---
 
 # Power Pages 認証キーの更新ガイド ～有効期限切れを防ぐ方法～
@@ -46,8 +46,8 @@ Power Pages 認証キーは Power Pages で作成された Web サイトを表�
 
 ＜参考資料＞
 - [Power Pages アーキテクチャ (Docs)](https://learn.microsoft.com/ja-jp/power-pages/admin/architecture)
-  
-![](power-pages-auth-key/power-pages-architecture.png)  
+
+![](power-pages-auth-key/power-pages-architecture.png)
 
 このため、Power Pages の Web サイトが機能するためには、Power Pages (Web サイト) が Dataverse に接続可能な状態である必要があります。
 この接続にはセキュリティ上の観点から「認証キー」を用いた接続が利用されておりますが、この「認証キー」には 1 年間という有効期限がございます。
@@ -60,7 +60,7 @@ Web サイト認証キーの管理
 
 このため、Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で作成される仕組みとなっております。
 このことから、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。
-![](power-pages-auth-key/power-pages-azure-app.png) 
+![](power-pages-auth-key/power-pages-azure-app.png)
 
 なお、Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。
 
@@ -85,7 +85,7 @@ Power Pages 認証キーは以下の手順で更新可能です。
 3. 対象のウェブサイトを選択し、画面上部のメニューまたは詳細画面から [管理] (または [設定]) を探します。
 4. [セキュリティ] セクションにある **[Web サイト認証キー]** をクリックします。
 5. 表示された画面で **[キーの更新]** ボタンを押し、確認画面で [OK] を選択します。
-![](power-pages-auth-key/power-pages-auth-key.png)  
+![](power-pages-auth-key/power-pages-auth-key.png)
 
 これにより更新処理が始まり、自動でキーの更新が完了となります。
 

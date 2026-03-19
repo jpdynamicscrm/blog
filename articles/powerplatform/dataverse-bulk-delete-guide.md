@@ -3,10 +3,10 @@ title: Dataverse 容量不足を解消！一括削除機能の使い方と注意
 date: 2026-02-19
 tags:
 - Dataverse
-- PowerPlatform
+- Power Platform
 - Capacity
 categories:
-- [PowerPlatform]
+- [Dataverse]
 ---
 
 # Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ

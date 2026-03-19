@@ -2,8 +2,7 @@
 title: Power Platform 管理センター からサポート リクエストを起票するために必要な権限について
 date: 2025-09-01 00:00
 tags:
-  - サポート リクエスト
-  - SR
+  - サポート
   - 役割
   - Power Platform 管理センター
 categories:
@@ -23,9 +22,13 @@ categories:
 
 
 ## 目次
-- [PPAC から サポート リクエスト の起票が可能なロール](#PPACからサポートリクエストの起票が可能なロール)
-- [PPAC から サポート リクエスト を起票する方法](#PPACからサポートリクエストを起票する方法)
-- [まとめ](#まとめ)
+- [Power Platform 管理センター からサポート リクエスト起票するために必要な権限について](#power-platform-管理センター-からサポート-リクエスト起票するために必要な権限について)
+    - [【この記事からわかること】](#この記事からわかること)
+  - [目次](#目次)
+  - [PPAC から サポート リクエスト の起票が可能なロール](#ppac-から-サポート-リクエスト-の起票が可能なロール)
+  - [PPAC から サポート リクエスト を起票する方法](#ppac-から-サポート-リクエスト-を起票する方法)
+  - [まとめ](#まとめ)
+  - [注意事項（情報の更新可能性）](#注意事項情報の更新可能性)
 
 
 ## PPAC から サポート リクエスト の起票が可能なロール
@@ -58,7 +61,7 @@ Power Platform 管理センター（PPAC）では、サポート リクエスト
 また、技術的サポートを受けるためには、ご契約のサポート プラン（Subscription／ProDirect／Unified など）が要件を満たしている必要がございますのでご留意ください。
 
 ＜参考資料＞
-- [サポートを受ける](https://learn.microsoft.com/ja-jp/power-platform/admin/get-help-support)  
+- [サポートを受ける](https://learn.microsoft.com/ja-jp/power-platform/admin/get-help-support)
 
 - [サポートの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/support-overview#using-support)
 

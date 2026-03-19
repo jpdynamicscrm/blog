@@ -4,7 +4,7 @@ date: 2024-06-14 13:30:00
 tags:
   - Power Platform
   - Microsoft Copilot Studio
-  - AI builder
+  - AI Builder
 categories:
   - [Microsoft Copilot Studio]
 ---
@@ -41,7 +41,7 @@ Dataverse データベースの環境は、SQL Server Transparent Data Encryptio
 <br>
 
 参考 URL
-- [データ保護とプライバシー](https://www.microsoft.com/ja-jp/trust-center/privacy) 
+- [データ保護とプライバシー](https://www.microsoft.com/ja-jp/trust-center/privacy)
 - [コンプライアンスとデータプライバシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-compliance-data-privacy)
 
 <br>
@@ -154,9 +154,9 @@ Copilot は瞬時の処理により、サービスの不正使用や危険な使
 Copilot は Azure OpenAI Service を基盤としており、顧客に対する当社の既存のプライバシー、セキュリティ、規制の取り組みに準拠しています。
 <br>
 - セキュリティ、プライバシー、コンプライアンスに対する Microsoft の包括的なアプローチに基づいて構築されています。 Copilot は Dynamics 365 や Power Platform などの Microsoft サービスに統合されており、多要素認証やコンプライアンス境界など、セキュリティ、プライバシー、コンプライアンスのポリシーとプロセスを継承します。
-  
+
 - 組織データは複数の保護形式により保護されます。サービス側のテクノロジにより、保存や転送に際して組織コンテンツを暗号化し、堅牢なセキュリティを実現します。 接続はトランスポート層セキュリティ ( TLS ) で保護され、Dynamics 365、Power Platform、Azure OpenAI 間のデータ転送は Microsoft バックボーンネットワーク経由で行われるため、信頼性と安全性が両方とも保証されます。
-  
+
 - テナントレベルと環境レベルの両方でデータを保護するように設計されています。テナント管理者が当社とのデータ共有をオプトインしていない限り、Microsoft AI モデルはテナントデータやプロンプトに基づいてトレーニングされず、そこから学習もしません。 環境内では、設定したアクセス許可に基づいてアクセスを制御できます。認証と承認のメカニズムにより、テナント間の共有モデルへの要求が分離されます。顧客データを保護するために当社が長年使用してきたのと同様のテクノロジにより、Copilot は顧客がアクセスできるデータのみを利用します。
 <br><br>
 
@@ -172,7 +172,7 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 
 > [!NOTE]
 **Copilot AI 機能のデータ共有とは何ですか？**<br><br>
-マイクロソフトは、Dynamics 365 Copilot および Power Platform Copilot の新しい AI を活用した Copilot 機能の品質を向上させ、より正確な結果を生成するよう常に取り組んでいます。 Copilot 機能を改善する重要な方法の 1 つは、Copilot 機能へのユーザーの入力、関連する出力、およびテレメトリをより深く理解することです。<br> 
+マイクロソフトは、Dynamics 365 Copilot および Power Platform Copilot の新しい AI を活用した Copilot 機能の品質を向上させ、より正確な結果を生成するよう常に取り組んでいます。 Copilot 機能を改善する重要な方法の 1 つは、Copilot 機能へのユーザーの入力、関連する出力、およびテレメトリをより深く理解することです。<br>
 ***Power Platform 管理センターの Dynamics 365 Copilot および Power Platform Copilot AI 機能のデータ共有設定を有効にすると、*** マイクロソフトは、Dynamics 365 および Power Platform Copilot AI 機能、サービス、機械学習モデル、および関連システムを構築、改善、検証するために、ユーザーの自然言語入力、出力、および関連テレメトリを含め (ただし必ずしもこれらに限定されない)、顧客データを取得し、手動でレビューできるようになります。<br>
 当社は、Azure OpenAI Service 基盤モデルの学習に顧客データを使用しません。
 
@@ -237,14 +237,14 @@ AI Builder のテキスト生成モデルも、米国の環境が前提条件で
 ### AI builder のカスタムプロンプト
 AI Builder プロンプトは、Azure OpenAI Service を利用した GPT-3.5 Turbo モデルで実行されています。
 
->>Available in the United States, Australia, UK, and Europe  
+>>Available in the United States, Australia, UK, and Europe
 >>GPT Prompts and Prompt Builder will be generally available this week across the United States, Australia, the United Kingdom, and Europe. GPT Prompts currently leverage the GPT-3.5-Turbo model from Azure’s OpenAI Service, meaning your prompts and outputs: <br>
 
 > [!IMPORTANT]
-are NOT available to other customers. 
-are NOT available to OpenAI. 
-are NOT used to improve OpenAI models. 
-are NOT used to improve any Microsoft or 3rd party products or services. 
+are NOT available to other customers.
+are NOT available to OpenAI.
+are NOT used to improve OpenAI models.
+are NOT used to improve any Microsoft or 3rd party products or services.
 are NOT used for automatically improving Azure OpenAI models for your use in your resource.
 
 上記からも判断できる通り、テキストを作成の際のプロンプトの内容が、教師データとして用いられることはありません。
