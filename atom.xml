@@ -18,7 +18,44 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-03-23T00:48:26.793Z</updated>
+  <updated>2026-03-23T02:32:48.886Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
+    <category term="Power BI" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-BI/"/>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
+    <category term="Network" scheme="https://jpdynamicscrm.github.io/blog/tags/Network/"/>
+    <category term="Power BI" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-BI/"/>
+    <category term="TDS endpoint" scheme="https://jpdynamicscrm.github.io/blog/tags/TDS-endpoint/"/>
+    <category term="Troubleshooting" scheme="https://jpdynamicscrm.github.io/blog/tags/Troubleshooting/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの王です。</p><p>Power BI Desktop、SQL Server Management Studio (SSMS)、Excel などの外部アプリケーションから Dataverse に接続しようとした際に、次のようなエラーが表示されることがあります。</p><ul><li>A connection was successfully established with the server, but an error occurred during the handshake before you sign in</li><li>Unable to connect (provider Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)</li><li>クラウド サービス側 (Power BI Service 等) では利用できるが、クライアント アプリからは接続できない</li><li>環境一覧は表示されるが、テーブル一覧を展開すると authentication error や missing privilege error になる</li></ul><p>これらの事象は認証だけでなく、Dataverse の TDS endpoint の設定やネットワーク経路が関係している場合があります。<br>本記事では、公開情報をもとに、よく見られる原因と確認ポイントを順を追ってご紹介いたします。</p><div class="alert is-info"><p class="alert-title">Note</p><p>特に Power BI Desktop からの接続に関するお問い合わせが多いため、本記事では Power BI Desktop を主な例として記載していますが、TDS endpoint を利用する他のアプリケーション (SSMS、Excel、Azure Data Factory など) にも共通する内容です。</p></div><span id="more"></span><div class="alert is-important"><p class="alert-title">重要</p><p>通信要件や IP アドレスは変更される可能性があります。実際の設定にあたっては、記事末尾の公式ドキュメントもあわせてご確認ください。</p></div><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#anchor-key-points">まず押さえたいポイント</a></li><li><a href="#anchor-checks">確認ポイントと切り分け</a></li><li><a href="#anchor-past-cases">過去の事例で多く見られた原因</a></li><li><a href="#anchor-support-info">それでも解決しない場合に整理したい情報</a></li><li><a href="#anchor-summary">まとめ</a></li><li><a href="#anchor-references">参考情報</a></li></ul><p><a id='anchor-key-points'></a></p><h2 id="まず押さえたいポイント"><a href="#まず押さえたいポイント" class="headerlink" title="まず押さえたいポイント"></a>まず押さえたいポイント</h2><p>Dataverse の TDS endpoint は、Power BI Desktop、SSMS、Excel などの外部アプリケーションが SQL ベースのクエリで Dataverse のデータにアクセスするためのインターフェイスです。<br>これらの接続は HTTPS 443 だけでなく TDS プロトコル (TCP 1433 &#x2F; 5558) を使用するため、Web ブラウザーで Dataverse にアクセスできることと、外部アプリから TDS endpoint で接続できることは、必ずしも同じ意味ではありません。</p><p>特に確認しておきたい点は次のとおりです。</p><ul><li>TDS endpoint への接続には TCP 1433 または 5558 が必要</li><li>1433 が使えない場合は 5558 を利用できるが、接続先 URL に ,5558 を付与する必要がある<br>*Power BI DesktopのDataverse接続はURLの指定がご利用いただけません。</li><li>多くのプロキシ サーバーは TDS プロトコルを適切に処理できない</li><li>TDS 通信では 1433&#x2F;5558 から 443 へのポート リダイレクトが発生し、SSL inspection が干渉することがある</li><li>TDS endpoint のユーザーレベル制御が有効な場合、権限不足で authentication error や missing privilege error になることがある</li></ul><p><a id='anchor-checks'></a></p><h2 id="確認ポイントと切り分け"><a href="#確認ポイントと切り分け" class="headerlink" title="確認ポイントと切り分け"></a>確認ポイントと切り分け</h2><h3 id="確認-1-接続先-URL-と接続方法を見直す"><a href="#確認-1-接続先-URL-と接続方法を見直す" class="headerlink" title="確認 1. 接続先 URL と接続方法を見直す"></a>確認 1. 接続先 URL と接続方法を見直す</h3><p>手動で URL を入力する場合は、環境 URL の書式に少し注意が必要です。</p><ul><li>https:&#x2F;&#x2F; は付けない</li><li>末尾の &#x2F; は付けない</li><li>5558 を使う場合は末尾に ,5558 を付ける</li></ul><p>例:</p><ul><li>正しい例: orgname.crm7.dynamics.com</li><li>5558 を使う例: orgname.crm7.dynamics.com,5558</li><li>避けたい例: <a href="https://orgname.crm7.dynamics.com/">https://orgname.crm7.dynamics.com/</a></li></ul><h3 id="確認-2-TDS-endpoint-設定を確認する"><a href="#確認-2-TDS-endpoint-設定を確認する" class="headerlink" title="確認 2. TDS endpoint 設定を確認する"></a>確認 2. TDS endpoint 設定を確認する</h3><p>Power Platform 管理センターで、対象環境の TDS endpoint 設定をご確認ください。</p><ol><li>Power Platform 管理センターを開きます。</li><li>対象環境を選択します。</li><li>設定 &gt; 製品 &gt; 機能 を開きます。</li><li>次の項目を確認します。</li></ol><ul><li>Enable TDS endpoint</li><li>Enable user level access control for TDS endpoint</li></ul><p>既定では、Enable TDS endpoint はオン、Enable user level access control for TDS endpoint はオフです。</p><p>ユーザーレベル制御をオンにしている場合は、対象ユーザーに Allow user to access TDS endpoint 権限を持つセキュリティ ロールが必要になります。<br>この設定が不足していると、Power BI Desktop のテーブル展開時や SSMS での接続時に authentication error や missing privilege error が発生することがあります。</p><h3 id="確認-3-サインイン-アカウントと資格情報キャッシュを確認する"><a href="#確認-3-サインイン-アカウントと資格情報キャッシュを確認する" class="headerlink" title="確認 3. サインイン アカウントと資格情報キャッシュを確認する"></a>確認 3. サインイン アカウントと資格情報キャッシュを確認する</h3><p>Dataverse の TDS endpoint へのアクセスには、Microsoft Entra ID (旧 Azure AD) による認証が前提となります。<br>Power Apps や Dataverse に接続しているものと同じ組織アカウントでサインインしているかどうか、一度ご確認ください。</p><p>また、アプリに古い資格情報が残っていると、誤ったテナントやアカウントで接続を試みて失敗することがあります。</p><ul><li>Power BI Desktop の場合: File &gt; Options and settings &gt; Data source settings から資格情報をクリアして再サインイン</li><li>SSMS の場合: Azure Active Directory 認証を選択し、正しいアカウントで接続</li></ul><h3 id="確認-4-TCP-1433-5558-の疎通を確認する"><a href="#確認-4-TCP-1433-5558-の疎通を確認する" class="headerlink" title="確認 4. TCP 1433 &#x2F; 5558 の疎通を確認する"></a>確認 4. TCP 1433 &#x2F; 5558 の疎通を確認する</h3><p>クライアント端末から Dataverse endpoint へ TCP 接続できるかどうかを、Windows PowerShell を使って確認します。</p><h4 id="手順-1-PowerShell-を開く"><a href="#手順-1-PowerShell-を開く" class="headerlink" title="手順 1. PowerShell を開く"></a>手順 1. PowerShell を開く</h4><p>Windows のスタート メニューから「PowerShell」と検索し、<strong>Windows PowerShell</strong> を開きます。</p><h4 id="手順-2-ポートの疎通を確認する"><a href="#手順-2-ポートの疎通を確認する" class="headerlink" title="手順 2. ポートの疎通を確認する"></a>手順 2. ポートの疎通を確認する</h4><p>以下のコマンドを実行します。<code>&lt;environment&gt;</code> の部分は、お使いの Dataverse 環境の名前に置き換えてください。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Test-NetConnection</span> <span class="literal">-ComputerName</span> &lt;environment&gt;.crm7.dynamics.com <span class="literal">-Port</span> <span class="number">1433</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="literal">-ComputerName</span> &lt;environment&gt;.crm7.dynamics.com <span class="literal">-Port</span> <span class="number">5558</span></span><br></pre></td></tr></table></figure><p>実行結果に表示される <strong>TcpTestSucceeded</strong> の値を確認します。</p><ul><li><strong>True</strong> の場合: TCP レベルでの疎通は問題ありません。</li><li><strong>False</strong> の場合: クライアント端末からそのポートへの通信がブロックされている可能性があります。</li></ul><h4 id="手順-3-名前解決と-IP-アドレス直接指定での接続を確認する"><a href="#手順-3-名前解決と-IP-アドレス直接指定での接続を確認する" class="headerlink" title="手順 3. 名前解決と IP アドレス直接指定での接続を確認する"></a>手順 3. 名前解決と IP アドレス直接指定での接続を確認する</h4><p>あわせて、DNS の名前解決結果と、解決された IP アドレスへの直接接続もご確認いただくと、切り分けがしやすくなります。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DNS の名前解決 (IPv4 / IPv6)</span></span><br><span class="line"><span class="built_in">Resolve-DnsName</span> &lt;environment&gt;.crm7.dynamics.com <span class="literal">-Type</span> A</span><br><span class="line"><span class="built_in">Resolve-DnsName</span> &lt;environment&gt;.crm7.dynamics.com <span class="literal">-Type</span> AAAA</span><br></pre></td></tr></table></figure><p>上記で表示された IP アドレスを <code>&lt;RemoteAddress&gt;</code> に置き換えて、以下を実行します。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IP アドレス直接指定での疎通確認</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="literal">-ComputerName</span> &lt;RemoteAddress&gt; <span class="literal">-Port</span> <span class="number">1433</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="literal">-ComputerName</span> &lt;RemoteAddress&gt; <span class="literal">-Port</span> <span class="number">5558</span></span><br></pre></td></tr></table></figure><p>FQDN では False だが IP アドレス直接指定では True になる場合 (またはその逆) は、DNS や名前解決に関連する問題の可能性があります。</p><div class="alert is-info"><p class="alert-title">Note</p><p>Test-NetConnection で成功しても、TDS プロトコル全体の通信が最後まで成功するとは限りません。</p><p>後述する SSL inspection やプロキシの影響で、TCP 接続はできてもアプリからの接続がうまくいかない場合があります。</p></div><h3 id="確認-5-プロキシや-SSL-inspection-の影響を切り分ける"><a href="#確認-5-プロキシや-SSL-inspection-の影響を切り分ける" class="headerlink" title="確認 5. プロキシや SSL inspection の影響を切り分ける"></a>確認 5. プロキシや SSL inspection の影響を切り分ける</h3><p>公開情報では、Dataverse の TDS endpoint で利用する TDS プロトコルについて、次の点が案内されています。</p><ul><li>多くのプロキシ サーバーは TDS プロトコルを処理できない</li><li>1433&#x2F;5558 から 443 へのポート リダイレクトが発生する</li><li>SSL inspection がこのリダイレクトをブロックすることがある</li><li>ホスト名ベースの許可だけでは不十分で、IP ベースの許可が必要になることがある</li></ul><p>そのため、社内ネットワーク配下でのみ再現する場合は、次の点をご確認いただくと切り分けに役立ちます。</p><ol><li>モバイル テザリングなど、社内プロキシを経由しない経路で再現するか確認する</li><li>ネットワーク担当者に、Dataverse 向け TDS 通信が SSL inspection でブロックされていないか確認する</li><li>FQDN の許可だけでなく、Power Platform &#x2F; Dynamics 365 用の IP 許可が必要か確認する</li></ol><p>ネットワーク担当者へ依頼される際は、少なくとも次の観点を共有いただくと整理しやすくなります。</p><ul><li>*.crm#.dynamics.com 向けの TCP 1433 &#x2F; 5558 &#x2F; 443</li><li>AzureCloud サービスタグの対象リージョン</li><li>端末やネットワークが IPv6 を優先する場合は IPv6 側の許可</li></ul><h3 id="確認-6-IPv6-を利用するネットワークか確認する"><a href="#確認-6-IPv6-を利用するネットワークか確認する" class="headerlink" title="確認 6. IPv6 を利用するネットワークか確認する"></a>確認 6. IPv6 を利用するネットワークか確認する</h3><p>Power Platform と Dynamics 365 では IPv6 サポートが進んでおり、環境によっては A レコードだけでなく AAAA レコードにも解決されます。<br>お使いの端末やネットワークが IPv6 を優先する場合、IPv4 側が許可されていても IPv6 側の通信がブロックされると、外部アプリからの TDS 接続に影響することがあります。</p><p>そのため、A レコードと AAAA レコードの両方をご確認いただき、必要に応じて IPv4 &#x2F; IPv6 を分けて疎通をお確かめください。</p><h3 id="確認-7-Azure-SQL-へ接続できても-Dataverse-の確認にはならない"><a href="#確認-7-Azure-SQL-へ接続できても-Dataverse-の確認にはならない" class="headerlink" title="確認 7. Azure SQL へ接続できても Dataverse の確認にはならない"></a>確認 7. Azure SQL へ接続できても Dataverse の確認にはならない</h3><p>「Azure SQL Database へは接続できたので、Dataverse 側も問題ないはず」とお考えになることもあるかと思いますが、必ずしもそうとは限りません。</p><p>Azure SQL Database は *.database.windows.net、Dataverse の TDS endpoint は *.crm#.dynamics.com であり、接続先も前提となる通信経路も異なります。<br>そのため、Azure SQL への接続成功は Dataverse TDS endpoint の到達性を直接示すものではありません。</p><p><a id='anchor-past-cases'></a></p><h2 id="過去の事例で多く見られた原因"><a href="#過去の事例で多く見られた原因" class="headerlink" title="過去の事例で多く見られた原因"></a>過去の事例で多く見られた原因</h2><p>弊社サポートにお問い合わせいただいた複数の事例では、共通して <strong>TDS プロトコルの通信経路がネットワーク機器によって阻害されていた</strong> ことが原因でした。<br>以下に代表的なパターンをご紹介いたします。</p><h3 id="SSL-inspection-による-TDS-ポート-リダイレクトのブロック"><a href="#SSL-inspection-による-TDS-ポート-リダイレクトのブロック" class="headerlink" title="SSL inspection による TDS ポート リダイレクトのブロック"></a>SSL inspection による TDS ポート リダイレクトのブロック</h3><p>最も多く確認された原因です。</p><p>TDS endpoint への接続では、初回の TCP 接続 (1433&#x2F;5558) が成功した後、サーバー側から 443 へのポート リダイレクトが発生します。<br>SSL inspection (TLS インターセプト) がこのリダイレクトを「非 SSL ポートから SSL ポートへの不正なリダイレクト」と判断し、ブロックすることがあります。</p><p>この場合、<code>Test-NetConnection</code> では TCP 1433&#x2F;5558 に到達できるにもかかわらず、Power BI Desktop 等のアプリからは <strong>handshake before you sign in</strong> エラーとなります。<br>Dataverse 側のログにも TDS セッションが一切記録されないため、リクエストがサーバーに到達していないことが確認できます。</p><p><strong>対処方法</strong>: Dataverse TDS 通信 (<code>*.crm#.dynamics.com</code> のポート 1433&#x2F;5558&#x2F;443) を SSL inspection の除外対象に設定してください。</p><h3 id="クラウド-プロキシによる-TDS-プロトコルのブロック"><a href="#クラウド-プロキシによる-TDS-プロトコルのブロック" class="headerlink" title="クラウド プロキシによる TDS プロトコルのブロック"></a>クラウド プロキシによる TDS プロトコルのブロック</h3><p>Zscaler、Netskope 等のクラウド プロキシを経由する環境で確認された原因です。</p><p>TDS プロトコルは HTTP ではなく TCP レベルのプロトコルであるため、多くの Web プロキシでは正しく処理できません。<br>Azure Virtual Desktop やシンクライアントからクラウド プロキシ経由でインターネットに接続する構成では、TDS トラフィックがプロキシでインターセプトされ、接続に失敗します。</p><p><strong>対処方法</strong>: PAC ファイルまたはクラウド プロキシの管理画面で、Power Platform 関連の FQDN (<code>*.dynamics.com</code>、<code>*.crm#.dynamics.com</code> 等) をプロキシ バイパスに設定してください。</p><h3 id="IPv6-経路でのポート-ブロック"><a href="#IPv6-経路でのポート-ブロック" class="headerlink" title="IPv6 経路でのポート ブロック"></a>IPv6 経路でのポート ブロック</h3><p>端末やネットワークが IPv6 を優先する環境で確認された原因です。</p><p>DNS 解決で A レコード (IPv4) と AAAA レコード (IPv6) の両方が返される場合、IPv6 が優先されることがあります。<br>ファイアウォールで IPv4 側のポート 1433 は許可されていても、IPv6 側が許可されていないと、TDS endpoint への接続がタイムアウトとなります。</p><p>ある事例では、IPv4 アドレスへの TCP 1433 は成功、IPv6 アドレスへの TCP 1433 は失敗しており、IPv6 の ACL 設定不足が原因でした。</p><p><strong>対処方法</strong>: A レコードと AAAA レコードの両方について、ポート 1433&#x2F;5558&#x2F;443 の疎通をご確認ください。IPv6 側がブロックされている場合は、ネットワーク担当者に IPv6 向けの ACL 追加をご依頼ください。</p><h3 id="FQDN-ベースの許可だけでは不十分な場合"><a href="#FQDN-ベースの許可だけでは不十分な場合" class="headerlink" title="FQDN ベースの許可だけでは不十分な場合"></a>FQDN ベースの許可だけでは不十分な場合</h3><p>ファイアウォールで <code>*.crm#.dynamics.com</code> を許可していても、TDS のポート リダイレクト後に接続する先が Power Platform インフラの IP アドレスとなる場合があります。<br>この IP アドレスには逆引き DNS レコード (PTR) が存在しないため、FQDN ベースのフィルタリングでは許可対象と認識されず、ブロックされることがあります。</p><p>ある事例では、<code>*.crm#.dynamics.com</code> は許可済みにもかかわらず、リダイレクト先の IP (<code>20.18.7.0/28</code>、<code>172.207.69.128/26</code> 等の PowerPlatformInfra サービスタグに含まれる IP) がファイアウォールでブロックされていました。</p><p><strong>対処方法</strong>: FQDN ベースの許可に加えて、Azure Service Tags (特に <code>PowerPlatformInfra</code> および <code>AzureCloud</code> の対象リージョン) に含まれる IP アドレス範囲をファイアウォールで許可してください。Azure IP Ranges and Service Tags の一覧は <a href="https://www.microsoft.com/download/details.aspx?id=56519">Microsoft ダウンロード センター</a> から入手できます。</p><hr><div class="alert is-success"><p class="alert-title">ヒント</p><p>いずれの事例でも、<strong>モバイル テザリングなど社内ネットワークを経由しない経路で接続を試す</strong> ことで、ネットワーク機器が原因かどうかを効率的に切り分けることができました。</p></div><p><a id='anchor-support-info'></a></p><h2 id="それでも解決しない場合に整理したい情報"><a href="#それでも解決しない場合に整理したい情報" class="headerlink" title="それでも解決しない場合に整理したい情報"></a>それでも解決しない場合に整理したい情報</h2><p>サポートへお問い合わせいただく際は、次の情報をお寄せいただけますと切り分けがスムーズに進みます。</p><ul><li>表示されるエラー メッセージ全文</li><li>使用しているアプリケーションとバージョン (Power BI Desktop、SSMS、Excel 等)</li><li>接続先の Dataverse 環境 URL</li><li>クラウド サービス側 (Power BI Service 等) では接続できるか</li><li>Test-NetConnection の結果</li><li>別ネットワークで再現するか</li><li>TDS endpoint の設定値</li><li>TDS endpoint のユーザーレベル制御を利用しているか</li></ul><p><a id='anchor-summary'></a></p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>外部アプリから Dataverse に接続できない場合、特に handshake before you sign in のようなエラーは、認証そのものより前段の TDS endpoint 接続で失敗しているケースがあります。</p><p>その場合は、次の順番でご確認いただくと切り分けがしやすくなります。</p><ol><li>接続先 URL の書式</li><li>TDS endpoint の有効化</li><li>TDS endpoint のユーザーレベル制御と権限</li><li>TCP 1433 &#x2F; 5558 の疎通</li><li>プロキシ、SSL inspection、IPv6 を含むネットワーク経路</li><li>アプリの資格情報キャッシュ</li></ol><p>特に、クラウド サービス側 (Power BI Service 等) では問題なくクライアント アプリのみ失敗する場合は、クライアント端末から Dataverse までのネットワーク経路を重点的にご確認いただければと思います。</p><p><a id='anchor-references'></a></p><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/power-query/connectors/dataverse">Dataverse connector - Power Query</a></li><li><a href="https://learn.microsoft.com/power-apps/maker/data-platform/data-platform-powerbi-connector">Create a Power BI report using data from Dataverse</a></li><li><a href="https://learn.microsoft.com/power-apps/developer/data-platform/dataverse-sql-query">Use SQL to query data</a></li><li><a href="https://learn.microsoft.com/power-platform/admin/control-tds-settings">Control access of the TDS endpoint</a></li><li><a href="https://learn.microsoft.com/power-platform/guidance/coe/setup-powerbi#troubleshooting">Set up the Power BI dashboard - Troubleshooting</a></li><li><a href="https://learn.microsoft.com/power-platform/admin/online-requirements">Power Platform URLs and IP address ranges</a></li></ul>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerplatform/powerbi-dataverse-connection-troubleshooting/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/powerbi-dataverse-connection-troubleshooting/"/>
+    <published>2026-03-16T09:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの王です。</p>
+<p>Power BI Desktop、SQL Server Management Studio (SSMS)、Excel などの外部アプリケーションから Dataverse に接続しようとした際に、次のようなエラーが表示されることがあります。</p>
+<ul>
+<li>A connection was successfully established with the server, but an error occurred during the handshake before you sign in</li>
+<li>Unable to connect (provider Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)</li>
+<li>クラウド サービス側 (Power BI Service 等) では利用できるが、クライアント アプリからは接続できない</li>
+<li>環境一覧は表示されるが、テーブル一覧を展開すると authentication error や missing privilege error になる</li>
+</ul>
+<p>これらの事象は認証だけでなく、Dataverse の TDS endpoint の設定やネットワーク経路が関係している場合があります。<br>本記事では、公開情報をもとに、よく見られる原因と確認ポイントを順を追ってご紹介いたします。</p>
+<blockquote>
+<p>[!NOTE]<br>特に Power BI Desktop からの接続に関するお問い合わせが多いため、本記事では Power BI Desktop を主な例として記載していますが、TDS endpoint を利用する他のアプリケーション (SSMS、Excel、Azure Data Factory など) にも共通する内容です。</p>
+</blockquote>]]>
+    </summary>
+    <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
+    <updated>2026-03-23T02:32:48.886Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -42,7 +79,7 @@
 <li><a href="#q1">Q1: Datave]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-03-23T00:48:26.793Z</updated>
+    <updated>2026-03-23T02:32:48.837Z</updated>
   </entry>
   <entry>
     <author>
@@ -66,7 +103,7 @@
 <p>Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定期的に更新作業を実施す]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-03-23T00:48:26.729Z</updated>
+    <updated>2026-03-23T02:32:48.772Z</updated>
   </entry>
   <entry>
     <author>
@@ -87,7 +124,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-03-23T00:48:26.858Z</updated>
+    <updated>2026-03-23T02:32:48.902Z</updated>
   </entry>
   <entry>
     <author>
@@ -113,7 +150,7 @@
 <ul]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-03-23T00:48:26.842Z</updated>
+    <updated>2026-03-23T02:32:48.886Z</updated>
   </entry>
   <entry>
     <author>
@@ -141,7 +178,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-03-23T00:48:26.796Z</updated>
+    <updated>2026-03-23T02:32:48.839Z</updated>
   </entry>
   <entry>
     <author>
@@ -171,7 +208,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-03-23T00:48:26.517Z</updated>
+    <updated>2026-03-23T02:32:48.561Z</updated>
   </entry>
   <entry>
     <author>
@@ -195,7 +232,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-03-23T00:48:26.796Z</updated>
+    <updated>2026-03-23T02:32:48.839Z</updated>
   </entry>
   <entry>
     <author>
@@ -223,7 +260,7 @@
 <p>Dataverse (Dynamics 365) を利用したアプリケーション開発において、「日付」の扱いは非常に重要かつ、複雑になりがちなトピックの一つです。特に、日本時間 (JST) のような UT]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-03-23T00:48:26.796Z</updated>
+    <updated>2026-03-23T02:32:48.839Z</updated>
   </entry>
   <entry>
     <author>
@@ -252,7 +289,7 @@
 <p>Power Apps や Power Automate を利用し]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-03-23T00:48:26.784Z</updated>
+    <updated>2026-03-23T02:32:48.827Z</updated>
   </entry>
   <entry>
     <author>
@@ -276,7 +313,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-03-23T00:48:26.687Z</updated>
+    <updated>2026-03-23T02:32:48.730Z</updated>
   </entry>
   <entry>
     <author>
@@ -301,7 +338,7 @@
 <li><a href="#q1">Q1: Power Pages]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-03-23T00:48:26.730Z</updated>
+    <updated>2026-03-23T02:32:48.774Z</updated>
   </entry>
   <entry>
     <author>
@@ -327,7 +364,7 @@
 <li><a href="#q1">Q1: モデル駆動型アプリの削除に必要な]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-03-23T00:48:26.610Z</updated>
+    <updated>2026-03-23T02:32:48.653Z</updated>
   </entry>
   <entry>
     <author>
@@ -350,7 +387,7 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-03-23T00:48:26.840Z</updated>
+    <updated>2026-03-23T02:32:48.884Z</updated>
   </entry>
   <entry>
     <author>
@@ -371,7 +408,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
     </summary>
     <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-03-23T00:48:26.580Z</updated>
+    <updated>2026-03-23T02:32:48.624Z</updated>
   </entry>
   <entry>
     <author>
@@ -394,7 +431,7 @@
 <h3 id="【この記事からわかること】"]]>
     </summary>
     <title>Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</title>
-    <updated>2026-03-23T00:48:26.855Z</updated>
+    <updated>2026-03-23T02:32:48.899Z</updated>
   </entry>
   <entry>
     <author>
@@ -416,7 +453,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate で Teams コネクタを使う際に改行を反映する方法</title>
-    <updated>2026-03-23T00:48:26.646Z</updated>
+    <updated>2026-03-23T02:32:48.690Z</updated>
   </entry>
   <entry>
     <author>
@@ -441,7 +478,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では、Dataflow のトラブルシューティングにあたって、必要となる情報の取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Dataflow お問い合わせの際の情報取得手順</title>
-    <updated>2026-03-23T00:48:26.605Z</updated>
+    <updated>2026-03-23T02:32:48.648Z</updated>
   </entry>
   <entry>
     <author>
@@ -465,7 +502,7 @@
 <p>本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。<br><br>なお、Dataverse ストレージの基本的な考え方]]>
     </summary>
     <title>Dataverse Capacity について</title>
-    <updated>2026-03-23T00:48:26.775Z</updated>
+    <updated>2026-03-23T02:32:48.819Z</updated>
   </entry>
   <entry>
     <author>
@@ -487,31 +524,6 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの竹内です。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) で作成したエージェントを Microsoft Teams (以降 Teams) に公開する方法についてご案内致します。</p>]]>
     </summary>
     <title>Copilot Studio のエージェントを Teams に公開する方法</title>
-    <updated>2026-03-23T00:48:26.543Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="サポートサービスのご利用について" scheme="https://jpdynamicscrm.github.io/blog/categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/"/>
-    <category term="Dynamics 365" scheme="https://jpdynamicscrm.github.io/blog/categories/Dynamics-365/"/>
-    <category term="お問い合わせ全般" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/"/>
-    <category term="Environment" scheme="https://jpdynamicscrm.github.io/blog/tags/Environment/"/>
-    <category term="サポート" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの鎌田です。</p><p>本記事では当社サポートへお問い合わせいただいたお客様に向けてご案内しておりますサポート インスタンスについて紹介します。</p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>サポート インスタンスは、当社エンジニアがお客様の問題を再現させて調査することを目的とした環境です。<br><br>サポート インスタンスへお客様の事象が発生している環境をコピーすることで、当社で事象の再現確認と調査を一貫して行うことが可能となり、早期解決が見込めます。<br><br>当社エンジニアがサポート インスタンスを利用した調査が有効であると判断した場合、サポート インスタンスの作成について可否を伺います。了承いただける場合は、以下に記載のご対応をお願いいたします。</p><div class="alert is-important"><p class="alert-title">重要</p><p>お客様のテナントにサポート インスタンス (新しい環境) が作成されますが、お客様のテナントのストレージ容量には影響ございません。</p></div><hr><ol><li><a href="#criteria">サポート インスタンス作成条件の確認</a></li><li><a href="#information">情報の提供</a></li><li><a href="#create-instance">サポート インスタンスの作成</a>（当社の作業）</li></ol><hr><p><a id='criteria'></a></p><h2 id="1-サポート-インスタンス作成条件の確認"><a href="#1-サポート-インスタンス作成条件の確認" class="headerlink" title="1. サポート インスタンス作成条件の確認"></a>1. サポート インスタンス作成条件の確認</h2><p>サポート インスタンスを作成するために、次の条件を満たす必要がございます。</p><ul><li>お問い合わせ起票者が、事象発生環境にて、システム管理者のセキュリティ ロールを持っていること</li><li>お問い合わせにて、サポート インスタンス作成の同意レベルが、次のいずれかに設定されていること<ul><li>診断情報へのアクセスで <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-customizations-and-schemas-only">最小限のコピー</a> を許可する</li><li>診断情報へのアクセスで <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copy-over-everything">完全なコピー</a> を許可する</li></ul></li></ul><p>同意レベルが異なる場合 <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#how-do-i-grant-or-revoke-consent-after-i-create-a-support-request">サポート リクエストを作成した後、同意を付与または取り消すにはどうすればよいですか?</a> を参考に、同意レベルの設定をお願いいたします。<br><img src="/blog/powerplatform/Provide-Support-Instance/consent.png"></p><div class="alert is-info"><p class="alert-title">Note</p><p>上記の同意レベルが表示されない場合は、当社にて同意レベルの変更を代理で実施いたします。</p><p></p><p>その場合、作業の同意として以下の項目について記載の上、メールにてご返信ください。</p><p></p><p>作業完了まで 1、2 営業日お時間いただく場合がございますので予めご了承ください。</p><p></p><p>—</p><p></p><p>SR No.: お問い合わせ番号 (例: 2500000000001234)</p><p></p><p>OrgURL: 事象が発生している環境 URL (例: <a href="https://xxx.crm7.dynamics.com/">https://xxx.crm7.dynamics.com</a>)</p><p></p><p>Consent: 変更する同意レベル Full or Minimal (例: Full)</p><p></p></div><p><a id='information'></a></p><h2 id="2-情報の提供"><a href="#2-情報の提供" class="headerlink" title="2. 情報の提供"></a>2. 情報の提供</h2><p>ステップ 1 完了後、サポート エンジニアへ <strong>事象発生環境 URL (*.crm*.dynamics.com)</strong> をご提供ください。</p><p><a id='create-instance'></a></p><h2 id="3-サポート-インスタンスの作成（当社の作業）"><a href="#3-サポート-インスタンスの作成（当社の作業）" class="headerlink" title="3. サポート インスタンスの作成（当社の作業）"></a>3. サポート インスタンスの作成（当社の作業）</h2><p>ステップ 2 の情報をもとに、当社にてサポート インスタンスを作成し、作成したサポート インスタンスへのコピーを当社にて実施いたします。作業完了まで 1、2 営業日お時間をいただく場合がございます。</p><p>また、当社システムの都合により、お客様側でのコピーをご依頼させていただく場合がございます。その際はサポート インスタンスの環境名をお伝えさせていただきますので、下記の手順で事象発生中の環境のサポート インスタンスへのコピーをお願いいたします。</p><ol><li><a href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> へアクセス</li><li>環境一覧より、事象が発生中の環境を選択して開く</li><li>上部リボンの [コピー] をクリック<br><img src="/blog/powerplatform/Provide-Support-Instance/copy_button.png"></li><li>下図のように、[上書きコピー] と [上書きするターゲット環境を選択] を設定してコピーを実施 (グローバル管理者、Power Platform 管理者等が付与されておらずサポート インスタンスが表示されない場合は、下記の対処策をご確認下さい)<br><img src="/blog/powerplatform/Provide-Support-Instance/copy_support_instance.png"></li><li>コピーが完了したら担当エンジニアまで完了の旨をご連絡ください</li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>ターゲット環境の検索は Ctrl + F が便利です。</p><p>監査ログをコピーすると、環境のコピーにかかる時間が大幅に長くなる可能性があり、既定では実行されません。当社エンジニアから監査ログのコピーを依頼された場合のみ [監査ログ] の箇所を「はい」としてください。</p></div><div class="alert is-important"><p class="alert-title">重要</p><p>コピーを実施するユーザーにグローバル管理者、Power Platform 管理者等が付与されていない場合、サポート インスタンスを検索してもターゲット環境として表示されません。</p><p>当社側でコピーを実施するユーザーに管理者ロールを付与することで環境が表示されるようになります。</p><p></p><p>これを実施するため、まずエンジニアから共有された環境 URL に一度アクセスし、環境を開けない旨が表示されることを確認してください。</p><p>この操作により、当該ユーザーがサポート インスタンスにプロビジョニングされます。</p><p></p><p>ここまで操作が完了したら、担当エンジニアへ当該ユーザーの UPN をお伝えください。管理者ロールが付与されたという連絡を受けたら、サポート インスタンスを表示できるようになっているため、再度コピー操作の実施をお願いいたします。</p></div><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><table><thead><tr><th>リンク</th><th>内容</th></tr></thead><tbody><tr><td><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/support-environment#what-are-support-environments">サポート環境とは</a></td><td>サポート インスタンス全般の解説をしております。</td></tr><tr><td><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment">環境のコピー</a></td><td>完全コピー (すべて) や最小限のコピー (カスタマイズとスキーマのみ) について解説をしております。</td></tr><tr><td><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-environment#copying-audit-logs">監査ログのコピー</a></td><td>環境コピー時に監査ログをコピーする手順について解説をしております。</td></tr></tbody></table>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/"/>
-    <published>2025-03-28T08:30:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの鎌田です。</p>
-<p>本記事では当社サポートへお問い合わせいただいたお客様に向けてご案内しておりますサポート インスタンスについて紹介します。</p>
-<h2 id="概要"><a href="#概要" clas]]>
-    </summary>
-    <title>サポート インスタンスの提供</title>
-    <updated>2026-03-23T00:48:26.782Z</updated>
+    <updated>2026-03-23T02:32:48.586Z</updated>
   </entry>
 </feed>
