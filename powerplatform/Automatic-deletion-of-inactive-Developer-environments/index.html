@@ -6,22 +6,22 @@
   
   <title>非アクティブな開発者環境の自動削除について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Platform の開発者環境の自動削除について、下記項目の順にご説明いたします。    開発者環境の自動無効化&#x2F;削除メカニズムとは   自動無効化&#x2F;削除条件   自動無効化&#x2F;削除メカニズム自体の無効化の可否   無効化&#x2F;削除された環境の復元 環境の状態遷移 ご案内メール   ご案内メールを受信された際の対応">
+  <meta name="description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Platform の開発者環境の自動削除について、下記項目の順にご説明いたします。    開発者環境の自動無効化&#x2F;削除メカニズムとは   自動無効化&#x2F;削除条件   自動無効化&#x2F;削除メカニズム自体の無効化の可否   無効化&#x2F;削除された環境の復元 環境の状態遷移 ご案内メール">
 <meta property="og:type" content="article">
 <meta property="og:title" content="非アクティブな開発者環境の自動削除について">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Platform の開発者環境の自動削除について、下記項目の順にご説明いたします。    開発者環境の自動無効化&#x2F;削除メカニズムとは   自動無効化&#x2F;削除条件   自動無効化&#x2F;削除メカニズム自体の無効化の可否   無効化&#x2F;削除された環境の復元 環境の状態遷移 ご案内メール   ご案内メールを受信された際の対応">
+<meta property="og:description" content="こんにちは、Power Platform サポートの山田です。今回は、Power Platform の開発者環境の自動削除について、下記項目の順にご説明いたします。    開発者環境の自動無効化&#x2F;削除メカニズムとは   自動無効化&#x2F;削除条件   自動無効化&#x2F;削除メカニズム自体の無効化の可否   無効化&#x2F;削除された環境の復元 環境の状態遷移 ご案内メール">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC1041146.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/ppac-resource.png">
 <meta property="article:published_time" content="2023-04-11T03:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-02T06:23:48.072Z">
+<meta property="article:modified_time" content="2026-03-23T00:36:39.280Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Power Platform">
 <meta property="article:tag" content="Dataverse">
-<meta property="article:tag" content="Environment">
 <meta property="article:tag" content="Developer Environment">
+<meta property="article:tag" content="Environment">
+<meta property="article:tag" content="Power Platform">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC1041146.png">
   
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="../../css/style.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 <body>
   <div id="container">
@@ -61,7 +61,7 @@
         
           <a class="main-nav-link" href="/blog/archives">Archives</a>
         
-        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+        <a class="main-nav-link" href="https://cssjpn.github.io/">サポート情報</a>
       </nav>
       <nav id="sub-nav">
         
@@ -151,7 +151,7 @@
     $("#update-time").text(localDate);
     $("#update-time").href = commit.html_url;
     Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
-      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+      $("#contributors").append(`<li class="contributor-avatar"><a href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
     });
   });
 </script>
@@ -164,45 +164,47 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b781a7d0-9fc2-517a-a140-e6b46bf61510%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E9%9D%9E%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%81%AA%E9%96%8B%E7%99%BA%E8%80%85%E7%92%B0%E5%A2%83%E3%81%AE%E8%87%AA%E5%8B%95%E5%89%8A%E9%99%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Developer-environments%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Developer-environments.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FAutomatic-deletion-of-inactive-Developer-environments.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/" data-id="cmm8smkyu003p0nqp98vt093u" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/" data-id="cuidpybpO3iPJaaJ8ksEtZwyg" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートの山田です。<br><br>今回は、Power Platform の開発者環境の自動削除について、下記項目の順にご説明いたします。  </p>
 <ol>
-<li>開発者環境の自動無効化/削除メカニズムとは  </li>
-<li>自動無効化/削除条件  </li>
-<li>自動無効化/削除メカニズム自体の無効化の可否  </li>
-<li>無効化/削除された環境の復元</li>
+<li>開発者環境の自動無効化&#x2F;削除メカニズムとは  </li>
+<li>自動無効化&#x2F;削除条件  </li>
+<li>自動無効化&#x2F;削除メカニズム自体の無効化の可否  </li>
+<li>無効化&#x2F;削除された環境の復元</li>
 <li>環境の状態遷移</li>
 <li>ご案内メール  </li>
 <li>ご案内メールを受信された際の対応   </li>
-<li>よくあるご質問  </li>
+<li>よくあるご質問</li>
 </ol>
-<p>下記公開情報を基にご説明いたします。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (上記の日本語訳)</a><br>各項目について公開情報内にも詳細を記載しておりますのでご参照ください。<br><br>なお、英語のページが更新されてから、日本語訳のページに同様の内容が反映されるまでに時間がかかる場合がございます。<br><br>そのため、最新情報については英語版も併せてご確認いただけますと幸いでございます。<br><br><br><br></p>
+<p>下記公開情報を基にご説明いたします。<br><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (上記の日本語訳)</a><br>各項目について公開情報内にも詳細を記載しておりますのでご参照ください。<br><br>なお、英語のページが更新されてから、日本語訳のページに同様の内容が反映されるまでに時間がかかる場合がございます。<br><br>そのため、最新情報については英語版も併せてご確認いただけますと幸いでございます。<br><br><br><br></p>
 <span id="more"></span>  
 
 <hr>
-<h2 id="1-開発者環境の自動無効化-削除メカニズムとは"><a href="#1-開発者環境の自動無効化-削除メカニズムとは" class="headerlink" title="1. 開発者環境の自動無効化/削除メカニズムとは"></a>1. 開発者環境の自動無効化/削除メカニズムとは</h2><p>本メカニズムによって、ユーザーによる活動のない期間 (=非アクティブ期間) が30日間（※）続いた場合、対象の開発者環境が無効化されます。<br>開発者環境は30日間非アクティブになると無効になります。<br>無効化状態が15日（※）継続しますと、対象環境が自動削除されます。  </p>
+<h2 id="1-開発者環境の自動無効化-削除メカニズムとは"><a href="#1-開発者環境の自動無効化-削除メカニズムとは" class="headerlink" title="1. 開発者環境の自動無効化&#x2F;削除メカニズムとは"></a>1. 開発者環境の自動無効化&#x2F;削除メカニズムとは</h2><p>本メカニズムによって、ユーザーによる活動のない期間 (&#x3D;非アクティブ期間) が30日間（※）続いた場合、対象の開発者環境が無効化されます。<br>開発者環境は30日間非アクティブになると無効になります。<br>無効化状態が15日（※）継続しますと、対象環境が自動削除されます。  </p>
 <p>無効化された環境では、アプリやフロー、チャットボット等がご利用いただけません。  </p>
 <br>
 ※2025年4月から、期間が上述のものに変更されました。
 本変更については、MC1041146にてアナウンスさせていただいております。  
 
-<p><a target="_blank" rel="noopener" href="https://admin.microsoft.com/Adminportal/Home#/MessageCenter/:/messages/MC1041146">MC1041146</a>  </p>
+<p><a href="https://admin.microsoft.com/Adminportal/Home#/MessageCenter/:/messages/MC1041146">MC1041146</a>  </p>
 <p><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/MC1041146.png"><br><br></p>
-<h2 id="2-開発者環境の自動無効化-削除条件"><a href="#2-開発者環境の自動無効化-削除条件" class="headerlink" title="2. 開発者環境の自動無効化/削除条件"></a>2. 開発者環境の自動無効化/削除条件</h2><p>対象環境におけるユーザーのアプリ起動などの活動が設定期間中に実施されない場合、自動削除の対象となります。<br><br>対象の活動は下記の通りです。</p>
+<h2 id="2-開発者環境の自動無効化-削除条件"><a href="#2-開発者環境の自動無効化-削除条件" class="headerlink" title="2. 開発者環境の自動無効化&#x2F;削除条件"></a>2. 開発者環境の自動無効化&#x2F;削除条件</h2><p>対象環境におけるユーザーのアプリ起動などの活動が設定期間中に実施されない場合、自動削除の対象となります。<br><br>対象の活動は下記の通りです。</p>
 <ul>
-<li> ユーザーの活動: アプリの起動、フローの実行、Power Virtual Agents ボットとのチャット</li>
+<li>ユーザーの活動: アプリの起動、フローの実行、Power Virtual Agents ボットとのチャット</li>
 <li>作成者の活動: アプリ、フロー 、Power Virtual Agents ボット、カスタム コネクタの作成、読み取り、更新、削除</li>
-<li>管理者の活動: コピー、削除、バックアップ、復元、リセットなどの環境操作<br></li>
+<li>管理者の活動: コピー、削除、バックアップ、復元、リセットなどの環境操作</li>
 </ul>
-<p>※2025年4月20日以降、Center of Excellence (CoE) ツールキットによる自動クエリ操作は活動とみなされなくなりました。 これによりCoEクエリのみによってアクティブに保たれていた環境は、上記の活動がない限り非アクティブとみなされ、自動無効化/削除の対象となります。</p>
-<h2 id="3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否"><a href="#3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否" class="headerlink" title="3. 開発者環境の自動無効化/削除メカニズム自体の無効化の可否"></a>3. 開発者環境の自動無効化/削除メカニズム自体の無効化の可否</h2><p>本メカニズムは無効化いただくことが出来ません。<br><br>何卒ご理解いただけますと幸いでございます。<br><br></p>
-<h2 id="4-自動無効化-削除された環境の復元"><a href="#4-自動無効化-削除された環境の復元" class="headerlink" title="4. 自動無効化/削除された環境の復元"></a>4. 自動無効化/削除された環境の復元</h2><p>環境無効化後、15日以内であれば環境の再有効化が可能でございます。<br>また、環境削除後も、7日以内であれば環境の復元が可能でございます。<br>どちらも Power Platform 管理センターよりご実施いただけます。  </p>
+<br>
+
+<p>※2025年4月20日以降、Center of Excellence (CoE) ツールキットによる自動クエリ操作は活動とみなされなくなりました。 これによりCoEクエリのみによってアクティブに保たれていた環境は、上記の活動がない限り非アクティブとみなされ、自動無効化&#x2F;削除の対象となります。</p>
+<h2 id="3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否"><a href="#3-開発者環境の自動無効化-削除メカニズム自体の無効化の可否" class="headerlink" title="3. 開発者環境の自動無効化&#x2F;削除メカニズム自体の無効化の可否"></a>3. 開発者環境の自動無効化&#x2F;削除メカニズム自体の無効化の可否</h2><p>本メカニズムは無効化いただくことが出来ません。<br><br>何卒ご理解いただけますと幸いでございます。<br><br></p>
+<h2 id="4-自動無効化-削除された環境の復元"><a href="#4-自動無効化-削除された環境の復元" class="headerlink" title="4. 自動無効化&#x2F;削除された環境の復元"></a>4. 自動無効化&#x2F;削除された環境の復元</h2><p>環境無効化後、15日以内であれば環境の再有効化が可能でございます。<br>また、環境削除後も、7日以内であれば環境の復元が可能でございます。<br>どちらも Power Platform 管理センターよりご実施いただけます。  </p>
 <p><strong>無効となった開発者環境の再有効化</strong><br>① Power Platform 管理センター にサインイン<br>② 環境 &gt; 無効化された 開発者環境を選択<br>③ 環境ページで 「環境を再度有効にする」を選択<br><br><br><strong>削除された開発者環境の復元</strong><br>① Power Platform 管理センター にサインイン<br>② 環境 &gt; 「削除された環境を復元する」を選択<br>③ 復元する対象環境 &gt; 復元 を選択<br><br></p>
-<p>環境の復元の詳細については下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment">環境の回復</a><br><br></p>
+<p>環境の復元の詳細については下記公開情報をご参照ください。<br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment">環境の回復</a><br><br></p>
 <h2 id="5-環境の状態遷移"><a href="#5-環境の状態遷移" class="headerlink" title="5. 環境の状態遷移"></a>5. 環境の状態遷移</h2><h3 id="状態の種類"><a href="#状態の種類" class="headerlink" title="状態の種類"></a>状態の種類</h3><p>環境の状態は、以下5つの種類があり、状況にて自動で変更されます。</p>
 <ol>
 <li>準備完了</li>
@@ -214,32 +216,43 @@
 <h3 id="環境の自動削除までの流れ"><a href="#環境の自動削除までの流れ" class="headerlink" title="環境の自動削除までの流れ"></a>環境の自動削除までの流れ</h3><p>開発者環境は、一定期間以上環境を利用しない場合、自動削除されます。<br>環境が無効化から削除されるまで、環境の状態も以下のように変更されます。</p>
 <p>[準備完了] → [準備完了 (無効化まであと x 日)] → [準備完了 (操作が必要)] → [無効 (削除まであと x 日)] → [無効 (操作が必要)]</p>
 <h3 id="各状態のご案内"><a href="#各状態のご案内" class="headerlink" title="各状態のご案内"></a>各状態のご案内</h3><ol>
-<li>準備完了<br>環境がアクティブとなっている、一定期間以上未使用になっていない環境の状態です。  </li>
-<li>準備完了 (無効化まであと x 日)<br>環境を30日間非アクティブな状態が続く場合、自動削除される前に [環境の無効化] が行われます。<br>その際に状態は、無効化までの日数が記載された [無効化まであと x 日] で変更されます。  </li>
-<li>準備完了 (操作が必要)<br>2の [準備完了 (無効化まであと x 日)] で日数の [x 日] が [0 日] となった後、[準備完了 (操作が必要)] に変更されます。  </li>
-<li>無効 (削除まであと x 日)<br>3の 準備完了 (操作が必要) から15日間環境に対して何かのアクションをしない場合、[自動削除] が行われます。<br>その際に状態は、自動削除までの日数が記載された [削除まであと x 日] で変更されます。  </li>
-<li>無効 (操作が必要)<br>4の 無効 (削除まであと x 日) で日数の [x 日] が [0 日] となった場合、[無効 (操作が必要)] に変更されます。<br>無効 (操作が必要) 後には、環境は自動削除されます。  <br></li>
+<li><p>準備完了<br>環境がアクティブとなっている、一定期間以上未使用になっていない環境の状態です。  </p>
+</li>
+<li><p>準備完了 (無効化まであと x 日)<br>環境を30日間非アクティブな状態が続く場合、自動削除される前に [環境の無効化] が行われます。<br>その際に状態は、無効化までの日数が記載された [無効化まであと x 日] で変更されます。  </p>
+</li>
+<li><p>準備完了 (操作が必要)<br>2の [準備完了 (無効化まであと x 日)] で日数の [x 日] が [0 日] となった後、[準備完了 (操作が必要)] に変更されます。  </p>
+</li>
+<li><p>無効 (削除まであと x 日)<br>3の 準備完了 (操作が必要) から15日間環境に対して何かのアクションをしない場合、[自動削除] が行われます。<br>その際に状態は、自動削除までの日数が記載された [削除まであと x 日] で変更されます。  </p>
+</li>
+<li><p>無効 (操作が必要)<br>4の 無効 (削除まであと x 日) で日数の [x 日] が [0 日] となった場合、[無効 (操作が必要)] に変更されます。<br>無効 (操作が必要) 後には、環境は自動削除されます。</p>
+</li>
 </ol>
+<br>
+
 <h2 id="6-ご案内メール"><a href="#6-ご案内メール" class="headerlink" title="6. ご案内メール"></a>6. ご案内メール</h2><p>対象環境の無効化が実施される7日前より、その旨についてのご案内メールが次のユーザーに通知されます。  </p>
 <ul>
 <li>環境の管理者</li>
-<li>対象開発者環境の作成者  </li>
+<li>対象開発者環境の作成者</li>
 </ul>
-<p>詳細なタイムラインについては公開情報もご確認ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup#timeline-for-unused-environments">Timeline for unused environments（英語）</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup#timeline-for-unused-environments">未使用環境のタイムライン (上記の日本語訳)</a><br><br></p>
+<p>詳細なタイムラインについては公開情報もご確認ください。<br><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup#timeline-for-unused-environments">Timeline for unused environments（英語）</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup#timeline-for-unused-environments">未使用環境のタイムライン (上記の日本語訳)</a><br><br></p>
 <h2 id="7-無効化対象のご案内メールを受信された際の対応"><a href="#7-無効化対象のご案内メールを受信された際の対応" class="headerlink" title="7. 無効化対象のご案内メールを受信された際の対応"></a>7. 無効化対象のご案内メールを受信された際の対応</h2><p>下記2通りの方法にて、無効化対象となる非アクティブな期間のカウントを一旦リセットいただけます。  </p>
 <ul>
 <li>対象環境において、アプリやフローのご実行など上述のユーザー活動を実施</li>
-<li>Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」を実行    <br></li>
+<li>Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」を実行</li>
 </ul>
-<h2 id="8-よくあるご質問"><a href="#8-よくあるご質問" class="headerlink" title="8. よくあるご質問"></a>8. よくあるご質問</h2><p><strong>Q：開発者環境とは何か。無効化された場合、どのような影響があるか?</strong><br>A：開発者環境は、Power Apps開発者プランライセンスを持つユーザーが作成できます。<br>無効化されると、環境内に作成されていたアプリやフロー、チャットボット等がご利用いただけなくなります。<br>開発者環境の詳細については、下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan">Power Apps 開発者プランにサインアップ</a><br><br></p>
+<br>
+
+<h2 id="8-よくあるご質問"><a href="#8-よくあるご質問" class="headerlink" title="8. よくあるご質問"></a>8. よくあるご質問</h2><p><strong>Q：開発者環境とは何か。無効化された場合、どのような影響があるか?</strong><br>A：開発者環境は、Power Apps開発者プランライセンスを持つユーザーが作成できます。<br>無効化されると、環境内に作成されていたアプリやフロー、チャットボット等がご利用いただけなくなります。<br>開発者環境の詳細については、下記公開情報をご参照ください。<br><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan">Power Apps 開発者プランにサインアップ</a><br><br></p>
 <p><strong>Q：開発者環境にて無効化される際に配信される通知メールを配信停止することは可能か?</strong><br>A：恐れ入りますが、メール配信を停止することのできる機能はございません。<br>製品動作としてご理解賜りますようお願い申し上げます。<br><br></p>
 <p><strong>Q：Power Platform 管理センターの対象環境ページにて、「環境活動をトリガーする」の実行は、通常ユーザにて操作可能なものか?</strong><br>A：Power Platform 管理センターにて開発者環境の「環境活動をトリガーする」を実行できるユーザーは以下の通りでございます。  </p>
 <ul>
 <li>対象開発者環境の作成者</li>
 <li>グローバル管理者</li>
 <li>Power Platform 管理者</li>
-<li>Dynamics 365 管理者  <br></li>
+<li>Dynamics 365 管理者</li>
 </ul>
+<br>
+
 <p><strong>Q：「環境活動をトリガーする」を実行すると、有効期限は何日まで延びるのか?</strong><br>A：非アクティブ期間がリセットされ、有効期限は30日間延長されます。<br>その30日の期間中に、対象環境におけるユーザーのアプリ起動などの活動が実施されない場合、再び環境は無効化され自動削除の対象となります。<br><br></p>
 <p><strong>Q：無効化される環境内のアプリ等の詳細については、どこから確認できるか?</strong><br>A：下記より対象環境内のアプリ等をご確認いただけます。<br>Power Platform 管理センター &gt; 環境 &gt; 対象環境 &gt; リソース<br><img src="/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/ppac-resource.png"><br><br></p>
 <p><strong>Q：再有効化した場合、無効化前の情報が維持されるか?</strong><br>A：再有効化後または復元後は、無効前の情報が維持されます。<br>完全に削除されてしまいますと、無効化前の情報は復元できなくなりますのでご注意ください。<br><br></p>
@@ -328,7 +341,7 @@
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
       <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li></ul>
     </div>
   </div>
 

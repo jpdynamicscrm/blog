@@ -21,12 +21,12 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/img06.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/img05.png">
 <meta property="article:published_time" content="2024-06-24T05:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-02T06:23:47.960Z">
+<meta property="article:modified_time" content="2026-03-23T00:36:39.168Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="How to">
-<meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
 <meta property="article:tag" content="Graph API">
+<meta property="article:tag" content="How to">
+<meta property="article:tag" content="Power Automate">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/img01.png">
   
@@ -48,7 +48,7 @@
 <link rel="stylesheet" href="../../css/style.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 <body>
   <div id="container">
@@ -66,7 +66,7 @@
         
           <a class="main-nav-link" href="/blog/archives">Archives</a>
         
-        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+        <a class="main-nav-link" href="https://cssjpn.github.io/">サポート情報</a>
       </nav>
       <nav id="sub-nav">
         
@@ -156,7 +156,7 @@
     $("#update-time").text(localDate);
     $("#update-time").href = commit.html_url;
     Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
-      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+      $("#contributors").append(`<li class="contributor-avatar"><a href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
     });
   });
 </script>
@@ -169,7 +169,7 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8a4dc6bd-8ca9-59ca-9f6a-cbbd2b769980%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%80%81Microsoft+Graph+API+%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FGraph-API%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FGraph-API.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2FGraph-API.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/" data-id="cmm8smkxw00190nqp9lxlcery" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/" data-id="cuidXkgAffcI2PR38fK5C1Vnz" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -203,43 +203,45 @@
 </ul>
 <p><a id='anchor-decide-the-API'></a></p>
 <h1 id="使用する-API-を決定する"><a href="#使用する-API-を決定する" class="headerlink" title="使用する API を決定する"></a>使用する API を決定する</h1><hr>
-<p>まずは使用する API を決定します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/overview?view=graph-rest-1.0">Microsoft Graph API のリファレンス</a> から、目的に合った API を探してください。  </p>
-<p>本記事では、よくあるお問い合わせの一つとして、「テキスト形式でメールを送信する」処理を例にとって進めていきたいと思います。<br>Power Automate の Office 365 Outlook コネクタ「メールを送信する (V2)」アクションでは、HTML 形式のメールしか送信できませんが、Graph API を使用することで、テキスト形式でメールを送信することも可能です。<br>今回使用する API はこちらです。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http">メールを送信する - Microsoft Graph v1.0 | Microsoft Learn</a>  </p>
+<p>まずは使用する API を決定します。<br><a href="https://learn.microsoft.com/ja-jp/graph/api/overview?view=graph-rest-1.0">Microsoft Graph API のリファレンス</a> から、目的に合った API を探してください。  </p>
+<p>本記事では、よくあるお問い合わせの一つとして、「テキスト形式でメールを送信する」処理を例にとって進めていきたいと思います。<br>Power Automate の Office 365 Outlook コネクタ「メールを送信する (V2)」アクションでは、HTML 形式のメールしか送信できませんが、Graph API を使用することで、テキスト形式でメールを送信することも可能です。<br>今回使用する API はこちらです。<br><a href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http">メールを送信する - Microsoft Graph v1.0 | Microsoft Learn</a>  </p>
 <p><a id='anchor-check-the-permission'></a></p>
 <h1 id="必要なアクセス許可を確認する"><a href="#必要なアクセス許可を確認する" class="headerlink" title="必要なアクセス許可を確認する"></a>必要なアクセス許可を確認する</h1><hr>
 <p>公開情報には、必ず API を呼び出すために必要なアクセス許可が記されているので、「アクセス許可」のセクションにて必要なアクセス許可が何かを確認してください。   </p>
-<p>アクセス許可の選択方法などの詳細については、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/permissions-reference">Microsoft Graph のアクセス許可のリファレンス | Microsoft Learn</a>をご参照ください。<br>今回使用する API では、以下のアクセス許可が必要です。  </p>
+<p>アクセス許可の選択方法などの詳細については、<a href="https://learn.microsoft.com/ja-jp/graph/permissions-reference">Microsoft Graph のアクセス許可のリファレンス | Microsoft Learn</a>をご参照ください。<br>今回使用する API では、以下のアクセス許可が必要です。  </p>
 <p><img src="/blog/powerautomate/Graph-API/img01.png">  </p>
 <p>ここで、アクセス許可には「委任」と「アプリケーション」の 2 種類があります。  </p>
 <ul>
-<li>委任されたアクセス許可<br>ユーザーの代わりにアクセスする際に使用いたします。<br>API を実際に実行するアプリケーションに対し、サインインしているユーザーとして動作するためのアクセス許可が委任されます。  </li>
-<li>アプリケーションのアクセス許可<br>ユーザーなしでアクセスする際に使用いたします。<br>API を実行するアプリケーション自体にアクセス許可を付与します。  </li>
+<li><p>委任されたアクセス許可<br>ユーザーの代わりにアクセスする際に使用いたします。<br>API を実際に実行するアプリケーションに対し、サインインしているユーザーとして動作するためのアクセス許可が委任されます。  </p>
+</li>
+<li><p>アプリケーションのアクセス許可<br>ユーザーなしでアクセスする際に使用いたします。<br>API を実行するアプリケーション自体にアクセス許可を付与します。</p>
+</li>
 </ul>
 <p>委任されたアクセス許可が使用できる場合は、ユーザーに代わって API を実行する HTTP with Entra ID (preauthorized) コネクタまたは HTTP with Entra ID コネクタが、<br>アプリケーションのアクセス許可が使用できる場合は、ユーザーなしで API を実行する HTTP コネクタが使用できます。  </p>
 <p>それぞれのコネクタの使い方について説明します。  </p>
 <p><a id='anchor-use-HTTP-with-Entra-ID-Connector'></a></p>
 <h1 id="HTTP-with-Microsoft-Entra-ID-preauthorized-コネクタまたは-HTTP-with-Microsoft-Entra-ID-コネクタを使用する"><a href="#HTTP-with-Microsoft-Entra-ID-preauthorized-コネクタまたは-HTTP-with-Microsoft-Entra-ID-コネクタを使用する" class="headerlink" title="HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタを使用する"></a>HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタを使用する</h1><hr>
 <p>HTTP with Microsoft Entra ID (preauthorized) コネクタまたは HTTP with Microsoft Entra ID コネクタでは、接続でサインインしたユーザーに代わって API を実行できます。  </p>
-<div class="alert is-info"><p class="alert-title">Note</p><p>Microsoft Entra ID は Azure Active Directory の名称が変更されたものです。この変更の更なる詳細についてはこちらのドキュメント（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/entra/fundamentals/compare">Azure Active Directory は Microsoft Entra ID に名称変更されています - Microsoft Entra | Microsoft Learn</a>）をご参照ください。   </p>
-<p>この変更に伴い、HTTP with Azure AD コネクタは HTTP with Microsoft Entra ID (preauthorized) コネクタに変更されました。</p><p>また、利用者のアクセス可能な範囲の制御を容易にするため、HTTP with Microsoft Entra ID コネクタが作成されました。</p><p>これらのコネクタについての更なる詳細については、こちらのドキュメント（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/webcontents/">Microsoft Entra ID 付きの HTTP (事前承認済み) - Connectors | Microsoft Learn</a>）（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/connectors/webcontentsv2/">Microsoft Entra ID を使用した HTTP - Connectors | Microsoft Learn</a>）をご参照ください。  </p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>Microsoft Entra ID は Azure Active Directory の名称が変更されたものです。この変更の更なる詳細についてはこちらのドキュメント（<a href="https://learn.microsoft.com/ja-jp/entra/fundamentals/compare">Azure Active Directory は Microsoft Entra ID に名称変更されています - Microsoft Entra | Microsoft Learn</a>）をご参照ください。   </p>
+<p>この変更に伴い、HTTP with Azure AD コネクタは HTTP with Microsoft Entra ID (preauthorized) コネクタに変更されました。</p><p>また、利用者のアクセス可能な範囲の制御を容易にするため、HTTP with Microsoft Entra ID コネクタが作成されました。</p><p>これらのコネクタについての更なる詳細については、こちらのドキュメント（<a href="https://learn.microsoft.com/ja-jp/connectors/webcontents/">Microsoft Entra ID 付きの HTTP (事前承認済み) - Connectors | Microsoft Learn</a>）（<a href="https://learn.microsoft.com/ja-jp/connectors/webcontentsv2/">Microsoft Entra ID を使用した HTTP - Connectors | Microsoft Learn</a>）をご参照ください。  </p></div>
 <p>以降では HTTP with Microsoft Entra ID (preauthorized) コネクタを使用した例をご紹介いたします。   </p>
 <ol>
 <li><p>HTTP with Microsoft Entra ID (preauthorized) コネクタの「HTTP 要求を呼び出します」アクションを挿入します。</p>
 </li>
 <li><p>コネクタを初めて使用する場合、接続を作成します。<br>今回は Graph API を実行するため、「基本リソース URL」と「Microsoft Entra ID リソース URI (アプリケーション ID URI)」の両方に以下の URI を設定し、[サインイン] をクリックします。  </p>
 <ul>
-<li>URI: <a target="_blank" rel="noopener" href="https://graph.microsoft.com/">https://graph.microsoft.com</a>  </li>
+<li>URI: <a href="https://graph.microsoft.com/">https://graph.microsoft.com</a></li>
 </ul>
 <p><img src="/blog/powerautomate/Graph-API/img08.png">  </p>
 <p>※ここでサインインしたユーザーのアクセス許可が委任され、API が実行されます。  </p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request">API のリファレンス</a> を参考に、リクエストを作成します。  </p>
+<li><p><a href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request">API のリファレンス</a> を参考に、リクエストを作成します。  </p>
 <p><img src="/blog/powerautomate/Graph-API/img10.png">  </p>
-<p>&lt;補足&gt;<br>本文の指定方法は、各リソースのリファレンスを参考に変更してください。<br>今回は、Message リソースを使用するので、下記の公開情報を参照しました。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/resources/message?view=graph-rest-1.0">メッセージ リソースの種類 - Microsoft Graph | Microsoft Learn</a>  </p>
+<p>&lt;補足&gt;<br>本文の指定方法は、各リソースのリファレンスを参考に変更してください。<br>今回は、Message リソースを使用するので、下記の公開情報を参照しました。<br><a href="https://learn.microsoft.com/ja-jp/graph/api/resources/message?view=graph-rest-1.0">メッセージ リソースの種類 - Microsoft Graph | Microsoft Learn</a>  </p>
 <p>また、テキスト形式でメールを送信することが目的なので、 <code>message.body.contentType</code> を <code>Text</code> に設定します。  </p>
 <p><img src="/blog/powerautomate/Graph-API/img09.png">  </p>
 </li>
-<li><p>フローを実行し、正常に実行されるか確認します。  </p>
+<li><p>フローを実行し、正常に実行されるか確認します。</p>
 </li>
 </ol>
 <div class="alert is-info"><p class="alert-title">Note</p><p>必要なアクセス許可の種類によっては、HTTP with Microsoft Entra ID (preauthorized) コネクタでは API が実行できない場合があります。</p><p>HTTP with Microsoft Entra ID (preauthorized) コネクタで実行できる権限スコープの一覧は現時点では公開されておりませんが、フローを実行した際に権限エラーが発生する場合、HTTP with Microsoft Entra ID (preauthorized) コネクタでは実行できない可能性がございますので、HTTP with Microsoft Entra ID コネクタや HTTP コネクタでの実行をお試しください。  </p></div>
@@ -247,16 +249,23 @@
 <h1 id="HTTP-コネクタを使用する"><a href="#HTTP-コネクタを使用する" class="headerlink" title="HTTP コネクタを使用する"></a>HTTP コネクタを使用する</h1><hr>
 <p>HTTP コネクタでは、ユーザーのサインインなしに、Microsoft Entra ID に登録したアプリから API を実行できます。  </p>
 <ol>
-<li>Microsoft Entra ID にアプリを登録します。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph/api/1.0&view=graph-rest-1.0">アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Learn</a> にしたがって、 Microsoft Entra ID にアプリを登録します。<br>また、登録したアプリの [API のアクセス許可] のページにて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  <img src="/blog/powerautomate/Graph-API/img07.png">   </li>
-<li>HTTP コネクタの「HTTP」アクションを挿入します。<br>2-1. <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request">API のリファレンス</a> を参考に、リクエストを作成します。<br>   HTTP コネクタを使用する場合、サインイン中のユーザーがいないため、<code>/me/sendMail</code>ではなく、<code>/users/&#123;id | userPrincipalName&#125;/sendMail</code> の要求方法を使用することに注意してください。     <img src="/blog/powerautomate/Graph-API/img06.png">  2-2. 認証を「Active Directory OAuth」に設定し、Microsoft Entra ID に登録したアプリから取得した情報を設定します。  <ul>
+<li><p>Microsoft Entra ID にアプリを登録します。<br><a href="https://learn.microsoft.com/ja-jp/graph/auth-register-app-v2?context=graph/api/1.0&view=graph-rest-1.0">アプリを Azure AD v2.0 エンドポイントに登録する - Microsoft Graph | Microsoft Learn</a> にしたがって、 Microsoft Entra ID にアプリを登録します。<br>また、登録したアプリの [API のアクセス許可] のページにて、「必要なアクセス許可を確認する」の手順で確認したアプリケーションのアクセス許可を追加し、管理者の同意を与えます。  </p>
+<p><img src="/blog/powerautomate/Graph-API/img07.png">   </p>
+</li>
+<li><p>HTTP コネクタの「HTTP」アクションを挿入します。<br>2-1. <a href="https://learn.microsoft.com/ja-jp/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http#http-request">API のリファレンス</a> を参考に、リクエストを作成します。<br>   HTTP コネクタを使用する場合、サインイン中のユーザーがいないため、<code>/me/sendMail</code>ではなく、<code>/users/{id | userPrincipalName}/sendMail</code> の要求方法を使用することに注意してください。  </p>
+<p>   <img src="/blog/powerautomate/Graph-API/img06.png">  </p>
+<p>2-2. 認証を「Active Directory OAuth」に設定し、Microsoft Entra ID に登録したアプリから取得した情報を設定します。  </p>
+<ul>
 <li>テナント: ディレクトリ (テナント) ID  </li>
-<li>対象ユーザー: <a target="_blank" rel="noopener" href="https://graph.microsoft.com/">https://graph.microsoft.com</a>  </li>
+<li>対象ユーザー: <a href="https://graph.microsoft.com/">https://graph.microsoft.com</a>  </li>
 <li>クライアント ID: アプリケーション (クライアント) ID  </li>
 <li>資格情報の種類: シークレット  </li>
-<li>シークレット: [証明書とシークレット] より、新しいクライアントシークレットを発行し、発行された「値」  </li>
+<li>シークレット: [証明書とシークレット] より、新しいクライアントシークレットを発行し、発行された「値」</li>
 </ul>
-<img src="/blog/powerautomate/Graph-API/img05.png">  </li>
-<li>フローを実行し、正常に実行されるか確認します。  </li>
+<p><img src="/blog/powerautomate/Graph-API/img05.png">  </p>
+</li>
+<li><p>フローを実行し、正常に実行されるか確認します。</p>
+</li>
 </ol>
 <hr>
 <h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>Power Automate から Graph API を実行することで、様々な操作を自動化することができます。<br>ぜひ、色々なシーンで活用してみてください。</p>
@@ -344,7 +353,7 @@
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
       <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li></ul>
     </div>
   </div>
 

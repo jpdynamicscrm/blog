@@ -18,10 +18,10 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/read-calls-per-5-minutes.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/message-size-with-chunking.png">
 <meta property="article:published_time" content="2025-01-30T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-02T06:23:47.975Z">
+<meta property="article:modified_time" content="2026-03-23T00:36:39.183Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Power Automate">
 <meta property="article:tag" content="Cloud flow">
+<meta property="article:tag" content="Power Automate">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/http-requestes-recieve.png">
   
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="../../css/style.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 <body>
   <div id="container">
@@ -61,7 +61,7 @@
         
           <a class="main-nav-link" href="/blog/archives">Archives</a>
         
-        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+        <a class="main-nav-link" href="https://cssjpn.github.io/">サポート情報</a>
       </nav>
       <nav id="sub-nav">
         
@@ -151,7 +151,7 @@
     $("#update-time").text(localDate);
     $("#update-time").href = commit.html_url;
     Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
-      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+      $("#contributors").append(`<li class="contributor-avatar"><a href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
     });
   });
 </script>
@@ -164,13 +164,13 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3392a8b7-127c-596b-9a8b-52118505bb41%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fcloudflow-limits%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fcloudflow-limits.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fcloudflow-limits.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cmm8sml2q00m80nqp6dnn5i88" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-limits/" data-id="cuidzNGMg5KXodnGM6p30nvAP" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートチームの山田です。<br>本記事では 下記公開情報でご案内のPower Automate クラウドフローの制限について、具体例などを用いてわかりやすく説明いたします。</p>
-<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config">自動化フロー、スケジュールされたフロー、インスタント フローの制限事項</a></p>
+<p><a href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config">自動化フロー、スケジュールされたフロー、インスタント フローの制限事項</a></p>
 <p>本記事は上記公開情報の制限内容を補足・説明したものとなります。<br>実際の制限値などは上記公開情報をご確認ください。</p>
 <span id="more"></span>
 <h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
@@ -212,7 +212,7 @@
 <li>コンテンツスループットの制限</li>
 </ul>
 <p>制限に抵触した場合の動作、制限の緩和可否などは各種類によって異なります。</p>
-<p>制限を決定する制限値は、ライセンスに基づくパフォーマンスプロファイルによって決定されます。<br>パフォーマンスプロファイルについては下記公開情報をご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles">パフォーマンス プロファイル</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか?</a></p>
+<p>制限を決定する制限値は、ライセンスに基づくパフォーマンスプロファイルによって決定されます。<br>パフォーマンスプロファイルについては下記公開情報をご参照ください。<br><a href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#performance-profiles">パフォーマンス プロファイル</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#what-are-performance-profiles-and-how-do-i-know-which-performance-profile-my-cloud-flow-uses">パフォーマンス プロファイルとは何ですか?</a></p>
 <p>制限の解除について、Power Automate のクラウドフローの場合はライセンス割り当て後にフローを再保存することで、新しいライセンスに紐づく制限を適用いたします。<br>再保存を行わなかった場合は、週に1度のバックグラウンド処理により適用いたします。</p>
 <p><a id='anchor-power-platform-request-limits'></a></p>
 <h2 id="Power-Platform-要求の制限"><a href="#Power-Platform-要求の制限" class="headerlink" title="Power Platform 要求の制限"></a>Power Platform 要求の制限</h2><p>Power Platform 要求の制限とは、フロー実行時のアクションに関する制限となります。</p>
@@ -223,14 +223,14 @@
 <li>同時発信呼</li>
 </ul>
 <p><a id='anchor-power-platform-request-limits-per'></a></p>
-<h3 id="5分ごと、および24時間ごとのPower-Platform要求"><a href="#5分ごと、および24時間ごとのPower-Platform要求" class="headerlink" title="5分ごと、および24時間ごとのPower Platform要求"></a>5分ごと、および24時間ごとのPower Platform要求</h3><p>詳細については下記記事をご参照ください。<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a></p>
+<h3 id="5分ごと、および24時間ごとのPower-Platform要求"><a href="#5分ごと、および24時間ごとのPower-Platform要求" class="headerlink" title="5分ごと、および24時間ごとのPower Platform要求"></a>5分ごと、および24時間ごとのPower Platform要求</h3><p>詳細については下記記事をご参照ください。<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate &#x2F; Power Platform 要求数制限</a></p>
 <p><a id='anchor-concurrent-outbound-calls'></a></p>
 <h3 id="同時発信呼"><a href="#同時発信呼" class="headerlink" title="同時発信呼"></a>同時発信呼</h3><p>同時発信呼とは、ひとつのフローで同時に実行できるアクション数を指しております。<br>具体例として、フロー内でアクションが並列に実行されるよう構成されている場合や、複数のユーザーが同時にフローを実行する場合にこの制限に抵触する可能性が考えられます。</p>
 <p>制限に抵触した場合、フローの実行が失敗します。</p>
-<p>回避策として、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時実行する処理数を制限することで、同時発信呼の制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策として、例えば、コンカレンシー制御&#x3D;同時実行管理をオンにすることが挙げられます。<br>同時実行する処理数を制限することで、同時発信呼の制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす&#x3D;ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンス プロファイルをより高いものにしていただくこととなります。</p>
 <p><a id='anchor-runtime-endpoint-request-limits'></a></p>
-<h2 id="ランタイムエンドポイント要求"><a href="#ランタイムエンドポイント要求" class="headerlink" title="ランタイムエンドポイント要求"></a>ランタイムエンドポイント要求</h2><p>ランタイムエンドポイントとは、フロー自体のエンドポイントを指します。 (例: <a target="_blank" rel="noopener" href="https://prod-00.westus.logic.azure.com/">https://prod-00.westus.logic.azure.com:443/</a>)<br>例えば、下図の「HTTP要求の受信時」トリガー(manual)を使用するフローがある場合、「HTTP URL」に直接POSTリクエストを送信することで、フローを起動することが可能でございます。</p>
+<h2 id="ランタイムエンドポイント要求"><a href="#ランタイムエンドポイント要求" class="headerlink" title="ランタイムエンドポイント要求"></a>ランタイムエンドポイント要求</h2><p>ランタイムエンドポイントとは、フロー自体のエンドポイントを指します。 (例: <a href="https://prod-00.westus.logic.azure.com/">https://prod-00.westus.logic.azure.com:443/</a>)<br>例えば、下図の「HTTP要求の受信時」トリガー(manual)を使用するフローがある場合、「HTTP URL」に直接POSTリクエストを送信することで、フローを起動することが可能でございます。</p>
 <p><img src="/blog/powerautomate/cloudflow-limits/http-requestes-recieve.png"> </p>
 <p>上記の例のように、フロー実行時のエンドポイントへ (から) の直接のアクセスをランタイムエンドポイント要求と呼びます。<br>エンドポイントごとに制限対象となり、制限に抵触した場合、フローの実行が失敗します。</p>
 <p>ランタイムエンドポイント要求には3つの制限がございます。  </p>
@@ -242,8 +242,8 @@
 <p><a id='anchor-concurrent-inbound-calls'></a></p>
 <h3 id="同時着信"><a href="#同時着信" class="headerlink" title="同時着信"></a>同時着信</h3><p>同時着信とは、ひとつのフローのランタイムエンドポイントにて、同時に受付可能な要求数を指します。<br>そのため、例えば、複数ユーザーでボタントリガーのフローを共有しており、1,000 名以上のユーザーが同時刻にフローを起動した場合、この制限に抵触いたします。</p>
 <p>制限に抵触した場合、フローの実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、同時着信の数を減らし、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
-<p>コンカレンシー制御=同時実行管理は、フロー編集画面でのトリガーの「設定」タブにてご利用いただけます。<br><img src="/blog/powerautomate/cloudflow-limits/concurrency-limit.png"> </p>
+<p>回避策としては、例えば、コンカレンシー制御&#x3D;同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、同時着信の数を減らし、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす&#x3D;ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>コンカレンシー制御&#x3D;同時実行管理は、フロー編集画面でのトリガーの「設定」タブにてご利用いただけます。<br><img src="/blog/powerautomate/cloudflow-limits/concurrency-limit.png"> </p>
 <div class="alert is-important"><p class="alert-title">重要</p><p>サービス保護の制限のため、緩和策はございません。</p><p>回避策をご対応ください。</p></div>
 <p><a id='anchor-read-calls-per-5-minutes'></a></p>
 <h3 id="5分ごとに通話を読み取る"><a href="#5分ごとに通話を読み取る" class="headerlink" title="5分ごとに通話を読み取る"></a>5分ごとに通話を読み取る</h3><p>5分間に実行可能なランタイムエンドポイントへの読み取り要求を指します。<br>例えば、フローの実行履歴から生の入力や出力を取得する際がこれにあたります。</p>
@@ -251,19 +251,19 @@
 <p>下図は「クリックしてダウンロードします」リンクをクリックした場合の例ですが、URL よりランタイムエンドポイントへの要求が実行されていることがわかります。</p>
 <p><img src="/blog/powerautomate/cloudflow-limits/read-calls-per-5-minutes.png"></p>
 <p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの読み取り数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策としては、例えば、コンカレンシー制御&#x3D;同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの読み取り数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす&#x3D;ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
 <p><a id='anchor-invoke-calls-per-5-minutes'></a></p>
 <h3 id="5分ごとの-Invoke-呼び出し"><a href="#5分ごとの-Invoke-呼び出し" class="headerlink" title="5分ごとの Invoke 呼び出し"></a>5分ごとの Invoke 呼び出し</h3><p>5 分間に実行可能なランタイムエンドポイントへの呼び出し要求を指します。<br>例えば、上記にご案内した 「HTTP 要求の受信時」トリガーを呼び出す場合など、フローを起動する操作がこれにあたります。</p>
 <p>制限に抵触した場合、フロー実行が失敗します。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの呼び出し数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策としては、例えば、コンカレンシー制御&#x3D;同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、5分ごとの呼び出し数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす&#x3D;ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
 <p><a id='anchor-content-throughput-limits'></a></p>
 <h2 id="コンテンツスループットの制限"><a href="#コンテンツスループットの制限" class="headerlink" title="コンテンツスループットの制限"></a>コンテンツスループットの制限</h2><p>コンテンツスループットとは、フロー内の各アクションを実行後の入力および出力のデータサイズを指しております。<br>よって本制限は、フローの各実行において、単位時間に処理できるアクションで取り扱う情報量の制限となります。</p>
 <p>例えば、フロー内で SharePoint コネクタの「項目の取得」アクションが使用された場合、<br>実行履歴に表示される入力 (SharePoint に対して送信されたアドレスやリスト名など) と出力 (SharePoint から取得した項目の詳細情報) のデータサイズがカウントされます。<br>フロー毎に、全てのアクションをカウントした合計サイズによる制限となります。</p>
 <p>継続した5分、または24時間におけるフローごとに制限対象となります。</p>
 <p>制限に抵触すると、フローが低速実行（スロットリング状態）となります。</p>
-<p>回避策としては、例えば、コンカレンシー制御=同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、制限時間内の実行数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす=ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
+<p>回避策としては、例えば、コンカレンシー制御&#x3D;同時実行管理をオンにすることが挙げられます。<br>同時に実行する数を制限することで、制限時間内の実行数を削減し、制限への抵触を回避いただけます。<br>または、ユーザー側で実行時間をずらす&#x3D;ユーザー側でフローをトリガーするタイミングをずらすことも有効です。</p>
 <p>制限の緩和策としては、パフォーマンスプロファイルをより高いものにしていただくこととなります。</p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>低速実行が14日間連続で発生した場合は、クラウドフローは自動でオフとなります。</p></div>
 <p><a id='anchor-request-limits'></a></p>
@@ -323,7 +323,7 @@
 <p>算出された、最小間隔から最大間隔の間のどこかで、処理が再試行されます。<br>「最小間隔」「最大間隔」はオプション項目となり、設定しない場合は既定値で動作いたします。</p>
 <p>「最小間隔」は、再試行させたい最小の間隔を設定します。「5秒」と設定しますと<br>再試行間隔は「間隔」から算出された最小間隔に関わらず、前の実行から5秒経過後となります。</p>
 <p>「最大間隔」は、再試行させたい最大の間隔を設定します。<br>「1日」と設定しますと、「間隔」から算出された最大間隔に関わらず、1日以内に再試行されます。<br>「1時間」と設定しますと1時間以内に再試行されます。</p>
-<p>下記公開情報もご参照ください。<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval">指数間隔の再試行ポリシー</a></p>
+<p>下記公開情報もご参照ください。<br><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/error-exception-handling#exponential-interval">指数間隔の再試行ポリシー</a></p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>再試行ポリシーの間隔、最小間隔、最大間隔は「ISO 8601」という形式を利用して設定します。</p>
 <p>継続時間ということを表すため、「P」を先頭につけます。</p><p>時分秒を設定する時は「P」＋「T」＋数字＋「時分秒」という形で記載します。</p><p>例）</p><p>1時間　→PT1H</p><p>2時間　→PT2H</p><p>15分　→PT15M</p><p>30秒　→PT30S  </p>
 <p>日を設定する時は、「P」＋数字＋「D」という形で記載します。</p><p>例）</p><p>1日　→P1D</p></div>
@@ -338,7 +338,7 @@
 </thead>
 <tbody><tr>
 <td align="left"><a href="#anchor-power-platform-request-limits-per">5分ごと、および24時間ごとのPower Platform要求</a></td>
-<td align="left"><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate / Power Platform 要求数制限</a>を参照</td>
+<td align="left"><a href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-ppr/">Power Automate &#x2F; Power Platform 要求数制限</a>を参照</td>
 <td align="left">フローの実行が低速化</td>
 </tr>
 <tr>
@@ -478,7 +478,7 @@
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
       <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li></ul>
     </div>
   </div>
 
