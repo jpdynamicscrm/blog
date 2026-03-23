@@ -4,28 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>Dataverse グループ チームの活用方法＆注意点 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Dataverse グループ チームによるユーザー・ロールの一元管理 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの島です。 ※ Azure Active Directory (Azure AD) は2023年7月に Azure Entra Identity に名称が変更となりましたので、ご承知おきくださいますようお願い申し上げます。 Dataverse では、Azure Entra Identity グループ チームを作成することで、セキュリティ グル">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの鎌田です。 Dataverse では、Microsoft Entra ID のセキュリティ グループや Microsoft 365 グループと連携する グループ チーム を作成できます。グループ チームを活用すると、Microsoft Entra ID 側のグループ メンバーシップに基づいて、Dataverse 環境のユーザーとセキュリティ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dataverse グループ チームの活用方法＆注意点">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/index.html">
+<meta property="og:title" content="Dataverse グループ チームによるユーザー・ロールの一元管理">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-group-team/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの島です。 ※ Azure Active Directory (Azure AD) は2023年7月に Azure Entra Identity に名称が変更となりましたので、ご承知おきくださいますようお願い申し上げます。 Dataverse では、Azure Entra Identity グループ チームを作成することで、セキュリティ グル">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの鎌田です。 Dataverse では、Microsoft Entra ID のセキュリティ グループや Microsoft 365 グループと連携する グループ チーム を作成できます。グループ チームを活用すると、Microsoft Entra ID 側のグループ メンバーシップに基づいて、Dataverse 環境のユーザーとセキュリティ">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/compareTable.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image02-PPAC01.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/testTeamCapture.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image04-PPACeditRole.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image06-teamMember.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/image05-accessCheck.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-group-team/ppac-settings-team.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-group-team/create-team-form.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-group-team/manage-security-roles.png">
 <meta property="article:published_time" content="2022-01-07T04:45:00.000Z">
-<meta property="article:modified_time" content="2026-03-23T00:36:39.277Z">
+<meta property="article:modified_time" content="2026-03-18T15:00:00.000Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Dynamics">
 <meta property="article:tag" content="Model-driven app">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/compareTable.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-group-team/ppac-settings-team.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -88,7 +85,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerplatform/About-group-team-in-Dataverse" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/dataverse-group-team" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -97,7 +94,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Dataverse グループ チームの活用方法＆注意点
+      Dataverse グループ チームによるユーザー・ロールの一元管理
     </h1>
   
 
@@ -112,7 +109,7 @@
 / Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
 
 <script type="text/javascript">
-  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/About-group-team-in-Dataverse.md";
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/dataverse-group-team.md";
   const urlParts = sourceUrl.split("/");
   const user = urlParts[3];
   const repo = urlParts[4];
@@ -164,69 +161,213 @@
   </div>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+ea72032b-bfab-5621-9019-a4b3c961f183%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%86%E6%B3%A8%E6%84%8F%E7%82%B9%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FAbout-group-team-in-Dataverse%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FAbout-group-team-in-Dataverse.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FAbout-group-team-in-Dataverse.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+30c45ba3-f853-51b0-a43e-30723fd19118%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AB%E3%82%88%E3%82%8B%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%BB%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AE%E4%B8%80%E5%85%83%E7%AE%A1%E7%90%86%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fdataverse-group-team%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fdataverse-group-team.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Fdataverse-group-team.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/About-group-team-in-Dataverse/" data-id="cuidXnEUovV5gDgkDH-1WICfu" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-group-team/" data-id="cuidAvod8rP1tG0VFejqMiXtg" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの島です。</p>
-<p>※ Azure Active Directory (Azure AD) は2023年7月に Azure Entra Identity に名称が変更となりましたので、ご承知おきくださいますようお願い申し上げます。</p>
-<p>Dataverse では、Azure Entra Identity グループ チームを作成することで、セキュリティ グループへのユーザー所属状態によって、ロールを自動的に付け外しすることができます。<br>「特定の管理者用セキュリティ グループに所属するユーザーに、自動的にシステム管理者ロールを付与する」というような運用も可能です。</p>
+        <p>こんにちは、Power Platform サポートチームの鎌田です。</p>
+<p>Dataverse では、Microsoft Entra ID のセキュリティ グループや Microsoft 365 グループと連携する <strong>グループ チーム</strong> を作成できます。<br>グループ チームを活用すると、Microsoft Entra ID 側のグループ メンバーシップに基づいて、Dataverse 環境のユーザーとセキュリティ ロールを一元管理できます。</p>
 <span id="more"></span>
-<p>つまり、Azure Entra Identity グループ チームを利用いただくことで、<strong>グループ チーム配下の Dataverse ユーザーを、Azure Entra Identity グループから一元管理</strong>することが可能となります。</p>
-<p>そこでこの記事では、使い方、またサポートでよくいただくグループ チーム関連のご質問についてご案内します。</p>
-<h2 id="そもそも、チームとは？"><a href="#そもそも、チームとは？" class="headerlink" title="そもそも、チームとは？"></a>そもそも、チームとは？</h2><hr>
-<p>Dataverse では、グループ チームを含め、4 種類のチームという概念を持ち、この中にユーザーを所属させることができます。<br>それぞれについて簡単にご紹介します。</p>
-<p><strong>1. 所有者チーム</strong><br>セキュリティ ロールを割り当てることができ、レコードを所有できるチームです。<br>グループ チームと似ていますが、Azure Entra Identity グループとは連動しないため、ユーザーを明示的に指定して追加する必要があります。<br>また、Dataverse 上の「部署」というオブジェクトに紐づいて自動作成されます。(なのでグループ チームの操作を何もしていなくても、環境に最低ひとつはこの所有者チームが存在します。)<br><strong>2. アクセス チーム</strong><br>セキュリティ ロールを割り当てることができず、レコードも所有しないチームです。<br>ただ、アクセス チーム自体がレコードへのアクセス権を持つため、セキュリティ ロールに依存しないアクセス権制御を行うことができます。<br>将来削除される予定があり、レコードを所有させたくないような一時的なチーム (プロジェクトなど) に適したチームと言えます。<br><strong>3. Azure Entra Identity グループ チーム (Office グループ &#x2F; セキュリティ グループ)</strong><br>セキュリティ ロールを割り当てることができ、レコードを所有できるチームです。また、Azure Entra Identity グループと連動します。<br>種類として Office グループ チームと セキュリティ グループ チームの 2 つに分かれますが、記事執筆時点ではグループの種類による機能差はありません。</p>
-<p>上記の内容をまとめると、以下のように各チームを比較できます。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/compareTable.png"></p>
-<p>Azure Entra Identity グループチームの特色は、文字通り Azure Entra Identity グループと連携でき、<strong>グループ チーム配下の Dataverse ユーザーを、Azure Entra Identity グループから一元管理</strong>できることです。</p>
-<h2 id="Azure-Entra-Identity-グループチームで具体的にできること"><a href="#Azure-Entra-Identity-グループチームで具体的にできること" class="headerlink" title="Azure Entra Identity グループチームで具体的にできること"></a>Azure Entra Identity グループチームで具体的にできること</h2><hr>
-<p>Azure Entra Identity グループチームでできること、メリットについて具体的にご紹介します。</p>
-<h3 id="1-Azure-Entra-Identity-グループとの連携"><a href="#1-Azure-Entra-Identity-グループとの連携" class="headerlink" title="1. Azure Entra Identity グループとの連携"></a>1. Azure Entra Identity グループとの連携</h3><p>Azure Entra Identity グループチームでは、セキュリティ グループや Office グループとの同期が可能です。<br>Azure Entra Identity グループチームは Power Platform 管理センターから作成することができますが、このときに対応するAzure Entra Identity グループを選択することで、チームとグループを紐づけることができます。</p>
-<p><strong>【手順】</strong></p>
-<ol>
-<li>Power Platform 管理センターで 設定 &gt; ユーザーとアクセス許可 &gt; チーム を選択ください。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/image02-PPAC01.png"></li>
-<li>「チームの作成」を選択ください。</li>
-<li>作成時の入力項目を以下の通り入力ください。この後チームを作成することで、入力したグループとチーム同士が紐づきます。<br>・チームの種類 : Azure Entra Identity セキュリティ グループ または Azure Entra Identity Office グループを選択ください。<br>・グループ名 : 対応するAzure Entra Identity グループ名を選択ください。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/testTeamCapture.png"><br>ちなみに、以下の項目はグループ チームとは関係がありませんが、ご参考までに入力内容を紹介いたします。<br>・チーム名、説明 : 任意のものを入力ください。<br>・部署 : Dataverse の部署を作成いただいている場合は適宜ご要件に合わせて選択ください。作成していない場合はデフォルトの部署が 1 つだけ表示されますので、その部署を選択ください。<br>・管理者 : ご要件に合わせて管理者となるユーザーをご選択ください。<br>・メンバーシップの種類 : Azure Entra Identity グループ メンバーシップを入力する欄です。<strong>後のセクションでもご説明します！</strong></li>
-</ol>
-<p>チームを作成すると、紐づけた Azure Entra Identity グループのメンバーのうち環境に対してアクセス権があるユーザーが、自動的に Dataverse のグループ チームに追加されます。<br>また、異動などでチームのメンバーでなくなったユーザーは、自動的にグループ チームのメンバーからも削除されます。</p>
-<h4 id="2-セキュリティ-ロールの紐づけ"><a href="#2-セキュリティ-ロールの紐づけ" class="headerlink" title="2. セキュリティ ロールの紐づけ"></a>2. セキュリティ ロールの紐づけ</h4><p>Azure Entra Identity グループ チームに対してセキュリティ ロールを紐づけることで、配下の Dataverse のユーザーに対してそのロールを継承させることができます。</p>
-<p><strong>[手順]</strong></p>
-<ol>
-<li>Power Platform 管理センターで 設定 &gt; ユーザーとアクセス許可 &gt; チーム を選択後、任意のチームを選択ください。</li>
-<li>セキュリティ ロールの管理 を選択ください。</li>
-<li>下図のように割り当てるセキュリティ ロールの一覧が表示されるので、任意のロールを選択ください。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/image04-PPACeditRole.png"></li>
-</ol>
-<p>このセキュリティ ロールの割り当て機能により、「管理者用のグループ チームにはシステム管理者ロールを付与する」「開発者用のグループ チームには Environment Makerを付与する」というように、チームごとに一括でロールを割り当てることが可能になります。<br>加えて 1 でご説明したように、チームのメンバーは Azure Entra Identity と同期して自動で決定されるので、この 2 つの機能を組み合わせることで、要件に即したロールの一括付与を自動で実行できるようになります。</p>
-<h2 id="よくいただくお問合せ"><a href="#よくいただくお問合せ" class="headerlink" title="よくいただくお問合せ"></a>よくいただくお問合せ</h2><hr>
-<p>上記の通り、Azure Entra Identity グループ チームは、ユーザーおよびロールの一元管理が可能な強力な機能です。<br>こちらの機能をよりご活用いただきたいため、サポート チームでよくいただく質問をおまとめいたしました。ぜひご確認ください。</p>
-<h3 id="グループ-チーム作成時、メンバーシップに何を指定すればよいのかわからない"><a href="#グループ-チーム作成時、メンバーシップに何を指定すればよいのかわからない" class="headerlink" title="グループ チーム作成時、メンバーシップに何を指定すればよいのかわからない"></a>グループ チーム作成時、メンバーシップに何を指定すればよいのかわからない</h3><p>グループ チームのメンバーシップは、Azure Entra Identity 側のグループのメンバーシップに対応するものです。<br>選択肢ごとにの具体的な設定内容は以下の通りです。<br>(1) メンバー ： Azure Entra Identity グループに所属するメンバー (ゲストユーザーを除く) です。<br>(2) ゲスト : Azure Entra Identity グループに所属するゲストユーザーです。<br>(3) メンバーとゲスト : (1) と (2) の両方をメンバーとする選択肢です。<br>(4) 所有者 : Azure Entra Identity グループの所有者です。通常、管理者など要件に合わせたユーザーを明示的に指定することで割り当てられます。</p>
-<p>グループ チームをご活用いただく場合、通常はメンバーのロールを一元管理することが目的の場合が多いので、(1) または (3) を選んでいただくケースが最も多いかと存じます。</p>
-<h3 id="Azure-Entra-Identity-グループに所属するメンバーのうち、一部のメンバーしかグループ-チームに所属していない"><a href="#Azure-Entra-Identity-グループに所属するメンバーのうち、一部のメンバーしかグループ-チームに所属していない" class="headerlink" title="Azure Entra Identity グループに所属するメンバーのうち、一部のメンバーしかグループ チームに所属していない"></a>Azure Entra Identity グループに所属するメンバーのうち、一部のメンバーしかグループ チームに所属していない</h3><p>グループ チームを作成したタイミングと、実際に Dataverse 上のユーザーオブジェクトがグループに割り当てられるタイミングが異なることで、メンバーが一部しか所属していないように見えている可能性があります。<br>実際に、Dataverse 上のユーザーオブジェクトがグループに所属するのは、グループ チーム作成後、当該ユーザーが最初に環境のキャンバス アプリまたはモデル駆動アプリにアクセスしたタイミングです。<br>そのため、グループ チームを作成したあと、チームのメンバーを以下のように確認された際には、グループ チーム作成後にアプリにアクセスしたことのあるメンバーしか表示されません。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/image06-teamMember.png"></p>
-<p>チームのメンバーがアプリにアクセスしていくことで、いずれは全員がメンバーに追加されますので、ご安心ください。</p>
-<h3 id="ユーザーに対してロールが継承されていないように見える"><a href="#ユーザーに対してロールが継承されていないように見える" class="headerlink" title="ユーザーに対してロールが継承されていないように見える"></a>ユーザーに対してロールが継承されていないように見える</h3><p>Power Platform 管理センターまたはユーザーの設定画面で、ユーザーのセキュリティ ロールをご確認いただけますが、こちらの画面ではあくまでユーザー本人に対して直接割り当てられたセキュリティ ロールのみが表示されます。<br>そのためチームから継承されたロールをご確認いただくことができませんが、正しい手順を実施いただき、かつユーザーがアプリに既にアクセスしていれば、ユーザーに対してロールが継承されますので、ご安心ください。</p>
-<p>ユーザーに対して直接付与されたロールと継承されたロールの両方を確認されたい場合には、特定データのフォームを開いた上で上部リボンの「アクセス権の確認」を選択いただくことで、当該データに関連するユーザーのすべての権限をご確認いただくことが可能です。<br><img src="/blog/powerplatform/About-group-team-in-Dataverse/image05-accessCheck.png"></p>
-<h3 id="入れ子のAzure-Entra-Identity-グループにグループ-チームを作成する際の留意点について"><a href="#入れ子のAzure-Entra-Identity-グループにグループ-チームを作成する際の留意点について" class="headerlink" title="入れ子のAzure Entra Identity グループにグループ チームを作成する際の留意点について"></a>入れ子のAzure Entra Identity グループにグループ チームを作成する際の留意点について</h3><p>Azure Entra Identity グループが入れ子になっており、かつ親グループと紐づくグループ チームが作成された場合、子グループのメンバーもグループ チーム内に追加されます。<br>なお、<strong>「入れ子のうち子セキュリティグループのメンバーを環境に自動で追加したい・セキュリティ ロールを割り振りたい」</strong> というお問合せをよくいただきますが、現時点では子セキュリティ グループのメンバーは環境に自動追加されません。<br>環境にセキュリティグループを追加し、かつセキュリティ グループに子となるセキュリティ グループが存在する場合でも、子グループのメンバーは環境に事前に追加されません。<br>グループチームを作成した場合でも自動プロビジョニングされるわけではなく、ユーザーによるアクセスや管理者による追加が必要です。<br>なおグループチームを作成すると、チームに対してセキュリティロールを設定しておけるため、グループチームに紐づく子セキュリティグループのユーザーが環境にアクセスしたタイミングでチームに設定したセキュリティロール継承できる仕組みとなっております。</p>
-<p>(ご参考 : <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス</a>)</p>
-<div class="alert is-info"><p class="alert-title">Note</p><p>抜粋</p><p></p><p><em>入れ子のセキュリティ グループについて</em></p>
-<p><em>環境セキュリティ グループ内の入れ子のセキュリティ グループのメンバーは、事前にプロビジョニングされたり、 環境&gt;に自動的に追加されたりすることはありません。 ただし、入れ子のセキュリティ グループに Dataverse グループ チーム を作成すると、環境に追加できます。</em> </p>
-<p><em>このシナリオの例: 環境が作成されたときに、環境にセキュリティ グループを割り当てました。 環境のライフサイクルの間に、セキュリティ グループで管理されるメンバーを環境に追加します。 たとえばセキュリティ グループを Microsoft Entra ID マネージャーに作成し、すべてのマネージャー全員をそのグループに割り当てます。 次に、このセキュリティ グループを環境セキュリティ グループの子として追加し、Dataverse グループ チーム を作成して、セキュリティ ロールをグループ チームに割り当てます。 これで、マネージャーは Dataverse にすぐにアクセスできます。</em></p>
-<p><em>入れ子のセキュリティ グループのメンバーは、メンバーが初めて環境にアクセスしたときに、実行時に環境にも追加されます。 ただし、メンバーはセキュリティ ロール が割り当てられるまで、アプリケーションを実行したり、データにアクセスしたりすることはできません。</em></p></div>
-<h3 id="チーム経由のセキュリティロール付与に対応していない機能はありますか。"><a href="#チーム経由のセキュリティロール付与に対応していない機能はありますか。" class="headerlink" title="チーム経由のセキュリティロール付与に対応していない機能はありますか。"></a>チーム経由のセキュリティロール付与に対応していない機能はありますか。</h3><p>ほとんどの機能でチーム経由のセキュリティロール付与をサポートしていますが、一部の機能はサポートしておりません。  </p>
-<p>現時点でサポートしていないことを確認できているのは以下の２つの機能です。  </p>
+
+<p>本記事では、グループ チームの概要・作成手順と、サポートへよくお寄せいただくご質問についてまとめています。</p>
+<!-- no toc -->
 <ul>
-<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams#types-of-teams">環境ピッカー</a> - 所有者チームのセキュリティロールは継承されません。</li>
-<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/ai-conversations-create-app">Copilot in Power Apps</a> - セキュリティロールをユーザーに直接付与する必要がございます。</li>
+<li><a href="#team-types">Dataverse のチームの種類</a></li>
+<li><a href="#benefits">グループ チームのメリット</a></li>
+<li><a href="#create-group-team">グループ チームの作成手順</a></li>
+<li><a href="#assign-security-role">セキュリティ ロールの割り当て</a></li>
+<li><a href="#faq">よくあるお問い合わせ</a><ul>
+<li><a href="#membership-type">メンバーシップの種類について</a></li>
+<li><a href="#partial-members">グループ チームに一部のメンバーしか表示されない</a></li>
+<li><a href="#inherited-role-not-visible">チームから継承されたセキュリティ ロールが確認できない</a></li>
+<li><a href="#nested-group">入れ子の Microsoft Entra グループのメンバーが環境に自動追加されない</a></li>
+<li><a href="#unsupported-features">グループ チーム経由のセキュリティ ロールに対応していない機能</a></li>
 </ul>
-<h2 id="関連する公開情報"><a href="#関連する公開情報" class="headerlink" title="関連する公開情報"></a>関連する公開情報</h2><hr>
+</li>
+<li><a href="#references">関連する公開情報</a></li>
+</ul>
+<p><a id='team-types'></a></p>
+<h2 id="Dataverse-のチームの種類"><a href="#Dataverse-のチームの種類" class="headerlink" title="Dataverse のチームの種類"></a>Dataverse のチームの種類</h2><p>Dataverse には以下の 4 種類のチームがあります。Power Platform 管理センターの「チームの種類」ドロップダウンで選択できます。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>所有者</th>
+<th>アクセス</th>
+<th>Microsoft Entra ID セキュリティ グループ</th>
+<th>Microsoft Entra ID オフィス グループ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>セキュリティ ロールの割り当て</td>
+<td>可</td>
+<td>不可</td>
+<td>可</td>
+<td>可</td>
+</tr>
+<tr>
+<td>レコードの所有</td>
+<td>可</td>
+<td>不可</td>
+<td>可</td>
+<td>可</td>
+</tr>
+<tr>
+<td>Microsoft Entra グループとの連動</td>
+<td>なし</td>
+<td>なし</td>
+<td>あり</td>
+<td>あり</td>
+</tr>
+<tr>
+<td>メンバー管理</td>
+<td>手動</td>
+<td>手動</td>
+<td>自動同期</td>
+<td>自動同期</td>
+</tr>
+</tbody></table>
+<p>このうち「Microsoft Entra ID セキュリティ グループ」と「Microsoft Entra ID オフィス グループ」の 2 つが、本記事で扱う <strong>グループ チーム</strong> に該当します。現時点ではこの 2 種類のグループ チームに機能差はなく、紐づける Microsoft Entra ID グループの種類に応じて選択します。</p>
+<p><strong>所有者チーム</strong> は部署に紐づいて自動作成されるチームで、ユーザーを手動で追加してセキュリティ ロールを割り当てます。環境には最低 1 つの所有者チームが存在します。</p>
+<p><strong>アクセス チーム</strong> はセキュリティ ロールの割り当てやレコードの所有ができないチームです。チーム自体にレコードへのアクセス権を付与できるため、セキュリティ ロールに依存しない一時的なアクセス制御に利用されます。</p>
+<p><a id='benefits'></a></p>
+<h2 id="グループ-チームのメリット"><a href="#グループ-チームのメリット" class="headerlink" title="グループ チームのメリット"></a>グループ チームのメリット</h2><p>グループ チームを導入する主なメリットは以下の通りです。</p>
 <ul>
-<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チームの管理</a> : グループ チームを含め、Dataverse の各チームについてご案内しています。</li>
-<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams">グループ チームの管理</a> : グループ チームの概要、また作成・編集手順をご案内しています。</li>
+<li><strong>ユーザー管理の自動化</strong> : Microsoft Entra ID のグループにユーザーを追加・削除するだけで、Dataverse 環境へのアクセス権が自動的に反映されます。管理者が環境ごとにユーザーを個別に追加する必要はありません。</li>
+<li><strong>セキュリティ ロールの一括付与</strong> : グループ チームにセキュリティ ロールを割り当てておくことで、グループに所属するすべてのメンバーにロールが継承されます。「管理者グループにはシステム管理者ロール」「開発者グループには Environment Maker ロール」といった運用が可能です。</li>
+<li><strong>異動・退職時の自動反映</strong> : Microsoft Entra ID のグループからユーザーが削除されると、そのユーザーは Dataverse のグループ チームからも自動的に除外され、継承されていたセキュリティ ロールも失効します。</li>
 </ul>
-<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
-<p>以上、Azure Entra Identity グループ チームの概要、およびよくいただくお問合せについてご案内しました。<br>グループ チームを利用しない場合、ユーザーひとりひとりにアクセス権を付与する必要があるため、ユーザー数やセキュリティ ロール数が多い組織だと運用が煩雑になりがちです。<br>ぜひグループ チームを運用に導入いただき、効率的なユーザー管理にご活用ください！</p>
+<p><a id='create-group-team'></a></p>
+<h2 id="グループ-チームの作成手順"><a href="#グループ-チームの作成手順" class="headerlink" title="グループ チームの作成手順"></a>グループ チームの作成手順</h2><p>グループ チームは Power Platform 管理センターから作成します。</p>
+<ol>
+<li><p><a href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> にサインインし、対象環境の <strong>設定</strong> &gt; <strong>ユーザーとアクセス許可</strong> &gt; <strong>チーム</strong> を選択します。<br><img src="/blog/powerplatform/dataverse-group-team/ppac-settings-team.png"></p>
+</li>
+<li><p><strong>+ チームの作成</strong> を選択します。</p>
+</li>
+<li><p>各フィールドを入力します。</p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>入力内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>チーム名</td>
+<td>任意の名称 (部署内で一意)</td>
+</tr>
+<tr>
+<td>説明</td>
+<td>チームの用途などを記載</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>対象の部署を選択</td>
+</tr>
+<tr>
+<td>管理者</td>
+<td>チームの管理者となるユーザーを選択</td>
+</tr>
+<tr>
+<td>チームの種類</td>
+<td><strong>Microsoft Entra ID セキュリティ グループ</strong> または <strong>Microsoft Entra ID オフィス グループ</strong> を選択</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>チームの種類で上記いずれかを選択すると、以下の追加フィールドが表示されます。</p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>入力内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>グループ名</td>
+<td>紐づける Microsoft Entra ID グループを検索・選択</td>
+</tr>
+<tr>
+<td>メンバーシップの種類</td>
+<td>後述の <a href="#membership-type">メンバーシップの種類について</a> を参照</td>
+</tr>
+</tbody></table>
+<p><img src="/blog/powerplatform/dataverse-group-team/create-team-form.png"></p>
+</li>
+</ol>
+<p>チームを作成すると、紐づけた Microsoft Entra グループのメンバーが環境にアクセスしたタイミングで、自動的にグループ チームに追加されます。</p>
+<p><a id='assign-security-role'></a></p>
+<h2 id="セキュリティ-ロールの割り当て"><a href="#セキュリティ-ロールの割り当て" class="headerlink" title="セキュリティ ロールの割り当て"></a>セキュリティ ロールの割り当て</h2><p>作成したグループ チームにセキュリティ ロールを割り当てることで、メンバー全員にそのロールを継承させることができます。</p>
+<ol>
+<li>Power Platform 管理センターの <strong>チーム</strong> 一覧から対象のチームを選択します。</li>
+<li><strong>セキュリティ ロールの管理</strong> を選択します。</li>
+<li>割り当てるセキュリティ ロールを選択し、<strong>保存</strong> を選択します。<br><img src="/blog/powerplatform/dataverse-group-team/manage-security-roles.png"></li>
+</ol>
+<p><a id='faq'></a></p>
+<h2 id="よくあるお問い合わせ"><a href="#よくあるお問い合わせ" class="headerlink" title="よくあるお問い合わせ"></a>よくあるお問い合わせ</h2><p><a id='membership-type'></a></p>
+<h3 id="メンバーシップの種類について"><a href="#メンバーシップの種類について" class="headerlink" title="メンバーシップの種類について"></a>メンバーシップの種類について</h3><p>グループ チーム作成時に指定する「メンバーシップの種類」は、Microsoft Entra ID グループのどのメンバーを Dataverse のグループ チームに含めるかを決定します。</p>
+<table>
+<thead>
+<tr>
+<th>メンバーシップの種類</th>
+<th>対象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>メンバー</td>
+<td>グループのメンバー (ゲスト ユーザーを除く)</td>
+</tr>
+<tr>
+<td>ゲスト</td>
+<td>グループのゲスト ユーザーのみ</td>
+</tr>
+<tr>
+<td>メンバーとゲスト</td>
+<td>メンバーとゲスト ユーザーの両方</td>
+</tr>
+<tr>
+<td>所有者</td>
+<td>グループの所有者</td>
+</tr>
+</tbody></table>
+<p>一般的なユースケースでは、<strong>メンバー</strong> または <strong>メンバーとゲスト</strong> を選択するケースが多いです。<br>なお、メンバーシップの種類はグループ チーム作成後に変更できません。変更が必要な場合は、グループ チームを削除して再作成する必要があります。</p>
+<p><a id='partial-members'></a></p>
+<h3 id="グループ-チームに一部のメンバーしか表示されない"><a href="#グループ-チームに一部のメンバーしか表示されない" class="headerlink" title="グループ チームに一部のメンバーしか表示されない"></a>グループ チームに一部のメンバーしか表示されない</h3><p>これは想定される動作です。グループ チームのメンバー一覧には、<strong>実際に環境へアクセスしたユーザーのみ</strong> が表示されます。</p>
+<p>Microsoft Entra グループのメンバーであっても、まだ環境にアクセスしていないユーザーは一覧に表示されません。ユーザーが環境 (キャンバス アプリやモデル駆動アプリなど) に初めてアクセスした時点で、グループ チームに追加されます。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>グループ チームのメンバー一覧は、Microsoft Entra グループ全体のメンバーを表示するものではありません。環境にアクセス済みのユーザーのみが表示される仕様です。</p><p>(参考 : <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams#edit-a-group-team">グループ チームを編集する</a>)</p></div>
+<p><a id='inherited-role-not-visible'></a></p>
+<h3 id="チームから継承されたセキュリティ-ロールが確認できない"><a href="#チームから継承されたセキュリティ-ロールが確認できない" class="headerlink" title="チームから継承されたセキュリティ ロールが確認できない"></a>チームから継承されたセキュリティ ロールが確認できない</h3><p>Power Platform 管理センターのユーザー画面では、ユーザーに <strong>直接割り当てられた</strong> セキュリティ ロールのみが表示されます。グループ チーム経由で継承されたロールはこの画面には表示されませんが、グループ チームへのセキュリティ ロール割り当てとユーザーのグループ メンバーシップが正しく構成されていれば、ロールは正常に継承されています。</p>
+<p>グループ チームに割り当てられたセキュリティ ロールを確認するには、Power Platform 管理センターの <strong>チーム</strong> 一覧から対象のグループ チームを選択し、<strong>セキュリティ ロールの管理</strong> を参照してください。</p>
+<p><a id='nested-group'></a></p>
+<h3 id="入れ子の-Microsoft-Entra-グループのメンバーが環境に自動追加されない"><a href="#入れ子の-Microsoft-Entra-グループのメンバーが環境に自動追加されない" class="headerlink" title="入れ子の Microsoft Entra グループのメンバーが環境に自動追加されない"></a>入れ子の Microsoft Entra グループのメンバーが環境に自動追加されない</h3><p>環境セキュリティ グループ内に入れ子 (ネスト) されたセキュリティ グループのメンバーは、環境に事前プロビジョニングされません。これは仕様による動作です。</p>
+<p>ただし、入れ子のセキュリティ グループに対してグループ チームを作成し、セキュリティ ロールを割り当てておくことで、そのグループのメンバーが環境にアクセスしたタイミングで自動的にチームに追加され、セキュリティ ロールが継承されます。(参考 : <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">セキュリティ グループとライセンスで環境へのユーザーアクセスを制御する</a>)</p>
+<p><a id='unsupported-features'></a></p>
+<h3 id="グループ-チーム経由のセキュリティ-ロールに対応していない機能"><a href="#グループ-チーム経由のセキュリティ-ロールに対応していない機能" class="headerlink" title="グループ チーム経由のセキュリティ ロールに対応していない機能"></a>グループ チーム経由のセキュリティ ロールに対応していない機能</h3><p>ほとんどの機能でグループ チーム経由のセキュリティ ロール継承がサポートされていますが、一部対応していない機能があります。</p>
+<table>
+<thead>
+<tr>
+<th>機能</th>
+<th>制限事項</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams#types-of-teams">環境ピッカー</a></td>
+<td>Microsoft Entra グループ チームのメンバーであるユーザーと、セキュリティ ロールが直接割り当てられているユーザーのみが認識されます</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/ai-conversations-create-app">Copilot in Power Apps</a></td>
+<td>セキュリティ ロールをユーザーに直接付与する必要があります</td>
+</tr>
+</tbody></table>
+<p><a id='references'></a></p>
+<h2 id="関連する公開情報"><a href="#関連する公開情報" class="headerlink" title="関連する公開情報"></a>関連する公開情報</h2><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-teams">Microsoft Dataverse チーム管理</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-group-teams">グループ チームの管理</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/aad-group-team">Microsoft Entra ID グループ チームとの連携</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access">環境へのユーザー アクセスのコントロール</a></li>
+</ul>
 
       
       
@@ -243,7 +384,7 @@
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/About-group-team-in-Dataverse.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/dataverse-group-team.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -311,7 +452,7 @@
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
       <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/" rel="tag">重要な変更点 (廃止)</a></li></ul>  -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">31</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">40</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">15</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">10</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%87%8D%E8%A6%81%E3%81%AA%E5%A4%89%E6%9B%B4%E7%82%B9-%E5%BB%83%E6%AD%A2/">重要な変更点 (廃止)</a><span class="tag-list-count">1</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li></ul>
     </div>
   </div>
 
