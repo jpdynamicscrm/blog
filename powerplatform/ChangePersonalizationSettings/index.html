@@ -6,12 +6,12 @@
   
   <title>ユーザーの個人設定を管理者が変更する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの原です。 今回は、ユーザーの個人設定を管理者が変更する方法をご紹介いたします。 はじめに個人設定では、タイムゾーンを変更したり、レコードのリストの各ページに表示するレコード数を変更したり、言語や通貨を変更したりなど様々な設定が可能です。一方で、ユーザーの個人設定は通常、ユーザー個人でのみ変更が可能となっている項目であり、管理者にて一括で変更する標">
+  <meta name="description" content="こんにちは、Power Platform サポートの原です。 今回は、ユーザーの個人設定を管理者が変更する方法をご紹介いたします。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ユーザーの個人設定を管理者が変更する方法">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの原です。 今回は、ユーザーの個人設定を管理者が変更する方法をご紹介いたします。 はじめに個人設定では、タイムゾーンを変更したり、レコードのリストの各ページに表示するレコード数を変更したり、言語や通貨を変更したりなど様々な設定が可能です。一方で、ユーザーの個人設定は通常、ユーザー個人でのみ変更が可能となっている項目であり、管理者にて一括で変更する標">
+<meta property="og:description" content="こんにちは、Power Platform サポートの原です。 今回は、ユーザーの個人設定を管理者が変更する方法をご紹介いたします。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/2ndStep.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/4thStep.png">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/6thStep.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/finalStep.png">
 <meta property="article:published_time" content="2023-08-23T03:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-23T02:32:48.817Z">
+<meta property="article:modified_time" content="2026-03-25T23:53:03.443Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Governance">
 <meta property="article:tag" content="Power Platform">
@@ -166,13 +166,15 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+47e43f8e-7f99-55bc-a668-44053b9bf2ec%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E5%80%8B%E4%BA%BA%E8%A8%AD%E5%AE%9A%E3%82%92%E7%AE%A1%E7%90%86%E8%80%85%E3%81%8C%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FChangePersonalizationSettings%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FChangePersonalizationSettings.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FChangePersonalizationSettings.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/" data-id="cuidONZ1ncT0IjHx680nvkwfR" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/ChangePersonalizationSettings/" data-id="cuidwnKOgxFHCJlE9XJ6wihbf" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートの原です。</p>
 <p>今回は、ユーザーの個人設定を管理者が変更する方法をご紹介いたします。</p>
+<span id="more"></span>
+
 <h3 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h3><p>個人設定では、タイムゾーンを変更したり、レコードのリストの各ページに表示するレコード数を変更したり、言語や通貨を変更したりなど様々な設定が可能です。<br><br>一方で、ユーザーの個人設定は通常、ユーザー個人でのみ変更が可能となっている項目であり、管理者にて一括で変更する標準機能のご提供はございません。<br><br>ただし、代替案として以下に紹介する方法で、管理者が他ユーザーの個人設定を変更することが可能です。<br>また、これはあくまでユーザーの個人設定を管理者が変更する方法であり、既定値を変更するものではないことにご注意ください。<br></p>
 <p>なお、弊社検証環境では下記にご紹介する API にて、ユーザーの個人設定の一括変更が実行可能なことを確認しておりますが、<br>下記でご案内いたします XrmToolBox につきましては、サードパーティー製ツールでございますため、<br>本ツールをご利用いただく中でのエラーやご不明点に関しましては弊社からサポートをご提供することがかないません。<br><br>詳細な使用方法やエラーに対する対処は製品提供元へご確認いただく必要がございますことをご承知おきいただきますようお願い申し上げます。</p>
 <h3 id="XrmToolBox-を使用して変更する"><a href="#XrmToolBox-を使用して変更する" class="headerlink" title="XrmToolBox を使用して変更する"></a>XrmToolBox を使用して変更する</h3><ol>
@@ -317,7 +319,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">カテゴリ</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
     </div>
   </div>
 

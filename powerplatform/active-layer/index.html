@@ -6,12 +6,12 @@
   
   <title>アクティブレイヤーの確認・削除方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの早川です。 今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。 Power Apps や Power Automate を利用してアプリを作成していると、「アクティブレイヤーというものができてしまった」、「アプリが誰かの編集のせいで意図しない動作になっている」、「マネージドソリュー">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの早川です。 今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="アクティブレイヤーの確認・削除方法">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの早川です。 今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。 Power Apps や Power Automate を利用してアプリを作成していると、「アクティブレイヤーというものができてしまった」、「アプリが誰かの編集のせいで意図しない動作になっている」、「マネージドソリュー">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの早川です。 今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/solution-layer-diagram.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/display-solution-layer.png">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/localized-label-layer2.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/delete-active-layer.png">
 <meta property="article:published_time" content="2025-12-04T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-23T02:32:48.827Z">
+<meta property="article:modified_time" content="2026-03-25T23:53:03.453Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Dataverse">
 <meta property="article:tag" content="Dynamics">
@@ -172,22 +172,24 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+6978ff31-a5bd-5f12-9b11-36a173dd9fa2%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%BB%E5%89%8A%E9%99%A4%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Factive-layer%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Factive-layer.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Factive-layer.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/" data-id="cuidFQm6h2VbbUqdytoZGjlFT" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/active-layer/" data-id="cuidmyPxAIxhMn4mxaUN1T38r" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートチームの早川です。</p>
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>
-<p>Power Apps や Power Automate を利用してアプリを作成していると、<strong>「アクティブレイヤーというものができてしまった」</strong>、<br><strong>「アプリが誰かの編集のせいで意図しない動作になっている」</strong>、<strong>「マネージドソリューションで導入した変更が反映されない」</strong><br>といったトラブルに直面することがあります。<br>この記事では、Power Platform の「アクティブレイヤー」について、仕組み → 確認方法 → 削除手順 → 注意点の流れで解説します。   </p>
-<h2 id="ソリューションレイヤーとは何か？"><a href="#ソリューションレイヤーとは何か？" class="headerlink" title="ソリューションレイヤーとは何か？"></a>ソリューションレイヤーとは何か？</h2><p>Power Platform（特にモデル駆動型アプリ、テーブル、フォーム、ビューなど）のカスタマイズは、<br>レイヤー（層）構造で管理されています。<br>通常、あるコンポーネント（例：テーブルの列、フォーム、ビュー）は、  </p>
+<span id="more"></span>
+
+<p>Power Apps や Power Automate を利用してアプリを作成していると、<strong>「アクティブレイヤーというものができてしまった」</strong>、<br><strong>「アプリが誰かの編集のせいで意図しない動作になっている」</strong>、<strong>「マネージドソリューションで導入した変更が反映されない」</strong><br>といったトラブルに直面することがあります。<br>この記事では、Power Platform の「アクティブレイヤー」について、仕組み → 確認方法 → 削除手順 → 注意点の流れで解説します。</p>
+<h2 id="ソリューションレイヤーとは何か？"><a href="#ソリューションレイヤーとは何か？" class="headerlink" title="ソリューションレイヤーとは何か？"></a>ソリューションレイヤーとは何か？</h2><p>Power Platform（特にモデル駆動型アプリ、テーブル、フォーム、ビューなど）のカスタマイズは、<br>レイヤー（層）構造で管理されています。<br>通常、あるコンポーネント（例：テーブルの列、フォーム、ビュー）は、</p>
 <ul>
 <li>アンマネージドレイヤー（デフォルト）</li>
-<li>マネージドレイヤー内のマネージドソリューション  </li>
+<li>マネージドレイヤー内のマネージドソリューション</li>
 <li>マネージドレイヤー内のシステムソリューション<br>の順に積み上がっており、上位レイヤーのカスタマイズが実際の動作(ランタイム動作)として反映されます。</li>
 </ul>
-<p><img src="/blog/powerplatform/active-layer/solution-layer-diagram.png">   </p>
-<h2 id="アクティブレイヤー-ユーザーが加えたアンマネージド変更"><a href="#アクティブレイヤー-ユーザーが加えたアンマネージド変更" class="headerlink" title="アクティブレイヤー &#x3D; ユーザーが加えたアンマネージド変更"></a>アクティブレイヤー &#x3D; ユーザーが加えたアンマネージド変更</h2><p>アクティブレイヤーは上記図のアンマネージドレイヤーであり、<strong>環境で直接行ったカスタマイズと環境にインポートしたアンマネージドのソリューションを組み合わせたカスタマイズの層</strong>を指します。<br>アクティブレイヤーはマネージドレイヤーの上位に存在するため、アクティブレイヤーのカスタマイズはマネージドレイヤーのカスタマイズより優先され、<br>アクティブレイヤーがある場合、意図したカスタマイズが反映されないなどの問題が発生しえます。   </p>
+<p><img src="/blog/powerplatform/active-layer/solution-layer-diagram.png"></p>
+<h2 id="アクティブレイヤー-ユーザーが加えたアンマネージド変更"><a href="#アクティブレイヤー-ユーザーが加えたアンマネージド変更" class="headerlink" title="アクティブレイヤー &#x3D; ユーザーが加えたアンマネージド変更"></a>アクティブレイヤー &#x3D; ユーザーが加えたアンマネージド変更</h2><p>アクティブレイヤーは上記図のアンマネージドレイヤーであり、<strong>環境で直接行ったカスタマイズと環境にインポートしたアンマネージドのソリューションを組み合わせたカスタマイズの層</strong>を指します。<br>アクティブレイヤーはマネージドレイヤーの上位に存在するため、アクティブレイヤーのカスタマイズはマネージドレイヤーのカスタマイズより優先され、<br>アクティブレイヤーがある場合、意図したカスタマイズが反映されないなどの問題が発生しえます。</p>
 <h2 id="アクティブレイヤーの確認手順"><a href="#アクティブレイヤーの確認手順" class="headerlink" title="アクティブレイヤーの確認手順"></a>アクティブレイヤーの確認手順</h2><p>アクティブレイヤーは Power Apps の編集画面 から確認できます。</p>
 <p><strong>【確認手順】</strong><br>1.	Power Apps（make.powerapps.com）へアクセス<br>2.	左メニューから ［ソリューション］ を開く<br>3.	ソリューション一覧から対象のコンポーネントを含むソリューションを開く<br>4.	対象のコンポーネント（例：フォーム、ビュー、テーブルなど）右側にある三点リーダー(︙) をクリックし、「詳細」-&gt;「ソリューション レイヤーの表示」を選択</p>
 <p><img src="/blog/powerplatform/active-layer/display-solution-layer.png"></p>
@@ -217,23 +219,23 @@
 <p><img src="/blog/powerplatform/active-layer/localized-label-layer1.png"></p>
 <p><img src="/blog/powerplatform/active-layer/localized-label-layer2.png"></p>
 <h2 id="アクティブレイヤーの削除手順"><a href="#アクティブレイヤーの削除手順" class="headerlink" title="アクティブレイヤーの削除手順"></a>アクティブレイヤーの削除手順</h2><p>アクティブレイヤーは、ソリューションレイヤー画面から削除できます。</p>
-<p><strong>【削除方法】</strong><br>1.	ソリューションレイヤー一覧画面で Activeレイヤーを選択<br>2.	コマンドバーから 「アクティブなカスタマイズを削除する」 をクリック  </p>
-<p><img src="/blog/powerplatform/active-layer/delete-active-layer.png">  </p>
+<p><strong>【削除方法】</strong><br>1.	ソリューションレイヤー一覧画面で Activeレイヤーを選択<br>2.	コマンドバーから 「アクティブなカスタマイズを削除する」 をクリック</p>
+<p><img src="/blog/powerplatform/active-layer/delete-active-layer.png"></p>
 <ol start="3">
 <li>   確認ダイアログで 「削除」ボタンを押す</li>
 <li>   完了後、コンポーネントが下層レイヤーのマネージドソリューションの定義に戻る</li>
 </ol>
 <h3 id="アクティブレイヤーに関する注意点"><a href="#アクティブレイヤーに関する注意点" class="headerlink" title="アクティブレイヤーに関する注意点"></a>アクティブレイヤーに関する注意点</h3><ol>
-<li><p><strong>アクティブレイヤーの削除で現在の動作が変わる可能性がある</strong>  </p>
+<li><p><strong>アクティブレイヤーの削除で現在の動作が変わる可能性がある</strong></p>
 <p>アクティブレイヤーを削除すると下位のマネージドソリューションの動作に戻ります。</p>
 </li>
-<li><p><strong>アクティブレイヤーの内容を後から確認したい場合や、アクティブレイヤーを復旧したい場合にはバックアップを取る</strong>  </p>
-<p>削除する前に、現在のカスタマイズ内容をエクスポートしておくと安心です。 </p>
+<li><p><strong>アクティブレイヤーの内容を後から確認したい場合や、アクティブレイヤーを復旧したい場合にはバックアップを取る</strong></p>
+<p>削除する前に、現在のカスタマイズ内容をエクスポートしておくと安心です。</p>
 </li>
-<li><p><strong>アンマネージド環境の作業ルールが重要</strong>  </p>
+<li><p><strong>アンマネージド環境の作業ルールが重要</strong></p>
 <p>アクティブレイヤー発生の多くは、「誰かが環境を直接編集した」ことが原因です。<br>カスタマイズの運用ルールを決めておかないと、再びアクティブレイヤーが発生する可能性があります。</p>
 </li>
-<li><p><strong>マネージドソリューションとして管理するのがベスト</strong>  </p>
+<li><p><strong>マネージドソリューションとして管理するのがベスト</strong></p>
 <p>アクティブレイヤー問題を避けるためには、すべての変更をマネージドソリューションのインポートで適用するという原則が最も重要です。</p>
 </li>
 </ol>
@@ -358,7 +360,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">カテゴリ</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
     </div>
   </div>
 

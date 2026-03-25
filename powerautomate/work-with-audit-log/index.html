@@ -6,12 +6,12 @@
   
   <title>クラウド フローで Microsoft Purview の監査ログを取得する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの清水です。今回は、よくお問い合わせをいただく題材の一つとして、クラウド フローを使用して、Microsoft Purview の監査ログを取得する方法について紹介します。   2023 年 10 月現時点では、監査ログを取得できるようなコネクタ・アクションは存在しないため、監査ログを取得するには、Office 365 Management API">
+  <meta name="description" content="こんにちは、Power Platform サポートの清水です。今回は、よくお問い合わせをいただく題材の一つとして、クラウド フローを使用して、Microsoft Purview の監査ログを取得する方法について紹介します。 2023 年 10 月現時点では、監査ログを取得できるようなコネクタ・アクションは存在しないため、監査ログを取得するには、Office 365 Management API を">
 <meta property="og:type" content="article">
 <meta property="og:title" content="クラウド フローで Microsoft Purview の監査ログを取得する方法">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの清水です。今回は、よくお問い合わせをいただく題材の一つとして、クラウド フローを使用して、Microsoft Purview の監査ログを取得する方法について紹介します。   2023 年 10 月現時点では、監査ログを取得できるようなコネクタ・アクションは存在しないため、監査ログを取得するには、Office 365 Management API">
+<meta property="og:description" content="こんにちは、Power Platform サポートの清水です。今回は、よくお問い合わせをいただく題材の一つとして、クラウド フローを使用して、Microsoft Purview の監査ログを取得する方法について紹介します。 2023 年 10 月現時点では、監査ログを取得できるようなコネクタ・アクションは存在しないため、監査ログを取得するには、Office 365 Management API を">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/enrolled-app-property.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/secret.png">
@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/create-file.png">
 <meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/flow.png">
 <meta property="article:published_time" content="2023-11-13T07:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-23T02:32:48.768Z">
+<meta property="article:modified_time" content="2026-03-25T23:53:03.394Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Cloud flow">
 <meta property="article:tag" content="Office 365 Management API">
@@ -192,62 +192,64 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+544ab6fd-aa1e-520f-ba0f-6ff4f96a053a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7+Microsoft+Purview+%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fwork-with-audit-log%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fwork-with-audit-log.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fwork-with-audit-log.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/" data-id="cuidfSxPtV8vBzTKlCKEEpI-2" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/work-with-audit-log/" data-id="cuid-hxbMaMtdPfFbA2oOPZTK" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートの清水です。<br>今回は、よくお問い合わせをいただく題材の一つとして、クラウド フローを使用して、Microsoft Purview の監査ログを取得する方法について紹介します。  </p>
-<p>2023 年 10 月現時点では、監査ログを取得できるようなコネクタ・アクションは存在しないため、監査ログを取得するには、<a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/">Office 365 Management API</a> を使用する必要があります。<br>少し複雑なフローになりますが、最後までお付き合いいただければと思います。  </p>
-<h2 id="必要なライセンスについて"><a href="#必要なライセンスについて" class="headerlink" title="必要なライセンスについて"></a>必要なライセンスについて</h2><p>プレミアム コネクタを使用するフローとなりますので、有償ライセンスが必要です。<br>以下のいずれかのライセンス&#x2F;環境があれば、フローを実行可能です。  </p>
+        <p>こんにちは、Power Platform サポートの清水です。<br>今回は、よくお問い合わせをいただく題材の一つとして、クラウド フローを使用して、Microsoft Purview の監査ログを取得する方法について紹介します。</p>
+<p>2023 年 10 月現時点では、監査ログを取得できるようなコネクタ・アクションは存在しないため、監査ログを取得するには、<a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/">Office 365 Management API</a> を使用する必要があります。<br>少し複雑なフローになりますが、最後までお付き合いいただければと思います。</p>
+<span id="more"></span>
+
+<h2 id="必要なライセンスについて"><a href="#必要なライセンスについて" class="headerlink" title="必要なライセンスについて"></a>必要なライセンスについて</h2><p>プレミアム コネクタを使用するフローとなりますので、有償ライセンスが必要です。<br>以下のいずれかのライセンス&#x2F;環境があれば、フローを実行可能です。</p>
 <ul>
-<li>Power Automate Premium (※ 旧名: Power Automate per user with attended RPA)  </li>
+<li>Power Automate Premium (※ 旧名: Power Automate per user with attended RPA)</li>
 <li>Power Automate Process</li>
 <li>Power Automate per user (※ 2023&#x2F;8&#x2F;1~ レガシー)</li>
 <li>Power Automate per flow (※ 2023&#x2F;8&#x2F;1~ レガシー)</li>
 <li>従量課金制環境</li>
 </ul>
 <h2 id="必要な権限について"><a href="#必要な権限について" class="headerlink" title="必要な権限について"></a>必要な権限について</h2><p>Office 365 Management API を使用するために必要なアクセス許可を付与する際、テナント管理者の同意が必要となります。<br>同意の付与には、グローバル管理者の権限が必要です。</p>
-<h2 id="手順の概要"><a href="#手順の概要" class="headerlink" title="手順の概要"></a>手順の概要</h2><p>フローは大きく 7 つのステップで構成されます。  </p>
+<h2 id="手順の概要"><a href="#手順の概要" class="headerlink" title="手順の概要"></a>手順の概要</h2><p>フローは大きく 7 つのステップで構成されます。</p>
 <ol start="0">
-<li>事前準備<br>Office 365 Management API を使用する準備として、Microsoft Entra ID へのアプリケーションの登録およびアクセス許可の付与などを行います。<br>ここでは Power Automate は使用いたしません。  </li>
-<li>事前準備で取得したパラメータを変数に格納  </li>
-<li>Office 365 Management API で既存のサブスクリプションの確認<br>監査ログを API から取得するために、まずはサブスクリプションを開始する必要があります。<br>既に開始済みで有効な状態であれば、サブスクリプションを新しく開始する必要はないので、本ステップでは、既存のサブスクリプションがあるかどうかを確認します。  </li>
-<li>(既存のサブスクリプションが存在しない場合) Office 365 Management API でサブスクリプションの開始<br>手順 1 で既存のサブスクリプションの一覧を取得したので、目的のサブスクリプションがないか、無効な状態の場合には、サブスクリプションを開始します。  </li>
+<li>事前準備<br>Office 365 Management API を使用する準備として、Microsoft Entra ID へのアプリケーションの登録およびアクセス許可の付与などを行います。<br>ここでは Power Automate は使用いたしません。</li>
+<li>事前準備で取得したパラメータを変数に格納</li>
+<li>Office 365 Management API で既存のサブスクリプションの確認<br>監査ログを API から取得するために、まずはサブスクリプションを開始する必要があります。<br>既に開始済みで有効な状態であれば、サブスクリプションを新しく開始する必要はないので、本ステップでは、既存のサブスクリプションがあるかどうかを確認します。</li>
+<li>(既存のサブスクリプションが存在しない場合) Office 365 Management API でサブスクリプションの開始<br>手順 1 で既存のサブスクリプションの一覧を取得したので、目的のサブスクリプションがないか、無効な状態の場合には、サブスクリプションを開始します。</li>
 <li>Office 365 Management API でコンテンツ リストの取得<br>コンテンツ (監査ログ) 自体を取得するために、まずは取得可能なコンテンツ リストを取得する必要があります。<br>このコンテンツ リストで得られた値を使用して、後続のステップでコンテンツ自体を取得していきます。</li>
-<li>Office 365 Management API でコンテンツの取得<br>コンテンツを取得し、変数に格納していきます。  </li>
+<li>Office 365 Management API でコンテンツの取得<br>コンテンツを取得し、変数に格納していきます。</li>
 <li>CSVファイルの作成・保存<br>CSV ファイルを作成し、クラウド ストレージに保存したら完了です。</li>
 </ol>
-<p>それでは、詳細な手順について見ていきましょう。  </p>
-<h2 id="0-事前準備"><a href="#0-事前準備" class="headerlink" title="0. 事前準備"></a>0. 事前準備</h2><p><strong>0-1．アプリの登録</strong><br>Office 365 Management API の利用を開始するため、<a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#register-your-application-in-azure-ad">Office 365 Management API の使用を開始する</a> の下記の箇所を実施してください。  </p>
+<p>それでは、詳細な手順について見ていきましょう。</p>
+<h2 id="0-事前準備"><a href="#0-事前準備" class="headerlink" title="0. 事前準備"></a>0. 事前準備</h2><p><strong>0-1．アプリの登録</strong><br>Office 365 Management API の利用を開始するため、<a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#register-your-application-in-azure-ad">Office 365 Management API の使用を開始する</a> の下記の箇所を実施してください。</p>
 <ul>
-<li><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#use-the-azure-portal-to-register-your-application-in-azure-ad">Azure Portal を使用してアプリケーションを Microsoft Entra ID に登録する</a><br>※リダイレクト URI は空のまま作成します。  </li>
-<li><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#generate-a-new-key-for-your-application">アプリケーションの新しいキーを生成する</a> </li>
+<li><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#use-the-azure-portal-to-register-your-application-in-azure-ad">Azure Portal を使用してアプリケーションを Microsoft Entra ID に登録する</a><br>※リダイレクト URI は空のまま作成します。</li>
+<li><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#generate-a-new-key-for-your-application">アプリケーションの新しいキーを生成する</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/get-started-with-office-365-management-apis#specify-the-permissions-your-app-requires-to-access-the-office-365-management-apis">アプリが Office 365 Management APIにアクセスするために必要な許可を指定します。</a><br>※今回は HTTP コネクタを使用するため、手順 3 では「b. アプリケーションのアクセス許可」を選択してください。</li>
 </ul>
-<p>手順の完了後、フローで使用する以下 3 つの値を控えておきます。  </p>
+<p>手順の完了後、フローで使用する以下 3 つの値を控えておきます。</p>
 <ul>
-<li>アプリケーション (クライアント) ID  </li>
+<li>アプリケーション (クライアント) ID</li>
 <li>ディレクトリ (テナント) ID<br><img src="/blog/powerautomate/work-with-audit-log/enrolled-app-property.png" alt="アプリの概要"></li>
 <li>作成したシークレットの値<br><img src="/blog/powerautomate/work-with-audit-log/secret.png" alt="シークレットの値"></li>
 </ul>
-<p><strong>0-2．Office 365 Management API のエンドポイントの確認</strong><br>Office 365 Management API のエンドポイントを以下から確認します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#activity-api-operations">アクティビティ API の操作</a>  </p>
-<p>今回使用する検証用のテナントでは、パブリック クラウドを使用しているため、”Enterprise プラン” の URL を使用します。  </p>
+<p><strong>0-2．Office 365 Management API のエンドポイントの確認</strong><br>Office 365 Management API のエンドポイントを以下から確認します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#activity-api-operations">アクティビティ API の操作</a></p>
+<p>今回使用する検証用のテナントでは、パブリック クラウドを使用しているため、”Enterprise プラン” の URL を使用します。</p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://manage.office.com/api/v1.0/&#123;tenant_id&#125;/activity/feed/&#123;operation&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>{tenant_id}</code> 部分には、ご使用のテナント ID を指定します。  </li>
+<li><code>{tenant_id}</code> 部分には、ご使用のテナント ID を指定します。</li>
 <li><code>{operation}</code> 部分には、これから使用する API の “パス” を指定します。</li>
 </ul>
-<p><strong>0-3．Office 365 Management API のコンテンツタイプの確認</strong><br>このフローで取得したい監査ログの種類を以下から確認します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api">Office 365 管理アクティビティ API の操作</a>  </p>
-<p>本ブログでは、<code>Audit.AzureActiveDirectory</code> を対象とすることとします。  </p>
-<h2 id="1-事前準備で取得したパラメータをフローの変数に格納"><a href="#1-事前準備で取得したパラメータをフローの変数に格納" class="headerlink" title="1. 事前準備で取得したパラメータをフローの変数に格納"></a>1. 事前準備で取得したパラメータをフローの変数に格納</h2><p>ここからフローの作成に入っていきます。  </p>
-<p><strong>1-1．トリガーを決定し、フローを一から作成</strong><br>今回は日次でログを取得することにしたいので、繰り返しトリガーを選択します。<br>トリガーの設定は要件に合わせてご設定ください。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/trigger.png" alt="trigger">  </p>
+<p><strong>0-3．Office 365 Management API のコンテンツタイプの確認</strong><br>このフローで取得したい監査ログの種類を以下から確認します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api">Office 365 管理アクティビティ API の操作</a></p>
+<p>本ブログでは、<code>Audit.AzureActiveDirectory</code> を対象とすることとします。</p>
+<h2 id="1-事前準備で取得したパラメータをフローの変数に格納"><a href="#1-事前準備で取得したパラメータをフローの変数に格納" class="headerlink" title="1. 事前準備で取得したパラメータをフローの変数に格納"></a>1. 事前準備で取得したパラメータをフローの変数に格納</h2><p>ここからフローの作成に入っていきます。</p>
+<p><strong>1-1．トリガーを決定し、フローを一から作成</strong><br>今回は日次でログを取得することにしたいので、繰り返しトリガーを選択します。<br>トリガーの設定は要件に合わせてご設定ください。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/trigger.png" alt="trigger"></p>
 <p><strong>1-2．事前準備で取得した 5 つの値を変数に格納</strong><br>変数コネクタ「変数を初期化する」アクションを 5 つフローに追加し、それぞれ以下のように設定します。</p>
 <ul>
 <li>テナント ID</li>
 </ul>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-tenantid.png" alt="変数を初期化-テナント ID">  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-tenantid.png" alt="変数を初期化-テナント ID"></p>
 <table>
 <thead>
 <tr>
@@ -271,7 +273,7 @@
 <ul>
 <li>クライアント ID</li>
 </ul>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-clientid.png" alt="変数を初期化-クライアント ID">  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-clientid.png" alt="変数を初期化-クライアント ID"></p>
 <table>
 <thead>
 <tr>
@@ -295,7 +297,7 @@
 <ul>
 <li>シークレット</li>
 </ul>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-secret.png" alt="変数を初期化-シークレット">  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-secret.png" alt="変数を初期化-シークレット"></p>
 <table>
 <thead>
 <tr>
@@ -319,7 +321,7 @@
 <ul>
 <li>エンドポイント</li>
 </ul>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-endpoint.png" alt="変数を初期化-エンドポイント">  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-endpoint.png" alt="変数を初期化-エンドポイント"></p>
 <table>
 <thead>
 <tr>
@@ -343,7 +345,7 @@
 <ul>
 <li>コンテンツタイプ</li>
 </ul>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contenttype.png" alt="変数を初期化-コンテンツタイプ">  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contenttype.png" alt="変数を初期化-コンテンツタイプ"></p>
 <table>
 <thead>
 <tr>
@@ -364,10 +366,10 @@
 <td>0-3 で取得した「コンテンツ タイプ」<br>例: <code>Audit.AzureActiveDirectory</code></td>
 </tr>
 </tbody></table>
-<h2 id="2．Office-365-Management-API-で既存のサブスクリプションの確認"><a href="#2．Office-365-Management-API-で既存のサブスクリプションの確認" class="headerlink" title="2．Office 365 Management API で既存のサブスクリプションの確認"></a>2．Office 365 Management API で既存のサブスクリプションの確認</h2><p>監査ログを API から取得するために、まずはサブスクリプションを開始する必要があります。<br>既に開始済みで有効な状態であれば、サブスクリプションを新しく開始する必要はないので、本ステップでは、既存のサブスクリプションがあるかどうかを確認します。  </p>
-<p>ここでは、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#list-current-subscriptions">現在のサブスクリプションのリストの作成</a>  </p>
-<p><strong>2-1．サブスクリプション リストの作成</strong><br>HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-list-subscriptions.png" alt="HTTPアクション-サブスクリプションリストを確認">  </p>
+<h2 id="2．Office-365-Management-API-で既存のサブスクリプションの確認"><a href="#2．Office-365-Management-API-で既存のサブスクリプションの確認" class="headerlink" title="2．Office 365 Management API で既存のサブスクリプションの確認"></a>2．Office 365 Management API で既存のサブスクリプションの確認</h2><p>監査ログを API から取得するために、まずはサブスクリプションを開始する必要があります。<br>既に開始済みで有効な状態であれば、サブスクリプションを新しく開始する必要はないので、本ステップでは、既存のサブスクリプションがあるかどうかを確認します。</p>
+<p>ここでは、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#list-current-subscriptions">現在のサブスクリプションのリストの作成</a></p>
+<p><strong>2-1．サブスクリプション リストの作成</strong><br>HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-list-subscriptions.png" alt="HTTPアクション-サブスクリプションリストを確認"></p>
 <table>
 <thead>
 <tr>
@@ -408,15 +410,15 @@
 <td>動的なコンテンツ &gt; <code>secret</code></td>
 </tr>
 </tbody></table>
-<p>まずはここまででフローを実行してみましょう。<br>フローの実行が成功し、下図赤枠のような出力が得られました。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-list-subscriptions-result.png" alt="HTTPアクション-サブスクリプションリストの確認結果">  </p>
-<p>詳しく見てみると、以下のような JSON が出力されています。  </p>
+<p>まずはここまででフローを実行してみましょう。<br>フローの実行が成功し、下図赤枠のような出力が得られました。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-list-subscriptions-result.png" alt="HTTPアクション-サブスクリプションリストの確認結果"></p>
+<p>詳しく見てみると、以下のような JSON が出力されています。</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Audit.General&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;enabled&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webhook&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Audit.SharePoint&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;enabled&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webhook&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-<p><code>Audit.General</code> と <code>Audit.SharePoint</code> のサブスクリプションがリストされていて、どちらも status が <code>enabled</code> になっていますね。<br><code>Audit.General</code> と <code>Audit.SharePoint</code> のコンテンツタイプのサブスクリプションは有効のようですが、今回取得したい <code>Audit.AzureActiveDirectory</code> については開始されていないようなので、次のステップで追加していきます。  </p>
-<h2 id="3-既存のサブスクリプションが存在しない場合-Office-365-Management-API-でサブスクリプションの開始"><a href="#3-既存のサブスクリプションが存在しない場合-Office-365-Management-API-でサブスクリプションの開始" class="headerlink" title="3. (既存のサブスクリプションが存在しない場合) Office 365 Management API でサブスクリプションの開始"></a>3. (既存のサブスクリプションが存在しない場合) Office 365 Management API でサブスクリプションの開始</h2><p>まずは、既存のサブスクリプションが存在するかどうかを「条件」アクションでチェックします。  </p>
-<p>条件の結果が「はい」の場合、既存の有効なサブスクリプションが存在しないので、Office 365 Management API を使用して、新たにサブスクリプションを開始します。<br>ここでは、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#start-a-subscription">サブスクリプションの開始</a>  </p>
-<p><strong>3-1. 既存の有効なサブスクリプションを抽出</strong><br>データ操作コネクタ「アレイのフィルター処理」アクションを追加し、以下のように設定します。<br>以下のアクションでは、<code>HTTP | サブスクリプションリストを確認</code> アクションの出力から、status が <code>enabled</code> かつ contentType が <code>contentType 変数の値</code> に等しいオブジェクトのみを抽出します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/filter-array.png" alt="アレイのフィルター処理">  </p>
+<p><code>Audit.General</code> と <code>Audit.SharePoint</code> のサブスクリプションがリストされていて、どちらも status が <code>enabled</code> になっていますね。<br><code>Audit.General</code> と <code>Audit.SharePoint</code> のコンテンツタイプのサブスクリプションは有効のようですが、今回取得したい <code>Audit.AzureActiveDirectory</code> については開始されていないようなので、次のステップで追加していきます。</p>
+<h2 id="3-既存のサブスクリプションが存在しない場合-Office-365-Management-API-でサブスクリプションの開始"><a href="#3-既存のサブスクリプションが存在しない場合-Office-365-Management-API-でサブスクリプションの開始" class="headerlink" title="3. (既存のサブスクリプションが存在しない場合) Office 365 Management API でサブスクリプションの開始"></a>3. (既存のサブスクリプションが存在しない場合) Office 365 Management API でサブスクリプションの開始</h2><p>まずは、既存のサブスクリプションが存在するかどうかを「条件」アクションでチェックします。</p>
+<p>条件の結果が「はい」の場合、既存の有効なサブスクリプションが存在しないので、Office 365 Management API を使用して、新たにサブスクリプションを開始します。<br>ここでは、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#start-a-subscription">サブスクリプションの開始</a></p>
+<p><strong>3-1. 既存の有効なサブスクリプションを抽出</strong><br>データ操作コネクタ「アレイのフィルター処理」アクションを追加し、以下のように設定します。<br>以下のアクションでは、<code>HTTP | サブスクリプションリストを確認</code> アクションの出力から、status が <code>enabled</code> かつ contentType が <code>contentType 変数の値</code> に等しいオブジェクトのみを抽出します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/filter-array.png" alt="アレイのフィルター処理"></p>
 <table>
 <thead>
 <tr>
@@ -433,8 +435,8 @@
 <td>[詳細設定モードで編集] をクリック &gt; 下式を入力 <br> <code>@and(equals(item()?[&#39;status&#39;], &#39;enabled&#39;), equals(item()?[&#39;contentType&#39;], variables(&#39;contentType&#39;)))</code></td>
 </tr>
 </tbody></table>
-<p><strong>3-2．既存の有効なサブスクリプションが存在するかどうかを判定</strong><br>コントロールコネクタ「条件」アクションを追加し、以下のように設定します。<br>以下のアクションでは、<code>アレイのフィルター処理</code> アクションの出力が空かどうかを判定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/condition.png" alt="条件">  </p>
+<p><strong>3-2．既存の有効なサブスクリプションが存在するかどうかを判定</strong><br>コントロールコネクタ「条件」アクションを追加し、以下のように設定します。<br>以下のアクションでは、<code>アレイのフィルター処理</code> アクションの出力が空かどうかを判定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/condition.png" alt="条件"></p>
 <table>
 <thead>
 <tr>
@@ -455,8 +457,8 @@
 <td>式 &gt; <code>true</code></td>
 </tr>
 </tbody></table>
-<p><strong>3-3．サブスクリプションの開始</strong><br><code>はいの場合</code> 内にHTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-start-subscription.png" alt="HTTPアクション-サブスクリプションを開始">  </p>
+<p><strong>3-3．サブスクリプションの開始</strong><br><code>はいの場合</code> 内にHTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-start-subscription.png" alt="HTTPアクション-サブスクリプションを開始"></p>
 <table>
 <thead>
 <tr>
@@ -501,11 +503,11 @@
 <td>動的なコンテンツ &gt; <code>secret</code></td>
 </tr>
 </tbody></table>
-<h2 id="4-Office-365-Management-API-でコンテンツリストの取得"><a href="#4-Office-365-Management-API-でコンテンツリストの取得" class="headerlink" title="4. Office 365 Management API でコンテンツリストの取得"></a>4. Office 365 Management API でコンテンツリストの取得</h2><p>無事サブスクリプションが開始できたので、続いて、目的のコンテンツ タイプで現在取得できるコンテンツ一覧を取得します。<br>ここでは、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#list-available-content">利用可能なコンテンツのリストの作成</a>  </p>
-<p>API のリファレンスを読むと、取得したいコンテンツの時間範囲をパラメータとして指定できるようですが、時間範囲は 24 時間以内とするよう推奨されています。<br>そのため、本フローでは、フロー実行日の前日 24 時間分のコンテンツを取得するよう設定します。  </p>
+<h2 id="4-Office-365-Management-API-でコンテンツリストの取得"><a href="#4-Office-365-Management-API-でコンテンツリストの取得" class="headerlink" title="4. Office 365 Management API でコンテンツリストの取得"></a>4. Office 365 Management API でコンテンツリストの取得</h2><p>無事サブスクリプションが開始できたので、続いて、目的のコンテンツ タイプで現在取得できるコンテンツ一覧を取得します。<br>ここでは、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#list-available-content">利用可能なコンテンツのリストの作成</a></p>
+<p>API のリファレンスを読むと、取得したいコンテンツの時間範囲をパラメータとして指定できるようですが、時間範囲は 24 時間以内とするよう推奨されています。<br>そのため、本フローでは、フロー実行日の前日 24 時間分のコンテンツを取得するよう設定します。</p>
 <p>また、本 API では、改ページが発生する可能性があるようです。<br>大量の監査ログが存在する場合に、改ページの処理を行わないと、全てのデータが取得できない恐れがあるため、Do until アクションを使用して、改ページへの対応も行っていきます。</p>
-<p><strong>4-1．startTime を前日の 00:00 JST (UTC: 15:00) に指定</strong><br>変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-startTime.png" alt="変数を初期化-startTime">  </p>
+<p><strong>4-1．startTime を前日の 00:00 JST (UTC: 15:00) に指定</strong><br>変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-startTime.png" alt="変数を初期化-startTime"></p>
 <table>
 <thead>
 <tr>
@@ -526,8 +528,8 @@
 <td><code>@{addDays(convertFromUtc(utcNow(), &#39;Tokyo Standard Time&#39;), -2, &#39;yyyy-MM-dd&#39;)}</code>T15:00:00Z</td>
 </tr>
 </tbody></table>
-<p><strong>4-2．endTime を前日の 23：59 JST (UTC: 14:59) に指定</strong><br>変数コネクタ - 変数を初期化するアクションを追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-endTime.png" alt="変数を初期化-endTime">  </p>
+<p><strong>4-2．endTime を前日の 23：59 JST (UTC: 14:59) に指定</strong><br>変数コネクタ - 変数を初期化するアクションを追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-endTime.png" alt="変数を初期化-endTime"></p>
 <table>
 <thead>
 <tr>
@@ -548,8 +550,8 @@
 <td><code>@{addDays(convertFromUtc(utcNow(), &#39;Tokyo Standard Time&#39;), -1, &#39;yyyy-MM-dd&#39;)}</code>T14:59:59Z</td>
 </tr>
 </tbody></table>
-<p><strong>4-3．配列変数を 2 つ用意</strong><br>監査ログの取得結果を格納するための変数を事前に用意します。<br>変数コネクタ「変数を初期化する」アクションを 2 つフローに追加し、それぞれ以下のように設定します。   </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contents.png" alt="変数を初期化-contents">  </p>
+<p><strong>4-3．配列変数を 2 つ用意</strong><br>監査ログの取得結果を格納するための変数を事前に用意します。<br>変数コネクタ「変数を初期化する」アクションを 2 つフローに追加し、それぞれ以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contents.png" alt="変数を初期化-contents"></p>
 <table>
 <thead>
 <tr>
@@ -570,7 +572,7 @@
 <td>空欄のまま</td>
 </tr>
 </tbody></table>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contentsAll.png" alt="変数を初期化-contentsAll">  </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contentsAll.png" alt="変数を初期化-contentsAll"></p>
 <table>
 <thead>
 <tr>
@@ -591,8 +593,8 @@
 <td>空欄のまま</td>
 </tr>
 </tbody></table>
-<p><strong>4-4．改ページに対応するための変数と繰り返しアクションを用意</strong><br>変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。<br>ここでは、コンテンツリストを取得するための URI を変数に格納します。リファレンスに従って設定してください。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contentslisturi.png" alt="変数を初期化-contentsListUri">  </p>
+<p><strong>4-4．改ページに対応するための変数と繰り返しアクションを用意</strong><br>変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。<br>ここでは、コンテンツリストを取得するための URI を変数に格納します。リファレンスに従って設定してください。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/init-variable-contentslisturi.png" alt="変数を初期化-contentsListUri"></p>
 <table>
 <thead>
 <tr>
@@ -614,7 +616,7 @@
 </tr>
 </tbody></table>
 <p>コントロールコネクタ「Do until」アクションを追加し、以下のように設定します。</p>
-<p><img src="/blog/powerautomate/work-with-audit-log/dountil.png" alt="Do until">    </p>
+<p><img src="/blog/powerautomate/work-with-audit-log/dountil.png" alt="Do until"></p>
 <table>
 <thead>
 <tr>
@@ -635,8 +637,8 @@
 <td><a href="https://manage.office.com/">https://manage.office.com/</a></td>
 </tr>
 </tbody></table>
-<p><strong>4-5．コンテンツリストの取得</strong><br>Do until 内で HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-content.png" alt="HTTPアクション-コンテンツリストの取得">  </p>
+<p><strong>4-5．コンテンツリストの取得</strong><br>Do until 内で HTTP コネクタ「HTTP」アクションをフローに追加し、API のリファレンスに従って、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-content.png" alt="HTTPアクション-コンテンツリストの取得"></p>
 <table>
 <thead>
 <tr>
@@ -677,18 +679,18 @@
 <td>動的なコンテンツ &gt; <code>secret</code></td>
 </tr>
 </tbody></table>
-<p>さて、ここまでで一度フローを実行してみましょう。  </p>
-<p>フローが正常に実行され、<code>HTTP | コンテンツリストの作成</code> アクションまで正常に完了しました。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-content-result.png" alt="コンテンツリストの作成結果">  </p>
-<p>さらに「HTTP | コンテンツリストの作成」アクションの本文を詳しく見てみると、以下のようなデータが取得されています。  </p>
+<p>さて、ここまでで一度フローを実行してみましょう。</p>
+<p>フローが正常に実行され、<code>HTTP | コンテンツリストの作成</code> アクションまで正常に完了しました。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-content-result.png" alt="コンテンツリストの作成結果"></p>
+<p>さらに「HTTP | コンテンツリストの作成」アクションの本文を詳しく見てみると、以下のようなデータが取得されています。</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;contentUri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://manage.office.com/api/v1.0/&#123;tenantID&#125;/activity/feed/audit/20231016001037495037203$20231016005646231021586$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20231016001037495037203$20231016005646231021586$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Audit.AzureActiveDirectory&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentCreated&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2023-10-16T00:56:46.231Z&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentExpiration&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2023-10-23T00:10:37.495Z&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;contentUri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://manage.office.com/api/v1.0/&#123;tenantID&#125;/activity/feed/audit/20231016010437450010083$20231016044336610021746$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20231016010437450010083$20231016044336610021746$audit_azureactivedirectory$Audit_AzureActiveDirectory$jpn0016&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Audit.AzureActiveDirectory&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentCreated&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2023-10-16T04:43:36.610Z&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;contentExpiration&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2023-10-23T00:10:37.495Z&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    …</span><br></pre></td></tr></table></figure>
 
-<p>このデータをどう活用していくのかを確認するために、Office 365 Management API のリファレンスを見てみると、上記のコンテンツ リストに含まれる <code>contentUri</code> に対して GET 要求を行うことで、コンテンツ (&#x3D;アクションまたはイベントのコレクション) が取得できるようです。  </p>
-<p>そこで、次のアクションでは、コンテンツリスト内の各 contentUri に対して GET 要求を行っていきます。  </p>
-<h2 id="5-Office-365-Management-API-でコンテンツの取得"><a href="#5-Office-365-Management-API-でコンテンツの取得" class="headerlink" title="5. Office 365 Management API でコンテンツの取得"></a>5. Office 365 Management API でコンテンツの取得</h2><p>コンテンツの取得には、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#retrieving-content">コンテンツの取得</a>  </p>
-<p>リファレンスの “応答のサンプル” を見てみると、一つの contentUri に対して GET 要求を行うと、配列形式で複数のコンテンツが返却されるようです。<br>今回は、複数の contentUri に対して繰り返し GET 要求を行い、得られた配列を 1 つの CSV に出力したいので、事前に CSV 作成のための変数を用意しておき、各 contentUri から得られた配列は変数に格納していくこととします。<br>Power Automate の「変数の設定」アクションでは、自己参照ができないため、配列を結合しながら CSV にまとめていくために、手順 4-3 で 2 つの変数を用意しています。  </p>
-<p><strong>5-1．GET 要求を繰り返すためのループアクションを作成</strong><br>Do until 内でコントロールコネクタ「Apply to each」アクションをフローに追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/apply-to-each.png" alt="Apply to each">  </p>
+<p>このデータをどう活用していくのかを確認するために、Office 365 Management API のリファレンスを見てみると、上記のコンテンツ リストに含まれる <code>contentUri</code> に対して GET 要求を行うことで、コンテンツ (&#x3D;アクションまたはイベントのコレクション) が取得できるようです。</p>
+<p>そこで、次のアクションでは、コンテンツリスト内の各 contentUri に対して GET 要求を行っていきます。</p>
+<h2 id="5-Office-365-Management-API-でコンテンツの取得"><a href="#5-Office-365-Management-API-でコンテンツの取得" class="headerlink" title="5. Office 365 Management API でコンテンツの取得"></a>5. Office 365 Management API でコンテンツの取得</h2><p>コンテンツの取得には、以下の API を使用します。<br><a href="https://learn.microsoft.com/ja-jp/office/office-365-management-api/office-365-management-activity-api-reference#retrieving-content">コンテンツの取得</a></p>
+<p>リファレンスの “応答のサンプル” を見てみると、一つの contentUri に対して GET 要求を行うと、配列形式で複数のコンテンツが返却されるようです。<br>今回は、複数の contentUri に対して繰り返し GET 要求を行い、得られた配列を 1 つの CSV に出力したいので、事前に CSV 作成のための変数を用意しておき、各 contentUri から得られた配列は変数に格納していくこととします。<br>Power Automate の「変数の設定」アクションでは、自己参照ができないため、配列を結合しながら CSV にまとめていくために、手順 4-3 で 2 つの変数を用意しています。</p>
+<p><strong>5-1．GET 要求を繰り返すためのループアクションを作成</strong><br>Do until 内でコントロールコネクタ「Apply to each」アクションをフローに追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/apply-to-each.png" alt="Apply to each"></p>
 <table>
 <thead>
 <tr>
@@ -701,8 +703,8 @@
 <td>動的なコンテンツ &gt; <code>HTTP | コンテンツリストの作成</code> &gt; <code>本文</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-2．コンテンツの取得</strong><br>Apply to each 内で HTTP コネクタ「HTTP」アクションを追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/http-contents.png" alt="HTTP-コンテンツの取得">  </p>
+<p><strong>5-2．コンテンツの取得</strong><br>Apply to each 内で HTTP コネクタ「HTTP」アクションを追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/http-contents.png" alt="HTTP-コンテンツの取得"></p>
 <table>
 <thead>
 <tr>
@@ -743,7 +745,7 @@
 <td>動的なコンテンツ &gt; <code>secret</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-3．contentsAll 変数の値を一時的に contents 変数に退避</strong><br>Apply to each 内で変数コネクタ「変数の設定」アクションを追加し、以下のように設定します。  </p>
+<p><strong>5-3．contentsAll 変数の値を一時的に contents 変数に退避</strong><br>Apply to each 内で変数コネクタ「変数の設定」アクションを追加し、以下のように設定します。</p>
 <p><img src="/blog/powerautomate/work-with-audit-log/set-variable-contents.png" alt="変数の設定-contents"></p>
 <table>
 <thead>
@@ -761,8 +763,8 @@
 <td>動的なコンテンツ &gt; <code>変数</code> &gt; <code>contentsAll</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-4．contents 変数の値と「HTTP | コンテンツの取得」アクションの本文を結合して contentsAll に格納</strong><br>Apply to each 内で変数コネクタ「変数の設定」アクションを追加し、以下のように設定します。<br>配列の結合には、<a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#union"><code>union</code> 関数</a> を使用します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-contentsall.png" alt="変数の設定-contentsall">  </p>
+<p><strong>5-4．contents 変数の値と「HTTP | コンテンツの取得」アクションの本文を結合して contentsAll に格納</strong><br>Apply to each 内で変数コネクタ「変数の設定」アクションを追加し、以下のように設定します。<br>配列の結合には、<a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#union"><code>union</code> 関数</a> を使用します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-contentsall.png" alt="変数の設定-contentsall"></p>
 <table>
 <thead>
 <tr>
@@ -779,8 +781,8 @@
 <td>式 &gt; <code>union(json(body(&#39;HTTP_|_コンテンツの取得&#39;)), variables(&#39;contents&#39;))</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-5．「HTTP | コンテンツリストの作成」のヘッダーに NextPageUri があるかを確認</strong><br>Do until 内でコントロールコネクタ「条件」アクションを追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/condition2.png" alt="条件">  </p>
+<p><strong>5-5．「HTTP | コンテンツリストの作成」のヘッダーに NextPageUri があるかを確認</strong><br>Do until 内でコントロールコネクタ「条件」アクションを追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/condition2.png" alt="条件"></p>
 <table>
 <thead>
 <tr>
@@ -801,8 +803,8 @@
 <td>式 &gt; <code>Null</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-6．NextPageUri が存在する場合、contentsListUri 変数を NextPageUri で更新</strong><br><code>はいの場合</code> 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-nextpageuri.png" alt="変数の設定-NextPageUri">  </p>
+<p><strong>5-6．NextPageUri が存在する場合、contentsListUri 変数を NextPageUri で更新</strong><br><code>はいの場合</code> 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-nextpageuri.png" alt="変数の設定-NextPageUri"></p>
 <table>
 <thead>
 <tr>
@@ -819,8 +821,8 @@
 <td>式 &gt; <code>outputs(&#39;HTTP_|_コンテンツリストの作成&#39;)[&#39;headers&#39;]?[&#39;NextPageUri&#39;]</code></td>
 </tr>
 </tbody></table>
-<p><strong>5-7．NextPageUri が存在しない場合、contentsListUri 変数を 0 で更新</strong><br><code>いいえの場合</code> 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-no-nextpageuri.png" alt="変数の設定-NextPageUri">  </p>
+<p><strong>5-7．NextPageUri が存在しない場合、contentsListUri 変数を 0 で更新</strong><br><code>いいえの場合</code> 内に変数コネクタ「変数の設定」アクションをフローに追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/set-variable-no-nextpageuri.png" alt="変数の設定-NextPageUri"></p>
 <table>
 <thead>
 <tr>
@@ -837,9 +839,9 @@
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id="6-CSVファイルの作成・保存"><a href="#6-CSVファイルの作成・保存" class="headerlink" title="6. CSVファイルの作成・保存"></a>6. CSVファイルの作成・保存</h2><p>これで監査ログの値を全て取得できたので、最後に CSV を作成してクラウド ストレージに保存します。  </p>
-<p><strong>6-1．CSV ファイルの作成</strong><br>データ操作コネクタ「CSV テーブルの作成」アクションを追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/create-csv-table.png" alt="CSVテーブルの作成">  </p>
+<h2 id="6-CSVファイルの作成・保存"><a href="#6-CSVファイルの作成・保存" class="headerlink" title="6. CSVファイルの作成・保存"></a>6. CSVファイルの作成・保存</h2><p>これで監査ログの値を全て取得できたので、最後に CSV を作成してクラウド ストレージに保存します。</p>
+<p><strong>6-1．CSV ファイルの作成</strong><br>データ操作コネクタ「CSV テーブルの作成」アクションを追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/create-csv-table.png" alt="CSVテーブルの作成"></p>
 <table>
 <thead>
 <tr>
@@ -852,8 +854,8 @@
 <td>動的なコンテンツ &gt; <code>変数</code> &gt; <code>contentsAll</code></td>
 </tr>
 </tbody></table>
-<p><strong>6-2．CSV ファイルの保存</strong><br>今回は SharePoint のドキュメントライブラリに保存しますが、こちらはアクションの一例ですので、任意のストレージに保存してください。<br>SharePoint コネクタ「ファイルの作成」アクションを追加し、以下のように設定します。  </p>
-<p><img src="/blog/powerautomate/work-with-audit-log/create-file.png" alt="CSVファイルの保存">  </p>
+<p><strong>6-2．CSV ファイルの保存</strong><br>今回は SharePoint のドキュメントライブラリに保存しますが、こちらはアクションの一例ですので、任意のストレージに保存してください。<br>SharePoint コネクタ「ファイルの作成」アクションを追加し、以下のように設定します。</p>
+<p><img src="/blog/powerautomate/work-with-audit-log/create-file.png" alt="CSVファイルの保存"></p>
 <table>
 <thead>
 <tr>
@@ -878,8 +880,8 @@
 <td>動的なコンテンツ &gt; <code>CSV テーブルの作成</code> &gt; <code>出力</code></td>
 </tr>
 </tbody></table>
-<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>長大なフローになりましたので、最後にフローの全体像を貼っておきます。<br>全体の構成に誤りがないか、以下のキャプチャと見比べて確認してみてください。  </p>
-<p>今回は <code>Audit.AzureActiveDirectory</code> のコンテンツ タイプを対象に API を実行しましたが、SharePoint など他のコンテンツ タイプについても同じ構成のフローで実行できますので、ぜひカスタマイズして便利なフローを作ってみてください。  </p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>長大なフローになりましたので、最後にフローの全体像を貼っておきます。<br>全体の構成に誤りがないか、以下のキャプチャと見比べて確認してみてください。</p>
+<p>今回は <code>Audit.AzureActiveDirectory</code> のコンテンツ タイプを対象に API を実行しましたが、SharePoint など他のコンテンツ タイプについても同じ構成のフローで実行できますので、ぜひカスタマイズして便利なフローを作ってみてください。</p>
 <p><img src="/blog/powerautomate/work-with-audit-log/flow.png" alt="フロー全体像"></p>
 <h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>Power Automate のテンプレートギャラリーには、”<a href="https://make.powerautomate.com/galleries/public/templates/4a7ea95259f1404e95855f6b053360b1/office-365-%E3%81%AE%E7%9B%A3%E6%9F%BB%E3%83%AD%E3%82%B0%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E7%9B%A3%E8%A6%96%E3%81%97%E3%81%A6%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E3%82%92%E9%80%81%E4%BF%A1">Office 365 の監査ログで特定の詳細を監視してアラートを送信</a>“ というテンプレートがありますが、こちらは古い API を使用しているため、現時点では使用が推奨されておりません。<br>監査ログの取得については、Office 365 Management API でのフローの作成をご検討ください。</p>
 
@@ -995,7 +997,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">カテゴリ</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
     </div>
   </div>
 
