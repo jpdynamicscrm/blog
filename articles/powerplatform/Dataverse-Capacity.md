@@ -7,7 +7,7 @@ tags:
   - Dataverse ストレージ
 
 categories:
-  - [Power Platform]
+  - [Power Platform Admin Center]
   - [Dataverse]
 ---
 
@@ -17,6 +17,8 @@ categories:
 本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。<br>
 なお、Dataverse ストレージの基本的な考え方や Dataverse ストレージ超過時の影響などは、過去に公開させて頂いた後述の記事をご参考にしていただけますと幸いです。<br>
 参考情報 : [Dataverse のストレージ容量について](https://jpdynamicscrm.github.io/blog/powerplatform/About-Dataverse-Storage/)
+
+<!-- more -->
 
 <h2 id="content">目次</h2>
   

@@ -16,6 +16,8 @@ categories:
 Dynamics 365 で使用される Dataverse と Outlook のメール サーバーである Exchange サーバーを同期させることで、予定、連絡先、およびタスクを Dynamics 365 と Outlook でシームレスに連携することができます。
 本記事では、Dataverse と Exchange Online のサーバー側同期についてご案内いたします。
 
+<!-- more -->
+
 <h2 id="content">目次</h2>
 
 - [Power Platform 環境へのメールボックスの同期](#sync-mailbox-to-power-platform-environment)
