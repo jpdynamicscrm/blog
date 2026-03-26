@@ -4,6 +4,9 @@ date: 2026-02-10 12:00
 tags:
   - Power Platform
   - Dataverse
+categories:
+  - [Dataverse]
+  - [Power Platform Admin Center]
 ---
 
 ## はじめに
