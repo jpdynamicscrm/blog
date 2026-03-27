@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-03-26T03:07:36.510Z</updated>
+  <updated>2026-03-27T09:17:21.910Z</updated>
   <entry>
     <author>
       <name>
@@ -54,7 +54,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-03-26T03:07:36.510Z</updated>
+    <updated>2026-03-27T09:17:21.910Z</updated>
   </entry>
   <entry>
     <author>
@@ -84,7 +84,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-03-26T03:07:36.461Z</updated>
+    <updated>2026-03-27T09:17:21.861Z</updated>
   </entry>
   <entry>
     <author>
@@ -116,7 +116,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-03-26T03:07:36.396Z</updated>
+    <updated>2026-03-27T09:17:21.795Z</updated>
   </entry>
   <entry>
     <author>
@@ -139,7 +139,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-03-26T03:07:36.526Z</updated>
+    <updated>2026-03-27T09:17:21.927Z</updated>
   </entry>
   <entry>
     <author>
@@ -172,7 +172,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-03-26T03:07:36.510Z</updated>
+    <updated>2026-03-27T09:17:21.910Z</updated>
   </entry>
   <entry>
     <author>
@@ -205,7 +205,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-03-26T03:07:36.463Z</updated>
+    <updated>2026-03-27T09:17:21.863Z</updated>
   </entry>
   <entry>
     <author>
@@ -235,7 +235,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-03-26T03:07:36.185Z</updated>
+    <updated>2026-03-27T09:17:21.580Z</updated>
   </entry>
   <entry>
     <author>
@@ -259,7 +259,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-03-26T03:07:36.463Z</updated>
+    <updated>2026-03-27T09:17:21.863Z</updated>
   </entry>
   <entry>
     <author>
@@ -288,7 +288,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-03-26T03:07:36.463Z</updated>
+    <updated>2026-03-27T09:17:21.863Z</updated>
   </entry>
   <entry>
     <author>
@@ -316,7 +316,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-03-26T03:07:36.451Z</updated>
+    <updated>2026-03-27T09:17:21.851Z</updated>
   </entry>
   <entry>
     <author>
@@ -340,7 +340,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-03-26T03:07:36.354Z</updated>
+    <updated>2026-03-27T09:17:21.752Z</updated>
   </entry>
   <entry>
     <author>
@@ -371,7 +371,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-03-26T03:07:36.398Z</updated>
+    <updated>2026-03-27T09:17:21.796Z</updated>
   </entry>
   <entry>
     <author>
@@ -400,7 +400,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-03-26T03:07:36.277Z</updated>
+    <updated>2026-03-27T09:17:21.674Z</updated>
   </entry>
   <entry>
     <author>
@@ -423,7 +423,7 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-03-26T03:07:36.508Z</updated>
+    <updated>2026-03-27T09:17:21.909Z</updated>
   </entry>
   <entry>
     <author>
@@ -435,7 +435,7 @@
     <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
     <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/tags/Microsoft-Copilot-Studio/"/>
     <content>
-      <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p><span id="more"></span><h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Copilot Studioでエージェントを作成できるユーザーに、どのような権限が必要なのかを解説します。</p><p>ご留意点として、Copilot Studio は 2025 年 9 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際にご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。</p><h2 id="Copilot-Studioでエージェント作成に必要な権限とは？"><a href="#Copilot-Studioでエージェント作成に必要な権限とは？" class="headerlink" title="Copilot Studioでエージェント作成に必要な権限とは？"></a>Copilot Studioでエージェント作成に必要な権限とは？</h2><p>Copilot Studio でエージェントを作成するには、ユーザーに <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license">Copilot Studio へのアクセス権</a>と、対象環境でリソースを作成するための<a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles">セキュリティロール</a>が割り当てられている必要があります。<br>この2つの権限が揃っていないと、エージェントの作成や管理ができません。</p><h3 id="Copilot-Studio-へのアクセス権"><a href="#Copilot-Studio-へのアクセス権" class="headerlink" title="Copilot Studio へのアクセス権"></a>Copilot Studio へのアクセス権</h3><p>Copilot Studio ポータルにアクセスするためには、ユーザーに以下のいずれかのライセンスまたはロールが必要です。<br>※以下のいずれかに該当するとアクセスできるようになります。</p><ul><li>Copilot Studio ユーザーライセンス</li><li>Copilot Studio 試用版ライセンス</li><li>Microsoft 365 Copilot ライセンス</li><li>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール（※）<blockquote><p>※ 重量課金のみのライセンスでエージェントを作成する際に必要なロールです。<br>詳細は<a href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E3%81%AE%E8%A9%B3%E7%B4%B0">アクセス権の詳細</a>で説明します。</p></blockquote></li></ul><h3 id="対象環境でリソースを作成するためのセキュリティロール"><a href="#対象環境でリソースを作成するためのセキュリティロール" class="headerlink" title="対象環境でリソースを作成するためのセキュリティロール"></a>対象環境でリソースを作成するためのセキュリティロール</h3><p>エージェントを作成するためには、エージェントを作成する環境に対してセキュリティロールが必要となります。<br>リソースを作成するために必要なセキュリティロールは以下になります。</p><ul><li>環境作成者</li><li>システムカスタマイザー</li><li>システム管理者</li></ul><blockquote><p>※ 詳細は公開情報を参照ください。<br><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role">https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role</a></p></blockquote><h2 id="アクセス権の詳細"><a href="#アクセス権の詳細" class="headerlink" title="アクセス権の詳細"></a>アクセス権の詳細</h2><h3 id="Copilot-Studio-ユーザーライセンス"><a href="#Copilot-Studio-ユーザーライセンス" class="headerlink" title="Copilot Studio ユーザーライセンス"></a>Copilot Studio ユーザーライセンス</h3><p>Copilot Studio メッセージパックに含まれるライセンスで、<a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web#assign-licenses-to-users">Microsoft 365 管理センター等から付与</a>することができます。<br>Copilot Studio の使用権が含まれています。</p><h3 id="Copilot-Studio-試用版ライセンス"><a href="#Copilot-Studio-試用版ライセンス" class="headerlink" title="Copilot Studio 試用版ライセンス"></a>Copilot Studio 試用版ライセンス</h3><p><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/sign-up-individual">ユーザーがセルフサービスサインアップで取得できる</a>期間限定のライセンスです。<br>有償ライセンスを購入いただく前のお試し用として、Copilot Studio ユーザーライセンスと同じ機能が利用できます。</p><h3 id="Microsoft-365-Copilot-ライセンス"><a href="#Microsoft-365-Copilot-ライセンス" class="headerlink" title="Microsoft 365 Copilot ライセンス"></a>Microsoft 365 Copilot ライセンス</h3><p>Copilot Studio を通じて <a href="https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-overview">Microsoft 365 Copilot</a> を拡張することができるため、Microsoft 365 Copilot ライセンスを持つユーザーは Copilot Studio を利用することができます。  </p><p><a href="https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-setup#step-2---provision-microsoft-365-copilot-licenses">Microsoft 365 管理センター等から付与</a>することができます。　<br>Copilot Studio だけなく、Microsoft 365 Copilot の使用権が含まれています。</p><div class="alert is-important"><p class="alert-title">重要</p><p>Copilot Studio にアクセスさせるためには、「Copilot Studio in Copilot for M365」サービスを有効にする必要があります。</p><p><img src="/blog/copilotstudio/how-to-block-access-mcsportal/m365copilot.png"></p></div><h3 id="Power-Platform-管理センター-テナント設定の「Copilot-Studio-作成者」ロール"><a href="#Power-Platform-管理センター-テナント設定の「Copilot-Studio-作成者」ロール" class="headerlink" title="Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール"></a>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール</h3><p>従量課金環境のみを利用して Copilot Studio を利用するユーザー向けに用意された機能が「Copilot Studio 作成者」機能です。<br>他のユーザーに付与するライセンスと異なり、ユーザーごとにライセンスを付与する必要はありません。<br>Copilot Studio でエージェントを作成したいユーザーをセキュリティグループに追加し、Copilot Studio へのアクセスを許可します。</p><p>作成手順</p><ol><li>Azure ポータルでセキュリティグループを作成します。</li><li>Copilot Studio へのアクセスを許可したいユーザーをセキュリティグループに追加します。<br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/securitygroup.png"></li><li><a href="https://admin.powerplatform.microsoft.com/manage/tenantsettings">Power Platform 管理センターのテナント設定</a>を開きます。</li><li>「Copilot Studio 作成者」を選択し、作成したセキュリティグループを設定します。<br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/tenant_setting.png"></li></ol><h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。"><a href="#テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。" class="headerlink" title="テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。"></a>テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。</h3><p>いいえ、「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーも、ユーザーライセンスを持っていれば Copilot Studio にアクセスできます。</p><h3 id="Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか"><a href="#Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか" class="headerlink" title="Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか"></a>Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか</h3><p>はい、利用できます。エージェントの利用者は、Copilot Studio にアクセスできる必要はありません。<br>ただし、Teams やカスタム Web サイトなど、エージェントを公開した場所にアクセスできる必要がございます。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/c2licensing.png"></p><h3 id="環境ごとにエージェントの作成を制限することはできますか"><a href="#環境ごとにエージェントの作成を制限することはできますか" class="headerlink" title="環境ごとにエージェントの作成を制限することはできますか"></a>環境ごとにエージェントの作成を制限することはできますか</h3><p>現時点では、エージェントの作成を制御するための機能はありません。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/control.png"></p><p>ただし、既定環境以外の環境では、 [対象環境でリソースを作成するためのセキュリティロール]を付与しないことで、環境へのアクセスを制御することが可能です。</p><div class="alert is-info"><p class="alert-title">Note</p><p>※ 既定環境では、「環境作成者」ロールが自動付与されるため、アクセスを制御することはできません。</p></div>]]>
+      <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p><span id="more"></span><h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Copilot Studioでエージェントを作成できるユーザーに、どのような権限が必要なのかを解説します。</p><p>ご留意点として、Copilot Studio は 2025 年 9 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際にご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。</p><h2 id="Copilot-Studioでエージェント作成に必要な権限とは？"><a href="#Copilot-Studioでエージェント作成に必要な権限とは？" class="headerlink" title="Copilot Studioでエージェント作成に必要な権限とは？"></a>Copilot Studioでエージェント作成に必要な権限とは？</h2><p>Copilot Studio でエージェントを作成するには、ユーザーに <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license">Copilot Studio へのアクセス権</a>と、対象環境でリソースを作成するための<a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles">セキュリティロール</a>が割り当てられている必要があります。<br>この2つの権限が揃っていないと、エージェントの作成や管理ができません。</p><h3 id="Copilot-Studio-へのアクセス権"><a href="#Copilot-Studio-へのアクセス権" class="headerlink" title="Copilot Studio へのアクセス権"></a>Copilot Studio へのアクセス権</h3><p>Copilot Studio ポータルにアクセスするためには、ユーザーに以下のいずれかのライセンスまたはロールが必要です。<br>※以下のいずれかに該当するとアクセスできるようになります。</p><ul><li>Copilot Studio ユーザーライセンス</li><li>Copilot Studio 試用版ライセンス</li><li>Microsoft 365 Copilot ライセンス</li><li>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール（※）<blockquote><p>※ 従量課金のみのライセンスでエージェントを作成する際に必要なロールです。<br>詳細は<a href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E3%81%AE%E8%A9%B3%E7%B4%B0">アクセス権の詳細</a>で説明します。</p></blockquote></li></ul><h3 id="対象環境でリソースを作成するためのセキュリティロール"><a href="#対象環境でリソースを作成するためのセキュリティロール" class="headerlink" title="対象環境でリソースを作成するためのセキュリティロール"></a>対象環境でリソースを作成するためのセキュリティロール</h3><p>エージェントを作成するためには、エージェントを作成する環境に対してセキュリティロールが必要となります。<br>リソースを作成するために必要なセキュリティロールは以下になります。</p><ul><li>環境作成者</li><li>システムカスタマイザー</li><li>システム管理者</li></ul><blockquote><p>※ 詳細は公開情報を参照ください。<br><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role">https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role</a></p></blockquote><h2 id="アクセス権の詳細"><a href="#アクセス権の詳細" class="headerlink" title="アクセス権の詳細"></a>アクセス権の詳細</h2><h3 id="Copilot-Studio-ユーザーライセンス"><a href="#Copilot-Studio-ユーザーライセンス" class="headerlink" title="Copilot Studio ユーザーライセンス"></a>Copilot Studio ユーザーライセンス</h3><p>Copilot Studio メッセージパックに含まれるライセンスで、<a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web#assign-licenses-to-users">Microsoft 365 管理センター等から付与</a>することができます。<br>Copilot Studio の使用権が含まれています。</p><h3 id="Copilot-Studio-試用版ライセンス"><a href="#Copilot-Studio-試用版ライセンス" class="headerlink" title="Copilot Studio 試用版ライセンス"></a>Copilot Studio 試用版ライセンス</h3><p><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/sign-up-individual">ユーザーがセルフサービスサインアップで取得できる</a>期間限定のライセンスです。<br>有償ライセンスを購入いただく前のお試し用として、Copilot Studio ユーザーライセンスと同じ機能が利用できます。</p><h3 id="Microsoft-365-Copilot-ライセンス"><a href="#Microsoft-365-Copilot-ライセンス" class="headerlink" title="Microsoft 365 Copilot ライセンス"></a>Microsoft 365 Copilot ライセンス</h3><p>Copilot Studio を通じて <a href="https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-overview">Microsoft 365 Copilot</a> を拡張することができるため、Microsoft 365 Copilot ライセンスを持つユーザーは Copilot Studio を利用することができます。  </p><p><a href="https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-setup#step-2---provision-microsoft-365-copilot-licenses">Microsoft 365 管理センター等から付与</a>することができます。　<br>Copilot Studio だけなく、Microsoft 365 Copilot の使用権が含まれています。</p><div class="alert is-important"><p class="alert-title">重要</p><p>Copilot Studio にアクセスさせるためには、「Copilot Studio in Copilot for M365」サービスを有効にする必要があります。</p><p><img src="/blog/copilotstudio/how-to-block-access-mcsportal/m365copilot.png"></p></div><h3 id="Power-Platform-管理センター-テナント設定の「Copilot-Studio-作成者」ロール"><a href="#Power-Platform-管理センター-テナント設定の「Copilot-Studio-作成者」ロール" class="headerlink" title="Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール"></a>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール</h3><p>従量課金環境のみを利用して Copilot Studio を利用するユーザー向けに用意された機能が「Copilot Studio 作成者」機能です。<br>他のユーザーに付与するライセンスと異なり、ユーザーごとにライセンスを付与する必要はありません。<br>Copilot Studio でエージェントを作成したいユーザーをセキュリティグループに追加し、Copilot Studio へのアクセスを許可します。</p><p>作成手順</p><ol><li>Azure ポータルでセキュリティグループを作成します。</li><li>Copilot Studio へのアクセスを許可したいユーザーをセキュリティグループに追加します。<br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/securitygroup.png"></li><li><a href="https://admin.powerplatform.microsoft.com/manage/tenantsettings">Power Platform 管理センターのテナント設定</a>を開きます。</li><li>「Copilot Studio 作成者」を選択し、作成したセキュリティグループを設定します。<br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/tenant_setting.png"></li></ol><h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。"><a href="#テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。" class="headerlink" title="テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。"></a>テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。</h3><p>いいえ、「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーも、ユーザーライセンスを持っていれば Copilot Studio にアクセスできます。</p><h3 id="Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか"><a href="#Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか" class="headerlink" title="Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか"></a>Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか</h3><p>はい、利用できます。エージェントの利用者は、Copilot Studio にアクセスできる必要はありません。<br>ただし、Teams やカスタム Web サイトなど、エージェントを公開した場所にアクセスできる必要がございます。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/c2licensing.png"></p><h3 id="環境ごとにエージェントの作成を制限することはできますか"><a href="#環境ごとにエージェントの作成を制限することはできますか" class="headerlink" title="環境ごとにエージェントの作成を制限することはできますか"></a>環境ごとにエージェントの作成を制限することはできますか</h3><p>現時点では、エージェントの作成を制御するための機能はありません。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/control.png"></p><p>ただし、既定環境以外の環境では、 [対象環境でリソースを作成するためのセキュリティロール]を付与しないことで、環境へのアクセスを制御することが可能です。</p><div class="alert is-info"><p class="alert-title">Note</p><p>※ 既定環境では、「環境作成者」ロールが自動付与されるため、アクセスを制御することはできません。</p></div>]]>
     </content>
     <id>https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/</id>
     <link href="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/"/>
@@ -444,7 +444,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
     </summary>
     <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-03-26T03:07:36.247Z</updated>
+    <updated>2026-03-27T09:17:21.644Z</updated>
   </entry>
   <entry>
     <author>
@@ -466,7 +466,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポート チームの三田です。<br>本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。</p>]]>
     </summary>
     <title>Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</title>
-    <updated>2026-03-26T03:07:36.523Z</updated>
+    <updated>2026-03-27T09:17:21.924Z</updated>
   </entry>
   <entry>
     <author>
@@ -488,7 +488,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate で Teams コネクタを使う際に改行を反映する方法</title>
-    <updated>2026-03-26T03:07:36.314Z</updated>
+    <updated>2026-03-27T09:17:21.711Z</updated>
   </entry>
   <entry>
     <author>
@@ -513,7 +513,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では、Dataflow のトラブルシューティングにあたって、必要となる情報の取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Dataflow お問い合わせの際の情報取得手順</title>
-    <updated>2026-03-26T03:07:36.272Z</updated>
+    <updated>2026-03-27T09:17:21.669Z</updated>
   </entry>
   <entry>
     <author>
@@ -537,7 +537,7 @@
 <p>本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。<br><br>なお、Dataverse ストレージの基本的な考え方や Dataverse ストレージ超過時の影響などは、過去に公開させて頂いた後述の記事をご参考にしていただけますと幸いです。<br><br>参考情報 : <a href="https://jpdynamicscrm.github.io/blog/powerplatform/About-Dataverse-Storage/">Dataverse のストレージ容量について</a></p>]]>
     </summary>
     <title>Dataverse Capacity について</title>
-    <updated>2026-03-26T03:07:36.443Z</updated>
+    <updated>2026-03-27T09:17:21.842Z</updated>
   </entry>
   <entry>
     <author>
@@ -559,6 +559,6 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの竹内です。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) で作成したエージェントを Microsoft Teams (以降 Teams) に公開する方法についてご案内致します。</p>]]>
     </summary>
     <title>Copilot Studio のエージェントを Teams に公開する方法</title>
-    <updated>2026-03-26T03:07:36.210Z</updated>
+    <updated>2026-03-27T09:17:21.606Z</updated>
   </entry>
 </feed>
