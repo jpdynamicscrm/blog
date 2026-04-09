@@ -1,6 +1,6 @@
 ---
 title: メールボックスの承認・テストと有効化の自動化について
-date: 
+date: 2023-08-02 00:00:00
 tags:
   - Dynamics
   - Environment
@@ -20,6 +20,8 @@ categories:
 そのため、ご確認いただく中で何か問題があった場合は、基本的には以下の New Issue より、Github 経由で問題を報告いただく必要がございます。
 予めご了承いただきますようお願いいたします。
 URL:https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell/issues
+
+<!-- more -->
 
 ## はじめに
 Dynamics 365では、Dynamics 365と Exchange Online の同期を行うことができます。これを行うことで、 Dynamics 365 のレコードから取引先担当者にメールを送信できるようになったり、営業案件のタイムラインで会話を追跡することができるようになります。<br>
@@ -59,3 +61,6 @@ __メールボックスの承認を不要にする__<br>
 ## 終わりに
 本記事では Dynamics 365における、メールボックスの承認・テストと有効化についてご紹介いたしました。メールボックスを管理する上でのお役に立てましたら幸いです。ご不明な点や、お困りのことなどがございましたら、弊社サポート一同にてお待ち申し上げておりますので、ぜひお気軽にお問合せください。<br><br>
 ※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。
+
+## 参考情報
+[Dataverse と Exchange Online のサーバー側同期](https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/)

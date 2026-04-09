@@ -49,9 +49,9 @@ Power Apps の全ての機能を利用可能でございます。
 実行したいアプリが複数ある場合には、実行したいアプリ数分のライセンスが必要となります。  
 1 つのアプリを複数ユーザーが実行したい場合、実行するユーザー数分のライセンスが必要となります。
 <br/><br/>
-詳細については下記公開情報､ライセンスガイドをご参照ください。  
+詳細については下記公開情報、ライセンスガイドをご参照ください。  
 [アプリごとの Power Apps プランについて](https://learn.microsoft.com/ja-jp/power-platform/admin/about-powerapps-perapp)    
-[Microsoft Power Apps、Microsoft Power Automate、Microsoft Power Virtual Agents ライセンスガイド](https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x411)  
+[Power Platform ライセンス ガイド ](https://aka.ms/pplicjp)  
 ※PDF ファイルがダウンロードされます。
 <br/><br/>
   
@@ -127,7 +127,7 @@ Power Platform 管理センター > 設定 > アドオン容量の割り当て
 下記公開情報にて最新情報を記載しておりますので、ご参照ください。  
 [アプリ ライセンスごとの Power Apps を使用しているユーザー リストを見ることができますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/about-powerapps-perapp#when-will-i-be-able-to-see-the-list-of-users-who-are-using-the-power-apps-per-app-license)   
 <br/>
-レポート機能が未実装のたため、現状ではライセンスを消費する制御も未実装となっております。
+レポート機能が未実装のため、現状ではライセンスを消費する制御も未実装となっております。
 
 1. 環境にライセンスを割り当てる  
 2. 該当のアプリの設定で「アプリごとのライセンス」をオンにする  

@@ -55,19 +55,13 @@ Power Automate をご利用いただく際、管理者がテナント内で作�
 > 有効にする方法については下記の公開情報をご参照ください。  
 > [テナント レベルでの分析 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/tenant-level-analytics#how-do-i-enable-tenant-level-analytics)
 
+Power Platform 管理センターに用意されたレポートを参照する方法です。  
+[Power Platform 管理センター](https://admin.powerplatform.microsoft.com) の [管理] > [Power Automate] の画面よりご確認いただくことができます。  
 
-> [!NOTE]  
-> この方法は削除済みのフローを取得することはできません。  
+この方法の詳細については、下記の公開情報をご参照ください。  
+[Power Platform インベントリ (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory)  
 
-1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインします。
-2. 左側メニューの [分析] > [Power Automate] を選択します。
-3. 表示されるダッシュボードからフローの使用状況や一覧を確認できます。
-4. 特にテナント内のフロー一覧を取得する場合、[概要] > [在庫] タブをご確認ください。
-
-![](./list-cloud-flow/inventory_report.png)  
-
-
-テナントレベルの分析の詳細については下記の公開情報をご参照ください。  
+テナントレベルの分析で表示される各項目の詳細等については下記の公開情報をご参照ください。  
 [Power Automate のテナント レベルの分析 - Power Platform | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-analytics-reports)  
 
 <a id='2-2-powershellを利用する'></a>

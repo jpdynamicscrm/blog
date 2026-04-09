@@ -69,7 +69,7 @@ https://japan.flow.microsoft.com/manage/environments/{環境ID}/flows/{FlowName}
 - 環境ID : workflow().tags.environmentName  
 - FlowName : workflow().name  
 - 実行ID : workflow().run.name  
-- フロー表示名 : - workflow().tags.flowDisplayName  
+- フロー表示名 : workflow().tags.flowDisplayName  
 
 「メールの送信(V2)」アクションでの使用例：  
 ![](./CloudFlow-ErrorHandling/img7.png)  

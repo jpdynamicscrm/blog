@@ -31,7 +31,7 @@ Power Automate for desktop をビジネス クリティカルな用途で使用�
 - Power Automate Process
 - 従量課金制プラン
 - Power Automate 試用版ライセンス
-- Power Automate unattended RPA add-on（前提としてPower Automate per user with attended RPA または Power Automate per flow が必要) (※ 2023/8/1~ レガシーに変更)  
+- Power Automate unattended RPA add-on（前提として Power Automate Premium または Power Automate per flow が必要) (※ 2023/8/1~ レガシーに変更)  
 
 ライセンスのご購入状況は、Microsoft 365 管理センターの [課金情報] - [サービスを購入する] からご確認いただけます。  
 

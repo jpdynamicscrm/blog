@@ -18,17 +18,11 @@ categories:
 
 現在、以下のプランで Power Automate をご利用されている方々に対し、 90 日間フローを実行していない場合にはフローの作成者 (所有者) と共同作成者 (共同所有者) へ 30 日後にフローを自動的に無効化する旨のメールが届きます。  
 その後、30 日以内に適切な対応がされない場合には、フローはシステム上無効化され、フローの作成者 (所有者) と共同作成者 (共同所有者) へメールで通知されます。  
-[対象のプラン]  
-無料版と試用版、Power Apps 開発者プラン* 、 Microsoft 365 プラン  
 
-詳細については以下の公開文書を併せてご確認ください。
+対象のプランや詳細については以下の公開文書を併せてご確認ください。
 
 [制限と構成 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/limits-and-config?WT.mc_id=BA-MVP-5003233#expiration-limits)
 
-*Power Apps コミュニティプランは 2021 年 5 月に Power Apps 開発者プランに名称を変更しました。  
-Power Apps 開発者プランの詳細につきましては以下の公開情報をご参照ください。  
-
-[Power Apps 開発者プランにサインアップ - Power Apps | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-apps/maker/developer-plan#improvements-from-the-previous-power-apps-community-plan)
 
 ## [フローの無効化を回避する方法]
 
@@ -60,7 +54,7 @@ Power Apps 開発者プランの詳細につきましては以下の公開情報
 ## ② フロー作成日、あるいは最終実行日から 120 日以内に 1 度以上実行する。  
 
 フローを実行することにより、フローを実行していない 90 日の期間と自動的に無効化されるまでの 30 日の期間をリセットすることができます。  
-手動で実行する方法についてご紹介致します
+手動で実行する方法についてご紹介致します。
 
 フローの一覧画面から対象のフローを選択し、下図の赤枠のいずれかを押すことにより実行します。
 

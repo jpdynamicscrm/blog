@@ -1,0 +1,110 @@
+name: lint-article-filenames
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-article-filenames:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate new article filenames are kebab-case
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          head_sha="${{ github.event.pull_request.head.sha }}"
+
+          # Use merge-base to compare the PR tip against the point where it diverged from the base.
+          # This avoids flagging files that were deleted in the base branch but still exist in the PR branch
+          # (because the PR is behind) as "Added".
+          common_ancestor=$(git merge-base "${base_sha}" "${head_sha}")
+
+          echo "Diff: ${common_ancestor}..${head_sha}"
+
+          # ---------------------------------------------------------
+          # Goal: Enforce kebab-case filenames for NEW or RENAMED articles.
+          # This ensures clean URLs for the blog.
+          #
+          # NOTE: We intentionally IGNORE modified files (status 'M').
+          # This prevents breaking existing URLs (SEO/Bookmarks) for legacy articles
+          # that might not follow the kebab-case convention.
+          # ---------------------------------------------------------
+
+          mapfile -t changed_lines < <(git diff --name-status "${common_ancestor}" "${head_sha}")
+          if [[ ${#changed_lines[@]} -eq 0 ]]; then
+            echo "No changed files."
+            exit 0
+          fi
+
+          declare -a targets=()
+
+          for line in "${changed_lines[@]}"; do
+            status=$(awk '{print $1}' <<<"$line")
+
+            case "$status" in
+              A)
+                # Added file
+                path=$(awk '{print $2}' <<<"$line")
+                targets+=("$path")
+                ;;
+              R*)
+                # Renamed file
+                path=$(awk '{print $3}' <<<"$line")
+                targets+=("$path")
+                ;;
+              *)
+                # Ignore Modified (M), Deleted (D), etc. to preserve existing URLs
+                ;;
+            esac
+          done
+
+          if [[ ${#targets[@]} -eq 0 ]]; then
+            echo "No new/renamed files to validate."
+            exit 0
+          fi
+
+          bad=0
+          echo "Checking newly added/renamed markdown files under articles/:"
+
+          for path in "${targets[@]}"; do
+            # 1. Must be under 'articles/' directory
+            #    (Ignores .github/, scaffolds/, themes/, _config.yml, etc.)
+            if [[ "$path" != articles/* ]]; then
+              continue
+            fi
+
+            # 2. Must be a Markdown file (.md)
+            if [[ "$path" != *.md ]]; then
+              continue
+            fi
+
+            filename=$(basename "$path")
+            stem="${filename%.md}"
+
+            # Check if filename is kebab-case:
+            # - Lowercase letters and digits
+            # - Separated by single hyphens
+            # - No uppercase, spaces, or underscores
+            if [[ ! "$stem" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+              echo "::error file=$path::Invalid article filename '$filename'. Use kebab-case (lowercase letters/digits and hyphens), e.g. 'how-to-use-xyz.md'."
+              bad=1
+            fi
+          done
+
+          if [[ $bad -ne 0 ]]; then
+            echo "One or more new/renamed article filenames are not kebab-case."
+            exit 1
+          fi
+
+          echo "OK: all checked article filenames are kebab-case."
