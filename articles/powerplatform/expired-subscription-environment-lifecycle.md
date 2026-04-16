@@ -39,7 +39,7 @@ categories:
 サブスクリプション期限切れに伴う自動 cleanup の対象は **本番 (Production) 環境** と **サンドボックス (Sandbox) 環境** です。  
 開発者 (Developer) 環境や既定 (Default) 環境、Dataverse for Teams 環境は、サブスクリプション期限切れではなく **非アクティブ (Inactivity) ベースの cleanup** の対象となり、本記事で説明するフローとは異なります。
 
-> **参考**: 開発者環境の自動削除については [非アクティブな開発者環境の自動削除について](../Automatic-deletion-of-inactive-Developer-environments) もあわせてご参照ください。
+> **参考**: 開発者環境の自動削除については [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/) もあわせてご参照ください。
 
 ---
 
