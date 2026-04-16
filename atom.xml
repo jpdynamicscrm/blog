@@ -18,7 +18,33 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-03-31T06:27:31.710Z</updated>
+  <updated>2026-04-16T05:42:32.887Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Power Platform Admin Center" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform-Admin-Center/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
+    <category term="License" scheme="https://jpdynamicscrm.github.io/blog/tags/License/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
+    <category term="Environment" scheme="https://jpdynamicscrm.github.io/blog/tags/Environment/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートの王です。</p><p>サブスクリプションの有効期限が切れた際に、Power Platform の本番環境やサンドボックス環境がどのような流れで無効化・削除されるのか、というお問い合わせをいただくことがあります。<br>本記事では、下記公開情報の内容をもとに、タイムラインやフロー図を用いてまとめております。</p><p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p><span id="more"></span><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol><li><a href="#anchor-target-environments">対象となる環境</a></li><li><a href="#anchor-timeline">サブスクリプション期限切れ後のタイムライン</a></li><li><a href="#anchor-flowchart">フロー図</a></li><li><a href="#anchor-license-renewal">ライセンスを更新・購入した場合</a></li><li><a href="#anchor-recovery">環境が削除されてしまった場合の回復</a></li><li><a href="#anchor-faq">よくあるご質問</a></li><li><a href="#anchor-reference">参考情報</a></li></ol><hr><p><a id='anchor-target-environments'></a></p><h2 id="1-対象となる環境"><a href="#1-対象となる環境" class="headerlink" title="1. 対象となる環境"></a>1. 対象となる環境</h2><p>サブスクリプション期限切れに伴う自動 cleanup の対象は <strong>本番 (Production) 環境</strong> と <strong>サンドボックス (Sandbox) 環境</strong> です。<br>開発者 (Developer) 環境や既定 (Default) 環境、Dataverse for Teams 環境は、サブスクリプション期限切れではなく <strong>非アクティブ (Inactivity) ベースの cleanup</strong> の対象となり、本記事で説明するフローとは異なります。</p><blockquote><p><strong>参考</strong>: 開発者環境の自動削除については <a href="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/">非アクティブな開発者環境の自動削除について</a> もあわせてご参照ください。</p></blockquote><hr><p><a id='anchor-timeline'></a></p><h2 id="2-サブスクリプション期限切れ後のタイムライン"><a href="#2-サブスクリプション期限切れ後のタイムライン" class="headerlink" title="2. サブスクリプション期限切れ後のタイムライン"></a>2. サブスクリプション期限切れ後のタイムライン</h2><p>以下は、サブスクリプションが期限切れ (expired) またはプロビジョニング解除 (deprovisioned) となった後の、環境に対する処理の流れです。<br>公開情報に記載の日数をベースに時系列で整理しています。</p><table><thead><tr><th>#</th><th>タイミング</th><th>状態</th><th>何が起こるか</th></tr></thead><tbody><tr><td>①</td><td>サブスクリプション期限切れ &#x2F; プロビジョニング解除</td><td><strong>cleanup 対象としてマーク</strong></td><td>テナント内の Production &#x2F; Sandbox 環境すべてが、無効化および最終削除の対象としてマークされます。</td></tr><tr><td>②</td><td>環境無効化の <strong>14 日前</strong></td><td>マーク済み（通知）</td><td>組織内のすべての管理者へ、環境が無効化される旨の <strong>1 回目の通知メール</strong> が送信されます。</td></tr><tr><td>③</td><td>環境無効化の <strong>7 日前</strong></td><td>マーク済み（通知）</td><td><strong>2 回目の通知メール</strong> が送信されます。</td></tr><tr><td>④</td><td>環境無効化の <strong>1 日前</strong></td><td>マーク済み（通知）</td><td><strong>最終 (3 回目) の通知メール</strong> が送信されます。</td></tr><tr><td>⑤</td><td>無効化日</td><td><strong>環境が無効化 (disabled)</strong></td><td>対応がなかった場合、環境が disabled になります。<strong>管理者を含むすべてのユーザーが環境にアクセスできなくなります。</strong></td></tr><tr><td>⑥</td><td>最終通知から <strong>10 日後</strong></td><td><strong>環境が削除 (deleted)</strong></td><td>無効化後もライセンスの回復等の対応がなかった場合、環境は完全に削除されます。</td></tr><tr><td>⑦</td><td>削除後 <strong>7 日以内</strong> (※)</td><td>削除済み（回復可能期間）</td><td>Power Platform 管理センターまたは PowerShell コマンドレットから環境を回復できる期間です。<br>※ Dynamics 365 アプリを含む本番環境は最大 <strong>28 日間</strong> 回復可能です。</td></tr></tbody></table><div class="alert is-info"><p class="alert-title">Note</p><p>上記の「環境無効化の〇日前」は、cleanup 対象としてマークされた後にシステムが設定する無効化予定日を基準とした日数です。</p><p>サブスクリプション期限切れ日からの具体的な経過日数は公開情報では明記されていないため、通知メールに記載された日付をご確認ください。</p></div><hr><p><a id='anchor-flowchart'></a></p><h2 id="3-フロー図"><a href="#3-フロー図" class="headerlink" title="3. フロー図"></a>3. フロー図</h2><p>以下に、サブスクリプション期限切れ後の処理フローを図示します。</p><p><img src="/blog/powerplatform/expired-subscription-environment-lifecycle/expired-subscription-environment-lifecycle-flowchart.png"></p><hr><p><a id='anchor-license-renewal'></a></p><h2 id="4-ライセンスを更新・購入した場合"><a href="#4-ライセンスを更新・購入した場合" class="headerlink" title="4. ライセンスを更新・購入した場合"></a>4. ライセンスを更新・購入した場合</h2><p>環境が <strong>削除される前に</strong> 必要なライセンスと容量を更新または購入した場合、環境は <strong>24 時間以内に自動的に再有効化</strong> されます。</p><p>再有効化のために必要な条件は以下の通りです。</p><ul><li>テナント内のすべての本番環境をカバーするのに <strong>十分なライセンス</strong> を保有していること</li><li>テナント内のすべての本番環境をカバーするのに <strong>十分な Dataverse 容量</strong> を保有していること</li></ul><div class="alert is-important"><p class="alert-title">重要</p><p>ライセンスの更新・購入には組織内の承認フローや、パートナー経由での手続きなど、時間がかかるケースがあります。</p><p>環境が削除されてしまうと復元の難易度が上がりますので、サブスクリプションの更新は <strong>有効期限が切れる前に</strong> 余裕を持ってご計画ください。</p></div><hr><p><a id='anchor-recovery'></a></p><h2 id="5-環境が削除されてしまった場合の回復"><a href="#5-環境が削除されてしまった場合の回復" class="headerlink" title="5. 環境が削除されてしまった場合の回復"></a>5. 環境が削除されてしまった場合の回復</h2><p>万が一、環境が削除されてしまった場合でも、一定期間内であれば回復が可能です。</p><table><thead><tr><th>環境の種類</th><th>回復可能期間</th></tr></thead><tbody><tr><td>一般的な環境</td><td>削除から <strong>7 日間</strong></td></tr><tr><td>Dynamics 365 アプリを含む本番環境</td><td>削除から最大 <strong>28 日間</strong></td></tr></tbody></table><h3 id="回復手順-Power-Platform-管理センター"><a href="#回復手順-Power-Platform-管理センター" class="headerlink" title="回復手順 (Power Platform 管理センター)"></a>回復手順 (Power Platform 管理センター)</h3><ol><li><a href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> に管理者でサインインします。</li><li>ナビゲーション ペインで <strong>管理</strong> を選択します。</li><li>管理ペインで <strong>環境</strong> を選択します。</li><li>コマンド バーの <strong>最近削除された環境</strong> を選択します。</li><li>回復する環境を選択し、<strong>回復</strong> を実行します。</li></ol><h3 id="回復手順-PowerShell"><a href="#回復手順-PowerShell" class="headerlink" title="回復手順 (PowerShell)"></a>回復手順 (PowerShell)</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">Get-AdminPowerAppSoftDeletedEnvironment</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 環境を回復</span></span><br><span class="line">Recover<span class="literal">-AdminPowerAppEnvironment</span> <span class="literal">-EnvironmentName</span> &lt;環境名&gt; <span class="literal">-WaitUntilFinished</span> <span class="variable">$true</span></span><br></pre></td></tr></table></figure><div class="alert is-info"><p class="alert-title">Note</p><p>環境の回復には、回復先の環境をカバーするための十分なストレージ容量が必要になる場合があります。</p><p>また、回復後のソリューション フローは無効状態となるため、必要に応じて手動で有効化してください。</p></div><hr><p><a id='anchor-faq'></a></p><h2 id="6-よくあるご質問"><a href="#6-よくあるご質問" class="headerlink" title="6. よくあるご質問"></a>6. よくあるご質問</h2><h3 id="Q1-サブスクリプションが切れてから何日で環境が無効化されますか？"><a href="#Q1-サブスクリプションが切れてから何日で環境が無効化されますか？" class="headerlink" title="Q1. サブスクリプションが切れてから何日で環境が無効化されますか？"></a>Q1. サブスクリプションが切れてから何日で環境が無効化されますか？</h3><p>公開情報では、サブスクリプション期限切れから環境無効化までの具体的な日数は明記されておりません。<br>公開情報で確認できるのは、cleanup 対象としてマークされた後に <strong>14 日前・7 日前・1 日前</strong> の通知が送信され、その後に環境が無効化されるという流れです。<br>そのため、通知メールに記載された日付をもとにご対応をご検討ください。</p><h3 id="Q2-M365-のサブスクリプションがアクティブであれば、環境は無効化されませんか？"><a href="#Q2-M365-のサブスクリプションがアクティブであれば、環境は無効化されませんか？" class="headerlink" title="Q2. M365 のサブスクリプションがアクティブであれば、環境は無効化されませんか？"></a>Q2. M365 のサブスクリプションがアクティブであれば、環境は無効化されませんか？</h3><p>Power Platform 環境の cleanup は、M365 サブスクリプションのライフサイクルとは <strong>独立した仕組み</strong> です。<br>M365 側では Disabled 状態でも管理者が管理センターにアクセスできる期間がありますが、Power Platform 環境がいったん disabled になると、<strong>管理者であっても環境にはアクセスできなくなります。</strong><br>この 2 つは別レイヤーの動作であるため、M365 の猶予期間がそのまま Dataverse 環境に適用されるわけではない点にご注意ください。</p><h3 id="Q3-開発者環境も同じ流れで無効化されますか？"><a href="#Q3-開発者環境も同じ流れで無効化されますか？" class="headerlink" title="Q3. 開発者環境も同じ流れで無効化されますか？"></a>Q3. 開発者環境も同じ流れで無効化されますか？</h3><p>いいえ。開発者環境はサブスクリプション期限切れの cleanup ではなく、<strong>非アクティブ (Inactivity) ベースの cleanup</strong> の対象です。<br>開発者環境の場合、ユーザー活動がない状態が 30 日間続くと無効化され、無効化から 15 日後に削除されます。<br>詳細は <a href="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/">非アクティブな開発者環境の自動削除について</a> をご参照ください。</p><h3 id="Q4-環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？"><a href="#Q4-環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？" class="headerlink" title="Q4. 環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？"></a>Q4. 環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？</h3><p>環境が <strong>無効化 (disabled) の状態で、かつまだ削除されていない場合</strong>、必要なライセンスと容量を購入・回復すれば、<strong>24 時間以内に自動で再有効化</strong> されます。<br>環境がすでに <strong>削除されてしまった場合</strong> は、上記 <a href="#anchor-recovery">5. 環境が削除されてしまった場合の回復</a> の手順で回復をお試しください。</p><h3 id="Q5-環境の状態が確認できない場合はどうすればよいですか？"><a href="#Q5-環境の状態が確認できない場合はどうすればよいですか？" class="headerlink" title="Q5. 環境の状態が確認できない場合はどうすればよいですか？"></a>Q5. 環境の状態が確認できない場合はどうすればよいですか？</h3><p>Power Platform 管理センターから環境の状態を確認できない場合や、環境が表示されない場合は、弊社サポートまでお問い合わせください。<br>環境の現在の状態や回復の可否について、サポート側で確認させていただきます。</p><hr><p><a id='anchor-reference'></a></p><h2 id="7-参考情報"><a href="#7-参考情報" class="headerlink" title="7. 参考情報"></a>7. 参考情報</h2><ul><li><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment">環境の回復 - Recover environment</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus">Microsoft Power Platform のライセンスの概要</a></li><li><a href="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/">非アクティブな開発者環境の自動削除について</a></li></ul><hr><div class="alert is-important"><p class="alert-title">重要</p><p>本記事は 2026 年 4 月時点の公開情報をもとに作成しております。</p><p>製品の仕様や動作は予告なく変更される場合があり、本記事の内容と実際の動作が異なる可能性がございます。</p><p>正式な仕様については、上記 <a href="#anchor-reference">参考情報</a> に記載の公開情報 (特に英語版) が正となりますので、あわせてご確認ください。</p><p>また、英語版の更新が日本語版に反映されるまでにタイムラグがある場合がございます。</p></div>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/"/>
+    <published>2026-04-16T03:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートの王です。</p>
+<p>サブスクリプションの有効期限が切れた際に、Power Platform の本番環境やサンドボックス環境がどのような流れで無効化・削除されるのか、というお問い合わせをいただくことがあります。<br>本記事では、下記公開情報の内容をもとに、タイムラインやフロー図を用いてまとめております。</p>
+<p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
+    </summary>
+    <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
+    <updated>2026-04-16T05:42:32.887Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -43,7 +69,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-03-31T06:27:31.710Z</updated>
+    <updated>2026-04-16T05:42:32.851Z</updated>
   </entry>
   <entry>
     <author>
@@ -80,7 +106,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-03-31T06:27:31.756Z</updated>
+    <updated>2026-04-16T05:42:32.898Z</updated>
   </entry>
   <entry>
     <author>
@@ -110,7 +136,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-03-31T06:27:31.709Z</updated>
+    <updated>2026-04-16T05:42:32.850Z</updated>
   </entry>
   <entry>
     <author>
@@ -142,7 +168,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-03-31T06:27:31.648Z</updated>
+    <updated>2026-04-16T05:42:32.790Z</updated>
   </entry>
   <entry>
     <author>
@@ -165,7 +191,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-03-31T06:27:31.771Z</updated>
+    <updated>2026-04-16T05:42:32.913Z</updated>
   </entry>
   <entry>
     <author>
@@ -198,7 +224,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-03-31T06:27:31.756Z</updated>
+    <updated>2026-04-16T05:42:32.898Z</updated>
   </entry>
   <entry>
     <author>
@@ -231,7 +257,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-03-31T06:27:31.711Z</updated>
+    <updated>2026-04-16T05:42:32.852Z</updated>
   </entry>
   <entry>
     <author>
@@ -261,7 +287,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-03-31T06:27:31.445Z</updated>
+    <updated>2026-04-16T05:42:32.589Z</updated>
   </entry>
   <entry>
     <author>
@@ -285,7 +311,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-03-31T06:27:31.711Z</updated>
+    <updated>2026-04-16T05:42:32.853Z</updated>
   </entry>
   <entry>
     <author>
@@ -314,7 +340,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-03-31T06:27:31.711Z</updated>
+    <updated>2026-04-16T05:42:32.852Z</updated>
   </entry>
   <entry>
     <author>
@@ -342,7 +368,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-03-31T06:27:31.700Z</updated>
+    <updated>2026-04-16T05:42:32.841Z</updated>
   </entry>
   <entry>
     <author>
@@ -366,7 +392,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-03-31T06:27:31.608Z</updated>
+    <updated>2026-04-16T05:42:32.750Z</updated>
   </entry>
   <entry>
     <author>
@@ -397,7 +423,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-03-31T06:27:31.649Z</updated>
+    <updated>2026-04-16T05:42:32.792Z</updated>
   </entry>
   <entry>
     <author>
@@ -426,7 +452,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-03-31T06:27:31.533Z</updated>
+    <updated>2026-04-16T05:42:32.675Z</updated>
   </entry>
   <entry>
     <author>
@@ -449,7 +475,7 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-03-31T06:27:31.754Z</updated>
+    <updated>2026-04-16T05:42:32.897Z</updated>
   </entry>
   <entry>
     <author>
@@ -470,7 +496,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
     </summary>
     <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-03-31T06:27:31.505Z</updated>
+    <updated>2026-04-16T05:42:32.647Z</updated>
   </entry>
   <entry>
     <author>
@@ -492,7 +518,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポート チームの三田です。<br>本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。</p>]]>
     </summary>
     <title>Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</title>
-    <updated>2026-03-31T06:27:31.768Z</updated>
+    <updated>2026-04-16T05:42:32.910Z</updated>
   </entry>
   <entry>
     <author>
@@ -514,7 +540,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate で Teams コネクタを使う際に改行を反映する方法</title>
-    <updated>2026-03-31T06:27:31.568Z</updated>
+    <updated>2026-04-16T05:42:32.711Z</updated>
   </entry>
   <entry>
     <author>
@@ -539,30 +565,6 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では、Dataflow のトラブルシューティングにあたって、必要となる情報の取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Dataflow お問い合わせの際の情報取得手順</title>
-    <updated>2026-03-31T06:27:31.529Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Platform Admin Center" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform-Admin-Center/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
-    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
-    <category term="Dataverse ストレージ" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの吉永です。  </p><p>本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。<br><br>なお、Dataverse ストレージの基本的な考え方や Dataverse ストレージ超過時の影響などは、過去に公開させて頂いた後述の記事をご参考にしていただけますと幸いです。<br><br>参考情報 : <a href="https://jpdynamicscrm.github.io/blog/powerplatform/About-Dataverse-Storage/">Dataverse のストレージ容量について</a></p><span id="more"></span><h2 id="content">目次</h2>  <ol><li><a href="#anchor-begin">はじめに</a></li><li><a href="#anchor-dataverse-storeage">テナントごとに付与されるストレージ容量のライセンスの概要</a></li><li><a href="#anchor-default-storage">購入いただいたライセンスの種類によって決定する既定の容量</a></li><li><a href="#anchor-addon-storage">ライセンスやアドオンの購入数に応じて付与される追加容量</a></li><li><a href="#anchor-finish">おわりに</a></li></ol><div class="alert is-important"><p class="alert-title">重要</p><p>本記事は弊社公式ドキュメントの公開情報を元に構成しておりますが、 本記事編集時点と実際の機能に相違がある場合がございます。</p><p>最新情報につきましては、参考情報として記載しておりますドキュメントをご確認ください。  </p></div><p><a id="anchor-begin"></a></p><h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Dataverse では各環境でご利用される容量を合計したものとをテナント全体の容量として管理する仕組みとなっております。<br>なお、実際のご利用にあたっては、ご契約いただいているライセンスの数や種類に応じて、テナントに付与される容量内でご利用いただく必要がございます。</p><p>実際にテナントに割り当てられている以上の容量をご利用いただいている場合でも、環境の利用が停止するといったことはございませんが、新たな環境の作成などが行えなくなるなど管理上の影響が発生するため、容量の不足が発生する場合については、容量の削減やライセンスの追加購入を検討いただく必要がございます。</p><blockquote><p>[本記事でご紹介する内容について]<br><br>Dataverse の容量については、従量課金を利用しているかどうかによって動作が一部異なります。<br><br>本記事では「従量課金」をご利用いただいていない場合のシナリオを元にご紹介させて頂いております。<br>従量課金制プランをご利用いただいている場合については、以下のドキュメントを合わせてご確認いただけますと幸いです。<br><br>参考情報 : <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-meters?tabs=image#dataverse-capacity-meter">Dataverse 容量メーター</a></p></blockquote><p><a id='anchor-dataverse-storeage'></a></p><h2 id="テナントごとに付与される容量のライセンスの概要"><a href="#テナントごとに付与される容量のライセンスの概要" class="headerlink" title="テナントごとに付与される容量のライセンスの概要"></a>テナントごとに付与される容量のライセンスの概要</h2><p>Dataverse で利用可能な容量はご契約いただくライセンスの数や種類によって決定いたします。</p><p>なお、容量が割り当てられるかどうかや、割り当てられる場合の容量はライセンスによって異なるため、詳細についてはライセンスガイドをご確認頂きたくと存じますが、ライセンスのご契約によって割り当てられる容量には 2 種類の考え方がございます。</p><p>1.契約いただいたライセンスの種類によって決定されるテナント「既定の容量」<br><br>2.ライセンスやアドオンの購入数に応じて付与される「追加の容量」</p><blockquote><p>ライセンスガイドについては、以下のリンクからダウンロード可能でございます。<br><br>参考情報 : <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus">Microsoft Power Platform のライセンスの概要</a></p></blockquote><p>つまり、Dataverse では以下の計算に基づきテナントに付与される容量が決定いたします。</p><p>・「ライセンスの種類によって決定する<font color="green"> 既定の容量」</font>  +  「ライセンスごとに追加される<font color="blue"> 追加の容量」 </font>  &#x3D;  「テナントに付与される容量」</p><p><a id='anchor-default-storage'></a></p><h2 id="購入いただいたライセンスの種類によって決定する既定の容量"><a href="#購入いただいたライセンスの種類によって決定する既定の容量" class="headerlink" title="購入いただいたライセンスの種類によって決定する既定の容量"></a>購入いただいたライセンスの種類によって決定する既定の容量</h2><p>Dataverese ではご購入いただくライセンスの種類によって、テナントに付与される「既定の容量」が異なります。<br><br>既定の容量が付与されるライセンスの種類としては、主に以下のような製品に関するライセンスがございます。<br><br>・Power Apps <br><br>・Power Automate <br><br>・Copilot Studio <br><br>・Power Pages <br><br>・Dynamics <br></p><p>なお、具体的なライセンス例ごとに割り当てられる「既定の容量」は以下の通りとなります。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/default%20capacity.png"></p><p>「既定の容量」はご契約いただいたライセンスごとの「既定の容量の合計値」ではなく、ご契約いただいたライセンスごとに定められた「既定の容量」の内、最も大きい容量が割り当てられる動作となります。</p><p>上記の動作について、具体的なシナリオ例についても合わせてご紹介させて頂きます。</p><h3 id="参考シナリオ"><a href="#参考シナリオ" class="headerlink" title="参考シナリオ"></a>参考シナリオ<br></h3><blockquote><p>購入ライセンス<br><br>・Power Apps Premium<br><br>・Power Apps Per App<br><br>・Copilot Studio<br></p></blockquote><p>上記のシナリオの場合、実際に適用される「既定の容量」は以下の通りとなります。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/capacity-sample.png"></p><p>上記のシナリオでは、3 種類のライセンスをご契約いただいており、ライセンスごとに「既定の容量」が異なります。<br><br>ただし、テナントに割り当てられる「既定の容量」は、各ライセンスごとの「既定の容量」の合計値ではなく、最も大きい「既定の容量」が採用されます。<br><br>このため、本シナリオでは Power Apps Premium によって割り当てられる「既定の容量」がテナントに適用されます。</p><p><a id='anchor-addon-storage'></a></p><h2 id="ライセンスやアドオンの購入数に応じて付与される追加容量"><a href="#ライセンスやアドオンの購入数に応じて付与される追加容量" class="headerlink" title="ライセンスやアドオンの購入数に応じて付与される追加容量"></a>ライセンスやアドオンの購入数に応じて付与される追加容量</h2><p>Dataverse の容量は先述させて頂きました「既定の容量」とは別に、ライセンスやアドオンの購入数に応じてテナントに付与される追加容量がございます。<br><br>こちらは既定の容量とは異なり、購入いただいたライセンスとアドオンの数に応じて、付与される容量が変動する仕組みとなっております。<br><br>このため、ご契約いただくライセンスの数が多いほど、テナントに付与されるストレージ量は増加します。</p><p>なお、ライセンスの種類によって、ストレージ量が付与されるかどうか、どの程度のサイズが付与されるかが異なり、具体的な例として以下のような違いがございます。<br><br><img src="/blog/powerplatform/Dataverse-Capacity/add%20capacity.png"></p><p>また、購入いただいたライセンスに応じて付与される追加容量とは別に、ストレージ量の追加を目的として購入いただくアドオンがございます。<br><br>参考情報 : <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/add-storage#purchase-dataverse-capacity-add-on">テナントに Microsoft Dataverse 容量を追加</a></p><p>このアドオンは「データベース」「ファイル」「ログ」とストレージの種類ごとに購入いただくことが可能であり、いずれも 1 GB 単位で購入いただくことが可能です。<br><br>このため、お客様のテナントでストレージ量の不足が発生した場合については、ライセンスを追加でご契約いただくか、アドオンをご契約いただくことで、付与されるストレージ量を増加頂くことが可能です。</p><p>上記の動作について、具体的なシナリオ例についても合わせてご紹介させて頂きます。</p><h3 id="参考シナリオ-1"><a href="#参考シナリオ-1" class="headerlink" title="参考シナリオ"></a>参考シナリオ<br></h3><blockquote><p>購入ライセンス<br><br>・Power Apps Premium x 10<br><br>・Power Apps Per App x 20<br><br>・Copilot Studio x 5<br><br>・データベース キャパシティ アドオン (1 GB) x 10<br></p></blockquote><p>上記のシナリオの場合、実際に適用される「追加の容量」は、データベース、ファイル、ログごとに以下の通りとなります。<br></p><p>データベースの場合、「2.5 GB + 10 GB + 0 GB + 10 GB」で 22.5 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/database.png"></p><p>ファイルの場合、「20 GB + 8 GB + 0 GB」で 28 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/file.png"></p><p>ログの場合、「0 GB + 0 GB + 0 GB」で 0 GB<br><br><img src="/blog/powerplatform/Dataverse-Capacity/log.png"></p><p><a id='anchor-finish'></a></p><h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>本記事にてご説明させて頂きましたように Dataverse のキャパシティについては、ご契約いただいておりますライセンスの種類や数によって、利用可能なストレージ量が異なります。</p><p>実際にお客様のテナントにおいて、どの程度の容量が割り当てられているかという点については、Power Platforom 管理センターから確認頂くことが可能です。<br><br><br>参考情報 : <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/view-self-service-capacity">セルフサービス ストレージ容量の表示</a></p><!-- ![alt text](image.png) --><p>このため、お手元での計算と実際に割り当てられている容量が一致しない場合など、ご不明な点や、もし具体的にお困りの点などがございましたら、弊社サポート一同にてお待ち申し上げておりますので、ぜひお気軽にお問合せください。 </p>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/Dataverse-Capacity/"/>
-    <published>2025-05-01T12:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの吉永です。  </p>
-<p>本記事では Dataverse ストレージにおけるライセンスごとに付与される容量の考え方についてご紹介させて頂きます。<br><br>なお、Dataverse ストレージの基本的な考え方や Dataverse ストレージ超過時の影響などは、過去に公開させて頂いた後述の記事をご参考にしていただけますと幸いです。<br><br>参考情報 : <a href="https://jpdynamicscrm.github.io/blog/powerplatform/About-Dataverse-Storage/">Dataverse のストレージ容量について</a></p>]]>
-    </summary>
-    <title>Dataverse Capacity について</title>
-    <updated>2026-03-31T06:27:31.691Z</updated>
+    <updated>2026-04-16T05:42:32.670Z</updated>
   </entry>
 </feed>

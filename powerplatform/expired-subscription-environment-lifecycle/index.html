@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートの王です。 サブスクリプションの有効期限が切れた際に、Power Platform の本番環境やサンドボックス環境がどのような流れで無効化・削除されるのか、というお問い合わせをいただくことがあります。本記事では、下記公開情報の内容をもとに、タイムラインやフロー図を用いてまとめております。 Automatic deletion of Power Pl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートの王です。 サブスクリプションの有効期限が切れた際に、Power Platform の本番環境やサンドボックス環境がどのような流れで無効化・削除されるのか、というお問い合わせをいただくことがあります。本記事では、下記公開情報の内容をもとに、タイムラインやフロー図を用いてまとめております。 Automatic deletion of Power Pl">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/expired-subscription-environment-lifecycle-flowchart.png">
+<meta property="article:published_time" content="2026-04-16T03:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-16T05:42:32.887Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Dataverse">
+<meta property="article:tag" content="Environment">
+<meta property="article:tag" content="License">
+<meta property="article:tag" content="Power Platform">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/expired-subscription-environment-lifecycle-flowchart.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerplatform/expired-subscription-environment-lifecycle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2026-04-16T03:00:00.000Z" itemprop="datePublished">2026-04-16</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/expired-subscription-environment-lifecycle.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Dataverse/">Dataverse</a>►<a class="article-category-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a>
+  </div>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4db94b00-8c6e-5b3f-9cb4-cde7bcd82f41%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3%E6%9C%9F%E9%99%90%E5%88%87%E3%82%8C%E6%99%82%E3%81%AE+Power+Platform+%E7%92%B0%E5%A2%83%E3%81%AE%E7%84%A1%E5%8A%B9%E5%8C%96%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%95%E3%83%AD%E3%83%BC%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fexpired-subscription-environment-lifecycle%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fexpired-subscription-environment-lifecycle.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Fexpired-subscription-environment-lifecycle.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/" data-id="cuid1QifExh9YF9NDyUHa7abu" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートの王です。</p>
+<p>サブスクリプションの有効期限が切れた際に、Power Platform の本番環境やサンドボックス環境がどのような流れで無効化・削除されるのか、というお問い合わせをいただくことがあります。<br>本記事では、下記公開情報の内容をもとに、タイムラインやフロー図を用いてまとめております。</p>
+<p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>
+<span id="more"></span>
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol>
+<li><a href="#anchor-target-environments">対象となる環境</a></li>
+<li><a href="#anchor-timeline">サブスクリプション期限切れ後のタイムライン</a></li>
+<li><a href="#anchor-flowchart">フロー図</a></li>
+<li><a href="#anchor-license-renewal">ライセンスを更新・購入した場合</a></li>
+<li><a href="#anchor-recovery">環境が削除されてしまった場合の回復</a></li>
+<li><a href="#anchor-faq">よくあるご質問</a></li>
+<li><a href="#anchor-reference">参考情報</a></li>
+</ol>
+<hr>
+<p><a id='anchor-target-environments'></a></p>
+<h2 id="1-対象となる環境"><a href="#1-対象となる環境" class="headerlink" title="1. 対象となる環境"></a>1. 対象となる環境</h2><p>サブスクリプション期限切れに伴う自動 cleanup の対象は <strong>本番 (Production) 環境</strong> と <strong>サンドボックス (Sandbox) 環境</strong> です。<br>開発者 (Developer) 環境や既定 (Default) 環境、Dataverse for Teams 環境は、サブスクリプション期限切れではなく <strong>非アクティブ (Inactivity) ベースの cleanup</strong> の対象となり、本記事で説明するフローとは異なります。</p>
+<blockquote>
+<p><strong>参考</strong>: 開発者環境の自動削除については <a href="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/">非アクティブな開発者環境の自動削除について</a> もあわせてご参照ください。</p>
+</blockquote>
+<hr>
+<p><a id='anchor-timeline'></a></p>
+<h2 id="2-サブスクリプション期限切れ後のタイムライン"><a href="#2-サブスクリプション期限切れ後のタイムライン" class="headerlink" title="2. サブスクリプション期限切れ後のタイムライン"></a>2. サブスクリプション期限切れ後のタイムライン</h2><p>以下は、サブスクリプションが期限切れ (expired) またはプロビジョニング解除 (deprovisioned) となった後の、環境に対する処理の流れです。<br>公開情報に記載の日数をベースに時系列で整理しています。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>タイミング</th>
+<th>状態</th>
+<th>何が起こるか</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>①</td>
+<td>サブスクリプション期限切れ &#x2F; プロビジョニング解除</td>
+<td><strong>cleanup 対象としてマーク</strong></td>
+<td>テナント内の Production &#x2F; Sandbox 環境すべてが、無効化および最終削除の対象としてマークされます。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>環境無効化の <strong>14 日前</strong></td>
+<td>マーク済み（通知）</td>
+<td>組織内のすべての管理者へ、環境が無効化される旨の <strong>1 回目の通知メール</strong> が送信されます。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>環境無効化の <strong>7 日前</strong></td>
+<td>マーク済み（通知）</td>
+<td><strong>2 回目の通知メール</strong> が送信されます。</td>
+</tr>
+<tr>
+<td>④</td>
+<td>環境無効化の <strong>1 日前</strong></td>
+<td>マーク済み（通知）</td>
+<td><strong>最終 (3 回目) の通知メール</strong> が送信されます。</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>無効化日</td>
+<td><strong>環境が無効化 (disabled)</strong></td>
+<td>対応がなかった場合、環境が disabled になります。<strong>管理者を含むすべてのユーザーが環境にアクセスできなくなります。</strong></td>
+</tr>
+<tr>
+<td>⑥</td>
+<td>最終通知から <strong>10 日後</strong></td>
+<td><strong>環境が削除 (deleted)</strong></td>
+<td>無効化後もライセンスの回復等の対応がなかった場合、環境は完全に削除されます。</td>
+</tr>
+<tr>
+<td>⑦</td>
+<td>削除後 <strong>7 日以内</strong> (※)</td>
+<td>削除済み（回復可能期間）</td>
+<td>Power Platform 管理センターまたは PowerShell コマンドレットから環境を回復できる期間です。<br>※ Dynamics 365 アプリを含む本番環境は最大 <strong>28 日間</strong> 回復可能です。</td>
+</tr>
+</tbody></table>
+<div class="alert is-info"><p class="alert-title">Note</p><p>上記の「環境無効化の〇日前」は、cleanup 対象としてマークされた後にシステムが設定する無効化予定日を基準とした日数です。</p><p>サブスクリプション期限切れ日からの具体的な経過日数は公開情報では明記されていないため、通知メールに記載された日付をご確認ください。</p></div>
+<hr>
+<p><a id='anchor-flowchart'></a></p>
+<h2 id="3-フロー図"><a href="#3-フロー図" class="headerlink" title="3. フロー図"></a>3. フロー図</h2><p>以下に、サブスクリプション期限切れ後の処理フローを図示します。</p>
+<p><img src="/blog/powerplatform/expired-subscription-environment-lifecycle/expired-subscription-environment-lifecycle-flowchart.png"></p>
+<hr>
+<p><a id='anchor-license-renewal'></a></p>
+<h2 id="4-ライセンスを更新・購入した場合"><a href="#4-ライセンスを更新・購入した場合" class="headerlink" title="4. ライセンスを更新・購入した場合"></a>4. ライセンスを更新・購入した場合</h2><p>環境が <strong>削除される前に</strong> 必要なライセンスと容量を更新または購入した場合、環境は <strong>24 時間以内に自動的に再有効化</strong> されます。</p>
+<p>再有効化のために必要な条件は以下の通りです。</p>
+<ul>
+<li>テナント内のすべての本番環境をカバーするのに <strong>十分なライセンス</strong> を保有していること</li>
+<li>テナント内のすべての本番環境をカバーするのに <strong>十分な Dataverse 容量</strong> を保有していること</li>
+</ul>
+<div class="alert is-important"><p class="alert-title">重要</p><p>ライセンスの更新・購入には組織内の承認フローや、パートナー経由での手続きなど、時間がかかるケースがあります。</p><p>環境が削除されてしまうと復元の難易度が上がりますので、サブスクリプションの更新は <strong>有効期限が切れる前に</strong> 余裕を持ってご計画ください。</p></div>
+<hr>
+<p><a id='anchor-recovery'></a></p>
+<h2 id="5-環境が削除されてしまった場合の回復"><a href="#5-環境が削除されてしまった場合の回復" class="headerlink" title="5. 環境が削除されてしまった場合の回復"></a>5. 環境が削除されてしまった場合の回復</h2><p>万が一、環境が削除されてしまった場合でも、一定期間内であれば回復が可能です。</p>
+<table>
+<thead>
+<tr>
+<th>環境の種類</th>
+<th>回復可能期間</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一般的な環境</td>
+<td>削除から <strong>7 日間</strong></td>
+</tr>
+<tr>
+<td>Dynamics 365 アプリを含む本番環境</td>
+<td>削除から最大 <strong>28 日間</strong></td>
+</tr>
+</tbody></table>
+<h3 id="回復手順-Power-Platform-管理センター"><a href="#回復手順-Power-Platform-管理センター" class="headerlink" title="回復手順 (Power Platform 管理センター)"></a>回復手順 (Power Platform 管理センター)</h3><ol>
+<li><a href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> に管理者でサインインします。</li>
+<li>ナビゲーション ペインで <strong>管理</strong> を選択します。</li>
+<li>管理ペインで <strong>環境</strong> を選択します。</li>
+<li>コマンド バーの <strong>最近削除された環境</strong> を選択します。</li>
+<li>回復する環境を選択し、<strong>回復</strong> を実行します。</li>
+</ol>
+<h3 id="回復手順-PowerShell"><a href="#回復手順-PowerShell" class="headerlink" title="回復手順 (PowerShell)"></a>回復手順 (PowerShell)</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">Get-AdminPowerAppSoftDeletedEnvironment</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 環境を回復</span></span><br><span class="line">Recover<span class="literal">-AdminPowerAppEnvironment</span> <span class="literal">-EnvironmentName</span> &lt;環境名&gt; <span class="literal">-WaitUntilFinished</span> <span class="variable">$true</span></span><br></pre></td></tr></table></figure>
+
+<div class="alert is-info"><p class="alert-title">Note</p><p>環境の回復には、回復先の環境をカバーするための十分なストレージ容量が必要になる場合があります。</p><p>また、回復後のソリューション フローは無効状態となるため、必要に応じて手動で有効化してください。</p></div>
+<hr>
+<p><a id='anchor-faq'></a></p>
+<h2 id="6-よくあるご質問"><a href="#6-よくあるご質問" class="headerlink" title="6. よくあるご質問"></a>6. よくあるご質問</h2><h3 id="Q1-サブスクリプションが切れてから何日で環境が無効化されますか？"><a href="#Q1-サブスクリプションが切れてから何日で環境が無効化されますか？" class="headerlink" title="Q1. サブスクリプションが切れてから何日で環境が無効化されますか？"></a>Q1. サブスクリプションが切れてから何日で環境が無効化されますか？</h3><p>公開情報では、サブスクリプション期限切れから環境無効化までの具体的な日数は明記されておりません。<br>公開情報で確認できるのは、cleanup 対象としてマークされた後に <strong>14 日前・7 日前・1 日前</strong> の通知が送信され、その後に環境が無効化されるという流れです。<br>そのため、通知メールに記載された日付をもとにご対応をご検討ください。</p>
+<h3 id="Q2-M365-のサブスクリプションがアクティブであれば、環境は無効化されませんか？"><a href="#Q2-M365-のサブスクリプションがアクティブであれば、環境は無効化されませんか？" class="headerlink" title="Q2. M365 のサブスクリプションがアクティブであれば、環境は無効化されませんか？"></a>Q2. M365 のサブスクリプションがアクティブであれば、環境は無効化されませんか？</h3><p>Power Platform 環境の cleanup は、M365 サブスクリプションのライフサイクルとは <strong>独立した仕組み</strong> です。<br>M365 側では Disabled 状態でも管理者が管理センターにアクセスできる期間がありますが、Power Platform 環境がいったん disabled になると、<strong>管理者であっても環境にはアクセスできなくなります。</strong><br>この 2 つは別レイヤーの動作であるため、M365 の猶予期間がそのまま Dataverse 環境に適用されるわけではない点にご注意ください。</p>
+<h3 id="Q3-開発者環境も同じ流れで無効化されますか？"><a href="#Q3-開発者環境も同じ流れで無効化されますか？" class="headerlink" title="Q3. 開発者環境も同じ流れで無効化されますか？"></a>Q3. 開発者環境も同じ流れで無効化されますか？</h3><p>いいえ。開発者環境はサブスクリプション期限切れの cleanup ではなく、<strong>非アクティブ (Inactivity) ベースの cleanup</strong> の対象です。<br>開発者環境の場合、ユーザー活動がない状態が 30 日間続くと無効化され、無効化から 15 日後に削除されます。<br>詳細は <a href="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/">非アクティブな開発者環境の自動削除について</a> をご参照ください。</p>
+<h3 id="Q4-環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？"><a href="#Q4-環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？" class="headerlink" title="Q4. 環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？"></a>Q4. 環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？</h3><p>環境が <strong>無効化 (disabled) の状態で、かつまだ削除されていない場合</strong>、必要なライセンスと容量を購入・回復すれば、<strong>24 時間以内に自動で再有効化</strong> されます。<br>環境がすでに <strong>削除されてしまった場合</strong> は、上記 <a href="#anchor-recovery">5. 環境が削除されてしまった場合の回復</a> の手順で回復をお試しください。</p>
+<h3 id="Q5-環境の状態が確認できない場合はどうすればよいですか？"><a href="#Q5-環境の状態が確認できない場合はどうすればよいですか？" class="headerlink" title="Q5. 環境の状態が確認できない場合はどうすればよいですか？"></a>Q5. 環境の状態が確認できない場合はどうすればよいですか？</h3><p>Power Platform 管理センターから環境の状態を確認できない場合や、環境が表示されない場合は、弊社サポートまでお問い合わせください。<br>環境の現在の状態や回復の可否について、サポート側で確認させていただきます。</p>
+<hr>
+<p><a id='anchor-reference'></a></p>
+<h2 id="7-参考情報"><a href="#7-参考情報" class="headerlink" title="7. 参考情報"></a>7. 参考情報</h2><ul>
+<li><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment">環境の回復 - Recover environment</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus">Microsoft Power Platform のライセンスの概要</a></li>
+<li><a href="https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/">非アクティブな開発者環境の自動削除について</a></li>
+</ul>
+<hr>
+<div class="alert is-important"><p class="alert-title">重要</p><p>本記事は 2026 年 4 月時点の公開情報をもとに作成しております。</p><p>製品の仕様や動作は予告なく変更される場合があり、本記事の内容と実際の動作が異なる可能性がございます。</p><p>正式な仕様については、上記 <a href="#anchor-reference">参考情報</a> に記載の公開情報 (特に英語版) が正となりますので、あわせてご確認ください。</p><p>また、英語版の更新が日本語版に反映されるまでにタイムラグがある場合がございます。</p></div>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/expired-subscription-environment-lifecycle.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../dataverse-for-teams-environment-auto-creation-and-deletion/dataverse-for-teams-environment-auto-creation-and-deletion/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</a>
+          </li>
+        
+          <li>
+            <a href="../dataverse-for-teams-environment-auto-creation-and-deletion/dataverse-for-teams-environment-auto-creation-and-deletion/">Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</a>
+          </li>
+        
+          <li>
+            <a href="../powerbi-dataverse-connection-troubleshooting/">外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</a>
+          </li>
+        
+          <li>
+            <a href="../dataverse-bulk-delete-guide/">Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</a>
+          </li>
+        
+          <li>
+            <a href="../../powerpages/power-pages-auth-key/">Power Pages 認証キーの更新ガイド</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-BI/" rel="tag">Power BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/TDS-endpoint/" rel="tag">TDS endpoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Teams/" rel="tag">Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Troubleshooting/" rel="tag">Troubleshooting</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">18</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">32</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">37</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/04/">2026 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/03/">2026 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/02/">2026 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/Administration/" style="font-size: 10px;">Administration</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 14px;">Canvas app</a> <a href="../../tags/Capacity/" style="font-size: 10px;">Capacity</a> <a href="../../tags/Cloud-flow/" style="font-size: 18px;">Cloud flow</a> <a href="../../tags/Connector-and-Connection/" style="font-size: 12.67px;">Connector and Connection</a> <a href="../../tags/Copilot/" style="font-size: 10.67px;">Copilot</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataflow/" style="font-size: 10px;">Dataflow</a> <a href="../../tags/Dataverse/" style="font-size: 16.67px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.33px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10.67px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 12px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 15.33px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 11.33px;">Dynamics 365</a> <a href="../../tags/Environment/" style="font-size: 13.33px;">Environment</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 16.67px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 10.67px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 18.67px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 11.33px;">Information</a> <a href="../../tags/License/" style="font-size: 14px;">License</a> <a href="../../tags/Microsoft-Copilot-Studio/" style="font-size: 12.67px;">Microsoft Copilot Studio</a> <a href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" style="font-size: 10.67px;">Microsoft Teams 連携</a> <a href="../../tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="../../tags/Model-driven-app/" style="font-size: 13.33px;">Model-driven app</a> <a href="../../tags/Network/" style="font-size: 12px;">Network</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.33px;">Power Apps</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 14.67px;">Power Automate for desktop</a> <a href="../../tags/Power-BI/" style="font-size: 10px;">Power BI</a> <a href="../../tags/Power-Pages/" style="font-size: 10.67px;">Power Pages</a> <a href="../../tags/Power-Platform/" style="font-size: 19.33px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 12px;">PowerShell</a> <a href="../../tags/Security/" style="font-size: 10px;">Security</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint/" style="font-size: 10.67px;">SharePoint</a> <a href="../../tags/TDS-endpoint/" style="font-size: 10px;">TDS endpoint</a> <a href="../../tags/Teams/" style="font-size: 10px;">Teams</a> <a href="../../tags/Troubleshooting/" style="font-size: 10px;">Troubleshooting</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" style="font-size: 16px;">お問い合わせ全般</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10.67px;">サポート</a> <a href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">ストレージ</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 11.33px;">セキュリティ ロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" style="font-size: 10px;">トラブルシューティング</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" style="font-size: 10px;">ユーザー管理</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E5%BD%B9%E5%89%B2/" style="font-size: 10px;">役割</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 14px;">情報採取</a> <a href="../../tags/%E6%A4%9C%E7%B4%A2/" style="font-size: 10px;">検索</a> <a href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" style="font-size: 10px;">環境管理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/PowerPlatform/">PowerPlatform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2026 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
