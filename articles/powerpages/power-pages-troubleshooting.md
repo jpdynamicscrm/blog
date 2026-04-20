@@ -17,7 +17,7 @@ categories:
 
 このため、ご利用いただいている Power Pages サイトや、Power Pages サイトの作成において問題が発生した場合にはこちらで紹介させて頂いている手順についてご参考にしていただき、問題が解消しない場合については、弊社サポートへのお問い合わせをご検討いただけますと幸いです。
 
-なお、本記事では以下の 2 つに分けてご紹介を行わせて頂きます。
+なお、本記事では以下の 2 つの項目に分けてご紹介を行わせて頂きます。
 
 - **第 1 部**: お客様ご自身で実施できる一般的なトラブルシューティング手順
 - **第 2 部**: それでも解決しない場合にサポートへお問い合わせいただく際に、ご用意いただきたい情報
@@ -36,8 +36,8 @@ categories:
 
 **実行方法:**
 1. [Power Platform 管理センター](https://aka.ms/ppac) を開く
-2. **リソース** > **Power Pages サイト** を選択
-3. 対象サイトを選択し、**サイト チェッカー** パネルで **実行** をクリック
+2. **管理** > **Power Pages** > **対象の Power Pages サイト** を選択
+3. **サイトの正常性** パネルで **スキャンの実行** をクリック
 
 **参照**: [サイト チェッカーの実行](https://learn.microsoft.com/power-pages/admin/site-checker)
 
@@ -48,7 +48,9 @@ Edge ブラウザ向けの開発者ツール拡張機能で、サーバーサイ
 **セットアップ手順:**
 1. [Microsoft Power Pages extension for Edge](https://go.microsoft.com/fwlink/?linkid=2270261) をインストール
 2. Portal Management App で Site Setting `UserTrace/Debug` を `true` に設定（Private サイトはデフォルトで有効）
-3. 問題を再現し、DevTools の **Power Pages** タブでエラーメッセージを確認
+3. 問題を再現し、Edge の DevTools (F12)  の **Power Pages** タブでエラーメッセージを確認
+
+![](power-pages-troubleshooting/power-pages-debug.png)
 
 **参照**: [Power Pages DevTools 拡張機能](https://learn.microsoft.com/power-pages/configure/devtools-addon)
 
@@ -87,13 +89,13 @@ Edge ブラウザ向けの開発者ツール拡張機能で、サーバーサイ
 - [環境復元により認証接続が切断されている](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#authentication-connection-between-dataverse-environment-and-website-is-broken)
 - [Dataverse へのリクエストがタイムアウトしている](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#request-to-microsoft-dataverse-environment-has-timed-out)
 - [Website Binding が見つからない](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#website-binding-not-found)
-- [認証キーの有効期限が切れている](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#website-is-inaccessible)
+- [認証キーの有効期限が切れている](https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key)
 
 ### サイトの作成・プロビジョニングに失敗する
 
 サイトの新規作成やプロビジョニング中に問題が発生する場合は、以下を確認してください。
 
-- [サイト作成時の権限エラー (Azure AD アプリ登録権限がない)](https://learn.microsoft.com/ja-jp/power-pages/known-issues#site-creation) — Power Pages Core パッケージを最新に更新することで解消する場合があります
+- [サイト作成時の権限エラー (Azure Entra アプリ登録権限がない)](https://learn.microsoft.com/ja-jp/power-pages/known-issues#site-creation) — Power Pages Core パッケージを最新に更新することで解消する場合があります
 - [プロビジョニングの問題 - Profile フォームが存在しない](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-provisioning-issues) — 「Getting set up」画面のまま進まない場合はこちらを確認
 - [サイト作成に関する既知の問題](https://learn.microsoft.com/ja-jp/power-pages/known-issues#site-creation) — 古い環境では Entra アプリ登録権限が必要な場合があります
 - [削除したサイトの URL を再利用する場合](https://learn.microsoft.com/ja-jp/power-pages/faq) — リソースのパージに 30 分〜1 時間かかるため、待機が必要です
@@ -129,12 +131,12 @@ Edge ブラウザ向けの開発者ツール拡張機能で、サーバーサイ
 
 - [Basic Form / List の Table Permission が無効になっている](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-to-basic-forms-lists-and-multistep-form-steps)
 - [OData フィードが匿名公開されている](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-available-to-odata-feed)
-- [Dataverse テーブルへの匿名アクセスが許可されている](https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security)
+- [Dataverse テーブルへの匿名アクセスが許可されている]https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#anonymous-access-to-dataverse-tables)
 
 ### セキュリティ設定を強化したい
 
 - [Web Application Firewall (WAF) の有効化](https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#web-application-firewall-enabled)
-- [HTTP セキュリティヘッダーの設定](https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security)
+- [HTTP セキュリティヘッダーの設定](https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#http-headers)
 - [Web Template Validation の有効化](https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#web-template-validation)
 
 > **その他の参考ドキュメント:**
