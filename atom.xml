@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-04-16T05:42:32.887Z</updated>
+  <updated>2026-04-20T07:51:44.099Z</updated>
   <entry>
     <author>
       <name>
@@ -43,7 +43,34 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-04-16T05:42:32.887Z</updated>
+    <updated>2026-04-20T07:51:44.099Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform/"/>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
+    <category term="パイプライン" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/"/>
+    <category term="ALM" scheme="https://jpdynamicscrm.github.io/blog/tags/ALM/"/>
+    <category term="マネージド環境" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/"/>
+    <category term="セキュリティロール" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platformサポートチームの鈴木です。</p><p>本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明させていただきます。</p><ul><li><a href="#q1">Q1: Power Platform のパイプラインとは何ですか？</a></li><li><a href="#q2">Q2: プラットフォームホストとカスタムホストの違いは何ですか？</a></li><li><a href="#q3">Q3: パイプラインに関わるロールにはどのようなものがありますか？</a></li><li><a href="#q4">Q4: パイプラインを作成・管理するにはどのような権限が必要ですか？</a></li><li><a href="#q5">Q5: パイプラインを実行するだけの場合、どのような権限が必要ですか？</a></li><li><a href="#q6">Q6: 作成者が個人用パイプラインを自由に作れないように制御するには？</a></li><li><a href="#q7">Q7: 既存の環境をカスタムホストとして利用できますか？</a></li><li><a href="#q8">Q8: マネージド環境とパイプラインの関係は？</a></li></ul><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>パイプラインとは何か、どのような場面で役立つかがわかる</li><li>「プラットフォームホスト」と「カスタムホスト」の違いと選び方がわかる</li><li>パイプラインに関わる 3 つの主なロールの役割と関係がわかる</li><li>パイプラインの作成・管理・実行に必要な権限の組み合わせがわかる</li><li>個人用パイプラインの作成を制御する方法がわかる</li><li>マネージド環境とパイプラインの関係がわかる</li></ul><h2 id="q1">Power Platform のパイプラインとは何ですか？ (Q1)</h2><p>【結論】パイプラインとは、Power Platform で作ったアプリやフローなどの「ソリューション」を、開発用の環境からテスト用・本番用の環境へ簡単に届けるための仕組みです。</p><p>ふだん、アプリを作った環境（開発環境）から本番環境へ移すには、ソリューションを「エクスポートする」→「ファイルをダウンロードする」→「本番環境にインポートする」→「読み込む」という手作業が必要です。<br>パイプラインを使うと、この手作業を省いて、ボタンひとつで開発から本番への配布ができるようになります。</p><p>パイプラインにはそのほかにも、次のような便利な機能があります。</p><ul><li>配布のスケジュール設定</li><li>配布前の自動チェック（接続先や環境変数の検証）</li><li>配布の履歴管理（いつ、誰が、何を配布したかの記録）</li><li>承認フローとの連携（管理者の承認を得てから本番に配布）</li></ul><p>パイプラインが配布するのは「ソリューション」に含まれるアプリやフローなどの設定情報です。<br>Dataverse のテーブルに保存されているデータそのものは配布されません。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines">Power Platform のパイプラインの概要 (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines">Power Platform でパイプラインを設定する (Docs)</a></li></ul><h2 id="q2">プラットフォームホストとカスタムホストの違いは何ですか？ (Q2)</h2><p>【結論】パイプラインの設定情報を保管する「ホスト環境」には「プラットフォームホスト」と「カスタムホスト」の 2 種類があります。<br>目的や規模に応じて使い分けます。</p><p><strong>プラットフォームホスト</strong>は、Microsoft が自動で用意・管理するホスト環境です。<br>テナント内で誰かが初めてパイプラインページにアクセスした時点で、テナントのホームリージョンに自動でつくられます。<br>おもに「個人用パイプライン」に使われます。</p><p><strong>カスタムホスト</strong>は、管理者が自分で作成・設定するホスト環境です。<br>組織全体で共有するパイプラインを管理したい場合に使います。</p><table><thead><tr><th>項目</th><th>プラットフォームホスト</th><th>カスタムホスト</th></tr></thead><tbody><tr><td>作成方法</td><td>自動（初回アクセス時）</td><td>管理者が手動で作成</td></tr><tr><td>おもな用途</td><td>個人用パイプライン</td><td>組織共有のパイプライン</td></tr><tr><td>つなげられる環境の数</td><td>最大 3（開発 1 + 対象 2）</td><td>最大 7 ステージ + 複数の開発環境</td></tr><tr><td>他のユーザーとの共有</td><td>不可</td><td>可</td></tr><tr><td>承認フローなどの拡張</td><td>不可</td><td>可</td></tr><tr><td>データ容量の消費</td><td>なし（Microsoft のインフラに保存）</td><td>あり（Dataverse の容量を消費）</td></tr><tr><td>管理者のセットアップ</td><td>不要</td><td>必要</td></tr></tbody></table><p>【ポイント】</p><ol><li>少人数で手軽に配布したいならプラットフォームホストで十分です</li><li>組織全体でパイプラインを共有・管理したいならカスタムホストを使います</li><li>プラットフォームホストのパイプラインデータは Dataverse の容量を消費しません</li><li>カスタムホストは専用の環境として分けることが公式に推奨されています</li><li>1 つの環境は 1 つのホストにしか関連付けできません</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/platform-host-pipelines">プラットフォーム ホストを使用して個人用パイプラインを作成する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines">カスタム パイプライン ホストを使用してパイプラインを作成する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines">Power Platform でパイプラインを設定する (Docs)</a></li></ul><h2 id="q3">パイプラインに関わるロールにはどのようなものがありますか？ (Q3)</h2><p>【結論】パイプラインに関わる主なロールは次の 3 種類です。<br>それぞれ管理できる範囲（スコープ）が異なります。</p><table><thead><tr><th>ロール名</th><th>種類</th><th>おもな役割</th></tr></thead><tbody><tr><td><strong>システム管理者</strong> (System Administrator)</td><td>各環境のセキュリティロール</td><td>その環境内のすべてを管理できる</td></tr><tr><td><strong>Deployment Pipeline Administrator</strong></td><td>パイプライン専用のセキュリティロール</td><td>ホスト環境内のパイプラインを管理できる</td></tr><tr><td><strong>Power Platform 管理者</strong></td><td>Microsoft Entra ID のテナントレベルの管理者ロール</td><td>テナント内のすべての環境を管理できる</td></tr></tbody></table><p>このほかに、パイプラインアプリをインストールすると、次のロールもホスト環境に追加されます。</p><table><thead><tr><th>ロール名</th><th>役割</th></tr></thead><tbody><tr><td><strong>Deployment Pipeline User</strong></td><td>共有されたパイプラインの実行のみ（作成や編集は不可）</td></tr><tr><td><strong>Deployment Pipeline Maker</strong></td><td>カスタムホストで個人用パイプラインを作成・利用</td></tr><tr><td><strong>Deployment Pipeline Default</strong></td><td>軽量なパイプライン作成の権限（プラットフォームホストでは初回アクセス時に自動で付与）</td></tr></tbody></table><p>【補足】「Deployment Pipeline Administrator」はパイプライン管理に特化したロールで、ホスト環境内のパイプライン関連の情報にだけアクセスできます。<br>ホスト環境のそのほかのデータには権限がありません。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#share-with-pipeline-administrators">カスタム パイプライン ホストを使用してパイプラインを作成する - パイプライン管理者と共有する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#share-pipelines-with-makers">カスタム パイプライン ホストを使用してパイプラインを作成する - パイプラインを作成者と共有する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/platform-host-pipelines">プラットフォーム ホストを使用して個人用パイプラインを作成する (Docs)</a></li></ul><h2 id="q4">パイプラインを作成・管理するにはどのような権限が必要ですか？ (Q4)</h2><p>【結論】パイプラインを作成・管理するために必要な権限は、プラットフォームホストを使う場合とカスタムホストを使う場合で異なります。</p><h3 id="プラットフォームホスト（個人用パイプライン）の場合"><a href="#プラットフォームホスト（個人用パイプライン）の場合" class="headerlink" title="プラットフォームホスト（個人用パイプライン）の場合"></a>プラットフォームホスト（個人用パイプライン）の場合</h3><p>プラットフォームホストでは、特別なロールの付与やセットアップは不要です。<br>開発環境のソリューション画面からパイプラインページにアクセスすると、自動的にパイプラインを作成できるようになります。</p><p>ただし、配布先（ターゲット環境）として選べるのは、<strong>自分がソリューションの読み込み（インポート）権限を持っている環境だけ</strong>です。<br>この機能によってユーザーの権限が広がることはありません。</p><p>【補足】初回アクセス時に、プラットフォームホスト環境の「Deployment Pipeline Makers」チームに自動的に追加され、「Deployment Pipeline Default」ロールが付与されます。</p><h3 id="カスタムホスト（組織共有パイプライン）の場合"><a href="#カスタムホスト（組織共有パイプライン）の場合" class="headerlink" title="カスタムホスト（組織共有パイプライン）の場合"></a>カスタムホスト（組織共有パイプライン）の場合</h3><p>カスタムホストでパイプラインを作成・管理するには、ホスト環境で次のいずれかのロールが必要です。</p><ul><li><strong>Deployment Pipeline Administrator</strong>（パイプライン管理の専用ロール）</li><li><strong>システム管理者</strong>（環境内のすべてにアクセスできるため、パイプライン管理も可能）</li></ul><p>さらに、パイプラインに関連するすべての環境（開発環境・テスト環境・本番環境）へのアクセス権も別途必要です。</p><p>【よくある誤解】</p><ul><li>誤解: Deployment Pipeline Administrator ロールがあれば、関連するすべての環境を操作できる。<ul><li>→ 正しくは: Deployment Pipeline Administrator はホスト環境内のパイプライン設定のみを管理するロールです。開発環境やターゲット環境には別途アクセス権が必要です。</li></ul></li></ul><h3 id="Power-Platform-管理者の場合"><a href="#Power-Platform-管理者の場合" class="headerlink" title="Power Platform 管理者の場合"></a>Power Platform 管理者の場合</h3><p>Power Platform 管理者は、Power Platform 管理センター（PPAC）からカスタムホストの新規作成やパイプラインの一覧確認ができます。<br>ただし、2024 年の変更により、Dataverse への直接操作（セキュリティロールの変更など）を行うには「自己昇格（Self-Elevation）」が必要になりました。</p><p>【補足】自己昇格とは、Power Platform 管理者が特定の環境でシステム管理者ロールに自分自身を昇格させる操作のことです。<br>PPAC の環境ページから実行できます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/platform-host-pipelines">プラットフォーム ホストを使用して個人用パイプラインを作成する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines">カスタム パイプライン ホストを使用してパイプラインを作成する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/use-service-admin-role-manage-tenant">サービス管理者ロールを使用してテナントを管理する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-high-privileged-admin-roles">高い特権を持つ管理者ロールを管理する (Docs)</a></li></ul><h2 id="q5">パイプラインを実行するだけの場合、どのような権限が必要ですか？ (Q5)</h2><p>【結論】パイプラインの実行に必要な権限は、パイプラインの種類によって異なります。</p><h3 id="個人用パイプライン（プラットフォームホスト）の場合"><a href="#個人用パイプライン（プラットフォームホスト）の場合" class="headerlink" title="個人用パイプライン（プラットフォームホスト）の場合"></a>個人用パイプライン（プラットフォームホスト）の場合</h3><p>自分で作成した個人用パイプラインは、作成者自身が実行できます。<br>必要なのは次の 2 つの権限です。</p><ol><li><strong>開発環境</strong>でのソリューション書き出し（エクスポート）権限</li><li><strong>ターゲット環境</strong>でのソリューション読み込み（インポート）権限</li></ol><p>「システムカスタマイザー」ロールにはこれらの権限が含まれています。</p><h3 id="カスタムホストのパイプラインの場合"><a href="#カスタムホストのパイプラインの場合" class="headerlink" title="カスタムホストのパイプラインの場合"></a>カスタムホストのパイプラインの場合</h3><p>管理者が作成したパイプラインを実行するには、以下がすべて必要です。</p><ol><li>ホスト環境で「<strong>Deployment Pipeline User</strong>」ロールが付与されていること</li><li>パイプラインのレコードが自分に<strong>共有</strong>されていること（読み取り権限で十分）</li><li>開発環境でのソリューション書き出し権限</li><li>ターゲット環境でのソリューション読み込み権限</li></ol><p>【ポイント】</p><ol><li>Deployment Pipeline User はパイプラインの実行だけができるロールです</li><li>パイプラインの作成・編集・削除はできません</li><li>開発環境やターゲット環境への権限は別途必要です</li><li>アクセス権のないターゲット環境への配布はエラーになります</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/run-pipeline">Power Platform でパイプラインを実行する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#share-pipelines-with-makers">カスタム パイプライン ホストを使用してパイプラインを作成する - パイプラインを作成者と共有する (Docs)</a></li></ul><h2 id="q6">作成者が個人用パイプラインを自由に作れないように制御するには？ (Q6)</h2><p>【結論】カスタムホストを既定のホストとして設定し、開発環境をカスタムホストに関連付けることで、プラットフォームホストでの個人用パイプライン作成を無効にできます。</p><p>カスタムホストでは、プラットフォームホストと違い、パイプラインの作成権限が自動的には付与されません。<br>そのため、カスタムホストに環境を関連付けるだけで、その環境のユーザーは個人用パイプラインを作成できなくなります。</p><h3 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h3><ol><li>カスタムホスト環境がまだなければ新規作成します</li><li>「展開パイプラインの構成」アプリを開きます</li><li>左のメニューから「環境」を選びます</li><li>対象の開発環境のレコードを新規作成します</li><li>すでにプラットフォームホストに関連付いている場合は「Force Link（強制リンク）」で上書きします</li></ol><p>この操作により、対象の開発環境ではパイプラインの作成ボタンが使えなくなります。<br>管理者がカスタムホストで明示的にロールを付与したユーザーだけが、パイプラインを利用できるようになります。</p><h3 id="ターゲット環境側からの制御"><a href="#ターゲット環境側からの制御" class="headerlink" title="ターゲット環境側からの制御"></a>ターゲット環境側からの制御</h3><p>上記の方法に加えて、<strong>ターゲット環境（本番環境など）をあらかじめカスタムホストのターゲット環境として登録しておく</strong>ことも有効です。</p><p>1 つの環境は 1 つのホストにしか関連付けできません。<br>そのため、カスタムホスト側でターゲット環境として登録済みの環境は、プラットフォームホストの個人用パイプラインからは配布先として選べなくなります。</p><p>開発環境をカスタムホストに関連付ける方法はパイプラインの<strong>作成自体</strong>を阻止しますが、ターゲット環境を登録する方法は<strong>本番環境への配布</strong>を阻止します。<br>本番環境を守る観点では、両方を組み合わせるとより確実です。</p><p>【補足】PPAC の「展開」&gt;「設定」からも、テナント全体で既定のホストをカスタムホストに変更できます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines#as-an-admin-how-do-i-prevent-makers-from-creating-personal-pipelines-by-default">Power Platform でパイプラインを設定する - 管理者として、既定で作成者が個人用パイプラインを作成できないようにするにはどうすればよいですか？ (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-a-default-pipelines-host">プラットフォーム ホストの代わりに既定のパイプライン ホストを設定する (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/admin-deployment-hub">管理者の展開ページ (Docs)</a></li></ul><h2 id="q7">既存の環境をカスタムホストとして利用できますか？ (Q7)</h2><p>【結論】はい、既存の環境にパイプラインアプリをインストールすることで、カスタムホストとして利用できます。</p><h3 id="手順-1"><a href="#手順-1" class="headerlink" title="手順"></a>手順</h3><ol><li>PPAC にサインインし、「環境」からホストにしたい環境を選びます</li><li>「リソース」→「Dynamics 365 アプリ」→「アプリのインストール」の順に進みます</li><li>一覧から「Power Platform Pipelines」を選んでインストールします</li><li>インストール完了後、Power Apps でホスト環境に切り替えます</li><li>「展開パイプラインの構成」アプリを開き、環境やパイプラインの設定を行います</li></ol><p>【補足】パイプラインアプリのインストールが必要なのは<strong>ホスト環境だけ</strong>です。<br>開発環境やターゲット環境にインストールする必要はありません。</p><p>【よくある誤解】</p><ul><li>誤解: 開発環境をそのままホスト環境として使うのが簡単でよい。<ul><li>→ 正しくは: 公式ドキュメントでは、ホスト環境は開発環境やターゲット環境とは別の専用環境にすることが推奨されています。ホスト環境にはパイプラインの設定データや実行履歴が蓄積されるため、開発用のデータと混在すると管理が複雑になります。また、ホスト環境を削除すると、すべてのパイプラインと実行データが失われます。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#install-the-pipelines-application-in-your-host-environment">カスタム パイプライン ホストを使用してパイプラインを作成する - パイプライン アプリケーションをホスト環境にインストールする (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#create-a-new-custom-host">カスタム パイプライン ホストを使用してパイプラインを作成する - 新しいカスタム ホストを作成する (Docs)</a></li></ul><h2 id="q8">マネージド環境とパイプラインの関係は？ (Q8)</h2><p>【結論】パイプラインのターゲット環境（配布先）はすべて「マネージド環境」として有効にする必要があります。<br>開発環境やホスト環境はマネージド環境でなくても利用できます。</p><p>マネージド環境とは、Power Platform の管理機能を強化するための設定です。<br>マネージド環境を有効にすると、共有の制限やソリューションチェックなど、さまざまな管理機能が使えるようになります。</p><h3 id="マネージド環境が必要な場所・不要な場所"><a href="#マネージド環境が必要な場所・不要な場所" class="headerlink" title="マネージド環境が必要な場所・不要な場所"></a>マネージド環境が必要な場所・不要な場所</h3><table><thead><tr><th>環境の役割</th><th>マネージド環境が必要か</th></tr></thead><tbody><tr><td>ターゲット環境（テスト・本番など）</td><td><strong>必要</strong></td></tr><tr><td>開発環境</td><td>不要</td></tr><tr><td>ホスト環境</td><td>不要</td></tr></tbody></table><h3 id="ライセンスへの影響"><a href="#ライセンスへの影響" class="headerlink" title="ライセンスへの影響"></a>ライセンスへの影響</h3><p>マネージド環境を有効にすると、その環境のすべてのアクティブユーザーに「プレミアムライセンス」が必要になります。</p><table><thead><tr><th>ライセンス</th><th>マネージド環境で使えるか</th></tr></thead><tbody><tr><td>Power Apps Premium</td><td>はい</td></tr><tr><td>Power Automate Premium</td><td>はい</td></tr><tr><td>Dynamics 365 Enterprise</td><td>はい</td></tr><tr><td>Microsoft 365 のみ</td><td>いいえ</td></tr></tbody></table><p>【補足】Dynamics 365 Enterprise ライセンス（Sales Enterprise、Customer Service Enterprise など）を持っているユーザーは、追加のライセンスなしでマネージド環境を利用できます。<br>Microsoft 365 ライセンスのみのユーザーがいる場合は、マネージド環境の有効化前にライセンスの確認が必要です。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/managed-environment-overview">マネージド環境の概要 (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/managed-environment-enable">マネージド環境を有効にする (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/managed-environment-licensing">マネージド環境のライセンス (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines#can-i-ensure-pipeline-targets-are-managed-environments">Power Platform のパイプラインの概要 - ターゲット環境のマネージド環境の自動有効化 (Docs)</a></li></ul><h2 id="summary">まとめ</h2><ul><li>パイプラインは、ソリューションの配布を手作業なしで行えるしくみです。個人で手軽に使える「プラットフォームホスト」と、組織全体で管理できる「カスタムホスト」の 2 種類があります。</li><li>パイプラインの管理には「Deployment Pipeline Administrator」ロール、実行には「Deployment Pipeline User」ロールを使い分けます。いずれの場合も、開発環境やターゲット環境への権限は別途必要です。</li><li>個人用パイプラインの作成を制限したい場合は、カスタムホストを既定に設定し、開発環境をカスタムホストに関連付けます。</li><li>ターゲット環境はマネージド環境である必要があり、マネージド環境ではプレミアムライセンスが必要です。Dynamics 365 Enterprise ライセンスがあれば要件を満たします。</li><li>パイプラインの日常的な運用では、Power Platform 管理者ロールは不要です。初期セットアップやテナント全体の管理が必要な場合にのみ使います。</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2><p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。</p>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-pipelines-guide/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-pipelines-guide/"/>
+    <published>2026-04-06T15:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platformサポートチームの鈴木です。</p>
+<p>本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明させていただきます。</p>
+<ul>
+<li><a href="#q1">]]>
+    </summary>
+    <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
+    <updated>2026-04-20T07:51:44.110Z</updated>
   </entry>
   <entry>
     <author>
@@ -69,7 +96,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-04-16T05:42:32.851Z</updated>
+    <updated>2026-04-20T07:51:44.063Z</updated>
   </entry>
   <entry>
     <author>
@@ -106,7 +133,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-04-16T05:42:32.898Z</updated>
+    <updated>2026-04-20T07:51:44.111Z</updated>
   </entry>
   <entry>
     <author>
@@ -136,7 +163,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-04-16T05:42:32.850Z</updated>
+    <updated>2026-04-20T07:51:44.061Z</updated>
   </entry>
   <entry>
     <author>
@@ -168,7 +195,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-04-16T05:42:32.790Z</updated>
+    <updated>2026-04-20T07:51:44.000Z</updated>
   </entry>
   <entry>
     <author>
@@ -191,7 +218,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-04-16T05:42:32.913Z</updated>
+    <updated>2026-04-20T07:51:44.126Z</updated>
   </entry>
   <entry>
     <author>
@@ -224,7 +251,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-04-16T05:42:32.898Z</updated>
+    <updated>2026-04-20T07:51:44.111Z</updated>
   </entry>
   <entry>
     <author>
@@ -257,7 +284,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-04-16T05:42:32.852Z</updated>
+    <updated>2026-04-20T07:51:44.064Z</updated>
   </entry>
   <entry>
     <author>
@@ -287,7 +314,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-04-16T05:42:32.589Z</updated>
+    <updated>2026-04-20T07:51:43.796Z</updated>
   </entry>
   <entry>
     <author>
@@ -311,7 +338,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-04-16T05:42:32.853Z</updated>
+    <updated>2026-04-20T07:51:44.064Z</updated>
   </entry>
   <entry>
     <author>
@@ -340,7 +367,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-04-16T05:42:32.852Z</updated>
+    <updated>2026-04-20T07:51:44.064Z</updated>
   </entry>
   <entry>
     <author>
@@ -368,7 +395,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-04-16T05:42:32.841Z</updated>
+    <updated>2026-04-20T07:51:44.053Z</updated>
   </entry>
   <entry>
     <author>
@@ -392,7 +419,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-04-16T05:42:32.750Z</updated>
+    <updated>2026-04-20T07:51:43.959Z</updated>
   </entry>
   <entry>
     <author>
@@ -423,7 +450,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-04-16T05:42:32.792Z</updated>
+    <updated>2026-04-20T07:51:44.001Z</updated>
   </entry>
   <entry>
     <author>
@@ -452,7 +479,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-04-16T05:42:32.675Z</updated>
+    <updated>2026-04-20T07:51:43.886Z</updated>
   </entry>
   <entry>
     <author>
@@ -475,7 +502,7 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-04-16T05:42:32.897Z</updated>
+    <updated>2026-04-20T07:51:44.109Z</updated>
   </entry>
   <entry>
     <author>
@@ -496,7 +523,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
     </summary>
     <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-04-16T05:42:32.647Z</updated>
+    <updated>2026-04-20T07:51:43.858Z</updated>
   </entry>
   <entry>
     <author>
@@ -518,7 +545,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポート チームの三田です。<br>本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。</p>]]>
     </summary>
     <title>Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</title>
-    <updated>2026-04-16T05:42:32.910Z</updated>
+    <updated>2026-04-20T07:51:44.123Z</updated>
   </entry>
   <entry>
     <author>
@@ -540,31 +567,6 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate で Teams コネクタを使う際に改行を反映する方法</title>
-    <updated>2026-04-16T05:42:32.711Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="サポートサービスのご利用について" scheme="https://jpdynamicscrm.github.io/blog/categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/"/>
-    <category term="Dataflow" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataflow/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
-    <category term="情報採取" scheme="https://jpdynamicscrm.github.io/blog/tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/"/>
-    <category term="お問い合わせ全般" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/"/>
-    <category term="Dataflow" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataflow/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では、Dataflow のトラブルシューティングにあたって、必要となる情報の取得手順についてご案内いたします。</p><span id="more"></span><h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol><li><a href="#anchor-intro">概要</a></li><li><a href="#anchor-how-to-collect">情報取得手順詳細</a><ol><li><a href="#anchor-about-situation">事象の発生状況</a></li><li><a href="#anchor-about-dataflow-datasource">データフローのデータソースの状況</a></li><li><a href="#anchor-about-onpremise-data-gateway">オンプレミスデータゲートウェイの使用状況</a></li><li><a href="#anchor-about-dataflow-type">データフローの型</a></li><li><a href="#anchor-network-trace">エラー発生時のネットワークトレース</a></li><li><a href="#anchor-dataflow-table">Dataflow テーブル</a></li><li><a href="#anchor-dataflow-history">Dataflow の更新履歴ファイル（ csv ）</a></li><li><a href="#anchor-solution-export">ソリューションのエクスポート</a></li><li><a href="#anchor-user-account">ユーザーアカウント</a></li></ol></li><li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li></ol><p><a id='anchor-intro'></a></p><h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>弊社サポートでは、お問い合わせを頂いた際のトラブルシューティングにおいて、お問い合わせの内容をもとに調査方針を立てております。<br>発生している事象の把握のため、発生している事象の切り分けや情報提供をお願いすることがあります。<br>本記事では、Dataflow に関するサポートサービスのお問い合わせの際の情報取得手順につきまして、以下の通りご案内いたします。</p><p><a id='anchor-how-to-collect'></a></p><h1 id="情報取得手順詳細"><a href="#情報取得手順詳細" class="headerlink" title="情報取得手順詳細"></a>情報取得手順詳細</h1><p><a id='anchor-about-situation'></a></p><h2 id="事象の発生状況"><a href="#事象の発生状況" class="headerlink" title="事象の発生状況"></a>事象の発生状況</h2><p>エラーがどのような状況下で発生するかお知らせください。<br>事象の発生条件を特定することで、問題の特定だけではなく弊社環境での再現調査においても有用な情報が得られます。<br>以下の情報をお知らせいただくことでより明確に事象を把握することができます。</p><ol><li>事象が発生するタイミング <ul><li>いつから発生しているか・現在も継続して発生しているか</li><li>どれぐらいの頻度で発生しているか</li><li>発生前後で何らかの変更を行ったか</li><li>特定の操作で発生するか</li></ul></li><li>事象の発生環境<ul><li>機種</li><li>OS およびバージョン</li><li>ブラウザ種類 ( Microsoft Edge、Google Chrome、Firefox など)</li><li>プラグインや拡張機能の有無</li></ul></li><li>特定の利用で発生する事象か<ul><li>特定の端末か？</li><li>事象が発生している端末と事象が発生していない端末の差異</li><li>特定のユーザーか？</li><li>事象が発生しているユーザーと事象が発生していないユーザーの差</li><li>および、両者のメールアドレスやユーザープリンシパル名</li></ul></li><li>Dataflow をご利用いただいている端末のネットワーク環境の差異<ul><li>プロキシ経由かどうか</li><li>Azure Express Route の利用有無</li><li>セキュリティ製品の利用有無</li></ul></li></ol><p><a id='anchor-about-dataflow-datasource'></a></p><h2 id="データフローのデータソースの状況"><a href="#データフローのデータソースの状況" class="headerlink" title="データフローのデータソースの状況"></a>データフローのデータソースの状況</h2><p>以下の手順で、事象が発生しているデータフローのデータソースについてご確認ください。<br>データフローの編集画面を開きます。</p><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/dataflow-edit.png"> </p><p>画面右下にて、「ダイアグラム ビュー」をご選択ください。 </p><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/dataflow-diagram.png"> </p><p>以下のような表示画面が出てきましたら、「ソース」にカーソルを合わせていただき、どのようなデータソースをご使用になっているかご教示ください。　<br>（下画像では例として CSV ファイルを使用しております。）</p><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/dataflow-datasource.png"> </p><p><a id='anchor-about-onpremise-data-gateway'></a></p><h2 id="オンプレミスデータゲートウェイの使用状況"><a href="#オンプレミスデータゲートウェイの使用状況" class="headerlink" title="オンプレミスデータゲートウェイの使用状況"></a>オンプレミスデータゲートウェイの使用状況</h2><p>事象が発生しているデータフローにおきまして、オンプレミスデータゲートウェイのご利用についてご確認ください。（データフロー作成時にご選択されていない場合は「していない」とお答えください。）</p><p><a id='anchor-about-dataflow-type'></a></p><h2 id="データフローの型"><a href="#データフローの型" class="headerlink" title="データフローの型"></a>データフローの型</h2><p>対象となるデータフローの「型」列の値についてご教示ください。</p><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/dataflow-type.png"> </p><p><a id='anchor-network-trace'></a></p><h2 id="エラー発生時のネットワークトレース"><a href="#エラー発生時のネットワークトレース" class="headerlink" title="エラー発生時のネットワークトレース"></a>エラー発生時のネットワークトレース</h2><div class="alert is-info"><p class="alert-title">Note</p><p>以下の手順は、データフロー編集時にエラーが起きた場合にご実行ください。</p></div><p>エラーが発生する作業を実施したときの、ブラウザのネットワークトレースのご取得をお願いいたします。<br><br>データフローの編集を行う直前でログの記録を開始し、エラーが表示されるまでの動作をログに収録いただけますようお願い申し上げます。</p><p>ログの取得方法については、お手数ですが以下の公開情報をご参照ください。<br>※手順内の1. 及び2.ステップ記録ツール」については実施いただかなくて大丈夫です。<br><a href="https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#google-chrome-and-microsoft-edge-chromium">https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#google-chrome-and-microsoft-edge-chromium</a></p><p><a id='anchor-dataflow-table'></a></p><h2 id="Dataflowテーブル"><a href="#Dataflowテーブル" class="headerlink" title="Dataflowテーブル"></a>Dataflowテーブル</h2><p>対象のデータフローの ID やクエリの詳細を確認させていただくために、Dataverse 内の Dataflow テーブルのご提供をお願いいたします。<br>以下の手順にて Dataflow テーブルを表示して、ご提供頂けますようお願いいたします。</p><ol><li>Power Apps ( <a href="https://make.powerapps.com/">https://make.powerapps.com/</a> ) を開き、[設定] – [開発者リソース] の順にクリックします。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/developer-resource.png"> </p><ol start="2"><li>[Web API エンドポイント] を取得し、末尾に &#x2F;msdyn_dataflows を追加したリンクを作成します。<br><br>例 : <a href="https://org/">https://org</a> **bbca2a.api.crm7.dynamics.com&#x2F;api&#x2F;data&#x2F;v9.2&#x2F;msdyn_dataflows</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/webapi-endpoint.png"></p><ol start="3"><li>項番 2 にて作成したリンクにアクセスし、保存します。<br><br>※ 以下の画面は Edge での例となります。　<br>※ 保存時に、ファイル名に環境 ID などの記載いただけますと幸いです。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/access-link.png"></p><p><a id='anchor-dataflow-history'></a></p><h2 id="データフローの更新履歴ファイル（-csv-）"><a href="#データフローの更新履歴ファイル（-csv-）" class="headerlink" title="データフローの更新履歴ファイル（ csv ）"></a>データフローの更新履歴ファイル（ csv ）</h2><p>対象のデータフローの更新履歴ファイル（ csv ）を開き、該当する問題の実行履歴をダウンロードしていただけますようお願いいたします。<br><br>また、過去に成功した実行履歴がある場合は、そちらも併せてダウンロードの上、ご提供いただけますと幸いです。</p><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/dataflow-history.png"><br><img src="/blog/powerapps/helpful-information-for-dataflow-sr/dataflow-download.png"></p><p><a id='anchor-solution-export'></a></p><h2 id="ソリューションのエクスポート"><a href="#ソリューションのエクスポート" class="headerlink" title="ソリューションのエクスポート"></a>ソリューションのエクスポート</h2><p>以下の手順にて対象のデータフローをソリューションに含めていただき、アンマネージドにてエクスポートをいただけますようお願いいたします。（実装の内容やご利用のコネクタについて確認をさせていただきます。）</p><ol><li><p>Power Automate ( <a href="https://make.powerautomate.com/">https://make.powerautomate.com/</a> )を開き、「ソリューション」をご選択ください（環境名がデータフローのものと一致しているかご確認ください）。<br><br><img src="/blog/powerapps/helpful-information-for-dataflow-sr/pa-solution.png"></p></li><li><p>新しいソリューションをご作成ください。（既存のソリューションが存在する場合は、この項目を飛ばしてください。）</p></li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/new-solution.png"></p><ol start="3"><li>作成したソリューションを開き、対象のデータフローを追加します。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/select-dataflow.png"></p><ol start="4"><li>「マネージド」が「いいえ」になっているかをご確認いただいた上で、「追加」をご選択ください。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/add-dataflow.png"></p><ol start="5"><li>「ソリューションに戻る」をクリックします。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/back-to-solution.png"></p><ol start="6"><li>作成したソリューションを選択し、「ソリューションをエクスポート」をお選びください。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/export-solution.png"></p><ol start="7"><li>「エクスポート前画面」にて「次へ」をクリックした後、アンマネージドに切り替えてエクスポートしてください。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/unmanaged-export.png"></p><ol start="8"><li>しばらくするとエクスポートが完了しますので、ダウンロードして .zip フォルダをご取得ください。</li></ol><p><img src="/blog/powerapps/helpful-information-for-dataflow-sr/download.png"></p><p><a id='anchor-user-account'></a></p><h2 id="ユーザーアカウント"><a href="#ユーザーアカウント" class="headerlink" title="ユーザーアカウント"></a>ユーザーアカウント</h2><p>対象のデータフロー所有者のユーザーアカウントをご教示ください。<br>もしご不明の場合は、対象のデータフローが含まれているソリューションをご選択いただき、<br>下記画像の通りに表示名がございますので、そちらをご教示いただければ幸いです。<br>※所有者の UPN もしくはオブジェクト ID がわかる場合は、そちらも併せてご提供ください。</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/blog/powerapps/helpful-information-for-dataflow-sr/user-account.png"></h2><p><a id='補足'></a></p><h1 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h1><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって UI の遷移などが若干異なる場合があります。その場合は画面の指示に従って進めてください。  </p>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerapps/helpful-information-for-dataflow-sr/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerapps/helpful-information-for-dataflow-sr/"/>
-    <published>2025-08-20T00:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では、Dataflow のトラブルシューティングにあたって、必要となる情報の取得手順についてご案内いたします。</p>]]>
-    </summary>
-    <title>Dataflow お問い合わせの際の情報取得手順</title>
-    <updated>2026-04-16T05:42:32.670Z</updated>
+    <updated>2026-04-20T07:51:43.921Z</updated>
   </entry>
 </feed>
