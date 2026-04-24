@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Power Pages トラブルシューティング ガイド | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="はじめにこんにちは、Power Platformサポートチームの吉永です。本記事では Power Pages の一般的なトラブルシューティングと、弊社サポートにお問い合わせいただく場合にご提供いただきたい情報についてご紹介させて頂きます。 このため、ご利用いただいている Power Pages サイトや、Power Pages サイトの作成において問題が発生した場合にはこちらで紹介させて頂いて">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power Pages トラブルシューティング ガイド">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-troubleshooting/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="はじめにこんにちは、Power Platformサポートチームの吉永です。本記事では Power Pages の一般的なトラブルシューティングと、弊社サポートにお問い合わせいただく場合にご提供いただきたい情報についてご紹介させて頂きます。 このため、ご利用いただいている Power Pages サイトや、Power Pages サイトの作成において問題が発生した場合にはこちらで紹介させて頂いて">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-troubleshooting/power-pages-debug.png">
+<meta property="article:published_time" content="2026-04-19T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-24T08:30:25.916Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Administration">
+<meta property="article:tag" content="Power Pages">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-troubleshooting/power-pages-debug.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerpages/power-pages-troubleshooting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Power Pages トラブルシューティング ガイド
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2026-04-19T15:00:00.000Z" itemprop="datePublished">2026-04-20</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerpages/power-pages-troubleshooting.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Power-Pages/">Power Pages</a>
+  </div>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+f965dc01-4720-5175-8f4e-a2ce7bf2a675%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Pages+%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0+%E3%82%AC%E3%82%A4%E3%83%89%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerpages%2Fpower-pages-troubleshooting%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerpages%2Fpower-pages-troubleshooting.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerpages%2Fpower-pages-troubleshooting.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-troubleshooting/" data-id="cuidzvOArZ07nebb4uQZBiOea" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>本記事では Power Pages の一般的なトラブルシューティングと、弊社サポートにお問い合わせいただく場合にご提供いただきたい情報についてご紹介させて頂きます。</p>
+<p>このため、ご利用いただいている Power Pages サイトや、Power Pages サイトの作成において問題が発生した場合にはこちらで紹介させて頂いている手順についてご参考にしていただき、問題が解消しない場合については、弊社サポートへのお問い合わせをご検討いただけますと幸いです。</p>
+<p>なお、本記事では以下の 2 つの項目に分けてご紹介を行わせて頂きます。</p>
+<ul>
+<li><strong>第 1 部</strong>: お客様ご自身で実施できる一般的なトラブルシューティング手順</li>
+<li><strong>第 2 部</strong>: それでも解決しない場合にサポートへお問い合わせいただく際に、ご用意いただきたい情報</li>
+</ul>
+<hr>
+<h1 id="第-1-部-一般的なトラブルシューティング"><a href="#第-1-部-一般的なトラブルシューティング" class="headerlink" title="第 1 部: 一般的なトラブルシューティング"></a>第 1 部: 一般的なトラブルシューティング</h1><h2 id="1-まず試すこと-—-診断ツールの活用"><a href="#1-まず試すこと-—-診断ツールの活用" class="headerlink" title="1. まず試すこと — 診断ツールの活用"></a>1. まず試すこと — 診断ツールの活用</h2><p>問題に遭遇したら、まず以下の診断ツールを活用してください。多くの場合、原因の特定と解決策の提示まで自動的に行われます。</p>
+<h3 id="1-1-サイト-チェッカー-を実行する"><a href="#1-1-サイト-チェッカー-を実行する" class="headerlink" title="1.1 サイト チェッカー を実行する"></a>1.1 サイト チェッカー を実行する</h3><p><strong>サイト チェッカー</strong> は、サイトの構成上の問題を自動検出するセルフサービス診断ツールです。結果は <strong>エラー</strong>・<strong>警告</strong>・<strong>合格</strong> の 3 段階で表示され、修正手順も提示されます。</p>
+<p><strong>実行方法:</strong></p>
+<ol>
+<li><a href="https://aka.ms/ppac">Power Platform 管理センター</a> を開く</li>
+<li><strong>管理</strong> &gt; <strong>Power Pages</strong> &gt; <strong>対象の Power Pages サイト</strong> を選択</li>
+<li><strong>サイトの正常性</strong> パネルで <strong>スキャンの実行</strong> をクリック</li>
+</ol>
+<p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/admin/site-checker">サイト チェッカーの実行</a></p>
+<h3 id="1-2-Power-Pages-DevTools-拡張機能でエラーを確認する"><a href="#1-2-Power-Pages-DevTools-拡張機能でエラーを確認する" class="headerlink" title="1.2 Power Pages DevTools 拡張機能でエラーを確認する"></a>1.2 Power Pages DevTools 拡張機能でエラーを確認する</h3><p>Edge ブラウザ向けの開発者ツール拡張機能で、サーバーサイドのエラーメッセージや Liquid のカスタムログを確認できます。</p>
+<p><strong>セットアップ手順:</strong></p>
+<ol>
+<li><a href="https://go.microsoft.com/fwlink/?linkid=2270261">Microsoft Power Pages extension for Edge</a> をインストール</li>
+<li>Portal Management App で Site Setting <code>UserTrace/Debug</code> を <code>true</code> に設定（Private サイトはデフォルトで有効）</li>
+<li>問題を再現し、Edge の DevTools (F12)  の <strong>Power Pages</strong> タブでエラーメッセージを確認</li>
+</ol>
+<p><img src="/blog/powerpages/power-pages-troubleshooting/power-pages-debug.png"></p>
+<p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/configure/devtools-addon">Power Pages DevTools 拡張機能</a></p>
+<h3 id="1-3-キャッシュをクリアする"><a href="#1-3-キャッシュをクリアする" class="headerlink" title="1.3 キャッシュをクリアする"></a>1.3 キャッシュをクリアする</h3><p>設定変更が反映されない場合は、サーバーサイドキャッシュが原因の可能性があります。<br>この場合、以下のいずれかの方法を実施することで、キャッシュのクリアが行われます。</p>
+<ul>
+<li><strong>方法 1</strong>: Design Studio の<strong>プレビュー</strong>ボタンをクリック</li>
+<li><strong>方法 2</strong>: サイト URL に <code>/_services/about</code> を付加してアクセスし、<strong>Clear Cache</strong> をクリック（管理者権限で Web サイトにサインインが必要）</li>
+<li><strong>方法 3</strong>: Power Platform 管理センターからサイトを<strong>再起動</strong></li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>: キャッシュの反映 SLA は<strong>最大 15 分</strong>です。設定変更後、すぐに反映されない場合は 15 分待ってから確認してください。Clear Cache は全キャッシュをクリアするため、高負荷サイトでは<strong>非ピーク時</strong>に実行してください。</p>
+</blockquote>
+<p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/admin/clear-server-side-cache">Power Pages でのサーバー側キャッシュの動作</a></p>
+<h3 id="1-4-既知の問題-Known-Issues-を確認する"><a href="#1-4-既知の問題-Known-Issues-を確認する" class="headerlink" title="1.4 既知の問題 (Known Issues) を確認する"></a>1.4 既知の問題 (Known Issues) を確認する</h3><p>お客様が遭遇している問題が既知の問題である可能性があります。以下のページで最新の情報をご確認ください。</p>
+<p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/known-issues">Power Pages 既知の問題</a></p>
+<hr>
+<h2 id="2-よくある問題と解決方法"><a href="#2-よくある問題と解決方法" class="headerlink" title="2. よくある問題と解決方法"></a>2. よくある問題と解決方法</h2><p>発生している症状ごとに、考えられる原因と対処が記載された公式ドキュメントをまとめました。</p>
+<h3 id="サイトにアクセスできない-サーバーエラーが表示される"><a href="#サイトにアクセスできない-サーバーエラーが表示される" class="headerlink" title="サイトにアクセスできない &#x2F; サーバーエラーが表示される"></a>サイトにアクセスできない &#x2F; サーバーエラーが表示される</h3><p>まず、Power Platform 管理センターからサイトの<strong>再起動</strong>をお試しください。キャッシュの不整合や一時的な接続の問題であれば、再起動だけで解消する場合があります。また、<code>/_services/about</code> ページから <strong>Clear Cache</strong> を実行することも有効です。</p>
+<p>再起動やキャッシュクリアで改善しない場合は、以下のドキュメントを順に確認してください。</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#url-of-the-connected-microsoft-dataverse-environment-has-changed">Dataverse 環境 URL が変更されている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#microsoft-dataverse-environment-connected-to-your-website-is-in-administration-mode">Dataverse 環境が管理モードになっている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#authentication-connection-between-dataverse-environment-and-website-is-broken">環境復元により認証接続が切断されている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#request-to-microsoft-dataverse-environment-has-timed-out">Dataverse へのリクエストがタイムアウトしている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#website-binding-not-found">Website Binding が見つからない</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key">認証キーの有効期限が切れている</a></li>
+</ul>
+<h3 id="サイトの作成・プロビジョニングに失敗する"><a href="#サイトの作成・プロビジョニングに失敗する" class="headerlink" title="サイトの作成・プロビジョニングに失敗する"></a>サイトの作成・プロビジョニングに失敗する</h3><p>サイトの新規作成やプロビジョニング中に問題が発生する場合は、以下を確認してください。</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/known-issues#site-creation">サイト作成時の権限エラー (Azure Entra アプリ登録権限がない)</a> — Power Pages Core パッケージを最新に更新することで解消する場合があります</li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-provisioning-issues">プロビジョニングの問題 - Profile フォームが存在しない</a> — 「Getting set up」画面のまま進まない場合はこちらを確認</li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/known-issues#site-creation">サイト作成に関する既知の問題</a> — 古い環境では Entra アプリ登録権限が必要な場合があります</li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/faq">削除したサイトの URL を再利用する場合</a> — リソースのパージに 30 分〜1 時間かかるため、待機が必要です</li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/faq">サイト作成全般に関する FAQ</a></li>
+</ul>
+<h3 id="データを更新したがサイトに反映されない"><a href="#データを更新したがサイトに反映されない" class="headerlink" title="データを更新したがサイトに反映されない"></a>データを更新したがサイトに反映されない</h3><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/clear-server-side-cache">サーバーサイドキャッシュの仕組み</a> — 反映 SLA は最大 15 分</li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-cache-invalidation#tables-not-enabled-for-cache-invalidation">テーブルの Change Tracking が無効になっている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-cache-invalidation#organization-not-enabled-for-change-tracking">組織の Change Tracking が無効になっている</a></li>
+</ul>
+<h3 id="「Page-Not-Found」エラーが表示される"><a href="#「Page-Not-Found」エラーが表示される" class="headerlink" title="「Page Not Found」エラーが表示される"></a>「Page Not Found」エラーが表示される</h3><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-cache-invalidation#im-getting-a-page-not-found-error-and-the-page-content-is-different-from-the-default-page-not-found-site-marker-or-web-page">Page Not Found サイトマーカーの設定不備</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#page-not-found-site-marker-configuration">構成の問題 - Page Not Found サイトマーカー</a></li>
+</ul>
+<h3 id="特定のページが表示されない-空白になる"><a href="#特定のページが表示されない-空白になる" class="headerlink" title="特定のページが表示されない &#x2F; 空白になる"></a>特定のページが表示されない &#x2F; 空白になる</h3><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#webpages">Web ページの構成に問題がある</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#parent-page-of-an-active-webpage-is-inactive">親ページが非アクティブになっている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#home-site-marker-configuration">Home サイトマーカーの設定不備</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#profile-site-marker-configuration">Profile サイトマーカーの設定不備</a></li>
+</ul>
+<h3 id="サイトの読み込みが遅い"><a href="#サイトの読み込みが遅い" class="headerlink" title="サイトの読み込みが遅い"></a>サイトの読み込みが遅い</h3><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance">パフォーマンスの問題（全般）</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#loading-static-resources-cssjs-asynchronously">CSS&#x2F;JS が同期的に読み込まれている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance#basic-form-lookup-configuration">ルックアップがドロップダウン表示になっている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance#large-number-of-web-file-records">Web ファイル数が多すぎる (500 件超)</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance#header-output-cache-is-disabled">ヘッダー &#x2F; フッターの出力キャッシュが無効になっている</a></li>
+</ul>
+<h3 id="ログインしていないユーザーにデータが表示されてしまう"><a href="#ログインしていないユーザーにデータが表示されてしまう" class="headerlink" title="ログインしていないユーザーにデータが表示されてしまう"></a>ログインしていないユーザーにデータが表示されてしまう</h3><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-to-basic-forms-lists-and-multistep-form-steps">Basic Form &#x2F; List の Table Permission が無効になっている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-available-to-odata-feed">OData フィードが匿名公開されている</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#anonymous-access-to-dataverse-tables">Dataverse テーブルへの匿名アクセスが許可されている</a></li>
+</ul>
+<h3 id="セキュリティ設定を強化したい"><a href="#セキュリティ設定を強化したい" class="headerlink" title="セキュリティ設定を強化したい"></a>セキュリティ設定を強化したい</h3><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#web-application-firewall-enabled">Web Application Firewall (WAF) の有効化</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#http-headers">HTTP セキュリティヘッダーの設定</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#web-template-validation">Web Template Validation の有効化</a></li>
+</ul>
+<blockquote>
+<p><strong>その他の参考ドキュメント:</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/authentication/">認証の概要</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/authentication/saml2-faqs">SAML 2.0 FAQ</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/faq">Power Pages FAQ</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-pages/known-issues">Known Issues</a></li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="第-2-部-サポートへのお問い合わせ時にご用意いただきたい情報"><a href="#第-2-部-サポートへのお問い合わせ時にご用意いただきたい情報" class="headerlink" title="第 2 部: サポートへのお問い合わせ時にご用意いただきたい情報"></a>第 2 部: サポートへのお問い合わせ時にご用意いただきたい情報</h1><p>上記のトラブルシューティングで解決しない場合は、Microsoft サポートへのお問い合わせをご検討ください。以下の情報を事前にご準備いただくことで、調査を迅速に進めることができます。</p>
+<p>なお、後述させて頂く情報については、あらかじめすべての情報をご用意いただく必要があるわけではございませんので、採取可能な情報をあらかじめご用意いただけますと幸いです。</p>
+<p>また、本ページにてご紹介させて頂いている情報以外の提供をサポートにて依頼させて頂く場合がございますので、予めご了承いただけますと幸いです。</p>
+<h2 id="3-全般的に必要な情報"><a href="#3-全般的に必要な情報" class="headerlink" title="3. 全般的に必要な情報"></a>3. 全般的に必要な情報</h2><p>すべてのお問い合わせで以下の情報をご用意ください。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>項目</th>
+<th>確認方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>サイト URL</strong></td>
+<td>例: <code>https://contoso.powerappsportals.com</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>環境 ID</strong></td>
+<td><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/determine-org-id-name">環境の組織 ID と名前を確認する方法</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>問題の発生日時</strong> (UTC)</td>
+<td>タイムゾーンを明記。可能な限り正確に</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>問題の再現手順</strong></td>
+<td>具体的な操作手順を番号付きで記載。画面録画も有効です — <a href="https://support.microsoft.com/ja-jp/windows/snipping-tool-%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3-%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%82%92%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E3%81%99%E3%82%8B-00246869-1843-655f-f220-97299b865f6b">Snipping Tool を使って画面を録画する方法</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>期待される動作と実際の動作</strong></td>
+<td>何が起きるべきで、何が起きたか</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>影響範囲</strong></td>
+<td>全ユーザーか特定ユーザーか &#x2F; 全ページか特定ページか</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>スクリーンショット &#x2F; エラーメッセージ</strong></td>
+<td>エラー画面のスクリーンショット、Activity ID があれば記載</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>最近の変更内容</strong></td>
+<td>問題発生前に行った設定変更・カスタマイズ・ソリューションインポート等</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>データモデルの種類</strong></td>
+<td><strong>拡張データモデル (Enhanced)</strong> か <strong>標準データモデル (Standard)</strong> か — <a href="https://learn.microsoft.com/ja-jp/power-pages/admin/enhanced-data-model">Enhanced data model の確認方法</a></td>
+</tr>
+</tbody></table>
+<h2 id="4-問題カテゴリ別の追加情報"><a href="#4-問題カテゴリ別の追加情報" class="headerlink" title="4. 問題カテゴリ別の追加情報"></a>4. 問題カテゴリ別の追加情報</h2><h3 id="4-1-サイトが起動しない-サーバーエラー"><a href="#4-1-サイトが起動しない-サーバーエラー" class="headerlink" title="4.1 サイトが起動しない &#x2F; サーバーエラー"></a>4.1 サイトが起動しない &#x2F; サーバーエラー</h3><table>
+<thead>
+<tr>
+<th>#</th>
+<th>追加情報</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>エラー画面のスクリーンショット</strong></td>
+<td>エラーページ全体のキャプチャ（Activity ID やエラーメッセージが含まれるようにしてください）</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>環境に対する最近の操作</strong></td>
+<td>URL 変更、バックアップ復元、管理モードの有効&#x2F;無効化 等</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>HAR ファイル</strong></td>
+<td>エラー発生時の HAR ファイル（取得手順はセクション 5 を参照）</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-認証・ログインの問題"><a href="#4-2-認証・ログインの問題" class="headerlink" title="4.2 認証・ログインの問題"></a>4.2 認証・ログインの問題</h3><table>
+<thead>
+<tr>
+<th>#</th>
+<th>追加情報</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>エラー画面のスクリーンショット</strong></td>
+<td>ブラウザに表示されるエラーページ全体のキャプチャ</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>使用している認証プロバイダー</strong></td>
+<td>Microsoft Entra ID &#x2F; Azure AD B2C &#x2F; SAML 2.0 &#x2F; ローカル認証 等</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>HAR ファイル</strong></td>
+<td>ブラウザの開発者ツール &gt; Network タブで問題を再現し、HAR ファイルとして保存</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>影響を受けるユーザーの情報</strong></td>
+<td>全ユーザーか特定ユーザーか。特定の場合は Contact レコードの GUID</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>IDP 側の設定情報</strong></td>
+<td>Reply URL、Issuer URL、Client ID（秘密情報は含めないでください）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>HAR ファイルの取得方法</strong>: ブラウザで F12 &gt; <strong>Network</strong> タブを開く &gt; <strong>Preserve log</strong> にチェック &gt; 問題を再現 &gt; <strong>Export HAR</strong> で保存</p>
+</blockquote>
+<h3 id="4-3-フォーム・リスト・Liquid-の問題"><a href="#4-3-フォーム・リスト・Liquid-の問題" class="headerlink" title="4.3 フォーム・リスト・Liquid の問題"></a>4.3 フォーム・リスト・Liquid の問題</h3><table>
+<thead>
+<tr>
+<th>#</th>
+<th>追加情報</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>エラー画面のスクリーンショット</strong></td>
+<td>問題が発生しているページ全体のキャプチャ</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>問題が発生するページの URL</strong></td>
+<td>具体的なページ URL</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Basic Form &#x2F; List の名前と対象テーブル</strong></td>
+<td>Portal Management App で確認できるフォーム&#x2F;リストの名前、および対象の Dataverse テーブル名 (論理名)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>HAR ファイル</strong></td>
+<td>問題のページにアクセスした際の HAR ファイル</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>DevTools 拡張機能のエラーログ</strong></td>
+<td>Power Pages タブに表示されるエラーメッセージ</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>カスタム Liquid コード</strong></td>
+<td>問題に関連する Web Template &#x2F; Content Snippet のコード（該当する場合）</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>ブラウザコンソールのログ</strong></td>
+<td>F12 &gt; <strong>Console</strong> タブ &gt; コンソール領域内を右クリック &gt; <strong>Save as…</strong> で <code>.log</code> ファイルとして保存</td>
+</tr>
+</tbody></table>
+<h3 id="4-4-パフォーマンスの問題"><a href="#4-4-パフォーマンスの問題" class="headerlink" title="4.4 パフォーマンスの問題"></a>4.4 パフォーマンスの問題</h3><table>
+<thead>
+<tr>
+<th>#</th>
+<th>追加情報</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>遅いページの URL</strong></td>
+<td>特定のページか全体か</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>問題が発生する時間帯</strong></td>
+<td>常時か特定の時間帯か</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>HAR ファイル</strong></td>
+<td>遅いページにアクセスした際の HAR ファイル</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>ブラウザの Performance プロファイル</strong></td>
+<td>F12 &gt; <strong>Performance</strong> タブ &gt; 記録ボタン (●) をクリック &gt; 問題を再現 &gt; 停止 &gt; 左上の <strong>↓</strong> (Export) アイコンで <code>.json</code> ファイルとして保存</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>CDN &#x2F; WAF の設定状況</strong></td>
+<td>有効&#x2F;無効、外部 CDN (Azure Front Door 等) の利用有無</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>同期プラグインの有無</strong></td>
+<td>対象テーブルに登録されているプラグインの種類と実行タイミング</td>
+</tr>
+</tbody></table>
+<h3 id="4-5-Design-Studio-管理画面の問題"><a href="#4-5-Design-Studio-管理画面の問題" class="headerlink" title="4.5 Design Studio &#x2F; 管理画面の問題"></a>4.5 Design Studio &#x2F; 管理画面の問題</h3><table>
+<thead>
+<tr>
+<th>#</th>
+<th>追加情報</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>エラー画面のスクリーンショット</strong></td>
+<td>Design Studio で表示されるエラー画面全体のキャプチャ</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>ブラウザの種類とバージョン</strong></td>
+<td>Edge &#x2F; Chrome 等、バージョン番号</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>操作しているユーザーの権限</strong></td>
+<td>システム管理者 &#x2F; Maker 等</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>HAR ファイル</strong></td>
+<td>Design Studio で問題を再現した際の HAR ファイル</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>ブラウザコンソールのログ</strong></td>
+<td>F12 &gt; <strong>Console</strong> タブ &gt; コンソール領域内を右クリック &gt; <strong>Save as…</strong> で <code>.log</code> ファイルとして保存</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5-HAR-ファイルの取得手順"><a href="#5-HAR-ファイルの取得手順" class="headerlink" title="5. HAR ファイルの取得手順"></a>5. HAR ファイルの取得手順</h2><p>多くのお問い合わせで <strong>HAR ファイル</strong> の提供をお願いしています。以下の手順で取得してください。</p>
+<h3 id="Microsoft-Edge-Google-Chrome-の場合"><a href="#Microsoft-Edge-Google-Chrome-の場合" class="headerlink" title="Microsoft Edge &#x2F; Google Chrome の場合"></a>Microsoft Edge &#x2F; Google Chrome の場合</h3><ol>
+<li>問題が発生するページを開く</li>
+<li><strong>F12</strong> キーを押して開発者ツールを開く</li>
+<li><strong>Network</strong> タブを選択</li>
+<li><strong>Preserve log</strong> (ログを保持) にチェックを入れる</li>
+<li>ページを更新して<strong>問題を再現</strong></li>
+<li>Network タブ内を右クリック &gt; <strong>Save all as HAR with content</strong> を選択</li>
+<li>ファイルを保存</li>
+</ol>
+<p><strong>参照</strong>: <a href="https://jpdynamicscrm.github.io/blog/powerplatform/dynamics365-troubleshooting-info-collection/#4-1-%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF-%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B9%EF%BC%88HAR-%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%EF%BC%89">Dynamics 365 トラブルシューティングのための情報収集ガイド</a></p>
+<blockquote>
+<p><strong>注意</strong>: HAR ファイルにはセッション情報や Cookie が含まれる場合があります。サポートチケットの添付ファイルとして安全にご送付ください。</p>
+</blockquote>
+<h2 id="6-サポートインタンスのご提供"><a href="#6-サポートインタンスのご提供" class="headerlink" title="6. サポートインタンスのご提供"></a>6. サポートインタンスのご提供</h2><p>事前にご用意いただく情報ではございませんが、Power Pages 関連のお問い合わせではサポートインスタンスのご提供を依頼させて頂く場合がございます。</p>
+<p>Power Pages に関する設定はレコードとして保存されているため、お客様環境において「どのようなカスタマイズを実装いただいているか」をまとめて確認させて頂く場合については、サポートインスタンスのご提供をお願いさせて頂く場合がございます。</p>
+<p><strong>参照</strong>: <a href="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/">サポートインスタンスの提供</a></p>
+<hr>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><h3 id="トラブルシューティングのフローチャート"><a href="#トラブルシューティングのフローチャート" class="headerlink" title="トラブルシューティングのフローチャート"></a>トラブルシューティングのフローチャート</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">問題発生</span><br><span class="line">│</span><br><span class="line">├─ 1. Site Checker を実行</span><br><span class="line">│     → 問題が検出されたら提示された手順で修正</span><br><span class="line">│</span><br><span class="line">├─ 2. DevTools 拡張機能でサーバーエラーを確認</span><br><span class="line">│     → エラーメッセージから原因を特定</span><br><span class="line">│</span><br><span class="line">├─ 3. キャッシュクリア（15分待機 or /_services/about）</span><br><span class="line">│     → 設定変更が反映されない場合に有効</span><br><span class="line">│</span><br><span class="line">├─ 4. Known Issues ページを確認</span><br><span class="line">│     → 既知の問題と回避策がないか確認</span><br><span class="line">│</span><br><span class="line">└─ 5. 上記で解決しない場合 → サポートへお問い合わせ</span><br><span class="line">       → 第 2 部の情報をご準備ください</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考リンク"><a href="#参考リンク" class="headerlink" title="参考リンク"></a>参考リンク</h2><table>
+<thead>
+<tr>
+<th>リソース</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Power Pages 公式ドキュメント</td>
+<td><a href="https://learn.microsoft.com/power-pages/">https://learn.microsoft.com/power-pages/</a></td>
+</tr>
+<tr>
+<td>Known Issues</td>
+<td><a href="https://learn.microsoft.com/power-pages/known-issues">https://learn.microsoft.com/power-pages/known-issues</a></td>
+</tr>
+<tr>
+<td>FAQ</td>
+<td><a href="https://learn.microsoft.com/power-pages/faq">https://learn.microsoft.com/power-pages/faq</a></td>
+</tr>
+<tr>
+<td>Site Checker</td>
+<td><a href="https://learn.microsoft.com/power-pages/admin/site-checker">https://learn.microsoft.com/power-pages/admin/site-checker</a></td>
+</tr>
+<tr>
+<td>DevTools 拡張機能</td>
+<td><a href="https://learn.microsoft.com/power-pages/configure/devtools-addon">https://learn.microsoft.com/power-pages/configure/devtools-addon</a></td>
+</tr>
+<tr>
+<td>サーバーサイドキャッシュ</td>
+<td><a href="https://learn.microsoft.com/power-pages/admin/clear-server-side-cache">https://learn.microsoft.com/power-pages/admin/clear-server-side-cache</a></td>
+</tr>
+<tr>
+<td>認証の概要</td>
+<td><a href="https://learn.microsoft.com/power-pages/security/authentication/">https://learn.microsoft.com/power-pages/security/authentication/</a></td>
+</tr>
+<tr>
+<td>Power Pages ブログ</td>
+<td><a href="https://powerpages.microsoft.com/en-us/blog/">https://powerpages.microsoft.com/en-us/blog/</a></td>
+</tr>
+<tr>
+<td>コミュニティ</td>
+<td><a href="https://powerusers.microsoft.com/t5/Microsoft-Power-Pages-Community/ct-p/MPPCommunity">https://powerusers.microsoft.com/t5/Microsoft-Power-Pages-Community/ct-p/MPPCommunity</a></td>
+</tr>
+</tbody></table>
+<h2 id="notice">注意事項（情報の更新可能性）</h2>
+本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerpages/power-pages-troubleshooting.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerplatform/expired-subscription-environment-lifecycle/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Power Pages トラブルシューティング ガイド</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/expired-subscription-environment-lifecycle/">サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/power-platform-pipelines-guide/">Power Platform パイプライン機能の概要・権限・運用ガイド</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/dataverse-for-teams-environment-auto-creation-and-deletion/dataverse-for-teams-environment-auto-creation-and-deletion/">Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/powerbi-dataverse-connection-troubleshooting/">外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ALM/" rel="tag">ALM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-BI/" rel="tag">Power BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/TDS-endpoint/" rel="tag">TDS endpoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Teams/" rel="tag">Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Troubleshooting/" rel="tag">Troubleshooting</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" rel="tag">パイプライン</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" rel="tag">マネージド環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">18</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">33</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">37</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/04/">2026 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/03/">2026 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/02/">2026 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/ALM/" style="font-size: 10px;">ALM</a> <a href="../../tags/Administration/" style="font-size: 10.67px;">Administration</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 14px;">Canvas app</a> <a href="../../tags/Capacity/" style="font-size: 10px;">Capacity</a> <a href="../../tags/Cloud-flow/" style="font-size: 18px;">Cloud flow</a> <a href="../../tags/Connector-and-Connection/" style="font-size: 12.67px;">Connector and Connection</a> <a href="../../tags/Copilot/" style="font-size: 10.67px;">Copilot</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataflow/" style="font-size: 10px;">Dataflow</a> <a href="../../tags/Dataverse/" style="font-size: 16.67px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.33px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10.67px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 12px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 15.33px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 11.33px;">Dynamics 365</a> <a href="../../tags/Environment/" style="font-size: 13.33px;">Environment</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 16.67px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 10.67px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 18.67px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 11.33px;">Information</a> <a href="../../tags/License/" style="font-size: 14px;">License</a> <a href="../../tags/Microsoft-Copilot-Studio/" style="font-size: 12.67px;">Microsoft Copilot Studio</a> <a href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" style="font-size: 10.67px;">Microsoft Teams 連携</a> <a href="../../tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="../../tags/Model-driven-app/" style="font-size: 13.33px;">Model-driven app</a> <a href="../../tags/Network/" style="font-size: 12px;">Network</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.33px;">Power Apps</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 14.67px;">Power Automate for desktop</a> <a href="../../tags/Power-BI/" style="font-size: 10px;">Power BI</a> <a href="../../tags/Power-Pages/" style="font-size: 11.33px;">Power Pages</a> <a href="../../tags/Power-Platform/" style="font-size: 19.33px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 12px;">PowerShell</a> <a href="../../tags/Security/" style="font-size: 10px;">Security</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint/" style="font-size: 10.67px;">SharePoint</a> <a href="../../tags/TDS-endpoint/" style="font-size: 10px;">TDS endpoint</a> <a href="../../tags/Teams/" style="font-size: 10px;">Teams</a> <a href="../../tags/Troubleshooting/" style="font-size: 10px;">Troubleshooting</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" style="font-size: 16px;">お問い合わせ全般</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10.67px;">サポート</a> <a href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">ストレージ</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 11.33px;">セキュリティ ロール</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" style="font-size: 10px;">トラブルシューティング</a> <a href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" style="font-size: 10px;">パイプライン</a> <a href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" style="font-size: 10px;">マネージド環境</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" style="font-size: 10px;">ユーザー管理</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E5%BD%B9%E5%89%B2/" style="font-size: 10px;">役割</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 14px;">情報採取</a> <a href="../../tags/%E6%A4%9C%E7%B4%A2/" style="font-size: 10px;">検索</a> <a href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" style="font-size: 10px;">環境管理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/PowerPlatform/">PowerPlatform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2026 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

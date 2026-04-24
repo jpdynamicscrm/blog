@@ -18,7 +18,30 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-04-20T07:51:44.099Z</updated>
+  <updated>2026-04-24T08:30:25.916Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Pages/"/>
+    <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Pages/"/>
+    <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
+    <content>
+      <![CDATA[<span id="more"></span><h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>本記事では Power Pages の一般的なトラブルシューティングと、弊社サポートにお問い合わせいただく場合にご提供いただきたい情報についてご紹介させて頂きます。</p><p>このため、ご利用いただいている Power Pages サイトや、Power Pages サイトの作成において問題が発生した場合にはこちらで紹介させて頂いている手順についてご参考にしていただき、問題が解消しない場合については、弊社サポートへのお問い合わせをご検討いただけますと幸いです。</p><p>なお、本記事では以下の 2 つの項目に分けてご紹介を行わせて頂きます。</p><ul><li><strong>第 1 部</strong>: お客様ご自身で実施できる一般的なトラブルシューティング手順</li><li><strong>第 2 部</strong>: それでも解決しない場合にサポートへお問い合わせいただく際に、ご用意いただきたい情報</li></ul><hr><h1 id="第-1-部-一般的なトラブルシューティング"><a href="#第-1-部-一般的なトラブルシューティング" class="headerlink" title="第 1 部: 一般的なトラブルシューティング"></a>第 1 部: 一般的なトラブルシューティング</h1><h2 id="1-まず試すこと-—-診断ツールの活用"><a href="#1-まず試すこと-—-診断ツールの活用" class="headerlink" title="1. まず試すこと — 診断ツールの活用"></a>1. まず試すこと — 診断ツールの活用</h2><p>問題に遭遇したら、まず以下の診断ツールを活用してください。多くの場合、原因の特定と解決策の提示まで自動的に行われます。</p><h3 id="1-1-サイト-チェッカー-を実行する"><a href="#1-1-サイト-チェッカー-を実行する" class="headerlink" title="1.1 サイト チェッカー を実行する"></a>1.1 サイト チェッカー を実行する</h3><p><strong>サイト チェッカー</strong> は、サイトの構成上の問題を自動検出するセルフサービス診断ツールです。結果は <strong>エラー</strong>・<strong>警告</strong>・<strong>合格</strong> の 3 段階で表示され、修正手順も提示されます。</p><p><strong>実行方法:</strong></p><ol><li><a href="https://aka.ms/ppac">Power Platform 管理センター</a> を開く</li><li><strong>管理</strong> &gt; <strong>Power Pages</strong> &gt; <strong>対象の Power Pages サイト</strong> を選択</li><li><strong>サイトの正常性</strong> パネルで <strong>スキャンの実行</strong> をクリック</li></ol><p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/admin/site-checker">サイト チェッカーの実行</a></p><h3 id="1-2-Power-Pages-DevTools-拡張機能でエラーを確認する"><a href="#1-2-Power-Pages-DevTools-拡張機能でエラーを確認する" class="headerlink" title="1.2 Power Pages DevTools 拡張機能でエラーを確認する"></a>1.2 Power Pages DevTools 拡張機能でエラーを確認する</h3><p>Edge ブラウザ向けの開発者ツール拡張機能で、サーバーサイドのエラーメッセージや Liquid のカスタムログを確認できます。</p><p><strong>セットアップ手順:</strong></p><ol><li><a href="https://go.microsoft.com/fwlink/?linkid=2270261">Microsoft Power Pages extension for Edge</a> をインストール</li><li>Portal Management App で Site Setting <code>UserTrace/Debug</code> を <code>true</code> に設定（Private サイトはデフォルトで有効）</li><li>問題を再現し、Edge の DevTools (F12)  の <strong>Power Pages</strong> タブでエラーメッセージを確認</li></ol><p><img src="/blog/powerpages/power-pages-troubleshooting/power-pages-debug.png"></p><p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/configure/devtools-addon">Power Pages DevTools 拡張機能</a></p><h3 id="1-3-キャッシュをクリアする"><a href="#1-3-キャッシュをクリアする" class="headerlink" title="1.3 キャッシュをクリアする"></a>1.3 キャッシュをクリアする</h3><p>設定変更が反映されない場合は、サーバーサイドキャッシュが原因の可能性があります。<br>この場合、以下のいずれかの方法を実施することで、キャッシュのクリアが行われます。</p><ul><li><strong>方法 1</strong>: Design Studio の<strong>プレビュー</strong>ボタンをクリック</li><li><strong>方法 2</strong>: サイト URL に <code>/_services/about</code> を付加してアクセスし、<strong>Clear Cache</strong> をクリック（管理者権限で Web サイトにサインインが必要）</li><li><strong>方法 3</strong>: Power Platform 管理センターからサイトを<strong>再起動</strong></li></ul><blockquote><p><strong>注意</strong>: キャッシュの反映 SLA は<strong>最大 15 分</strong>です。設定変更後、すぐに反映されない場合は 15 分待ってから確認してください。Clear Cache は全キャッシュをクリアするため、高負荷サイトでは<strong>非ピーク時</strong>に実行してください。</p></blockquote><p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/admin/clear-server-side-cache">Power Pages でのサーバー側キャッシュの動作</a></p><h3 id="1-4-既知の問題-Known-Issues-を確認する"><a href="#1-4-既知の問題-Known-Issues-を確認する" class="headerlink" title="1.4 既知の問題 (Known Issues) を確認する"></a>1.4 既知の問題 (Known Issues) を確認する</h3><p>お客様が遭遇している問題が既知の問題である可能性があります。以下のページで最新の情報をご確認ください。</p><p><strong>参照</strong>: <a href="https://learn.microsoft.com/power-pages/known-issues">Power Pages 既知の問題</a></p><hr><h2 id="2-よくある問題と解決方法"><a href="#2-よくある問題と解決方法" class="headerlink" title="2. よくある問題と解決方法"></a>2. よくある問題と解決方法</h2><p>発生している症状ごとに、考えられる原因と対処が記載された公式ドキュメントをまとめました。</p><h3 id="サイトにアクセスできない-サーバーエラーが表示される"><a href="#サイトにアクセスできない-サーバーエラーが表示される" class="headerlink" title="サイトにアクセスできない &#x2F; サーバーエラーが表示される"></a>サイトにアクセスできない &#x2F; サーバーエラーが表示される</h3><p>まず、Power Platform 管理センターからサイトの<strong>再起動</strong>をお試しください。キャッシュの不整合や一時的な接続の問題であれば、再起動だけで解消する場合があります。また、<code>/_services/about</code> ページから <strong>Clear Cache</strong> を実行することも有効です。</p><p>再起動やキャッシュクリアで改善しない場合は、以下のドキュメントを順に確認してください。</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#url-of-the-connected-microsoft-dataverse-environment-has-changed">Dataverse 環境 URL が変更されている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#microsoft-dataverse-environment-connected-to-your-website-is-in-administration-mode">Dataverse 環境が管理モードになっている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#authentication-connection-between-dataverse-environment-and-website-is-broken">環境復元により認証接続が切断されている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#request-to-microsoft-dataverse-environment-has-timed-out">Dataverse へのリクエストがタイムアウトしている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-startup-issue#website-binding-not-found">Website Binding が見つからない</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key">認証キーの有効期限が切れている</a></li></ul><h3 id="サイトの作成・プロビジョニングに失敗する"><a href="#サイトの作成・プロビジョニングに失敗する" class="headerlink" title="サイトの作成・プロビジョニングに失敗する"></a>サイトの作成・プロビジョニングに失敗する</h3><p>サイトの新規作成やプロビジョニング中に問題が発生する場合は、以下を確認してください。</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/known-issues#site-creation">サイト作成時の権限エラー (Azure Entra アプリ登録権限がない)</a> — Power Pages Core パッケージを最新に更新することで解消する場合があります</li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-provisioning-issues">プロビジョニングの問題 - Profile フォームが存在しない</a> — 「Getting set up」画面のまま進まない場合はこちらを確認</li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/known-issues#site-creation">サイト作成に関する既知の問題</a> — 古い環境では Entra アプリ登録権限が必要な場合があります</li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/faq">削除したサイトの URL を再利用する場合</a> — リソースのパージに 30 分〜1 時間かかるため、待機が必要です</li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/faq">サイト作成全般に関する FAQ</a></li></ul><h3 id="データを更新したがサイトに反映されない"><a href="#データを更新したがサイトに反映されない" class="headerlink" title="データを更新したがサイトに反映されない"></a>データを更新したがサイトに反映されない</h3><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/clear-server-side-cache">サーバーサイドキャッシュの仕組み</a> — 反映 SLA は最大 15 分</li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-cache-invalidation#tables-not-enabled-for-cache-invalidation">テーブルの Change Tracking が無効になっている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-cache-invalidation#organization-not-enabled-for-change-tracking">組織の Change Tracking が無効になっている</a></li></ul><h3 id="「Page-Not-Found」エラーが表示される"><a href="#「Page-Not-Found」エラーが表示される" class="headerlink" title="「Page Not Found」エラーが表示される"></a>「Page Not Found」エラーが表示される</h3><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-cache-invalidation#im-getting-a-page-not-found-error-and-the-page-content-is-different-from-the-default-page-not-found-site-marker-or-web-page">Page Not Found サイトマーカーの設定不備</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#page-not-found-site-marker-configuration">構成の問題 - Page Not Found サイトマーカー</a></li></ul><h3 id="特定のページが表示されない-空白になる"><a href="#特定のページが表示されない-空白になる" class="headerlink" title="特定のページが表示されない &#x2F; 空白になる"></a>特定のページが表示されない &#x2F; 空白になる</h3><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#webpages">Web ページの構成に問題がある</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#parent-page-of-an-active-webpage-is-inactive">親ページが非アクティブになっている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#home-site-marker-configuration">Home サイトマーカーの設定不備</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#profile-site-marker-configuration">Profile サイトマーカーの設定不備</a></li></ul><h3 id="サイトの読み込みが遅い"><a href="#サイトの読み込みが遅い" class="headerlink" title="サイトの読み込みが遅い"></a>サイトの読み込みが遅い</h3><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance">パフォーマンスの問題（全般）</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#loading-static-resources-cssjs-asynchronously">CSS&#x2F;JS が同期的に読み込まれている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance#basic-form-lookup-configuration">ルックアップがドロップダウン表示になっている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance#large-number-of-web-file-records">Web ファイル数が多すぎる (500 件超)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-performance#header-output-cache-is-disabled">ヘッダー &#x2F; フッターの出力キャッシュが無効になっている</a></li></ul><h3 id="ログインしていないユーザーにデータが表示されてしまう"><a href="#ログインしていないユーザーにデータが表示されてしまう" class="headerlink" title="ログインしていないユーザーにデータが表示されてしまう"></a>ログインしていないユーザーにデータが表示されてしまう</h3><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-to-basic-forms-lists-and-multistep-form-steps">Basic Form &#x2F; List の Table Permission が無効になっている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-available-to-odata-feed">OData フィードが匿名公開されている</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#anonymous-access-to-dataverse-tables">Dataverse テーブルへの匿名アクセスが許可されている</a></li></ul><h3 id="セキュリティ設定を強化したい"><a href="#セキュリティ設定を強化したい" class="headerlink" title="セキュリティ設定を強化したい"></a>セキュリティ設定を強化したい</h3><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#web-application-firewall-enabled">Web Application Firewall (WAF) の有効化</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#http-headers">HTTP セキュリティヘッダーの設定</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#web-template-validation">Web Template Validation の有効化</a></li></ul><blockquote><p><strong>その他の参考ドキュメント:</strong></p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/authentication/">認証の概要</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/security/authentication/saml2-faqs">SAML 2.0 FAQ</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/faq">Power Pages FAQ</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/known-issues">Known Issues</a></li></ul></blockquote><hr><h1 id="第-2-部-サポートへのお問い合わせ時にご用意いただきたい情報"><a href="#第-2-部-サポートへのお問い合わせ時にご用意いただきたい情報" class="headerlink" title="第 2 部: サポートへのお問い合わせ時にご用意いただきたい情報"></a>第 2 部: サポートへのお問い合わせ時にご用意いただきたい情報</h1><p>上記のトラブルシューティングで解決しない場合は、Microsoft サポートへのお問い合わせをご検討ください。以下の情報を事前にご準備いただくことで、調査を迅速に進めることができます。</p><p>なお、後述させて頂く情報については、あらかじめすべての情報をご用意いただく必要があるわけではございませんので、採取可能な情報をあらかじめご用意いただけますと幸いです。</p><p>また、本ページにてご紹介させて頂いている情報以外の提供をサポートにて依頼させて頂く場合がございますので、予めご了承いただけますと幸いです。</p><h2 id="3-全般的に必要な情報"><a href="#3-全般的に必要な情報" class="headerlink" title="3. 全般的に必要な情報"></a>3. 全般的に必要な情報</h2><p>すべてのお問い合わせで以下の情報をご用意ください。</p><table><thead><tr><th>#</th><th>項目</th><th>確認方法</th></tr></thead><tbody><tr><td>1</td><td><strong>サイト URL</strong></td><td>例: <code>https://contoso.powerappsportals.com</code></td></tr><tr><td>2</td><td><strong>環境 ID</strong></td><td><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/determine-org-id-name">環境の組織 ID と名前を確認する方法</a></td></tr><tr><td>3</td><td><strong>問題の発生日時</strong> (UTC)</td><td>タイムゾーンを明記。可能な限り正確に</td></tr><tr><td>4</td><td><strong>問題の再現手順</strong></td><td>具体的な操作手順を番号付きで記載。画面録画も有効です — <a href="https://support.microsoft.com/ja-jp/windows/snipping-tool-%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3-%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%82%92%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E3%81%99%E3%82%8B-00246869-1843-655f-f220-97299b865f6b">Snipping Tool を使って画面を録画する方法</a></td></tr><tr><td>5</td><td><strong>期待される動作と実際の動作</strong></td><td>何が起きるべきで、何が起きたか</td></tr><tr><td>6</td><td><strong>影響範囲</strong></td><td>全ユーザーか特定ユーザーか &#x2F; 全ページか特定ページか</td></tr><tr><td>7</td><td><strong>スクリーンショット &#x2F; エラーメッセージ</strong></td><td>エラー画面のスクリーンショット、Activity ID があれば記載</td></tr><tr><td>8</td><td><strong>最近の変更内容</strong></td><td>問題発生前に行った設定変更・カスタマイズ・ソリューションインポート等</td></tr><tr><td>9</td><td><strong>データモデルの種類</strong></td><td><strong>拡張データモデル (Enhanced)</strong> か <strong>標準データモデル (Standard)</strong> か — <a href="https://learn.microsoft.com/ja-jp/power-pages/admin/enhanced-data-model">Enhanced data model の確認方法</a></td></tr></tbody></table><h2 id="4-問題カテゴリ別の追加情報"><a href="#4-問題カテゴリ別の追加情報" class="headerlink" title="4. 問題カテゴリ別の追加情報"></a>4. 問題カテゴリ別の追加情報</h2><h3 id="4-1-サイトが起動しない-サーバーエラー"><a href="#4-1-サイトが起動しない-サーバーエラー" class="headerlink" title="4.1 サイトが起動しない &#x2F; サーバーエラー"></a>4.1 サイトが起動しない &#x2F; サーバーエラー</h3><table><thead><tr><th>#</th><th>追加情報</th><th>説明</th></tr></thead><tbody><tr><td>1</td><td><strong>エラー画面のスクリーンショット</strong></td><td>エラーページ全体のキャプチャ（Activity ID やエラーメッセージが含まれるようにしてください）</td></tr><tr><td>2</td><td><strong>環境に対する最近の操作</strong></td><td>URL 変更、バックアップ復元、管理モードの有効&#x2F;無効化 等</td></tr><tr><td>3</td><td><strong>HAR ファイル</strong></td><td>エラー発生時の HAR ファイル（取得手順はセクション 5 を参照）</td></tr></tbody></table><h3 id="4-2-認証・ログインの問題"><a href="#4-2-認証・ログインの問題" class="headerlink" title="4.2 認証・ログインの問題"></a>4.2 認証・ログインの問題</h3><table><thead><tr><th>#</th><th>追加情報</th><th>説明</th></tr></thead><tbody><tr><td>1</td><td><strong>エラー画面のスクリーンショット</strong></td><td>ブラウザに表示されるエラーページ全体のキャプチャ</td></tr><tr><td>2</td><td><strong>使用している認証プロバイダー</strong></td><td>Microsoft Entra ID &#x2F; Azure AD B2C &#x2F; SAML 2.0 &#x2F; ローカル認証 等</td></tr><tr><td>3</td><td><strong>HAR ファイル</strong></td><td>ブラウザの開発者ツール &gt; Network タブで問題を再現し、HAR ファイルとして保存</td></tr><tr><td>4</td><td><strong>影響を受けるユーザーの情報</strong></td><td>全ユーザーか特定ユーザーか。特定の場合は Contact レコードの GUID</td></tr><tr><td>5</td><td><strong>IDP 側の設定情報</strong></td><td>Reply URL、Issuer URL、Client ID（秘密情報は含めないでください）</td></tr></tbody></table><blockquote><p><strong>HAR ファイルの取得方法</strong>: ブラウザで F12 &gt; <strong>Network</strong> タブを開く &gt; <strong>Preserve log</strong> にチェック &gt; 問題を再現 &gt; <strong>Export HAR</strong> で保存</p></blockquote><h3 id="4-3-フォーム・リスト・Liquid-の問題"><a href="#4-3-フォーム・リスト・Liquid-の問題" class="headerlink" title="4.3 フォーム・リスト・Liquid の問題"></a>4.3 フォーム・リスト・Liquid の問題</h3><table><thead><tr><th>#</th><th>追加情報</th><th>説明</th></tr></thead><tbody><tr><td>1</td><td><strong>エラー画面のスクリーンショット</strong></td><td>問題が発生しているページ全体のキャプチャ</td></tr><tr><td>2</td><td><strong>問題が発生するページの URL</strong></td><td>具体的なページ URL</td></tr><tr><td>3</td><td><strong>Basic Form &#x2F; List の名前と対象テーブル</strong></td><td>Portal Management App で確認できるフォーム&#x2F;リストの名前、および対象の Dataverse テーブル名 (論理名)</td></tr><tr><td>4</td><td><strong>HAR ファイル</strong></td><td>問題のページにアクセスした際の HAR ファイル</td></tr><tr><td>5</td><td><strong>DevTools 拡張機能のエラーログ</strong></td><td>Power Pages タブに表示されるエラーメッセージ</td></tr><tr><td>6</td><td><strong>カスタム Liquid コード</strong></td><td>問題に関連する Web Template &#x2F; Content Snippet のコード（該当する場合）</td></tr><tr><td>7</td><td><strong>ブラウザコンソールのログ</strong></td><td>F12 &gt; <strong>Console</strong> タブ &gt; コンソール領域内を右クリック &gt; <strong>Save as…</strong> で <code>.log</code> ファイルとして保存</td></tr></tbody></table><h3 id="4-4-パフォーマンスの問題"><a href="#4-4-パフォーマンスの問題" class="headerlink" title="4.4 パフォーマンスの問題"></a>4.4 パフォーマンスの問題</h3><table><thead><tr><th>#</th><th>追加情報</th><th>説明</th></tr></thead><tbody><tr><td>1</td><td><strong>遅いページの URL</strong></td><td>特定のページか全体か</td></tr><tr><td>2</td><td><strong>問題が発生する時間帯</strong></td><td>常時か特定の時間帯か</td></tr><tr><td>3</td><td><strong>HAR ファイル</strong></td><td>遅いページにアクセスした際の HAR ファイル</td></tr><tr><td>4</td><td><strong>ブラウザの Performance プロファイル</strong></td><td>F12 &gt; <strong>Performance</strong> タブ &gt; 記録ボタン (●) をクリック &gt; 問題を再現 &gt; 停止 &gt; 左上の <strong>↓</strong> (Export) アイコンで <code>.json</code> ファイルとして保存</td></tr><tr><td>5</td><td><strong>CDN &#x2F; WAF の設定状況</strong></td><td>有効&#x2F;無効、外部 CDN (Azure Front Door 等) の利用有無</td></tr><tr><td>6</td><td><strong>同期プラグインの有無</strong></td><td>対象テーブルに登録されているプラグインの種類と実行タイミング</td></tr></tbody></table><h3 id="4-5-Design-Studio-管理画面の問題"><a href="#4-5-Design-Studio-管理画面の問題" class="headerlink" title="4.5 Design Studio &#x2F; 管理画面の問題"></a>4.5 Design Studio &#x2F; 管理画面の問題</h3><table><thead><tr><th>#</th><th>追加情報</th><th>説明</th></tr></thead><tbody><tr><td>1</td><td><strong>エラー画面のスクリーンショット</strong></td><td>Design Studio で表示されるエラー画面全体のキャプチャ</td></tr><tr><td>2</td><td><strong>ブラウザの種類とバージョン</strong></td><td>Edge &#x2F; Chrome 等、バージョン番号</td></tr><tr><td>3</td><td><strong>操作しているユーザーの権限</strong></td><td>システム管理者 &#x2F; Maker 等</td></tr><tr><td>4</td><td><strong>HAR ファイル</strong></td><td>Design Studio で問題を再現した際の HAR ファイル</td></tr><tr><td>5</td><td><strong>ブラウザコンソールのログ</strong></td><td>F12 &gt; <strong>Console</strong> タブ &gt; コンソール領域内を右クリック &gt; <strong>Save as…</strong> で <code>.log</code> ファイルとして保存</td></tr></tbody></table><hr><h2 id="5-HAR-ファイルの取得手順"><a href="#5-HAR-ファイルの取得手順" class="headerlink" title="5. HAR ファイルの取得手順"></a>5. HAR ファイルの取得手順</h2><p>多くのお問い合わせで <strong>HAR ファイル</strong> の提供をお願いしています。以下の手順で取得してください。</p><h3 id="Microsoft-Edge-Google-Chrome-の場合"><a href="#Microsoft-Edge-Google-Chrome-の場合" class="headerlink" title="Microsoft Edge &#x2F; Google Chrome の場合"></a>Microsoft Edge &#x2F; Google Chrome の場合</h3><ol><li>問題が発生するページを開く</li><li><strong>F12</strong> キーを押して開発者ツールを開く</li><li><strong>Network</strong> タブを選択</li><li><strong>Preserve log</strong> (ログを保持) にチェックを入れる</li><li>ページを更新して<strong>問題を再現</strong></li><li>Network タブ内を右クリック &gt; <strong>Save all as HAR with content</strong> を選択</li><li>ファイルを保存</li></ol><p><strong>参照</strong>: <a href="https://jpdynamicscrm.github.io/blog/powerplatform/dynamics365-troubleshooting-info-collection/#4-1-%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF-%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B9%EF%BC%88HAR-%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%EF%BC%89">Dynamics 365 トラブルシューティングのための情報収集ガイド</a></p><blockquote><p><strong>注意</strong>: HAR ファイルにはセッション情報や Cookie が含まれる場合があります。サポートチケットの添付ファイルとして安全にご送付ください。</p></blockquote><h2 id="6-サポートインタンスのご提供"><a href="#6-サポートインタンスのご提供" class="headerlink" title="6. サポートインタンスのご提供"></a>6. サポートインタンスのご提供</h2><p>事前にご用意いただく情報ではございませんが、Power Pages 関連のお問い合わせではサポートインスタンスのご提供を依頼させて頂く場合がございます。</p><p>Power Pages に関する設定はレコードとして保存されているため、お客様環境において「どのようなカスタマイズを実装いただいているか」をまとめて確認させて頂く場合については、サポートインスタンスのご提供をお願いさせて頂く場合がございます。</p><p><strong>参照</strong>: <a href="https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/">サポートインスタンスの提供</a></p><hr><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><h3 id="トラブルシューティングのフローチャート"><a href="#トラブルシューティングのフローチャート" class="headerlink" title="トラブルシューティングのフローチャート"></a>トラブルシューティングのフローチャート</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">問題発生</span><br><span class="line">│</span><br><span class="line">├─ 1. Site Checker を実行</span><br><span class="line">│     → 問題が検出されたら提示された手順で修正</span><br><span class="line">│</span><br><span class="line">├─ 2. DevTools 拡張機能でサーバーエラーを確認</span><br><span class="line">│     → エラーメッセージから原因を特定</span><br><span class="line">│</span><br><span class="line">├─ 3. キャッシュクリア（15分待機 or /_services/about）</span><br><span class="line">│     → 設定変更が反映されない場合に有効</span><br><span class="line">│</span><br><span class="line">├─ 4. Known Issues ページを確認</span><br><span class="line">│     → 既知の問題と回避策がないか確認</span><br><span class="line">│</span><br><span class="line">└─ 5. 上記で解決しない場合 → サポートへお問い合わせ</span><br><span class="line">       → 第 2 部の情報をご準備ください</span><br></pre></td></tr></table></figure><h2 id="参考リンク"><a href="#参考リンク" class="headerlink" title="参考リンク"></a>参考リンク</h2><table><thead><tr><th>リソース</th><th>URL</th></tr></thead><tbody><tr><td>Power Pages 公式ドキュメント</td><td><a href="https://learn.microsoft.com/power-pages/">https://learn.microsoft.com/power-pages/</a></td></tr><tr><td>Known Issues</td><td><a href="https://learn.microsoft.com/power-pages/known-issues">https://learn.microsoft.com/power-pages/known-issues</a></td></tr><tr><td>FAQ</td><td><a href="https://learn.microsoft.com/power-pages/faq">https://learn.microsoft.com/power-pages/faq</a></td></tr><tr><td>Site Checker</td><td><a href="https://learn.microsoft.com/power-pages/admin/site-checker">https://learn.microsoft.com/power-pages/admin/site-checker</a></td></tr><tr><td>DevTools 拡張機能</td><td><a href="https://learn.microsoft.com/power-pages/configure/devtools-addon">https://learn.microsoft.com/power-pages/configure/devtools-addon</a></td></tr><tr><td>サーバーサイドキャッシュ</td><td><a href="https://learn.microsoft.com/power-pages/admin/clear-server-side-cache">https://learn.microsoft.com/power-pages/admin/clear-server-side-cache</a></td></tr><tr><td>認証の概要</td><td><a href="https://learn.microsoft.com/power-pages/security/authentication/">https://learn.microsoft.com/power-pages/security/authentication/</a></td></tr><tr><td>Power Pages ブログ</td><td><a href="https://powerpages.microsoft.com/en-us/blog/">https://powerpages.microsoft.com/en-us/blog/</a></td></tr><tr><td>コミュニティ</td><td><a href="https://powerusers.microsoft.com/t5/Microsoft-Power-Pages-Community/ct-p/MPPCommunity">https://powerusers.microsoft.com/t5/Microsoft-Power-Pages-Community/ct-p/MPPCommunity</a></td></tr></tbody></table><h2 id="notice">注意事項（情報の更新可能性）</h2>本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerpages/power-pages-troubleshooting/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-troubleshooting/"/>
+    <published>2026-04-19T15:00:00.000Z</published>
+    <summary>
+      <![CDATA[<span id="more"></span>
+
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
+    </summary>
+    <title>Power Pages トラブルシューティング ガイド</title>
+    <updated>2026-04-24T08:30:25.916Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -43,7 +66,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-04-20T07:51:44.099Z</updated>
+    <updated>2026-04-24T08:30:26.012Z</updated>
   </entry>
   <entry>
     <author>
@@ -70,7 +93,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-04-20T07:51:44.110Z</updated>
+    <updated>2026-04-24T08:30:26.024Z</updated>
   </entry>
   <entry>
     <author>
@@ -96,7 +119,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-04-20T07:51:44.063Z</updated>
+    <updated>2026-04-24T08:30:25.977Z</updated>
   </entry>
   <entry>
     <author>
@@ -133,7 +156,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-04-20T07:51:44.111Z</updated>
+    <updated>2026-04-24T08:30:26.024Z</updated>
   </entry>
   <entry>
     <author>
@@ -163,7 +186,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-04-20T07:51:44.061Z</updated>
+    <updated>2026-04-24T08:30:25.976Z</updated>
   </entry>
   <entry>
     <author>
@@ -195,7 +218,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-04-20T07:51:44.000Z</updated>
+    <updated>2026-04-24T08:30:25.914Z</updated>
   </entry>
   <entry>
     <author>
@@ -218,7 +241,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-04-20T07:51:44.126Z</updated>
+    <updated>2026-04-24T08:30:26.039Z</updated>
   </entry>
   <entry>
     <author>
@@ -251,7 +274,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-04-20T07:51:44.111Z</updated>
+    <updated>2026-04-24T08:30:26.024Z</updated>
   </entry>
   <entry>
     <author>
@@ -284,7 +307,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-04-20T07:51:44.064Z</updated>
+    <updated>2026-04-24T08:30:25.979Z</updated>
   </entry>
   <entry>
     <author>
@@ -293,8 +316,8 @@
       </name>
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="SharePoint" scheme="https://jpdynamicscrm.github.io/blog/tags/SharePoint/"/>
     <category term="Mobile" scheme="https://jpdynamicscrm.github.io/blog/tags/Mobile/"/>
     <content>
@@ -314,7 +337,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-04-20T07:51:43.796Z</updated>
+    <updated>2026-04-24T08:30:25.714Z</updated>
   </entry>
   <entry>
     <author>
@@ -338,7 +361,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-04-20T07:51:44.064Z</updated>
+    <updated>2026-04-24T08:30:25.979Z</updated>
   </entry>
   <entry>
     <author>
@@ -367,7 +390,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-04-20T07:51:44.064Z</updated>
+    <updated>2026-04-24T08:30:25.979Z</updated>
   </entry>
   <entry>
     <author>
@@ -395,7 +418,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-04-20T07:51:44.053Z</updated>
+    <updated>2026-04-24T08:30:25.967Z</updated>
   </entry>
   <entry>
     <author>
@@ -419,7 +442,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-04-20T07:51:43.959Z</updated>
+    <updated>2026-04-24T08:30:25.874Z</updated>
   </entry>
   <entry>
     <author>
@@ -450,7 +473,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-04-20T07:51:44.001Z</updated>
+    <updated>2026-04-24T08:30:25.916Z</updated>
   </entry>
   <entry>
     <author>
@@ -479,7 +502,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-04-20T07:51:43.886Z</updated>
+    <updated>2026-04-24T08:30:25.801Z</updated>
   </entry>
   <entry>
     <author>
@@ -502,7 +525,7 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-04-20T07:51:44.109Z</updated>
+    <updated>2026-04-24T08:30:26.023Z</updated>
   </entry>
   <entry>
     <author>
@@ -523,7 +546,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
     </summary>
     <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-04-20T07:51:43.858Z</updated>
+    <updated>2026-04-24T08:30:25.773Z</updated>
   </entry>
   <entry>
     <author>
@@ -545,28 +568,6 @@
       <![CDATA[<p>こんにちは、Power Platform サポート チームの三田です。<br>本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。</p>]]>
     </summary>
     <title>Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</title>
-    <updated>2026-04-20T07:51:44.123Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/"/>
-    <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/Cloud-flow/"/>
-    <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
-    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。</p><span id="more"></span><h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol><li><a href="#anchor-intro">概要</a></li><li><a href="#anchor-line-break-issue">解決したい事象</a></li><li><a href="#anchor-line-break">改行を反映する方法</a><ol><li><a href="#anchor-line-break-replace">replace関数を使用する</a><ol><li><a href="#anchor-line-break-replace-flow">フローの例</a></li><li><a href="#anchor-line-break-replace-reason">なぜこれで解消できるのか</a></li></ol></li><li><a href="#anchor-line-break-pre">preタグを使用する</a><ol><li><a href="#anchor-line-break-pre-flow">フローの例</a></li><li><a href="#anchor-line-break-pre-reason">なぜこれで解消できるのか</a></li></ol></li></ol></li><li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li></ol><p><a id='anchor-intro'></a></p><h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>今回はよくあるお問い合わせとして、 Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。</p><p><a id='anchor-line-break-issue'></a></p><h2 id="解決したい事象"><a href="#解決したい事象" class="headerlink" title="解決したい事象"></a>解決したい事象</h2><p>下のような SharePoint リストから、Power Automate のクラウドフローで複数行テキストを取得する際、</p><p><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/list.png"></p><p>Teams に投稿すると改行が反映されないことがあります。</p><p><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/notify-failure.png"></p><p>以降では、このような事象の解決方法をご案内いたします。<br>※今回は Teams コネクタを使用している想定での事象となります。コネクタにより動作が異なる可能性がございますのでご留意ください。</p><p><a id='anchor-line-break'></a></p><h2 id="改行を反映する方法"><a href="#改行を反映する方法" class="headerlink" title="改行を反映する方法"></a>改行を反映する方法</h2><p>今回は事象の解決方法として、replace 関数を使用する方法と、&lt;pre&gt;タグを使用する方法の２つをご案内いたします。</p><p><a id='anchor-line-break-replace'></a></p><h3 id="replace-関数を使用する方法"><a href="#replace-関数を使用する方法" class="headerlink" title="replace 関数を使用する方法"></a>replace 関数を使用する方法</h3><p><a id='anchor-line-break-replace-flow'></a></p><h4 id="フローの例"><a href="#フローの例" class="headerlink" title="フローの例"></a>フローの例</h4><p>今回の例では、以下の状況を想定しています。</p><p>トリガー：SharePoint リストにアイテムが追加されたとき<br>アクション：アイテムの内容を Teams に投稿する</p><p>イメージ図<br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/flow-image.png"></p><p>フローの全体図は以下の通りです。<br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/replace/replace-flow-outline.png"></p><p>ここから、フローの詳細を順を追って解説いたします。</p><h4 id="トリガー：SharePoint-リストにアイテムが追加されたとき"><a href="#トリガー：SharePoint-リストにアイテムが追加されたとき" class="headerlink" title="トリガー：SharePoint リストにアイテムが追加されたとき"></a>トリガー：SharePoint リストにアイテムが追加されたとき</h4><p>※こちらのトリガーはあくまでも一例となります。</p><p>下画像のように、ご自身の SharePoint リストをご指定ください。<br><br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/sharepoint.png"></p><h4 id="アクション：アイテムの内容を-Teams-に投稿する"><a href="#アクション：アイテムの内容を-Teams-に投稿する" class="headerlink" title="アクション：アイテムの内容を Teams に投稿する"></a>アクション：アイテムの内容を Teams に投稿する</h4><p>下画像のように、投稿先の情報についてご指定ください。<br><br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/replace/teams.png"></p><h4 id="メッセージ部分"><a href="#メッセージ部分" class="headerlink" title="メッセージ部分"></a>メッセージ部分</h4><p>以下の式をアクション内で設定することで、投稿されたメッセージに改行を反映できるようになります。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace(改行を反映したい文字列, decodeUriComponent(&#x27;%0A&#x27;), &#x27;&lt;br&gt;&#x27;)</span><br></pre></td></tr></table></figure><p><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/replace/message.png"></p><hr><p><a id='anchor-line-break-replace-reason'></a></p><h4 id="なぜこれで解消できるのか"><a href="#なぜこれで解消できるのか" class="headerlink" title="なぜこれで解消できるのか"></a>なぜこれで解消できるのか</h4><p>SharePoint リストや Microsoft Excel から取得した複数行テキストを Teams に HTML形式で投稿する際には、<br>改行部分を「&lt;br&gt;」タグへ置換する必要がございます。</p><p>特定の文字列を別の文字列に置換する replace 関数を用いることで、「&lt;br&gt;」タグを挿入することが可能となります。</p><h4 id="replace-文字列-‘-n’-‘’-ではなぜ解消しないのか"><a href="#replace-文字列-‘-n’-‘’-ではなぜ解消しないのか" class="headerlink" title="replace(文字列, ‘\n’, ‘&lt;br&gt;’) ではなぜ解消しないのか"></a>replace(文字列, ‘\n’, ‘&lt;br&gt;’) ではなぜ解消しないのか</h4><p><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/replace/replace-json.png"></p><p>フロー内で文字列を扱う際、改行コードは「\n」と表示されますが、Power Automate で変換するときに特殊文字はそのまま扱えません。<br>そのため、replace( 文字列, ‘\n’, ‘&lt;br&gt;’ ) では、Power Automate が認識する改行部分を取得・置換することができません。</p><p>今回の方法では、decodeUriComponent 関数を使って「%0A」をデコードすることで、実際の改行文字（LF）を取得しています。<br>その改行文字を replace 関数で 「&lt;br&gt;」タグ に置換することで、Teams などに投稿する際に正しく改行が反映されるようになります。</p><p>他のテキストファイルなどからコピーして取得した文字列では、改行コードが LF とは限らない可能性がございますので、<br>上記方法で上手くいかない場合には、次の「pre タグを使用する方法」をお試しいただくか、以下の表をご参照ください。</p><p>※ 改行コードとURLエンコードの対応表</p><table><thead><tr><th>改行コード</th><th>意味</th><th>エンコード後の文字列</th></tr></thead><tbody><tr><td>LF</td><td>Line Feed（改行）</td><td><code>%0A</code></td></tr><tr><td>CR</td><td>Carriage Return（復帰）</td><td><code>%0D</code></td></tr><tr><td>CRLF</td><td>Carriage Return + Line Feed</td><td><code>%0D%0A</code></td></tr></tbody></table><ul><li><code>decodeUriComponent(&#39;%0A&#39;)</code> → LF（改行）を取得</li><li><code>decodeUriComponent(&#39;%0D&#39;)</code> → CR（復帰）を取得</li><li><code>decodeUriComponent(&#39;%0D%0A&#39;)</code> → CRLF（Windows系改行）を取得</li></ul><hr><p><a id='anchor-line-break-pre'></a></p><h3 id="pre-タグを使用する方法"><a href="#pre-タグを使用する方法" class="headerlink" title="pre タグを使用する方法"></a>pre タグを使用する方法</h3><p><a id='anchor-line-break-pre-flow'></a></p><h4 id="フローの例-1"><a href="#フローの例-1" class="headerlink" title="フローの例"></a>フローの例</h4><p>今回の例では、以下の状況を想定しています。</p><p>トリガー：SharePoint リストにアイテムが追加されたとき<br>アクション１：作成  pre タグの追加<br>アクション２：作成した変数の内容を Teams に投稿する</p><p>イメージ図<br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/flow-image.png"></p><p>フローの全体図は以下の通りです。<br><br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/pre/pre-flow-outline.png"></p><p>ここから、フローの詳細を順を追って解説いたします。</p><h4 id="トリガー：SharePoint-リストにアイテムが追加されたとき-1"><a href="#トリガー：SharePoint-リストにアイテムが追加されたとき-1" class="headerlink" title="トリガー：SharePoint リストにアイテムが追加されたとき"></a>トリガー：SharePoint リストにアイテムが追加されたとき</h4><p>※こちらのトリガーはあくまでも一例となります。</p><p>下画像のように、ご自身の SharePoint リストをご指定ください。<br><br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/sharepoint.png"></p><h4 id="アクション１：作成-pre-タグの追加"><a href="#アクション１：作成-pre-タグの追加" class="headerlink" title="アクション１：作成 pre タグの追加"></a>アクション１：作成 pre タグの追加</h4><p>下画像のように、取得したい文字列に &lt;pre&gt; タグを追加してください。<br><br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/pre/create.png"></p><h4 id="アクション２：作成した変数を-Teams-に投稿する"><a href="#アクション２：作成した変数を-Teams-に投稿する" class="headerlink" title="アクション２：作成した変数を Teams に投稿する"></a>アクション２：作成した変数を Teams に投稿する</h4><p>上で作成した変数をメッセージに設定することで、改行が反映されるようになります。<br><br><img src="/blog/powerautomate/cloudflow-specialcharacters/line-break/pre/teams.png"></p><p><a id='anchor-line-break-pre-reason'></a></p><h4 id="なぜこれで解消できるのか-1"><a href="#なぜこれで解消できるのか-1" class="headerlink" title="なぜこれで解消できるのか"></a>なぜこれで解消できるのか</h4><p>HTML における &lt;pre&gt; タグは、整形済みのテキストとして表示するためのものになります。<br>これを使用することで、要素内に記述されたテキストの空白文字（スペース、タブ、改行）をまとめて反映できるようになります。</p><p>以上が、Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法でございます。<br>お役に立てましたら幸いです。</p><p><a id='補足'></a></p><h1 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h1><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって UI の遷移などが若干異なる場合があります。その場合は画面の指示に従って進めてください。  </p>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-specialcharacters/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerautomate/cloudflow-specialcharacters/"/>
-    <published>2025-08-28T03:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの宮﨑です。<br>本記事では Power Automate で Teams コネクタを使用してメッセージを投稿する際、文字列の改行を反映する方法についてご案内いたします。</p>]]>
-    </summary>
-    <title>Power Automate で Teams コネクタを使う際に改行を反映する方法</title>
-    <updated>2026-04-20T07:51:43.921Z</updated>
+    <updated>2026-04-24T08:30:26.036Z</updated>
   </entry>
 </feed>
