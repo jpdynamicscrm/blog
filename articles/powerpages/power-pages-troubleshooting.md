@@ -1,5 +1,5 @@
 ---
-title: Power Pages 認証キーの更新ガイド
+title: Power Pages トラブルシューティング ガイド
 date: 2026-04-20 00:00:00
 tags:
     - Power Pages
@@ -9,6 +9,8 @@ categories:
 ---
 
 # Power Pages トラブルシューティング ガイド: よくある問題と解決方法およびサポートへの問い合わせについて
+
+<!-- more -->
 
 ## はじめに
 
@@ -132,7 +134,7 @@ Edge ブラウザ向けの開発者ツール拡張機能で、サーバーサイ
 
 - [Basic Form / List の Table Permission が無効になっている](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-to-basic-forms-lists-and-multistep-form-steps)
 - [OData フィードが匿名公開されている](https://learn.microsoft.com/ja-jp/power-pages/admin/site-checker-configuration-issues#anonymous-access-available-to-odata-feed)
-- [Dataverse テーブルへの匿名アクセスが許可されている]https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#anonymous-access-to-dataverse-tables)
+- [Dataverse テーブルへの匿名アクセスが許可されている](https://learn.microsoft.com/ja-jp/power-pages/security/site-checker-security#anonymous-access-to-dataverse-tables)
 
 ### セキュリティ設定を強化したい
 
