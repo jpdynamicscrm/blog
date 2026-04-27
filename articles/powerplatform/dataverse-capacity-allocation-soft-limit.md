@@ -68,8 +68,8 @@ categories:
 #### 実際の動作例
 
 以下は、従量課金（Pay-as-you-go）が紐づいた環境で「Draw from the available capacity in my tenant」（テナントで利用可能な容量から引き落とす）の設定を切り替えた場合の、ファイル容量消費の推移です。
+<img width="1872" height="668" alt="image" src="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98" />
 
-![Manage capacity パネルとファイル容量消費の推移グラフ](dataverse-capacity-allocation-soft-limit/capacity-allocation-payg-example.png)
 
 この環境ではファイル容量の割り当てを 3 GB に設定しており、実際の消費量（約 7 GB）が割り当てを超過しています。
 
