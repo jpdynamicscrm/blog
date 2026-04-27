@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-04-24T08:30:25.916Z</updated>
+  <updated>2026-04-27T08:40:58.189Z</updated>
   <entry>
     <author>
       <name>
@@ -40,7 +40,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-04-24T08:30:25.916Z</updated>
+    <updated>2026-04-27T08:40:58.189Z</updated>
   </entry>
   <entry>
     <author>
@@ -66,7 +66,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-04-24T08:30:26.012Z</updated>
+    <updated>2026-04-27T08:40:58.289Z</updated>
   </entry>
   <entry>
     <author>
@@ -93,7 +93,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-04-24T08:30:26.024Z</updated>
+    <updated>2026-04-27T08:40:58.299Z</updated>
   </entry>
   <entry>
     <author>
@@ -119,7 +119,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-04-24T08:30:25.977Z</updated>
+    <updated>2026-04-27T08:40:58.251Z</updated>
   </entry>
   <entry>
     <author>
@@ -156,7 +156,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-04-24T08:30:26.024Z</updated>
+    <updated>2026-04-27T08:40:58.300Z</updated>
   </entry>
   <entry>
     <author>
@@ -186,7 +186,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-04-24T08:30:25.976Z</updated>
+    <updated>2026-04-27T08:40:58.250Z</updated>
   </entry>
   <entry>
     <author>
@@ -218,7 +218,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-04-24T08:30:25.914Z</updated>
+    <updated>2026-04-27T08:40:58.188Z</updated>
   </entry>
   <entry>
     <author>
@@ -241,7 +241,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-04-24T08:30:26.039Z</updated>
+    <updated>2026-04-27T08:40:58.315Z</updated>
   </entry>
   <entry>
     <author>
@@ -274,7 +274,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-04-24T08:30:26.024Z</updated>
+    <updated>2026-04-27T08:40:58.299Z</updated>
   </entry>
   <entry>
     <author>
@@ -307,7 +307,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-04-24T08:30:25.979Z</updated>
+    <updated>2026-04-27T08:40:58.252Z</updated>
   </entry>
   <entry>
     <author>
@@ -316,8 +316,8 @@
       </name>
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="SharePoint" scheme="https://jpdynamicscrm.github.io/blog/tags/SharePoint/"/>
     <category term="Mobile" scheme="https://jpdynamicscrm.github.io/blog/tags/Mobile/"/>
     <content>
@@ -337,7 +337,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-04-24T08:30:25.714Z</updated>
+    <updated>2026-04-27T08:40:57.990Z</updated>
   </entry>
   <entry>
     <author>
@@ -351,7 +351,7 @@
     <category term="Dynamics 365" scheme="https://jpdynamicscrm.github.io/blog/tags/Dynamics-365/"/>
     <category term="トラブルシューティング" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/"/>
     <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの鎌田です。</p><p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p><span id="more"></span><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol><li><a href="#identification-info">識別情報の取得</a><ol><li><a href="#environment-url">環境 URL</a></li><li><a href="#upn">UPN（ユーザー プリンシパル名）</a></li><li><a href="#session-id">セッション ID・バージョン情報</a></li></ol></li><li><a href="#security-role-and-team">セキュリティロールとチームの確認</a></li><li><a href="#solution-layers">ソリューション レイヤーの確認</a></li><li><a href="#diagnostic-info">診断情報の取得</a><ol><li><a href="#network-trace">ネットワーク トレース（HAR ファイル）</a></li><li><a href="#video-recording">動画の録画</a></li></ol></li></ol><hr><p><a id='identification-info'></a></p><h2 id="1-識別情報の取得"><a href="#1-識別情報の取得" class="headerlink" title="1. 識別情報の取得"></a>1. 識別情報の取得</h2><p>サーバー側のログ調査に必要な識別情報です。</p><p><a id='environment-url'></a></p><h3 id="1-1-環境-URL"><a href="#1-1-環境-URL" class="headerlink" title="1-1. 環境 URL"></a>1-1. 環境 URL</h3><ol><li>Dynamics 365 にサインインします</li><li>ブラウザのアドレスバーから URL をコピーします<br>例: <code>https://contoso.crm7.dynamics.com</code></li></ol><p><a id='upn'></a></p><h3 id="1-2-UPN（ユーザー-プリンシパル名）"><a href="#1-2-UPN（ユーザー-プリンシパル名）" class="headerlink" title="1-2. UPN（ユーザー プリンシパル名）"></a>1-2. UPN（ユーザー プリンシパル名）</h3><p>事象が発生しているユーザーを特定するために必要です。<br>例: <code>user@contoso.onmicrosoft.com</code></p><p>Power Platform 管理センターで環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [ユーザー] のユーザー名よりご確認いただけます。<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/upn.png"></p><p><a id='session-id'></a></p><h3 id="1-3-セッション-ID・バージョン情報"><a href="#1-3-セッション-ID・バージョン情報" class="headerlink" title="1-3. セッション ID・バージョン情報"></a>1-3. セッション ID・バージョン情報</h3><ol><li>Dynamics 365 アプリの画面右上の歯車アイコンをクリックします</li><li>「情報」をクリックするとダイアログに情報が表示されます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/sessionid.png"></li></ol><hr><p><a id='security-role-and-team'></a></p><h2 id="2-セキュリティロールとチームの確認"><a href="#2-セキュリティロールとチームの確認" class="headerlink" title="2. セキュリティロールとチームの確認"></a>2. セキュリティロールとチームの確認</h2><p>アクセス権限に関連する問題の調査に必要です。</p><ol><li>Power Platform 管理センターで環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [ユーザー] を開きます</li><li>対象ユーザーをクリックします</li><li>サイドバーの「直接割り当てられたロール」から、割り当てられたセキュリティ ロールの一覧を確認できます（チーム経由で割り当てられたロールはここには表示されません）</li><li>サイドバーの「チーム」から、所属しているチームの一覧を確認できます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/user-info.png"></li></ol><hr><p><a id='solution-layers'></a></p><h2 id="3-ソリューション-レイヤーの確認"><a href="#3-ソリューション-レイヤーの確認" class="headerlink" title="3. ソリューション レイヤーの確認"></a>3. ソリューション レイヤーの確認</h2><p>特定のコンポーネント (アプリ、テーブル、フォームなど) がどのソリューション経由でインストール・カスタマイズされたかを確認する方法です。<br>コンポーネントの出自や変更履歴の調査に必要となります。</p><ol><li><a href="https://make.powerapps.com/">Power Apps ポータル</a> にサインインし、対象の環境を選択します</li><li>左ナビゲーションから [ソリューション] を選択します</li><li>[既定のソリューション] を開きます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-list.png"></li><li>左ペインのオブジェクト一覧から対象のコンポーネントの種類を選択します（例: モデル駆動型アプリの場合は [アプリ]）</li><li>対象のコンポーネントの [︙] メニューを開き、[詳細] &gt; [ソリューション レイヤーの表示] をクリックします<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-layers-menu.png"></li><li>表示されたソリューション レイヤーの画面のスクリーンショットを取得します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-layers-result.png"></li></ol><p>ソリューション レイヤーには、そのコンポーネントに影響を与えたソリューションが上から順（最新が上）に表示されます。最下層の [システム] レイヤーはプラットフォーム既定の定義です。</p><p><strong>参考資料：</strong> <a href="https://learn.microsoft.com/power-apps/maker/data-platform/solution-layers">ソリューション レイヤー</a></p><hr><p><a id='diagnostic-info'></a></p><h2 id="4-診断情報の取得"><a href="#4-診断情報の取得" class="headerlink" title="4. 診断情報の取得"></a>4. 診断情報の取得</h2><p>問題の詳細な調査に必要な診断情報です。</p><p><a id='network-trace'></a></p><h3 id="4-1-ネットワーク-トレース（HAR-ファイル）"><a href="#4-1-ネットワーク-トレース（HAR-ファイル）" class="headerlink" title="4-1. ネットワーク トレース（HAR ファイル）"></a>4-1. ネットワーク トレース（HAR ファイル）</h3><p>ブラウザと Dynamics 365 サーバー間の通信を記録します。<br>ネットワーク トレースとは、ブラウザーがページを表示するために送受信した通信を時系列で記録したものです。<br>問題が発生した操作を記録し HAR ファイルとして共有いただくことで、調査がスムーズになります。</p><div class="alert is-important"><p class="alert-title">重要</p><p><strong>事象再現の直前</strong>に取得を開始し、<strong>事象を再現させた直後</strong>に保存してください。不要な通信が増え肝心な要求が埋もれるため、不要なページ遷移はせず最小の再現だけに留めてください。</p></div><p><strong>取得手順（Microsoft Edge）：</strong></p><ol><li>ブラウザで <code>F12</code> キーを押し、開発者ツールを開き、「ネットワーク」タブを選択します</li><li>以下のオプションを有効にします：<ul><li>「ログを保持」にチェック</li><li>「キャッシュを無効にする」にチェック</li></ul></li><li>「クリア」ボタンで古いログを消去します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/trace-start.jpg"></li><li>事象を<strong>最小の手順で 1 回だけ</strong>再現させます</li><li>再現後、「Export HAR」ボタン（↓アイコン）をクリックして保存します（ファイル名は <code>YYYYMMDD_issue.har</code> のように日付と概要を含めてください）<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/trace-end.jpg"></li></ol><p><strong>参考資料：</strong> <a href="https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace">ブラウザー トレースの取得（Azure Portal）</a></p><p><a id='video-recording'></a></p><h3 id="4-2-動画の録画"><a href="#4-2-動画の録画" class="headerlink" title="4-2. 動画の録画"></a>4-2. 動画の録画</h3><p>事象再現時の動画があると、発生状況をより正確に把握できます。</p><div class="alert is-important"><p class="alert-title">重要</p><p>事象発生の<strong>事前</strong>に録画を開始し、事象発生を確認した<strong>後</strong>に停止してください。</p></div><h4 id="Snipping-Tool-での画面録画"><a href="#Snipping-Tool-での画面録画" class="headerlink" title="Snipping Tool での画面録画"></a>Snipping Tool での画面録画</h4><ol><li><code>Windows + Shift + S</code> キーを押して Snipping Tool を起動、または検索から「Snipping Tool」を起動します</li><li>動画ボタン（ビデオカメラアイコン）をクリックします<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/snipping-tool.png"></li><li>録画する画面の範囲をドラッグで選択し、「スタート」をクリックして録画を開始します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/start-recording.png"></li><li>事象を再現させます</li><li>録画停止ボタンを押して終了し、ファイルを保存します</li></ol><h4 id="その他の録画方法"><a href="#その他の録画方法" class="headerlink" title="その他の録画方法"></a>その他の録画方法</h4><ul><li><a href="https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0">PowerPoint で画面を記録する</a></li><li><a href="https://learn.microsoft.com/ja-jp/office/troubleshoot/settings/how-to-use-problem-steps-recorder">問題ステップ レコーダーの使用方法</a></li></ul>]]>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの鎌田です。</p><p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p><span id="more"></span><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol><li><a href="#identification-info">識別情報の取得</a><ol><li><a href="#environment-url">環境 URL</a></li><li><a href="#upn">UPN（ユーザー プリンシパル名）</a></li><li><a href="#session-id">セッション ID・バージョン情報</a></li></ol></li><li><a href="#security-role-and-team">セキュリティロールとチームの確認</a></li><li><a href="#solution-layers">ソリューション レイヤーの確認</a></li><li><a href="#import-history">インポート履歴の確認</a></li><li><a href="#web-api-response">Web API レスポンスの取得</a></li><li><a href="#diagnostic-info">診断情報の取得</a><ol><li><a href="#network-trace">ネットワーク トレース（HAR ファイル）</a></li><li><a href="#video-recording">動画の録画</a></li></ol></li></ol><hr><p><a id='identification-info'></a></p><h2 id="1-識別情報の取得"><a href="#1-識別情報の取得" class="headerlink" title="1. 識別情報の取得"></a>1. 識別情報の取得</h2><p>サーバー側のログ調査に必要な識別情報です。</p><p><a id='environment-url'></a></p><h3 id="1-1-環境-URL"><a href="#1-1-環境-URL" class="headerlink" title="1-1. 環境 URL"></a>1-1. 環境 URL</h3><ol><li>Dynamics 365 にサインインします</li><li>ブラウザのアドレスバーから URL をコピーします<br>例: <code>https://contoso.crm7.dynamics.com</code></li></ol><p><a id='upn'></a></p><h3 id="1-2-UPN（ユーザー-プリンシパル名）"><a href="#1-2-UPN（ユーザー-プリンシパル名）" class="headerlink" title="1-2. UPN（ユーザー プリンシパル名）"></a>1-2. UPN（ユーザー プリンシパル名）</h3><p>事象が発生しているユーザーを特定するために必要です。<br>例: <code>user@contoso.onmicrosoft.com</code></p><p>Power Platform 管理センターで環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [ユーザー] のユーザー名よりご確認いただけます。<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/upn.png"></p><p><a id='session-id'></a></p><h3 id="1-3-セッション-ID・バージョン情報"><a href="#1-3-セッション-ID・バージョン情報" class="headerlink" title="1-3. セッション ID・バージョン情報"></a>1-3. セッション ID・バージョン情報</h3><ol><li>Dynamics 365 アプリの画面右上の歯車アイコンをクリックします</li><li>「情報」をクリックするとダイアログに情報が表示されます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/sessionid.png"></li></ol><hr><p><a id='security-role-and-team'></a></p><h2 id="2-セキュリティロールとチームの確認"><a href="#2-セキュリティロールとチームの確認" class="headerlink" title="2. セキュリティロールとチームの確認"></a>2. セキュリティロールとチームの確認</h2><p>アクセス権限に関連する問題の調査に必要です。</p><ol><li>Power Platform 管理センターで環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [ユーザー] を開きます</li><li>対象ユーザーをクリックします</li><li>サイドバーの「直接割り当てられたロール」から、割り当てられたセキュリティ ロールの一覧を確認できます（チーム経由で割り当てられたロールはここには表示されません）</li><li>サイドバーの「チーム」から、所属しているチームの一覧を確認できます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/user-info.png"></li></ol><hr><p><a id='solution-layers'></a></p><h2 id="3-ソリューション-レイヤーの確認"><a href="#3-ソリューション-レイヤーの確認" class="headerlink" title="3. ソリューション レイヤーの確認"></a>3. ソリューション レイヤーの確認</h2><p>特定のコンポーネント (アプリ、テーブル、フォームなど) がどのソリューション経由でインストール・カスタマイズされたかを確認する方法です。<br>コンポーネントの出自や変更履歴の調査に必要となります。</p><ol><li><a href="https://make.powerapps.com/">Power Apps ポータル</a> にサインインし、対象の環境を選択します</li><li>左ナビゲーションから [ソリューション] を選択します</li><li>[既定のソリューション] を開きます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-list.png"></li><li>左ペインのオブジェクト一覧から対象のコンポーネントの種類を選択します（例: モデル駆動型アプリの場合は [アプリ]）</li><li>対象のコンポーネントの [︙] メニューを開き、[詳細] &gt; [ソリューション レイヤーの表示] をクリックします<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-layers-menu.png"></li><li>表示されたソリューション レイヤーの画面のスクリーンショットを取得します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-layers-result.png"></li></ol><p>ソリューション レイヤーには、そのコンポーネントに影響を与えたソリューションが上から順（最新が上）に表示されます。最下層の [システム] レイヤーはプラットフォーム既定の定義です。</p><p><strong>参考資料：</strong> <a href="https://learn.microsoft.com/power-apps/maker/data-platform/solution-layers">ソリューション レイヤー</a></p><hr><p><a id='import-history'></a></p><h2 id="4-インポート履歴の確認"><a href="#4-インポート履歴の確認" class="headerlink" title="4. インポート履歴の確認"></a>4. インポート履歴の確認</h2><p>データ インポートに関する問題の調査では、対象のインポート レコードを特定するための情報が必要です。</p><ol><li>Dynamics 365 アプリの左上のアプリ名をクリックし、アプリ一覧から「Power Platform 環境設定」を選択します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/import-app-selection.png"></li><li>左ナビゲーションの [データ管理] をクリックし、[インポート] を選択します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/import-data-management.png"></li><li>問題が発生しているインポートを特定し、この画面のスクリーンショットを取得します。複数のインポートが表示されている場合は、該当のインポートがどれかわかるように示してください<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/import-history.png"></li></ol><p>スクリーンショットでは、以下の情報が確認できるようにしてください：</p><ul><li><strong>インポート名</strong>: 問題が発生しているインポートがどれか特定するために必要です</li><li><strong>ステータス</strong>: 完了、エラーなどの状態</li><li><strong>成功・部分的な失敗・エラーの件数</strong>: 問題の規模を把握するために必要です</li><li><strong>作成日</strong>: インポートが実行された日時</li></ul><div class="alert is-info"><p class="alert-title">Note</p><p>一覧に表示される日時が日本時間ではない場合は、その旨をサポート担当者にお知らせください。</p></div><hr><p><a id='web-api-response'></a></p><h2 id="5-Web-API-レスポンスの取得"><a href="#5-Web-API-レスポンスの取得" class="headerlink" title="5. Web API レスポンスの取得"></a>5. Web API レスポンスの取得</h2><p>サーバー側のデータや設定を確認するため、Web API のレスポンスを JSON ファイルとして提供いただく場合があります。</p><p><strong>取得手順（Microsoft Edge）：</strong></p><ol><li>ブラウザで調査対象の環境 (<code>https://&lt;環境 URL&gt;.dynamics.com</code>) にアクセスし、Dynamics 365 にサインインできることを確認します</li><li>新しいタブを開き、サポート担当者から指定された URL をアドレスバーに入力してアクセスします<br>例: <code>https://&lt;環境 URL&gt;.dynamics.com/api/data/v9.2/accounts</code></li><li>レスポンスが表示されたら、画面左上の「整形出力」にチェックを入れます</li><li>ページ上で右クリックし、「名前を付けて保存」を選択します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/web-api-save.png"></li><li>ファイルの種類が「JSON ファイル」になっていることを確認し、保存します</li><li>保存した JSON ファイルを、サポート担当者から提供されたファイル アップロード用のリンクからアップロードしてください</li></ol><hr><p><a id='diagnostic-info'></a></p><h2 id="6-診断情報の取得"><a href="#6-診断情報の取得" class="headerlink" title="6. 診断情報の取得"></a>6. 診断情報の取得</h2><p>問題の詳細な調査に必要な診断情報です。</p><p><a id='network-trace'></a></p><h3 id="6-1-ネットワーク-トレース（HAR-ファイル）"><a href="#6-1-ネットワーク-トレース（HAR-ファイル）" class="headerlink" title="6-1. ネットワーク トレース（HAR ファイル）"></a>6-1. ネットワーク トレース（HAR ファイル）</h3><p>ブラウザと Dynamics 365 サーバー間の通信を記録します。<br>ネットワーク トレースとは、ブラウザーがページを表示するために送受信した通信を時系列で記録したものです。<br>問題が発生した操作を記録し HAR ファイルとして共有いただくことで、調査がスムーズになります。</p><div class="alert is-important"><p class="alert-title">重要</p><p><strong>事象再現の直前</strong>に取得を開始し、<strong>事象を再現させた直後</strong>に保存してください。不要な通信が増え肝心な要求が埋もれるため、不要なページ遷移はせず最小の再現だけに留めてください。</p></div><p><strong>取得手順（Microsoft Edge）：</strong></p><ol><li>ブラウザで <code>F12</code> キーを押し、開発者ツールを開き、「ネットワーク」タブを選択します</li><li>以下のオプションを有効にします：<ul><li>「ログを保持」にチェック</li><li>「キャッシュを無効にする」にチェック</li></ul></li><li>「クリア」ボタンで古いログを消去します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/trace-start.jpg"></li><li>事象を<strong>最小の手順で 1 回だけ</strong>再現させます</li><li>再現後、「Export HAR」ボタン（↓アイコン）をクリックして保存します（ファイル名は <code>YYYYMMDD_issue.har</code> のように日付と概要を含めてください）<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/trace-end.jpg"></li></ol><p><strong>参考資料：</strong> <a href="https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace">ブラウザー トレースの取得（Azure Portal）</a></p><p><a id='video-recording'></a></p><h3 id="6-2-動画の録画"><a href="#6-2-動画の録画" class="headerlink" title="6-2. 動画の録画"></a>6-2. 動画の録画</h3><p>事象再現時の動画があると、発生状況をより正確に把握できます。</p><div class="alert is-important"><p class="alert-title">重要</p><p>事象発生の<strong>事前</strong>に録画を開始し、事象発生を確認した<strong>後</strong>に停止してください。</p></div><h4 id="Snipping-Tool-での画面録画"><a href="#Snipping-Tool-での画面録画" class="headerlink" title="Snipping Tool での画面録画"></a>Snipping Tool での画面録画</h4><ol><li><code>Windows + Shift + S</code> キーを押して Snipping Tool を起動、または検索から「Snipping Tool」を起動します</li><li>動画ボタン（ビデオカメラアイコン）をクリックします<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/snipping-tool.png"></li><li>録画する画面の範囲をドラッグで選択し、「スタート」をクリックして録画を開始します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/start-recording.png"></li><li>事象を再現させます</li><li>録画停止ボタンを押して終了し、ファイルを保存します</li></ol><h4 id="その他の録画方法"><a href="#その他の録画方法" class="headerlink" title="その他の録画方法"></a>その他の録画方法</h4><ul><li><a href="https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0">PowerPoint で画面を記録する</a></li><li><a href="https://learn.microsoft.com/ja-jp/office/troubleshoot/settings/how-to-use-problem-steps-recorder">問題ステップ レコーダーの使用方法</a></li></ul>]]>
     </content>
     <id>https://jpdynamicscrm.github.io/blog/powerplatform/dynamics365-troubleshooting-info-collection/</id>
     <link href="https://jpdynamicscrm.github.io/blog/powerplatform/dynamics365-troubleshooting-info-collection/"/>
@@ -361,7 +361,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-04-24T08:30:25.979Z</updated>
+    <updated>2026-04-27T08:40:58.252Z</updated>
   </entry>
   <entry>
     <author>
@@ -390,7 +390,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-04-24T08:30:25.979Z</updated>
+    <updated>2026-04-27T08:40:58.252Z</updated>
   </entry>
   <entry>
     <author>
@@ -418,7 +418,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-04-24T08:30:25.967Z</updated>
+    <updated>2026-04-27T08:40:58.241Z</updated>
   </entry>
   <entry>
     <author>
@@ -442,7 +442,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-04-24T08:30:25.874Z</updated>
+    <updated>2026-04-27T08:40:58.148Z</updated>
   </entry>
   <entry>
     <author>
@@ -473,7 +473,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-04-24T08:30:25.916Z</updated>
+    <updated>2026-04-27T08:40:58.189Z</updated>
   </entry>
   <entry>
     <author>
@@ -502,7 +502,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-04-24T08:30:25.801Z</updated>
+    <updated>2026-04-27T08:40:58.078Z</updated>
   </entry>
   <entry>
     <author>
@@ -525,7 +525,7 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-04-24T08:30:26.023Z</updated>
+    <updated>2026-04-27T08:40:58.298Z</updated>
   </entry>
   <entry>
     <author>
@@ -546,7 +546,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
     </summary>
     <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-04-24T08:30:25.773Z</updated>
+    <updated>2026-04-27T08:40:58.050Z</updated>
   </entry>
   <entry>
     <author>
@@ -568,6 +568,6 @@
       <![CDATA[<p>こんにちは、Power Platform サポート チームの三田です。<br>本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。</p>]]>
     </summary>
     <title>Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</title>
-    <updated>2026-04-24T08:30:26.036Z</updated>
+    <updated>2026-04-27T08:40:58.312Z</updated>
   </entry>
 </feed>
