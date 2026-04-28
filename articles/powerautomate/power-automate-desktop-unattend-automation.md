@@ -15,7 +15,7 @@ categories:
 
 
 有人実行と無人実行の違いや、アテンド型 (有人) でフローを実行する方法については以下のブログに記載がございますので、ご確認ください。  
-[Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/)  
+[Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attend-automation/)  
 
 <!-- more -->
 # 目次
@@ -37,7 +37,7 @@ categories:
 無人実行では、ユーザーが端末からサインアウトしている状態でデスクトップ フローが実行できます。  
 
 ユーザーが端末にサインインしている状態でデスクトップ フローを実行する有人実行の方法については以下のブログでご案内していますのでご確認いただけますと幸いです。  
-[Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/)  
+[Power Automate for desktop で作成したデスクトップ フローをクラウド フローから実行する方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attend-automation/)  
 
 <a id='anchor-licence-for-unattended-automation'></a>
 
@@ -80,7 +80,7 @@ categories:
 1. 端末の登録方法
   Power Automate コンピュータ ランタイムアプリを使用して、該当の環境にデスクトップ フローを実行する端末を登録を行います。  
   以下の記事をご参照の上でご指定ください。  
-  [端末の登録方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/#anchor-register-computers)  
+  [端末の登録方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attend-automation/#anchor-register-computers)  
   
 1. リモート デスクトップの設定  
   実行する端末 > システムのプロパティ > リモート デスクトップにて、以下のように設定します。  
@@ -93,7 +93,7 @@ categories:
 
 ## クラウド フローからデスクトップ フローを呼び出す方法
 以下の記事の手順 6 で実行モードを非アテンド型に変更することで、デスクトップ フローを無人実行で呼び出すことができます。   
-[クラウド フローからデスクトップ フローを呼び出す方法 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attand-automation/#anchor-call-desktopflow-from-cloudflow)
+[クラウド フローからデスクトップ フローを呼び出す方法 | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attend-automation/#anchor-call-desktopflow-from-cloudflow)
 
 ![](./power-automate-desktop-unattend-automation/call-desktopflow-from-cloudflow.png)  
   * Desktop フロー：呼び出したいデスクトップ フローをご指定ください。  
