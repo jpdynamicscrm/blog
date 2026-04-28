@@ -18,7 +18,30 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-04-27T08:40:58.189Z</updated>
+  <updated>2026-04-28T06:22:00.213Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
+    <category term="Capacity" scheme="https://jpdynamicscrm.github.io/blog/tags/Capacity/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの粟野です。</p><p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、管理者への通知を目的とした仕組みであること</li><li>割り当てを 0 MB にした場合でも、環境内のデータ消費には影響しないこと</li><li>「テナントで利用可能な容量から引き落とす」設定が関係する場面と関係しない場面があること</li><li>テナント全体の容量を超えた場合にどのような影響があるか</li><li>容量管理で押さえておきたいポイント</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#q1">環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)</a></li><li><a href="#q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)</a></li><li><a href="#q3">特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する方法はあるか (Q3)</a></li><li><a href="#tenant-overage">テナント全体の容量を超えた場合に起きること</a></li><li><a href="#summary">まとめ</a></li><li><a href="#notice">注意事項（情報の更新可能性）</a></li></ul><h2 id="q1">環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)</h2><p>【結論】環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、消費を制限する機能ではなく、超過状態を目視可能とする、管理者にメールで通知をお届けするための仕組みです。<br>割り当てた量を超えた場合でも、その環境でのデータの保存や作成はそのまま継続されます。</p><p>そのため、割り当てを 0 MB に設定した場合でも、環境の中でファイルやデータが作成されると、テナント全体の容量から消費される動作となります。</p><p>【ポイント】</p><ol><li>容量割り当ては「この環境にどれだけ使わせたいか」の目安を管理者が設定するためのもの</li><li>割り当てを設定する際に、通知を受け取る閾値（パーセンテージ）を指定できる。消費量がその割合に達した際に管理者へメール通知が届く（データの保存には影響しない）</li><li>0 MB に設定した場合でも、環境で発生するデータはテナント全体の容量から消費される</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#frequently-asked-questions-faq">Dataverse 容量ベースのストレージの詳細 - よくあるご質問</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage">Dataverse 容量ベースのストレージの概要</a></li></ul><h2 id="q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)</h2><p>【結論】従量課金（Pay-as-you-go）を設定していない環境では、この設定のオン・オフによる動作の違いはございません。<br>どちらの場合も、環境の消費分はテナント全体の容量から消費される動作となります。</p><p>現時点では、この設定が効果を持つのは、環境に従量課金（Pay-as-you-go）プランが紐づいている場合です。</p><p>以下の表で違いを整理します。</p><table><thead><tr><th>シナリオ</th><th>オン（引き落とす）</th><th>オフ（引き落とさない）</th></tr></thead><tbody><tr><td><strong>従量課金あり</strong></td><td>割り当て超過分をまずテナント全体の余り容量から使い、それでも足りない場合に Azure サブスクリプションへ課金</td><td>割り当て超過分がそのまま Azure サブスクリプションへ課金</td></tr><tr><td><strong>従量課金なし</strong></td><td>テナント全体の容量から消費</td><td>テナント全体の容量から消費（<strong>オンと同じ</strong>）</td></tr></tbody></table><h4 id="実際の動作例"><a href="#実際の動作例" class="headerlink" title="実際の動作例"></a>実際の動作例</h4><p>以下は、従量課金（Pay-as-you-go）が紐づいた環境で「Draw from the available capacity in my tenant」（テナントで利用可能な容量から引き落とす）の設定を切り替えた場合の、ファイル容量消費の推移です。<br><img width="1872" height="668" alt="image" src="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98" /></p><p>この環境ではファイル容量の割り当てを 3 GB に設定しており、実際の消費量（約 7 GB）が割り当てを超過しています。</p><ul><li><strong>4&#x2F;23 まで</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オフ</strong>）: 割り当て（3 GB）を超えた分がそのまま Pay-as-you-go として Azure サブスクリプションに課金されています（グラフの紫色部分）。</li><li><strong>4&#x2F;24 以降</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オン</strong>）: 超過分がまずテナントプールの余剰容量から充当されるようになり、Pay-as-you-go の課金が発生しなくなっています。</li></ul><p>このように、従量課金環境では「Draw from the available capacity in my tenant」の設定によって課金先が変わります。一方、従量課金が紐づいていない環境では、この設定を切り替えても動作に違いはありません。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#manage-capacity-overage">Dataverse 容量ベースのストレージの詳細 - 容量超過の管理</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#allocate-capacity-for-an-environment">Dataverse 容量ベースのストレージの詳細 - 環境に容量を割り当てる</a></li></ul><h2 id="q3">特定の環境の容量消費（Database / File / Log）を制限する方法はあるか (Q3)</h2><p>【結論】現時点では、特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する機能はご用意されておりません。</p><p>前述のとおり、容量割り当ては管理者への通知を目的とした設定です。<br>環境ごとに Database &#x2F; File &#x2F; Log それぞれの容量に上限を設けてデータの保存や作成を制限するような仕組みは、現在の Dataverse では提供されていない状況です。</p><p>【補足】仮に容量割り当てが厳密な上限として動作した場合、環境内で必要なレコードの作成、添付ファイルのアップロード、ログの記録などが行えなくなり、業務に影響が生じる可能性があります。<br>こうした点を踏まえ、現在の仕組みでは消費自体は継続しつつ、メール通知で管理者にお知らせする設計となっています。</p><h2 id="tenant-overage">テナント全体の容量を超えた場合に起きること</h2><p>環境単位の割り当てはソフトな制限ですが、テナント全体の容量を超過した場合には、一部の管理操作に影響が出ます。<br>以下の操作は、テナント全体の容量超過が解消されるまでご利用いただけなくなります。</p><ul><li>新しい環境の作成（空き容量 1 GB 以上が必要）</li><li>環境のコピー</li><li>環境の復元</li><li>試用版環境から有料版への変換（空き容量 1 GB 以上が必要）</li><li>環境の回復（空き容量 1 GB 以上が必要）</li><li>環境への Dataverse データベースの追加</li></ul><p>【補足】テナント容量を超えた場合でも、既存の環境に保存されているデータが消えることはございませんのでご安心ください。<br>また、既存の環境でのデータの読み書きも引き続きご利用いただけます。<br>影響があるのは上記のような「管理操作」に限られます。</p><p>【ポイント】</p><ol><li>テナント全体の容量超過時に影響を受けるのは「管理操作」（環境の新規作成・コピー・復元など）</li><li>既存のデータが消えたり、環境が使えなくなったりすることはない</li><li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討ください</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#changes-for-exceeding-storage-capacity-entitlements">Dataverse 容量ベースのストレージの詳細 - 記憶域容量の権利を超えるための変更</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage#what-happens-when-my-organization-exceeds-storage-entitlements">Dataverse 容量ベースのストレージの概要 - 組織がストレージの権利を超えた場合</a></li></ul><h2 id="summary">まとめ</h2><ul><li>環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、管理者への通知を目的としたソフトな制限であり、消費自体には影響しない</li><li>割り当てを 0 MB にした場合でも環境のデータ消費は継続し、テナント全体の容量から消費される</li><li>「テナントで利用可能な容量から引き落とす」は従量課金（Pay-as-you-go）環境向けの設定であり、従量課金なしの場合はオン・オフによる違いはない</li><li>テナント全体の容量を超えた場合は、環境の新規作成やコピーなどの管理操作に影響がある（既存データには影響なし）</li><li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討いただきたい</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2><p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新の情報につきましては、公式ドキュメントもあわせてご参照いただけますと幸いです。</p>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-capacity-allocation-soft-limit/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-capacity-allocation-soft-limit/"/>
+    <published>2026-04-26T15:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの粟野です。</p>
+<p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
+    </summary>
+    <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
+    <updated>2026-04-28T06:22:00.213Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -40,7 +63,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-04-27T08:40:58.189Z</updated>
+    <updated>2026-04-28T06:22:00.147Z</updated>
   </entry>
   <entry>
     <author>
@@ -66,7 +89,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-04-27T08:40:58.289Z</updated>
+    <updated>2026-04-28T06:22:00.254Z</updated>
   </entry>
   <entry>
     <author>
@@ -93,7 +116,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-04-27T08:40:58.299Z</updated>
+    <updated>2026-04-28T06:22:00.266Z</updated>
   </entry>
   <entry>
     <author>
@@ -119,7 +142,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-04-27T08:40:58.251Z</updated>
+    <updated>2026-04-28T06:22:00.214Z</updated>
   </entry>
   <entry>
     <author>
@@ -156,7 +179,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-04-27T08:40:58.300Z</updated>
+    <updated>2026-04-28T06:22:00.266Z</updated>
   </entry>
   <entry>
     <author>
@@ -186,7 +209,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-04-27T08:40:58.250Z</updated>
+    <updated>2026-04-28T06:22:00.212Z</updated>
   </entry>
   <entry>
     <author>
@@ -218,7 +241,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-04-27T08:40:58.188Z</updated>
+    <updated>2026-04-28T06:22:00.145Z</updated>
   </entry>
   <entry>
     <author>
@@ -241,7 +264,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-04-27T08:40:58.315Z</updated>
+    <updated>2026-04-28T06:22:00.283Z</updated>
   </entry>
   <entry>
     <author>
@@ -274,7 +297,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-04-27T08:40:58.299Z</updated>
+    <updated>2026-04-28T06:22:00.266Z</updated>
   </entry>
   <entry>
     <author>
@@ -307,7 +330,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-04-27T08:40:58.252Z</updated>
+    <updated>2026-04-28T06:22:00.215Z</updated>
   </entry>
   <entry>
     <author>
@@ -337,7 +360,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-04-27T08:40:57.990Z</updated>
+    <updated>2026-04-28T06:21:59.927Z</updated>
   </entry>
   <entry>
     <author>
@@ -361,7 +384,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-04-27T08:40:58.252Z</updated>
+    <updated>2026-04-28T06:22:00.215Z</updated>
   </entry>
   <entry>
     <author>
@@ -390,7 +413,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-04-27T08:40:58.252Z</updated>
+    <updated>2026-04-28T06:22:00.215Z</updated>
   </entry>
   <entry>
     <author>
@@ -418,7 +441,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-04-27T08:40:58.241Z</updated>
+    <updated>2026-04-28T06:22:00.202Z</updated>
   </entry>
   <entry>
     <author>
@@ -442,7 +465,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-04-27T08:40:58.148Z</updated>
+    <updated>2026-04-28T06:22:00.102Z</updated>
   </entry>
   <entry>
     <author>
@@ -473,7 +496,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-04-27T08:40:58.189Z</updated>
+    <updated>2026-04-28T06:22:00.147Z</updated>
   </entry>
   <entry>
     <author>
@@ -502,7 +525,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-04-27T08:40:58.078Z</updated>
+    <updated>2026-04-28T06:22:00.023Z</updated>
   </entry>
   <entry>
     <author>
@@ -525,7 +548,7 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-04-27T08:40:58.298Z</updated>
+    <updated>2026-04-28T06:22:00.264Z</updated>
   </entry>
   <entry>
     <author>
@@ -546,28 +569,6 @@
       <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
     </summary>
     <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-04-27T08:40:58.050Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Platform Admin Center" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform-Admin-Center/"/>
-    <category term="サポート" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/"/>
-    <category term="役割" scheme="https://jpdynamicscrm.github.io/blog/tags/%E5%BD%B9%E5%89%B2/"/>
-    <category term="Power Platform 管理センター" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platform サポート チームの三田です。<br>本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。</p><span id="more"></span><h3 id="【この記事からわかること】"><a href="#【この記事からわかること】" class="headerlink" title="【この記事からわかること】"></a>【この記事からわかること】</h3><ul><li>PPAC における サポート リクエスト 起票が可能なロールについて</li><li>PPAC から サポート リクエスト を起票する方法</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#power-platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC-%E3%81%8B%E3%82%89%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E8%B5%B7%E7%A5%A8%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%A8%A9%E9%99%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Power Platform 管理センター からサポート リクエスト起票するために必要な権限について</a><ul><li><a href="#%E3%81%93%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%8B%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%E3%81%93%E3%81%A8">【この記事からわかること】</a></li><li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li><li><a href="#ppac-%E3%81%8B%E3%82%89-%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-%E3%81%AE%E8%B5%B7%E7%A5%A8%E3%81%8C%E5%8F%AF%E8%83%BD%E3%81%AA%E3%83%AD%E3%83%BC%E3%83%AB">PPAC から サポート リクエスト の起票が可能なロール</a></li><li><a href="#ppac-%E3%81%8B%E3%82%89-%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-%E3%82%92%E8%B5%B7%E7%A5%A8%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">PPAC から サポート リクエスト を起票する方法</a></li><li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li><li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0%E5%8F%AF%E8%83%BD%E6%80%A7">注意事項（情報の更新可能性）</a></li></ul></li></ul><h2 id="PPAC-から-サポート-リクエスト-の起票が可能なロール"><a href="#PPAC-から-サポート-リクエスト-の起票が可能なロール" class="headerlink" title="PPAC から サポート リクエスト の起票が可能なロール"></a>PPAC から サポート リクエスト の起票が可能なロール</h2><p>Power Platform 管理センター（PPAC）では、サポート リクエストを作成するために、以下のサポート作成が有効化されたロールのいずれかを保持している必要がございます。</p><p>＜Microsoft Entra ロール＞</p><blockquote><ul><li>Microsoft Entra ロール管理者</li><li>会社管理者 (グローバル管理者)</li><li>課金管理者</li><li>サービス管理者</li><li>セキュリティ管理者</li><li>コンプライアンス管理者</li><li>ヘルプデスク管理者</li><li>パートナー代理管理者</li><li>SharePoint 管理者</li><li>チーム管理者 (Microsoft Teams 管理者)</li><li>Exchange 管理者</li><li>Power BI 管理者</li><li>Power Platform 管理者</li><li>CRM サービス管理者</li><li>Power Apps Full 管理者</li></ul></blockquote><p>＜セキュリティ ロール＞</p><blockquote><ul><li>環境管理者 (または Dataverse のシステム管理者ロール)</li><li>CRM 組織の管理者 (Dataverse のシステム管理者ロール)</li><li>Power Apps 環境管理者</li><li>LCS ユーザー</li></ul></blockquote><p>また、技術的サポートを受けるためには、ご契約のサポート プラン（Subscription／ProDirect／Unified など）が要件を満たしている必要がございますのでご留意ください。</p><p>＜参考資料＞</p><ul><li><p><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/get-help-support">サポートを受ける</a></p></li><li><p><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/support-overview#using-support">サポートの概要</a></p></li></ul><h2 id="PPAC-から-サポート-リクエスト-を起票する方法"><a href="#PPAC-から-サポート-リクエスト-を起票する方法" class="headerlink" title="PPAC から サポート リクエスト を起票する方法"></a>PPAC から サポート リクエスト を起票する方法</h2><p>事前に、<a href="#PPAC%E3%81%8B%E3%82%89%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E8%B5%B7%E7%A5%A8%E3%81%8C%E5%8F%AF%E8%83%BD%E3%81%AA%E3%83%AD%E3%83%BC%E3%83%AB">上記の起票に使用するアカウントの権限</a>と、ご契約のサポート プランの要件をご確認ください。最小権限での実施を推奨いたします。</p><ol><li><p>Power Platform 管理センター <a href="https://admin.powerplatform.microsoft.com/">https://admin.powerplatform.microsoft.com/</a> にアクセスし、対象テナントのアカウントでサインイン</p></li><li><p>左側ナビゲーションから「サポート」を選択し、「サポートを受ける」ボタンをクリック<br>  <img src="/blog/powerplatform/ppac-azure-sr-roles-restriction/step2_help+support.png" alt="PPAC サポート要求画面"></p></li><li><p>項目に従って、以下の情報を入力</p></li></ol><ul><li>製品&#x2F;サービス: 例）Power Apps &#x2F; Power Automate &#x2F; Power Pages &#x2F; Dataverse など</li><li>環境: 影響している環境（開発&#x2F;本番など）</li><li>問題の種類&#x2F;カテゴリ: 最も近い項目を選択</li><li>重大度（影響度）: 影響範囲・業務影響に応じて選択</li></ul><p>起票の際に「どんな動作を期待するか」など、詳細な情報をいただけますとより的確で迅速なご案内が可能でございます。ご協力よろしくお願いいたします。</p><p>(補足)<br>プレビュー機能で、<a href="#%E5%B7%A6%E5%81%B4%E3%83%8A%E3%83%93%E3%82%B2%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8B%E3%82%89%E3%80%8C%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%80%8D%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%80%81%E3%80%8C%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92%E5%8F%97%E3%81%91%E3%82%8B%E3%80%8D%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF">ステップ2</a>の後に、サポートエージェントが起動します。サポートエージェントとのチャットボットを利用することで早期解決につなげることが可能でございますので、ぜひご活用ください。</p><p>＜参考資料＞<br><a href="#https://learn.microsoft.com/ja-jp/power-platform/admin/get-help-support#view-solutions-or-create-a-support-request-using-the-support-agent-preview">サポート エージェントを使用してソリューションを表示するか、サポート要求を作成する (プレビュー)</a></p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事では、Power Platform 管理センター（PPAC）でサポート リクエスト（SR）を起票するために必要な権限についてご紹介いたしました。Power Platform について少しでもお困りごとがございましたら、私どもサポート チームが全力でご支援いたします。どうぞ本記事を参考に、気兼ねなく SR を起票くださいますようお願い申し上げます。</p><h2 id="注意事項（情報の更新可能性）"><a href="#注意事項（情報の更新可能性）" class="headerlink" title="注意事項（情報の更新可能性）"></a>注意事項（情報の更新可能性）</h2><p>本記事の内容は執筆日時点の情報に基づいております。製品の仕様や UI、ロールの名称・権限、制限事項、およびリンク先の内容は将来的に変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。</p>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/ppac-azure-sr-roles-restriction/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/ppac-azure-sr-roles-restriction/"/>
-    <published>2025-08-31T15:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platform サポート チームの三田です。<br>本記事では、Power Platform 管理センター（PPAC）からサポート リクエストを起票するために必要な権限についてご紹介いたします。</p>]]>
-    </summary>
-    <title>Power Platform 管理センター からサポート リクエストを起票するために必要な権限について</title>
-    <updated>2026-04-27T08:40:58.312Z</updated>
+    <updated>2026-04-28T06:21:59.992Z</updated>
   </entry>
 </feed>

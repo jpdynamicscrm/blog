@@ -4,30 +4,24 @@
   <meta charset="utf-8">
   
   
-  <title>2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの島です。 Power Platform の半期に一度の大規模リリース (Wave2) が日本リージョンで 10 月 11 日 (月) から一般公開されました。本記事では、このリリース内で行われた更新のうち、モデル駆動型アプリ &#x2F; Dynamics 365 における検索についてご案内いたします。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの粟野です。 本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/index.html">
+<meta property="og:title" content="Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-capacity-allocation-soft-limit/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの島です。 Power Platform の半期に一度の大規模リリース (Wave2) が日本リージョンで 10 月 11 日 (月) から一般公開されました。本記事では、このリリース内で行われた更新のうち、モデル駆動型アプリ &#x2F; Dynamics 365 における検索についてご案内いたします。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの粟野です。 本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/00_dataverse_search.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/01_dataverse_search_content.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/02_federation_search.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/03_dataverse_table.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/04_dataverse_index.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/05_advanced_search.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/06_advanced_search_content.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/07_dataverse_search_setting.png">
-<meta property="article:published_time" content="2021-11-16T04:45:00.000Z">
-<meta property="article:modified_time" content="2026-04-28T06:22:00.147Z">
+<meta property="og:image" content="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98">
+<meta property="article:published_time" content="2026-04-26T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-28T06:22:00.213Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Dynamics">
-<meta property="article:tag" content="Model-driven app">
+<meta property="article:tag" content="Capacity">
+<meta property="article:tag" content="Dataverse">
+<meta property="article:tag" content="Power Platform">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/00_dataverse_search.png">
+<meta name="twitter:image" content="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -90,7 +84,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerplatform/2021-wave2-added-search" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/dataverse-capacity-allocation-soft-limit" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -99,7 +93,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ
+      Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください
     </h1>
   
 
@@ -107,14 +101,14 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2021-11-16T04:45:00.000Z" itemprop="datePublished">2021-11-16</time>
+  <time datetime="2026-04-26T15:00:00.000Z" itemprop="datePublished">2026-04-27</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
 / Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
 
 <script type="text/javascript">
-  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/2021-wave2-added-search.md";
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/dataverse-capacity-allocation-soft-limit.md";
   const urlParts = sourceUrl.split("/");
   const user = urlParts[3];
   const repo = urlParts[4];
@@ -162,56 +156,127 @@
         
         
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Power-Apps/">Power Apps</a>►<a class="article-category-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a>
+    <a class="article-category-link" href="../../categories/Dataverse/">Dataverse</a>
   </div>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8020dac6-eb9e-597b-ac20-edda35607bcb%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B2021+%E5%B9%B4+Wave2+%E3%81%A7%E8%BF%BD%E5%8A%A0%E3%81%95%E3%82%8C%E3%81%9F%E3%83%A2%E3%83%87%E3%83%AB%E9%A7%86%E5%8B%95%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E6%A4%9C%E7%B4%A2%E6%96%B9%E6%B3%95%E3%81%BE%E3%81%A8%E3%82%81%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2F2021-wave2-added-search%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2F2021-wave2-added-search.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2F2021-wave2-added-search.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+f4ba03ba-e7e6-5fc8-a793-3bc515436dbf%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E7%92%B0%E5%A2%83%E3%81%AE%E5%AE%B9%E9%87%8F%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%81%AF%E3%82%BD%E3%83%95%E3%83%88%E3%83%AA%E3%83%9F%E3%83%83%E3%83%88+%E2%80%95+0+MB+%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%82%82%E6%B6%88%E8%B2%BB%E3%81%AF%E6%AD%A2%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84%E7%82%B9%E3%81%AB%E3%81%94%E6%B3%A8%E6%84%8F%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fdataverse-capacity-allocation-soft-limit%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fdataverse-capacity-allocation-soft-limit.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Fdataverse-capacity-allocation-soft-limit.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/" data-id="cuidYxcMBzFDM6CrHr81vb-Fs" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-capacity-allocation-soft-limit/" data-id="cuidnrYlSP2P89q4wedofrpXr" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの島です。</p>
-<p>Power Platform の半期に一度の大規模リリース (Wave2) が日本リージョンで 10 月 11 日 (月) から一般公開されました。<br>本記事では、このリリース内で行われた更新のうち、モデル駆動型アプリ &#x2F; Dynamics 365 における検索についてご案内いたします。</p>
+        <p>こんにちは、Power Platform サポートチームの粟野です。</p>
+<p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>
 <span id="more"></span>
-<p>Wave2 では、以下 2 つの検索方法が追加・更新されております。</p>
+
+<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<li>環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、管理者への通知を目的とした仕組みであること</li>
+<li>割り当てを 0 MB にした場合でも、環境内のデータ消費には影響しないこと</li>
+<li>「テナントで利用可能な容量から引き落とす」設定が関係する場面と関係しない場面があること</li>
+<li>テナント全体の容量を超えた場合にどのような影響があるか</li>
+<li>容量管理で押さえておきたいポイント</li>
+</ul>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
+<li><a href="#q1">環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)</a></li>
+<li><a href="#q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)</a></li>
+<li><a href="#q3">特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する方法はあるか (Q3)</a></li>
+<li><a href="#tenant-overage">テナント全体の容量を超えた場合に起きること</a></li>
+<li><a href="#summary">まとめ</a></li>
+<li><a href="#notice">注意事項（情報の更新可能性）</a></li>
+</ul>
+<h2 id="q1">環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)</h2>
+
+<p>【結論】環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、消費を制限する機能ではなく、超過状態を目視可能とする、管理者にメールで通知をお届けするための仕組みです。<br>割り当てた量を超えた場合でも、その環境でのデータの保存や作成はそのまま継続されます。</p>
+<p>そのため、割り当てを 0 MB に設定した場合でも、環境の中でファイルやデータが作成されると、テナント全体の容量から消費される動作となります。</p>
+<p>【ポイント】</p>
 <ol>
-<li>Dataverse 検索 (関連性検索)</li>
-<li>高度なルックアップ</li>
+<li>容量割り当ては「この環境にどれだけ使わせたいか」の目安を管理者が設定するためのもの</li>
+<li>割り当てを設定する際に、通知を受け取る閾値（パーセンテージ）を指定できる。消費量がその割合に達した際に管理者へメール通知が届く（データの保存には影響しない）</li>
+<li>0 MB に設定した場合でも、環境で発生するデータはテナント全体の容量から消費される</li>
 </ol>
-<p>サポートチームでもたくさんのお問合せをいただいているこれらの検索方法について、それぞれ詳しくご紹介いたします！</p>
-<h2 id="Dataverse-検索"><a href="#Dataverse-検索" class="headerlink" title="Dataverse 検索"></a>Dataverse 検索</h2><hr>
-<p>Wave2 より、運用環境において既定で Dataverse 検索が有効化されるようになりました。</p>
-<h3 id="そもそも、Dataverse-検索とは？"><a href="#そもそも、Dataverse-検索とは？" class="headerlink" title="そもそも、Dataverse 検索とは？"></a>そもそも、Dataverse 検索とは？</h3><p>以下のキャプチャのように、画面上部のヘッダに表示されている検索欄が Dataverse 検索 (関連性検索) です。<br><img src="/blog/powerplatform/2021-wave2-added-search/00_dataverse_search.png"></p>
-<p>実際にこちらを検索してみると、以下のようにキーワードを入力するだけで関連エンティティを含めた検索ができます。<br><img src="/blog/powerplatform/2021-wave2-added-search/01_dataverse_search_content.png"></p>
-<p>ちなみに、Wave2 以前では、この検索欄は「カテゴリ別検索」または「簡易検索」と呼ばれ、ヘッダの虫眼鏡マークからご利用いただくことができました。<br><img src="/blog/powerplatform/2021-wave2-added-search/02_federation_search.png"></p>
-<p>このカテゴリ別検索から、より検索性や操作性を向上させた機能が Dataverse 検索です。</p>
-<h3 id="Dataverse-検索では具体的に何を検索しているのか？"><a href="#Dataverse-検索では具体的に何を検索しているのか？" class="headerlink" title="Dataverse 検索では具体的に何を検索しているのか？"></a>Dataverse 検索では具体的に何を検索しているのか？</h3><p>Dataverse 検索で検索対象を決定する仕組みについてご案内いたします。</p>
-<p>Dataverse 検索では、<strong>テーブル (エンティティ) × 列 (フィールド)</strong> をそれぞれ検索対象として指定できます。</p>
-<p><strong>1. 検索対象のテーブル</strong><br>Dataverse 検索では、検索対象のテーブルを指定することができます。<br>環境の詳細設定画面、または Power Apps のソリューション設定画面から指定ができるのですが、今回はソリューション設定画面をご紹介いたします。<br>Power Apps (<a href="https://make.powerapps.com/">https://make.powerapps.com</a>) からソリューションを選択し、「概要」&gt; 「Dataverse 検索」&gt;「検索インデックスの管理」より、検索対象のテーブルを指定いただけます。<br>なお、Dataverse 検索の対象テーブル自体はソリューションに含まれる要素ではないため、ソリューションは任意のものをご選択いただければ問題ございません。<br><img src="/blog/powerplatform/2021-wave2-added-search/03_dataverse_table.png"></p>
-<p><strong>2. 検索対象の列</strong><br>検索対象の列も、環境の詳細設定画面の他、Power Apps のテーブル設定画面からご確認いただけます。<br>テーブルの各列を選択し「検索可能」をチェックいただくことで、検索対象に指定される列を指定いただけます。<br><img src="/blog/powerplatform/2021-wave2-added-search/04_dataverse_index.png"></p>
-<p>既定の状態でも、主要なテーブル・主要な列は検索対象として指定されていますが、<br>カスタムテーブルなどを作成いただいている場合にはぜひ検索対象に追加の上、検索をご活用ください。</p>
-<h2 id="高度なルックアップ"><a href="#高度なルックアップ" class="headerlink" title="高度なルックアップ"></a>高度なルックアップ</h2><hr>
-<p>Wave2 より、検索 (ルックアップ) 列の入力時に高度なルックアップをご利用いただけるようになりました。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#frequently-asked-questions-faq">Dataverse 容量ベースのストレージの詳細 - よくあるご質問</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage">Dataverse 容量ベースのストレージの概要</a></li>
+</ul>
+<h2 id="q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)</h2>
+
+<p>【結論】従量課金（Pay-as-you-go）を設定していない環境では、この設定のオン・オフによる動作の違いはございません。<br>どちらの場合も、環境の消費分はテナント全体の容量から消費される動作となります。</p>
+<p>現時点では、この設定が効果を持つのは、環境に従量課金（Pay-as-you-go）プランが紐づいている場合です。</p>
+<p>以下の表で違いを整理します。</p>
+<table>
+<thead>
+<tr>
+<th>シナリオ</th>
+<th>オン（引き落とす）</th>
+<th>オフ（引き落とさない）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>従量課金あり</strong></td>
+<td>割り当て超過分をまずテナント全体の余り容量から使い、それでも足りない場合に Azure サブスクリプションへ課金</td>
+<td>割り当て超過分がそのまま Azure サブスクリプションへ課金</td>
+</tr>
+<tr>
+<td><strong>従量課金なし</strong></td>
+<td>テナント全体の容量から消費</td>
+<td>テナント全体の容量から消費（<strong>オンと同じ</strong>）</td>
+</tr>
+</tbody></table>
+<h4 id="実際の動作例"><a href="#実際の動作例" class="headerlink" title="実際の動作例"></a>実際の動作例</h4><p>以下は、従量課金（Pay-as-you-go）が紐づいた環境で「Draw from the available capacity in my tenant」（テナントで利用可能な容量から引き落とす）の設定を切り替えた場合の、ファイル容量消費の推移です。<br><img width="1872" height="668" alt="image" src="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98" /></p>
+<p>この環境ではファイル容量の割り当てを 3 GB に設定しており、実際の消費量（約 7 GB）が割り当てを超過しています。</p>
+<ul>
+<li><strong>4&#x2F;23 まで</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オフ</strong>）: 割り当て（3 GB）を超えた分がそのまま Pay-as-you-go として Azure サブスクリプションに課金されています（グラフの紫色部分）。</li>
+<li><strong>4&#x2F;24 以降</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オン</strong>）: 超過分がまずテナントプールの余剰容量から充当されるようになり、Pay-as-you-go の課金が発生しなくなっています。</li>
+</ul>
+<p>このように、従量課金環境では「Draw from the available capacity in my tenant」の設定によって課金先が変わります。一方、従量課金が紐づいていない環境では、この設定を切り替えても動作に違いはありません。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#manage-capacity-overage">Dataverse 容量ベースのストレージの詳細 - 容量超過の管理</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#allocate-capacity-for-an-environment">Dataverse 容量ベースのストレージの詳細 - 環境に容量を割り当てる</a></li>
+</ul>
+<h2 id="q3">特定の環境の容量消費（Database / File / Log）を制限する方法はあるか (Q3)</h2>
+
+<p>【結論】現時点では、特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する機能はご用意されておりません。</p>
+<p>前述のとおり、容量割り当ては管理者への通知を目的とした設定です。<br>環境ごとに Database &#x2F; File &#x2F; Log それぞれの容量に上限を設けてデータの保存や作成を制限するような仕組みは、現在の Dataverse では提供されていない状況です。</p>
+<p>【補足】仮に容量割り当てが厳密な上限として動作した場合、環境内で必要なレコードの作成、添付ファイルのアップロード、ログの記録などが行えなくなり、業務に影響が生じる可能性があります。<br>こうした点を踏まえ、現在の仕組みでは消費自体は継続しつつ、メール通知で管理者にお知らせする設計となっています。</p>
+<h2 id="tenant-overage">テナント全体の容量を超えた場合に起きること</h2>
+
+<p>環境単位の割り当てはソフトな制限ですが、テナント全体の容量を超過した場合には、一部の管理操作に影響が出ます。<br>以下の操作は、テナント全体の容量超過が解消されるまでご利用いただけなくなります。</p>
+<ul>
+<li>新しい環境の作成（空き容量 1 GB 以上が必要）</li>
+<li>環境のコピー</li>
+<li>環境の復元</li>
+<li>試用版環境から有料版への変換（空き容量 1 GB 以上が必要）</li>
+<li>環境の回復（空き容量 1 GB 以上が必要）</li>
+<li>環境への Dataverse データベースの追加</li>
+</ul>
+<p>【補足】テナント容量を超えた場合でも、既存の環境に保存されているデータが消えることはございませんのでご安心ください。<br>また、既存の環境でのデータの読み書きも引き続きご利用いただけます。<br>影響があるのは上記のような「管理操作」に限られます。</p>
+<p>【ポイント】</p>
 <ol>
-<li><p>列の入力時に虫眼鏡マークをクリック後、「高度な検索」を選択ください。<br><img src="/blog/powerplatform/2021-wave2-added-search/05_advanced_search.png"></p>
-</li>
-<li><p>図のように、高度なルックアップウィンドウが表示されます。<br><img src="/blog/powerplatform/2021-wave2-added-search/06_advanced_search_content.png"></p>
-</li>
+<li>テナント全体の容量超過時に影響を受けるのは「管理操作」（環境の新規作成・コピー・復元など）</li>
+<li>既存のデータが消えたり、環境が使えなくなったりすることはない</li>
+<li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討ください</li>
 </ol>
-<p>高度なルックアップウィンドウでは、入力フィールドに適したテーブルのビューから、登録したいデータを選択することができます。<br>今までも、1. の画面で表示されている小さいウィンドウから対象データを検索することができましたが、大画面かつビューを選択できるようになったことで、よりデータの絞り込みがしやすくなりました。<br>複数選択や、複数テーブルの検索もできますので、ぜひご利用ください。</p>
-<h4 id="よくいただくお問合せ"><a href="#よくいただくお問合せ" class="headerlink" title="よくいただくお問合せ"></a>よくいただくお問合せ</h4><hr>
-<h3 id="各検索方法を無効化する方法"><a href="#各検索方法を無効化する方法" class="headerlink" title="各検索方法を無効化する方法"></a>各検索方法を無効化する方法</h3><p>Dataverse 検索に関しては、以下の画像のように、Power Platform 管理センターから有効 &#x2F; 無効を切り替えることができます。<br><img src="/blog/powerplatform/2021-wave2-added-search/07_dataverse_search_setting.png"></p>
-<p>高度なルックアップに関しては通常の方法で無効化することはできません。<br>セキュリティ リスクの懸念から無効化を検討されている場合には、どちらの検索もユーザーに適切な権限が付与されているレコードのみ検索することができるので、ぜひご安心いただければと思います。</p>
-<h3 id="一部の環境で-Dataverse-検索が有効化されていない"><a href="#一部の環境で-Dataverse-検索が有効化されていない" class="headerlink" title="一部の環境で Dataverse 検索が有効化されていない"></a>一部の環境で Dataverse 検索が有効化されていない</h3><p>現在のところ、Dataverse 検索は運用環境 (Production 環境) のみで有効化されています。<br>サンドボックス環境など、その他の環境では既定で機能が無効化されています。これらの環境で Dataverse 検索をご利用の場合には、「各検索方法を無効化する方法」でご紹介した画面から機能を有効化することができるので、ぜひお試しください。<br>なお、設定を有効化してから、実際に検索に利用するインデックスが構築されるまでには数時間以上 (きわめて大規模な環境の場合、最大数日) かかる場合があります。</p>
-<h3 id="Dataverse-検索を有効にするとキャパシティの使用量が増えた"><a href="#Dataverse-検索を有効にするとキャパシティの使用量が増えた" class="headerlink" title="Dataverse 検索を有効にするとキャパシティの使用量が増えた"></a>Dataverse 検索を有効にするとキャパシティの使用量が増えた</h3><p>Dataverse 検索では内部的に検索インデックスを作成していますが、この検索インデックスは Dataverse ストレージ容量内部のデータベースの容量を使用します。<br>そのため、Dataverse 検索を有効化した後、検索インデックスが構築されることでキャパシティ (Dataverse ストレージ容量) が増加します。<br>具体的な増加量については、インデックス構築対象のテーブル・列・データ量にもよるためご案内をしておりません。<br>ただし増加量は RelevanceSearch テーブルに反映されますので、もし環境ごとのキャパシティをご確認いただいた際に当該テーブルの使用量が増加している場合には、Dataverse 検索の対象となるテーブル・列を減らしていただくことをご検討ください。<br>なお、Dataverse 検索の対象を減らしていただいた後、実際に削減がキャパシティに反映されるまでに最大 24 時間が必要です。</p>
-<p>公開情報 <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#faq">新しい容量ストレージモデル</a> より「よくあるご質問」&gt;「DataverseSearch テーブルとは、またどうすればそれを減らすことができますか」にもご案内がございますので、ぜひご参照ください。<br>※本記事公開時点では、DataverseSearch を RelevanceSearch と読み替えいただけますと幸いです。</p>
-<h2 id="関連する公開情報"><a href="#関連する公開情報" class="headerlink" title="関連する公開情報"></a>関連する公開情報</h2><hr>
-<p>・Dataverse 検索の概要について<br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization">自分の環境に Dataverse 検索を構成する</a><br>・Dataverse 検索のリリースについて<br><a href="https://learn.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/simplified-dataverse-search-configuration-admins-model-driven-app-makers">管理者およびモデル駆動型アプリ開発者向けの簡素化された Dataverse 検索の構成</a><br>・高度なルックアップのリリースについて<br><a href="https://learn.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/advanced-lookup-capabilities-all-end-users-model-driven-power-apps">モデル駆動型 Power Apps のすべてのユーザー向けの高度なルックアップ機能</a><br>・2021年 Wave2 を含む、リリース計画の全体<br><a href="https://learn.microsoft.com/ja-jp/dynamics365/release-plans/">Dynamics 365 および Microsoft Power Platform のリリース計画</a></p>
-<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><hr>
-<p>以上、Wave2 で追加された 2 種類の検索方法についてご紹介いたしました。<br>Power Platform &#x2F; Dynamics 365 では、今後も様々な機能追加が予定されています。<br>こちらのブログでも追加機能をご紹介していきますので、ぜひご活用いただけますと幸いです！</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#changes-for-exceeding-storage-capacity-entitlements">Dataverse 容量ベースのストレージの詳細 - 記憶域容量の権利を超えるための変更</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage#what-happens-when-my-organization-exceeds-storage-entitlements">Dataverse 容量ベースのストレージの概要 - 組織がストレージの権利を超えた場合</a></li>
+</ul>
+<h2 id="summary">まとめ</h2>
+
+<ul>
+<li>環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、管理者への通知を目的としたソフトな制限であり、消費自体には影響しない</li>
+<li>割り当てを 0 MB にした場合でも環境のデータ消費は継続し、テナント全体の容量から消費される</li>
+<li>「テナントで利用可能な容量から引き落とす」は従量課金（Pay-as-you-go）環境向けの設定であり、従量課金なしの場合はオン・オフによる違いはない</li>
+<li>テナント全体の容量を超えた場合は、環境の新規作成やコピーなどの管理操作に影響がある（既存データには影響なし）</li>
+<li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討いただきたい</li>
+</ul>
+<h2 id="notice">注意事項（情報の更新可能性）</h2>
+
+<p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新の情報につきましては、公式ドキュメントもあわせてご参照いただけますと幸いです。</p>
 
       
       
@@ -225,10 +290,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/2021-wave2-added-search.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/dataverse-capacity-allocation-soft-limit.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -236,19 +301,10 @@
     
 <nav id="article-nav">
   
-    <a href="../dataverse-group-team/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Dataverse グループ チームによるユーザー・ロールの一元管理
-        
-      </div>
-    </a>
   
-  
-    <a href="../../powerautomate/CloudFlow-ErrorHandling/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../powerpages/power-pages-troubleshooting/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">クラウド フローでのエラーハンドリングの方法</div>
+      <div class="article-nav-title">Power Pages トラブルシューティング ガイド</div>
     </a>
   
 </nav>
@@ -267,7 +323,7 @@
       <ul>
         
           <li>
-            <a href="../dataverse-capacity-allocation-soft-limit/">Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</a>
+            <a href="">Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</a>
           </li>
         
           <li>
