@@ -1,11 +1,13 @@
 ---
 title: "カスタム セキュリティ ロールの作成に関するサポート範囲について"
-date: 2026-04-28
+date: 2026-04-28 00:00
 tags:
   - Power Platform
   - Dataverse
   - Model-driven Apps
   - Information
+categories:
+  - [Dataverse]
 ---
 
 ## はじめに
