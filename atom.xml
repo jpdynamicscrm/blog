@@ -18,7 +18,30 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-05-11T06:48:38.417Z</updated>
+  <updated>2026-05-13T05:50:59.770Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
+    <category term="Information" scheme="https://jpdynamicscrm.github.io/blog/tags/Information/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
+    <category term="Model-driven Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Model-driven-Apps/"/>
+    <content>
+      <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p><span id="more"></span><p>セキュリティ ロールに関するお問い合わせとして、「特定の操作を行うために必要な最小限の権限を持つカスタム セキュリティ ロールの構成を教えてほしい」というご要望をいただくことがございます。<br>本記事では、このようなお問い合わせに対する弊社サポートの対応方針と、お客様側でカスタム セキュリティ ロールを作成する際の推奨アプローチをご案内いたします。</p><div class="alert is-info"><p class="alert-title">Note</p><p>本記事は執筆時点の情報に基づいています。製品の仕様は予告なく変更される場合がありますので、最新の情報は公式ドキュメントをご確認ください。</p></div><h2 id="セキュリティ-ロールの概要"><a href="#セキュリティ-ロールの概要" class="headerlink" title="セキュリティ ロールの概要"></a>セキュリティ ロールの概要</h2><p>Dataverse では、ロールベースのセキュリティ モデルを採用しており、ユーザーが環境内で実行できる操作は、割り当てられたセキュリティ ロールによって決定されます。</p><p>セキュリティ ロールは大きく以下の 2 種類に分けられます。</p><h3 id="既定のセキュリティ-ロール-OOB"><a href="#既定のセキュリティ-ロール-OOB" class="headerlink" title="既定のセキュリティ ロール (OOB)"></a>既定のセキュリティ ロール (OOB)</h3><p>Dataverse 環境に標準で用意されているセキュリティ ロールです。代表的なものとして、以下のロールがあります。</p><ul><li><strong>システム管理者</strong>: 環境におけるすべての操作を実行できるロール</li><li><strong>Basic User</strong>: 環境における一般的なアプリの利用ができるロール</li><li><strong>システム カスタマイザー</strong>: 環境のカスタマイズが可能なロール</li><li><strong>Environment Maker</strong>: アプリやフローなどの新しいリソースを作成できるロール</li></ul><p>これらの既定のセキュリティ ロールは、一般的なユーザー タスクに対応するよう設計されており、「必要最小限のアクセス権」のベスト プラクティスに基づいて構成されています。</p><h3 id="カスタム-セキュリティ-ロール"><a href="#カスタム-セキュリティ-ロール" class="headerlink" title="カスタム セキュリティ ロール"></a>カスタム セキュリティ ロール</h3><p>お客様が独自に作成するセキュリティ ロールです。既定のセキュリティ ロールでは要件を満たせない場合に、テーブルごとの特権やアクセス レベルを個別に設定して作成します。</p><h2 id="サポートでご案内可能な範囲"><a href="#サポートでご案内可能な範囲" class="headerlink" title="サポートでご案内可能な範囲"></a>サポートでご案内可能な範囲</h2><p>弊社サポートでは、セキュリティ ロールに関して以下の内容をご案内することが可能です。</p><ul><li><strong>既定のセキュリティ ロールの仕様</strong>: 各既定ロールに含まれる特権やアクセス レベルについての説明</li><li><strong>セキュリティ ロールの概念や仕組み</strong>: 特権、アクセス レベル（ユーザー &#x2F; 部署 &#x2F; 親子部署 &#x2F; 組織）、テーブル権限などの概念の説明</li><li><strong>セキュリティ ロールの作成・編集手順</strong>: Power Platform 管理センターからセキュリティ ロールを作成・編集・コピーする操作手順のご案内</li><li><strong>公式ドキュメントのご案内</strong>: セキュリティ ロールに関連する公式ドキュメントへの誘導</li><li><strong>特定のエラーの調査</strong>: セキュリティ ロールの不足に起因するエラーが発生した場合、そのエラーに必要な特権の特定を支援</li></ul><h2 id="サポートでご案内が難しい範囲"><a href="#サポートでご案内が難しい範囲" class="headerlink" title="サポートでご案内が難しい範囲"></a>サポートでご案内が難しい範囲</h2><p>一方で、以下のようなご要望については、弊社サポートではご案内が難しい場合がございます。</p><p><strong>「操作 X を行うために必要な最小限の権限を持つカスタム セキュリティ ロールを作成してほしい &#x2F; 構成を教えてほしい」</strong></p><p>このようなご案内が難しい主な理由は以下のとおりです。</p><h3 id="1-環境ごとにカスタマイズが異なるため"><a href="#1-環境ごとにカスタマイズが異なるため" class="headerlink" title="1. 環境ごとにカスタマイズが異なるため"></a>1. 環境ごとにカスタマイズが異なるため</h3><p>Dataverse 環境は、お客様ごとにカスタム テーブル、カスタム列、プラグイン、ビジネス ルール、Power Automate フローなどの構成が異なります。ある操作に必要な権限は、これらのカスタマイズの内容によって大きく変わる可能性があり、すべての環境に共通する最小権限の構成を一律にご案内することはできません。</p><h3 id="2-依存関係の網羅的な特定が困難なため"><a href="#2-依存関係の網羅的な特定が困難なため" class="headerlink" title="2. 依存関係の網羅的な特定が困難なため"></a>2. 依存関係の網羅的な特定が困難なため</h3><p>一つの操作を完了するためには、直接的に操作するテーブルだけでなく、関連するテーブルやシステム テーブルへのアクセス権が必要になることがあります。これらの依存関係はカスタマイズの内容や運用方法によって異なるため、必要な権限を網羅的に特定し、検証することは非常に困難です。</p><h3 id="3-製品の更新により必要な権限が変化する可能性があるため"><a href="#3-製品の更新により必要な権限が変化する可能性があるため" class="headerlink" title="3. 製品の更新により必要な権限が変化する可能性があるため"></a>3. 製品の更新により必要な権限が変化する可能性があるため</h3><p>Dataverse の更新に伴い、セキュリティ ロールの特権が変更される場合があります。ある時点で動作していたカスタム セキュリティ ロールの構成が、製品の更新後には不十分になる可能性があります。</p><h2 id="カスタム-セキュリティ-ロール作成時の推奨アプローチ"><a href="#カスタム-セキュリティ-ロール作成時の推奨アプローチ" class="headerlink" title="カスタム セキュリティ ロール作成時の推奨アプローチ"></a>カスタム セキュリティ ロール作成時の推奨アプローチ</h2><p>カスタム セキュリティ ロールを作成する必要がある場合は、以下のアプローチを推奨いたします。</p><h3 id="1-既定のセキュリティ-ロールをコピーして作成する"><a href="#1-既定のセキュリティ-ロールをコピーして作成する" class="headerlink" title="1. 既定のセキュリティ ロールをコピーして作成する"></a>1. 既定のセキュリティ ロールをコピーして作成する</h3><p>ゼロからカスタム セキュリティ ロールを作成するのではなく、要件に最も近い既定のセキュリティ ロール（例: Basic User）をコピーし、それをベースに必要な権限を追加・調整することを推奨いたします。</p><div class="alert is-important"><p class="alert-title">重要</p><p>システム管理者ロールのコピーはお勧めしません。コピーしたロールをユーザーに割り当てると、そのユーザーが他のユーザーをシステム管理者に昇格させることが可能になるリスクがあります。また、製品の更新によって追加される新しい特権はコピーしたロールには自動的に反映されません。</p></div><h3 id="2-テスト環境で検証する"><a href="#2-テスト環境で検証する" class="headerlink" title="2. テスト環境で検証する"></a>2. テスト環境で検証する</h3><p>カスタム セキュリティ ロールの変更は、まずテスト環境や開発環境で十分に検証してから、本番環境に適用してください。</p><h3 id="3-段階的に権限を調整する"><a href="#3-段階的に権限を調整する" class="headerlink" title="3. 段階的に権限を調整する"></a>3. 段階的に権限を調整する</h3><p>必要な操作をテスト環境で実行し、権限不足のエラーが発生した場合は、エラー メッセージを手がかりに不足している特権を特定し、段階的に権限を追加していく方法が実用的です。</p><h3 id="4-定期的に見直す"><a href="#4-定期的に見直す" class="headerlink" title="4. 定期的に見直す"></a>4. 定期的に見直す</h3><p>製品の更新に伴いセキュリティ ロールの特権が変更される場合がありますので、カスタム セキュリティ ロールの権限設定は定期的に見直すことを推奨いたします。</p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事では、カスタム セキュリティ ロールの作成に関するサポート範囲について以下の内容をご案内いたしました。</p><ul><li>弊社サポートでは、既定のセキュリティ ロールの仕様説明や、セキュリティ ロールの概念・操作手順のご案内が可能です</li><li>一方、特定の操作に必要な最小限の権限を持つカスタム セキュリティ ロールの構成については、環境固有のカスタマイズや依存関係の複雑さから、ご案内が難しい場合がございます</li><li>カスタム セキュリティ ロールを作成する際は、既定のロールをコピーし、テスト環境で段階的に検証するアプローチを推奨いたします</li></ul><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">Dataverse のセキュリティ ロールと特権 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security-configure">環境のユーザー セキュリティの構成 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-security-role">セキュリティ ロールをコピーして時間を節約する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/wp-security-cds">Microsoft Dataverse のセキュリティの概念 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-elevation-security-role-privilege">管理ユーザーの作成とセキュリティ ロール特権の昇格の防止 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security">Dataverse のロールベースのセキュリティ ロール - Microsoft Learn</a></li></ul><hr><p>※ 本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerplatform/support-scope-custom-security-role/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/support-scope-custom-security-role/"/>
+    <published>2026-05-13T05:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
+    </summary>
+    <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
+    <updated>2026-05-13T05:50:59.770Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -40,7 +63,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-05-11T06:48:38.417Z</updated>
+    <updated>2026-05-13T05:50:59.706Z</updated>
   </entry>
   <entry>
     <author>
@@ -63,7 +86,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-05-11T06:48:38.351Z</updated>
+    <updated>2026-05-13T05:50:59.645Z</updated>
   </entry>
   <entry>
     <author>
@@ -89,7 +112,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-05-11T06:48:38.458Z</updated>
+    <updated>2026-05-13T05:50:59.744Z</updated>
   </entry>
   <entry>
     <author>
@@ -116,7 +139,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-05-11T06:48:38.470Z</updated>
+    <updated>2026-05-13T05:50:59.755Z</updated>
   </entry>
   <entry>
     <author>
@@ -142,7 +165,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-05-11T06:48:38.417Z</updated>
+    <updated>2026-05-13T05:50:59.706Z</updated>
   </entry>
   <entry>
     <author>
@@ -179,7 +202,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-05-11T06:48:38.470Z</updated>
+    <updated>2026-05-13T05:50:59.755Z</updated>
   </entry>
   <entry>
     <author>
@@ -209,7 +232,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-05-11T06:48:38.416Z</updated>
+    <updated>2026-05-13T05:50:59.705Z</updated>
   </entry>
   <entry>
     <author>
@@ -241,7 +264,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-05-11T06:48:38.349Z</updated>
+    <updated>2026-05-13T05:50:59.643Z</updated>
   </entry>
   <entry>
     <author>
@@ -264,7 +287,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-05-11T06:48:38.487Z</updated>
+    <updated>2026-05-13T05:50:59.770Z</updated>
   </entry>
   <entry>
     <author>
@@ -297,7 +320,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-05-11T06:48:38.470Z</updated>
+    <updated>2026-05-13T05:50:59.755Z</updated>
   </entry>
   <entry>
     <author>
@@ -330,7 +353,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-05-11T06:48:38.419Z</updated>
+    <updated>2026-05-13T05:50:59.708Z</updated>
   </entry>
   <entry>
     <author>
@@ -360,7 +383,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-05-11T06:48:38.130Z</updated>
+    <updated>2026-05-13T05:50:59.442Z</updated>
   </entry>
   <entry>
     <author>
@@ -384,7 +407,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-05-11T06:48:38.419Z</updated>
+    <updated>2026-05-13T05:50:59.708Z</updated>
   </entry>
   <entry>
     <author>
@@ -413,7 +436,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-05-11T06:48:38.419Z</updated>
+    <updated>2026-05-13T05:50:59.708Z</updated>
   </entry>
   <entry>
     <author>
@@ -441,7 +464,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-05-11T06:48:38.406Z</updated>
+    <updated>2026-05-13T05:50:59.696Z</updated>
   </entry>
   <entry>
     <author>
@@ -465,7 +488,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-05-11T06:48:38.305Z</updated>
+    <updated>2026-05-13T05:50:59.603Z</updated>
   </entry>
   <entry>
     <author>
@@ -496,7 +519,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-05-11T06:48:38.351Z</updated>
+    <updated>2026-05-13T05:50:59.645Z</updated>
   </entry>
   <entry>
     <author>
@@ -525,7 +548,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-05-11T06:48:38.226Z</updated>
+    <updated>2026-05-13T05:50:59.529Z</updated>
   </entry>
   <entry>
     <author>
@@ -548,27 +571,6 @@
     <title>
       <![CDATA[DLP ポリシーに関する様々な Q&A について]]>
     </title>
-    <updated>2026-05-11T06:48:38.469Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/categories/Microsoft-Copilot-Studio/"/>
-    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
-    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/tags/Microsoft-Copilot-Studio/"/>
-    <content>
-      <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p><span id="more"></span><h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Copilot Studioでエージェントを作成できるユーザーに、どのような権限が必要なのかを解説します。</p><p>ご留意点として、Copilot Studio は 2025 年 9 月現在、早いスピードで日々機能開発が進んでいます。そのため、実際にご利用いただく際は必ず最新の公開情報を参照していただけますようお願い申し上げます。</p><h2 id="Copilot-Studioでエージェント作成に必要な権限とは？"><a href="#Copilot-Studioでエージェント作成に必要な権限とは？" class="headerlink" title="Copilot Studioでエージェント作成に必要な権限とは？"></a>Copilot Studioでエージェント作成に必要な権限とは？</h2><p>Copilot Studio でエージェントを作成するには、ユーザーに <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license">Copilot Studio へのアクセス権</a>と、対象環境でリソースを作成するための<a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-share-bots?tabs=web#assign-environment-security-roles">セキュリティロール</a>が割り当てられている必要があります。<br>この2つの権限が揃っていないと、エージェントの作成や管理ができません。</p><h3 id="Copilot-Studio-へのアクセス権"><a href="#Copilot-Studio-へのアクセス権" class="headerlink" title="Copilot Studio へのアクセス権"></a>Copilot Studio へのアクセス権</h3><p>Copilot Studio ポータルにアクセスするためには、ユーザーに以下のいずれかのライセンスまたはロールが必要です。<br>※以下のいずれかに該当するとアクセスできるようになります。</p><ul><li>Copilot Studio ユーザーライセンス</li><li>Copilot Studio 試用版ライセンス</li><li>Microsoft 365 Copilot ライセンス</li><li>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール（※）<blockquote><p>※ 従量課金のみのライセンスでエージェントを作成する際に必要なロールです。<br>詳細は<a href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%A8%A9%E3%81%AE%E8%A9%B3%E7%B4%B0">アクセス権の詳細</a>で説明します。</p></blockquote></li></ul><h3 id="対象環境でリソースを作成するためのセキュリティロール"><a href="#対象環境でリソースを作成するためのセキュリティロール" class="headerlink" title="対象環境でリソースを作成するためのセキュリティロール"></a>対象環境でリソースを作成するためのセキュリティロール</h3><p>エージェントを作成するためには、エージェントを作成する環境に対してセキュリティロールが必要となります。<br>リソースを作成するために必要なセキュリティロールは以下になります。</p><ul><li>環境作成者</li><li>システムカスタマイザー</li><li>システム管理者</li></ul><blockquote><p>※ 詳細は公開情報を参照ください。<br><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role">https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/sign-in-to-power-apps#filter-environments-by-role</a></p></blockquote><h2 id="アクセス権の詳細"><a href="#アクセス権の詳細" class="headerlink" title="アクセス権の詳細"></a>アクセス権の詳細</h2><h3 id="Copilot-Studio-ユーザーライセンス"><a href="#Copilot-Studio-ユーザーライセンス" class="headerlink" title="Copilot Studio ユーザーライセンス"></a>Copilot Studio ユーザーライセンス</h3><p>Copilot Studio メッセージパックに含まれるライセンスで、<a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web#assign-licenses-to-users">Microsoft 365 管理センター等から付与</a>することができます。<br>Copilot Studio の使用権が含まれています。</p><h3 id="Copilot-Studio-試用版ライセンス"><a href="#Copilot-Studio-試用版ライセンス" class="headerlink" title="Copilot Studio 試用版ライセンス"></a>Copilot Studio 試用版ライセンス</h3><p><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/sign-up-individual">ユーザーがセルフサービスサインアップで取得できる</a>期間限定のライセンスです。<br>有償ライセンスを購入いただく前のお試し用として、Copilot Studio ユーザーライセンスと同じ機能が利用できます。</p><h3 id="Microsoft-365-Copilot-ライセンス"><a href="#Microsoft-365-Copilot-ライセンス" class="headerlink" title="Microsoft 365 Copilot ライセンス"></a>Microsoft 365 Copilot ライセンス</h3><p>Copilot Studio を通じて <a href="https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-overview">Microsoft 365 Copilot</a> を拡張することができるため、Microsoft 365 Copilot ライセンスを持つユーザーは Copilot Studio を利用することができます。  </p><p><a href="https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-setup#step-2---provision-microsoft-365-copilot-licenses">Microsoft 365 管理センター等から付与</a>することができます。　<br>Copilot Studio だけなく、Microsoft 365 Copilot の使用権が含まれています。</p><div class="alert is-important"><p class="alert-title">重要</p><p>Copilot Studio にアクセスさせるためには、「Copilot Studio in Copilot for M365」サービスを有効にする必要があります。</p><p><img src="/blog/copilotstudio/how-to-block-access-mcsportal/m365copilot.png"></p></div><h3 id="Power-Platform-管理センター-テナント設定の「Copilot-Studio-作成者」ロール"><a href="#Power-Platform-管理センター-テナント設定の「Copilot-Studio-作成者」ロール" class="headerlink" title="Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール"></a>Power Platform 管理センター テナント設定の「Copilot Studio 作成者」ロール</h3><p>従量課金環境のみを利用して Copilot Studio を利用するユーザー向けに用意された機能が「Copilot Studio 作成者」機能です。<br>他のユーザーに付与するライセンスと異なり、ユーザーごとにライセンスを付与する必要はありません。<br>Copilot Studio でエージェントを作成したいユーザーをセキュリティグループに追加し、Copilot Studio へのアクセスを許可します。</p><p>作成手順</p><ol><li>Azure ポータルでセキュリティグループを作成します。</li><li>Copilot Studio へのアクセスを許可したいユーザーをセキュリティグループに追加します。<br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/securitygroup.png"></li><li><a href="https://admin.powerplatform.microsoft.com/manage/tenantsettings">Power Platform 管理センターのテナント設定</a>を開きます。</li><li>「Copilot Studio 作成者」を選択し、作成したセキュリティグループを設定します。<br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/tenant_setting.png"></li></ol><h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。"><a href="#テナント設定の「Copilot-Studio-作成者」に設定したセキュリティグループに属さないユーザーは、Copilot-Studio-にアクセスできないようになりますか。" class="headerlink" title="テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。"></a>テナント設定の「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーは、Copilot Studio にアクセスできないようになりますか。</h3><p>いいえ、「Copilot Studio 作成者」に設定したセキュリティグループに属さないユーザーも、ユーザーライセンスを持っていれば Copilot Studio にアクセスできます。</p><h3 id="Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか"><a href="#Copilot-Studio-にアクセスできないユーザーは-Copilot-Studio-で作成したエージェントを利用することができますか" class="headerlink" title="Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか"></a>Copilot Studio にアクセスできないユーザーは Copilot Studio で作成したエージェントを利用することができますか</h3><p>はい、利用できます。エージェントの利用者は、Copilot Studio にアクセスできる必要はありません。<br>ただし、Teams やカスタム Web サイトなど、エージェントを公開した場所にアクセスできる必要がございます。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/requirements-licensing?tabs=web</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/c2licensing.png"></p><h3 id="環境ごとにエージェントの作成を制限することはできますか"><a href="#環境ごとにエージェントの作成を制限することはできますか" class="headerlink" title="環境ごとにエージェントの作成を制限することはできますか"></a>環境ごとにエージェントの作成を制限することはできますか</h3><p>現時点では、エージェントの作成を制御するための機能はありません。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/security-faq#can-i-disable-microsoft-copilot-studio-agent-creation-in-my-organization</a><br><img src="/blog/copilotstudio/how-to-block-access-mcsportal/control.png"></p><p>ただし、既定環境以外の環境では、 [対象環境でリソースを作成するためのセキュリティロール]を付与しないことで、環境へのアクセスを制御することが可能です。</p><div class="alert is-info"><p class="alert-title">Note</p><p>※ 既定環境では、「環境作成者」ロールが自動付与されるため、アクセスを制御することはできません。</p></div>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/copilotstudio/how-to-block-access-mcsportal/"/>
-    <published>2025-09-10T04:30:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは。Power Platform サポートチームの 網野 です。<br>今回は Copilot Studio でエージェントを作成できるユーザーに必要な権限についてご紹介します。</p>]]>
-    </summary>
-    <title>Copilot Studio エージェントの作成に必要な権限について</title>
-    <updated>2026-05-11T06:48:38.196Z</updated>
+    <updated>2026-05-13T05:50:59.753Z</updated>
   </entry>
 </feed>
