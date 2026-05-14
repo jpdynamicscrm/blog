@@ -1,7 +1,7 @@
 ---
 title: Power Platform からプライベートな Azure 仮想ネットワークに存在するデータソースを利用する方法
 
-date: 2025/02/20 12:00
+date: 2025-02-20 12:00:00
 
 tags:
   - Power Platform

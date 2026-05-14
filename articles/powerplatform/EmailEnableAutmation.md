@@ -21,6 +21,8 @@ categories:
 予めご了承いただきますようお願いいたします。
 URL:https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell/issues
 
+<!-- more -->
+
 ## はじめに
 Dynamics 365では、Dynamics 365と Exchange Online の同期を行うことができます。これを行うことで、 Dynamics 365 のレコードから取引先担当者にメールを送信できるようになったり、営業案件のタイムラインで会話を追跡することができるようになります。<br>
 メールボックスを有効化するためには、承認とテストが既定では必須となっております。

@@ -1,6 +1,6 @@
----
+﻿---
 title: Power Platform 管理者向け PowerShell でできること代表例まとめ
-date: 2026-02-10
+date: 2026-02-10 00:00:00
 tags:
   - Power Platform
   - PowerShell
@@ -23,6 +23,8 @@ categories:
 - [Q4: Dataverse にユーザーを追加するにはどうすればよいですか？](#q4)
 - [Q5: ユーザーに環境ロールを付与するにはどうすればよいですか？](#q5)
 - [Q6: 環境のバックアップや復元は PowerShell でできますか？](#q6)
+
+<!-- more -->
 
 ### この記事でわかること
 - Power Platform 管理用 PowerShell モジュールの準備方法とサインインの手順

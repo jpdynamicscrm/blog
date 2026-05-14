@@ -1,6 +1,6 @@
----
+﻿---
 title: モデル駆動型アプリ削除ガイド
-date: 2025-09-16 10:00:00 +0900
+date: 2025-09-16 10:00:00
 tags:
 	- Power Apps
 	- Dataverse
@@ -18,6 +18,8 @@ categories:
 - [Q1: モデル駆動型アプリの削除に必要な権限は？](#q1)
 - [Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？](#q2)
 - [Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？](#q3)
+
+<!-- more -->
 
 ### この記事でわかること
 - 削除に必要な基本ロールと最低限の権限
@@ -60,7 +62,7 @@ categories:
 ＜参考資料＞
 - [セキュリティ ロールおよび特権 (Dataverse)](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges)
 - [カスタマイズに必要な特権 (モデル駆動型アプリ)](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/privileges-required-customization)
-- [Managed と Unmanaged の違い](https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions)
+- [Managed と Unmanaged の違い](https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions)
 - [モデル駆動型アプリを削除する](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app)
 
 
@@ -99,7 +101,7 @@ categories:
 - [コンポーネントの依存関係を表示する](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/view-component-dependencies)
 - [テーブルとモデル駆動型アプリ間の依存関係を削除する](https://learn.microsoft.com/ja-jp/power-platform/alm/remove-table-app)
 - [依存関係の削除の概要](https://learn.microsoft.com/ja-jp/power-platform/alm/removing-dependencies)
-- [Managed と Unmanaged の違い](https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions)
+- [Managed と Unmanaged の違い](https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions)
 - [モデル駆動型アプリを削除する](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app)
 
 
@@ -136,8 +138,7 @@ Sql Number: 547
 ＜参考資料＞
 - [コンポーネントの依存関係を表示する](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/view-component-dependencies)
 - [依存関係の削除の概要](https://learn.microsoft.com/ja-jp/power-platform/alm/removing-dependencies)
-- [Managed と Unmanaged の違い](https://learn.microsoft.com/ja-jp/power-platform/alm/managed-unmanaged-solutions)
-- [ソリューションの一般的な問題のトラブルシューティング](https://learn.microsoft.com/ja-jp/power-platform/alm/troubleshoot-common-solution-issues)
+- [Managed と Unmanaged の違い](https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions)
 
 <h2 id="summary">まとめ</h2>
 - モデル駆動型アプリ削除には システム管理者 (System Administrator) / システムカスタマイザー (System Customizer)

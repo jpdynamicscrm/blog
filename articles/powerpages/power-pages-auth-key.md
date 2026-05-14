@@ -1,6 +1,6 @@
----
+﻿---
 title: Power Pages 認証キーの更新ガイド
-date: 2026-02-16
+date: 2026-02-16 00:00:00
 tags:
     - Power Pages
     - Security
@@ -25,6 +25,8 @@ Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定
 - [Q2: 認証キーの有効期限が切れるとどうなりますか？](#expiration-impact)
 - [Q3: どうやってキーを更新すればいいですか？](#renewal-steps)
 - [Q4: 認証キーはどのように管理すればいいですか？](#auth-key-management)
+
+<!-- more -->
 
 ### この記事でわかること
 - Power Pages が Dataverse (データ置き場) に接続するための「鍵」の仕組み

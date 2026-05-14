@@ -1,0 +1,217 @@
+name: lint-article-content
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-article-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate article front matter and structure
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          head_sha="${{ github.event.pull_request.head.sha }}"
+
+          common_ancestor=$(git merge-base "${base_sha}" "${head_sha}")
+
+          echo "Diff: ${common_ancestor}..${head_sha}"
+
+          # ---------------------------------------------------------
+          # Goal: Validate front matter and structure for articles
+          # that are Added, Modified, or Renamed in this PR.
+          #
+          # Checks:
+          #   1. title      — must exist and be non-empty
+          #   2. date       — must exist and match YYYY-MM-DD HH:mm or HH:mm:ss
+          #   3. tags       — must have at least one entry
+          #   4. categories — must have at least one entry,
+          #                    each must be in the allowed list (_config.yml)
+          #   5. <!-- more --> — must exist (for article list page truncation)
+          # ---------------------------------------------------------
+
+          # --- Collect changed article files (A/M/R) ---
+          mapfile -t changed_lines < <(git diff --name-status "${common_ancestor}" "${head_sha}")
+          if [[ ${#changed_lines[@]} -eq 0 ]]; then
+            echo "No changed files."
+            exit 0
+          fi
+
+          declare -a targets=()
+
+          for line in "${changed_lines[@]}"; do
+            status=$(awk '{print $1}' <<<"$line")
+
+            case "$status" in
+              A|M)
+                path=$(awk '{print $2}' <<<"$line")
+                targets+=("$path")
+                ;;
+              R*)
+                path=$(awk '{print $3}' <<<"$line")
+                targets+=("$path")
+                ;;
+              *)
+                ;;
+            esac
+          done
+
+          if [[ ${#targets[@]} -eq 0 ]]; then
+            echo "No new/renamed files to validate."
+            exit 0
+          fi
+
+          # --- Extract allowed categories from _config.yml ---
+          declare -a allowed_cats=()
+          in_section=false
+          while IFS= read -r line; do
+            if [[ "$line" =~ ^[[:space:]]+root_cat_names: ]]; then
+              in_section=true
+              continue
+            fi
+            if $in_section; then
+              if [[ "$line" =~ ^[[:space:]]+-[[:space:]]*\[(.+)\] ]]; then
+                allowed_cats+=("${BASH_REMATCH[1]}")
+              elif [[ "$line" =~ ^[^[:space:]] ]] || [[ "$line" =~ ^[[:space:]]+[a-zA-Z_]+: ]]; then
+                # New top-level key or new sibling key → end of section
+                break
+              fi
+            fi
+          done < _config.yml
+
+          echo "Allowed categories (${#allowed_cats[@]}):"
+          printf '  - [%s]\n' "${allowed_cats[@]}"
+          echo ""
+
+          # --- Validate each target file ---
+          bad=0
+
+          for path in "${targets[@]}"; do
+            # Only check markdown files under articles/
+            if [[ "$path" != articles/* ]]; then
+              continue
+            fi
+            if [[ "$path" != *.md ]]; then
+              continue
+            fi
+
+            if [[ ! -f "$path" ]]; then
+              continue
+            fi
+
+            echo "Checking: $path"
+
+            # Extract front matter (between the first two '---' lines)
+            # Strip UTF-8 BOM and convert CRLF to LF for reliable parsing
+            frontmatter=$(sed '1s/^\xEF\xBB\xBF//' "$path" | tr -d '\r' | awk '/^---[[:space:]]*$/ { if (c++ == 1) exit } c == 1 { print }')
+
+            if [[ -z "$frontmatter" ]]; then
+              echo "::error file=$path::Missing front matter (--- delimiters)."
+              bad=1
+              continue
+            fi
+
+            # --- 1. title ---
+            title_value=$(echo "$frontmatter" | grep -E '^title:' | head -1 | sed 's/^title:[[:space:]]*//' | tr -d '\r' || true)
+            if [[ -z "$title_value" ]]; then
+              echo "::error file=$path::Missing or empty 'title' in front matter."
+              bad=1
+            fi
+
+            # --- 2. date ---
+            date_value=$(echo "$frontmatter" | grep -E '^date:' | head -1 | sed 's/^date:[[:space:]]*//' | tr -d '\r' || true)
+            if [[ -z "$date_value" ]]; then
+              echo "::error file=$path::Missing 'date' in front matter."
+              bad=1
+            elif [[ ! "$date_value" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}[[:space:]][0-9]{2}:[0-9]{2}(:[0-9]{2})?$ ]]; then
+              echo "::error file=$path::Invalid 'date' format: '${date_value}'. Expected YYYY-MM-DD HH:mm or YYYY-MM-DD HH:mm:ss."
+              bad=1
+            fi
+
+            # --- 3. tags (at least one) ---
+            has_tags=false
+            in_tags=false
+            while IFS= read -r fm_line; do
+              trimmed=$(echo "$fm_line" | sed 's/^[[:space:]]*//')
+              if [[ "$trimmed" == tags:* ]]; then
+                in_tags=true
+                continue
+              fi
+              if $in_tags; then
+                if [[ "$trimmed" =~ ^-[[:space:]] ]]; then
+                  has_tags=true
+                  break
+                elif [[ "$trimmed" =~ ^[a-zA-Z_] ]]; then
+                  break
+                fi
+              fi
+            done <<< "$frontmatter"
+
+            if ! $has_tags; then
+              echo "::error file=$path::No 'tags' entries found. At least one tag is required."
+              bad=1
+            fi
+
+            # --- 4. categories (at least one + must be in allowed list) ---
+            has_cats=false
+            in_cats=false
+            while IFS= read -r fm_line; do
+              trimmed=$(echo "$fm_line" | sed 's/^[[:space:]]*//')
+              if [[ "$trimmed" == categories:* ]]; then
+                in_cats=true
+                continue
+              fi
+              if $in_cats; then
+                if [[ "$trimmed" =~ ^-[[:space:]]*\[(.+)\]$ ]]; then
+                  has_cats=true
+                  cat_value="${BASH_REMATCH[1]}"
+                  # Validate against allowed list
+                  found=false
+                  for allowed in "${allowed_cats[@]}"; do
+                    if [[ "$cat_value" == "$allowed" ]]; then
+                      found=true
+                      break
+                    fi
+                  done
+                  if ! $found; then
+                    echo "::error file=$path::Category '[$cat_value]' is not in the allowed list. Check root_cat_names in _config.yml."
+                    bad=1
+                  fi
+                elif [[ "$trimmed" =~ ^[a-zA-Z_] ]]; then
+                  break
+                fi
+              fi
+            done <<< "$frontmatter"
+
+            if ! $has_cats; then
+              echo "::error file=$path::No 'categories' entries found. At least one category is required."
+              bad=1
+            fi
+
+            # --- 5. <!-- more --> marker ---
+            if ! grep -qE '<!--[[:space:]]*more[[:space:]]*-->' "$path"; then
+              echo "::error file=$path::Missing '<!-- more -->' marker. Required for article list page truncation."
+              bad=1
+            fi
+
+          done
+
+          echo ""
+          if [[ $bad -ne 0 ]]; then
+            echo "One or more article content checks failed."
+            exit 1
+          fi
+
+          echo "OK: all checked articles passed content validation."
