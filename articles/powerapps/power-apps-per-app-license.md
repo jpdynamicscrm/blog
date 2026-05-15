@@ -125,10 +125,8 @@ Power Platform 管理センター > 設定 > アドオン容量の割り当て
 各種管理センターなどからユーザーに対してアプリごとの Power Apps プランライセンスが割り当てられたことを確認できる機能として、現段階ではプレビュー版となりますが、レポート機能 (プレビュー版) について以下にご案内いたします。 
 
 [Power Appsのライセンス使用量を表示する (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/view-license-consumption-issues)
-![](./report-preview.png)
 
-※ プレビュー版の機能は運用環境でのご利用は想定しておりませんため、ご注意ください。
-また、機能が突然変更となる可能性もございます。詳細については下記公開情報をご参照ください。
+プレビュー機能の詳細や使用条件については、下記の公開情報をご参照ください。
 [プレビュー機能とは何ですか、また、有効にするにはどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/what-are-preview-features-how-do-i-enable-them)
 
 アプリごとの Power Apps プランライセンスの使用レポート機能は現在開発中となっております。  
