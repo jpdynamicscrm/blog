@@ -1,12 +1,12 @@
 ---
 title: Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法
-date: 2026-05-19
+date: 2026-05-19 17:00:00
 tags:
   - Dataverse
   - Power Platform
   - How to
 categories:
-  - Dataverse
+  - [Dataverse]
 ---
 
 # Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法
