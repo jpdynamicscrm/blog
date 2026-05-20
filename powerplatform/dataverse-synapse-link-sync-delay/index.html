@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>メールボックスの承認・テストと有効化の自動化について | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの原です。本記事では Dynamics 365における、メールボックスの承認・テストと有効化の自動化についてご紹介いたします。また、メールボックスの承認・テスト有効化を自動化するための標準機能としてご提供している機能は現段階ではございませんが、代替案がございますので、本記事ではそちらの代替案をご紹介させていただきます。少しでもお客様の業務効率">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの河津です。 本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組み">
 <meta property="og:type" content="article">
-<meta property="og:title" content="メールボックスの承認・テストと有効化の自動化について">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/index.html">
+<meta property="og:title" content="Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-synapse-link-sync-delay/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの原です。本記事では Dynamics 365における、メールボックスの承認・テストと有効化の自動化についてご紹介いたします。また、メールボックスの承認・テスト有効化を自動化するための標準機能としてご提供している機能は現段階ではございませんが、代替案がございますので、本記事ではそちらの代替案をご紹介させていただきます。少しでもお客様の業務効率">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの河津です。 本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組み">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2023-08-01T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-20T00:32:34.035Z">
+<meta property="article:published_time" content="2026-05-19T08:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-20T00:32:34.054Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Dynamics">
-<meta property="article:tag" content="Dynamics 365">
-<meta property="article:tag" content="Environment">
+<meta property="article:tag" content="Dataverse">
+<meta property="article:tag" content="How to">
+<meta property="article:tag" content="Power Platform">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
@@ -82,7 +82,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerplatform/EmailEnableAutmation" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerplatform/dataverse-synapse-link-sync-delay" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -91,7 +91,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      メールボックスの承認・テストと有効化の自動化について
+      Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法
     </h1>
   
 
@@ -99,14 +99,14 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2023-08-01T15:00:00.000Z" itemprop="datePublished">2023-08-02</time>
+  <time datetime="2026-05-19T08:00:00.000Z" itemprop="datePublished">2026-05-19</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
 / Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
 
 <script type="text/javascript">
-  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/EmailEnableAutmation.md";
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerplatform/dataverse-synapse-link-sync-delay.md";
   const urlParts = sourceUrl.split("/");
   const user = urlParts[3];
   const repo = urlParts[4];
@@ -154,37 +154,196 @@
         
         
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Dynamics-365/">Dynamics 365</a>
+    <a class="article-category-link" href="../../categories/Dataverse/">Dataverse</a>
   </div>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+2a2e8a2d-a90a-5b42-b5b9-2a355334a5db%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%A1%E3%83%BC%E3%83%AB%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AE%E6%89%BF%E8%AA%8D%E3%83%BB%E3%83%86%E3%82%B9%E3%83%88%E3%81%A8%E6%9C%89%E5%8A%B9%E5%8C%96%E3%81%AE%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2FEmailEnableAutmation%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2FEmailEnableAutmation.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2FEmailEnableAutmation.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+ec8a5fe0-420c-5d6c-b1f5-6aed9245fd98%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%81%AE+Azure+Synapse+Link+%E3%81%A7%E5%90%8C%E6%9C%9F%E9%81%85%E5%BB%B6%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AE%E5%8E%9F%E5%9B%A0%E3%81%A8%E5%AF%BE%E5%87%A6%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fdataverse-synapse-link-sync-delay%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fdataverse-synapse-link-sync-delay.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Fdataverse-synapse-link-sync-delay.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/EmailEnableAutmation/" data-id="cuid9O1t_b_aSq_v68HvzxzcR" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-synapse-link-sync-delay/" data-id="cuidZYoB0RI1BL55sDwLgSYrI" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートチームの原です。<br>本記事では Dynamics 365における、メールボックスの承認・テストと有効化の自動化についてご紹介いたします。<br>また、メールボックスの承認・テスト有効化を自動化するための標準機能としてご提供している機能は現段階ではございませんが、代替案がございますので、本記事ではそちらの代替案をご紹介させていただきます。少しでもお客様の業務効率化に繋がりますと幸いです。</p>
-<p>なお、弊社検証環境では下記にご紹介するコマンドにて、電子メールの承認やテストと有効化が実行可能なことを確認しておりますが、下記でご案内いたします Microsoft.Xrm.Data.PowerShell モジュールにつきましては、コミュニティにより<br>提供・メンテナンスされるツールでございますため、本モジュールをご利用いただく中での<br>エラーやご不明点に関しましては弊社からサポートをご提供することがかないません。<br><br>そのため、ご確認いただく中で何か問題があった場合は、基本的には以下の New Issue より、Github 経由で問題を報告いただく必要がございます。<br>予めご了承いただきますようお願いいたします。<br>URL:<a href="https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell/issues">https://github.com/seanmcne/Microsoft.Xrm.Data.PowerShell/issues</a></p>
+        <p>こんにちは、Power Platform サポートチームの河津です。</p>
+<p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>
 <span id="more"></span>
 
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Dynamics 365では、Dynamics 365と Exchange Online の同期を行うことができます。これを行うことで、 Dynamics 365 のレコードから取引先担当者にメールを送信できるようになったり、営業案件のタイムラインで会話を追跡することができるようになります。<br><br>メールボックスを有効化するためには、承認とテストが既定では必須となっております。<br>メールボックスの承認・テストと有効化を手動で行う方法については、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online" target="_blank">Exchange Online への接続</a>をご参照ください。<br></p>
-<p><a id='anchor-powershell'></a></p>
-<h2 id="PowerShell-を使用して実行する"><a href="#PowerShell-を使用して実行する" class="headerlink" title="PowerShell を使用して実行する"></a>PowerShell を使用して実行する</h2><p>メールボックスの承認やテストと有効化は PowerShell で下記コマンドを入力することで実施いただくことが可能です。<br><br>そのため、タスク スケジューラや Power Automate を利用しPowerShell を実行いただくことで、任意のタイミングで自動的にメールボックスの承認やテストと有効化を行うことが可能となります。<br>また、反復処理などで各ユーザーの IDを置き換える処理を実装いただくことで、複数のメールボックスに対して一括でメールボックスの承認やテストと有効化を行うことが可能です。<br>Power Automate を使用して PowerShell を実行する方法に関しては、<br><a href="https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/#:~:text=Azure%20%E4%B8%8A%E3%81%A7%20PowerShell%20%E3%82%84%20Python%20%E3%81%AA%E3%81%A9%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD%E3%81%A7%E3%81%99%E3%80%82%20%E3%81%93%E3%81%AE%20Runbook,Forms%20%E3%81%A7%20Microsoft%20365%20%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%AB%E7%94%B3%E8%AB%8B%E3%82%92%E8%A1%8C%E3%81%84%E3%80%81%E6%89%BF%E8%AA%8D%E3%81%95%E3%82%8C%E3%81%9F%E3%82%89%E3%80%81%20PowerShell%20%E3%81%A7%E3%83%AD%E3%83%BC%E3%83%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B" target="_blank" rel="noopener noreferrer"> Power Automateを使用して PowerShell を実行する方法</a><br>をご参照ください。</p>
+<ul>
+<li><a href="#q1">Q1: Synapse Link のニアリアルタイム同期とはどのような仕組みですか？</a></li>
+<li><a href="#q2">Q2: 同期遅延が発生する主な原因は何ですか？</a></li>
+<li><a href="#q3">Q3: 長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？</a></li>
+<li><a href="#q4">Q4: 遅延した同期はどのように復旧しますか？</a></li>
+<li><a href="#q5">Q5: 同期遅延を防止・軽減するにはどうすればよいですか？</a></li>
+</ul>
+<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<li>Synapse Link のニアリアルタイム同期の仕組みと、遅延が発生し得る条件がわかる</li>
+<li>長時間トランザクションが変更追跡（Change Tracking）に与える影響がわかる</li>
+<li>1 つのテーブルのトランザクションが全テーブルの同期に影響する理由がわかる</li>
+<li>フォールバック同期ジョブによる自動復旧の仕組みがわかる</li>
+<li>同期遅延の検知方法や緩和策の考え方がわかる</li>
+</ul>
+<hr>
+<h2 id="q1">Synapse Link のニアリアルタイム同期とはどのような仕組みですか？ (Q1)</h2>
+
+<p>【結論】Synapse Link は Dataverse のデータ変更を「ニアリアルタイム」で ADLS Gen2 や Fabric に同期する機能ですが、リアルタイム性が常に保証されるものではございません。同期のパフォーマンスは複数の要因に依存しており、特にトランザクション量の多い環境ではデータの反映に時間がかかる場合がございます。</p>
+<p>Synapse Link の差分同期（DeltaSync）は、Dataverse のバックエンドにある SQL Server の <strong>変更追跡（Change Tracking）</strong> 機能を利用しております。前回の同期以降に追加・更新・削除されたレコードを検出し、ADLS Gen2 上のファイルとして出力する仕組みです。</p>
+<p>Append モード（CSV 形式）をご利用の場合、インクリメンタル更新フォルダが最短 <strong>5 分間隔</strong> で作成され、その時間内に発生した変更データが格納されます。</p>
+<p>ただし、公式ドキュメントでは以下のように記載されております。</p>
+<blockquote>
+<p>ニアリアルタイム同期のパフォーマンスは、初期データロードサイズ、データチャーンレート、変更量など複数の要因に依存します。（中略）このような高ボリュームのシナリオでは、ニアリアルタイムのデータ可用性は保証されません。</p>
+</blockquote>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data">Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-incremental-updates">Azure Synapse Link の増分更新 (Docs)</a></li>
+</ul>
+<hr>
+<h2 id="q2">同期遅延が発生する主な原因は何ですか？ (Q2)</h2>
+
+<p>【結論】同期遅延の主な原因として、Dataverse 上で <strong>長時間にわたるトランザクション</strong> が実行されていることにより、変更追跡で管理されるバージョン番号が一時的に固定され、変更レコードが更新されなくなるケースが挙げられます。</p>
+<p>Dataverse のバックエンド SQL Server では、変更追跡のためにデータベース全体で共通の行バージョン番号が管理されています。この変更追跡の性質として、長時間実行中のトランザクションが存在すると、そのトランザクションが完了するまでバージョン番号の進行が止まり、変更レコードが更新されない動作となっております。</p>
+<p>具体的には、以下のような流れで同期遅延が発生する場合がございます。</p>
 <ol>
-<li>管理者として PowerShell を起動します。</li>
-<li>以下のコマンドを実行し、 Microsoft.Xrm.Data.Poweshell のモジュールをダウンロードします。<br><br>Install-Module Microsoft.Xrm.Data.PowerShell -Scope CurrentUser</li>
-<li>以下のコマンドを実行します。<br><br>Import-Module Microsoft.Xrm.Data.Powershell</li>
-<li>   以下のコマンドを実行します。<br><br>Connect-CrmOnlineDiscovery -InteractiveMode</li>
-<li>   PowerShell Interactive Login ウィザードが表示されますので、[Display list of available organizations] にチェックを入れ、[Login]をクリックし、サインインします。</li>
-<li>   インスタンス一覧が出力されますので、当該インスタンスを選択し、[Login] をクリックします。</li>
-<li>   ログイン完了後、以下のコマンドにより指定したユーザーの電子メールの承認が可能です。<br><br>Approve-CrmEmailAddress  -UserId &lt;UserId&gt;</li>
-<li>   また、以下のコマンドによりユーザーのメールボックスに対してメールボックスのテストと有効化を実行することができます。<br><br>Set-CrmUserMailbox -UserId &lt;UserId&gt;  -ScheduleTest</li>
+<li>Dataverse 上で何らかの処理（プラグイン、バッチ処理、大量データ操作など）により長時間のトランザクションが開始される</li>
+<li>そのトランザクションが完了するまで、変更追跡のバージョン番号が固定される</li>
+<li>バージョン番号が固定されている間、他のテーブルで正常にコミットされた変更であっても変更追跡クエリから返されなくなる</li>
+<li>Synapse Link の差分同期処理自体は正常に動作し続けますが、取得可能な変更レコードが 0 件となるため、ファイルへの出力が行われない状態となる</li>
+<li>長時間トランザクションが完了するとバージョン番号が進行し、それまでに溜まっていた変更が一斉にエクスポートされる</li>
 </ol>
-<h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p><strong>メールボックスの承認を不要にする</strong><br><br>メールボックスを有効化するにあたって、メールボックスの承認は、既定では必須となっております。<br><br>ただし、こちらの承認作業は、管理者にて設定を変更いただくことで、要件を削除することが可能となっております。<br><br>詳しい手順につきましては、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/connect-exchange-online#remove-the-requirement-to-approve-mailboxes" target="_blank">メールボックスを承認するための要件の削除</a>をご参照ください。<br><br><br>また、メールボックスを承認するための要件を削除せずに、自動化をされたい場合は、<a href="#anchor-powershell">  PowerShell を使用して実行する</a>をご検討ください。</p>
-<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>本記事では Dynamics 365における、メールボックスの承認・テストと有効化についてご紹介いたしました。メールボックスを管理する上でのお役に立てましたら幸いです。ご不明な点や、お困りのことなどがございましたら、弊社サポート一同にてお待ち申し上げておりますので、ぜひお気軽にお問合せください。<br><br><br>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
-<h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><p><a href="https://jpdynamicscrm.github.io/blog/powerplatform/exchange-server-side-sync/">Dataverse と Exchange Online のサーバー側同期</a></p>
+<h3 id="長時間トランザクションが発生しやすいケース"><a href="#長時間トランザクションが発生しやすいケース" class="headerlink" title="長時間トランザクションが発生しやすいケース"></a>長時間トランザクションが発生しやすいケース</h3><p>以下のような操作は、長時間にわたるトランザクションを発生させる可能性がございます。</p>
+<table>
+<thead>
+<tr>
+<th>シナリオ</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大量レコードの一括操作</td>
+<td><code>CreateMultiple</code> &#x2F; <code>UpdateMultiple</code> で数万件を一括処理するプラグイン</td>
+</tr>
+<tr>
+<td>複雑なプラグインチェーン</td>
+<td>1 つのレコード操作をきっかけに、連鎖的に大量のレコードが生成されるプラグイン</td>
+</tr>
+<tr>
+<td>Excel エクスポート</td>
+<td>Dataverse から大量のデータを Excel にエクスポートする操作</td>
+</tr>
+<tr>
+<td>バッチ処理</td>
+<td>夜間バッチなどで大量のデータ移行やデータ変換を行う処理</td>
+</tr>
+<tr>
+<td>ロールアップフィールドの定期再計算</td>
+<td>Dataverse のシステムジョブ「Calculate Rollup Field」がロールアップフィールドの再計算を実行する際、対象レコード数が多い場合に長時間トランザクションとなる場合がある</td>
+</tr>
+</tbody></table>
+<p>なお、ロールアップフィールドの再計算ジョブは Dataverse のシステムジョブとして自動的に実行されるため、<strong>お客様が明示的に操作を行っていない場合でも長時間トランザクションの原因となる可能性がございます</strong>。特に、マネージドソリューション（Dynamics 365 のアプリケーション等）によって導入されたロールアップフィールドが業務上使用されていない場合でも、バックログ（未処理の再計算キュー）が蓄積し、再計算ジョブの実行時間が長期化するケースが確認されております。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data">Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)</a></li>
+</ul>
+<hr>
+<h2 id="q3">長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？ (Q3)</h2>
+
+<p>【結論】変更追跡で使用されるバージョン番号はデータベース（組織）レベルで共通のシーケンスとして管理されているため、いずれか 1 つのテーブルで長時間トランザクションが存在すると、すべてのテーブルの同期に影響が及ぶ仕組みとなっております。</p>
+<p>具体的には、以下のような仕組みです。</p>
+<ol>
+<li><strong>変更追跡のバージョン番号はデータベース全体で共通</strong> — テーブルごとに独立しているわけではございません</li>
+<li><strong>バージョン番号はデータベースレベルで固定される</strong> — いずれかのテーブルで未コミットのトランザクションが存在する場合、その時点のバージョン番号で変更追跡の進行が止まります</li>
+<li><strong>固定されたバージョンを超えるレコードは返されない</strong> — 他のテーブルで正常にコミットされたレコードであっても、変更追跡クエリの結果に含まれなくなります</li>
+</ol>
+<p>たとえば、テーブル A で大量レコードの一括作成処理（長時間トランザクション）が実行されている場合、テーブル B や C で発生した変更も変更追跡から返されなくなります。</p>
+<p>この動作は変更追跡の設計上の仕様でございます。長時間トランザクションが完了しますと、すべてのテーブルで溜まっていた変更が一斉にエクスポートされるため、「すべてのテーブルのファイル出力が同じ時刻に集中する」という現象として観測される場合がございます。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data">Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)</a></li>
+</ul>
+<hr>
+<h2 id="q4">遅延した同期はどのように復旧しますか？ (Q4)</h2>
+
+<p>【結論】Synapse Link には、設計上 <strong>フォールバック同期ジョブ（automated hourly fallback synchronization job）</strong> が定期的に自動実行される仕組みが組み込まれております。通常の差分同期で取得できなかった変更データがあった場合でも、このフォールバックジョブが検知し回収します。</p>
+<p>フォールバック同期ジョブの想定動作は以下のとおりです。</p>
+<ol>
+<li>通常の差分同期は約 5 分間隔で実行されますが、変更追跡のバージョン番号が固定されている間は変更レコードが 0 件となります</li>
+<li>長時間トランザクションが完了するとバージョン番号が進行し、それまでに溜まっていた変更が変更追跡から一斉に返されるようになります</li>
+<li>仮にタイミングの問題で通常の差分同期がこれらの変更を拾えなかった場合でも、<strong>定期的にに実行されるフォールバックジョブがセーフティネットとして機能</strong>し、取りこぼしたデータを回収・出力します</li>
+</ol>
+<p>このため、長時間トランザクションが単発で発生した場合、同期遅延はおおむね <strong>約 1 時間〜2 時間程度</strong> で自然に復旧いたします。遅延中のデータが失われることはございませんので、ご安心ください。</p>
+<p>ただし、<strong>長時間トランザクションが連続的・断続的に発生する場合</strong>（例: ロールアップフィールドの再計算ジョブが大量のバックログを処理し続ける場合など）は、変更追跡のバージョン番号の固定が繰り返され、<strong>遅延が数時間に及ぶ可能性がございます</strong>。このようなケースでは、長時間トランザクションの発生源を特定し、根本的な対処を行うことが重要です。対処方法については <a href="#q5">Q5</a> をご参照ください。</p>
+<hr>
+<h2 id="q5">同期遅延を防止・軽減するにはどうすればよいですか？ (Q5)</h2>
+
+<p>【結論】同期遅延の根本的な原因は Dataverse 上の長時間トランザクションにございますため、対策としてはソースシステム側での長時間トランザクションの発生を抑制する方向が基本となります。</p>
+<h3 id="対策-1-長時間トランザクションの特定と抑制"><a href="#対策-1-長時間トランザクションの特定と抑制" class="headerlink" title="対策 1: 長時間トランザクションの特定と抑制"></a>対策 1: 長時間トランザクションの特定と抑制</h3><table>
+<thead>
+<tr>
+<th>確認ポイント</th>
+<th>対策の方向性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大量レコードを一括処理するプラグイン</td>
+<td>バッチサイズを小さくし、トランザクションを分割する</td>
+</tr>
+<tr>
+<td>長時間のバッチ処理</td>
+<td>同期遅延が許容されない時間帯を避けて実行する</td>
+</tr>
+<tr>
+<td>大量データの Excel エクスポート</td>
+<td>エクスポート対象を絞り込む、またはビューを最適化する</td>
+</tr>
+</tbody></table>
+<h3 id="対策-2-Synapse-Link-プロファイルの分割"><a href="#対策-2-Synapse-Link-プロファイルの分割" class="headerlink" title="対策 2: Synapse Link プロファイルの分割"></a>対策 2: Synapse Link プロファイルの分割</h3><p>同期対象テーブル数が多い場合、複数の Synapse Link プロファイルに分割することで、処理の競合を低減できる可能性がございます。ただし、変更追跡のバージョン番号はデータベースレベルで管理されておりますため、長時間トランザクションによる遅延そのものはプロファイルの分割では防止できない点にご留意ください。</p>
+<h3 id="対策-3-ロールアップフィールドの管理"><a href="#対策-3-ロールアップフィールドの管理" class="headerlink" title="対策 3: ロールアップフィールドの管理"></a>対策 3: ロールアップフィールドの管理</h3><p>Dataverse のロールアップフィールドは、システムジョブ「Calculate Rollup Field」により定期的に再計算されます。対象レコード数が多い場合、この再計算処理が長時間トランザクションとなり、同期遅延の原因となることがあります。</p>
+<p>以下の対応をご検討ください。</p>
+<table>
+<thead>
+<tr>
+<th>対応</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>再計算ジョブの一時停止・間隔変更</td>
+<td>[設定] → [システムジョブ] → [定期的なシステムジョブ] から「Calculate Rollup Field」ジョブの一時停止（Pause）や再計算間隔の変更が可能です</td>
+</tr>
+<tr>
+<td>未使用ロールアップフィールドの確認</td>
+<td>マネージドソリューション（Dynamics 365 アプリケーション等）により導入されたロールアップフィールドが業務上使用されていない場合、不要なフィールドの削除をご検討ください。ただし、マネージドソリューションの標準フィールドは削除できない場合があります</td>
+</tr>
+</tbody></table>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/define-rollup-fields#modify-rollup-job-recurrence">ロールアップ列の定義 - ロールアップ ジョブの繰り返しを変更する (Docs)</a></li>
+</ul>
+<h3 id="同期遅延が許容されない要件について"><a href="#同期遅延が許容されない要件について" class="headerlink" title="同期遅延が許容されない要件について"></a>同期遅延が許容されない要件について</h3><p>Synapse Link のニアリアルタイム同期は、前述のとおり遅延時間に関する具体的な SLA や保証が提供されておらず、Dataverse 上のトランザクション状況によっては数十分～1 時間程度の遅延が発生する可能性がございます。そのため、リアルタイム性が厳密に求められるデータ連携の要件においては、別途、Dataverse Web API を直接利用した連携など、ご要件に応じた別のデータ連携手段をご検討ください。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/export-data-lake-faq">Azure Synapse Link for Dataverse に関してよく寄せられる質問 (Docs)</a></li>
+</ul>
+<hr>
+<h2 id="faq">よくあるお問い合わせ</h2>
+
+<p>サポートへ実際にお寄せいただくお問い合わせの中から、関連性の高いものを Q&amp;A 形式でご紹介いたします。</p>
+<h3 id="Q-Append-モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？"><a href="#Q-Append-モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？" class="headerlink" title="Q. Append モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？"></a>Q. Append モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？</h3><p><strong>A.</strong> インクリメンタルフォルダは約 5 分ごとに作成されますが、フォルダの作成と実際のデータ出力は非同期で行われます。長時間トランザクションにより変更追跡のバージョン番号が固定されている場合、フォルダは作成されるもののデータが 0 件のため CSV ファイルが出力されないケースがございます。長時間トランザクションが完了しバージョン番号が進行しますと、以降のフォルダにまとめてデータが出力されます。</p>
+<h3 id="Q-同期遅延はどの程度の頻度で発生しますか？-SLA-はありますか？"><a href="#Q-同期遅延はどの程度の頻度で発生しますか？-SLA-はありますか？" class="headerlink" title="Q. 同期遅延はどの程度の頻度で発生しますか？ SLA はありますか？"></a>Q. 同期遅延はどの程度の頻度で発生しますか？ SLA はありますか？</h3><p><strong>A.</strong> Synapse Link のニアリアルタイム同期について、遅延時間に関する具体的な SLA は公式に提供されておりません。遅延の発生頻度は、環境ごとのデータ変更量やトランザクションのパターンによって異なります。同期遅延が業務に影響を与える場合は、<a href="#q5">Q5</a> でご紹介した対策をご検討いただければと存じます。</p>
+<hr>
+<h2 id="summary">まとめ</h2>
+
+<ul>
+<li>Synapse Link のニアリアルタイム同期は Dataverse の変更追跡（Change Tracking）を基盤としており、高トランザクション環境ではデータの反映に遅延が生じる場合がございます</li>
+<li>同期遅延の主な原因は、Dataverse 上の長時間トランザクションが変更追跡のバージョン番号の進行を止めることによるものです</li>
+<li>変更追跡のバージョン番号はデータベースレベルで管理されるため、1 つのテーブルの長時間トランザクションが全テーブルの同期に影響を及ぼします</li>
+<li>遅延した同期はフォールバック同期ジョブにより自動的に復旧し、データの欠落は発生いたしません</li>
+<li>根本的な対策としては、長時間トランザクションの特定と抑制をご検討ください</li>
+</ul>
+<h2 id="notice">注意事項（情報の更新可能性）</h2>
+
+<p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。</p>
 
       
       
@@ -198,10 +357,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/EmailEnableAutmation.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerplatform/dataverse-synapse-link-sync-delay.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -209,19 +368,10 @@
     
 <nav id="article-nav">
   
-    <a href="../ChangePersonalizationSettings/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          ユーザーの個人設定を管理者が変更する方法
-        
-      </div>
-    </a>
   
-  
-    <a href="../../powerautomate/power-automate-desktop-not-connected-to-lan/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../support-scope-custom-security-role/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Power Automate for desktop のインストール後に LAN が繋がらない場合の対応方法</div>
+      <div class="article-nav-title">カスタム セキュリティ ロールの作成に関するサポート範囲について</div>
     </a>
   
 </nav>
@@ -240,7 +390,7 @@
       <ul>
         
           <li>
-            <a href="../dataverse-synapse-link-sync-delay/">Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</a>
+            <a href="">Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</a>
           </li>
         
           <li>
