@@ -49,9 +49,9 @@ Power Apps の全ての機能を利用可能でございます。
 実行したいアプリが複数ある場合には、実行したいアプリ数分のライセンスが必要となります。  
 1 つのアプリを複数ユーザーが実行したい場合、実行するユーザー数分のライセンスが必要となります。
 <br/><br/>
-詳細については下記公開情報､ライセンスガイドをご参照ください。  
+詳細については下記公開情報、ライセンスガイドをご参照ください。  
 [アプリごとの Power Apps プランについて](https://learn.microsoft.com/ja-jp/power-platform/admin/about-powerapps-perapp)    
-[Microsoft Power Apps、Microsoft Power Automate、Microsoft Power Virtual Agents ライセンスガイド](https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x411)  
+[Power Platform ライセンス ガイド ](https://aka.ms/pplicjp)  
 ※PDF ファイルがダウンロードされます。
 <br/><br/>
   
@@ -122,12 +122,18 @@ Power Platform 管理センター > 設定 > アドオン容量の割り当て
 <br/><br/>
 
 ## 7. レポート機能について
-現状、各種管理センターなどから、ユーザーに対してアプリごとの Power Apps プランライセンスが割り当てられたことを確認できる機能のご用意はない状況でございます。  
+各種管理センターなどからユーザーに対してアプリごとの Power Apps プランライセンスが割り当てられたことを確認できる機能として、現段階ではプレビュー版となりますが、レポート機能 (プレビュー版) について以下にご案内いたします。 
+
+[Power Appsのライセンス使用量を表示する (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/view-license-consumption-issues)
+
+プレビュー機能の詳細や使用条件については、下記の公開情報をご参照ください。
+[プレビュー機能とは何ですか、また、有効にするにはどうすればよいですか?](https://learn.microsoft.com/ja-jp/power-platform/admin/what-are-preview-features-how-do-i-enable-them)
+
 アプリごとの Power Apps プランライセンスの使用レポート機能は現在開発中となっております。  
 下記公開情報にて最新情報を記載しておりますので、ご参照ください。  
 [アプリ ライセンスごとの Power Apps を使用しているユーザー リストを見ることができますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/about-powerapps-perapp#when-will-i-be-able-to-see-the-list-of-users-who-are-using-the-power-apps-per-app-license)   
 <br/>
-レポート機能が未実装のたため、現状ではライセンスを消費する制御も未実装となっております。
+レポート機能がプレビュー状態のため、現状ではライセンスを消費する制御も一部未実装となっております。
 
 1. 環境にライセンスを割り当てる  
 2. 該当のアプリの設定で「アプリごとのライセンス」をオンにする  

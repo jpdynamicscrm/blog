@@ -29,8 +29,8 @@ categories:
 
 # はじめに
 ---
-## Microsfot 365 管理センターのサービス正常性情報とは
-Microsfot 365 管理センターのサービス正常性（[リンク](https://admin.microsoft.com/Adminportal/Home?#/servicehealth)） とは、利用者のサブスクリプションで利用可能なすべてのサービスの問題と正常性ステータスを表示することができます。
+## Microsoft 365 管理センターのサービス正常性情報とは
+Microsoft 365 管理センターのサービス正常性（[リンク](https://admin.microsoft.com/Adminportal/Home?#/servicehealth)） とは、利用者のサブスクリプションで利用可能なすべてのサービスの問題と正常性ステータスを表示することができます。
 
 下画像のように各サービスで発生している問題の有無を表すステータスや、何か問題がある場合にはその問題の内容と Microsoft がその問題に対して取り組んでいることを Microsoft が公表しています。  
 

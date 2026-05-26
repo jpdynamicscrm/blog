@@ -148,4 +148,4 @@ PowerShell と Power Automate を組み合わせることで、みなさまの�
 自動化のアイデアを共有してもいいよという方がいましたら、ぜひ私たちに共有してくださいね。
 
 ---
-Hope to acceralate your business with Power Automate!
+Hope to accelerate your business with Power Automate!

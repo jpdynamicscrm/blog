@@ -18,14 +18,14 @@ categories:
 5. Power Apps 有償ライセンスについて
 
 <!-- more --> 
-## 1．試用版ライセンスの概要  
+## 1. 試用版ライセンスの概要  
 試用版ライセンスでは、プレミアム機能 (プレミアム コネクタやオンプレミス データ ゲートウェイなど) を含む Power Apps の全ての機能をご利用いただけます。  
 試用版ライセンスはユーザー毎に 1 回 30 日間のご利用が可能でございます。  
 2 回までの延長が可能でございますので、合計最大 90 日までご利用いただけます。  
 その他詳細については下記公開情報をご参照ください。  
 [Power Apps 30 日間の無料試用版](https://learn.microsoft.com/ja-jp/power-apps/maker/signup-for-powerapps)  
 
-## 2．試用版ライセンスの種類について  
+## 2. 試用版ライセンスの種類について  
 試用版ライセンスには、下記の 2 種類がございます。  
 ① Microsoft 365 管理センター上でご確認いただけるライセンス  
 ② Microsoft 365 管理センター上でご確認いただけないライセンス  
@@ -50,7 +50,7 @@ Power Apps が有効なライセンスが付与されていない状態で、任
 ![](./About-Trial-License/license-set-up.png)   
 　  
 　  
-## 3．ライセンス利用状況の確認方法について  
+## 3. ライセンス利用状況の確認方法について  
 管理センター上に表示されない試用版ライセンスは、下記の PowerShell での Power Apps 管理 コマンドをご利用いただくことでご確認いただけます。  
 Power Apps 管理 コマンドをご実行いただくとライセンス利用状況の CSV ファイルをご取得いただけます。  
   
@@ -89,9 +89,8 @@ Office 365 E3 ライセンスなどの Microsoft 365 (Office 365) には Power A
 試用版ライセンスに含まれるプレミアム機能は含まれておりません。  
 そのため、プレミアム コネクタ等を利用しているアプリは Microsoft 365 ではご実行いただくことができません。  
   
-Microsoft 365 ライセンスに含まれる Power Apps 使用権の詳細については下記のライセンス ガイドをご参照ください。   
-　※クリックすると PDF のダウンロードが開始します。  
-　[Microsoft Power Apps、Microsoft Power Automate、Microsoft Power Virtual Agents ライセンスガイド](https://go.microsoft.com/fwlink/?LinkId=2085130&clcid=0x411)  
+Microsoft 365 ライセンスに含まれる Power Apps 使用権の詳細については下記のライセンス ガイドをご参照ください。    
+[Power Platform ライセンス ガイド ](https://aka.ms/pplicjp)  
   
 Microsoft 365 ライセンスに含まれる Power Apps の使用権は、  
 プレミアム コネクタ等が含まれておらず、限定された機能となります。  
