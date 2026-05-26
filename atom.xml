@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-05-20T00:32:34.054Z</updated>
+  <updated>2026-05-26T02:42:02.032Z</updated>
   <entry>
     <author>
       <name>
@@ -40,7 +40,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-05-20T00:32:34.054Z</updated>
+    <updated>2026-05-26T02:42:02.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -63,7 +63,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-05-20T00:32:34.117Z</updated>
+    <updated>2026-05-26T02:42:02.095Z</updated>
   </entry>
   <entry>
     <author>
@@ -86,7 +86,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-05-20T00:32:34.052Z</updated>
+    <updated>2026-05-26T02:42:02.030Z</updated>
   </entry>
   <entry>
     <author>
@@ -109,7 +109,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-05-20T00:32:33.991Z</updated>
+    <updated>2026-05-26T02:42:01.970Z</updated>
   </entry>
   <entry>
     <author>
@@ -135,7 +135,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-05-20T00:32:34.090Z</updated>
+    <updated>2026-05-26T02:42:02.068Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +162,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-05-20T00:32:34.101Z</updated>
+    <updated>2026-05-26T02:42:02.079Z</updated>
   </entry>
   <entry>
     <author>
@@ -188,7 +188,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-05-20T00:32:34.052Z</updated>
+    <updated>2026-05-26T02:42:02.031Z</updated>
   </entry>
   <entry>
     <author>
@@ -225,7 +225,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-05-20T00:32:34.102Z</updated>
+    <updated>2026-05-26T02:42:02.079Z</updated>
   </entry>
   <entry>
     <author>
@@ -255,7 +255,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-05-20T00:32:34.051Z</updated>
+    <updated>2026-05-26T02:42:02.029Z</updated>
   </entry>
   <entry>
     <author>
@@ -265,8 +265,8 @@
     </author>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Pages/"/>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Pages/"/>
-    <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
     <category term="Security" scheme="https://jpdynamicscrm.github.io/blog/tags/Security/"/>
+    <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
     <content>
       <![CDATA[<p>こんにちは、Power Platformサポートチームの吉永です。</p><p>本記事では Power Pages 認証キーに関するご説明を行わせて頂きます。</p><p>Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定期的に更新作業を実施する必要のある項目となっており、この認証キーが持つ有効期限が切れてしまった場合、Web サイトにアクセスできないといった大きな影響が生じます。</p><p>このため、Power Pages の Web サイトを作成する上で、Power Pages 認証キーをどのように管理いただくかは非常に重要なポイントとなります。</p><p>本記事では Power Pages 認証キーの管理について、以下の Q1〜Q4 の質問に回答する形でご説明させていただきます。</p><ul><li><a href="#auth-key-overview">Q1: Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">Q2: 認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">Q3: どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">Q4: 認証キーはどのように管理すればいいですか？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Power Pages が Dataverse (データ置き場) に接続するための「鍵」の仕組み</li><li>1 年に 1 回の更新を忘れた場合のリスク</li><li>Power Platform 管理センターを使った簡単な更新手順</li><li>更新作業に伴うサイトの一時的な再起動について</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">認証キーはどのように管理すればいいですか？</a></li></ul><h2 id="auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？ (Q1)</h2><p>Power Pages 認証キーは Power Pages で作成された Web サイトを表示するために必要な Dataverse へのアクセスを行うための認証キーとなります。</p><p>前提として、Power Page で作られた Web サイトは、Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/architecture">Power Pages アーキテクチャ (Docs)</a></li></ul><p><img src="/blog/powerpages/power-pages-auth-key/power-pages-architecture.png"></p><p>このため、Power Pages の Web サイトが機能するためには、Power Pages (Web サイト) が Dataverse に接続可能な状態である必要があります。<br>この接続にはセキュリティ上の観点から「認証キー」を用いた接続が利用されておりますが、この「認証キー」には 1 年間という有効期限がございます。</p><p>この「認証キー」の有効期限は自動では更新されないことから、ユーザー様にて定期的に「認証キー」を更新していただく必要がございます。<br>Web サイト認証キーの管理</p><p>【補足 : 認証キーの実体】<br>先述させて頂きましたように、 Power Pages では Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>このため、Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で作成される仕組みとなっております。<br>このことから、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-azure-app.png"></p><p>なお、Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。</p><h2 id="expiration-impact">認証キーの有効期限が切れるとどうなりますか？ (Q2)</h2>「認証キー」の有効期限が切れた場合、Web サイトは Dataverse にアクセスできなくなります。Power Pages の Web サイトは Dataverse 上に保存された Web サイトのカスタマイズ情報などを使って動作しておりますので、以下のような問題が発生します。<ul><li>ログインができなくなる</li><li>フォームに入力したデータを送信できなくなる</li><li>ページにデータが表示されずエラーになる</li></ul><p>実際に「認証キーの有効期限が切れてしまっていたことで、Web サイトにアクセスできなくなった」というお問い合わせを頂くことがあり、影響としても非常に大きいものとなりますので、期限切れになる前に必ず更新作業を行って頂く必要がございます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-expiration-of-an-auth-key">Web サイト認証キーの管理 - 認証キーの有効期限切れを確認する (Docs)</a></li></ul><h2 id="renewal-steps">どうやってキーを更新すればいいですか？ (Q3)</h2>Power Pages 認証キーは以下の手順で更新可能です。<ol><li><a href="https://aka.ms/ppac?utm_source=blog">Power Platform 管理センター</a> にアクセスします。</li><li>左側のメニューから [管理] &gt; [Power Pages] を選択します。</li><li>対象のウェブサイトを選択し、画面上部のメニューまたは詳細画面から [管理] (または [設定]) を探します。</li><li>[セキュリティ] セクションにある <strong>[Web サイト認証キー]</strong> をクリックします。</li><li>表示された画面で <strong>[キーの更新]</strong> ボタンを押し、確認画面で [OK] を選択します。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-auth-key.png"></li></ol><p>これにより更新処理が始まり、自動でキーの更新が完了となります。</p><p>【ポイント】</p><p>1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。</p><p>2.「キーの更新」ボタンを押すことで、新しいキーが自動生成されますが、新たなキーの有効期限は 1 年後となります。</p><p>3.認証キーを更新する際、ウェブサイトの再起動が発生します。<br>この再起動では  Web サイトが完全に停止するわけではございませんが、数分程度の間、利用者がサイトにアクセスしづらくなる可能性があるため、必要に応じて、夜間帯などでの実行をご検討ください。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/admin-roles">Web サイト管理に必要なロール (Docs)</a></li></ul><h2 id="auth-key-management">認証キーはどのように管理すればいいですか？ (Q4)</h2>Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。<ul><li>電子メール</li><li>Power Platform 管理センター</li><li>Web サイト上</li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-authentication-key-expiration-notification">認証キーの有効期限切れを確認する (Docs)</a></li></ul><p>場合によってメールでの通知に気づくことが出来ない可能性がある一方で、有効期限が切れた場合の影響が大きいため、必要に応じてより通知に気づきやすい、漏れが生じにくい方法での管理についてもご検討いただけますと幸いです。</p><h2 id="summary">まとめ</h2><ul><li>Power Pages の認証キーは、安全なデータ接続に必要な「身分証明書」です。</li><li>有効期限 (1 年) が切れると、サイトが正常に動かなくなります。</li><li>管理センターから簡単に更新できますが、数分間のサイト再起動を伴います。</li><li>メール通知が届いたら、利用者の少ない時間帯を見計らって更新しましょう。</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2>本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。]]>
     </content>
@@ -287,7 +287,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-05-20T00:32:33.990Z</updated>
+    <updated>2026-05-26T02:42:01.968Z</updated>
   </entry>
   <entry>
     <author>
@@ -310,7 +310,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-05-20T00:32:34.117Z</updated>
+    <updated>2026-05-26T02:42:02.095Z</updated>
   </entry>
   <entry>
     <author>
@@ -343,7 +343,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-05-20T00:32:34.102Z</updated>
+    <updated>2026-05-26T02:42:02.079Z</updated>
   </entry>
   <entry>
     <author>
@@ -376,7 +376,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-05-20T00:32:34.054Z</updated>
+    <updated>2026-05-26T02:42:02.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -406,7 +406,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-05-20T00:32:33.787Z</updated>
+    <updated>2026-05-26T02:42:01.767Z</updated>
   </entry>
   <entry>
     <author>
@@ -430,7 +430,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-05-20T00:32:34.054Z</updated>
+    <updated>2026-05-26T02:42:02.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -459,7 +459,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-05-20T00:32:34.054Z</updated>
+    <updated>2026-05-26T02:42:02.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -487,7 +487,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-05-20T00:32:34.042Z</updated>
+    <updated>2026-05-26T02:42:02.020Z</updated>
   </entry>
   <entry>
     <author>
@@ -511,7 +511,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-05-20T00:32:33.949Z</updated>
+    <updated>2026-05-26T02:42:01.928Z</updated>
   </entry>
   <entry>
     <author>
@@ -542,7 +542,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-05-20T00:32:33.991Z</updated>
+    <updated>2026-05-26T02:42:01.969Z</updated>
   </entry>
   <entry>
     <author>
@@ -571,6 +571,6 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-05-20T00:32:33.874Z</updated>
+    <updated>2026-05-26T02:42:01.855Z</updated>
   </entry>
 </feed>
