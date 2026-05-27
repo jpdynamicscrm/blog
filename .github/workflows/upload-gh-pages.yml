@@ -5,19 +5,23 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 jobs:
   upload-gh-pages:
+    if: github.repository == 'jpdynamicscrm/blog'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         submodules: true
 
     - name: build-blog
-      uses: cssjpn/blog-gh-actions/build-blog@v1
+      uses: cssjpn/blog-gh-actions/build-blog@f65dba3f8bd7ce4cfb992226a7bde86508d2e769 # v1.0.4
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
