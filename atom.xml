@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-06-01T09:32:26.734Z</updated>
+  <updated>2026-06-02T08:24:55.604Z</updated>
   <entry>
     <author>
       <name>
@@ -40,7 +40,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-06-01T09:32:26.734Z</updated>
+    <updated>2026-06-02T08:24:55.604Z</updated>
   </entry>
   <entry>
     <author>
@@ -63,7 +63,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-06-01T09:32:26.802Z</updated>
+    <updated>2026-06-02T08:24:55.657Z</updated>
   </entry>
   <entry>
     <author>
@@ -86,7 +86,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-06-01T09:32:26.732Z</updated>
+    <updated>2026-06-02T08:24:55.603Z</updated>
   </entry>
   <entry>
     <author>
@@ -109,7 +109,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-06-01T09:32:26.665Z</updated>
+    <updated>2026-06-02T08:24:55.551Z</updated>
   </entry>
   <entry>
     <author>
@@ -135,7 +135,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-06-01T09:32:26.773Z</updated>
+    <updated>2026-06-02T08:24:55.635Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +162,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-06-01T09:32:26.785Z</updated>
+    <updated>2026-06-02T08:24:55.644Z</updated>
   </entry>
   <entry>
     <author>
@@ -188,7 +188,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-06-01T09:32:26.732Z</updated>
+    <updated>2026-06-02T08:24:55.603Z</updated>
   </entry>
   <entry>
     <author>
@@ -225,7 +225,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-06-01T09:32:26.785Z</updated>
+    <updated>2026-06-02T08:24:55.644Z</updated>
   </entry>
   <entry>
     <author>
@@ -255,7 +255,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-06-01T09:32:26.731Z</updated>
+    <updated>2026-06-02T08:24:55.602Z</updated>
   </entry>
   <entry>
     <author>
@@ -287,7 +287,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-06-01T09:32:26.664Z</updated>
+    <updated>2026-06-02T08:24:55.550Z</updated>
   </entry>
   <entry>
     <author>
@@ -310,7 +310,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-06-01T09:32:26.802Z</updated>
+    <updated>2026-06-02T08:24:55.657Z</updated>
   </entry>
   <entry>
     <author>
@@ -343,7 +343,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-06-01T09:32:26.785Z</updated>
+    <updated>2026-06-02T08:24:55.644Z</updated>
   </entry>
   <entry>
     <author>
@@ -376,7 +376,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-06-01T09:32:26.733Z</updated>
+    <updated>2026-06-02T08:24:55.604Z</updated>
   </entry>
   <entry>
     <author>
@@ -406,7 +406,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-06-01T09:32:26.440Z</updated>
+    <updated>2026-06-02T08:24:55.377Z</updated>
   </entry>
   <entry>
     <author>
@@ -430,7 +430,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-06-01T09:32:26.734Z</updated>
+    <updated>2026-06-02T08:24:55.604Z</updated>
   </entry>
   <entry>
     <author>
@@ -459,7 +459,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-06-01T09:32:26.734Z</updated>
+    <updated>2026-06-02T08:24:55.604Z</updated>
   </entry>
   <entry>
     <author>
@@ -487,7 +487,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-06-01T09:32:26.721Z</updated>
+    <updated>2026-06-02T08:24:55.594Z</updated>
   </entry>
   <entry>
     <author>
@@ -511,7 +511,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-06-01T09:32:26.618Z</updated>
+    <updated>2026-06-02T08:24:55.515Z</updated>
   </entry>
   <entry>
     <author>
@@ -542,7 +542,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-06-01T09:32:26.665Z</updated>
+    <updated>2026-06-02T08:24:55.551Z</updated>
   </entry>
   <entry>
     <author>
@@ -571,6 +571,6 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-06-01T09:32:26.535Z</updated>
+    <updated>2026-06-02T08:24:55.451Z</updated>
   </entry>
 </feed>
