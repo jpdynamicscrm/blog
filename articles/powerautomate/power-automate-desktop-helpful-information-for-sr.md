@@ -294,11 +294,11 @@ Power Automate ポータルの画面 > 監視 > マシン
    ```
    reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
    ```
-1. Power Automate for desktop のプロキシ設定 (レジストリ)
-[Power Automate for desktop のレジストリ設定](#anchor-registry-setting) を参照し、出力結果をご提供ください。
+1. Power Automate for desktop のプロキシ設定 (レジストリ)  
+  [Power Automate for desktop のレジストリ設定](#anchor-registry-setting) を参照し、出力結果をご提供ください。
 
-1. Power Automate for desktop のプロキシ設定 (設定ファイル)
-`C:\Program Files (x86)\Power Automate Desktop` 配下の以下のファイルをご提供ください。
+1. Power Automate for desktop のプロキシ設定 (設定ファイル)  
+   `C:\Program Files (x86)\Power Automate Desktop` 配下の以下のファイルをご提供ください。
    1. PAD.Proxy.config
    1. UIFlowService.Proxy.config
    1. Microsoft.Flow.RPA.LogShipper.Proxy.config
