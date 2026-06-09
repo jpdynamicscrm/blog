@@ -30,7 +30,7 @@ categories:
   - [4-1. パフォーマンス](#4-1-パフォーマンス)
   - [4-2. コネクタ・フローの実行制限](#4-2-コネクタ・フローの実行制限)
   - [4-3. フローからアプリへの応答時間の制限](#4-3-フローからアプリへの応答時間の制限)
-- [補足：厳格な監査要件への対応（Microsoft Dataverse の活用）](#5-補足：厳格な監査要件への対応)
+- [補足：Microsoft Dataverse の活用による監査要件への対応](#補足：Microsoft%20Dataverse%20の活用による監査要件への対応)
 
 <a id='1-概要'></a>
 
@@ -160,7 +160,7 @@ ClearCollect(
 
 [非同期応答の使用 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/guidance/coding-guidelines/asychronous-flow-pattern)
 
-<a id='5-補足：厳格な監査要件への対応'></a>
+<a id='補足：Microsoft Dataverse の活用による監査要件への対応'></a>
 
 ## 補足：Microsoft Dataverse の活用による監査要件への対応
 「誰が、いつ、どのレコードを 作成/更新/削除 したか」を確実に追跡する必要がある場合は、データソースとして Microsoft Dataverse をご採用いただくことを推奨します。<br/>
