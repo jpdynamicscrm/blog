@@ -12,7 +12,7 @@ categories:
 
 # はじめに
 
-こんにちは。Power Platform サポートの大友、竹内です。  
+こんにちは。Power Platform サポートの大友、林、竹内です。  
 本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。
 
 <!-- more -->
@@ -29,7 +29,7 @@ categories:
    1. [Fiddler ログ](#anchor-fiddler-log)
    1. [マシン登録の情報](#anchor-machine-information)
    1. [リモートデスクトップ設定](#anchor-remote-desktop-setting)
-   1. [レジストリの設定](#anchor-registry-setting)
+   1. [Power Automate for desktop のレジストリ設定](#anchor-registry-setting)
    1. [Power Automate for desktop のフロー](#anchor-desktopflow)
    1. [デスクトップ フローの実行履歴 URL](#anchor-desktopflow-url)
    1. [デスクトップ フローの実行履歴の画面キャプチャ](#anchor-desktopflow-runhistory-screenshot)
@@ -37,6 +37,7 @@ categories:
    1. [クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)](#anchor-cloudflow-run-history-csv)
    1. [クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)](#anchor-cloudflow-raw-input-output)
    1. [インストーラー ログ](#anchor-installer-log)
+   1. [プロキシ設定](#proxy-settings)
 
 <a id='anchor-intro'></a>
 
@@ -177,13 +178,13 @@ Power Automate ポータルの画面 > 監視 > マシン
 
 <a id='anchor-registry-setting'></a>
 
-## 10. レジストリの設定
+## 10. Power Automate for desktop のレジストリ設定
 * レジストリ内容
-レジストリエディタを起動し、以下のキーおよびその配下のレジストリの設定が確認できる画面キャプチャ、またはキーをエクスポートしたファイルをご提供ください。  
-キーが存在しない場合は、その旨をお知らせください。  
-`コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Power Automate Desktop`  
-`コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop`  
-![](./power-automate-desktop-helpful-information-for-sr/registry-setting4.png)  
+以下のコマンドを実行し、出力結果をご提供ください。
+   ```
+   reg query "HKLM\Software\Microsoft\Power Automate Desktop" /s
+   reg query "HKLM\Software\Wow6432Node\Microsoft\Power Automate Desktop" /s
+   ```
 
 * サービスアカウントをご利用の場合
 上記に加えてレジストリの以下キーのセキュリティ画面キャプチャもご提供ください。  
@@ -283,6 +284,25 @@ Power Automate ポータルの画面 > 監視 > マシン
 ## 17. インストーラー ログ
 以下の採取手順をご確認の上でログファイルをご提供ください。  
 [インストーラー ログ](https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/desktop-flows/how-to-get-power-automate-desktop-installer-logs#installer-logs)
+
+<a id='proxy-settings'></a>
+
+## 18. プロキシ設定
+プロキシ設定の確認のため、以下の情報をご提供ください。
+1. Windows のプロキシ設定
+   以下のコマンドを実行し、出力結果をご提供ください。
+   ```
+   reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+   ```
+1. Power Automate for desktop のプロキシ設定 (レジストリ)  
+  [Power Automate for desktop のレジストリ設定](#anchor-registry-setting) を参照し、出力結果をご提供ください。
+
+1. Power Automate for desktop のプロキシ設定 (設定ファイル)  
+   `C:\Program Files (x86)\Power Automate Desktop` 配下の以下のファイルをご提供ください。
+   1. PAD.Proxy.config
+   1. UIFlowService.Proxy.config
+   1. Microsoft.Flow.RPA.LogShipper.Proxy.config
+   1. Microsoft.Flow.RPA.UpdateService.Proxy.config
 
 ---
 
