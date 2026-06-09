@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-06-02T08:24:55.604Z</updated>
+  <updated>2026-06-09T08:27:43.007Z</updated>
   <entry>
     <author>
       <name>
@@ -40,7 +40,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-06-02T08:24:55.604Z</updated>
+    <updated>2026-06-09T08:27:43.007Z</updated>
   </entry>
   <entry>
     <author>
@@ -63,7 +63,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-06-02T08:24:55.657Z</updated>
+    <updated>2026-06-09T08:27:43.070Z</updated>
   </entry>
   <entry>
     <author>
@@ -86,7 +86,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-06-02T08:24:55.603Z</updated>
+    <updated>2026-06-09T08:27:43.006Z</updated>
   </entry>
   <entry>
     <author>
@@ -109,7 +109,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-06-02T08:24:55.551Z</updated>
+    <updated>2026-06-09T08:27:42.944Z</updated>
   </entry>
   <entry>
     <author>
@@ -135,7 +135,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-06-02T08:24:55.635Z</updated>
+    <updated>2026-06-09T08:27:43.043Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +162,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-06-02T08:24:55.644Z</updated>
+    <updated>2026-06-09T08:27:43.054Z</updated>
   </entry>
   <entry>
     <author>
@@ -188,7 +188,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-06-02T08:24:55.603Z</updated>
+    <updated>2026-06-09T08:27:43.006Z</updated>
   </entry>
   <entry>
     <author>
@@ -225,7 +225,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-06-02T08:24:55.644Z</updated>
+    <updated>2026-06-09T08:27:43.054Z</updated>
   </entry>
   <entry>
     <author>
@@ -255,7 +255,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-06-02T08:24:55.602Z</updated>
+    <updated>2026-06-09T08:27:43.005Z</updated>
   </entry>
   <entry>
     <author>
@@ -287,7 +287,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-06-02T08:24:55.550Z</updated>
+    <updated>2026-06-09T08:27:42.943Z</updated>
   </entry>
   <entry>
     <author>
@@ -310,7 +310,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-06-02T08:24:55.657Z</updated>
+    <updated>2026-06-09T08:27:43.070Z</updated>
   </entry>
   <entry>
     <author>
@@ -343,7 +343,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-06-02T08:24:55.644Z</updated>
+    <updated>2026-06-09T08:27:43.054Z</updated>
   </entry>
   <entry>
     <author>
@@ -376,7 +376,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-06-02T08:24:55.604Z</updated>
+    <updated>2026-06-09T08:27:43.007Z</updated>
   </entry>
   <entry>
     <author>
@@ -385,8 +385,8 @@
       </name>
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="SharePoint" scheme="https://jpdynamicscrm.github.io/blog/tags/SharePoint/"/>
     <category term="Mobile" scheme="https://jpdynamicscrm.github.io/blog/tags/Mobile/"/>
     <content>
@@ -406,7 +406,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-06-02T08:24:55.377Z</updated>
+    <updated>2026-06-09T08:27:42.739Z</updated>
   </entry>
   <entry>
     <author>
@@ -430,7 +430,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-06-02T08:24:55.604Z</updated>
+    <updated>2026-06-09T08:27:43.007Z</updated>
   </entry>
   <entry>
     <author>
@@ -459,7 +459,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-06-02T08:24:55.604Z</updated>
+    <updated>2026-06-09T08:27:43.007Z</updated>
   </entry>
   <entry>
     <author>
@@ -487,7 +487,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-06-02T08:24:55.594Z</updated>
+    <updated>2026-06-09T08:27:42.996Z</updated>
   </entry>
   <entry>
     <author>
@@ -502,16 +502,16 @@
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Power Automate for desktop" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate-for-desktop/"/>
     <content>
-      <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p><span id="more"></span><h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol><li><a href="#anchor-intro">概要</a></li><li><a href="#anchor-how-to-collect">情報取得手順詳細</a><ol><li><a href="#anchor-pad-version">Power Automate for desktop のバージョン</a></li><li><a href="#anchor-os-version">OS のバージョン</a></li><li><a href="#anchor-computer-log">コンピューター ログ</a></li><li><a href="#anchor-analysis-result">トラブルシューティングの診断実行結果</a></li><li><a href="#anchor-verbose-log">詳細ログ</a></li><li><a href="#anchor-event-log">イベントログ</a></li><li><a href="#anchor-fiddler-log">Fiddler ログ</a></li><li><a href="#anchor-machine-information">マシン登録の情報</a></li><li><a href="#anchor-remote-desktop-setting">リモートデスクトップ設定</a></li><li><a href="#anchor-registry-setting">レジストリの設定</a></li><li><a href="#anchor-desktopflow">Power Automate for desktop のフロー</a></li><li><a href="#anchor-desktopflow-url">デスクトップ フローの実行履歴 URL</a></li><li><a href="#anchor-desktopflow-runhistory-screenshot">デスクトップ フローの実行履歴の画面キャプチャ</a></li><li><a href="#anchor-desktopflow-runhistory-error-input-output">デスクトップ フローの実行履歴のエラー・入力・出力の詳細</a></li><li><a href="#anchor-cloudflow-run-history-csv">クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</a></li><li><a href="#anchor-cloudflow-raw-input-output">クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</a></li><li><a href="#anchor-installer-log">インストーラー ログ</a></li></ol></li></ol><p><a id='anchor-intro'></a></p><h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>Power Automate for desktop に関するサポートサービスのお問い合わせの際の、情報取得手順についてご案内致します。</p><p><a id='anchor-how-to-collect'></a></p><h1 id="情報取得手順詳細"><a href="#情報取得手順詳細" class="headerlink" title="情報取得手順詳細"></a>情報取得手順詳細</h1><p><a id='anchor-pad-version'></a></p><h2 id="1-Power-Automate-for-desktop-のバージョン"><a href="#1-Power-Automate-for-desktop-のバージョン" class="headerlink" title="1. Power Automate for desktop のバージョン"></a>1. Power Automate for desktop のバージョン</h2><p>Power Automate for desktop のバージョンが確認できる画面キャプチャをご提供ください。</p><ol><li>Power Automate for desktop &gt; ヘルプ &gt; バージョン情報 を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version.png"></li><li>コピーの詳細を選択し、テキストエディターに貼り付け<code>Ctrl+V</code>したファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version2.png"></li></ol><p><a id='anchor-os-version'></a></p><h2 id="2-OS-のバージョン"><a href="#2-OS-のバージョン" class="headerlink" title="2. OS のバージョン"></a>2. OS のバージョン</h2><p>OS のバージョンが確認できる以下の画面キャプチャを取得しご提供ください。</p><ul><li>システム &gt; バージョン情報<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/os-version1.png"></li></ul><p><a id='anchor-computer-log'></a></p><h2 id="3-コンピューター-ログ"><a href="#3-コンピューター-ログ" class="headerlink" title="3. コンピューター ログ"></a>3. コンピューター ログ</h2><p>Power Automate コンピューター ランタイムをご利用いただいている場合は <strong>a‐1</strong> の方法から、ご利用いただけない場合は <strong>a‐2</strong> の方法からログを取得してご提供ください。  </p><p>デスクトップフロー実行時にエラーが発生する場合は、RunDefinition.json ファイルと Actions.log ファイルを保持するレジストリを登録いただき、<strong>b</strong> のログも併せてご提供ください。  </p><h3 id="a-Power-Automate-for-desktop-動作ログ"><a href="#a-Power-Automate-for-desktop-動作ログ" class="headerlink" title="a) Power Automate for desktop 動作ログ"></a>a) Power Automate for desktop 動作ログ</h3><ol><li>Power Automate コンピュータ ランタイムからログを収集<br>フロー実行後のログの出力に関して、過去 3 日間のログが Power Automate コンピューター ランタイムから出力いただけます。<br>Power Automate コンピュータ ランタイムからエクスポートした zip ファイルをご提供ください。<br>Power Automate コンピュータ ランタイム &gt; トラブルシューティング &gt; ログのエクスポート を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log.png">  <div class="alert is-info"><p class="alert-title">Note</p><p>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/troubleshoot#collect-machine-logs">デスクトップ フローのトラブルシューティング - Power Automate | Microsoft Learn</a></p></div></li><li>管理者権限のあるアカウントでフォルダからログを収集<br>管理者権限のあるアカウントで以下のフォルダ内にあるファイルを zip ファイルにまとめてご提供ください。<br>フォルダ：<code>%ProgramData%\Microsoft\Power Automate\Logs</code></li></ol><h3 id="b-デスクトップフロー実行詳細ログおよびアクション詳細ログ"><a href="#b-デスクトップフロー実行詳細ログおよびアクション詳細ログ" class="headerlink" title="b) デスクトップフロー実行詳細ログおよびアクション詳細ログ"></a>b) デスクトップフロー実行詳細ログおよびアクション詳細ログ</h3><p>以下のレジストリを登録いただきマシンを再起動した上で、以下でご案内するフォルダに格納されているファイルを取得してご提供ください。</p><ol><li>以下の公開情報を参考に、必要となるレジストリを登録いただきマシンを再起動致します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log2.png"><div class="alert is-info"><p class="alert-title">Note</p><p>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/governance#configure-power-automate-for-desktop-to-keep-the-flow-run-details">Power Automate でのガバナンス - Power Automate | Microsoft Learn</a></p></div></li></ol><div class="alert is-warning"><p class="alert-title">警告</p><p>こちらのレジストリを有効にした状態のままご運用頂くと端末のストレージを逼迫させる場合があります。</p><p>情報ご取得後はレジストリの無効化をお勧め致します。</p></div><ol start="2"><li>事象を再現致します。</li><li>ファイルをご取得ください。<br>以下のフォルダに格納されているファイルを取得し、ご提供ください。<br><code>%localappdata%\Microsoft\Power Automate Desktop\Scripts\{scriptid}\Runs\{runid}</code><br><code>{ScriptId}</code> にはデスクトップ フローの ID を、<code>{RunId}</code> にはフローの実行 ID を挿入します。<ul><li>RunDefinition.json：デスクトップ フローの実行詳細が記録されたログです。</li><li>Actions.log：デスクトップ フローに設定された各アクションの実行詳細が記録されたログです。</li></ul></li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>デスクトップフローの ID とフローの実行 ID はPower Automateポータルのデスクトップ フローの実行履歴のURLより確認いただけます。</p><p><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log3.png"></p></div><p><a id='anchor-analysis-result'></a></p><h2 id="4-トラブルシューティングの診断実行結果"><a href="#4-トラブルシューティングの診断実行結果" class="headerlink" title="4. トラブルシューティングの診断実行結果"></a>4. トラブルシューティングの診断実行結果</h2><ol><li>Power Automate for desktop &gt; ヘルプ &gt; トラブルシューティング を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png"></li><li>事象に関連する診断の”実行”を選択してください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result2.png"></li><li>表示された画面のスクリーンショットおよび画面右下部から生成されるレポートCSVファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result3.png"></li></ol><p><a id='anchor-verbose-log'></a></p><h2 id="5-詳細ログ"><a href="#5-詳細ログ" class="headerlink" title="5. 詳細ログ"></a>5. 詳細ログ</h2><ol><li>Power Automate for desktop &gt; ヘルプ &gt; トラブルシューティング を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png"></li><li>“詳細なログ” をオンにします。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log1.png"></li><li>発生している事象を再現させてください。  </li><li>“詳細なログ” をオフにし、”ログのエクスポート” からエクスポートされた zip ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log2.png"></li></ol><p><a id='anchor-event-log'></a></p><h2 id="6-イベントログ"><a href="#6-イベントログ" class="headerlink" title="6. イベントログ"></a>6. イベントログ</h2><ol><li><p>Windows にインストールされている “イベントビューアー” を実行してください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log1.png"></p></li><li><p>アプリケーションログの採取<br>Windows ログ &gt; Application を選択します。<br>画面右部 “現在のログをフィルター…” から事象発生日時が含まれるようフィルター処理を設定してください。<br>画面右部 “フィルターされたログ ファイルの名前を付けて保存…” から保存された evtx ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log2.png"></p></li><li><p>システムログの採取<br>Windows ログ &gt; システム を選択します。<br>画面右部 “現在のログをフィルター…” から事象発生日時が含まれるようフィルター処理を設定してください。<br>画面右部 “フィルターされたログ ファイルの名前を付けて保存…” から保存された evtx ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log3.png"></p></li></ol><p>なお、イベントログについては、下記の公開情報にも記載がございます。<br><a href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/desktop-flows/how-to-get-power-automate-desktop-installer-logs#event-viewer-logs">ログのイベント ビューアー</a>  </p><p><a id='anchor-fiddler-log'></a></p><h2 id="7-Fiddler-ログ"><a href="#7-Fiddler-ログ" class="headerlink" title="7. Fiddler ログ"></a>7. Fiddler ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a href="https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler">Fiddler ログの採取手順 (microsoft.com)</a></p><p>なお、情報取得の際はキャプチャ対象を <strong>Non-Browser</strong> に変更いただくようお願いいたします。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/fiddler-nonbrowser.png"></p><p><a id='anchor-machine-information'></a></p><h2 id="8-マシン登録の情報"><a href="#8-マシン登録の情報" class="headerlink" title="8. マシン登録の情報"></a>8. マシン登録の情報</h2><p>Power Automate ポータルの画面 &gt; 監視 &gt; マシン<br>該当のコンピューターの詳細画面の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png"></p><p><a id='anchor-remote-desktop-setting'></a></p><h2 id="9-リモート-デスクトップ設定"><a href="#9-リモート-デスクトップ設定" class="headerlink" title="9. リモート デスクトップ設定"></a>9. リモート デスクトップ設定</h2><p>実行される端末の以下リモート デスクトップの設定の画面キャプチャをご提供ください。</p><ul><li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting2.png"></li><li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ &gt; ユーザーの選択<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting3.png"></li></ul><p><a id='anchor-registry-setting'></a></p><h2 id="10-レジストリの設定"><a href="#10-レジストリの設定" class="headerlink" title="10. レジストリの設定"></a>10. レジストリの設定</h2><ul><li><p>レジストリ内容<br>レジストリエディタを起動し、以下のキーおよびその配下のレジストリの設定が確認できる画面キャプチャ、またはキーをエクスポートしたファイルをご提供ください。<br>キーが存在しない場合は、その旨をお知らせください。<br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Power Automate Desktop</code><br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop</code><br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting4.png">  </p></li><li><p>サービスアカウントをご利用の場合<br>上記に加えてレジストリの以下キーのセキュリティ画面キャプチャもご提供ください。<br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop\Registration</code> &gt; Registration キーを右クリック &gt; アクセス許可 &gt; 詳細設定<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting3.png"></p></li></ul><p><a id='anchor-desktopflow'></a></p><h2 id="11-Power-Automate-for-desktop-のフロー"><a href="#11-Power-Automate-for-desktop-のフロー" class="headerlink" title="11. Power Automate for desktop のフロー"></a>11. Power Automate for desktop のフロー</h2><p>デスクトップフロー本体をソリューションに追加し、エクスポート頂いたファイルをご提供下さい。<br>弊社環境にインポート出来るよう、依存関係のあるコンポーネント含めご提供をお願い致します。</p><div class="alert is-info"><p class="alert-title">Note</p><p>ソリューションのエクスポート手順は、以下記事に手順がございますのでご参照いただけますと幸いです。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a>  </p></div><p>ソリューションでのご提供が難しい場合、テキストファイルでのご提供をお願いいたします。</p><p>デスクトップ フローのデスクトップフローの編集画面から、エディタ領域をクリックしたのちアクションを全選択<code>Ctrl+A</code>し、コピー<code>Ctrl+C</code>し、テキストエディターに貼り付け<code>Ctrl+V</code>したファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow.png"><br>一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  </p><div class="alert is-warning"><p class="alert-title">警告</p><p>テキストでのご提供手順では入出力変数の定義やフロー内のアクションで使用していない UI 要素など一部の情報が含まれません。</p><p>エラーが発生しているアクションで入出力変数を使用している場合や、デスクトップ フロー全体の容量等を確認する必要がある場合は、弊社のサポートエンジニアからソリューションでの提供のご検討をお願いする場合がございます。</p></div><p><a id='anchor-desktopflow-url'></a></p><h2 id="12-デスクトップ-フローの実行履歴-URL"><a href="#12-デスクトップ-フローの実行履歴-URL" class="headerlink" title="12. デスクトップ フローの実行履歴 URL"></a>12. デスクトップ フローの実行履歴 URL</h2><ol><li>マイ フロー&gt;デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-url.png">  </li><li>URLをコピーしてご提供ください。<br>エラー時にフローが実行されず実行履歴に残っていない場合は、1 の画面のURLをコピーしてご提供下さい。</li></ol><p><a id='anchor-desktopflow-runhistory-screenshot'></a></p><h2 id="13-デスクトップ-フローの実行履歴の画面キャプチャ"><a href="#13-デスクトップ-フローの実行履歴の画面キャプチャ" class="headerlink" title="13. デスクトップ フローの実行履歴の画面キャプチャ"></a>13. デスクトップ フローの実行履歴の画面キャプチャ</h2><ol><li>「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。<ol><li>マイ フロー &gt; デスクトップ フローから該当のフローを選択します。</li><li>実行履歴から該当の日時を選択します。</li></ol></li><li>ページ全体の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-runhistory-screenshot.png"></li></ol><p><a id='anchor-desktopflow-runhistory-error-input-output'></a></p><h2 id="14-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細"><a href="#14-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細" class="headerlink" title="14. デスクトップ フローの実行履歴のエラー・入力・出力の詳細"></a>14. デスクトップ フローの実行履歴のエラー・入力・出力の詳細</h2><ol><li>「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。<ol><li>マイ フロー &gt; デスクトップ フローから該当のフローを選択します。</li><li>実行履歴から該当の日時を選択します。</li></ol></li><li>「アクションの詳細」パネルで、該当のアクションの「開始」列のリンクを押下します。</li></ol><p><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-runhistory-error-input-output.png"></p><p>【エラーの詳細】</p><ol><li>「エラーの詳細」のテキストをコピーし、テキスト ファイルへ保存します。</li><li>「エラーのコンテキスト」の画像を右クリック &gt; 名前を付けて画像を保存を押下します。</li><li>保存したテキスト ファイル、画像ファイルをご提供ください。</li></ol><p>【入力の詳細】</p><ol><li>「入力の詳細を確認します」のリンクを押下します。</li><li>表示された入力の内容をコピーし、テキスト ファイルへ保存します。</li><li>保存したテキスト ファイルをご提供ください。</li></ol><p>【出力の詳細】</p><ol><li>「出力の詳細を確認します」のリンクを押下します。</li><li>表示された出力の内容をコピーし、テキスト ファイルへ保存します。</li><li>保存したテキスト ファイルをご提供ください。</li></ol><p><a id='anchor-cloudflow-run-history-csv'></a></p><h2 id="15-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合"><a href="#15-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合" class="headerlink" title="15. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)"></a>15. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローの実行履歴もご提供ください。</p><ol><li>デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png"></li><li>「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png"></li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローの実行履歴 CSV の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div><p><a id='anchor-cloudflow-raw-input-output'></a></p><h2 id="16-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合"><a href="#16-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合" class="headerlink" title="16. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)"></a>16. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローのアクションの未加工入力・未加工出力もご提供ください。<br>実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。<br>未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">  </p><div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローのアクションの未加工入力・出力の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-raw-input-output">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div><p><a id='anchor-installer-log'></a></p><h2 id="17-インストーラー-ログ"><a href="#17-インストーラー-ログ" class="headerlink" title="17. インストーラー ログ"></a>17. インストーラー ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/desktop-flows/how-to-get-power-automate-desktop-installer-logs#installer-logs">インストーラー ログ</a></p><hr><h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p><hr>]]>
+      <![CDATA[<p>こんにちは。Power Platform サポートの大友、林、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p><span id="more"></span><h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol><li><a href="#anchor-intro">概要</a></li><li><a href="#anchor-how-to-collect">情報取得手順詳細</a><ol><li><a href="#anchor-pad-version">Power Automate for desktop のバージョン</a></li><li><a href="#anchor-os-version">OS のバージョン</a></li><li><a href="#anchor-computer-log">コンピューター ログ</a></li><li><a href="#anchor-analysis-result">トラブルシューティングの診断実行結果</a></li><li><a href="#anchor-verbose-log">詳細ログ</a></li><li><a href="#anchor-event-log">イベントログ</a></li><li><a href="#anchor-fiddler-log">Fiddler ログ</a></li><li><a href="#anchor-machine-information">マシン登録の情報</a></li><li><a href="#anchor-remote-desktop-setting">リモートデスクトップ設定</a></li><li><a href="#anchor-registry-setting">Power Automate for desktop のレジストリ設定</a></li><li><a href="#anchor-desktopflow">Power Automate for desktop のフロー</a></li><li><a href="#anchor-desktopflow-url">デスクトップ フローの実行履歴 URL</a></li><li><a href="#anchor-desktopflow-runhistory-screenshot">デスクトップ フローの実行履歴の画面キャプチャ</a></li><li><a href="#anchor-desktopflow-runhistory-error-input-output">デスクトップ フローの実行履歴のエラー・入力・出力の詳細</a></li><li><a href="#anchor-cloudflow-run-history-csv">クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</a></li><li><a href="#anchor-cloudflow-raw-input-output">クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</a></li><li><a href="#anchor-installer-log">インストーラー ログ</a></li><li><a href="#proxy-settings">プロキシ設定</a></li></ol></li></ol><p><a id='anchor-intro'></a></p><h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>Power Automate for desktop に関するサポートサービスのお問い合わせの際の、情報取得手順についてご案内致します。</p><p><a id='anchor-how-to-collect'></a></p><h1 id="情報取得手順詳細"><a href="#情報取得手順詳細" class="headerlink" title="情報取得手順詳細"></a>情報取得手順詳細</h1><p><a id='anchor-pad-version'></a></p><h2 id="1-Power-Automate-for-desktop-のバージョン"><a href="#1-Power-Automate-for-desktop-のバージョン" class="headerlink" title="1. Power Automate for desktop のバージョン"></a>1. Power Automate for desktop のバージョン</h2><p>Power Automate for desktop のバージョンが確認できる画面キャプチャをご提供ください。</p><ol><li>Power Automate for desktop &gt; ヘルプ &gt; バージョン情報 を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version.png"></li><li>コピーの詳細を選択し、テキストエディターに貼り付け<code>Ctrl+V</code>したファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/pad-version2.png"></li></ol><p><a id='anchor-os-version'></a></p><h2 id="2-OS-のバージョン"><a href="#2-OS-のバージョン" class="headerlink" title="2. OS のバージョン"></a>2. OS のバージョン</h2><p>OS のバージョンが確認できる以下の画面キャプチャを取得しご提供ください。</p><ul><li>システム &gt; バージョン情報<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/os-version1.png"></li></ul><p><a id='anchor-computer-log'></a></p><h2 id="3-コンピューター-ログ"><a href="#3-コンピューター-ログ" class="headerlink" title="3. コンピューター ログ"></a>3. コンピューター ログ</h2><p>Power Automate コンピューター ランタイムをご利用いただいている場合は <strong>a‐1</strong> の方法から、ご利用いただけない場合は <strong>a‐2</strong> の方法からログを取得してご提供ください。  </p><p>デスクトップフロー実行時にエラーが発生する場合は、RunDefinition.json ファイルと Actions.log ファイルを保持するレジストリを登録いただき、<strong>b</strong> のログも併せてご提供ください。  </p><h3 id="a-Power-Automate-for-desktop-動作ログ"><a href="#a-Power-Automate-for-desktop-動作ログ" class="headerlink" title="a) Power Automate for desktop 動作ログ"></a>a) Power Automate for desktop 動作ログ</h3><ol><li>Power Automate コンピュータ ランタイムからログを収集<br>フロー実行後のログの出力に関して、過去 3 日間のログが Power Automate コンピューター ランタイムから出力いただけます。<br>Power Automate コンピュータ ランタイムからエクスポートした zip ファイルをご提供ください。<br>Power Automate コンピュータ ランタイム &gt; トラブルシューティング &gt; ログのエクスポート を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log.png">  <div class="alert is-info"><p class="alert-title">Note</p><p>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/troubleshoot#collect-machine-logs">デスクトップ フローのトラブルシューティング - Power Automate | Microsoft Learn</a></p></div></li><li>管理者権限のあるアカウントでフォルダからログを収集<br>管理者権限のあるアカウントで以下のフォルダ内にあるファイルを zip ファイルにまとめてご提供ください。<br>フォルダ：<code>%ProgramData%\Microsoft\Power Automate\Logs</code></li></ol><h3 id="b-デスクトップフロー実行詳細ログおよびアクション詳細ログ"><a href="#b-デスクトップフロー実行詳細ログおよびアクション詳細ログ" class="headerlink" title="b) デスクトップフロー実行詳細ログおよびアクション詳細ログ"></a>b) デスクトップフロー実行詳細ログおよびアクション詳細ログ</h3><p>以下のレジストリを登録いただきマシンを再起動した上で、以下でご案内するフォルダに格納されているファイルを取得してご提供ください。</p><ol><li>以下の公開情報を参考に、必要となるレジストリを登録いただきマシンを再起動致します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log2.png"><div class="alert is-info"><p class="alert-title">Note</p><p>公開情報にも手順の記載がございますので、ご参照いただけますと幸いです。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/governance#configure-power-automate-for-desktop-to-keep-the-flow-run-details">Power Automate でのガバナンス - Power Automate | Microsoft Learn</a></p></div></li></ol><div class="alert is-warning"><p class="alert-title">警告</p><p>こちらのレジストリを有効にした状態のままご運用頂くと端末のストレージを逼迫させる場合があります。</p><p>情報ご取得後はレジストリの無効化をお勧め致します。</p></div><ol start="2"><li>事象を再現致します。</li><li>ファイルをご取得ください。<br>以下のフォルダに格納されているファイルを取得し、ご提供ください。<br><code>%localappdata%\Microsoft\Power Automate Desktop\Scripts\{scriptid}\Runs\{runid}</code><br><code>{ScriptId}</code> にはデスクトップ フローの ID を、<code>{RunId}</code> にはフローの実行 ID を挿入します。<ul><li>RunDefinition.json：デスクトップ フローの実行詳細が記録されたログです。</li><li>Actions.log：デスクトップ フローに設定された各アクションの実行詳細が記録されたログです。</li></ul></li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>デスクトップフローの ID とフローの実行 ID はPower Automateポータルのデスクトップ フローの実行履歴のURLより確認いただけます。</p><p><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/computer-log3.png"></p></div><p><a id='anchor-analysis-result'></a></p><h2 id="4-トラブルシューティングの診断実行結果"><a href="#4-トラブルシューティングの診断実行結果" class="headerlink" title="4. トラブルシューティングの診断実行結果"></a>4. トラブルシューティングの診断実行結果</h2><ol><li>Power Automate for desktop &gt; ヘルプ &gt; トラブルシューティング を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png"></li><li>事象に関連する診断の”実行”を選択してください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result2.png"></li><li>表示された画面のスクリーンショットおよび画面右下部から生成されるレポートCSVファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result3.png"></li></ol><p><a id='anchor-verbose-log'></a></p><h2 id="5-詳細ログ"><a href="#5-詳細ログ" class="headerlink" title="5. 詳細ログ"></a>5. 詳細ログ</h2><ol><li>Power Automate for desktop &gt; ヘルプ &gt; トラブルシューティング を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/analysis-result1.png"></li><li>“詳細なログ” をオンにします。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log1.png"></li><li>発生している事象を再現させてください。  </li><li>“詳細なログ” をオフにし、”ログのエクスポート” からエクスポートされた zip ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/verbose-log2.png"></li></ol><p><a id='anchor-event-log'></a></p><h2 id="6-イベントログ"><a href="#6-イベントログ" class="headerlink" title="6. イベントログ"></a>6. イベントログ</h2><ol><li><p>Windows にインストールされている “イベントビューアー” を実行してください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log1.png"></p></li><li><p>アプリケーションログの採取<br>Windows ログ &gt; Application を選択します。<br>画面右部 “現在のログをフィルター…” から事象発生日時が含まれるようフィルター処理を設定してください。<br>画面右部 “フィルターされたログ ファイルの名前を付けて保存…” から保存された evtx ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log2.png"></p></li><li><p>システムログの採取<br>Windows ログ &gt; システム を選択します。<br>画面右部 “現在のログをフィルター…” から事象発生日時が含まれるようフィルター処理を設定してください。<br>画面右部 “フィルターされたログ ファイルの名前を付けて保存…” から保存された evtx ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/event-log3.png"></p></li></ol><p>なお、イベントログについては、下記の公開情報にも記載がございます。<br><a href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/desktop-flows/how-to-get-power-automate-desktop-installer-logs#event-viewer-logs">ログのイベント ビューアー</a>  </p><p><a id='anchor-fiddler-log'></a></p><h2 id="7-Fiddler-ログ"><a href="#7-Fiddler-ログ" class="headerlink" title="7. Fiddler ログ"></a>7. Fiddler ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a href="https://learn.microsoft.com/ja-jp/power-query/web-connection-fiddler">Fiddler ログの採取手順 (microsoft.com)</a></p><p>なお、情報取得の際はキャプチャ対象を <strong>Non-Browser</strong> に変更いただくようお願いいたします。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/fiddler-nonbrowser.png"></p><p><a id='anchor-machine-information'></a></p><h2 id="8-マシン登録の情報"><a href="#8-マシン登録の情報" class="headerlink" title="8. マシン登録の情報"></a>8. マシン登録の情報</h2><p>Power Automate ポータルの画面 &gt; 監視 &gt; マシン<br>該当のコンピューターの詳細画面の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/machine-information.png"></p><p><a id='anchor-remote-desktop-setting'></a></p><h2 id="9-リモート-デスクトップ設定"><a href="#9-リモート-デスクトップ設定" class="headerlink" title="9. リモート デスクトップ設定"></a>9. リモート デスクトップ設定</h2><p>実行される端末の以下リモート デスクトップの設定の画面キャプチャをご提供ください。</p><ul><li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting2.png"></li><li>実行される端末 &gt; システムのプロパティ &gt; リモートデスクトップ &gt; ユーザーの選択<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/remote-desktop-setting3.png"></li></ul><p><a id='anchor-registry-setting'></a></p><h2 id="10-Power-Automate-for-desktop-のレジストリ設定"><a href="#10-Power-Automate-for-desktop-のレジストリ設定" class="headerlink" title="10. Power Automate for desktop のレジストリ設定"></a>10. Power Automate for desktop のレジストリ設定</h2><ul><li><p>レジストリ内容<br>以下のコマンドを実行し、出力結果をご提供ください。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reg query &quot;HKLM\Software\Microsoft\Power Automate Desktop&quot; /s</span><br><span class="line">reg query &quot;HKLM\Software\Wow6432Node\Microsoft\Power Automate Desktop&quot; /s</span><br></pre></td></tr></table></figure></li><li><p>サービスアカウントをご利用の場合<br>上記に加えてレジストリの以下キーのセキュリティ画面キャプチャもご提供ください。<br><code>コンピューター\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Power Automate Desktop\Registration</code> &gt; Registration キーを右クリック &gt; アクセス許可 &gt; 詳細設定<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/registry-setting3.png"></p></li></ul><p><a id='anchor-desktopflow'></a></p><h2 id="11-Power-Automate-for-desktop-のフロー"><a href="#11-Power-Automate-for-desktop-のフロー" class="headerlink" title="11. Power Automate for desktop のフロー"></a>11. Power Automate for desktop のフロー</h2><p>デスクトップフロー本体をソリューションに追加し、エクスポート頂いたファイルをご提供下さい。<br>弊社環境にインポート出来るよう、依存関係のあるコンポーネント含めご提供をお願い致します。</p><div class="alert is-info"><p class="alert-title">Note</p><p>ソリューションのエクスポート手順は、以下記事に手順がございますのでご参照いただけますと幸いです。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowpackage-in-solution">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a>  </p></div><p>ソリューションでのご提供が難しい場合、テキストファイルでのご提供をお願いいたします。</p><p>デスクトップ フローのデスクトップフローの編集画面から、エディタ領域をクリックしたのちアクションを全選択<code>Ctrl+A</code>し、コピー<code>Ctrl+C</code>し、テキストエディターに貼り付け<code>Ctrl+V</code>したファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow.png"><br>一度にコピーできるフローは 1 つだけであるため、フロー内に複数のサブフローがある場合は、サブフローごとに上記の手順を繰り返し、アクションを個別のテキスト ファイルに保存した上でご提供ください。  </p><div class="alert is-warning"><p class="alert-title">警告</p><p>テキストでのご提供手順では入出力変数の定義やフロー内のアクションで使用していない UI 要素など一部の情報が含まれません。</p><p>エラーが発生しているアクションで入出力変数を使用している場合や、デスクトップ フロー全体の容量等を確認する必要がある場合は、弊社のサポートエンジニアからソリューションでの提供のご検討をお願いする場合がございます。</p></div><p><a id='anchor-desktopflow-url'></a></p><h2 id="12-デスクトップ-フローの実行履歴-URL"><a href="#12-デスクトップ-フローの実行履歴-URL" class="headerlink" title="12. デスクトップ フローの実行履歴 URL"></a>12. デスクトップ フローの実行履歴 URL</h2><ol><li>マイ フロー&gt;デスクトップ フローから該当のフローを選択します。実行履歴から該当の日時を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-url.png">  </li><li>URLをコピーしてご提供ください。<br>エラー時にフローが実行されず実行履歴に残っていない場合は、1 の画面のURLをコピーしてご提供下さい。</li></ol><p><a id='anchor-desktopflow-runhistory-screenshot'></a></p><h2 id="13-デスクトップ-フローの実行履歴の画面キャプチャ"><a href="#13-デスクトップ-フローの実行履歴の画面キャプチャ" class="headerlink" title="13. デスクトップ フローの実行履歴の画面キャプチャ"></a>13. デスクトップ フローの実行履歴の画面キャプチャ</h2><ol><li>「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。<ol><li>マイ フロー &gt; デスクトップ フローから該当のフローを選択します。</li><li>実行履歴から該当の日時を選択します。</li></ol></li><li>ページ全体の画面キャプチャをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-runhistory-screenshot.png"></li></ol><p><a id='anchor-desktopflow-runhistory-error-input-output'></a></p><h2 id="14-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細"><a href="#14-デスクトップ-フローの実行履歴のエラー・入力・出力の詳細" class="headerlink" title="14. デスクトップ フローの実行履歴のエラー・入力・出力の詳細"></a>14. デスクトップ フローの実行履歴のエラー・入力・出力の詳細</h2><ol><li>「9. デスクトップ フローの実行履歴 URL」と同じ手順で実行履歴の画面を表示します。<ol><li>マイ フロー &gt; デスクトップ フローから該当のフローを選択します。</li><li>実行履歴から該当の日時を選択します。</li></ol></li><li>「アクションの詳細」パネルで、該当のアクションの「開始」列のリンクを押下します。</li></ol><p><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/desktopflow-runhistory-error-input-output.png"></p><p>【エラーの詳細】</p><ol><li>「エラーの詳細」のテキストをコピーし、テキスト ファイルへ保存します。</li><li>「エラーのコンテキスト」の画像を右クリック &gt; 名前を付けて画像を保存を押下します。</li><li>保存したテキスト ファイル、画像ファイルをご提供ください。</li></ol><p>【入力の詳細】</p><ol><li>「入力の詳細を確認します」のリンクを押下します。</li><li>表示された入力の内容をコピーし、テキスト ファイルへ保存します。</li><li>保存したテキスト ファイルをご提供ください。</li></ol><p>【出力の詳細】</p><ol><li>「出力の詳細を確認します」のリンクを押下します。</li><li>表示された出力の内容をコピーし、テキスト ファイルへ保存します。</li><li>保存したテキスト ファイルをご提供ください。</li></ol><p><a id='anchor-cloudflow-run-history-csv'></a></p><h2 id="15-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合"><a href="#15-クラウド-フローの実行履歴-CSV-クラウドフローから呼び出している場合" class="headerlink" title="15. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)"></a>15. クラウド フローの実行履歴 CSV (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローの実行履歴もご提供ください。</p><ol><li>デスクトップ フローを呼び出したクラウドフローの詳細画面を開き、「28 日間の実行履歴」から「すべての実行」を選択します。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv.png"></li><li>「.csv ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-run-history-csv2.png"></li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローの実行履歴 CSV の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-flowrunhistory-csv">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div><p><a id='anchor-cloudflow-raw-input-output'></a></p><h2 id="16-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合"><a href="#16-クラウド-フローのアクションの未加工入力・出力-クラウドフローから呼び出している場合" class="headerlink" title="16. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)"></a>16. クラウド フローのアクションの未加工入力・出力 (クラウドフローから呼び出している場合)</h2><p>デスクトップフローをクラウドフローから呼び出している場合は、クラウドフローのアクションの未加工入力・未加工出力もご提供ください。<br>実行履歴から「デスクトップ用 Power Automate で構築したフローを実行する」アクション等のデスクトップ フローを呼び出すアクションを展開します。<br>未加工入力および未加工出力として表示されるテキストをコピーし、ご提供ください。<br><img src="/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/cloudflow-raw-input-output.png">  </p><div class="alert is-info"><p class="alert-title">Note</p><p>クラウド フローのアクションの未加工入力・出力の取得方法は、以下記事にも手順が掲載されております。</p><p><a href="https://jpdynamicscrm.github.io/blog/powerautomate/helpful-information-for-powerautomate-sr/#anchor-raw-input-output">Power Automate お問い合わせの際の情報取得手順 | Japan Dynamics CRM &amp; Power Platform Support Blog (jpdynamicscrm.github.io)</a></p></div><p><a id='anchor-installer-log'></a></p><h2 id="17-インストーラー-ログ"><a href="#17-インストーラー-ログ" class="headerlink" title="17. インストーラー ログ"></a>17. インストーラー ログ</h2><p>以下の採取手順をご確認の上でログファイルをご提供ください。<br><a href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/desktop-flows/how-to-get-power-automate-desktop-installer-logs#installer-logs">インストーラー ログ</a></p><p><a id='proxy-settings'></a></p><h2 id="18-プロキシ設定"><a href="#18-プロキシ設定" class="headerlink" title="18. プロキシ設定"></a>18. プロキシ設定</h2><p>プロキシ設定の確認のため、以下の情報をご提供ください。</p><ol><li><p>Windows のプロキシ設定<br>以下のコマンドを実行し、出力結果をご提供ください。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg query &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot;</span><br></pre></td></tr></table></figure></li><li><p>Power Automate for desktop のプロキシ設定 (レジストリ)<br>  <a href="#anchor-registry-setting">Power Automate for desktop のレジストリ設定</a> を参照し、出力結果をご提供ください。</p></li><li><p>Power Automate for desktop のプロキシ設定 (設定ファイル)<br><code>C:\Program Files (x86)\Power Automate Desktop</code> 配下の以下のファイルをご提供ください。</p><ol><li>PAD.Proxy.config</li><li>UIFlowService.Proxy.config</li><li>Microsoft.Flow.RPA.LogShipper.Proxy.config</li><li>Microsoft.Flow.RPA.UpdateService.Proxy.config</li></ol></li></ol><hr><h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p><hr>]]>
     </content>
     <id>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/</id>
     <link href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-helpful-information-for-sr/"/>
     <published>2025-10-29T03:00:00.000Z</published>
     <summary>
-      <![CDATA[<p>こんにちは。Power Platform サポートの大友、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
+      <![CDATA[<p>こんにちは。Power Platform サポートの大友、林、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-06-02T08:24:55.515Z</updated>
+    <updated>2026-06-09T08:27:42.901Z</updated>
   </entry>
   <entry>
     <author>
@@ -542,7 +542,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-06-02T08:24:55.551Z</updated>
+    <updated>2026-06-09T08:27:42.944Z</updated>
   </entry>
   <entry>
     <author>
@@ -571,6 +571,6 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-06-02T08:24:55.451Z</updated>
+    <updated>2026-06-09T08:27:42.826Z</updated>
   </entry>
 </feed>
