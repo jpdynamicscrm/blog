@@ -11,7 +11,7 @@ categories:
   - [Power Apps, Canvas app]
 ---
 
-こんにちは、Power Platform サポートチームの村田です。
+こんにちは、Power Platform サポートチームの村田です。<br/>
 
 本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、**アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい** というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。
 
@@ -30,8 +30,7 @@ categories:
   - [4-1. パフォーマンス](#4-1-パフォーマンス)
   - [4-2. コネクタ・フローの実行制限](#4-2-コネクタ・フローの実行制限)
   - [4-3. フローからアプリへの応答時間の制限](#4-3-フローからアプリへの応答時間の制限)
-  - [4-4. 監査・運用継続性](#4-4-監査・運用継続性)
-- [補足](#5-補足)
+- [補足：厳格な監査要件への対応（Microsoft Dataverse の活用）](#5-補足：厳格な監査要件への対応)
 
 <a id='1-概要'></a>
 
@@ -161,28 +160,13 @@ ClearCollect(
 
 [非同期応答の使用 - Power Automate | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-automate/guidance/coding-guidelines/asychronous-flow-pattern)
 
-<a id='4-4-監査・運用継続性'></a>
+<a id='5-補足：厳格な監査要件への対応'></a>
 
-### 4-4. 監査・運用継続性
+## 補足：Microsoft Dataverse の活用による監査要件への対応
+「誰が、いつ、どのレコードを 作成/更新/削除 したか」を確実に追跡する必要がある場合は、データソースとして Microsoft Dataverse をご採用いただくことを推奨します。<br/>
+Dataverse の監査機能では、レコードの変更内容やユーザーによるアクセスをログとして記録可能なため、外部監査・コンプライアンス・ガバナンスの各ポリシーへの対応をサポートします。<br/>
+あわせて、セキュリティロールによる テーブル単位/レコード単位 のアクセス制御や、列レベルセキュリティによる機密項目の保護を組み合わせることで、利用者に過剰な権限を付与することなく、参照範囲を適切に制御することが可能です。
 
-データソースへのアクセスが、埋め込まれた接続で利用している認証情報の権限で行われるため、以下の点にご留意ください。
-
-- データソース側の監査ログでは「誰が参照したか」を追跡できない
-- 認証で利用されているアカウントが無効化されると、該当箇所のデータ取得が停止する可能性がある
-
-> [!NOTE]
-> <監査要件が厳しい場合は Dataverse のご利用をご検討ください>
-> 「誰が、いつ、どのレコードを参照/更新したか」を確実に把握する必要がある場合は、データソースとして Microsoft Dataverse の採用をおすすめします。
-> レコード単位の監査ログ、セキュリティロールによる行/列レベルのアクセス制御など、本記事の迂回構成に頼らず標準機能でガバナンス要件を満たせます。
-> [Microsoft Dataverse とは - Microsoft Learn](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/data-platform-intro)
-> [Dataverse の監査の管理 - Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-dataverse-auditing)
-> [セキュリティ ロールとアクセス許可 - Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges)
-
-<a id='5-補足'></a>
-
-## 補足
-
-本手順は執筆時点の製品動作および UI に基づいてご紹介しています。
-今後のバージョンアップにより画面遷移や設定項目の名称が変わる場合がありますので、その際は画面の表示に沿って進めてください。
-
-同様のご要件をお持ちのお客様の参考になれば幸いです。
+- [Microsoft Dataverse とは - Microsoft Learn](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/data-platform-intro)
+- [Dataverse の監査の管理 - Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-dataverse-auditing)
+- [セキュリティ ロールとアクセス許可 - Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges)
