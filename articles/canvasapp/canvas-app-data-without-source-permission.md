@@ -15,6 +15,8 @@ categories:
 
 本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、**アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい** というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。
 
+<!-- more -->
+
 > [!NOTE]
 > 本記事では Excel Online (Business) コネクタを例にご説明しますが、SharePoint コネクタに置き換えれば、SharePoint リストに対しても同様の構成を適用いただけます。
 
