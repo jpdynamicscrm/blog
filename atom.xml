@@ -18,7 +18,33 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-06-09T08:27:43.007Z</updated>
+  <updated>2026-06-11T09:02:02.198Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
+    <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
+    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
+    <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの村田です。<br/></p><p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p><span id="more"></span><div class="alert is-info"><p class="alert-title">Note</p><p>本記事では Excel Online (Business) コネクタを例にご説明しますが、SharePoint コネクタに置き換えれば、SharePoint リストに対しても同様の構成を適用いただけます。</p></div><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#1-%E6%A6%82%E8%A6%81">1. 概要</a></li><li><a href="#2-%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AE%E5%88%B6%E9%99%90">2. キャンバスアプリからコネクタを利用して接続する場合の制限</a></li><li><a href="#3-%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E7%B5%8C%E7%94%B1%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%8F%82%E7%85%A7%E3%81%95%E3%81%9B%E3%82%8B%E6%96%B9%E6%B3%95">3. クラウドフロー経由でデータを参照させる方法</a><ul><li><a href="#3-1-%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%96%E5%BE%97%E7%94%A8%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">3-1. データ取得用のクラウドフローを作成する</a></li><li><a href="#3-2-Power%20Apps%20%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%A6%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B">3-2. Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する</a></li><li><a href="#3-3-%E3%80%8C%E5%AE%9F%E8%A1%8C%E3%81%AE%E3%81%BF%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%80%8D%E8%A8%AD%E5%AE%9A%E3%81%A7%E6%8E%A5%E7%B6%9A%E3%82%92%E5%9B%BA%E5%AE%9A%E3%81%99%E3%82%8B">3-3. 「実行のみのユーザー」設定で接続を固定する</a></li></ul></li><li><a href="#4-%E6%8E%A1%E7%94%A8%E5%89%8D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E6%B3%A8%E6%84%8F%E7%82%B9">4. 採用前に確認しておきたい注意点</a><ul><li><a href="#4-1-%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9">4-1. パフォーマンス</a></li><li><a href="#4-2-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%BB%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%AE%9F%E8%A1%8C%E5%88%B6%E9%99%90">4-2. コネクタ・フローの実行制限</a></li><li><a href="#4-3-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%81%B8%E3%81%AE%E5%BF%9C%E7%AD%94%E6%99%82%E9%96%93%E3%81%AE%E5%88%B6%E9%99%90">4-3. フローからアプリへの応答時間の制限</a></li></ul></li><li><a href="#%E8%A3%9C%E8%B6%B3%EF%BC%9AMicrosoft%20Dataverse%20%E3%81%AE%E6%B4%BB%E7%94%A8%E3%81%AB%E3%82%88%E3%82%8B%E7%9B%A3%E6%9F%BB%E8%A6%81%E4%BB%B6%E3%81%B8%E3%81%AE%E5%AF%BE%E5%BF%9C">補足：Microsoft Dataverse の活用による監査要件への対応</a></li></ul><p><a id='1-概要'></a></p><h2 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h2><p>Power Apps キャンバスアプリから Excel Online (Business) や SharePoint などのコネクタを使ってデータソースに接続する場合、その接続は <strong>アプリ利用者の権限</strong> で動作します。<br>そのため、アプリ上でデータを表示するには、<strong>利用者本人にデータソース（Excel ファイルや SharePoint リスト）へのアクセス権限を付与しておく必要</strong> があります。</p><p>一方で、<strong>「Excel ファイルで管理しているマスタデータをアプリの利用ユーザーに閲覧させたいが、データソース自体へのアクセス権は付与したくない」</strong> というご要望をいただくことが少なくありません。</p><p>このような場合は、アプリから直接データソースに接続するのではなく、Power Automate のクラウドフローを経由してデータを取得する構成にすることで、<strong>アプリ利用者にはデータソースへの権限を付与せずに、画面上にデータを表示する</strong> ことができます。</p><p>本記事では、この構成の具体的な手順と、採用前に押さえておきたい注意点をあわせてご紹介します。</p><p><a id='2-キャンバスアプリからコネクタを利用して接続する場合の制限'></a></p><h2 id="2-キャンバスアプリからコネクタを利用して接続する場合の制限"><a href="#2-キャンバスアプリからコネクタを利用して接続する場合の制限" class="headerlink" title="2. キャンバスアプリからコネクタを利用して接続する場合の制限"></a>2. キャンバスアプリからコネクタを利用して接続する場合の制限</h2><p>前章で述べたとおり、Power Apps から Excel Online (Business) や SharePoint などのコネクタに直接接続すると、その接続はアプリを開いた利用者本人の権限で動作するため、事前に利用者にデータソースの権限を付与する必要があります。<br>さらに Excel Online (Business) コネクタは以下の公開情報のとおり、ファイルに対する <strong>書き込み権限</strong> を必要とします。<br/><br>アプリ側では「閲覧用に表示するだけ」のご利用であっても、コネクタとしては書き込み相当の権限が要求されます。</p><p><a href="https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#general-known-issues-and-limitations">Excel Online (Business) connector - 一般的な既知の問題と制限事項 - Microsoft Learn</a></p><p>SharePoint コネクタの場合は、リストに対する閲覧権限でもデータ取得は可能ですが、いずれにせよ利用者に対して権限を付与する運用は避けられません。</p><p>このように <strong>Power Apps からコネクタに直接接続すると、利用者全員にデータソースへの権限を割り当てる必要が生じる</strong> ため、運用上の懸念につながります。</p><p><a id='3-クラウドフロー経由でデータを参照させる方法'></a></p><h2 id="3-クラウドフロー経由でデータを参照させる方法"><a href="#3-クラウドフロー経由でデータを参照させる方法" class="headerlink" title="3. クラウドフロー経由でデータを参照させる方法"></a>3. クラウドフロー経由でデータを参照させる方法</h2><p>Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成にすると、フロー側のコネクタの接続参照について以下のいずれかを選択できます。</p><ul><li>フローを実行したユーザー（＝アプリ利用者）の接続を使用する</li><li>フロー作成者など、<strong>特定のユーザーの接続を使用する</strong></li></ul><p>後者の設定で構成することで、アプリの利用者にかかわらず、Excel ファイルへの実際のアクセスはフローに紐づく特定ユーザー（データソースの権限を持つユーザー）の接続で行われます。<br>これにより、<strong>アプリ利用者本人は Excel ファイルへの権限を一切持たなくても、フロー経由でデータを取得して画面に表示</strong> できるようになります。</p><p>以下に、具体的な構築手順を Excel Online (Business) コネクタを例にご紹介します。</p><p><a id='3-1-データ取得用のクラウドフローを作成する'></a></p><h3 id="3-1-データ取得用のクラウドフローを作成する"><a href="#3-1-データ取得用のクラウドフローを作成する" class="headerlink" title="3-1. データ取得用のクラウドフローを作成する"></a>3-1. データ取得用のクラウドフローを作成する</h3><p>Power Automate でデータ取得用のクラウドフローを作成します。<br>「Power Apps がフローを呼び出したとき (V2)」トリガーを使ったフローを作成し、「Excel Online (Business) 」コネクタで対象のテーブルからデータを取得したうえで、「Power App またはフローに応答する」アクションで結果をアプリ側へ返します。<br/><br>以下のサンプルでは、Excel テーブルから全行を取得し、JSON 文字列としてアプリに返却しています。</p><p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-1-flow-design.png" alt="データ取得用のクラウドフローを作成"></p><p><a id='3-2-Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する'></a></p><h3 id="3-2-Power-Apps-キャンバスアプリからクラウドフローを呼び出してコレクションに格納する"><a href="#3-2-Power-Apps-キャンバスアプリからクラウドフローを呼び出してコレクションに格納する" class="headerlink" title="3-2. Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する"></a>3-2. Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する</h3><p>アプリ側では、作成したクラウドフローを呼び出し、戻り値をコレクションとして保持してギャラリー等から参照する形にします。<br>フローの呼び出しは、例えば <code>OnSelect</code> などボタンをクリックしたときに実行する形が考えられます。<br>以下は、3 列のデータを受け取ってコレクションに格納するサンプルです。</p><p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-2-app-onselect-formula.png" alt="OnSelect でクラウドフローを呼び出してコレクションに格納"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Set(FlowOutput, Text(&#x27;Excelデータ取得&#x27;.Run().output));</span><br><span class="line">ClearCollect(</span><br><span class="line">    FlowOutput_Table,</span><br><span class="line">    ForAll(</span><br><span class="line">        ParseJSON(FlowOutput),</span><br><span class="line">        &#123;</span><br><span class="line">            col1: Text(ThisRecord.col1),</span><br><span class="line">            col2: Value(ThisRecord.col2),</span><br><span class="line">            col3: Value(ThisRecord.col3)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p><code>ParseJSON</code> 関数の詳細については、下記の公開情報をご参照ください。</p><p><a href="https://learn.microsoft.com/ja-jp/power-platform/power-fx/reference/function-parsejson">ParseJSON 関数 - Microsoft Learn</a></p><p>ギャラリーの <code>Items</code> など、データソースを参照する箇所で上記のコレクションを指定します。</p><p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-2-app-gallery-items.png" alt="ギャラリーの Items にコレクションを指定"></p><p><a id='3-3-「実行のみのユーザー」設定で接続を固定する'></a></p><h3 id="3-3-「実行のみのユーザー」設定で接続を固定する"><a href="#3-3-「実行のみのユーザー」設定で接続を固定する" class="headerlink" title="3-3. 「実行のみのユーザー」設定で接続を固定する"></a>3-3. 「実行のみのユーザー」設定で接続を固定する</h3><p>作成したフローの詳細画面を開き、<strong>「実行のみのユーザー」</strong> の編集画面で、Excel Online (Business) の使用する接続を <strong>「この接続 (XXXXX) を使用する」（＝データソースの権限を持つユーザーの接続に固定）</strong> に変更します。</p><p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-3-flow-connection.png" alt="実行専用アクセス許可で接続を固定"></p><p>この設定により、フローが呼び出された際の Excel への実際のアクセスは、常にここで固定した接続を経由して行われるようになります。</p><p><a id='4-採用前に確認しておきたい注意点'></a></p><h2 id="4-採用前に確認しておきたい注意点"><a href="#4-採用前に確認しておきたい注意点" class="headerlink" title="4. 採用前に確認しておきたい注意点"></a>4. 採用前に確認しておきたい注意点</h2><p>本構成は便利な一方で、アプリから直接データソースに接続する場合と比べていくつかのトレードオフがあります。<br>採用前にぜひご確認ください。</p><p><a id='4-1-パフォーマンス'></a></p><h3 id="4-1-パフォーマンス"><a href="#4-1-パフォーマンス" class="headerlink" title="4-1. パフォーマンス"></a>4-1. パフォーマンス</h3><p>アプリ → フロー → コネクタ → ファイル と経由する処理が増えるため、<strong>直接接続に比べてオーバーヘッドが発生</strong> します。<br>取得列を絞る、必要なタイミングでのみ呼び出す、フロー側で集計してから返す、といった工夫をご検討ください。</p><p><a id='4-2-コネクタ・フローの実行制限'></a></p><h3 id="4-2-コネクタ・フローの実行制限"><a href="#4-2-コネクタ・フローの実行制限" class="headerlink" title="4-2. コネクタ・フローの実行制限"></a>4-2. コネクタ・フローの実行制限</h3><p>アプリの利用者が多い場合、データの取得処理が <strong>対象のコネクタやフローに集中</strong> するため、それらの実行制限に到達しやすくなります。<br>たとえば Excel Online (Business) コネクタには、100 リクエスト &#x2F; 60 秒 といった呼び出し回数の制限が設けられています。<br>利用者数や呼び出し頻度が多くなる構成では、コネクタやフローの制限値を事前にご確認ください。</p><p><a href="https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#limits">Excel オンライン (ビジネス) - Connectors | Microsoft Learn</a></p><p><a id='4-3-フローからアプリへの応答時間の制限'></a></p><h3 id="4-3-フローからアプリへの応答時間の制限"><a href="#4-3-フローからアプリへの応答時間の制限" class="headerlink" title="4-3. フローからアプリへの応答時間の制限"></a>4-3. フローからアプリへの応答時間の制限</h3><p>フローからアプリにデータを返す場合、<strong>フローの呼び出しから応答までに 120 秒という時間制限</strong> があります。<br>取得データ量が多い場合やフロー内の処理が長くなる場合は、この制限によりタイムアウトする可能性があります。<br/><br>長時間の処理が見込まれる場合は、以下の公開情報で紹介されている非同期応答パターンの採用もご検討ください。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/guidance/coding-guidelines/asychronous-flow-pattern">非同期応答の使用 - Power Automate | Microsoft Learn</a></p><p><a id='補足：Microsoft Dataverse の活用による監査要件への対応'></a></p><h2 id="補足：Microsoft-Dataverse-の活用による監査要件への対応"><a href="#補足：Microsoft-Dataverse-の活用による監査要件への対応" class="headerlink" title="補足：Microsoft Dataverse の活用による監査要件への対応"></a>補足：Microsoft Dataverse の活用による監査要件への対応</h2><p>「誰が、いつ、どのレコードを 作成&#x2F;更新&#x2F;削除 したか」を確実に追跡する必要がある場合は、データソースとして Microsoft Dataverse をご採用いただくことを推奨します。<br/><br>Dataverse の監査機能では、レコードの変更内容やユーザーによるアクセスをログとして記録可能なため、外部監査・コンプライアンス・ガバナンスの各ポリシーへの対応をサポートします。<br/><br>あわせて、セキュリティロールによる テーブル単位&#x2F;レコード単位 のアクセス制御や、列レベルセキュリティによる機密項目の保護を組み合わせることで、利用者に過剰な権限を付与することなく、参照範囲を適切に制御することが可能です。</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/data-platform-intro">Microsoft Dataverse とは - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-dataverse-auditing">Dataverse の監査の管理 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールとアクセス許可 - Microsoft Learn</a></li></ul>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/"/>
+    <published>2026-05-27T15:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの村田です。<br/></p>
+<p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
+    </summary>
+    <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
+    <updated>2026-06-11T09:02:02.198Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -40,7 +66,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-06-09T08:27:43.007Z</updated>
+    <updated>2026-06-11T09:02:02.498Z</updated>
   </entry>
   <entry>
     <author>
@@ -63,7 +89,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-06-09T08:27:43.070Z</updated>
+    <updated>2026-06-11T09:02:02.565Z</updated>
   </entry>
   <entry>
     <author>
@@ -86,7 +112,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-06-09T08:27:43.006Z</updated>
+    <updated>2026-06-11T09:02:02.495Z</updated>
   </entry>
   <entry>
     <author>
@@ -109,7 +135,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-06-09T08:27:42.944Z</updated>
+    <updated>2026-06-11T09:02:02.429Z</updated>
   </entry>
   <entry>
     <author>
@@ -135,7 +161,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-06-09T08:27:43.043Z</updated>
+    <updated>2026-06-11T09:02:02.536Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +188,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-06-09T08:27:43.054Z</updated>
+    <updated>2026-06-11T09:02:02.548Z</updated>
   </entry>
   <entry>
     <author>
@@ -188,7 +214,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-06-09T08:27:43.006Z</updated>
+    <updated>2026-06-11T09:02:02.496Z</updated>
   </entry>
   <entry>
     <author>
@@ -225,7 +251,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-06-09T08:27:43.054Z</updated>
+    <updated>2026-06-11T09:02:02.548Z</updated>
   </entry>
   <entry>
     <author>
@@ -255,7 +281,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-06-09T08:27:43.005Z</updated>
+    <updated>2026-06-11T09:02:02.494Z</updated>
   </entry>
   <entry>
     <author>
@@ -287,7 +313,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-06-09T08:27:42.943Z</updated>
+    <updated>2026-06-11T09:02:02.428Z</updated>
   </entry>
   <entry>
     <author>
@@ -310,7 +336,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-06-09T08:27:43.070Z</updated>
+    <updated>2026-06-11T09:02:02.565Z</updated>
   </entry>
   <entry>
     <author>
@@ -343,7 +369,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-06-09T08:27:43.054Z</updated>
+    <updated>2026-06-11T09:02:02.548Z</updated>
   </entry>
   <entry>
     <author>
@@ -376,7 +402,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-06-09T08:27:43.007Z</updated>
+    <updated>2026-06-11T09:02:02.498Z</updated>
   </entry>
   <entry>
     <author>
@@ -385,8 +411,8 @@
       </name>
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="SharePoint" scheme="https://jpdynamicscrm.github.io/blog/tags/SharePoint/"/>
     <category term="Mobile" scheme="https://jpdynamicscrm.github.io/blog/tags/Mobile/"/>
     <content>
@@ -406,7 +432,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-06-09T08:27:42.739Z</updated>
+    <updated>2026-06-11T09:02:02.204Z</updated>
   </entry>
   <entry>
     <author>
@@ -430,7 +456,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-06-09T08:27:43.007Z</updated>
+    <updated>2026-06-11T09:02:02.498Z</updated>
   </entry>
   <entry>
     <author>
@@ -459,7 +485,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-06-09T08:27:43.007Z</updated>
+    <updated>2026-06-11T09:02:02.498Z</updated>
   </entry>
   <entry>
     <author>
@@ -487,7 +513,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-06-09T08:27:42.996Z</updated>
+    <updated>2026-06-11T09:02:02.485Z</updated>
   </entry>
   <entry>
     <author>
@@ -511,7 +537,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、林、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-06-09T08:27:42.901Z</updated>
+    <updated>2026-06-11T09:02:02.383Z</updated>
   </entry>
   <entry>
     <author>
@@ -542,35 +568,6 @@
 </ul>]]>
     </summary>
     <title>Power Pages ライセンスについて</title>
-    <updated>2026-06-09T08:27:42.944Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Model-driven app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Model-driven-app/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
-    <category term="Governance" scheme="https://jpdynamicscrm.github.io/blog/tags/Governance/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
-    <content>
-      <![CDATA[<p>こんにちは、PowerPlatformサポートチームの三田です。</p><p>本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。</p><ul><li><a href="#q1">Q1: モデル駆動型アプリの削除に必要な権限は？</a></li><li><a href="#q2">Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？</a></li><li><a href="#q3">Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>削除に必要な基本ロールと最低限の権限</li><li>どの依存関係が削除を止めるのかの判断基準</li><li>マネージド &#x2F; 案マネージド の違いによる削除可否の差</li><li>依存関係表示が空でも失敗する代表的内部要因</li><li>外部キーエラー (SQL 547) 発生時の実務的回復手順</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#q1">モデル駆動型アプリ削除に必要な権限 (Q1)</a></li><li><a href="#q2">削除前に確認すべき依存関係の整理 (Q2)</a></li><li><a href="#q3">依存関係が表示されないのに削除できない場合の対処 (Q3)</a></li><li><a href="#summary">まとめ</a></li><li><a href="#notice">注意事項（情報の更新可能性）</a></li></ul><h2 id="q1">モデル駆動型アプリ削除に必要な権限 (Q1)</h2>【結論】モデル駆動型アプリを削除できる主な既定ロールはシステム管理者 (System Administrator) とシステムカスタマイザー (System Customizer) です。<p>これら以外のカスタムロールで削除を許可したい場合、両既定ロールが保有する App (App Module) の Delete、関連 Solution 操作 (Read &#x2F; Write &#x2F; Delete &#x2F; Append &#x2F; Append To) および Publish Customizations などの権限セットを完全に再現する必要があります。</p><p>マネージド ソリューションのアプリはロールに関わらず個別削除できず、マネージド ソリューション全体を環境から削除する必要があります。</p><p>【ポイント】</p><ol><li>既定ロール: システム管理者 (System Administrator) &#x2F; システムカスタマイザー (System Customizer)</li><li>必須操作: App Module Delete + Publish Customizations</li><li>付随権限: Solution（Read &#x2F; Write &#x2F; Delete &#x2F; Append &#x2F; Append To）</li><li>カスタムロール: 上記権限を完全複製で代替可</li><li>マネージド 配下: 個別削除不可（ソリューション全体の削除）</li></ol><p> 【よくある誤解】</p><ul><li>誤解: アプリを作成したユーザなら誰でもそのアプリを削除できる。<ul><li>→ 正しくは: 作成者であっても適切な Delete 権限と関連カスタマイズ権限がなければ削除できません。</li></ul></li><li>誤解: マネージド ソリューションからインポートしたアプリも <a href="#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home">Power Apps ポータル</a>から直接削除できる。<ul><li>→ 正しくは: マネージド ソリューション配下のコンポーネントは個別削除不可で、ソリューションの全体の削除が必要です。</li></ul></li><li>誤解: Publish Customizations 権限は削除には無関係である。<ul><li>→ 正しくは: 削除後の状態反映で公開処理が走るため関連カスタマイズ権限不足でエラーとなる場合があります。</li></ul></li><li>誤解: App Module の Delete 権限さえ付与されていればアプリを削除できる。<ul><li>→ 正しくは: Delete 単独では不十分で Solution への Read &#x2F; Write &#x2F; Delete &#x2F; Append &#x2F; Append To と Publish Customizations、および依存関係解消が揃って初めて削除可能です。誤設定リスク低減のため既定ロール (システム管理者 &#x2F; システムカスタマイザー) の利用を推奨します。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールおよび特権 (Dataverse)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/privileges-required-customization">カスタマイズに必要な特権 (モデル駆動型アプリ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions">Managed と Unmanaged の違い</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app">モデル駆動型アプリを削除する</a></li></ul><h2 id="q2">削除前に確認すべき依存関係の整理 (Q2)</h2>【結論】依存関係は「アプリが中で利用"している"項目 (用途：Uses)」と「そのアプリを利用"されている"項目 (使用者：Used by)」の 2 種類です。削除を止めるのは依存関係ページの「削除ブロック（Delete blocked by）」タブに表示される項目だけです。<p>代表例として SiteMap、テーブル (Table)、フォーム (SystemForm)、ビュー (SavedQuery)、ビューのチャート (SavedQueryVisualization)、ダッシュボード、Business Process Flow、ロール依存、Web リソース、URL Suffix などが該当します。</p><p>【ポイント】</p><ol><li>ブロック判定: “削除ブロック（Delete blocked by）” タブ列挙項目</li><li>代表的な要素: SiteMap &#x2F; Table &#x2F; SystemForm &#x2F; SavedQuery &#x2F; SavedQueryVisualization</li></ol><p>【補足】“使用者（Used by）” に表示されても “削除ブロック（Delete blocked by）” に現れない要素は削除ブロックではありません。無闇に削除すると他アプリや別ソリューションでリンク切れや機能欠落を生む恐れがあります。</p><p><a href="#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home">Power Apps ポータル</a>で依存関係を確認する手順 (簡易):</p><ol><li>対象環境で ソリューション を開き、アプリを含むソリューションを選択<br> <img src="/blog/powerapps/model-driven-app-delete-guide/solution_app.png" alt="ソリューション内アプリ一覧"></li><li>アプリ行を選択後、該当行のコマンドバー (… など) から「詳細 &gt; 依存関係を表示」をクリック<br> <img src="/blog/powerapps/model-driven-app-delete-guide/app_detail.png" alt="アプリ詳細から依存関係を表示"></li><li>削除ブロック（Delete blocked by）&#x2F; 使用者 (Used by) &#x2F; 用途 (Uses) の各タブで確認可能<br> <img src="/blog/powerapps/model-driven-app-delete-guide/view.png" alt="依存関係ビュー"></li></ol><p>【よくある誤解】</p><ul><li>誤解: アプリを削除すれば内部で参照しているビューやフォームも自動削除される。<ul><li>→ 正しくは: 参照コンポーネントは独立しており自動削除されないため別途クリーンアップが必要です。</li></ul></li><li>誤解: Used by に出た要素はすべて削除ブロックである。<ul><li>→ 正しくは: Delete blocked by に現れない限り直接のブロックではありません。</li></ul></li><li>誤解: マネージド コンポーネントは アンマネージド に変換しないと依存関係表示できない。<ul><li>→ 正しくは: マネージド でも依存関係ビューから直接確認可能です。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/view-component-dependencies">コンポーネントの依存関係を表示する</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/remove-table-app">テーブルとモデル駆動型アプリ間の依存関係を削除する</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/removing-dependencies">依存関係の削除の概要</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions">Managed と Unmanaged の違い</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/delete-model-driven-app">モデル駆動型アプリを削除する</a></li></ul><h2 id="q3">依存関係が表示されないのに削除できない場合の対処 (Q3)</h2>【結論】依存関係ページにブロック項目が無くても AppSettingBase など内部設定テーブルの参照（外部キー）が残っていると削除が失敗する事例があります。<p>以下のようなエラーが発生しシステム管理者でも削除できない事例が複数報告されています。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Sql error: Statement conflicted with a constraint.</span><br><span class="line">The DELETE statement conflicted with the REFERENCE constraint &quot;appmodule_appsetting_parentappmoduleid&quot;.</span><br><span class="line">The conflict occurred in database &quot;db_crmcorejpn_********_********_****&quot;, table &quot;dbo.AppSettingBase&quot;, column &#x27;ParentAppModuleId&#x27;.</span><br><span class="line">The statement has been terminated.</span><br><span class="line">CRM ErrorCode: -2147185375</span><br><span class="line">Sql ErrorCode: -2146232060</span><br><span class="line">Sql Number: 547</span><br></pre></td></tr></table></figure><p>エラー文の要点:</p><ol><li>Sql Number 547 は参照整合性 (外部キー) 違反を示す一般的エラー</li><li>外部キー名 appmodule_appsetting_parentappmoduleid は AppSettingBase の ParentAppModuleId が対象 App Module を指しているレコードが残存していることを示唆</li><li>一時的な未公開 &#x2F; キャッシュ状態や App 設定レイヤー未更新により不要な AppSetting レコード参照が残留している可能性があります。</li></ol><p>エラー対処手順:</p><ol><li>システム管理者が対象モデル駆動型アプリを Power Apps (Maker ポータル) で開き「保存して公開」(Save &amp; Publish) を実行<br>（「保存して公開」が非活性の場合はページの追加など軽微な編集を行ってください）</li><li>直後に「再生」(Play) を押下し一度アプリを起動</li></ol><p>【補足】上記手順でのエラーが解消されない場合は、問題発生直後のサポート リクエストの起票を推奨します。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/view-component-dependencies">コンポーネントの依存関係を表示する</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/removing-dependencies">依存関係の削除の概要</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions">Managed と Unmanaged の違い</a></li></ul><h2 id="summary">まとめ</h2>- モデル駆動型アプリ削除には システム管理者 (System Administrator) / システムカスタマイザー (System Customizer)または同等の削除権限を付与したカスタム セキュリティ ロール が必要です。- 依存関係は [Power Apps ポータル](#https://make.powerapps.com/environments/Default-b78d9d9a-c2e6-42d2-9bcc-1fa7852ad660/home) の「依存関係を表示」から 用途（Use） / 使用者（Used by） / 削除ブロック（Delete blocked by） を確認可能です。- SQL Number 547 (appmodule_appsetting_parentappmoduleid) は AppSettingBase 残留参照が原因で「保存して公開 → 再生 → 削除」手順が有効です。<h2 id="notice">注意事項（情報の更新可能性）</h2>本記事の内容は執筆日時点の公開情報に基づいています。仕様や UI、権限名称、依存関係の表示挙動は将来変更される可能性があります。最新情報は公式ドキュメントをご確認ください。]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerapps/model-driven-app-delete-guide/"/>
-    <published>2025-09-16T01:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、PowerPlatformサポートチームの三田です。</p>
-<p>本記事ではモデル駆動型アプリの削除について、以下の Q1〜Q3 の質問に回答する形でご説明します。</p>
-<ul>
-<li><a href="#q1">Q1: モデル駆動型アプリの削除に必要な権限は？</a></li>
-<li><a href="#q2">Q2: モデル駆動型アプリを削除する際に注意しなければならない「依存関係」とは？</a></li>
-<li><a href="#q3">Q3: 削除を阻止する「依存関係」がないのに削除できないときの対処法は？</a></li>
-</ul>]]>
-    </summary>
-    <title>モデル駆動型アプリ削除ガイド</title>
-    <updated>2026-06-09T08:27:42.826Z</updated>
+    <updated>2026-06-11T09:02:02.429Z</updated>
   </entry>
 </feed>

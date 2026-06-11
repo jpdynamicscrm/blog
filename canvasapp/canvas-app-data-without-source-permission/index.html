@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの村田です。 本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介し">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの村田です。 本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介し">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/3-1-flow-design.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/3-2-app-onselect-formula.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/3-2-app-gallery-items.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/3-3-flow-connection.png">
+<meta property="article:published_time" content="2026-05-27T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-11T09:02:02.198Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Canvas app">
+<meta property="article:tag" content="Cloud flow">
+<meta property="article:tag" content="Power Apps">
+<meta property="article:tag" content="Power Automate">
+<meta property="article:tag" content="キャンバスアプリ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/3-1-flow-design.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-canvasapp/canvas-app-data-without-source-permission" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2026-05-27T15:00:00.000Z" itemprop="datePublished">2026-05-28</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/canvasapp/canvas-app-data-without-source-permission.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Power-Apps/">Power Apps</a>►<a class="article-category-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a>
+  </div>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d057a82b-ac18-5257-ab76-b86b47adea38%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Apps+%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E5%88%A9%E7%94%A8%E8%80%85%E3%81%AB+Excel+%E3%82%84+SharePoint+%E3%81%AE%E6%A8%A9%E9%99%90%E3%82%92%E4%BB%98%E4%B8%8E%E3%81%9B%E3%81%9A%E3%81%AB%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcanvasapp%2Fcanvas-app-data-without-source-permission%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcanvasapp%2Fcanvas-app-data-without-source-permission.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcanvasapp%2Fcanvas-app-data-without-source-permission.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-data-without-source-permission/" data-id="cuid78O1Xeg0RLAHcp4qiVfvi" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの村田です。<br/></p>
+<p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>
+<span id="more"></span>
+
+<div class="alert is-info"><p class="alert-title">Note</p><p>本記事では Excel Online (Business) コネクタを例にご説明しますが、SharePoint コネクタに置き換えれば、SharePoint リストに対しても同様の構成を適用いただけます。</p></div>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
+<li><a href="#1-%E6%A6%82%E8%A6%81">1. 概要</a></li>
+<li><a href="#2-%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AE%E5%88%B6%E9%99%90">2. キャンバスアプリからコネクタを利用して接続する場合の制限</a></li>
+<li><a href="#3-%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E7%B5%8C%E7%94%B1%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%8F%82%E7%85%A7%E3%81%95%E3%81%9B%E3%82%8B%E6%96%B9%E6%B3%95">3. クラウドフロー経由でデータを参照させる方法</a><ul>
+<li><a href="#3-1-%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%96%E5%BE%97%E7%94%A8%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">3-1. データ取得用のクラウドフローを作成する</a></li>
+<li><a href="#3-2-Power%20Apps%20%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%A6%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B">3-2. Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する</a></li>
+<li><a href="#3-3-%E3%80%8C%E5%AE%9F%E8%A1%8C%E3%81%AE%E3%81%BF%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%80%8D%E8%A8%AD%E5%AE%9A%E3%81%A7%E6%8E%A5%E7%B6%9A%E3%82%92%E5%9B%BA%E5%AE%9A%E3%81%99%E3%82%8B">3-3. 「実行のみのユーザー」設定で接続を固定する</a></li>
+</ul>
+</li>
+<li><a href="#4-%E6%8E%A1%E7%94%A8%E5%89%8D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E6%B3%A8%E6%84%8F%E7%82%B9">4. 採用前に確認しておきたい注意点</a><ul>
+<li><a href="#4-1-%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9">4-1. パフォーマンス</a></li>
+<li><a href="#4-2-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%BB%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%AE%9F%E8%A1%8C%E5%88%B6%E9%99%90">4-2. コネクタ・フローの実行制限</a></li>
+<li><a href="#4-3-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%81%B8%E3%81%AE%E5%BF%9C%E7%AD%94%E6%99%82%E9%96%93%E3%81%AE%E5%88%B6%E9%99%90">4-3. フローからアプリへの応答時間の制限</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A3%9C%E8%B6%B3%EF%BC%9AMicrosoft%20Dataverse%20%E3%81%AE%E6%B4%BB%E7%94%A8%E3%81%AB%E3%82%88%E3%82%8B%E7%9B%A3%E6%9F%BB%E8%A6%81%E4%BB%B6%E3%81%B8%E3%81%AE%E5%AF%BE%E5%BF%9C">補足：Microsoft Dataverse の活用による監査要件への対応</a></li>
+</ul>
+<p><a id='1-概要'></a></p>
+<h2 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h2><p>Power Apps キャンバスアプリから Excel Online (Business) や SharePoint などのコネクタを使ってデータソースに接続する場合、その接続は <strong>アプリ利用者の権限</strong> で動作します。<br>そのため、アプリ上でデータを表示するには、<strong>利用者本人にデータソース（Excel ファイルや SharePoint リスト）へのアクセス権限を付与しておく必要</strong> があります。</p>
+<p>一方で、<strong>「Excel ファイルで管理しているマスタデータをアプリの利用ユーザーに閲覧させたいが、データソース自体へのアクセス権は付与したくない」</strong> というご要望をいただくことが少なくありません。</p>
+<p>このような場合は、アプリから直接データソースに接続するのではなく、Power Automate のクラウドフローを経由してデータを取得する構成にすることで、<strong>アプリ利用者にはデータソースへの権限を付与せずに、画面上にデータを表示する</strong> ことができます。</p>
+<p>本記事では、この構成の具体的な手順と、採用前に押さえておきたい注意点をあわせてご紹介します。</p>
+<p><a id='2-キャンバスアプリからコネクタを利用して接続する場合の制限'></a></p>
+<h2 id="2-キャンバスアプリからコネクタを利用して接続する場合の制限"><a href="#2-キャンバスアプリからコネクタを利用して接続する場合の制限" class="headerlink" title="2. キャンバスアプリからコネクタを利用して接続する場合の制限"></a>2. キャンバスアプリからコネクタを利用して接続する場合の制限</h2><p>前章で述べたとおり、Power Apps から Excel Online (Business) や SharePoint などのコネクタに直接接続すると、その接続はアプリを開いた利用者本人の権限で動作するため、事前に利用者にデータソースの権限を付与する必要があります。<br>さらに Excel Online (Business) コネクタは以下の公開情報のとおり、ファイルに対する <strong>書き込み権限</strong> を必要とします。<br/><br>アプリ側では「閲覧用に表示するだけ」のご利用であっても、コネクタとしては書き込み相当の権限が要求されます。</p>
+<p><a href="https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#general-known-issues-and-limitations">Excel Online (Business) connector - 一般的な既知の問題と制限事項 - Microsoft Learn</a></p>
+<p>SharePoint コネクタの場合は、リストに対する閲覧権限でもデータ取得は可能ですが、いずれにせよ利用者に対して権限を付与する運用は避けられません。</p>
+<p>このように <strong>Power Apps からコネクタに直接接続すると、利用者全員にデータソースへの権限を割り当てる必要が生じる</strong> ため、運用上の懸念につながります。</p>
+<p><a id='3-クラウドフロー経由でデータを参照させる方法'></a></p>
+<h2 id="3-クラウドフロー経由でデータを参照させる方法"><a href="#3-クラウドフロー経由でデータを参照させる方法" class="headerlink" title="3. クラウドフロー経由でデータを参照させる方法"></a>3. クラウドフロー経由でデータを参照させる方法</h2><p>Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成にすると、フロー側のコネクタの接続参照について以下のいずれかを選択できます。</p>
+<ul>
+<li>フローを実行したユーザー（＝アプリ利用者）の接続を使用する</li>
+<li>フロー作成者など、<strong>特定のユーザーの接続を使用する</strong></li>
+</ul>
+<p>後者の設定で構成することで、アプリの利用者にかかわらず、Excel ファイルへの実際のアクセスはフローに紐づく特定ユーザー（データソースの権限を持つユーザー）の接続で行われます。<br>これにより、<strong>アプリ利用者本人は Excel ファイルへの権限を一切持たなくても、フロー経由でデータを取得して画面に表示</strong> できるようになります。</p>
+<p>以下に、具体的な構築手順を Excel Online (Business) コネクタを例にご紹介します。</p>
+<p><a id='3-1-データ取得用のクラウドフローを作成する'></a></p>
+<h3 id="3-1-データ取得用のクラウドフローを作成する"><a href="#3-1-データ取得用のクラウドフローを作成する" class="headerlink" title="3-1. データ取得用のクラウドフローを作成する"></a>3-1. データ取得用のクラウドフローを作成する</h3><p>Power Automate でデータ取得用のクラウドフローを作成します。<br>「Power Apps がフローを呼び出したとき (V2)」トリガーを使ったフローを作成し、「Excel Online (Business) 」コネクタで対象のテーブルからデータを取得したうえで、「Power App またはフローに応答する」アクションで結果をアプリ側へ返します。<br/><br>以下のサンプルでは、Excel テーブルから全行を取得し、JSON 文字列としてアプリに返却しています。</p>
+<p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-1-flow-design.png" alt="データ取得用のクラウドフローを作成"></p>
+<p><a id='3-2-Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する'></a></p>
+<h3 id="3-2-Power-Apps-キャンバスアプリからクラウドフローを呼び出してコレクションに格納する"><a href="#3-2-Power-Apps-キャンバスアプリからクラウドフローを呼び出してコレクションに格納する" class="headerlink" title="3-2. Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する"></a>3-2. Power Apps キャンバスアプリからクラウドフローを呼び出してコレクションに格納する</h3><p>アプリ側では、作成したクラウドフローを呼び出し、戻り値をコレクションとして保持してギャラリー等から参照する形にします。<br>フローの呼び出しは、例えば <code>OnSelect</code> などボタンをクリックしたときに実行する形が考えられます。<br>以下は、3 列のデータを受け取ってコレクションに格納するサンプルです。</p>
+<p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-2-app-onselect-formula.png" alt="OnSelect でクラウドフローを呼び出してコレクションに格納"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Set(FlowOutput, Text(&#x27;Excelデータ取得&#x27;.Run().output));</span><br><span class="line">ClearCollect(</span><br><span class="line">    FlowOutput_Table,</span><br><span class="line">    ForAll(</span><br><span class="line">        ParseJSON(FlowOutput),</span><br><span class="line">        &#123;</span><br><span class="line">            col1: Text(ThisRecord.col1),</span><br><span class="line">            col2: Value(ThisRecord.col2),</span><br><span class="line">            col3: Value(ThisRecord.col3)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><code>ParseJSON</code> 関数の詳細については、下記の公開情報をご参照ください。</p>
+<p><a href="https://learn.microsoft.com/ja-jp/power-platform/power-fx/reference/function-parsejson">ParseJSON 関数 - Microsoft Learn</a></p>
+<p>ギャラリーの <code>Items</code> など、データソースを参照する箇所で上記のコレクションを指定します。</p>
+<p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-2-app-gallery-items.png" alt="ギャラリーの Items にコレクションを指定"></p>
+<p><a id='3-3-「実行のみのユーザー」設定で接続を固定する'></a></p>
+<h3 id="3-3-「実行のみのユーザー」設定で接続を固定する"><a href="#3-3-「実行のみのユーザー」設定で接続を固定する" class="headerlink" title="3-3. 「実行のみのユーザー」設定で接続を固定する"></a>3-3. 「実行のみのユーザー」設定で接続を固定する</h3><p>作成したフローの詳細画面を開き、<strong>「実行のみのユーザー」</strong> の編集画面で、Excel Online (Business) の使用する接続を <strong>「この接続 (XXXXX) を使用する」（＝データソースの権限を持つユーザーの接続に固定）</strong> に変更します。</p>
+<p><img src="/blog/canvasapp/canvas-app-data-without-source-permission/3-3-flow-connection.png" alt="実行専用アクセス許可で接続を固定"></p>
+<p>この設定により、フローが呼び出された際の Excel への実際のアクセスは、常にここで固定した接続を経由して行われるようになります。</p>
+<p><a id='4-採用前に確認しておきたい注意点'></a></p>
+<h2 id="4-採用前に確認しておきたい注意点"><a href="#4-採用前に確認しておきたい注意点" class="headerlink" title="4. 採用前に確認しておきたい注意点"></a>4. 採用前に確認しておきたい注意点</h2><p>本構成は便利な一方で、アプリから直接データソースに接続する場合と比べていくつかのトレードオフがあります。<br>採用前にぜひご確認ください。</p>
+<p><a id='4-1-パフォーマンス'></a></p>
+<h3 id="4-1-パフォーマンス"><a href="#4-1-パフォーマンス" class="headerlink" title="4-1. パフォーマンス"></a>4-1. パフォーマンス</h3><p>アプリ → フロー → コネクタ → ファイル と経由する処理が増えるため、<strong>直接接続に比べてオーバーヘッドが発生</strong> します。<br>取得列を絞る、必要なタイミングでのみ呼び出す、フロー側で集計してから返す、といった工夫をご検討ください。</p>
+<p><a id='4-2-コネクタ・フローの実行制限'></a></p>
+<h3 id="4-2-コネクタ・フローの実行制限"><a href="#4-2-コネクタ・フローの実行制限" class="headerlink" title="4-2. コネクタ・フローの実行制限"></a>4-2. コネクタ・フローの実行制限</h3><p>アプリの利用者が多い場合、データの取得処理が <strong>対象のコネクタやフローに集中</strong> するため、それらの実行制限に到達しやすくなります。<br>たとえば Excel Online (Business) コネクタには、100 リクエスト &#x2F; 60 秒 といった呼び出し回数の制限が設けられています。<br>利用者数や呼び出し頻度が多くなる構成では、コネクタやフローの制限値を事前にご確認ください。</p>
+<p><a href="https://learn.microsoft.com/ja-jp/connectors/excelonlinebusiness/#limits">Excel オンライン (ビジネス) - Connectors | Microsoft Learn</a></p>
+<p><a id='4-3-フローからアプリへの応答時間の制限'></a></p>
+<h3 id="4-3-フローからアプリへの応答時間の制限"><a href="#4-3-フローからアプリへの応答時間の制限" class="headerlink" title="4-3. フローからアプリへの応答時間の制限"></a>4-3. フローからアプリへの応答時間の制限</h3><p>フローからアプリにデータを返す場合、<strong>フローの呼び出しから応答までに 120 秒という時間制限</strong> があります。<br>取得データ量が多い場合やフロー内の処理が長くなる場合は、この制限によりタイムアウトする可能性があります。<br/><br>長時間の処理が見込まれる場合は、以下の公開情報で紹介されている非同期応答パターンの採用もご検討ください。</p>
+<p><a href="https://learn.microsoft.com/ja-jp/power-automate/guidance/coding-guidelines/asychronous-flow-pattern">非同期応答の使用 - Power Automate | Microsoft Learn</a></p>
+<p><a id='補足：Microsoft Dataverse の活用による監査要件への対応'></a></p>
+<h2 id="補足：Microsoft-Dataverse-の活用による監査要件への対応"><a href="#補足：Microsoft-Dataverse-の活用による監査要件への対応" class="headerlink" title="補足：Microsoft Dataverse の活用による監査要件への対応"></a>補足：Microsoft Dataverse の活用による監査要件への対応</h2><p>「誰が、いつ、どのレコードを 作成&#x2F;更新&#x2F;削除 したか」を確実に追跡する必要がある場合は、データソースとして Microsoft Dataverse をご採用いただくことを推奨します。<br/><br>Dataverse の監査機能では、レコードの変更内容やユーザーによるアクセスをログとして記録可能なため、外部監査・コンプライアンス・ガバナンスの各ポリシーへの対応をサポートします。<br/><br>あわせて、セキュリティロールによる テーブル単位&#x2F;レコード単位 のアクセス制御や、列レベルセキュリティによる機密項目の保護を組み合わせることで、利用者に過剰な権限を付与することなく、参照範囲を適切に制御することが可能です。</p>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/data-platform-intro">Microsoft Dataverse とは - Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-dataverse-auditing">Dataverse の監査の管理 - Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">セキュリティ ロールとアクセス許可 - Microsoft Learn</a></li>
+</ul>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/canvasapp/canvas-app-data-without-source-permission.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../powerplatform/dataverse-synapse-link-sync-delay/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/dataverse-synapse-link-sync-delay/">Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/support-scope-custom-security-role/">カスタム セキュリティ ロールの作成に関するサポート範囲について</a>
+          </li>
+        
+          <li>
+            <a href="../../powerplatform/dataverse-capacity-allocation-soft-limit/">Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</a>
+          </li>
+        
+          <li>
+            <a href="../../powerpages/power-pages-troubleshooting/">Power Pages トラブルシューティング ガイド</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ALM/" rel="tag">ALM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-Apps/" rel="tag">Model-driven Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-BI/" rel="tag">Power BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/TDS-endpoint/" rel="tag">TDS endpoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Teams/" rel="tag">Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Troubleshooting/" rel="tag">Troubleshooting</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" rel="tag">パイプライン</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" rel="tag">マネージド環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">19</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">13</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">38</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">36</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">23</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/05/">2026 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/04/">2026 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/03/">2026 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/02/">2026 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/ALM/" style="font-size: 10px;">ALM</a> <a href="../../tags/Administration/" style="font-size: 10.67px;">Administration</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 14.67px;">Canvas app</a> <a href="../../tags/Capacity/" style="font-size: 10.67px;">Capacity</a> <a href="../../tags/Cloud-flow/" style="font-size: 18px;">Cloud flow</a> <a href="../../tags/Connector-and-Connection/" style="font-size: 12.67px;">Connector and Connection</a> <a href="../../tags/Copilot/" style="font-size: 10.67px;">Copilot</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataflow/" style="font-size: 10px;">Dataflow</a> <a href="../../tags/Dataverse/" style="font-size: 18px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.33px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10.67px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 12px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 15.33px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 11.33px;">Dynamics 365</a> <a href="../../tags/Environment/" style="font-size: 13.33px;">Environment</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 16.67px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 10.67px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 18.67px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 12px;">Information</a> <a href="../../tags/License/" style="font-size: 14px;">License</a> <a href="../../tags/Microsoft-Copilot-Studio/" style="font-size: 12.67px;">Microsoft Copilot Studio</a> <a href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" style="font-size: 10.67px;">Microsoft Teams 連携</a> <a href="../../tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="../../tags/Model-driven-Apps/" style="font-size: 10px;">Model-driven Apps</a> <a href="../../tags/Model-driven-app/" style="font-size: 13.33px;">Model-driven app</a> <a href="../../tags/Network/" style="font-size: 12px;">Network</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Power-Apps/" style="font-size: 17.33px;">Power Apps</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 14.67px;">Power Automate for desktop</a> <a href="../../tags/Power-BI/" style="font-size: 10px;">Power BI</a> <a href="../../tags/Power-Pages/" style="font-size: 11.33px;">Power Pages</a> <a href="../../tags/Power-Platform/" style="font-size: 19.33px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 12px;">PowerShell</a> <a href="../../tags/Security/" style="font-size: 10px;">Security</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint/" style="font-size: 10.67px;">SharePoint</a> <a href="../../tags/TDS-endpoint/" style="font-size: 10px;">TDS endpoint</a> <a href="../../tags/Teams/" style="font-size: 10px;">Teams</a> <a href="../../tags/Troubleshooting/" style="font-size: 10px;">Troubleshooting</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" style="font-size: 16px;">お問い合わせ全般</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">キャンバスアプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10.67px;">サポート</a> <a href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">ストレージ</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 11.33px;">セキュリティ ロール</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" style="font-size: 10px;">トラブルシューティング</a> <a href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" style="font-size: 10px;">パイプライン</a> <a href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" style="font-size: 10px;">マネージド環境</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" style="font-size: 10px;">ユーザー管理</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E5%BD%B9%E5%89%B2/" style="font-size: 10px;">役割</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 14px;">情報採取</a> <a href="../../tags/%E6%A4%9C%E7%B4%A2/" style="font-size: 10px;">検索</a> <a href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" style="font-size: 10px;">環境管理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/PowerPlatform/">PowerPlatform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2026 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
