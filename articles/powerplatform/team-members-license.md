@@ -49,7 +49,6 @@ Team Member アプリ（Sales Team Member や Customer Service Team Member）は
 
 ＜参考資料＞
 - [Dynamics 365 Team Members license - Customization restrictions (Docs)](https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#customization-restrictions)
-- [Dynamics 365 Team Members license - Can I customize these new Team member apps? (Docs)](https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#can-i-customize-these-new-team-member-apps)
 
 <h2 id="q2">15 個制限にカウントされるテーブルの範囲</h2>
 
