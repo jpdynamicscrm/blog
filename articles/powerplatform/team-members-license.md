@@ -14,7 +14,7 @@ categories:
 
 こんにちは、Power Platform サポートチームの鈴木です。
 
-本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、以下の Q1〜Q4 の質問に回答する形でご説明させていただきます。
+本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。
 
 <!-- more -->
 
@@ -26,14 +26,14 @@ categories:
 - システムダッシュボードと個人ダッシュボードでの動作の違い
 
 ## 目次
-- [Team Member アプリの 15 テーブル制限について (Q1)](#q1)
-- [15 個制限にカウントされるテーブルの範囲 (Q2)](#q2)
-- [15 個を超えたテーブルのデータを参照する方法 (Q3)](#q3)
-- [登録・更新・削除が可能なテーブル数の上限について (Q4)](#q4)
+- [Team Member アプリの 15 テーブル制限について](#q1)
+- [15 個制限にカウントされるテーブルの範囲](#q2)
+- [15 個を超えたテーブルのデータを参照する方法](#q3)
+- [登録・更新・削除が可能なテーブル数の上限について](#q4)
 - [まとめ](#summary)
 - [注意事項（情報の更新可能性）](#notice)
 
-<h2 id="q1">Team Member アプリの 15 テーブル制限について (Q1)</h2>
+<h2 id="q1">Team Member アプリの 15 テーブル制限について</h2>
 
 【結論】Team Member アプリに追加できるテーブルは最大 15 個までです。
 この制限は「参照のみ」の場合でも同様に適用されます。
@@ -45,13 +45,13 @@ Team Member アプリ（Sales Team Member や Customer Service Team Member）は
 > This operation failed since it exceeded the maximum entity limit of 15 total entities for the app msdyn_TeamMember_Sales set by its owning publisher Dynamics 365.
 
 この制限はシステム側で強制されるため、参照目的であっても回避できません。
-ただし、アプリに直接追加しなくてもデータを参照する方法がありますので、[Q3](#q3) で詳しくご説明します。
+ただし、アプリに直接追加しなくてもデータを参照する方法がありますので、[15 個を超えたテーブルのデータを参照する方法](#q3) で詳しくご説明します。
 
 ＜参考資料＞
 - [Dynamics 365 Team Members license - Customization restrictions (Docs)](https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#customization-restrictions)
 - [Dynamics 365 Team Members license - Frequently asked questions (Docs)](https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#frequently-asked-questions)
 
-<h2 id="q2">15 個制限にカウントされるテーブルの範囲 (Q2)</h2>
+<h2 id="q2">15 個制限にカウントされるテーブルの範囲</h2>
 
 【結論】もともとアプリに含まれているテーブル（既定のテーブル）は 15 個にカウントされません。
 15 個制限の対象は「元のアプリに含まれていないテーブルを追加した場合」のみです。
@@ -77,7 +77,7 @@ Team Member アプリ（Sales Team Member や Customer Service Team Member）は
 - [Dynamics 365 Team Members license - Can I customize these new Team member apps? (Docs)](https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#can-i-customize-these-new-team-member-apps)
 - [Dynamics 365 Team Members license - I need my users to access and update Dynamics 365 data beyond what's mentioned in the use rights for Team Member licenses in the licensing guide. What is the best license to assign to these users? (Docs)](https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#i-need-my-users-to-access-and-update-dynamics-365-data-beyond-whats-mentioned-in-the-use-rights-for-team-member-licenses-in-the-licensing-guide-what-is-the-best-license-to-assign-to-these-users)
 
-<h2 id="q3">15 個を超えたテーブルのデータを参照する方法 (Q3)</h2>
+<h2 id="q3">15 個を超えたテーブルのデータを参照する方法</h2>
 
 【結論】サブグリッド、ダッシュボード、ルックアップの 3 つの方法を使えば、15 個の枠を消費せずに追加テーブルのデータを見ることができます。
 
@@ -130,7 +130,7 @@ Team Member アプリ（Sales Team Member や Customer Service Team Member）は
 - [モデル駆動型アプリのコンポーネントの追加または編集 (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-edit-app-components#add-a-component)
 - [ダッシュボード、ダッシュボード コンポーネント、および FormXML について (Docs)](https://learn.microsoft.com/ja-jp/power-apps/developer/model-driven-apps/understand-dashboards-dashboard-components-formxml)
 
-<h2 id="q4">登録・更新・削除が可能なテーブル数の上限について (Q4)</h2>
+<h2 id="q4">登録・更新・削除が可能なテーブル数の上限について</h2>
 
 【結論】登録・更新・削除ができるテーブルの「数の上限」は定められていません。
 ただし、登録・更新・削除が許可される操作は、ライセンスガイドでシナリオごとに決められています。
