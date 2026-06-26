@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-06-15T02:24:33.154Z</updated>
+  <updated>2026-06-26T00:44:31.157Z</updated>
   <entry>
     <author>
       <name>
@@ -43,7 +43,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-06-15T02:24:33.154Z</updated>
+    <updated>2026-06-26T00:44:31.157Z</updated>
   </entry>
   <entry>
     <author>
@@ -66,7 +66,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-06-15T02:24:33.452Z</updated>
+    <updated>2026-06-26T00:44:31.431Z</updated>
   </entry>
   <entry>
     <author>
@@ -89,7 +89,31 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-06-15T02:24:33.520Z</updated>
+    <updated>2026-06-26T00:44:31.494Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Dynamics 365" scheme="https://jpdynamicscrm.github.io/blog/categories/Dynamics-365/"/>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
+    <category term="Dynamics 365" scheme="https://jpdynamicscrm.github.io/blog/tags/Dynamics-365/"/>
+    <category term="Team Members" scheme="https://jpdynamicscrm.github.io/blog/tags/Team-Members/"/>
+    <category term="ライセンス" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの鈴木です。</p><p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Team Member アプリに追加できるテーブル数の上限（15 個）とその意味</li><li>15 個制限にカウントされるテーブルとされないテーブルの違い</li><li>15 個を超えたテーブルのデータを見るための代替手段</li><li>登録・更新・削除が許可される操作の範囲（数の上限ではなくシナリオで決まる）</li><li>システムダッシュボードと個人ダッシュボードでの動作の違い</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#q1">Team Member アプリの 15 テーブル制限について</a></li><li><a href="#q2">15 個制限にカウントされるテーブルの範囲</a></li><li><a href="#q3">15 個を超えたテーブルのデータを参照する方法</a></li><li><a href="#q4">登録・更新・削除が可能なテーブル数の上限について</a></li><li><a href="#summary">まとめ</a></li><li><a href="#notice">注意事項（情報の更新可能性）</a></li></ul><h2 id="q1">Team Member アプリの 15 テーブル制限について</h2><p>【結論】Team Member アプリに追加できるテーブルは最大 15 個までです。<br>この制限は「参照のみ」の場合でも同様に適用されます。</p><p>Team Member アプリ（Sales Team Member や Customer Service Team Member）は、Dynamics 365 Team Members ライセンスのユーザー向けに設計された軽量なアプリです。<br>アプリの発行元である Dynamics 365 によって「アプリに含めることができるテーブル数は最大 15 個まで」という上限が設定されています。<br>この上限を超えてテーブルを追加しようとすると、以下のようなエラーが表示されます。</p><blockquote><p>This operation failed since it exceeded the maximum entity limit of 15 total entities for the app msdyn_TeamMember_Sales set by its owning publisher Dynamics 365.</p></blockquote><p>この制限はシステム側で強制されるため、参照目的であっても回避できません。<br>ただし、アプリに直接追加しなくてもデータを参照する方法がありますので、<a href="#q3">15 個を超えたテーブルのデータを参照する方法</a> で詳しくご説明します。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#customization-restrictions">Dynamics 365 Team Members license - Customization restrictions (Docs)</a></li></ul><h2 id="q2">15 個制限にカウントされるテーブルの範囲</h2><p>【結論】もともとアプリに含まれているテーブル（既定のテーブル）は 15 個にカウントされません。<br>15 個制限の対象は「元のアプリに含まれていないテーブルを追加した場合」のみです。</p><p>公式ドキュメントの FAQ には次のように記載されています。</p><blockquote><p>Can I customize these new Team member apps?<br>Yes, … However—as mentioned in the licensing guide—you can only have up to 15 entities in the app. These entities can include core Dataverse entities that aren’t part of the original app module, other entities published by Microsoft, or custom entities.</p></blockquote><p>つまり、Sales Team Member アプリに最初から含まれているテーブル（取引先企業、連絡先、潜在顧客、営業案件、活動など）は 15 個のカウントに含まれません。<br>15 個制限に含まれるのは以下のテーブルです。</p><ol><li>元のアプリに含まれていない Dataverse の標準テーブル</li><li>Microsoft が発行したその他のテーブル</li><li>カスタムテーブル（自分で作成したテーブル）</li></ol><p>【ポイント】</p><ol><li>最初からアプリに入っているテーブルは制限の対象外</li><li>あとから追加したテーブルだけが 15 個にカウントされる</li><li>標準テーブルでもカスタムテーブルでも追加したら同じようにカウントされる</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#can-i-customize-these-new-team-member-apps">Dynamics 365 Team Members license - Can I customize these new Team member apps? (Docs)</a></li></ul><h2 id="q3">15 個を超えたテーブルのデータを参照する方法</h2><p>【結論】サブグリッド、ダッシュボード、ルックアップの 3 つの方法を使えば、15 個の枠を消費せずに追加テーブルのデータを見ることができます。</p><p>公式ドキュメントには次のように記載されています。</p><blockquote><p>The Team Member app can only include up to 15 entities, but you can access additional entities through subgrids, dashboards, or lookups.</p></blockquote><p>それぞれの方法について詳しく説明します。</p><h3 id="サブグリッド"><a href="#サブグリッド" class="headerlink" title="サブグリッド"></a>サブグリッド</h3><p>すでにアプリに含まれているテーブル（たとえば取引先企業や連絡先）のフォーム上に、別のテーブルのデータを一覧として埋め込む方法です。<br>アプリにテーブルを直接追加する必要がないため、15 個の枠を使いません。</p><h3 id="ルックアップ"><a href="#ルックアップ" class="headerlink" title="ルックアップ"></a>ルックアップ</h3><p>ルックアップ（参照）フィールドを通じて関連するテーブルのデータを参照する方法です。<br>こちらも 15 個の枠を使いません。</p><h3 id="ダッシュボード"><a href="#ダッシュボード" class="headerlink" title="ダッシュボード"></a>ダッシュボード</h3><p>ダッシュボードについては、種類によって動作が異なります。</p><table><thead><tr><th>種類</th><th>15 個の枠を使うか</th><th>説明</th></tr></thead><tbody><tr><td><strong>個人用ダッシュボード</strong></td><td>使わない</td><td>ユーザーが自分で作成するダッシュボード。アプリに登録されていないテーブルのデータも表示できます</td></tr><tr><td><strong>システムダッシュボード</strong></td><td>使う</td><td>管理者がアプリデザイナーから追加するダッシュボード。追加時に使用するテーブルが自動的にアプリに追加され、15 個の枠を消費します</td></tr></tbody></table><p>【補足】公式 FAQ で「ダッシュボード経由でアクセスできる」と書かれているのは、主に<strong>個人用ダッシュボード</strong>のことを指しています。<br>システムダッシュボードをアプリに追加すると、そのダッシュボードが使っているテーブルが自動的にアプリに追加されるため、15 個の枠を消費してしまいます。</p><h3 id="アプリにテーブルを追加する必要がある場合"><a href="#アプリにテーブルを追加する必要がある場合" class="headerlink" title="アプリにテーブルを追加する必要がある場合"></a>アプリにテーブルを追加する必要がある場合</h3><p>以下の操作を行いたい場合は、テーブルをアプリに追加する必要があります（15 個の枠を消費します）。</p><table><thead><tr><th>やりたいこと</th><th>アプリへの追加</th><th>15 個の枠</th></tr></thead><tbody><tr><td>サイトマップにテーブルの一覧ページを表示したい</td><td>必要</td><td>消費する</td></tr><tr><td>アプリ内で表示するフォームを選びたい</td><td>必要</td><td>消費する</td></tr><tr><td>サブグリッドでデータを表示したい</td><td>不要</td><td>消費しない</td></tr><tr><td>個人用ダッシュボードでデータを表示したい</td><td>不要</td><td>消費しない</td></tr><tr><td>ルックアップで関連データを見たい</td><td>不要</td><td>消費しない</td></tr></tbody></table><p>【よくある誤解】</p><ul><li>誤解: システムダッシュボードを使えば 15 個制限を回避できる。<ul><li>→ 正しくは: システムダッシュボードは追加時に使用テーブルが自動追加されるため、15 個の枠を消費します。回避したい場合は個人用ダッシュボードをご利用ください。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#can-i-read-entities-that-arent-shipped-with-the-team-member-apps-when-the-use-rights-state-that-team-members-should-be-able-to-read-all-of-dynamics-365-data">Dynamics 365 Team Members license - Can I read entities that aren’t shipped with the Team Member apps when the use rights state that Team Members should be able to read all of Dynamics 365 data? (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-edit-app-components#add-a-component">モデル駆動型アプリのコンポーネントの追加または編集 (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/developer/model-driven-apps/understand-dashboards-dashboard-components-formxml">ダッシュボード、ダッシュボード コンポーネント、および FormXML について (Docs)</a></li></ul><h2 id="q4">登録・更新・削除が可能なテーブル数の上限について</h2><p>【結論】登録・更新・削除ができるテーブルの「数の上限」は定められていません。<br>ただし、登録・更新・削除が許可される操作は、ライセンスガイドでシナリオごとに決められています。</p><p>「15 個制限」はアプリに追加できるテーブル数の上限であり、登録・更新・削除の操作だけに適用される制限ではありません。<br>Team Members ライセンスでどの操作ができるかは、「〇個まで」という数ではなく、「どの機能・どのテーブルに対して何ができるか」がシナリオとして列挙されています。</p><h3 id="Sales-Team-Member-の場合の主な操作範囲"><a href="#Sales-Team-Member-の場合の主な操作範囲" class="headerlink" title="Sales Team Member の場合の主な操作範囲"></a>Sales Team Member の場合の主な操作範囲</h3><table><thead><tr><th>テーブル</th><th>できる操作</th></tr></thead><tbody><tr><td>連絡先 (Contact)</td><td>作成・更新・削除</td></tr><tr><td>メモ (Note)</td><td>作成・更新・削除</td></tr><tr><td>活動 (タスク、メール、電話、予定)</td><td>作成・更新・削除</td></tr><tr><td>取引先企業 (Account)</td><td><strong>参照のみ</strong></td></tr><tr><td>潜在顧客 (Lead)・営業案件 (Opportunity)</td><td>参照のみ</td></tr></tbody></table><p>公式ドキュメントでは以下のように記載されています。</p><blockquote><p>Customer management: work with contacts or <strong>see</strong> accounts.</p></blockquote><p>「work with contacts」は作成・更新・削除を含む操作が可能であることを意味し、「see accounts」は参照のみであることを意味しています。</p><h3 id="システムによる強制について"><a href="#システムによる強制について" class="headerlink" title="システムによる強制について"></a>システムによる強制について</h3><p>公式 FAQ には次のように記載されています。</p><blockquote><p>The license enforcement is focused on providing the Team Member experience and aligning usage to the Team Member apps. Specific privileges, such as updating an account or editing a case within the app module, aren’t part of license enforcement.</p></blockquote><p>つまり、登録・更新・削除の制限は<strong>システムレベルでは強制されません</strong>。<br>技術的にはできてしまう操作でも、ライセンスガイドの使用権を超える操作はライセンス違反となります。</p><p>【ポイント】</p><ol><li>「何個まで」という数の上限はない</li><li>「何ができるか」がシナリオとして決められている</li><li>制限はシステムで自動的にブロックされるものではなく、ライセンス契約上のルール</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/sales/sales-team-member#features-available-in-the-sales-team-member-app">Sales Team Member アプリで使用できる機能 (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/get-started/team-members-license#does-the-team-member-license-enforcement-restrict-create-update-delete-operations-and-other-operations-as-specified-in-the-licensing-guide">Dynamics 365 Team Members license - Does the Team Member license enforcement restrict create, update, delete operations and other operations as specified in the licensing guide? (Docs)</a></li></ul><h2 id="summary">まとめ</h2><ul><li>Team Member アプリに追加できるテーブルは最大 15 個まで。この制限は参照目的でも適用されるが、もともとアプリに含まれているテーブルはカウントされない</li><li>15 個を超えるテーブルのデータを見たい場合は、サブグリッド・個人用ダッシュボード・ルックアップを活用する</li><li>登録・更新・削除は「テーブル数の上限」ではなく「ライセンスガイドに記載されたシナリオの範囲内」で許可される</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2><p>本記事の内容は執筆日時点の公開情報に基づいております。<br>ライセンスの使用権や制限事項は、ライセンスガイドの更新に伴い変更される可能性がございます。<br>最新の使用権については、<a href="https://go.microsoft.com/fwlink/?LinkId=866544&clcid=0x409">Dynamics 365 ライセンス ガイド (PDF &#x2F; 英語)</a> をご確認くださいますようお願い申し上げます。<br>日本語版は、<a href="https://go.microsoft.com/fwlink/?LinkId=866544&clcid=0x411">Dynamics 365 ライセンス ガイド (PDF &#x2F; 日本語)</a> です。</p>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerplatform/team-members-license/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/team-members-license/"/>
+    <published>2026-05-01T03:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの鈴木です。</p>
+<p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
+    </summary>
+    <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
+    <updated>2026-06-26T00:44:31.497Z</updated>
   </entry>
   <entry>
     <author>
@@ -112,7 +136,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-06-15T02:24:33.451Z</updated>
+    <updated>2026-06-26T00:44:31.430Z</updated>
   </entry>
   <entry>
     <author>
@@ -135,7 +159,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-06-15T02:24:33.384Z</updated>
+    <updated>2026-06-26T00:44:31.369Z</updated>
   </entry>
   <entry>
     <author>
@@ -161,7 +185,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-06-15T02:24:33.492Z</updated>
+    <updated>2026-06-26T00:44:31.467Z</updated>
   </entry>
   <entry>
     <author>
@@ -188,7 +212,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-06-15T02:24:33.504Z</updated>
+    <updated>2026-06-26T00:44:31.478Z</updated>
   </entry>
   <entry>
     <author>
@@ -214,7 +238,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-06-15T02:24:33.451Z</updated>
+    <updated>2026-06-26T00:44:31.430Z</updated>
   </entry>
   <entry>
     <author>
@@ -251,7 +275,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-06-15T02:24:33.504Z</updated>
+    <updated>2026-06-26T00:44:31.478Z</updated>
   </entry>
   <entry>
     <author>
@@ -281,7 +305,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-06-15T02:24:33.450Z</updated>
+    <updated>2026-06-26T00:44:31.429Z</updated>
   </entry>
   <entry>
     <author>
@@ -291,8 +315,8 @@
     </author>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Pages/"/>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Pages/"/>
-    <category term="Security" scheme="https://jpdynamicscrm.github.io/blog/tags/Security/"/>
     <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
+    <category term="Security" scheme="https://jpdynamicscrm.github.io/blog/tags/Security/"/>
     <content>
       <![CDATA[<p>こんにちは、Power Platformサポートチームの吉永です。</p><p>本記事では Power Pages 認証キーに関するご説明を行わせて頂きます。</p><p>Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定期的に更新作業を実施する必要のある項目となっており、この認証キーが持つ有効期限が切れてしまった場合、Web サイトにアクセスできないといった大きな影響が生じます。</p><p>このため、Power Pages の Web サイトを作成する上で、Power Pages 認証キーをどのように管理いただくかは非常に重要なポイントとなります。</p><p>本記事では Power Pages 認証キーの管理について、以下の Q1〜Q4 の質問に回答する形でご説明させていただきます。</p><ul><li><a href="#auth-key-overview">Q1: Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">Q2: 認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">Q3: どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">Q4: 認証キーはどのように管理すればいいですか？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Power Pages が Dataverse (データ置き場) に接続するための「鍵」の仕組み</li><li>1 年に 1 回の更新を忘れた場合のリスク</li><li>Power Platform 管理センターを使った簡単な更新手順</li><li>更新作業に伴うサイトの一時的な再起動について</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">認証キーはどのように管理すればいいですか？</a></li></ul><h2 id="auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？ (Q1)</h2><p>Power Pages 認証キーは Power Pages で作成された Web サイトを表示するために必要な Dataverse へのアクセスを行うための認証キーとなります。</p><p>前提として、Power Page で作られた Web サイトは、Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/architecture">Power Pages アーキテクチャ (Docs)</a></li></ul><p><img src="/blog/powerpages/power-pages-auth-key/power-pages-architecture.png"></p><p>このため、Power Pages の Web サイトが機能するためには、Power Pages (Web サイト) が Dataverse に接続可能な状態である必要があります。<br>この接続にはセキュリティ上の観点から「認証キー」を用いた接続が利用されておりますが、この「認証キー」には 1 年間という有効期限がございます。</p><p>この「認証キー」の有効期限は自動では更新されないことから、ユーザー様にて定期的に「認証キー」を更新していただく必要がございます。<br>Web サイト認証キーの管理</p><p>【補足 : 認証キーの実体】<br>先述させて頂きましたように、 Power Pages では Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>このため、Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で作成される仕組みとなっております。<br>このことから、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-azure-app.png"></p><p>なお、Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。</p><h2 id="expiration-impact">認証キーの有効期限が切れるとどうなりますか？ (Q2)</h2>「認証キー」の有効期限が切れた場合、Web サイトは Dataverse にアクセスできなくなります。Power Pages の Web サイトは Dataverse 上に保存された Web サイトのカスタマイズ情報などを使って動作しておりますので、以下のような問題が発生します。<ul><li>ログインができなくなる</li><li>フォームに入力したデータを送信できなくなる</li><li>ページにデータが表示されずエラーになる</li></ul><p>実際に「認証キーの有効期限が切れてしまっていたことで、Web サイトにアクセスできなくなった」というお問い合わせを頂くことがあり、影響としても非常に大きいものとなりますので、期限切れになる前に必ず更新作業を行って頂く必要がございます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-expiration-of-an-auth-key">Web サイト認証キーの管理 - 認証キーの有効期限切れを確認する (Docs)</a></li></ul><h2 id="renewal-steps">どうやってキーを更新すればいいですか？ (Q3)</h2>Power Pages 認証キーは以下の手順で更新可能です。<ol><li><a href="https://aka.ms/ppac?utm_source=blog">Power Platform 管理センター</a> にアクセスします。</li><li>左側のメニューから [管理] &gt; [Power Pages] を選択します。</li><li>対象のウェブサイトを選択し、画面上部のメニューまたは詳細画面から [管理] (または [設定]) を探します。</li><li>[セキュリティ] セクションにある <strong>[Web サイト認証キー]</strong> をクリックします。</li><li>表示された画面で <strong>[キーの更新]</strong> ボタンを押し、確認画面で [OK] を選択します。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-auth-key.png"></li></ol><p>これにより更新処理が始まり、自動でキーの更新が完了となります。</p><p>【ポイント】</p><p>1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。</p><p>2.「キーの更新」ボタンを押すことで、新しいキーが自動生成されますが、新たなキーの有効期限は 1 年後となります。</p><p>3.認証キーを更新する際、ウェブサイトの再起動が発生します。<br>この再起動では  Web サイトが完全に停止するわけではございませんが、数分程度の間、利用者がサイトにアクセスしづらくなる可能性があるため、必要に応じて、夜間帯などでの実行をご検討ください。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/admin-roles">Web サイト管理に必要なロール (Docs)</a></li></ul><h2 id="auth-key-management">認証キーはどのように管理すればいいですか？ (Q4)</h2>Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。<ul><li>電子メール</li><li>Power Platform 管理センター</li><li>Web サイト上</li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-authentication-key-expiration-notification">認証キーの有効期限切れを確認する (Docs)</a></li></ul><p>場合によってメールでの通知に気づくことが出来ない可能性がある一方で、有効期限が切れた場合の影響が大きいため、必要に応じてより通知に気づきやすい、漏れが生じにくい方法での管理についてもご検討いただけますと幸いです。</p><h2 id="summary">まとめ</h2><ul><li>Power Pages の認証キーは、安全なデータ接続に必要な「身分証明書」です。</li><li>有効期限 (1 年) が切れると、サイトが正常に動かなくなります。</li><li>管理センターから簡単に更新できますが、数分間のサイト再起動を伴います。</li><li>メール通知が届いたら、利用者の少ない時間帯を見計らって更新しましょう。</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2>本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。]]>
     </content>
@@ -313,7 +337,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-06-15T02:24:33.383Z</updated>
+    <updated>2026-06-26T00:44:31.367Z</updated>
   </entry>
   <entry>
     <author>
@@ -336,7 +360,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-06-15T02:24:33.520Z</updated>
+    <updated>2026-06-26T00:44:31.494Z</updated>
   </entry>
   <entry>
     <author>
@@ -369,7 +393,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-06-15T02:24:33.504Z</updated>
+    <updated>2026-06-26T00:44:31.478Z</updated>
   </entry>
   <entry>
     <author>
@@ -402,7 +426,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-06-15T02:24:33.452Z</updated>
+    <updated>2026-06-26T00:44:31.431Z</updated>
   </entry>
   <entry>
     <author>
@@ -432,7 +456,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-06-15T02:24:33.160Z</updated>
+    <updated>2026-06-26T00:44:31.163Z</updated>
   </entry>
   <entry>
     <author>
@@ -456,7 +480,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-06-15T02:24:33.452Z</updated>
+    <updated>2026-06-26T00:44:31.432Z</updated>
   </entry>
   <entry>
     <author>
@@ -485,7 +509,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-06-15T02:24:33.452Z</updated>
+    <updated>2026-06-26T00:44:31.432Z</updated>
   </entry>
   <entry>
     <author>
@@ -513,7 +537,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-06-15T02:24:33.440Z</updated>
+    <updated>2026-06-26T00:44:31.420Z</updated>
   </entry>
   <entry>
     <author>
@@ -537,37 +561,6 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、林、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-06-15T02:24:33.338Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Pages/"/>
-    <category term="Governance" scheme="https://jpdynamicscrm.github.io/blog/tags/Governance/"/>
-    <category term="License" scheme="https://jpdynamicscrm.github.io/blog/tags/License/"/>
-    <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Pages/"/>
-    <content>
-      <![CDATA[<p>こんにちは、PowerPlatformサポートチームの三田です。</p><p>本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。</p><ul><li><a href="#q1">Q1: Power Pages の基本的なライセンスモデル（何をどの単位で購入 &#x2F; 課金するか）は？</a></li><li><a href="#q2">Q2: 認証ユーザー (Authenticated) と匿名ユーザー (Anonymous) のカウント方式の違いは？</a></li><li><a href="#q3">Q3: 月中で想定より利用が増えた（超過しそう &#x2F; した）場合はどう判断・対応する？</a></li><li><a href="#q4">Q4: 認証ユーザー数の「ユニーク」判定はどのように行われる？（複数回ログイン時の扱い）</a></li><li><a href="#q5">Q5: 既に Power Apps &#x2F; Dynamics 365 ライセンスを持つ社内（内部）ユーザーは別途カウント &#x2F; 課金が必要か？</a></li><li><a href="#q6">Q6: 匿名ユーザー数はどのように一意判定され異なるデバイスやCookie削除時はどう扱われるか？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>現行 Power Pages の容量（Capacity）ベース課金モデルの全体像</li><li>認証 &#x2F; 匿名ユーザーの「月次ユニーク」測定基準と非カウント条件</li><li>既存 Power Apps &#x2F; Dynamics 365 ライセンス保有ユーザーの扱い（重複課金回避）</li><li>超過（Overage）したときの対処法</li><li>よくある誤解（旧ポータル Login&#x2F;Page View モデルとの混同 など）の整理</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#q1">Power Pages の基本ライセンスモデル (Q1)</a></li><li><a href="#q2">認証ユーザーと匿名ユーザーのカウント方式 (Q2)</a></li><li><a href="#q3">利用が超過しそうまたは超過した場合の対応 (Q3)</a></li><li><a href="#q4">認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)</a></li><li><a href="#q5">内部ユーザー既存ライセンスとカウント除外 (Q5)</a></li><li><a href="#q6">匿名ユーザーの一意判定とブラウザ差異&#x2F;Cookie削除の影響 (Q6)</a></li><li><a href="#summary">まとめ</a></li><li><a href="#notice">注意事項（情報の更新可能性）</a></li></ul><h2 id="q1">Power Pages の基本ライセンスモデル (Q1)</h2>【結論】Power Pages は「月次ユニークユーザー数」を軸にした Capacity（容量）ベースのライセンスモデルです。対象は (1) 認証ユーザー (Authenticated users) と (2) 匿名ユーザー (Anonymous users) の 2 系列です。サブスクリプション購入（事前割当）と Pay-as-you-go メーター（実使用後精算）が併存します。<p>【ポイント】</p><ol><li>ライセンス対象単位: 「サイト単位の月次ユニークユーザー数」</li><li>種別: 認証ユーザー (Authenticated users) と 匿名ユーザー (Anonymous users) は人数を「別々に」数える（互いに混ざらない・合算しない）</li><li>購入形態: 容量パック (100 認証 &#x2F; 500 匿名 単位) のサブスクリプション、または Azure 課金の Pay-as-you-go メーター</li><li>認証&#x2F;匿名いずれも「その月に 1 回以上アクセスした一意ユーザー」で 1 カウント（基本的には複数回アクセスしても追加カウントされない）</li><li>旧モデル (ログイン数 &#x2F; ページビュー) とは測定概念が異なる（ログイン回数ではなくユーザー人数）</li></ol><p>【サブスクリプション 容量パック 概要（抜粋）】</p><ul><li>認証: 1 パック &#x3D; 100 ユーザー &#x2F; 月</li><li>匿名: 1 パック &#x3D; 500 ユーザー &#x2F; 月</li></ul><p>（複数 パック 積み上げでサイト想定上限を設計。内部的には環境ごとに最小割当値: 認証 25 &#x2F; 匿名 200）</p><p>【よくある誤解】</p><ul><li>誤解: 「ログイン回数が課金対象である」<ul><li>→ 正しくは: 月内ユニークユーザー数。1 ユーザーが 30 回ログインしても 1 です。</li></ul></li><li>誤解: 「容量パック を買うと未使用ぶんは翌月に繰り越せる」<ul><li>→ 正しくは: 繰り越し不可（月ごとリセット）。</li></ul></li><li>誤解: 「サイト数に比例して必ず追加 Dataverse 容量が必要」<ul><li>→ 正しくは: 今の Power Pages ではサイトを作るときに Dataverse の容量を新しく買い足す必要はありません（最初からある分で始められます）。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#how-is-power-pages-licensed">Power Pages のライセンス体系 (FAQ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-main-differences-between-power-pages-and-power-apps-portals-licensing">Power Pages と旧 Power Apps ポータル ライセンス比較 (FAQ)</a></li></ul><h2 id="q2">認証ユーザーと匿名ユーザーのカウント方式 (Q2)</h2>【結論】認証ユーザーは Dataverse の Contact レコード ID で一意判定し、匿名ユーザーはブラウザ Cookie に保持される匿名ユーザー ID で一意化されます。いずれも「その暦月に初めてカウントされた時点で 1」となり再度ログイン（または閲覧）しても加算されません。<p>【ポイント】</p><ol><li>認証ユーザー: ログインに成功した Contact 1 件 &#x3D; 1（同月内複数回ログインは再カウント無し）</li><li>匿名ユーザー: 匿名ページを閲覧したブラウザ Cookie 単位で初回のみカウント（同月内の複数回訪問は再カウント無し）</li><li>匿名ユーザーとして数えない主なケース：「テスト用で触っているだけ」「ログインするための画面だけ見た」「機械（検索ロボット）が来た」「その日あとでログインして本人だと分かった」など。（こうした場合は匿名人数を増やさず、必要なら認証ユーザー側だけ数えます。）</li><li>同一人物が異なるブラウザ・端末・Cookie クリアを行うと別匿名ユーザーとして計上され得る</li><li>匿名→同日内ログイン移行時は「認証ユーザーのみ」計上（匿名側重複排除）</li></ol><p>【よくある誤解】</p><ul><li>誤解: 「匿名はページビュー合計」<ul><li>→ 正しくは: ユニーク匿名ユーザー（Cookie ベース）</li></ul></li><li>誤解: 「ログインページ（サインイン）閲覧も匿名ユーザーとしてカウントされる」<ul><li>→ 正しくは: ログインページは非カウント対象</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-authenticated-user-and-how-are-authenticated-users-per-websitemonth-calculated">認証ユーザーの定義と算出方法 (FAQ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-anonymous-user-and-how-are-anonymous-users-per-websitemonth-calculated">匿名ユーザーの定義と算出方法 (FAQ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-scenarios-in-which-a-user-isnt-counted-as-an-anonymous-user-even-though-the-user-browses-an-anonymous-page-on-the-website">匿名ユーザーにカウントされないシナリオ (FAQ)</a></li></ul><h2 id="q3">利用が超過しそうまたは超過した場合の対応 (Q3)</h2>【結論】月次集計は月初にリセットされ日次累積で増加します。想定上限に近づいたら (1) 追加 容量パック 割当、(2) 他環境からの再配分、(3) Pay-as-you-go への紐付け検討 の順に評価することを推奨します。また、超過した場合、即座にサイトが停止したり、超過分の料金を請求されることはありません。<p>【補足】データが反映されるまでに 1 日程度かかることがあります。</p><p>【ポイント】</p><ol><li>対応オプション: 追加購入・未割当容量の再割当・Pay-as-you-go 化（Azure サブスクリプション）</li><li>計画: 事前に、季節変動がある場合はピーク月を基準に容量パックの検討</li></ol><p>【よくある誤解】</p><ul><li>誤解: 「超過したら即座にサイト停止や罰金のような追加請求が起きる」<ul><li>→ 正しくは: 即時停止・即ペナルティ的課金はありませんが、継続超過は早期の容量見直しが必要です。</li></ul></li><li>誤解: 「Pay-as-you-go にするとサブスクリプション容量は不要になる」<ul><li>→ 正しくは: 併用設計可。ベース容量 + 変動部を Pay-as-you-go で吸収するハイブリッドが実務上多い。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/capacity-management#licensing-summary-view">容量の監視: ライセンス サマリービュー (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/capacity-management#capacity-management">容量管理ペイン (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#for-subscription-based-licenses-what-is-the-minimum-number-of-authenticated-and-anonymous-user-capacity-i-need-to-assign-to-an-environment">最小割り当て数 &#x2F; パック (FAQ)</a></li></ul><h2 id="q4">認証ユーザーのユニーク判定（重複ログインの扱い） (Q4)</h2>【結論】同一 Contact に紐づくユーザーが暦月中に複数回ログインしても 1 カウントのみです。判定キーは Dataverse Contact レコード ID で、月初リセット後に再度初回ログインした時点で新しい月の 1 として加算されます。<p>【ポイント】</p><ol><li>判定キー: Dataverse Contact ID</li><li>同月内複数ログイン: 再カウント無し</li><li>翌月: 初回アクセス時に再び 1 としてカウント</li><li>旧“ログイン” 課金との比較: 旧 Portals Login (日次ユニーク * 日数) と違い総ログイン回数増加は費用へ直結しない</li></ol><p>【よくある誤解】</p><ul><li>誤解: 「同じ人が 1 日に何回もログインすると、その回数分追加料金がかかる」<ul><li>→ 正: その月に 1 回でもログインした“その人”は 1 人として数えます。翌月になるまで同じ人が何十回ログインしても増えません。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-authenticated-user-and-how-are-authenticated-users-per-websitemonth-calculated">認証ユーザー月次カウント方法 (FAQ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-the-difference-between-power-apps-portals-login-capacity-and-power-pages-authenticated-per-usermonth-capacity">旧ログイン容量との違い (FAQ)</a></li></ul><h2 id="q5">内部ユーザー既存ライセンスとカウント除外 (Q5)</h2>【結論】社内の人がすでに以下のいずれかのライセンスを持っていて（同じテナントで付与済み）、会社のアカウント（Entra ID）で Power Pages サイトに入るなら、その人は「Power Pages の認証ユーザー数」には数えません。ライセンスが無い社内ユーザーや会社外の人だけが、Power Pages 認証容量を消費します。<p>対象となる既存ライセンス（どれか 1 つ持っていれば除外）:</p><ul><li>Power Apps per user（1 人で複数アプリ使えるライセンス）</li><li>Power Apps per app（指定された 1 サイト&#x2F;アプリ分の利用権）</li><li>Dynamics 365 Enterprise ライセンス（該当業務アプリの利用権）</li></ul><p>【ポイント】</p><ol><li>すでに 上記既存ライセンスを保持しているユーザー → Power Pages の認証ユーザー容量を消費しない（カウント除外）</li><li>上記いずれのライセンスも持っていない社内ユーザー &#x2F; 社外ユーザー（取引先・お客様など） → Power Pages の認証ユーザー容量を消費する</li></ol><p>【よくある誤解】</p><ul><li>誤解: 「社内ユーザーは全員 認証ユーザーとしてカウントされる」<ul><li>→ 正しくは: 上記の既存ライセンス保持者はカウントされません（容量を消費しません）。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-power-pages-use-rights-included-with-power-apps-and-dynamics-365-enterprise-licenses">Power Apps &#x2F; Dynamics 365 に含まれる利用権 (FAQ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#if-im-building-a-power-pages-website-for-my-employees-who-log-in-using-their-microsoft-entra-credentials-what-power-pages-licenses-do-i-need">社内ユーザー向けライセンス選択 (FAQ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-pages/faq#are-the-guest-users-treated-as-internal-users-for-licensing">ゲスト ユーザーは内部扱いか (FAQ)</a></li></ul><h2 id="q6">匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)</h2>【結論】匿名ユーザーはブラウザ Cookie に保存される匿名 ID で月内ユニーク判定します。別ブラウザ・別端末・Cookie 削除で ID が変われば別ユーザーとしてカウントされます。<p>【ポイント】</p><ol><li>判定キー: 匿名 Cookie ID（ブラウザ&#x2F;端末単位）</li><li>Cookie クリア &#x2F; ブラウザ変更 &#x2F; 端末変更: 新規ユーザーとして再カウントされ得る</li><li>同日匿名→認証ログイン: 認証側のみ残る（匿名で閲覧した後、認証ログインした場合は、認証ユーザーとしてのみカウントされる）</li><li>ログインページ &#x2F; エラーページ等への訪問はカウントされない</li></ol><p>【よくある誤解】</p><ul><li>誤解: 「匿名はページビュー合計なので画像読み込み等も増加させる」<ul><li>→ 正しくは: 静的リソースのみではカウントされません。</li></ul></li><li>誤解: 「匿名で閲覧した後、ログイン認証した場合は、匿名ユーザーと認証ユーザーで 2 重計上される」<ul><li>→ 正しくは: 当日内は認証ユーザーとしてカウントされ、匿名ユーザーではカウントされません。</li></ul></li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-is-an-anonymous-user-and-how-are-anonymous-users-per-websitemonth-calculated">匿名ユーザー月次カウント方法 (FAQ)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#what-are-the-scenarios-in-which-a-user-isnt-counted-as-an-anonymous-user-even-though-the-user-browses-an-anonymous-page-on-the-website">匿名にカウントされないシナリオ (FAQ)</a></li></ul><h2 id="summary">まとめ</h2>- Power Pages は 認証 / 匿名 の月次ユニークユーザー Capacity モデル。旧 Portals の「Login / Page View」課金とは概念が異なります。- 認証ユニーク: Contact ID ベース。匿名ユニーク: Cookie ID ベース。どちらも月初リセット。- 超過が懸念される場合は、追加購入・再割当・Pay-as-you-go を使い分けます。- 超過してしまっても、即停止・追加請求の心配はありません。- 内部ユーザーで Power Apps per user / per app / Dynamics 365 Enterprise ライセンス保持者は条件を満たせば認証容量を消費しません。<h2 id="notice">注意事項（情報の更新可能性）</h2>本記事は執筆日時点の公開情報に基づいています。ライセンス体系・容量定義・ UI 表示・最小割当値などは将来変更される可能性があります。最新情報は必ず公式ドキュメント（Power Pages Licensing FAQ / 管理センター画面 / 最新 Licensing Guide）でご確認ください。]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerpages/power-pages-licensing-guide/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerpages/power-pages-licensing-guide/"/>
-    <published>2025-09-16T01:30:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、PowerPlatformサポートチームの三田です。</p>
-<p>本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。</p>
-<ul>
-<li><a href="#q1">Q1: Power Pages の基本的なライセンスモデル（何をどの単位で購入 &#x2F; 課金するか）は？</a></li>
-<li><a href="#q2">Q2: 認証ユーザー (Authenticated) と匿名ユーザー (Anonymous) のカウント方式の違いは？</a></li>
-<li><a href="#q3">Q3: 月中で想定より利用が増えた（超過しそう &#x2F; した）場合はどう判断・対応する？</a></li>
-<li><a href="#q4">Q4: 認証ユーザー数の「ユニーク」判定はどのように行われる？（複数回ログイン時の扱い）</a></li>
-<li><a href="#q5">Q5: 既に Power Apps &#x2F; Dynamics 365 ライセンスを持つ社内（内部）ユーザーは別途カウント &#x2F; 課金が必要か？</a></li>
-<li><a href="#q6">Q6: 匿名ユーザー数はどのように一意判定され異なるデバイスやCookie削除時はどう扱われるか？</a></li>
-</ul>]]>
-    </summary>
-    <title>Power Pages ライセンスについて</title>
-    <updated>2026-06-15T02:24:33.384Z</updated>
+    <updated>2026-06-26T00:44:31.326Z</updated>
   </entry>
 </feed>
