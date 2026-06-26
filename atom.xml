@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-06-26T00:44:31.157Z</updated>
+  <updated>2026-06-26T10:05:16.550Z</updated>
   <entry>
     <author>
       <name>
@@ -27,8 +27,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
@@ -43,7 +43,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-06-26T00:44:31.157Z</updated>
+    <updated>2026-06-26T10:05:16.550Z</updated>
   </entry>
   <entry>
     <author>
@@ -66,7 +66,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-06-26T00:44:31.431Z</updated>
+    <updated>2026-06-26T10:05:16.825Z</updated>
   </entry>
   <entry>
     <author>
@@ -89,7 +89,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-06-26T00:44:31.494Z</updated>
+    <updated>2026-06-26T10:05:16.888Z</updated>
   </entry>
   <entry>
     <author>
@@ -113,7 +113,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-06-26T00:44:31.497Z</updated>
+    <updated>2026-06-26T10:05:16.892Z</updated>
   </entry>
   <entry>
     <author>
@@ -136,7 +136,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-06-26T00:44:31.430Z</updated>
+    <updated>2026-06-26T10:05:16.824Z</updated>
   </entry>
   <entry>
     <author>
@@ -159,7 +159,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-06-26T00:44:31.369Z</updated>
+    <updated>2026-06-26T10:05:16.764Z</updated>
   </entry>
   <entry>
     <author>
@@ -185,7 +185,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-06-26T00:44:31.467Z</updated>
+    <updated>2026-06-26T10:05:16.862Z</updated>
   </entry>
   <entry>
     <author>
@@ -212,7 +212,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-06-26T00:44:31.478Z</updated>
+    <updated>2026-06-26T10:05:16.873Z</updated>
   </entry>
   <entry>
     <author>
@@ -238,7 +238,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-06-26T00:44:31.430Z</updated>
+    <updated>2026-06-26T10:05:16.824Z</updated>
   </entry>
   <entry>
     <author>
@@ -275,7 +275,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-06-26T00:44:31.478Z</updated>
+    <updated>2026-06-26T10:05:16.873Z</updated>
   </entry>
   <entry>
     <author>
@@ -305,7 +305,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-06-26T00:44:31.429Z</updated>
+    <updated>2026-06-26T10:05:16.823Z</updated>
   </entry>
   <entry>
     <author>
@@ -315,8 +315,8 @@
     </author>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Pages/"/>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Pages/"/>
-    <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
     <category term="Security" scheme="https://jpdynamicscrm.github.io/blog/tags/Security/"/>
+    <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
     <content>
       <![CDATA[<p>こんにちは、Power Platformサポートチームの吉永です。</p><p>本記事では Power Pages 認証キーに関するご説明を行わせて頂きます。</p><p>Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定期的に更新作業を実施する必要のある項目となっており、この認証キーが持つ有効期限が切れてしまった場合、Web サイトにアクセスできないといった大きな影響が生じます。</p><p>このため、Power Pages の Web サイトを作成する上で、Power Pages 認証キーをどのように管理いただくかは非常に重要なポイントとなります。</p><p>本記事では Power Pages 認証キーの管理について、以下の Q1〜Q4 の質問に回答する形でご説明させていただきます。</p><ul><li><a href="#auth-key-overview">Q1: Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">Q2: 認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">Q3: どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">Q4: 認証キーはどのように管理すればいいですか？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Power Pages が Dataverse (データ置き場) に接続するための「鍵」の仕組み</li><li>1 年に 1 回の更新を忘れた場合のリスク</li><li>Power Platform 管理センターを使った簡単な更新手順</li><li>更新作業に伴うサイトの一時的な再起動について</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">認証キーはどのように管理すればいいですか？</a></li></ul><h2 id="auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？ (Q1)</h2><p>Power Pages 認証キーは Power Pages で作成された Web サイトを表示するために必要な Dataverse へのアクセスを行うための認証キーとなります。</p><p>前提として、Power Page で作られた Web サイトは、Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/architecture">Power Pages アーキテクチャ (Docs)</a></li></ul><p><img src="/blog/powerpages/power-pages-auth-key/power-pages-architecture.png"></p><p>このため、Power Pages の Web サイトが機能するためには、Power Pages (Web サイト) が Dataverse に接続可能な状態である必要があります。<br>この接続にはセキュリティ上の観点から「認証キー」を用いた接続が利用されておりますが、この「認証キー」には 1 年間という有効期限がございます。</p><p>この「認証キー」の有効期限は自動では更新されないことから、ユーザー様にて定期的に「認証キー」を更新していただく必要がございます。<br>Web サイト認証キーの管理</p><p>【補足 : 認証キーの実体】<br>先述させて頂きましたように、 Power Pages では Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>このため、Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で作成される仕組みとなっております。<br>このことから、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-azure-app.png"></p><p>なお、Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。</p><h2 id="expiration-impact">認証キーの有効期限が切れるとどうなりますか？ (Q2)</h2>「認証キー」の有効期限が切れた場合、Web サイトは Dataverse にアクセスできなくなります。Power Pages の Web サイトは Dataverse 上に保存された Web サイトのカスタマイズ情報などを使って動作しておりますので、以下のような問題が発生します。<ul><li>ログインができなくなる</li><li>フォームに入力したデータを送信できなくなる</li><li>ページにデータが表示されずエラーになる</li></ul><p>実際に「認証キーの有効期限が切れてしまっていたことで、Web サイトにアクセスできなくなった」というお問い合わせを頂くことがあり、影響としても非常に大きいものとなりますので、期限切れになる前に必ず更新作業を行って頂く必要がございます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-expiration-of-an-auth-key">Web サイト認証キーの管理 - 認証キーの有効期限切れを確認する (Docs)</a></li></ul><h2 id="renewal-steps">どうやってキーを更新すればいいですか？ (Q3)</h2>Power Pages 認証キーは以下の手順で更新可能です。<ol><li><a href="https://aka.ms/ppac?utm_source=blog">Power Platform 管理センター</a> にアクセスします。</li><li>左側のメニューから [管理] &gt; [Power Pages] を選択します。</li><li>対象のウェブサイトを選択し、画面上部のメニューまたは詳細画面から [管理] (または [設定]) を探します。</li><li>[セキュリティ] セクションにある <strong>[Web サイト認証キー]</strong> をクリックします。</li><li>表示された画面で <strong>[キーの更新]</strong> ボタンを押し、確認画面で [OK] を選択します。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-auth-key.png"></li></ol><p>これにより更新処理が始まり、自動でキーの更新が完了となります。</p><p>【ポイント】</p><p>1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。</p><p>2.「キーの更新」ボタンを押すことで、新しいキーが自動生成されますが、新たなキーの有効期限は 1 年後となります。</p><p>3.認証キーを更新する際、ウェブサイトの再起動が発生します。<br>この再起動では  Web サイトが完全に停止するわけではございませんが、数分程度の間、利用者がサイトにアクセスしづらくなる可能性があるため、必要に応じて、夜間帯などでの実行をご検討ください。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/admin-roles">Web サイト管理に必要なロール (Docs)</a></li></ul><h2 id="auth-key-management">認証キーはどのように管理すればいいですか？ (Q4)</h2>Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。<ul><li>電子メール</li><li>Power Platform 管理センター</li><li>Web サイト上</li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-authentication-key-expiration-notification">認証キーの有効期限切れを確認する (Docs)</a></li></ul><p>場合によってメールでの通知に気づくことが出来ない可能性がある一方で、有効期限が切れた場合の影響が大きいため、必要に応じてより通知に気づきやすい、漏れが生じにくい方法での管理についてもご検討いただけますと幸いです。</p><h2 id="summary">まとめ</h2><ul><li>Power Pages の認証キーは、安全なデータ接続に必要な「身分証明書」です。</li><li>有効期限 (1 年) が切れると、サイトが正常に動かなくなります。</li><li>管理センターから簡単に更新できますが、数分間のサイト再起動を伴います。</li><li>メール通知が届いたら、利用者の少ない時間帯を見計らって更新しましょう。</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2>本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。]]>
     </content>
@@ -337,7 +337,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-06-26T00:44:31.367Z</updated>
+    <updated>2026-06-26T10:05:16.762Z</updated>
   </entry>
   <entry>
     <author>
@@ -360,7 +360,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-06-26T00:44:31.494Z</updated>
+    <updated>2026-06-26T10:05:16.888Z</updated>
   </entry>
   <entry>
     <author>
@@ -393,7 +393,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-06-26T00:44:31.478Z</updated>
+    <updated>2026-06-26T10:05:16.873Z</updated>
   </entry>
   <entry>
     <author>
@@ -426,7 +426,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-06-26T00:44:31.431Z</updated>
+    <updated>2026-06-26T10:05:16.825Z</updated>
   </entry>
   <entry>
     <author>
@@ -435,12 +435,12 @@
       </name>
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="SharePoint" scheme="https://jpdynamicscrm.github.io/blog/tags/SharePoint/"/>
     <category term="Mobile" scheme="https://jpdynamicscrm.github.io/blog/tags/Mobile/"/>
     <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートの竹内です。<br>今回は、モバイル端末で SharePoint をデータソースとしたキャンバスアプリを利用する際に、画像やメディアファイルが表示されない問題について、下記項目の順にご説明いたします。</p><ol><li>問題の概要</li><li>発生原因</li><li>対処方法</li><li>その他の原因について (参考)</li><li>参考情報</li></ol><span id="more"></span><h2 id="1-問題の概要"><a href="#1-問題の概要" class="headerlink" title="1. 問題の概要"></a>1. 問題の概要</h2><p>SharePoint リストをデータソースとしたキャンバスアプリにおいて、以下のような事象が発生することがございます。</p><ul><li><strong>Web ブラウザ (PC)</strong> では画像やメディアが正常に表示されるが、<strong>Power Apps モバイルアプリ (iOS&#x2F;Android)</strong> では表示されない</li><li><strong>Teams デスクトップ&#x2F;モバイルアプリ</strong> 内で公開されたアプリでも同様に表示されない</li></ul><h2 id="2-発生原因"><a href="#2-発生原因" class="headerlink" title="2. 発生原因"></a>2. 発生原因</h2><h3 id="2-1-クロスオリジンでの認証情報の問題"><a href="#2-1-クロスオリジンでの認証情報の問題" class="headerlink" title="2.1 クロスオリジンでの認証情報の問題"></a>2.1 クロスオリジンでの認証情報の問題</h3><p>Power Apps（<code>*.powerapps.com</code>）と SharePoint（<code>*.sharepoint.com</code>）は<strong>異なるオリジン（ドメイン）</strong> です。<br>Power Apps から SharePoint の画像を取得しようとすると、クロスオリジンリクエストとなり、<strong>SharePoint オリジンの認証情報が必要</strong>になります。</p><h3 id="2-2-なぜブラウザでは表示されるのか"><a href="#2-2-なぜブラウザでは表示されるのか" class="headerlink" title="2.2 なぜブラウザでは表示されるのか"></a>2.2 なぜブラウザでは表示されるのか</h3><p>Web ブラウザでアプリを実行する場合、ユーザーが以前に SharePoint サイトにログインしていると、ブラウザには <code>*.sharepoint.com</code> ドメインの <strong>Cookie（認証情報）</strong> が保存されています。<br>Power Apps から SharePoint への画像リクエスト時、ブラウザはこの Cookie を自動的に送信するため、SharePoint が認証済みリクエストとして処理し、画像を返します。</p><p>プライベートブラウジングモードや、SharePoint に事前にログインしていない状態では、ブラウザでも画像が表示されない場合がございます。</p><h3 id="2-3-なぜモバイルアプリでは表示されないのか"><a href="#2-3-なぜモバイルアプリでは表示されないのか" class="headerlink" title="2.3 なぜモバイルアプリでは表示されないのか"></a>2.3 なぜモバイルアプリでは表示されないのか</h3><p>Power Apps モバイルアプリはネイティブアプリであり、ブラウザとは独立しています。<br>そのため、<strong>SharePoint オリジン（<code>*.sharepoint.com</code>）の認証情報（Cookie）を持っていません。</strong></p><p>認証情報なしでリクエストが送信されるため、SharePoint がリクエストを拒否し、画像が表示されません。</p><h3 id="2-4-Power-Apps-で-URL-書き換えが行われないケース"><a href="#2-4-Power-Apps-で-URL-書き換えが行われないケース" class="headerlink" title="2.4 Power Apps で URL 書き換えが行われないケース"></a>2.4 Power Apps で URL 書き換えが行われないケース</h3><p>Power Apps は、SharePoint リストの「画像 (Image)」列タイプのデータを、Power Apps で認証できる形式に URL 書き換えを行います。この書き換えが行われた URL であれば、Power Apps が認証を代行するため、モバイルアプリでも画像が表示されます。</p><p>ただし、以下のケースでは URL 書き換えが行われないため、モバイルアプリで画像が表示されません。</p><table><thead><tr><th>ケース</th><th>説明</th></tr></thead><tbody><tr><td>テキスト列に画像 URL を保存している</td><td>「画像 (Image)」列タイプではないため、URL 書き換えが行われません</td></tr><tr><td>異なるサイトの画像を参照している</td><td>リストがサイト A にあり、画像がサイト B にある場合、URL 書き換えがサポートされていません</td></tr></tbody></table><h2 id="3-対処方法"><a href="#3-対処方法" class="headerlink" title="3. 対処方法"></a>3. 対処方法</h2><h3 id="対処方法-1-モバイルブラウザから-Power-Apps-にアクセスする"><a href="#対処方法-1-モバイルブラウザから-Power-Apps-にアクセスする" class="headerlink" title="対処方法 1: モバイルブラウザから Power Apps にアクセスする"></a>対処方法 1: モバイルブラウザから Power Apps にアクセスする</h3><p>Power Apps モバイルアプリではなく、モバイルデバイスのブラウザを使用してアプリを実行します。</p><ol><li>モバイルブラウザで、画像が保存されている <strong>SharePoint サイトに先にアクセス</strong> し、サインインします。<br>これにより、ブラウザに SharePoint の認証 Cookie が保存されます。</li><li>同じモバイルブラウザで <a href="https://make.powerapps.com/">Power Apps ポータル</a> にアクセスし、アプリを実行します。</li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>この方法では、Power Apps モバイルアプリの機能 (カメラ、GPS など) の一部が制限される場合がございます。</p></div><h3 id="対処方法-2-「画像-Image-」列タイプを使用する"><a href="#対処方法-2-「画像-Image-」列タイプを使用する" class="headerlink" title="対処方法 2: 「画像 (Image)」列タイプを使用する"></a>対処方法 2: 「画像 (Image)」列タイプを使用する</h3><p>SharePoint リストで「画像 (Image)」列タイプを使用し、この列に直接画像をアップロードしてください。<br>Power Apps が URL 書き換えを行い、モバイルアプリでも画像が表示されます。</p><div class="alert is-info"><p class="alert-title">Note</p><p>ハイパーリンク列に URL を保存している場合などには SharePoint リストでは画像が表示される場合でも、Power Apps モバイルアプリで画像が表示されません。</p></div><h3 id="対処方法-3-ファイルを-SharePoint-リストの添付ファイルとして保存する"><a href="#対処方法-3-ファイルを-SharePoint-リストの添付ファイルとして保存する" class="headerlink" title="対処方法 3: ファイルを SharePoint リストの添付ファイルとして保存する"></a>対処方法 3: ファイルを SharePoint リストの添付ファイルとして保存する</h3><p>画像やメディアファイルをリストアイテムの <strong>添付ファイル (Attachments)</strong> として保存する方法です。<br>添付ファイルは Power Apps で認証が行われるため、モバイルアプリでも表示されます。</p><ol><li><p>SharePoint リストでアイテムを作成し、画像ファイルを添付ファイルとして追加します。</p></li><li><p>Power Apps で添付ファイルを参照するには、以下のような数式を使用します。</p><p><strong>Image コントロールの Image プロパティ設定例:</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">First(Gallery1.Selected.Attachments).Value</span><br></pre></td></tr></table></figure></li></ol><h3 id="対処方法-4-CORS-対応の外部ストレージに画像を保存する"><a href="#対処方法-4-CORS-対応の外部ストレージに画像を保存する" class="headerlink" title="対処方法 4: CORS 対応の外部ストレージに画像を保存する"></a>対処方法 4: CORS 対応の外部ストレージに画像を保存する</h3><p>画像を SharePoint ではなく、<strong>Azure Storage</strong> や <strong>Azure CDN</strong> などの CORS 対応ストレージに保存する方法です。<br>これらのストレージは公開アクセス設定が可能で、認証なしで画像を取得できるため、モバイルアプリでも表示されます。</p><div class="alert is-info"><p class="alert-title">Note</p><p>この方法では画像が公開される可能性があるため、セキュリティ要件を確認してください。</p></div><h2 id="4-その他の原因について-参考"><a href="#4-その他の原因について-参考" class="headerlink" title="4. その他の原因について (参考)"></a>4. その他の原因について (参考)</h2><p>本記事で説明した SharePoint の認証問題とは別に、以下の要因で同様の事象が発生する場合がございます。</p><h3 id="外部サーバー-Azure-Storage-等-の-CORS-設定"><a href="#外部サーバー-Azure-Storage-等-の-CORS-設定" class="headerlink" title="外部サーバー (Azure Storage 等) の CORS 設定"></a>外部サーバー (Azure Storage 等) の CORS 設定</h3><p>SharePoint ではなく Azure Storage や独自のサーバーに画像を保存している場合、<strong>CORS (Cross-Origin Resource Sharing)</strong> の設定が必要です。</p><p>外部サーバーで CORS を構成する場合、以下のドメインからのリクエストを許可してください。</p><ul><li><code>*.powerapps.com</code></li><li><code>web.powerapps.com</code></li><li><code>apps.powerapps.com</code></li></ul><h3 id="プロキシによるヘッダー削除"><a href="#プロキシによるヘッダー削除" class="headerlink" title="プロキシによるヘッダー削除"></a>プロキシによるヘッダー削除</h3><p>Zscaler、Blue Coat などのプロキシサーバーが Power Apps のリクエストから認証ヘッダーを削除し、画像が表示されなくなることがございます。<br>プロキシを経由しない場合に問題が解消するかご確認ください。</p><div class="alert is-info"><p class="alert-title">Note</p><p>プロキシが認証ヘッダーを削除している場合、Power Apps チームではサポートの対象外となります。</p></div><h2 id="5-参考情報"><a href="#5-参考情報" class="headerlink" title="5. 参考情報"></a>5. 参考情報</h2><p>詳細については、以下の公開情報をご参照ください。</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/add-images-pictures-audio-video">キャンバス アプリでマルチメディア ファイルを使用する</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/controls/control-richtexteditor#pasted-images-may-not-appear-consistently">リッチ テキスト エディター コントロール</a></li><li><a href="https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#limits">SharePoint コネクタの制限事項</a></li></ul><p>※本記事の執筆には生成 AI を使用しています。<a href="https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content">参考</a></p><hr><p>免責事項<br>※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。</p>]]>
+      <![CDATA[<p>こんにちは、Power Platform サポートの竹内です。<br>今回は、モバイル端末で SharePoint をデータソースとしたキャンバスアプリを利用する際に、画像やメディアファイルが表示されない問題について、下記項目の順にご説明いたします。</p><ol><li>問題の概要</li><li>発生原因</li><li>対処方法</li><li>その他の原因について (参考)</li><li>参考情報</li></ol><span id="more"></span><h2 id="1-問題の概要"><a href="#1-問題の概要" class="headerlink" title="1. 問題の概要"></a>1. 問題の概要</h2><p>SharePoint リストをデータソースとしたキャンバスアプリにおいて、以下のような事象が発生することがございます。</p><ul><li><strong>Web ブラウザ (PC)</strong> では画像やメディアが正常に表示されるが、<strong>Power Apps モバイルアプリ (iOS&#x2F;Android)</strong> では表示されない</li><li><strong>Teams デスクトップ&#x2F;モバイルアプリ</strong> 内で公開されたアプリでも同様に表示されない</li></ul><h2 id="2-発生原因"><a href="#2-発生原因" class="headerlink" title="2. 発生原因"></a>2. 発生原因</h2><h3 id="2-1-クロスオリジンでの認証情報の問題"><a href="#2-1-クロスオリジンでの認証情報の問題" class="headerlink" title="2.1 クロスオリジンでの認証情報の問題"></a>2.1 クロスオリジンでの認証情報の問題</h3><p>Power Apps（<code>*.powerapps.com</code>）と SharePoint（<code>*.sharepoint.com</code>）は<strong>異なるオリジン（ドメイン）</strong> です。<br>Power Apps から SharePoint の画像を取得しようとすると、クロスオリジンリクエストとなり、<strong>SharePoint オリジンの認証情報が必要</strong>になります。</p><h3 id="2-2-なぜブラウザでは表示されるのか"><a href="#2-2-なぜブラウザでは表示されるのか" class="headerlink" title="2.2 なぜブラウザでは表示されるのか"></a>2.2 なぜブラウザでは表示されるのか</h3><p>Web ブラウザでアプリを実行する場合、ユーザーが以前に SharePoint サイトにログインしていると、ブラウザには <code>*.sharepoint.com</code> ドメインの <strong>Cookie（認証情報）</strong> が保存されています。<br>Power Apps から SharePoint への画像リクエスト時、ブラウザはこの Cookie を自動的に送信するため、SharePoint が認証済みリクエストとして処理し、画像を返します。</p><p>プライベートブラウジングモードや、SharePoint に事前にログインしていない状態では、ブラウザでも画像が表示されない場合がございます。</p><h3 id="2-3-なぜモバイルアプリでは表示されないのか"><a href="#2-3-なぜモバイルアプリでは表示されないのか" class="headerlink" title="2.3 なぜモバイルアプリでは表示されないのか"></a>2.3 なぜモバイルアプリでは表示されないのか</h3><p>Power Apps モバイルアプリはネイティブアプリであり、ブラウザとは独立しています。<br>そのため、<strong>SharePoint オリジン（<code>*.sharepoint.com</code>）の認証情報（Cookie）を持っていません。</strong></p><p>認証情報なしでリクエストが送信されるため、SharePoint がリクエストを拒否し、画像が表示されません。</p><h3 id="2-4-Power-Apps-で-URL-書き換えが行われないケース"><a href="#2-4-Power-Apps-で-URL-書き換えが行われないケース" class="headerlink" title="2.4 Power Apps で URL 書き換えが行われないケース"></a>2.4 Power Apps で URL 書き換えが行われないケース</h3><p>Power Apps は、SharePoint リストの「画像 (Image)」列タイプのデータを、Power Apps で認証できる形式に URL 書き換えを行います。この書き換えが行われた URL であれば、Power Apps が認証を代行するため、モバイルアプリでも画像が表示されます。</p><p>ただし、以下のケースでは URL 書き換えが行われないため、モバイルアプリで画像が表示されません。</p><table><thead><tr><th>ケース</th><th>説明</th></tr></thead><tbody><tr><td>テキスト列に画像 URL を保存している</td><td>「画像 (Image)」列タイプではないため、URL 書き換えが行われません</td></tr><tr><td>異なるサイトの画像を参照している</td><td>リストがサイト A にあり、画像がサイト B にある場合、URL 書き換えがサポートされていません</td></tr></tbody></table><h2 id="3-対処方法"><a href="#3-対処方法" class="headerlink" title="3. 対処方法"></a>3. 対処方法</h2><h3 id="対処方法-1-モバイルブラウザから-Power-Apps-にアクセスする"><a href="#対処方法-1-モバイルブラウザから-Power-Apps-にアクセスする" class="headerlink" title="対処方法 1: モバイルブラウザから Power Apps にアクセスする"></a>対処方法 1: モバイルブラウザから Power Apps にアクセスする</h3><p>Power Apps モバイルアプリではなく、モバイルデバイスのブラウザを使用してアプリを実行します。</p><ol><li>モバイルブラウザで、画像が保存されている <strong>SharePoint サイトに先にアクセス</strong> し、サインインします。<br>これにより、ブラウザに SharePoint の認証 Cookie が保存されます。</li><li>同じモバイルブラウザで <a href="https://make.powerapps.com/">Power Apps ポータル</a> にアクセスし、アプリを実行します。</li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>この方法では、Power Apps モバイルアプリの機能 (カメラ、GPS など) の一部が制限される場合がございます。</p></div><h3 id="対処方法-2-「画像-Image-」列タイプを使用する"><a href="#対処方法-2-「画像-Image-」列タイプを使用する" class="headerlink" title="対処方法 2: 「画像 (Image)」列タイプを使用する"></a>対処方法 2: 「画像 (Image)」列タイプを使用する</h3><p>SharePoint リストで「画像 (Image)」列タイプを使用し、この列に直接画像をアップロードしてください。<br>Power Apps が URL 書き換えを行い、モバイルアプリでも画像が表示されます。</p><div class="alert is-info"><p class="alert-title">Note</p><p>ハイパーリンク列に URL を保存している場合などには SharePoint リストでは画像が表示される場合でも、Power Apps モバイルアプリで画像が表示されません。</p></div><h3 id="対処方法-3-ファイルを-SharePoint-リストの添付ファイルとして保存する"><a href="#対処方法-3-ファイルを-SharePoint-リストの添付ファイルとして保存する" class="headerlink" title="対処方法 3: ファイルを SharePoint リストの添付ファイルとして保存する"></a>対処方法 3: ファイルを SharePoint リストの添付ファイルとして保存する</h3><p>画像やメディアファイルをリストアイテムの <strong>添付ファイル (Attachments)</strong> として保存する方法です。<br>添付ファイルは Power Apps で認証が行われるため、モバイルアプリでも表示されます。</p><ol><li><p>SharePoint リストでアイテムを作成し、画像ファイルを添付ファイルとして追加します。</p></li><li><p>Power Apps で添付ファイルを参照するには、以下のような数式を使用します。</p><p><strong>Image コントロールの Image プロパティ設定例:</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">First(Gallery1.Selected.Attachments).Value</span><br></pre></td></tr></table></figure></li></ol><h3 id="対処方法-4-CORS-対応の外部ストレージに画像を保存する"><a href="#対処方法-4-CORS-対応の外部ストレージに画像を保存する" class="headerlink" title="対処方法 4: CORS 対応の外部ストレージに画像を保存する"></a>対処方法 4: CORS 対応の外部ストレージに画像を保存する</h3><p>画像を SharePoint ではなく、<strong>Azure Storage</strong> や <strong>Azure CDN</strong> などの CORS 対応ストレージに保存する方法です。<br>これらのストレージは公開アクセス設定が可能で、認証なしで画像を取得できるため、モバイルアプリでも表示されます。</p><div class="alert is-info"><p class="alert-title">Note</p><p>この方法では画像が公開される可能性があるため、セキュリティ要件を確認してください。</p></div><h2 id="4-その他の原因について-参考"><a href="#4-その他の原因について-参考" class="headerlink" title="4. その他の原因について (参考)"></a>4. その他の原因について (参考)</h2><p>本記事で説明した SharePoint の認証問題とは別に、以下の要因で同様の事象が発生する場合がございます。</p><h3 id="外部サーバー-Azure-Storage-等-の-CORS-設定"><a href="#外部サーバー-Azure-Storage-等-の-CORS-設定" class="headerlink" title="外部サーバー (Azure Storage 等) の CORS 設定"></a>外部サーバー (Azure Storage 等) の CORS 設定</h3><p>SharePoint ではなく Azure Storage や独自のサーバーに画像を保存している場合、<strong>CORS (Cross-Origin Resource Sharing)</strong> の設定が必要です。</p><p>外部サーバーで CORS を構成する場合、以下のドメインからのリクエストを許可してください。</p><ul><li><code>*.powerapps.com</code></li><li><code>web.powerapps.com</code></li><li><code>apps.powerapps.com</code></li></ul><h3 id="プロキシによるヘッダー削除"><a href="#プロキシによるヘッダー削除" class="headerlink" title="プロキシによるヘッダー削除"></a>プロキシによるヘッダー削除</h3><p>Zscaler、Blue Coat などのプロキシサーバーが Power Apps のリクエストから認証ヘッダーを削除し、画像が表示されなくなることがございます。<br>プロキシを経由しない場合に問題が解消するかご確認ください。</p><div class="alert is-info"><p class="alert-title">Note</p><p>プロキシが認証ヘッダーを削除している場合、Power Apps チームではサポートの対象外となります。</p></div><h2 id="5-参考情報"><a href="#5-参考情報" class="headerlink" title="5. 参考情報"></a>5. 参考情報</h2><p>詳細については、以下の公開情報をご参照ください。</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/add-images-pictures-audio-video">キャンバス アプリでマルチメディア ファイルを使用する</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/controls/control-richtexteditor#pasted-images-may-not-appear-consistently">リッチ テキスト エディター コントロール</a></li><li><a href="https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#limits">SharePoint コネクタの制限事項</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#proxies">Power Apps のシステム要件と制限 (プロキシ)</a></li></ul><p>※本記事の執筆には生成 AI を使用しています。<a href="https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content">参考</a></p><hr><p>免責事項<br>※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。</p>]]>
     </content>
     <id>https://jpdynamicscrm.github.io/blog/canvasapp/sharepoint-image-mobile-issue/</id>
     <link href="https://jpdynamicscrm.github.io/blog/canvasapp/sharepoint-image-mobile-issue/"/>
@@ -456,7 +456,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-06-26T00:44:31.163Z</updated>
+    <updated>2026-06-26T10:05:16.557Z</updated>
   </entry>
   <entry>
     <author>
@@ -480,7 +480,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-06-26T00:44:31.432Z</updated>
+    <updated>2026-06-26T10:05:16.825Z</updated>
   </entry>
   <entry>
     <author>
@@ -509,7 +509,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-06-26T00:44:31.432Z</updated>
+    <updated>2026-06-26T10:05:16.825Z</updated>
   </entry>
   <entry>
     <author>
@@ -537,7 +537,7 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-06-26T00:44:31.420Z</updated>
+    <updated>2026-06-26T10:05:16.814Z</updated>
   </entry>
   <entry>
     <author>
@@ -561,6 +561,6 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの大友、林、竹内です。<br>本記事では Power Automate for desktop 関連のお問い合わせの際の、情報取得手順についてご案内いたします。</p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせの際の情報取得手順</title>
-    <updated>2026-06-26T00:44:31.326Z</updated>
+    <updated>2026-06-26T10:05:16.720Z</updated>
   </entry>
 </feed>
