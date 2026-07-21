@@ -217,10 +217,8 @@ Pay-as-you-go プランを利用している場合、Azure ポータルの Azure
 > [!NOTE]
 > 本記事は Copilot クレジットの消費量を予測・管理する技術的な方法をご紹介しています。
 > 「特定のシナリオでのクレジット消費がライセンス上正しいか」等、**使用権に関するご確認は製品サポートの対応範囲外**となります。
-> 
-> - クレジットおよびライセンスの公式情報:
->   [Copilot Studio のライセンスと課金](https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing)
-> - 使用権・契約に関する個別のご確認:
->   貴社ご担当の **Microsoft 営業担当者**、または**販売パートナー**へお問い合わせください。
+
+- クレジットおよびライセンスの公式情報: [Copilot Studio のライセンスと課金](https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing)
+- 使用権・契約に関する個別のご確認: 貴社ご担当の **Microsoft 営業担当者**、または**販売パートナー**へお問い合わせください。
 
 
