@@ -35,7 +35,7 @@ jobs:
           #
           # Checks:
           #   1. title      — must exist and be non-empty
-          #   2. date       — must exist and match YYYY-MM-DD HH:mm or HH:mm:ss
+          #   2. date       — must exist and match YYYY-MM-DD, with an optional time
           #   3. tags       — must have at least one entry
           #   4. categories — must have at least one entry,
           #                    each must be in the allowed list (_config.yml)
@@ -135,8 +135,8 @@ jobs:
             if [[ -z "$date_value" ]]; then
               echo "::error file=$path::Missing 'date' in front matter."
               bad=1
-            elif [[ ! "$date_value" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}[[:space:]][0-9]{2}:[0-9]{2}(:[0-9]{2})?$ ]]; then
-              echo "::error file=$path::Invalid 'date' format: '${date_value}'. Expected YYYY-MM-DD HH:mm or YYYY-MM-DD HH:mm:ss."
+            elif [[ ! "$date_value" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}([[:space:]][0-9]{2}:[0-9]{2}(:[0-9]{2})?)?$ ]]; then
+              echo "::error file=$path::Invalid 'date' format: '${date_value}'. Expected YYYY-MM-DD, YYYY-MM-DD HH:mm, or YYYY-MM-DD HH:mm:ss. For example: date: 2026-07-15."
               bad=1
             fi
 
@@ -166,10 +166,16 @@ jobs:
 
             # --- 4. categories (at least one + must be in allowed list) ---
             has_cats=false
+            invalid_cats_format=false
+            invalid_cat_value=""
             in_cats=false
             while IFS= read -r fm_line; do
               trimmed=$(echo "$fm_line" | sed 's/^[[:space:]]*//')
-              if [[ "$trimmed" == categories:* ]]; then
+              if [[ "$trimmed" =~ ^categories:[[:space:]]*(.+)$ ]]; then
+                invalid_cats_format=true
+                invalid_cat_value="${BASH_REMATCH[1]}"
+                break
+              elif [[ "$trimmed" == categories:* ]]; then
                 in_cats=true
                 continue
               fi
@@ -195,8 +201,11 @@ jobs:
               fi
             done <<< "$frontmatter"
 
-            if ! $has_cats; then
-              echo "::error file=$path::No 'categories' entries found. At least one category is required."
+            if $invalid_cats_format; then
+              echo "::error file=$path::Invalid 'categories' format. Replace 'categories: $invalid_cat_value' with 'categories:' followed by '  - [$invalid_cat_value]'."
+              bad=1
+            elif ! $has_cats; then
+              echo "::error file=$path::No 'categories' entries found. Add 'categories:' followed by '  - [category name]'."
               bad=1
             fi
 
