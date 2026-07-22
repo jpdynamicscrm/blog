@@ -36,6 +36,7 @@ tags:
   - [Azure Cost Management (Pay-as-you-go 利用時)](#azure-cost-management-pay-as-you-go-利用時)
   - [Copilot Studio の 分析 タブ (エージェント個別)](#copilot-studio-の-分析-タブ-エージェント個別)
 - [まとめ: 予実管理の全体像](#まとめ-予実管理の全体像)
+- [使用権に関するご質問について](#使用権に関するご質問について)
 - [注意事項（情報の更新可能性）](#注意事項情報の更新可能性)
 
 ## Copilot クレジットとは
@@ -76,7 +77,9 @@ tags:
 
 ### Copilot Studio の [分析] タブ (Analytics - Billing)
 
-Copilot Studio のエージェント個別画面にある [分析] タブでは、エージェントごとの課金済み Copilot クレジットを確認できます。
+Copilot Studio のエージェント個別画面にある [分析] タブでは、エージェントごとの Copilot クレジット消費状況を確認できます。
+
+本番リリース前であっても、パイロット運用（テスト チャット以外のチャネルで実際にエージェントを公開し、限定的にユーザーに利用させる運用）を行っている場合は、このタブで実消費データを確認できます。Agent Usage Estimator の予測値と比較することで、本番リリース前に予測精度を高めることが可能です。
 
 確認できる情報は以下のとおりです。
 
@@ -106,7 +109,7 @@ Copilot Studio のエージェント個別画面にある [分析] タブでは�
 
 ### Power Platform 管理センター - Copilot Studio ライセンス画面
 
-Power Platform 管理センター ([https://admin.powerplatform.microsoft.com](https://admin.powerplatform.microsoft.com)) の [ライセンス] > [Copilot Studio] から、以下の情報を確認・管理できます。
+Power Platform 管理センター ([https://admin.powerplatform.microsoft.com](https://admin.powerplatform.microsoft.com)) の [ライセンス] > [Copilot Studio] から、以下などの情報を確認・管理できます。
 
 #### [Summary] タブ
 
@@ -133,6 +136,9 @@ Power Platform 管理センター ([https://admin.powerplatform.microsoft.com](h
 ### エージェント単位の月間消費制限 (Manage Agents)
 
 Power Platform 管理センターでは、エージェントごとに月間のクレジット消費上限を設定できます。
+
+> [!NOTE]
+> この機能を利用するには、テナント管理者、Power Platform 管理者、または Dynamics 365 管理者のいずれかのロールが必要です。これらのロールを持たないユーザーでは [ライセンス] > [Copilot Studio] ページ自体にアクセスできず、[Manage Agents] ボタンも表示されません。
 
 操作手順は以下のとおりです。
 
