@@ -138,7 +138,7 @@ Power Platform 管理センター ([https://admin.powerplatform.microsoft.com](h
 Power Platform 管理センターでは、エージェントごとに月間のクレジット消費上限を設定できます。
 
 > [!NOTE]
-> この機能を利用するには、テナント管理者、Power Platform 管理者、または Dynamics 365 管理者のいずれかのロールが必要です。これらのロールを持たないユーザーでは [ライセンス] > [Copilot Studio] ページ自体にアクセスできず、[Manage Agents] ボタンも表示されません。
+> この機能を利用するには、グローバル管理者、Power Platform 管理者、または Dynamics 365 管理者のいずれかのロールが必要です。これらのロールを持たないユーザーでは [ライセンス] > [Copilot Studio] ページ自体にアクセスできず、[Manage Agents] ボタンも表示されません。
 
 操作手順は以下のとおりです。
 
@@ -226,5 +226,5 @@ Pay-as-you-go プランを利用している場合、Azure ポータルの Azure
 
 - クレジットおよびライセンスの公式情報: [Copilot Studio のライセンスと課金](https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing)
 - 使用権・契約に関する個別のご確認: 貴社ご担当の **Microsoft 営業担当者**、または**販売パートナー**へお問い合わせください。
-
+- サポートへのお問い合わせ時の留意事項: [Power Apps/Power Automate/Copilot Studio お問い合わせ時の留意事項 - ライセンスに関するお問い合わせについて](https://jpdynamicscrm.github.io/blog/powerplatform/about-power-platform-support/#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
 
