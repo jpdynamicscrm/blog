@@ -14,6 +14,8 @@ tags:
 本記事では、Microsoft Copilot Studio において**エージェント単位**で Copilot クレジットの消費量を予測し、実績管理するために利用できる機能をまとめてご紹介します。
 
 > [!IMPORTANT]
+> 本記事は **Copilot Studio のクラシック エクスペリエンス**を前提としています。新しいエクスペリエンスでは、テスト実行時の課金動作やエージェントの分析画面が異なる場合があります。
+> 
 > 本記事で紹介するツールや機能は、クレジット消費量の**目安を把握するための参考情報**です。特定のシナリオにおけるクレジット消費量を保証するものではなく、本記事の内容をもって「このエージェント構成ではこれだけ消費される」と確定させることはできません。
 > 
 > また、「特定のシナリオでのクレジット消費がライセンス上正しいか」「自社の利用形態に必要なライセンス数」等、**使用権・ライセンス要件に関するご質問は製品サポートでのご支援の対象外**となっております。このようなご確認が必要な場合は、貴社ご担当の **Microsoft 営業担当者**または**販売パートナー**へお問い合わせください。
@@ -22,9 +24,9 @@ tags:
 
 ### この記事でわかること
 
-- Copilot クレジットの概要と、2025 年 9 月以降の変更点
-- 開発段階でエージェントの消費クレジットを予測するために利用できる機能
-- 本番リリース後にエージェント単位で消費クレジットを監視・制御するために利用できる機能
+- Copilot クレジットの概要
+- 開発段階でエージェントのクレジット消費を予測するために利用できる機能
+- 本番リリース後にエージェント単位でクレジット消費を監視・制御するために利用できる機能
 - 各機能の使い分けと予実管理の全体像
 
 ## 目次
@@ -32,14 +34,14 @@ tags:
 - [Copilot クレジットとは](#copilot-クレジットとは)
 - [開発段階: クレジット消費の予測に利用できる機能](#開発段階-クレジット消費の予測に利用できる機能)
   - [エージェント使用量見積もりツール (Agent Usage Estimator)](#エージェント使用量見積もりツール-agent-usage-estimator)
-  - [Copilot Studio の 分析 タブ (Analytics - Billing)](#copilot-studio-の-分析-タブ-analytics---billing)
+  - [Copilot Studio の 監視 タブ (Analytics - Billing)](#copilot-studio-の-監視-タブ-analytics---billing)
   - [テスト実行時のクレジット消費について](#テスト実行時のクレジット消費について)
 - [本番リリース後: クレジット消費の実績管理に利用できる機能](#本番リリース後-クレジット消費の実績管理に利用できる機能)
   - [Power Platform 管理センター - Copilot Studio ライセンス画面](#power-platform-管理センター---copilot-studio-ライセンス画面)
   - [エージェント単位の月間消費制限 (Manage Agents)](#エージェント単位の月間消費制限-manage-agents)
   - [Microsoft 365 管理センター - Cost Management](#microsoft-365-管理センター---cost-management)
   - [Azure Cost Management (Pay-as-you-go 利用時)](#azure-cost-management-pay-as-you-go-利用時)
-  - [Copilot Studio の 分析 タブ (エージェント個別)](#copilot-studio-の-分析-タブ-エージェント個別)
+  - [Copilot Studio の 監視 タブ (エージェント個別)](#copilot-studio-の-監視-タブ-エージェント個別)
 - [まとめ: 予実管理の全体像](#まとめ-予実管理の全体像)
 - [使用権に関するご質問について](#使用権に関するご質問について)
 - [注意事項（情報の更新可能性）](#注意事項情報の更新可能性)
@@ -71,7 +73,7 @@ tags:
 
 - 予算計画のための月間クレジット消費量の予測
 - 異なるエージェント構成間のコスト比較
-- 機能の利用が消費に与える影響の把握
+- 機能の利用がクレジット消費に与える影響の把握
 
 > [!NOTE]
 > このツールは **見積もり目的のみ** であり、最終コストを保証するものではありません。実際の消費量は実運用パターンに依存するため、見積もり値に対して 10〜20% のバッファーを加えることがお勧めされています。
@@ -86,9 +88,9 @@ tags:
 
 - [Agent usage estimator - Microsoft Copilot Studio | Microsoft Learn](https://learn.microsoft.com/microsoft-copilot-studio/agent-usage-estimator)
 
-### Copilot Studio の [分析] タブ (Analytics - Billing)
+### Copilot Studio の [監視] タブ (Analytics - Billing)
 
-Copilot Studio のエージェント個別画面にある [分析] タブでは、エージェントごとの Copilot クレジット消費状況を確認できます。
+Copilot Studio のエージェント個別画面にある [監視] タブでは、エージェントごとの Copilot クレジット消費状況を確認できます。
 
 本番リリース前であっても、パイロット運用（テスト チャット以外のチャネルで実際にエージェントを公開し、限定的にユーザーに利用させる運用）を行っている場合は、このタブで実消費データを確認できます。Agent Usage Estimator の予測値と比較することで、本番リリース前に予測精度を高めることが可能です。
 
@@ -122,7 +124,7 @@ Copilot Studio のエージェント個別画面にある [分析] タブでは�
 
 Power Platform 管理センター ([https://admin.powerplatform.microsoft.com](https://admin.powerplatform.microsoft.com)) の [ライセンス] > [Copilot Studio] から、以下などの情報を確認・管理できます。
 
-#### [Summary] タブ
+#### [概要 (Summary)] タブ
 
 | カード | 内容 |
 |---|---|
@@ -131,14 +133,14 @@ Power Platform 管理センター ([https://admin.powerplatform.microsoft.com](h
 | 容量消費トレンド | 過去 3 か月間の日次容量消費トレンド |
 | 環境別クレジット使用量 | 上位環境のクレジット使用量ハイライト |
 
-#### [Environments] タブ
+#### [環境 (Environments)] タブ
 
 環境ごとの詳細な消費状況を確認できます。
 
 - プリペイド容量から差し引かれたクレジット数
 - Pay-as-you-go プランで課金されたユニット数
 - 環境のステータス（容量内 / 超過 / 容量割り当て済み / Pay-as-you-go 使用中）
-- **エージェント別の消費明細** (Copilot credit consumption details グリッド): エージェント名、関連製品、機能名、課金 / 非課金クレジット数
+- **エージェント別の消費明細** (Message consumption details グリッド): エージェント名、関連製品、機能名、課金 / 非課金クレジット数
 
 ＜参考資料＞
 
@@ -156,7 +158,7 @@ Power Platform 管理センターでは、エージェントごとに月間の�
 1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインします
 2. ナビゲーション ウィンドウで [ライセンス] を選択します
 3. [製品] の下にある [Copilot Studio] を選択します
-4. [Summary] タブで [Manage Agents] を選択します
+4. [概要 (Summary)] タブで [Manage Agents] を選択します
 
 この画面では以下の操作ができます。
 
@@ -209,9 +211,9 @@ Pay-as-you-go プランを利用している場合、Azure ポータルの Azure
 
 - [View usage and billing information - Power Platform | Microsoft Learn](https://learn.microsoft.com/power-platform/admin/pay-as-you-go-usage-costs)
 
-### Copilot Studio の [分析] タブ (エージェント個別)
+### Copilot Studio の [監視] タブ (エージェント個別)
 
-前述のとおり、本番リリース後も Copilot Studio 内の各エージェントの [分析] タブから、そのエージェント固有の課金クレジット情報、トレンド、コスト分布を確認できます。[See billing] リンクから直接 Power Platform 管理センターの詳細課金画面に遷移することも可能です。
+前述のとおり、本番リリース後も Copilot Studio 内の各エージェントの [監視] タブから、そのエージェント固有の課金クレジット情報、トレンド、コスト分布を確認できます。[See billing] リンクから直接 Power Platform 管理センターの詳細課金画面に遷移することも可能です。
 
 ＜参考資料＞
 
@@ -222,12 +224,12 @@ Pay-as-you-go プランを利用している場合、Azure ポータルの Azure
 | フェーズ | 機能 | 主な用途 |
 |---|---|---|
 | 開発 (予測) | Agent Usage Estimator | 月間消費量の見積もり、予算計画、複数エージェントの合算コスト予測 |
-| 開発 (予測) | Copilot Studio [分析] タブ | パイロット運用中の実消費データによる予測精度の向上 |
+| 開発 (予測) | Copilot Studio [監視] タブ | パイロット運用中の実消費データによる予測精度の向上 |
 | 本番 (実績) | PPAC [Licensing] > [Copilot Studio] | テナント / 環境レベルの消費監視、容量割り当て管理 |
 | 本番 (実績) | PPAC [Manage Agents] | エージェント単位の月間制限設定、超過時の自動停止 |
 | 本番 (実績) | M365 管理センター Cost Management | グループ / ユーザー / サービス別の消費分析 |
 | 本番 (実績) | Azure Cost Management | Pay-as-you-go 利用時の詳細課金分析 |
-| 本番 (実績) | Copilot Studio [分析] タブ | エージェント個別の課金トレンド、コスト分布 |
+| 本番 (実績) | Copilot Studio [監視] タブ | エージェント個別の課金トレンド、コスト分布 |
 
 ## 使用権に関するご質問について
 
