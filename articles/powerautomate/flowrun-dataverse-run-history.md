@@ -18,6 +18,13 @@ categories:
 
 <!-- more -->
 
+### この記事でわかること
+
+- Dataverse の `FlowRun` テーブルに保存される情報と、保存されない情報
+- Dataverse Web API と PowerShell を使用して実行履歴を取得する方法
+- `FlowRun` の保持期間と、データの完全性に関する注意点
+- Power Automate ポータル、`FlowRun`、Application Insights の使い分け
+
 # 目次
 
 1. [対象範囲と前提条件](#anchor-prerequisites)
@@ -195,3 +202,9 @@ Dataverse の `FlowRun` テーブルは、ソリューション クラウド フ
 - [弾力テーブルを作成して編集する](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-edit-elastic-tables)
 - [Application Insights を使用してクラウド フローを監視する](https://learn.microsoft.com/ja-jp/power-platform/admin/app-insights-cloud-flow)
 - [オートメーション センターの概要](https://learn.microsoft.com/ja-jp/power-automate/automation-center-overview)
+
+※本記事の執筆には生成 AI を使用しています。[参考](https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content)
+
+---
+免責事項
+※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。
