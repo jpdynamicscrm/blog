@@ -22,7 +22,8 @@ categories:
 
 - Dataverse の `FlowRun` テーブルに保存される情報と、保存されない情報
 - Dataverse Web API と PowerShell を使用して実行履歴を取得する方法
-- `FlowRun` の保持期間と、データの完全性に関する注意点
+- `FlowRun` の保持期間を Power Platform 管理センターから変更する方法（画面付き）
+- 実行履歴が保存されない主な条件と、データの完全性に関する注意点
 - Power Automate ポータル、`FlowRun`、Application Insights の使い分け
 
 # 目次
@@ -32,6 +33,7 @@ categories:
 1. [Dataverse Web API から実行履歴を取得する](#anchor-web-api)
 1. [アクション単位の詳細が必要な場合](#anchor-action-details)
 1. [保持期間とデータの完全性](#anchor-retention)
+1. [実行履歴が保存されない主な条件](#anchor-ingestion-failures)
 1. [検証結果](#anchor-validation)
 1. [まとめ](#anchor-summary)
 1. [参考情報](#anchor-references)
@@ -53,7 +55,7 @@ categories:
 
 # FlowRun テーブルに保存される情報
 
-`FlowRun` は Dataverse の弾力テーブルです。主に次の実行単位の情報が保存されます。
+`FlowRun` は Dataverse のエラスティック テーブルです。主に次の実行単位の情報が保存されます。
 
 | 論理名 | 内容 |
 |---|---|
@@ -72,7 +74,7 @@ categories:
 | `ttlinseconds` | レコードの保持期間を表す秒数 |
 
 > [!NOTE]
-> `duration` のスキーマ名は `DurationInMs` であり、実機検証でもミリ秒として取得されました。クラウド フローの実行履歴に関する概要ページには秒単位との記載もありますが、Dataverse Web API の値を扱う場合はミリ秒として計算してください。
+> `duration` のスキーマ名は `DurationInMs` で、テーブル参照の説明にも「Duration of the run in milliseconds」と記載されています。実機検証でもミリ秒として取得されました。日本語版の [Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) では「実行期間」が秒単位と記載されていますが、Dataverse Web API から取得した値はミリ秒として計算してください。
 
 一方、次のようなアクション単位の情報は `FlowRun` テーブルへ保存されません。
 
@@ -123,14 +125,42 @@ $response = Invoke-RestMethod -Method Get -Uri $requestUri -Headers $headers
 $response.value
 ```
 
+> [!IMPORTANT]  
+> ===サンプルコード免責事項===    
+> ・本記事で紹介しているサンプルコードは説明のためのサンプルであり、お客様の要望を直接満たすためのご提供ではございません。
+> そのため、製品の実運用環境で使用されることを前提に提供されるものではありません。
+> 
+> ・エラー処理などは含まれておりません。また、弊社にてその動作を保証するものではございません。
+> 
+> ・サンプル コードおよびそれに関連するあらゆる情報は、"現状のまま" で
+> 提供されるものであり、商品性や特定の目的への適合性に関する黙示の保証も含め、
+> 明示、黙示を問わずいかなる保証も付されるものではありません。
+> 
+> ご使用の際には、十分にご検証いただき、ご使用くださいますようお願い申し上げます。
+> 
+> マイクロソフトは、お客様に対し、サンプル コードを使用および改変するための
+> 非排他的かつ無償の権利ならびに本サンプル コードをオブジェクト コードの形式で
+> 複製および頒布するための非排他的かつ無償の権利を許諾します。
+> 
+> 但し、お客様は下記に同意するものとします。
+> (1) サンプル コードが組み込まれたお客様のソフトウェア製品のマーケティングのために
+>     マイクロソフトの会社名、ロゴまたは商標を用いないこと
+> (2) サンプル コードが組み込まれたお客様のソフトウェア製品に有効な著作権表示をすること
+> (3) サンプル コードの使用または頒布から生じるあらゆる損害 (弁護士費用を含む) に
+>     関する請求または訴訟について、マイクロソフトおよびマイクロソフトの取引業者に対し補償し、
+>     損害を与えないこと
+
 > [!NOTE]
-> `FlowRun` は弾力テーブルであり、ユーザーごとの論理パーティションに分割されます。大量データを継続的に取得する場合は、最初に取得したレコードの `partitionid` を確認し、対象パーティションを限定する設計を検討してください。
+> `FlowRun` はエラスティック テーブルであり、ユーザーごとの論理パーティションに分割されます。大量データを継続的に取得する場合は、最初に取得したレコードの `partitionid` を確認し、対象パーティションを限定する設計を検討してください。
 
 <a id='anchor-action-details'></a>
 
 # アクション単位の詳細が必要な場合
 
 アクション名、アクションごとの成否、入力、出力、追跡 ID を確認する場合は、Power Automate ポータルの実行履歴を使用します。
+
+> [!NOTE]
+> Power Automate ポータルのフロー詳細に表示される実行履歴はトランザクション ベースであり、実行が欠落なく表示されます。個別の実行を確実に調査したい場合は、`FlowRun` テーブルではなくポータルの実行履歴を使用してください。
 
 長期的な監視や分析でアクション単位のテレメトリが必要な場合は、Application Insights へのエクスポートを検討します。Application Insights では、クラウド フローの実行は `requests`、トリガーとアクションは `dependencies` に保存されます。
 
@@ -157,26 +187,62 @@ dependencies
 
 # 保持期間とデータの完全性
 
-`FlowRun` レコードの既定の保持期間は 28 日、秒数では `2,419,200` 秒です。Power Platform 管理センターでは、環境の設定から 7 日、14 日、28 日、または無効を選択できます。
+`FlowRun` レコードの既定の保持期間は 28 日、秒数では `2,419,200` 秒です。
 
-組織テーブルの `FlowRunTimeToLiveInSeconds` を変更すると、新しく作成される `FlowRun` レコードの保持期間が変更されます。値を `0` にすると、新しいレコードの取り込みが停止します。
+Power Platform 管理センターから保持期間を変更する手順は次のとおりです。
+
+1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com/) にサインインします。
+1. **管理** > **環境** から対象の環境を選択し、**設定** を開きます。
+1. **製品** > **機能** を選択します。
+1. **Dataverse のクラウド フロー実行履歴** の **FlowRun エンティティの Time to Live** を設定します。
+
+![Power Platform 管理センターの機能ページに表示される Dataverse のクラウド フロー実行履歴の設定](flowrun-dataverse-run-history/image01.png)
+
+選択できる値は、**有効 - 28 日間保持 (既定)**、**有効 - 14 日間保持**、**有効 - 7 日間保持**、**無効** の 4 つです。
+
+![FlowRun エンティティの Time to Live で選択できる 4 つの値](flowrun-dataverse-run-history/image02.png)
+
+管理センターに用意されていない任意の値が必要な場合は、組織テーブルの `FlowRunTimeToLiveInSeconds` を直接変更します。変更後に新しく作成される `FlowRun` レコードへ、その保持期間が適用されます。値を `0` にすると、新しいレコードの取り込みが停止します。
+
+> [!NOTE]
+> 保持期間の変更は、変更後に作成される `FlowRun` レコードにのみ適用されます。既存のレコードの保持期間は変わりません。
 
 > [!WARNING]
 > `FlowRun` への書き込みに使用されるデータ ストリームはトランザクション データではなく、100% の完全性は保証されません。監査や完全な実行記録が必要な設計では、`FlowRun` だけに依存しないでください。
 
-`FlowRun` データが不完全となる可能性がある場合は、`FlowEvent` テーブルの `FlowRunIngestion` イベントを確認できます。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレート、権限不足などに関するシグナルが記録されます。
+`FlowRun` データが不完全となる可能性がある場合は、`FlowEvent` テーブルの `FlowRunIngestion` イベントを確認できます。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレートなどに関するシグナルが記録されます。
+
+> [!IMPORTANT]
+> `FlowEvent` にシグナルが記録されていないことは、`FlowRun` のデータ セットが完全であることを意味しません。データ ストリームの一時的な問題によって欠落したレコードは、`FlowEvent` には記録されません。
+
+<a id='anchor-ingestion-failures'></a>
+
+# 実行履歴が保存されない主な条件
+
+`FlowRun` レコードが記録されない、またはスキップされる代表的な条件は次のとおりです。
+
+| 条件 | 内容 |
+|---|---|
+| フロー所有者の権限不足 | フローのプライマリ所有者が `FlowRun` テーブルへの読み取り権限を持たない場合、`FlowRun` レコードは保存されません。`FlowEvent` に `ElasticTableNoRoleForUser` が記録されます。 |
+| パーティション サイズの上限 | エラスティック テーブルには、現時点でパーティションあたり 20 GB の制限があります。上限に達すると、そのユーザーのレコード挿入のみが失敗します。 |
+| 取り込みレートのスロットリング | 1 人のユーザーが実行頻度の高いフローを多数所有している場合、`FlowRun` レコードがスロットリングされ、スキップされることがあります。 |
+| TTL が `0` | `FlowRunTimeToLiveInSeconds` が `0` の場合、新しいレコードの取り込みが停止し、`FlowEvent` に `TtlSettingEqual0` が記録されます。 |
+
+> [!NOTE]
+> `FlowRun` はユーザー単位でパーティション分割されるため、上記の上限やスロットリングは組織全体ではなく、フローの所有者ごとに評価されます。特定のユーザーへフローの所有権が集中している環境では影響を受けやすくなります。
 
 <a id='anchor-validation'></a>
 
 # 検証結果
 
-2026 年 8 月 5 日に、検証用 Dataverse 環境とソリューション クラウド フローを使用して確認しました。
+2026 年 8 月 5 日に検証用 Dataverse 環境とソリューション クラウド フローを使用して確認し、2026 年 8 月 7 日に Power Platform 管理センターの画面を再確認しました。
 
 | 確認項目 | 結果 |
 |---|---|
 | Dataverse Web API から `flowruns` を取得 | 成功 |
 | 成功した実行の状態、実行時間、トリガー種別を取得 | 成功 |
 | `ttlinseconds` | `2419200` を確認 |
+| Power Platform 管理センターの保持期間設定 | **有効 - 28 日間保持 (既定)** / **14 日間保持** / **7 日間保持** / **無効** の 4 択を確認 |
 | 失敗した実行の `errorcode` | `ActionFailed` を確認 |
 | 失敗した実行の `errormessage` | 実行単位の概要メッセージを確認 |
 | Power Automate ポータルのアクション名、アクション追跡 ID | ポータルでは確認可能 |
@@ -196,10 +262,11 @@ Dataverse の `FlowRun` テーブルは、ソリューション クラウド フ
 
 # 参考情報
 
-- [Dataverse でのクラウド フローの実行履歴](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata)
+- [Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata)
 - [FlowRun テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun)
 - [Web API を使用してデータのクエリを実行する](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/webapi/query-data-web-api)
-- [弾力テーブルを作成して編集する](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-edit-elastic-tables)
+- [エラスティック テーブルを作成して編集する](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-edit-elastic-tables)
+- [FlowEvent テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowevent)
 - [Application Insights を使用してクラウド フローを監視する](https://learn.microsoft.com/ja-jp/power-platform/admin/app-insights-cloud-flow)
 - [オートメーション センターの概要](https://learn.microsoft.com/ja-jp/power-automate/automation-center-overview)
 
