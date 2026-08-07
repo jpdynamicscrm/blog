@@ -1,6 +1,6 @@
 ---
 title: ## Copilot Studio試用版ライセンスについて
-date: 2026-08-01 10:00:00
+date: 2026-08-12 10:00:00
 tags:
   - Microsoft Copilot Studio
   - Power Virtual Agents
