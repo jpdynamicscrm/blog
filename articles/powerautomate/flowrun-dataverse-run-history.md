@@ -110,7 +110,25 @@ Dataverse Web API の `$select` で指定する論理名と、テーブル参照
 - アクション追跡 ID
 - `serviceRequestId`
 
-失敗した実行の `errorcode` と `errormessage` には、たとえば `ActionFailed` と、その概要メッセージが保存されます。ただし、どのアクションが失敗したかを特定できる詳細情報が常に含まれるわけではありません。
+失敗した実行では、`errorcode` に `ActionFailed` などのコードが、`errormessage` に次のような JSON が保存されます。
+
+```json
+{
+  "code": "ActionFailed",
+  "message": "An action failed. No dependent actions succeeded.",
+  "messageTemplate": "An action failed. No dependent actions succeeded."
+}
+```
+
+同じ実行を Power Automate ポータルで開くと、フローの詳細画面の上部には次のようなメッセージが表示されます。
+
+```text
+フロー実行に失敗しました。
+アクション '<アクション名>' に失敗しました: <エラーの詳細>
+clientRequestId: <GUID> serviceRequestId: <GUID>
+```
+
+画面に表示される失敗したアクションの名前、エラーの詳細、`serviceRequestId` は `FlowRun` テーブルには保存されません。`errormessage` から取得できるのは実行単位の概要までであり、どのアクションが失敗したかを特定することはできません。
 
 <a id='anchor-web-api'></a>
 
@@ -186,6 +204,9 @@ $response.value
 # アクション単位の詳細が必要な場合
 
 アクション名、アクションごとの成否、入力、出力、追跡 ID を確認する場合は、Power Automate ポータルの実行履歴を使用します。
+
+> [!NOTE]
+> フローの失敗の多くはアクション単位で発生しますが、アクションに起因しないエラーが表示される場合もあります。
 
 > [!NOTE]
 > Power Automate ポータルのフロー詳細に表示される実行履歴はトランザクション ベースであり、実行が欠落なく表示されます。個別の実行を確実に調査したい場合は、`FlowRun` テーブルではなくポータルの実行履歴を使用してください。
