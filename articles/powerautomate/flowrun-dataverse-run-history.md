@@ -97,9 +97,6 @@ Dataverse Web API の `$select` で指定する論理名と、テーブル参照
 | `partitionid` | 論理パーティション ID。論理パーティションは、同じパーティション ID を持つレコードのセットで構成されます。 |
 | `ttlinseconds` | 有効期間 (秒)。 |
 
-> [!NOTE]
-> 上記の説明は、テーブル参照の英語版に記載されている Description をもとにしています。日本語版では `ttlinseconds` が「数秒で生きる時間。」と表示されるなど、機械翻訳により意味が取りにくい箇所があります。
-
 参考情報: [Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun)
 
 > [!NOTE]
