@@ -34,7 +34,6 @@ categories:
 1. [アクション単位の詳細が必要な場合](#anchor-action-details)
 1. [保持期間とデータの完全性](#anchor-retention)
 1. [実行履歴が保存されない主な条件](#anchor-ingestion-failures)
-1. [検証結果](#anchor-validation)
 1. [まとめ](#anchor-summary)
 1. [参考情報](#anchor-references)
 
@@ -51,11 +50,36 @@ categories:
 
 本記事では、Dataverse Web API を使用してデータを読み取る例を紹介します。API の実行には、対象環境の Dataverse テーブルを読み取る権限と、Dataverse Web API 用のアクセストークンが必要です。
 
+> [!NOTE]
+> 本記事の内容は、2026 年 8 月 5 日に検証用の Dataverse 環境とソリューション クラウド フローを使用して確認し、2026 年 8 月 7 日に Power Platform 管理センターの画面を再確認したものです。
+
 <a id='anchor-flowrun-data'></a>
 
 # FlowRun テーブルに保存される情報
 
 `FlowRun` は Dataverse のエラスティック テーブルです。主に次の実行単位の情報が保存されます。
+
+| 要素 | 説明 |
+|---|---|
+| 名前 | フロー実行の主キーとロジック アプリ ID。 |
+| 開始時刻 | クラウド フローの実行がトリガーされたとき。 |
+| 終了時刻 | クラウド実行が終了したとき。 |
+| 実行期間 | クラウド フローの実行を終了するまでの時間 (秒単位) |
+| 状態 | フロー実行の最終結果 (**成功**、**失敗**、または **キャンセル**)。 |
+| トリガーの種類 | このフロー実行のトリガー タイプ (**自動化**、**予定されている**、または **マニュアル**)。 |
+| エラー コード | フロー実行から返されたエラー コード。 |
+| エラー メッセージ | 該当する場合、フロー実行から返される詳細なエラー メッセージです。 |
+| 所有者 | フローの所有者。 |
+| ワークフロー名 | クラウド フローの表示名。 |
+| ワークフロー ID | 特定のクラウド フローの WorkflowID。 |
+| IsPrimary | このフロー実行にそれをトリガーする親クラウド フローがあるかどうかを示すバイナリ値。 |
+| 親実行 ID | このレコードが子フロー用の場合、親クラウド フロー実行インスタンスの名前。 |
+| パーティション ID | エラスティック テーブル インスタンス内のこのユーザーのパーティション ID。 |
+| ライブの時間 | この実行レコードが自動的に削除されるまでの時間 (秒)。 |
+
+参考情報: [Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata)
+
+Dataverse Web API の `$select` で指定する論理名は次のとおりです。
 
 | 論理名 | 内容 |
 |---|---|
@@ -73,10 +97,12 @@ categories:
 | `partitionid` | 論理パーティションの識別子 |
 | `ttlinseconds` | レコードの保持期間を表す秒数 |
 
-> [!NOTE]
-> `duration` のスキーマ名は `DurationInMs` で、テーブル参照の説明にも「Duration of the run in milliseconds」と記載されています。実機検証でもミリ秒として取得されました。日本語版の [Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) では「実行期間」が秒単位と記載されていますが、Dataverse Web API から取得した値はミリ秒として計算してください。
+参考情報: [Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun)
 
-一方、次のようなアクション単位の情報は `FlowRun` テーブルへ保存されません。
+> [!NOTE]
+> `duration` の単位は、Microsoft Learn の日本語ページ間で記載が異なります。[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) では「実行期間」が **秒単位**、[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun) の `DurationInMs` では「実行時間 (**ミリ秒単位**)」と記載されています。実機検証ではミリ秒として取得されました。
+
+一方、次のようなアクション単位の情報は `FlowRun` テーブルへ保存されません。これは、上記のテーブル参照に対応する列が存在しないことと、実機検証で取得できなかったことから確認しています。
 
 - アクションの表示名
 - アクションごとの状態や実行時間
@@ -153,6 +179,8 @@ $response.value
 > [!NOTE]
 > `FlowRun` はエラスティック テーブルであり、ユーザーごとの論理パーティションに分割されます。大量データを継続的に取得する場合は、最初に取得したレコードの `partitionid` を確認し、対象パーティションを限定する設計を検討してください。
 
+検証では、実行直後のレコードが Dataverse Web API の応答へすぐに現れない場合がありました。取得処理では即時反映を前提とせず、再試行や待機時間を考慮してください。
+
 <a id='anchor-action-details'></a>
 
 # アクション単位の詳細が必要な場合
@@ -188,6 +216,19 @@ dependencies
 # 保持期間とデータの完全性
 
 `FlowRun` レコードの既定の保持期間は 28 日、秒数では `2,419,200` 秒です。
+
+`FlowRunTimeToLiveInSeconds` へ設定する秒数は次のとおりです。
+
+| 日数 | 秒 |
+|---|---|
+| 1 日 | 86,400 秒 |
+| 3 日間 | 259,200 秒 |
+| 7 日間 | 604,800 秒 |
+| 14 日間 | 1,209,600 秒 |
+| 28 日間 (既定) | 2,419,200 秒 |
+| 60 日 | 5,184,000 秒 |
+
+参考情報: [Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata)
 
 Power Platform 管理センターから保持期間を変更する手順は次のとおりです。
 
@@ -230,25 +271,6 @@ Power Platform 管理センターから保持期間を変更する手順は次�
 
 > [!NOTE]
 > `FlowRun` はユーザー単位でパーティション分割されるため、上記の上限やスロットリングは組織全体ではなく、フローの所有者ごとに評価されます。特定のユーザーへフローの所有権が集中している環境では影響を受けやすくなります。
-
-<a id='anchor-validation'></a>
-
-# 検証結果
-
-2026 年 8 月 5 日に検証用 Dataverse 環境とソリューション クラウド フローを使用して確認し、2026 年 8 月 7 日に Power Platform 管理センターの画面を再確認しました。
-
-| 確認項目 | 結果 |
-|---|---|
-| Dataverse Web API から `flowruns` を取得 | 成功 |
-| 成功した実行の状態、実行時間、トリガー種別を取得 | 成功 |
-| `ttlinseconds` | `2419200` を確認 |
-| Power Platform 管理センターの保持期間設定 | **有効 - 28 日間保持 (既定)** / **14 日間保持** / **7 日間保持** / **無効** の 4 択を確認 |
-| 失敗した実行の `errorcode` | `ActionFailed` を確認 |
-| 失敗した実行の `errormessage` | 実行単位の概要メッセージを確認 |
-| Power Automate ポータルのアクション名、アクション追跡 ID | ポータルでは確認可能 |
-| アクション名、アクション追跡 ID を `FlowRun` から取得 | 対応する列が存在しないため取得不可 |
-
-また、実行直後のレコードが Dataverse Web API の応答へすぐに現れない場合がありました。取得処理では、即時反映を前提とせず、再試行や待機時間を考慮してください。
 
 <a id='anchor-summary'></a>
 
