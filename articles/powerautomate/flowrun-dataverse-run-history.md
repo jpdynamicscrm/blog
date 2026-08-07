@@ -79,23 +79,23 @@ categories:
 
 参考情報: [Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata)
 
-Dataverse Web API の `$select` で指定する論理名は次のとおりです。
+Dataverse Web API の `$select` で指定する論理名と、テーブル参照に記載されている説明は次のとおりです。
 
-| 論理名 | 内容 |
+| 論理名 | 説明 |
 |---|---|
-| `name` | フロー実行の識別子 |
-| `starttime` | 実行開始時刻 |
-| `endtime` | 実行終了時刻 |
-| `duration` | 実行時間（ミリ秒） |
-| `status` | 実行結果 |
-| `triggertype` | トリガーの種類 |
-| `errorcode` | エラー コード |
-| `errormessage` | エラー メッセージの概要 |
-| `clienttrackingid` | クライアント追跡 ID |
-| `workflowid` | クラウド フローの識別子 |
-| `parentrunid` | 親フローの実行識別子 |
-| `partitionid` | 論理パーティションの識別子 |
-| `ttlinseconds` | レコードの保持期間を表す秒数 |
+| `name` | カスタムエンティティの名前。 |
+| `starttime` | フローの実行が開始された日時 |
+| `endtime` | フローの実行が終了した日時。 |
+| `duration` | 実行時間 (ミリ秒単位) |
+| `status` | フロー実行の状態 |
+| `triggertype` | フロー実行のトリガーの種類 |
+| `errorcode` | フローの実行が失敗したときのエラー コード |
+| `errormessage` | フローの実行が失敗したときのエラー メッセージ |
+| `clienttrackingid` | 実行のクライアント追跡 ID |
+| `workflowid` | この実行に関連付けられているワークフローの一意識別子 |
+| `parentrunid` | この実行をトリガーした親実行の一意識別子 |
+| `partitionid` | 論理区画 ID。論理区画は、同じ区画 ID を持つレコードのセットで構成されます。 |
+| `ttlinseconds` | 数秒で生きる時間。 |
 
 参考情報: [Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun)
 
@@ -219,14 +219,7 @@ dependencies
 
 `FlowRunTimeToLiveInSeconds` へ設定する秒数は次のとおりです。
 
-| 日数 | 秒 |
-|---|---|
-| 1 日 | 86,400 秒 |
-| 3 日間 | 259,200 秒 |
-| 7 日間 | 604,800 秒 |
-| 14 日間 | 1,209,600 秒 |
-| 28 日間 (既定) | 2,419,200 秒 |
-| 60 日 | 5,184,000 秒 |
+![Microsoft Learn の Time To Live (TTL) 値の計算に掲載された、日数と秒の換算表。28 日間が 2,419,200 秒と記載されている](flowrun-dataverse-run-history/image03.png)
 
 参考情報: [Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata)
 
