@@ -41,8 +41,8 @@ Copilot Studio の試用版には以下の 2 種類があります。
 
 [Copilot Studio 試用版へのサインアップ](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/sign-up-individual)
 
-![](./copilot-studio-trial-license/②Signup.png)
-![](./copilot-studio-trial-license/②Home.png)
+![](./copilot-studio-trial-license/2_Signup.png)
+![](./copilot-studio-trial-license/2_Home.png)
    
 ## 2. 組織用試用版
 組織用試用版は、組織 (テナント) 単位で Copilot Studio の有償版を試すための試用版です。管理者が Microsoft 365 管理センターから「Microsoft Copilot Studio 試用版」を有効にする必要があります。組織 (テナント) につき 1 回のみ有効化可能で、試用期間は 30 日間、1 回だけ 30 日間の延長ができます。
@@ -80,4 +80,4 @@ Update-MgPolicyAuthorizationPolicy -BodyParameter $params
 # 4. セルフサービスサインアップによりライセンスを取得したユーザーを確認する方法
 Microsoft 365 管理センターより、ユーザーに Microsoft Copilot Studio Viral Trial ライセンスを付与されているかを確認できます。
 [課金情報] > [ライセンス] > [Microsoft Copilot Studio Viral Trial] の順にクリックし、ユーザー一覧をご確認ください。また、本画面にてユーザーを複数選択し、一括でライセンスの割り当て解除を行うことも可能です。
-![](./copilot-studio-trial-license/M365AdmiCenter_LicenseAssignment.png)
+![](./copilot-studio-trial-license/4_M365AdmiCenter_LicenseAssignment.png)
