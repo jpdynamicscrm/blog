@@ -83,19 +83,22 @@ Dataverse Web API の `$select` で指定する論理名と、テーブル参照
 
 | 論理名 | 説明 |
 |---|---|
-| `name` | カスタムエンティティの名前。 |
-| `starttime` | フローの実行が開始された日時 |
+| `name` | カスタム エンティティの名前。 |
+| `starttime` | フローの実行が開始された日時。 |
 | `endtime` | フローの実行が終了した日時。 |
-| `duration` | 実行時間 (ミリ秒単位) |
-| `status` | フロー実行の状態 |
-| `triggertype` | フロー実行のトリガーの種類 |
-| `errorcode` | フローの実行が失敗したときのエラー コード |
-| `errormessage` | フローの実行が失敗したときのエラー メッセージ |
-| `clienttrackingid` | 実行のクライアント追跡 ID |
-| `workflowid` | この実行に関連付けられているワークフローの一意識別子 |
-| `parentrunid` | この実行をトリガーした親実行の一意識別子 |
-| `partitionid` | 論理区画 ID。論理区画は、同じ区画 ID を持つレコードのセットで構成されます。 |
-| `ttlinseconds` | 数秒で生きる時間。 |
+| `duration` | 実行時間 (ミリ秒)。 |
+| `status` | フロー実行の状態。 |
+| `triggertype` | フロー実行のトリガーの種類。 |
+| `errorcode` | フローの実行が失敗したときのエラー コード。 |
+| `errormessage` | フローの実行が失敗したときのエラー メッセージ。 |
+| `clienttrackingid` | 実行のクライアント追跡 ID。 |
+| `workflowid` | この実行に関連付けられているワークフローの一意識別子。 |
+| `parentrunid` | この実行をトリガーした親実行の一意識別子。 |
+| `partitionid` | 論理パーティション ID。論理パーティションは、同じパーティション ID を持つレコードのセットで構成されます。 |
+| `ttlinseconds` | 有効期間 (秒)。 |
+
+> [!NOTE]
+> 上記の説明は、テーブル参照の英語版に記載されている Description をもとにしています。日本語版では `ttlinseconds` が「数秒で生きる時間。」と表示されるなど、機械翻訳により意味が取りにくい箇所があります。
 
 参考情報: [Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun)
 
