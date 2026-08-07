@@ -122,6 +122,7 @@ Zscaler、Blue Coat などのプロキシサーバーが Power Apps のリクエ
 - [キャンバス アプリでマルチメディア ファイルを使用する](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/add-images-pictures-audio-video)
 - [リッチ テキスト エディター コントロール](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/controls/control-richtexteditor#pasted-images-may-not-appear-consistently)
 - [SharePoint コネクタの制限事項](https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#limits)
+- [Power Apps のシステム要件と制限 (プロキシ)](https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#proxies)
 
 ※本記事の執筆には生成 AI を使用しています。[参考](https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content)
 
