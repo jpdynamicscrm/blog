@@ -1,6 +1,6 @@
 ---
 title: Power Automate クラウド フローの実行履歴を Dataverse の FlowRun テーブルから取得する
-date: 2026-08-05 11:28:00
+date: 2026-08-07 12:00:00
 tags:
   - Power Automate
   - Cloud flow
@@ -51,7 +51,7 @@ categories:
 本記事では、Dataverse Web API を使用してデータを読み取る例を紹介します。API の実行には、対象環境の Dataverse テーブルを読み取る権限と、Dataverse Web API 用のアクセストークンが必要です。
 
 > [!NOTE]
-> 本記事の内容は、2026 年 8 月 5 日に検証用の Dataverse 環境とソリューション クラウド フローを使用して確認し、2026 年 8 月 7 日に Power Platform 管理センターの画面を再確認したものです。
+> 本記事の内容は、2026 年 8 月 7 日に検証用の Dataverse 環境とソリューション クラウド フローを使用して確認したものです。
 
 <a id='anchor-flowrun-data'></a>
 
