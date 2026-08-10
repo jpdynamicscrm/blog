@@ -18,7 +18,32 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-08-10T09:30:54.036Z</updated>
+  <updated>2026-08-10T09:32:53.567Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/"/>
+    <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/Cloud-flow/"/>
+    <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
+    <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
+    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
+    <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの早坂です。<br/></p><p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p><span id="more"></span><div class="alert is-info"><p class="alert-title">Note</p><p>本記事では、Power Platform for Admins コネクタの「環境一覧を管理者として作成する」(<code>Get-AdminEnvironment</code>) アクションを例にご説明します。ページングの対応有無、パラメーター名、1 ページあたりの既定件数はコネクタとアクションによって異なるため、実際にご利用になるアクションのコネクタ リファレンスをあわせてご確認ください。</p><p>本記事のスクリーンショットは日本語表示の環境で取得しています。アクション名やパラメーター名の表示は、環境の言語設定によって異なる場合があります。</p></div><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#1-%E4%B8%80%E5%BA%A6%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%A7%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E7%90%86%E7%94%B1">1. 一度の呼び出しですべてのデータを取得できない理由</a></li><li><a href="#2-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-1-%E6%94%B9%E3%83%9A%E3%83%BC%E3%82%B8%E8%A8%AD%E5%AE%9A%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">2. 対応方法 1: 改ページ設定を使用する</a><ul><li><a href="#2-1-%E8%A8%AD%E5%AE%9A%E6%89%8B%E9%A0%86">2-1. 設定手順</a></li><li><a href="#2-2-%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">2-2. 動作確認</a></li></ul></li><li><a href="#3-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-2-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%20nextLink%20%E3%82%92%E3%81%9F%E3%81%A9%E3%82%8B">3. 対応方法 2: フローで nextLink をたどる</a><ul><li><a href="#3-1-nextLink%20%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">3-1. nextLink の使用方法を確認する</a></li><li><a href="#3-2-$skiptoken%20%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%A6%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">3-2. $skiptoken を取り出して使用する</a></li><li><a href="#3-3-nextLink%20%E3%81%AE%20URL%20%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">3-3. nextLink の URL をそのまま使用する</a></li></ul></li><li><a href="#4-2%20%E3%81%A4%E3%81%AE%E6%96%B9%E6%B3%95%E3%81%AE%E4%BD%BF%E3%81%84%E5%88%86%E3%81%91">4. 2 つの方法の使い分け</a></li><li><a href="#5-%E8%A8%AD%E8%A8%88%E6%99%82%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E6%B3%A8%E6%84%8F%E7%82%B9">5. 設計時に確認しておきたい注意点</a></li><li><a href="#6-%E3%81%BE%E3%81%A8%E3%82%81">6. まとめ</a></li><li><a href="#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1">参考情報</a></li></ul><p><a id='1-一度の呼び出しですべてのデータを取得できない理由'></a></p><h2 id="1-一度の呼び出しですべてのデータを取得できない理由"><a href="#1-一度の呼び出しですべてのデータを取得できない理由" class="headerlink" title="1. 一度の呼び出しですべてのデータを取得できない理由"></a>1. 一度の呼び出しですべてのデータを取得できない理由</h2><p>クラウド フローから一覧を取得するコネクタ アクションを実行すると、対象のデータが存在していても、<strong>一部のレコードしか返らない</strong> ことがあります。コネクタの一覧取得アクションには、応答サイズやサービス側の処理負荷を抑えるため、結果を一定件数ごとのページに分けて返すものがあります。</p><p>「環境一覧を管理者として作成する」アクションでは、詳細パラメーターとして次を指定できます。</p><table><thead><tr><th>パラメーター</th><th>説明</th></tr></thead><tbody><tr><td>ページ サイズ (<code>$top</code>)</td><td>1 ページに含める件数</td></tr><tr><td>トークンをスキップする (<code>$skiptoken</code>)</td><td>続きのページを取得するためのトークン</td></tr><tr><td>プロパティを展開する (<code>$expand</code>)</td><td>応答に展開するプロパティ</td></tr></tbody></table><p>また、応答には主に次の値が含まれます。</p><table><thead><tr><th>プロパティ</th><th>説明</th></tr></thead><tbody><tr><td><code>value</code></td><td>現在のページに含まれるデータ</td></tr><tr><td><code>nextLink</code></td><td>次のページを取得するための URL。最終ページでは返りません</td></tr></tbody></table><p>改ページ設定がオフ (既定) の状態では、アクションは 1 ページ分の応答をそのまま返します。次の画像は、環境が 3 つ存在するテナントでページ サイズに <code>1</code> を指定して実行した結果です。結果を確認しやすくするため、アクションの後に <strong>作成</strong> を置き、配列の件数を数える <code>length()</code> 関数で取得件数を出力しています。取得できたのは 1 件です。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/01-pagination-off-run.png" alt="改ページがオフのときの実行結果。取得できた件数が 1 で nextLink が返っている"></p><p>アクションの未加工出力を確認すると、1 ページ目のデータを含む <code>value</code> に加えて、次のページを示す <code>nextLink</code> が返っています。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/05-pagination-off-raw-output.png" alt="環境一覧を管理者として作成するアクションの未加工出力に nextLink が含まれている"></p><p><code>nextLink</code> は、<code>$skiptoken</code> を含むクエリ文字列付きの URL として返されます。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://&lt;host&gt;/apim/powerplatformforadmins/&lt;connection&gt;/environments?api-version=2018-10-01&amp;%24top=1&amp;%24skiptoken=&lt;トークン&gt;&amp;%24paginationId=&lt;ID&gt;</span><br></pre></td></tr></table></figure><p><a id='2-対応方法-1-改ページ設定を使用する'></a></p><h2 id="2-対応方法-1-改ページ設定を使用する"><a href="#2-対応方法-1-改ページ設定を使用する" class="headerlink" title="2. 対応方法 1: 改ページ設定を使用する"></a>2. 対応方法 1: 改ページ設定を使用する</h2><p>アクションの設定に <strong>改ページ</strong> が用意されている場合は、この設定を使用するのが最も簡潔です。指定したしきい値に達するまで、Power Automate が <code>nextLink</code> を自動的にたどり、結果を 1 つの応答にまとめて返します。</p><p><a id='2-1-設定手順'></a></p><h3 id="2-1-設定手順"><a href="#2-1-設定手順" class="headerlink" title="2-1. 設定手順"></a>2-1. 設定手順</h3><ol><li>デザイナーで対象のアクションを選択します。</li><li><strong>設定</strong> タブを開きます。</li><li><strong>ネットワーキング</strong> の <strong>改ページ</strong> をオンにします。</li><li><strong>しきい値</strong> に、取得したい件数を入力します。</li></ol><p><img src="/blog/powerautomate/cloud-flow-connector-paging/02-pagination-on-setting.png" alt="アクションの設定タブで改ページをオンにし、しきい値を入力した画面"></p><div class="alert is-info"><p class="alert-title">Note</p><p>しきい値は取得件数の上限ではないため、指定した件数を超えるレコードが返る場合があります。詳細は「<a href="#2-2-%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">2-2. 動作確認</a>」の補足をご覧ください。<br/></p><p>改ページはすべてのアクションで使用できるわけではありません。設定タブに <strong>改ページ</strong> の項目が表示されないアクションは、この方法を使用できません。その場合は「<a href="#3-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-2-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%20nextLink%20%E3%82%92%E3%81%9F%E3%81%A9%E3%82%8B">3. 対応方法 2: フローで nextLink をたどる</a>」をご覧ください。<br/></p><p>また、設定タブに <strong>改ページ</strong> があっても、アクションが応答に継続トークンを返さない場合は効果がありません。詳細は「<a href="#5-1-%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%87%AA%E4%BD%93%E3%81%AE%E5%88%B6%E9%99%90%E3%81%8C%E3%81%AA%E3%81%84%E3%81%8B%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">5-1. アクション自体の制限がないかを確認する</a>」をご覧ください。</p></div><p><a id='2-2-動作確認'></a></p><h3 id="2-2-動作確認"><a href="#2-2-動作確認" class="headerlink" title="2-2. 動作確認"></a>2-2. 動作確認</h3><p>環境が 3 つ存在するテナントで、ページ サイズを <code>1</code> にして動作を確認しました。</p><table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>確認日</td><td>2026 年 8 月 3 日</td></tr><tr><td>使用コネクタ</td><td>Power Platform for Admins (「環境一覧を管理者として作成する」)</td></tr><tr><td>権限</td><td>Power Platform 管理者</td></tr><tr><td>対象テナントの環境数</td><td>3</td></tr><tr><td>確認方法</td><td>フローの実行履歴と actions API から取得した応答を確認</td></tr></tbody></table><table><thead><tr><th>改ページ</th><th>ページ サイズ</th><th>しきい値</th><th>取得件数</th><th>nextLink</th></tr></thead><tbody><tr><td>オフ (既定)</td><td>1</td><td>-</td><td>1</td><td>あり</td></tr><tr><td>オン</td><td>1</td><td>100</td><td>3</td><td>なし</td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/03-pagination-on-run.png" alt="改ページをオンにしたときの実行結果。取得できた件数が 3 で nextLink が返っていない"></p><p>改ページがオフの場合は 1 件だけでしたが、改ページをオンにすると、環境数と同じ 3 件が 1 つの応答として返りました。</p><div class="alert is-important"><p class="alert-title">重要</p><p>改ページのしきい値は、取得件数の上限ではなく「少なくともこの件数に達するまでページを取得する」という指定です。実際の取得件数はページ単位で決まります。たとえば、1 ページが 300 件、しきい値が 500 件の場合、1 ページ目の 300 件ではしきい値に達しないため、2 ページ目も取得し、最大 600 件が返る場合があります。取得件数の上限を厳密に制御したい場合は、返された配列から必要な件数だけを取り出すなど、フロー側で調整してください。</p></div><p><a id='3-対応方法-2-フローで nextLink をたどる'></a></p><h2 id="3-対応方法-2-フローで-nextLink-をたどる"><a href="#3-対応方法-2-フローで-nextLink-をたどる" class="headerlink" title="3. 対応方法 2: フローで nextLink をたどる"></a>3. 対応方法 2: フローで nextLink をたどる</h2><p>設定タブに <strong>改ページ</strong> が表示されないアクションでは、応答に <code>nextLink</code> などの継続情報があり、次のページを呼び出せる場合に、フロー側で続きを取得できます。</p><p>たとえば、HTTP with Microsoft Entra ID コネクタのアクションには、改ページの項目自体がありません。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/07-http-action-no-pagination-setting.png" alt="HTTP with Microsoft Entra ID のアクション設定。ネットワーキングに改ページの項目がない"></p><p><a id='3-1-nextLink の使用方法を確認する'></a></p><h3 id="3-1-nextLink-の使用方法を確認する"><a href="#3-1-nextLink-の使用方法を確認する" class="headerlink" title="3-1. nextLink の使用方法を確認する"></a>3-1. nextLink の使用方法を確認する</h3><p><code>nextLink</code> の使用方法は、次のページを取得するアクションの入力形式によって異なります。</p><table><thead><tr><th>アクションの入力形式</th><th>nextLink の使用方法</th><th>本記事の例</th></tr></thead><tbody><tr><td><code>$skiptoken</code> など、継続トークンを入力する項目がある</td><td><code>nextLink</code> からトークンだけを取り出す</td><td>Power Platform for Admins</td></tr><tr><td>要求 URL を入力できる</td><td><code>nextLink</code> の URL 全体を次の要求に使用する</td><td>HTTP with Microsoft Entra ID</td></tr></tbody></table><p>どちらの場合も、<code>Do until</code> などを使用して <code>nextLink</code> が返らなくなるまでページの取得を繰り返します。対象の API やコネクタの仕様を確認し、入力形式に合う方法を使用してください。</p><p><a id='3-2-$skiptoken を取り出して使用する'></a></p><h3 id="3-2-skiptoken-を取り出して使用する"><a href="#3-2-skiptoken-を取り出して使用する" class="headerlink" title="3-2. $skiptoken を取り出して使用する"></a>3-2. $skiptoken を取り出して使用する</h3><p>「環境一覧を管理者として作成する」アクションには、次のページ用の URL を入力する項目はなく、<code>$skiptoken</code> を入力する項目があります。このため、<code>nextLink</code> から <code>$skiptoken</code> の値だけを取り出します。<code>skiptoken=</code> で分割して後半を取得し、さらに <code>&amp;</code> で分割して先頭を取得します。</p><div class="alert is-important"><p class="alert-title">重要</p><p>取り出した値は URL エンコードされています。トークン末尾の <code>=</code> が <code>%3d</code> のままの状態で <code>$skiptoken</code> へ渡すと、次のエラーになります。<br/></p><p><strong>要求 URI の継続トークンが無効です。継続トークン - ‘&lt;トークン&gt;%3d’</strong><br/></p><p><code>decodeUriComponent()</code> でデコードしてから渡してください。</p></div><p>デコードを含めた式は次のとおりです。<code>環境一覧を管理者として作成する</code> の部分は、ご利用のアクション名に読み替えてください。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if(</span><br><span class="line">  empty(coalesce(body(&#x27;環境一覧を管理者として作成する&#x27;)?[&#x27;nextLink&#x27;], &#x27;&#x27;)),</span><br><span class="line">  &#x27;&#x27;,</span><br><span class="line">  decodeUriComponent(</span><br><span class="line">    first(</span><br><span class="line">      split(</span><br><span class="line">        last(</span><br><span class="line">          split(body(&#x27;環境一覧を管理者として作成する&#x27;)?[&#x27;nextLink&#x27;], &#x27;skiptoken=&#x27;)</span><br><span class="line">        ),</span><br><span class="line">        &#x27;&amp;&#x27;</span><br><span class="line">      )</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>フローの構成は次のとおりです。</p><table><thead><tr><th>順序</th><th>アクション</th><th>設定</th></tr></thead><tbody><tr><td>1</td><td>変数を初期化する</td><td>名前 <code>varSkipToken</code> &#x2F; 種類 文字列 &#x2F; 値 空</td></tr><tr><td>2</td><td>変数を初期化する</td><td>名前 <code>varEnvNames</code> &#x2F; 種類 アレイ &#x2F; 値 空</td></tr><tr><td>3</td><td>Do until</td><td>条件 <code>varSkipToken</code> が次の値に等しい (空)</td></tr><tr><td>3-1</td><td>環境一覧を管理者として作成する</td><td>ページ サイズ <code>1</code> &#x2F; トークンをスキップする <code>varSkipToken</code></td></tr><tr><td>3-2</td><td>配列変数に追加</td><td>取得したデータを <code>varEnvNames</code> へ追加</td></tr><tr><td>3-3</td><td>変数を設定する</td><td><code>varSkipToken</code> に 3-2 の式を設定</td></tr><tr><td>4</td><td>作成</td><td>取得件数と結果を出力</td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/04-dountil-designer.png" alt="Do until で nextLink をたどるフローのデザイナー画面"></p><p><code>Do until</code> は本体を実行してから条件を評価します。<code>varSkipToken</code> は初期値が空のため、1 周目は <code>$skiptoken</code> を指定しない状態で 1 ページ目を取得し、2 周目以降は前の周回で取り出したトークンを使用します。最終ページでは <code>nextLink</code> が返らないため <code>varSkipToken</code> が空になり、繰り返しが終了します。</p><div class="alert is-warning"><p class="alert-title">警告</p><p><code>Do until</code> には繰り返しの上限 (既定 60 回) とタイムアウト (既定 1 時間) があります。上限に達すると、途中までのデータしか取得できていない状態で <code>Do until</code> が終了します。想定するページ数に対して十分な上限を設定し、上限に達した場合を検知する処理をあわせて実装してください。</p></div><p>上記の構成で実行したところ、3 ページに分けて 3 件すべてを重複なく取得できました。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/06-dountil-decoded-success.png" alt="Do until で 3 ページ分を取得した実行結果"></p><p><a id='3-3-nextLink の URL をそのまま使用する'></a></p><h3 id="3-3-nextLink-の-URL-をそのまま使用する"><a href="#3-3-nextLink-の-URL-をそのまま使用する" class="headerlink" title="3-3. nextLink の URL をそのまま使用する"></a>3-3. nextLink の URL をそのまま使用する</h3><p>HTTP with Microsoft Entra ID コネクタでは、要求 URL を入力できます。このため、<code>nextLink</code> からトークンを取り出さず、URL 全体を次の要求に使用します。</p><p>最初に呼び出す URL を <code>varNextLink</code> へ設定します。次の例では、Flow Management API の一覧取得 URL を使用しています。<code>&lt;環境 ID&gt;</code> は取得対象の環境 ID に置き換えてください。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.flow.microsoft.com/providers/Microsoft.ProcessSimple/environments/&lt;環境 ID&gt;/flows?api-version=2016-11-01&amp;$top=50</span><br></pre></td></tr></table></figure><p><code>Do until</code> 内の HTTP アクションは、メソッドを <code>GET</code>、要求の URL を <code>variables(&#39;varNextLink&#39;)</code> にします。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/11-http-request-nextlink.png" alt="HTTP アクションの要求 URL に varNextLink を指定した画面"></p><p>HTTP アクションの実行後、<code>varNextLink</code> を次の式で更新します。最終ページでは <code>nextLink</code> が返らないため、空文字を設定してループを終了します。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coalesce(body(&#x27;HTTP_Get_Flows&#x27;)?[&#x27;nextLink&#x27;], &#x27;&#x27;)</span><br></pre></td></tr></table></figure><p><img src="/blog/powerautomate/cloud-flow-connector-paging/12-set-nextlink.png" alt="HTTP 応答の nextLink で varNextLink を更新する画面"></p><p>この構成で、実行時に <code>nextLink</code> が返らなくなるまで取得したところ、2 ページ、合計 100 件を取得できました。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/08-http-dountil-success.png" alt="HTTP アクションと Do until で 2 ページ 100 件を取得した実行結果"></p><p><a id='4-2 つの方法の使い分け'></a></p><h2 id="4-2-つの方法の使い分け"><a href="#4-2-つの方法の使い分け" class="headerlink" title="4. 2 つの方法の使い分け"></a>4. 2 つの方法の使い分け</h2><table><thead><tr><th>方法</th><th>使用できる条件</th><th>特徴</th></tr></thead><tbody><tr><td>改ページ設定 (2 章)</td><td>設定タブに <strong>改ページ</strong> がある</td><td>設定するだけで済み、フローが単純になる</td></tr><tr><td><code>Do until</code> + <code>nextLink</code> (3 章)</td><td>応答に継続情報があり、次のページを呼び出せる</td><td>実装量は増えるが、途中経過の記録や独自の停止条件を作り込める</td></tr></tbody></table><p>改ページ設定が使用できる場合は、そちらをご検討ください。</p><p><a id='5-設計時に確認しておきたい注意点'></a></p><h2 id="5-設計時に確認しておきたい注意点"><a href="#5-設計時に確認しておきたい注意点" class="headerlink" title="5. 設計時に確認しておきたい注意点"></a>5. 設計時に確認しておきたい注意点</h2><p><a id='5-1-アクション自体の制限がないかを確認する'></a></p><h3 id="5-1-アクション自体の制限がないかを確認する"><a href="#5-1-アクション自体の制限がないかを確認する" class="headerlink" title="5-1. アクション自体の制限がないかを確認する"></a>5-1. アクション自体の制限がないかを確認する</h3><p>一覧が全件返らない原因が改ページではなく、<strong>アクションそのものの制限</strong> である場合があります。この場合は、改ページ設定を有効にしても <code>Do until</code> で <code>nextLink</code> をたどっても解消しません。</p><p>たとえば、2026 年 8 月 4 日 15 時 (日本時間) に Power Platform 管理センターで確認した既知の問題 6057285 では、Power Automate Management コネクタの <strong>List My Flows</strong> アクションは、環境内に 50 個以上のフローがある場合にすべてを返さないことがあると案内されていました。回避策は <strong>List Flows as Admin (V2)</strong> アクションの使用です。</p><table><thead><tr><th>アクション</th><th>改ページ</th><th>取得件数</th></tr></thead><tbody><tr><td>自分のフローの一覧表示 (<code>List My Flows</code>)</td><td>オフ (既定)</td><td><strong>51</strong></td></tr><tr><td>自分のフローの一覧表示 (<code>List My Flows</code>)</td><td>オン (しきい値 5000)</td><td><strong>51</strong></td></tr><tr><td>管理者としてフローの一覧を取得 (V2) (<code>List Flows as Admin (V2)</code>)</td><td>オフ (既定)</td><td><strong>106</strong></td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/09-listmyflows-vs-admin-run.png" alt="3 つのアクションの取得件数を出力した作成アクションの実行結果"></p><p>この検証では、<strong>List My Flows</strong> の改ページをオンにし、しきい値を <code>5000</code> に設定しても、取得件数は 51 件のままでした。応答に <code>nextLink</code> がなかったため、改ページ設定では続きを取得できませんでした。一方、<strong>List Flows as Admin (V2)</strong> では 106 件が返りました。</p><div class="alert is-important"><p class="alert-title">重要</p><p>既知の問題は一時的な情報であり、状態や回避策が変更される場合があります。期待した件数が返らないときは、対象アクションの応答に <code>nextLink</code> などの継続情報があるかを確認するとともに、Power Platform 管理センターの <strong>ヘルプとサポート</strong> &gt; <strong>既知の問題</strong> とコネクタ リファレンスで最新情報をご確認ください。</p></div><ul><li><a href="https://admin.powerplatform.microsoft.com/support/knownissues/6057285">既知の問題 6057285 - Power Platform 管理センター</a></li><li><a href="https://learn.microsoft.com/connectors/flowmanagement/#list-my-flows">List My Flows - Power Automate Management コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/connectors/flowmanagement/#list-flows-as-admin-(v2)">List Flows as Admin (V2) - Power Automate Management コネクタ - Microsoft Learn</a></li></ul><h3 id="5-2-本当に全件が必要かを確認する"><a href="#5-2-本当に全件が必要かを確認する" class="headerlink" title="5-2. 本当に全件が必要かを確認する"></a>5-2. 本当に全件が必要かを確認する</h3><p>全件取得は、実行時間、コネクタの呼び出し回数、フローが扱うデータ量をいずれも増加させます。フィルターで対象を絞れないかをあわせてご検討ください。</p><h3 id="5-3-フィルターを指定した場合も改ページを確認する"><a href="#5-3-フィルターを指定した場合も改ページを確認する" class="headerlink" title="5-3. フィルターを指定した場合も改ページを確認する"></a>5-3. フィルターを指定した場合も改ページを確認する</h3><p>フィルターで取得対象を絞っていても、改ページが必要な場合があります。SharePoint コネクタの <strong>複数の項目の取得</strong> アクションには、5,000 件を超えるリストでフィルター クエリを使用した場合、最初の 5,000 件に一致する項目がないと、結果が返らないことがあるという制限が公開されています。</p><p>たとえば、7,000 件のリストで条件に一致する 5 件が 5,001 件目以降にある場合、取得予定件数が 5 件でも、改ページがオフだと 0 件になる可能性があります。このような場合は、アクションの改ページをオンにして、続きのページも検索対象にします。</p><h3 id="5-4-最終ページを判定する"><a href="#5-4-最終ページを判定する" class="headerlink" title="5-4. 最終ページを判定する"></a>5-4. 最終ページを判定する</h3><p>最終ページでは <code>nextLink</code> が返りません。空の値を <code>$skiptoken</code> に渡して再実行すると 1 ページ目が返るため、判定を省略すると同じデータを重複して取得します。<code>empty()</code> などで必ず確認してください。</p><h3 id="5-5-コネクタの呼び出し回数の制限を確認する"><a href="#5-5-コネクタの呼び出し回数の制限を確認する" class="headerlink" title="5-5. コネクタの呼び出し回数の制限を確認する"></a>5-5. コネクタの呼び出し回数の制限を確認する</h3><p>ページングを実装すると、ページ数の分だけコネクタの呼び出し回数が増えます。Power Platform for Admins コネクタには、接続ごとに 60 秒あたり 100 回の API 呼び出し制限があります。利用者数と実行頻度を含めて、制限に到達しないかをご確認ください。</p><h3 id="5-6-エラー処理を追加する"><a href="#5-6-エラー処理を追加する" class="headerlink" title="5-6. エラー処理を追加する"></a>5-6. エラー処理を追加する</h3><p>途中のページ取得に失敗した場合、結果には一部のデータだけが残る可能性があります。「全件取得できた」と誤解しないよう、実運用では <code>Do until</code> の終了条件と実行結果を確認し、失敗を検知する処理をあわせて実装してください。</p><p><a id='6-まとめ'></a></p><h2 id="6-まとめ"><a href="#6-まとめ" class="headerlink" title="6. まとめ"></a>6. まとめ</h2><p>コネクタの応答に <code>nextLink</code> が含まれる場合、データは次のページへ続いています。改ページ設定がオフのアクションでは、通常はフロー側で続きを取得するための対応が必要です。</p><ul><li>アクションの設定に <strong>改ページ</strong> があれば、オンにしてしきい値を指定する</li><li>改ページがないアクションでは、<code>Do until</code> で <code>nextLink</code> をたどる</li><li><code>$skiptoken</code> を自分で組み立てる場合は、<code>decodeUriComponent()</code> で URL エンコードを戻す</li><li><code>nextLink</code> が返らなくなったことを判定して繰り返しを止める</li></ul><p>なお、一覧が全件返らない原因がページングではなく、アクション自体の制限であることもあります。実装に着手する前に、対象アクションのリファレンスと既知の問題をあわせてご確認ください (5-1 参照)。</p><p>あわせて、<code>Do until</code> の繰り返し上限、コネクタの呼び出し回数の制限、エラー処理の実装もご確認いただけますと幸いです。</p><p><a id='参考情報'></a></p><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/ja-jp/connectors/powerplatformforadmins/">Power Platform for Admins コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/connectors/flowmanagement/">Power Automate Management コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-exceed-default-page-size-with-pagination">改ページ位置の自動修正で既定のページ サイズを超える結果を取得する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/sharepoint/dev/business-apps/power-automate/guidance/working-with-get-items-and-get-files">Power Automate で SharePoint の「複数の項目の取得」と「複数のファイルの取得」を使用する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-control-flow-loops#until-loop">ループを使用してデータを繰り返し処理する - Azure Logic Apps | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-create-variables-store-values">変数を使用して値を保存および管理する - Azure Logic Apps | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference">ワークフロー式関数のリファレンス ガイド - Azure Logic Apps | Microsoft Learn</a></li></ul><div class="alert is-info"><p class="alert-title">Note</p><p>本記事に記載した数式は実装例です。エラー処理や各環境固有の条件をすべて含むものではありません。ご利用の際は、検証環境で十分に動作をご確認ください。</p></div><p>※本記事の執筆には生成 AI を使用しています。<a href="https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content">参考</a></p>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerautomate/cloud-flow-connector-paging/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerautomate/cloud-flow-connector-paging/"/>
+    <published>2026-08-03T13:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの早坂です。<br/></p>
+<p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
+    </summary>
+    <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
+    <updated>2026-08-10T09:32:53.567Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -43,7 +68,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-10T09:30:54.036Z</updated>
+    <updated>2026-08-10T09:32:53.437Z</updated>
   </entry>
   <entry>
     <author>
@@ -66,7 +91,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-08-10T09:30:54.269Z</updated>
+    <updated>2026-08-10T09:32:53.657Z</updated>
   </entry>
   <entry>
     <author>
@@ -92,7 +117,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-08-10T09:30:54.038Z</updated>
+    <updated>2026-08-10T09:32:53.438Z</updated>
   </entry>
   <entry>
     <author>
@@ -115,7 +140,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-08-10T09:30:54.337Z</updated>
+    <updated>2026-08-10T09:32:53.719Z</updated>
   </entry>
   <entry>
     <author>
@@ -138,7 +163,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-08-10T09:30:54.406Z</updated>
+    <updated>2026-08-10T09:32:53.782Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +187,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-08-10T09:30:54.410Z</updated>
+    <updated>2026-08-10T09:32:53.786Z</updated>
   </entry>
   <entry>
     <author>
@@ -185,7 +210,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-08-10T09:30:54.336Z</updated>
+    <updated>2026-08-10T09:32:53.718Z</updated>
   </entry>
   <entry>
     <author>
@@ -208,7 +233,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-08-10T09:30:54.269Z</updated>
+    <updated>2026-08-10T09:32:53.657Z</updated>
   </entry>
   <entry>
     <author>
@@ -234,7 +259,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-08-10T09:30:54.377Z</updated>
+    <updated>2026-08-10T09:32:53.755Z</updated>
   </entry>
   <entry>
     <author>
@@ -261,7 +286,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-08-10T09:30:54.389Z</updated>
+    <updated>2026-08-10T09:32:53.767Z</updated>
   </entry>
   <entry>
     <author>
@@ -287,7 +312,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-08-10T09:30:54.336Z</updated>
+    <updated>2026-08-10T09:32:53.718Z</updated>
   </entry>
   <entry>
     <author>
@@ -324,7 +349,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-08-10T09:30:54.389Z</updated>
+    <updated>2026-08-10T09:32:53.767Z</updated>
   </entry>
   <entry>
     <author>
@@ -354,7 +379,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-08-10T09:30:54.335Z</updated>
+    <updated>2026-08-10T09:32:53.717Z</updated>
   </entry>
   <entry>
     <author>
@@ -386,7 +411,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-08-10T09:30:54.268Z</updated>
+    <updated>2026-08-10T09:32:53.655Z</updated>
   </entry>
   <entry>
     <author>
@@ -409,7 +434,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-08-10T09:30:54.406Z</updated>
+    <updated>2026-08-10T09:32:53.782Z</updated>
   </entry>
   <entry>
     <author>
@@ -442,7 +467,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-08-10T09:30:54.389Z</updated>
+    <updated>2026-08-10T09:32:53.767Z</updated>
   </entry>
   <entry>
     <author>
@@ -475,7 +500,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-08-10T09:30:54.337Z</updated>
+    <updated>2026-08-10T09:32:53.719Z</updated>
   </entry>
   <entry>
     <author>
@@ -505,7 +530,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-08-10T09:30:54.044Z</updated>
+    <updated>2026-08-10T09:32:53.444Z</updated>
   </entry>
   <entry>
     <author>
@@ -529,35 +554,6 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-08-10T09:30:54.338Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Model-driven app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Model-driven-app/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
-    <category term="Dynamics 365" scheme="https://jpdynamicscrm.github.io/blog/categories/Dynamics-365/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
-    <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
-    <category term="Model-driven app" scheme="https://jpdynamicscrm.github.io/blog/tags/Model-driven-app/"/>
-    <category term="Dynamics" scheme="https://jpdynamicscrm.github.io/blog/tags/Dynamics/"/>
-    <content>
-      <![CDATA[<p>こんにちは。マイクロソフト サポート エンジニアの王です。</p><p>Dataverse (Dynamics 365) を利用したアプリケーション開発において、「日付」の扱いは非常に重要かつ、複雑になりがちなトピックの一つです。特に、日本時間 (JST) のような UTC (協定世界時) と時差がある環境では、<strong>「登録したはずの日付が 1 日ずれている」</strong> といったお問い合わせをいただくことがよくあります。</p><p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p><span id="more"></span><h2 id="日付列の基本概念"><a href="#日付列の基本概念" class="headerlink" title="日付列の基本概念"></a>日付列の基本概念</h2><p>検証に入る前に、Dataverse の日付列における重要な設定である「タイムゾーン調整 (Time zone adjustment)」の動作について整理します。</p><ol><li><strong>ユーザー ローカル (User Local)</strong><ul><li>ユーザーのタイムゾーン設定に合わせて日時を表示・変換します。</li><li>データベースには <strong>UTC</strong> に変換されて保存されます。</li></ul></li><li><strong>タイムゾーンに依存しない (Timezone Independent)</strong><ul><li>タイムゾーン変換を行いません。ユーザーが入力した値がそのまま保存され、どのタイムゾーンのユーザーが見ても同じ値が表示されます。</li><li>誕生日やホテルのチェックイン日など、絶対的な日付・時刻に適しています。</li></ul></li><li><strong>日付のみ (Date Only)</strong><ul><li>時刻部分を持たず、日付のみを扱います。実質的にタイムゾーン変換は行われません。</li></ul></li></ol><h2 id="検証：JST-ユーザーがデータを入力した場合の挙動"><a href="#検証：JST-ユーザーがデータを入力した場合の挙動" class="headerlink" title="検証：JST ユーザーがデータを入力した場合の挙動"></a>検証：JST ユーザーがデータを入力した場合の挙動</h2><p>今回は、以下の構成のフィールドを用意し、<strong>JST (UTC+9) のユーザー</strong> が <strong>「2026年1月1日 07:00」</strong> を入力した場合に、内部データとしてどのような値が格納されるかを確認しました。</p><table><thead><tr><th align="left">動作 (Behavior)</th><th align="left">書式 (Format)</th><th align="left">内部格納値 (UTC)</th><th align="left">解説</th></tr></thead><tbody><tr><td align="left">ユーザー ローカル</td><td align="left">日付と時刻</td><td align="left"><strong>2025-12-31T22:00:00Z</strong></td><td align="left">入力値から 9 時間引かれた値 (UTC) が格納されます。<br>(2026&#x2F;1&#x2F;1 07:00 JST - 9h &#x3D; 12&#x2F;31 22:00 UTC)</td></tr><tr><td align="left">ユーザー ローカル</td><td align="left">日付のみ</td><td align="left"><strong>2025-12-31T15:00:00Z</strong></td><td align="left"><strong>注意点:</strong> 書式が「日付のみ」の場合、時刻は 00:00 として扱われます。<br>2026&#x2F;1&#x2F;1 00:00 JST を UTC に変換するため、<strong>前日の 15:00</strong> となります。</td></tr><tr><td align="left">タイムゾーン非依存</td><td align="left">日付と時刻</td><td align="left"><strong>2026-01-01T07:00:00Z</strong></td><td align="left">入力した値がそのまま格納されます。タイムゾーン変換は行われません。</td></tr><tr><td align="left">タイムゾーン非依存</td><td align="left">日付のみ</td><td align="left"><strong>2026-01-01T00:00:00Z</strong></td><td align="left">時刻は 00:00 となりますが、日付は入力通りです。</td></tr><tr><td align="left">日付のみ</td><td align="left">日付のみ</td><td align="left"><strong>2026-01-01</strong></td><td align="left">タイムゾーン変換は行われません。</td></tr></tbody></table><p><strong>ポイント:</strong><br>「書式：日付のみ」かつ「動作：ユーザー ローカル」の組み合わせは特に注意が必要です。画面上は「2026&#x2F;1&#x2F;1」と見えていても、内部的には「2025&#x2F;12&#x2F;31 15:00」として保存されています。これを API 等で取得したり、タイムゾーンを考慮しない処理で利用したりすると、<strong>「1日ずれる」</strong> 原因となります。</p><h2 id="重要：動作を「ユーザー-ローカル」から「タイムゾーンに依存しない」へ変更する場合の注意点"><a href="#重要：動作を「ユーザー-ローカル」から「タイムゾーンに依存しない」へ変更する場合の注意点" class="headerlink" title="重要：動作を「ユーザー ローカル」から「タイムゾーンに依存しない」へ変更する場合の注意点"></a>重要：動作を「ユーザー ローカル」から「タイムゾーンに依存しない」へ変更する場合の注意点</h2><p>運用開始後に、「やっぱりタイムゾーン変換をしたくない」という理由で、既存のフィールド設定を <strong>「ユーザー ローカル」から「タイムゾーンに依存しない」へ変更</strong> しようとするケースがあります。</p><p>この変更を行うと、<strong>内部に保存されている値は変わらないまま、アプリケーション側の表示ロジックだけが切り替わります。</strong> これにより、データの見え方が意図せず変わってしまう現象が発生します。</p><h3 id="発生する現象"><a href="#発生する現象" class="headerlink" title="発生する現象"></a>発生する現象</h3><p>例えば、動作が「ユーザー ローカル」、書式が「日付と時刻」のフィールドに、JST ユーザーが「2026&#x2F;1&#x2F;1 07:00」と入力し、内部的に <code>2025-12-31T22:00:00Z</code> と保存されていたデータがあるとします。</p><p>このフィールドの設定を「タイムゾーンに依存しない」に変更すると、以下のようになります。</p><ol><li><strong>内部値:</strong> <code>2025-12-31T22:00:00Z</code> (変更されません)</li><li><strong>変更後の表示ロジック:</strong> タイムゾーン変換を行わず、保存されている値をそのまま表示する。</li><li><strong>画面上の表示:</strong> <strong>2025&#x2F;12&#x2F;31 22:00</strong></li></ol><p>ユーザーから見ると、<strong>「入力したはずの日時 (1&#x2F;1 07:00) が、勝手に過去の日時 (12&#x2F;31 22:00) に書き換わった」</strong> ように見えてしまいます。</p><p>特に「日付のみ」の書式で使用していた場合、内部値は <code>2025-12-31T15:00:00Z</code> であったため、設定変更後は画面表示が「2026&#x2F;1&#x2F;1」から「2025&#x2F;12&#x2F;31」へと、<strong>日付が 1 日戻ってしまいます。</strong></p><h3 id="対処策"><a href="#対処策" class="headerlink" title="対処策"></a>対処策</h3><p>この設定変更を行う場合は、設定変更後にデータ修正（データ移行）を行う必要があります。<br>具体的には、既存のレコードに対して、ずれてしまった時間分（JST であれば +9 時間）を加算して保存し直すバッチ処理などが必要となります。</p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>日付フィールドを使用する際は、以下の点を設計段階で十分に検討してください。</p><ol><li><strong>利用目的の明確化:</strong><ul><li>「会議の開始時間」や「レコード作成日時」など、<strong>時系列としての正確なポイント</strong> が必要な場合は <strong>「ユーザー ローカル」</strong> を使用します。</li><li>「誕生日」や「記念日」、「契約日」など、<strong>世界中どこで見ても同じ日付</strong> であるべき情報は <strong>「タイムゾーンに依存しない」</strong> または <strong>「日付のみ」</strong> を使用します。</li></ul></li><li><strong>「日付のみ」書式の注意:</strong><ul><li>書式を「日付のみ」にする場合、動作が「ユーザー ローカル」になっていると、UTC 変換により内部的に前日の日付で保存される可能性があります。特別な理由がない限り、書式が「日付のみ」の場合は、動作も「タイムゾーンに依存しない」または「日付のみ」にすることを推奨します。</li></ul></li><li><strong>後からの変更は慎重に:</strong><ul><li>動作設定の変更は、既存データの表示に影響を与えます。変更が必要な場合は、データ修正の計画も合わせて立てる必要があります。</li></ul></li></ol><h3 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h3><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/behavior-format-date-time-field">日時の列の動作と形式（オンライン版）</a></li><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/customerengagement/on-premises/customize/behavior-format-date-time-field?view=op-9-1">フィールドの動作と書式のオプション (オンプレ版)</a></li></ul>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/datetime-field-behavior/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/datetime-field-behavior/"/>
-    <published>2025-12-14T15:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは。マイクロソフト サポート エンジニアの王です。</p>
-<p>Dataverse (Dynamics 365) を利用したアプリケーション開発において、「日付」の扱いは非常に重要かつ、複雑になりがちなトピックの一つです。特に、日本時間 (JST) のような UTC (協定世界時) と時差がある環境では、<strong>「登録したはずの日付が 1 日ずれている」</strong> といったお問い合わせをいただくことがよくあります。</p>
-<p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
-    </summary>
-    <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-08-10T09:30:54.338Z</updated>
+    <updated>2026-08-10T09:32:53.719Z</updated>
   </entry>
 </feed>
