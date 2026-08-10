@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/solution-best-practices-power-platform/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/table-relationship-behavior/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/solution-best-practices-power-platform/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -65,7 +65,16 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-pipelines-guide/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/powerbi-dataverse-connection-troubleshooting/</loc>
+    
+    <lastmod>2026-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/pp-copilot-disable/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -83,16 +92,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/powerbi-dataverse-connection-troubleshooting/</loc>
-    
-    <lastmod>2026-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/pp-copilot-disable/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-pipelines-guide/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/export-audit-log/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/export-audit-log/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/expired-subscription-environment-lifecycle/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -263,15 +263,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Power-platform-Ideas/</loc>
-    
-    <lastmod>2026-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/</loc>
     
     <lastmod>2026-08-10</lastmod>
@@ -281,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Power-platform-Ideas/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -299,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901924/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Output-dlp-policy-connector-list/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -318,6 +309,15 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/</loc>
+    
+    <lastmod>2026-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/MC901924/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -398,6 +398,15 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/</loc>
+    
+    <lastmod>2026-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerpages/power-pages-external-idp-claims/</loc>
     
     <lastmod>2026-08-10</lastmod>
@@ -417,15 +426,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerpages/power-pages-troubleshooting/</loc>
-    
-    <lastmod>2026-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerplatform/2021-wave2-added-search/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -641,15 +641,6 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
-    
-    <lastmod>2026-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktopSupportability/</loc>
     
     <lastmod>2026-08-10</lastmod>
@@ -660,6 +651,15 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/powerautomate/aggregation-using-xpath/</loc>
+    
+    <lastmod>2026-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/PowerAutomateDesktop-NoFlow/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -695,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -704,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Graph-API/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/powerautomate/Execute-PowerShell/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -839,7 +839,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/sharepoint-image-mobile-issue/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -848,7 +848,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/sharepoint-image-mobile-issue/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/troubleshooting-general-canvasapp/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -875,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -884,7 +884,7 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/canvas-app-change-app-owner/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/canvasapp/Canvas-app-monitor/</loc>
     
     <lastmod>2026-08-10</lastmod>
     
@@ -920,21 +920,14 @@
 
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Canvas-app/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/%E5%A7%94%E4%BB%BB/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/Power-Apps/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Canvas-app/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -956,6 +949,13 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E5%A7%94%E4%BB%BB/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1032,14 +1032,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/AI-Builder/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/AI-Builder/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1221,14 +1221,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Ideas/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Ideas/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1242,14 +1242,14 @@
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Capacity/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Network/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/Network/</loc>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/Capacity/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1291,6 +1291,20 @@
   </url>
   
   <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -1313,20 +1327,6 @@
   
   <url>
     <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jpdynamicscrm.github.io/blog/tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

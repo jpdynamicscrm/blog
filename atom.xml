@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-08-10T07:48:15.349Z</updated>
+  <updated>2026-08-10T08:35:59.680Z</updated>
   <entry>
     <author>
       <name>
@@ -40,7 +40,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-08-10T07:48:15.349Z</updated>
+    <updated>2026-08-10T08:35:59.680Z</updated>
   </entry>
   <entry>
     <author>
@@ -50,8 +50,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
@@ -66,7 +66,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-08-10T07:48:15.139Z</updated>
+    <updated>2026-08-10T08:35:59.448Z</updated>
   </entry>
   <entry>
     <author>
@@ -89,7 +89,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-08-10T07:48:15.412Z</updated>
+    <updated>2026-08-10T08:35:59.749Z</updated>
   </entry>
   <entry>
     <author>
@@ -112,7 +112,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-08-10T07:48:15.474Z</updated>
+    <updated>2026-08-10T08:35:59.817Z</updated>
   </entry>
   <entry>
     <author>
@@ -136,7 +136,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-08-10T07:48:15.478Z</updated>
+    <updated>2026-08-10T08:35:59.821Z</updated>
   </entry>
   <entry>
     <author>
@@ -159,7 +159,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-08-10T07:48:15.410Z</updated>
+    <updated>2026-08-10T08:35:59.747Z</updated>
   </entry>
   <entry>
     <author>
@@ -182,7 +182,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-08-10T07:48:15.349Z</updated>
+    <updated>2026-08-10T08:35:59.680Z</updated>
   </entry>
   <entry>
     <author>
@@ -208,7 +208,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-08-10T07:48:15.448Z</updated>
+    <updated>2026-08-10T08:35:59.788Z</updated>
   </entry>
   <entry>
     <author>
@@ -235,7 +235,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-08-10T07:48:15.459Z</updated>
+    <updated>2026-08-10T08:35:59.800Z</updated>
   </entry>
   <entry>
     <author>
@@ -261,7 +261,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-08-10T07:48:15.410Z</updated>
+    <updated>2026-08-10T08:35:59.747Z</updated>
   </entry>
   <entry>
     <author>
@@ -298,7 +298,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-08-10T07:48:15.459Z</updated>
+    <updated>2026-08-10T08:35:59.801Z</updated>
   </entry>
   <entry>
     <author>
@@ -328,7 +328,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-08-10T07:48:15.409Z</updated>
+    <updated>2026-08-10T08:35:59.746Z</updated>
   </entry>
   <entry>
     <author>
@@ -360,7 +360,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-08-10T07:48:15.347Z</updated>
+    <updated>2026-08-10T08:35:59.679Z</updated>
   </entry>
   <entry>
     <author>
@@ -383,7 +383,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-08-10T07:48:15.474Z</updated>
+    <updated>2026-08-10T08:35:59.817Z</updated>
   </entry>
   <entry>
     <author>
@@ -416,7 +416,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-08-10T07:48:15.459Z</updated>
+    <updated>2026-08-10T08:35:59.800Z</updated>
   </entry>
   <entry>
     <author>
@@ -449,7 +449,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-08-10T07:48:15.412Z</updated>
+    <updated>2026-08-10T08:35:59.749Z</updated>
   </entry>
   <entry>
     <author>
@@ -458,8 +458,8 @@
       </name>
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="SharePoint" scheme="https://jpdynamicscrm.github.io/blog/tags/SharePoint/"/>
     <category term="Mobile" scheme="https://jpdynamicscrm.github.io/blog/tags/Mobile/"/>
     <content>
@@ -479,7 +479,7 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-08-10T07:48:15.145Z</updated>
+    <updated>2026-08-10T08:35:59.454Z</updated>
   </entry>
   <entry>
     <author>
@@ -503,7 +503,7 @@
 <p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
     </summary>
     <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-08-10T07:48:15.412Z</updated>
+    <updated>2026-08-10T08:35:59.749Z</updated>
   </entry>
   <entry>
     <author>
@@ -532,7 +532,7 @@
 <p>今回は、日付列（フィールド）の「動作 (Behavior)」と「書式 (Format)」の組み合わせによるデータの格納され方の違いと、設定変更時の注意点について、実際の検証結果を交えて解説します。</p>]]>
     </summary>
     <title>Dataverse (Dynamics 365) における日付フィールドの動作とタイムゾーンの考慮点について</title>
-    <updated>2026-08-10T07:48:15.412Z</updated>
+    <updated>2026-08-10T08:35:59.749Z</updated>
   </entry>
   <entry>
     <author>
@@ -560,6 +560,6 @@
 <p>今回は、Power Platform 環境でできるアクティブレイヤーの確認・削除方法についてご紹介いたします。</p>]]>
     </summary>
     <title>アクティブレイヤーの確認・削除方法</title>
-    <updated>2026-08-10T07:48:15.400Z</updated>
+    <updated>2026-08-10T08:35:59.736Z</updated>
   </entry>
 </feed>
