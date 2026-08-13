@@ -4,40 +4,26 @@
   <meta charset="utf-8">
   
   
-  <title>Power Automate で CSV ファイルを取り込む | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートの瀬戸です。今回は、Power Automate で CSV ファイルを取り込む方法をご紹介します。標準コネクタのみで実現する方法なので、多くの方に活用していただけます。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの竹嶋です。 本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケースについて、その仕組みと具体的な回避方法をご紹介します。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Power Automate で CSV ファイルを取り込む">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/index.html">
+<meta property="og:title" content="Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerapps/power-apps-flow-response-timeout-120s/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートの瀬戸です。今回は、Power Automate で CSV ファイルを取り込む方法をご紹介します。標準コネクタのみで実現する方法なので、多くの方に活用していただけます。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの竹嶋です。 本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケースについて、その仕組みと具体的な回避方法をご紹介します。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image001.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image002.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image017.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image003.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image018.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image005.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image006.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image007.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image008.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image009.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image010.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image011.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image012.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image013.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image014.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image015.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image016.png">
-<meta property="article:published_time" content="2022-08-19T09:40:17.000Z">
-<meta property="article:modified_time" content="2026-08-13T01:55:16.742Z">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerapps/power-apps-flow-response-timeout-120s/async-toggle.png">
+<meta property="article:published_time" content="2026-07-15T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-13T01:55:16.730Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Canvas app">
 <meta property="article:tag" content="Cloud flow">
 <meta property="article:tag" content="How to">
+<meta property="article:tag" content="Power Apps">
 <meta property="article:tag" content="Power Automate">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/image001.png">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerapps/power-apps-flow-response-timeout-120s/async-toggle.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -100,7 +86,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerautomate/Import-Csv-With-Standard-Connectors" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-powerapps/power-apps-flow-response-timeout-120s" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -109,7 +95,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Power Automate で CSV ファイルを取り込む
+      Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法
     </h1>
   
 
@@ -117,14 +103,14 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2022-08-19T09:40:17.000Z" itemprop="datePublished">2022-08-19</time>
+  <time datetime="2026-07-15T15:00:00.000Z" itemprop="datePublished">2026-07-16</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
 / Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
 
 <script type="text/javascript">
-  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerautomate/Import-Csv-With-Standard-Connectors.md";
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerapps/power-apps-flow-response-timeout-120s.md";
   const urlParts = sourceUrl.split("/");
   const user = urlParts[3];
   const repo = urlParts[4];
@@ -172,97 +158,66 @@
         
         
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Power-Automate/">Power Automate</a>►<a class="article-category-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a>
+    <a class="article-category-link" href="../../categories/Power-Apps/">Power Apps</a>►<a class="article-category-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a>
   </div>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d9f92a21-3db8-531e-95ab-e86a9ffd659b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+%E3%81%A7+CSV+%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%8F%96%E3%82%8A%E8%BE%BC%E3%82%80%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2FImport-Csv-With-Standard-Connectors.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+19c18294-7379-547f-8f89-b9bcebe788f2%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Apps+%E3%81%AE%E3%83%95%E3%83%AD%E3%83%BC%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B+120+%E7%A7%92%E5%88%B6%E9%99%90%E3%82%92%E5%9B%9E%E9%81%BF%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerapps%2Fpower-apps-flow-response-timeout-120s%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerapps%2Fpower-apps-flow-response-timeout-120s.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerapps%2Fpower-apps-flow-response-timeout-120s.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/Import-Csv-With-Standard-Connectors/" data-id="cuid5FUGPGKnoeY_J1qyl8sVz" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerapps/power-apps-flow-response-timeout-120s/" data-id="cuidtumrEfI8NwUNK_RqHeds_" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポートの瀬戸です。<br>今回は、Power Automate で CSV ファイルを取り込む方法をご紹介します。<br>標準コネクタのみで実現する方法なので、多くの方に活用していただけます。</p>
+        <p>こんにちは、Power Platform サポートチームの竹嶋です。<br/></p>
+<p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>
 <span id="more"></span>
 
-<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ul>
-<li>CSV ファイルの文字コードは UTF-8 に対応しています。<ul>
-<li>Shift_JIS など他の文字コードでは、日本語が文字化けしますのでご注意ください。</li>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+<li><a href="#1-%E6%A6%82%E8%A6%81">1. 概要</a></li>
+<li><a href="#2-120-%E7%A7%92%E5%88%B6%E9%99%90%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B%E4%BB%95%E7%B5%84%E3%81%BF">2. 120 秒制限が発生する仕組み</a></li>
+<li><a href="#3-%E5%9B%9E%E9%81%BF%E7%AD%96%E9%9D%9E%E5%90%8C%E6%9C%9F%E5%BF%9C%E7%AD%94%E3%82%92%E3%82%AA%E3%83%B3%E3%81%AB%E3%81%99%E3%82%8B">3. 回避策：非同期応答をオンにする</a><ul>
+<li><a href="#%E6%89%8B%E9%A0%86-1-%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%BF%9C%E7%AD%94%E3%82%92%E9%9D%9E%E5%90%8C%E6%9C%9F%E3%81%AB%E3%81%99%E3%82%8B">手順 1. フローを作成する（応答を非同期にする）</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86-2-%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99">手順 2. アプリから呼び出す</a></li>
 </ul>
 </li>
-<li>CSV ファイルの列数・行数はあまり多くないことを前提としています。<ul>
-<li>列数・行数が増えると、その分アクション数が増えてフローも長大になる可能性があるのでご注意ください。</li>
+<li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li>
 </ul>
-</li>
+<p><a id='1-概要'></a></p>
+<h2 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h2><p>Power Apps キャンバスアプリから <code>&#39;フロー名&#39;.Run()</code> でクラウドフローを呼び出し、「Power App またはフローに応答する」アクションで結果を受け取る構成は、データ取得や処理のオフロードなどで広く利用されています。</p>
+<p>一方で、この呼び出しには <strong>応答が返るまで 120 秒という時間制限</strong> があります。フロー内の処理が長引いて 120 秒以内に応答を返せない場合、<strong>呼び出し元のアプリ側でタイムアウトエラーが発生</strong> します。</p>
+<p>ここで重要なのは、これが <strong>フロー全体の実行時間ではなく「応答を返すまで」の制限</strong> であるという点です。フロー自体はバックエンドで実行を継続している場合があり、「フローは成功しているのに、アプリ側だけがエラーになる」という状況も起こり得ます。</p>
+<p>本記事では、この 120 秒制限の仕組みと、長時間処理が見込まれる場合の回避策をご紹介します。</p>
+<p><a id='2-120-秒制限が発生する仕組み'></a></p>
+<h2 id="2-120-秒制限が発生する仕組み"><a href="#2-120-秒制限が発生する仕組み" class="headerlink" title="2. 120 秒制限が発生する仕組み"></a>2. 120 秒制限が発生する仕組み</h2><p>Power Apps からのフロー呼び出しは、内部的には <strong>HTTP の同期通信</strong> で行われます。アプリは「Power App またはフローに応答する」アクションからの応答を待ち受けますが、この同期リクエスト／応答には公開情報のとおり 120 秒の上限が設けられています。</p>
+<blockquote>
+<p>受信要求（インスタント フローのトリガーや HTTP 要求トリガーなど）の制限は <strong>120 秒（2 分）</strong>。</p>
+</blockquote>
+<p><a href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#request-limits">自動化フロー、スケジュール フロー、インスタント フローの制限 - Power Automate | Microsoft Learn</a></p>
+<p>つまり、フロー内で実行されるデータ取得・外部 API 呼び出し・AI 処理などの合計が 120 秒に近づくと、応答が間に合わずタイムアウトに至ります。</p>
+<p>この制限を回避する方法として <strong>「非同期応答」をオンにする</strong> 手順をご紹介します。</p>
+<p><a id='3-回避策非同期応答をオンにする'></a></p>
+<h2 id="3-回避策：非同期応答をオンにする"><a href="#3-回避策：非同期応答をオンにする" class="headerlink" title="3. 回避策：非同期応答をオンにする"></a>3. 回避策：非同期応答をオンにする</h2><p>120 秒制限は HTTP 同期応答の仕様であり、値を変更することはできません。そこで有効なのが、「Power App またはフローに応答する」アクションの <strong>「非同期応答」トグルをオンにする</strong> 方法です。</p>
+<p>非同期応答をオンにすると、120 秒を超える処理でも、Power Apps はフローからの応答を待機できます。</p>
+<p><strong>フロー内の「Power App またはフローに応答する」アクションが実行されるまで、アプリ側の <code>.Run()</code> は待機状態となり、呼び出し後の処理へは進みません</strong>。この待機には <strong>1 時間のハードリミット</strong>があり、1 時間以内に応答アクションが実行されなかった場合は、アプリ側でタイムアウトが発生します。</p>
+<p>応答アクションの設定トグルを 1 つ変更するだけで 120 秒を超える処理に対応できるため、基本的には<strong>フローのアクションの並びを作り変えずに</strong>対応できることも利点になります。</p>
+<h4 id="手順-1-フローを作成する（応答を非同期にする）"><a href="#手順-1-フローを作成する（応答を非同期にする）" class="headerlink" title="手順 1. フローを作成する（応答を非同期にする）"></a>手順 1. フローを作成する（応答を非同期にする）</h4><p>前提として、「Power Apps がフローを呼び出したとき (V2)」をトリガーに、時間のかかる処理を実行し、最後に「Power App またはフローに応答する」アクションを配置されているとします。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">１．[Power Apps がフローを呼び出したとき (V2)]</span><br><span class="line">２．時間のかかるアクション・処理を実行</span><br><span class="line">３．[Power App またはフローに応答する]</span><br></pre></td></tr></table></figure>
+
+<p>「Power App またはフローに応答する」アクションの <strong>設定（…）→「非同期応答」をオン</strong> にします。</p>
+<!-- 📸 キャプチャ（3-async-toggle）: 「Power App またはフローに応答する」の設定で「非同期応答」がオンになっている状態。 -->
+<p><img src="/blog/powerapps/power-apps-flow-response-timeout-120s/async-toggle.png" alt="応答アクションの設定で「非同期応答」をオンにする"></p>
+<h4 id="手順-2-アプリから呼び出す"><a href="#手順-2-アプリから呼び出す" class="headerlink" title="手順 2. アプリから呼び出す"></a>手順 2. アプリから呼び出す</h4><p>アプリ側は通常どおり <code>.Run()</code> で呼び出します。非同期応答をオンにした場合、<code>.Run()</code> はフロー内の応答アクションが実行されるまで待機し、実行後に結果を受け取ります。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>非同期応答の詳細については、下記の公開情報をご参照ください。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/guidance/coding-guidelines/asychronous-flow-pattern">非同期応答の使用 - Power Automate | Microsoft Learn</a></p></div>
+<p><a id='まとめ'></a></p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul>
+<li>Power Apps からのフロー呼び出しには、<strong>応答までに 120 秒（2 分）の制限</strong> があります。これは HTTP 同期応答の仕様であり、値の変更はできません。</li>
+<li>これは <strong>フロー全体の実行時間ではなく「応答を返すまで」の制限</strong> です。</li>
+<li>長時間処理が見込まれる場合は、「Power App またはフローに応答する」アクションの <strong>「非同期応答」をオンにする</strong> ことで、120 秒の制限を回避できます。</li>
+<li>非同期応答をオンにしてもアプリへすぐに応答が返るわけではなく、<code>.Run()</code> はフロー内の応答アクションが実行されるまで待機します。</li>
+<li>非同期応答の待機には <strong>1 時間のハードリミット</strong>があり、1 時間以内に応答アクションが実行されない場合はタイムアウトします。</li>
 </ul>
-<h2 id="今回取り込む-CSV-ファイル"><a href="#今回取り込む-CSV-ファイル" class="headerlink" title="今回取り込む CSV ファイル"></a>今回取り込む CSV ファイル</h2><p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image001.png"></p>
-<p>上図が今回使用した Excel シートです。これを、ファイルの種類を「CSV UTF (コンマ区切り)」へ変更して保存しました。その CSV ファイルをメモ帳で開いた様子が下図です。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image002.png"></p>
-<p>特徴は下記の通りです：</p>
-<ul>
-<li>ヘッダー行 ： 無し</li>
-<li>引用符 ： 無し</li>
-<li>文字コード ： UTF-8 (BOM付き)</li>
-<li>改行コード ： CRLF</li>
-</ul>
-<h2 id="フローの例"><a href="#フローの例" class="headerlink" title="フローの例"></a>フローの例</h2><p>今回の例では、以下の状況を想定しています。</p>
-<ul>
-<li>トリガー： CSV ファイルが OneDrive に作成されたとき</li>
-<li>やりたいこと：SharePoint リストに CSV ファイルの内容を登録する</li>
-</ul>
-<p>↓やりたいことイメージ図<br><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image017.png"></p>
-<p>フローの全体図は下記の通りです。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image003.png"></p>
-<p>ここから、フローの詳細を順を追って解説いたします。</p>
-<h3 id="CSVファイルの内容を行ごとに分割する"><a href="#CSVファイルの内容を行ごとに分割する" class="headerlink" title="CSVファイルの内容を行ごとに分割する"></a>CSVファイルの内容を行ごとに分割する</h3><p>CSV ファイルを処理する前に、まずは改行を格納する変数を用意します。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image018.png"></p>
-<p>式：<code>decodeUriComponent(&#39;%0D%0A&#39;)</code></p>
-<p>今回の例では、<a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#decodeUriComponent">decodeUriComponent 関数</a> を使用します。パラメータの <code>%0D%0A</code> は改行コード (CRLF) を表しています。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image005.png"></p>
-<p>次に、トリガーアクションの「ファイルコンテンツ」を変数「CSVコンテンツ」に格納します。その後、「CSVコンテンツ」を「改行コード」で分割してアレイ変数に格納します。<br>指定の文字で分割するには、<a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference#split">split 関数</a> を使います。</p>
-<p>式：<code>split(variables(&#39;CSVコンテンツ&#39;), variables(&#39;改行コード&#39;))</code></p>
-<h3 id="列ごとの値を入れる変数の準備"><a href="#列ごとの値を入れる変数の準備" class="headerlink" title="列ごとの値を入れる変数の準備"></a>列ごとの値を入れる変数の準備</h3><p>次に、列を分割した後の値を入れるアレイ変数 (列配列) と、CSV ファイルに定義されている列と同じ変数を初期化します。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image006.png"></p>
-<p>今回は 商品、単価、個数の3つの列があるので、それぞれ同じ名前で変数を作りました。</p>
-<h3 id="空の行を取り込まないようにする分岐"><a href="#空の行を取り込まないようにする分岐" class="headerlink" title="空の行を取り込まないようにする分岐"></a>空の行を取り込まないようにする分岐</h3><p>ここから、行ごとの繰り返し処理 (Apply To Each) に入ります。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image007.png"></p>
-<p>繰り返し処理の初めに条件を指定し、行が空ではないときだけ「はいの場合」が実行されるようにします。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image008.png"></p>
-<p>条件式の左辺：<code>length(item())</code></p>
-<p>「<code>length(item())</code> が 0 より大きい」ときに「はい」になるようにしています。<code>item()</code> は行配列の各要素を表しているので、行が空でなければ「はい」になります。<br>この条件を入れておくと、CSV ファイルの最後の行が空の場合に、空のまま取り込んでしまうのを防止できます。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image009.png"></p>
-<p>この条件分岐なしでフローを作成すると、取込先の SharePoint リストに空のデータが入ってしまいます。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image010.png"></p>
-<h3 id="カンマごとに列を分割する"><a href="#カンマごとに列を分割する" class="headerlink" title="カンマごとに列を分割する"></a>カンマごとに列を分割する</h3><p>ここからは、条件分岐の「はいの場合」のときの処理です。</p>
-<p>まず、行データをカンマで分割し、「列配列」変数へ格納します。その後、列配列の各要素を、商品、単価、個数の変数へ格納します。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image011.png"></p>
-<p>それぞれの変数名と値は下記の通りです。</p>
-<ul>
-<li>列配列 ： <code>@{split(item(), &#39;,&#39;)}</code></li>
-<li>商品 ： <code>@{variables(&#39;列配列&#39;)?[0]}</code></li>
-<li>単価 ： <code>@{variables(&#39;列配列&#39;)?[1]}</code></li>
-<li>個数 ： <code>@{variables(&#39;列配列&#39;)?[2]}</code></li>
-</ul>
-<h3 id="分割した値を取り込む"><a href="#分割した値を取り込む" class="headerlink" title="分割した値を取り込む"></a>分割した値を取り込む</h3><p>最後に 商品、単価、個数を SharePoint リストへ登録します。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image012.png"></p>
-<p>あらかじめ作成しておいた SharePoint リストを選択すれば自動的に列が表示されますので、それぞれ対応した変数を指定します。</p>
-<p>詳細の解説は以上です。</p>
-<h2 id="ヘッダー行がある場合"><a href="#ヘッダー行がある場合" class="headerlink" title="ヘッダー行がある場合"></a>ヘッダー行がある場合</h2><p>先ほどの例は CSV ファイルにヘッダー行がありませんでしたが、ヘッダー行がある場合は、ヘッダー行を取り込んでしまわないような処理が必要です。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image013.png"></p>
-<p>例えば、CSV ファイルの行を読み取るたびに何行目かをカウントし、1行目だけ読み飛ばすようにします。そのために、まずは先ほどのフローの Apply to each の前に、新しい変数の初期化を挿入します。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image014.png"></p>
-<ul>
-<li>名前 ： 行カウンタ</li>
-<li>種類 ： 整数</li>
-<li>値 ： 1</li>
-</ul>
-<p>次に、Apply to each の中の条件分岐の条件式を追加します。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image015.png"></p>
-<p>「行カウンタが1より大きい」となるように条件を設定します。<br>これで、行カウンタが1のときは「いいえの場合」になるので SharePoint リストへの登録が行われなくなります。</p>
-<p><img src="/blog/powerautomate/Import-Csv-With-Standard-Connectors/image016.png"></p>
-<p>最後に、条件分岐が終わった後に「変数の値を増やす」アクションを追加します。行配列を読み込むごとに、1ずつカウントアップします。これで、2行目以降は 「はいの場合」になります。</p>
-<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>以上、Power Automate で CSV ファイルを取り込む方法をご紹介いたしました。<br>SharePoint リストへの登録の部分を他のアクションへ置き換えることで、様々な状況で活用していただけます。参考になりましたら幸いです。</p>
 
       
       
@@ -276,10 +231,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerautomate/Import-Csv-With-Standard-Connectors.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerapps/power-apps-flow-response-timeout-120s.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -287,19 +242,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../powerplatform/Cannot-Access-Model-Driven-Apps/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../canvasapp/canvas-app-connector-paging/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          モデル駆動型アプリにアクセスできないときの対処法
+          Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法
         
       </div>
     </a>
   
   
-    <a href="../service-health-notifier/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../powerpages/power-pages-external-idp-claims/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Power Automate クラウド フローを使用して、Microsoft のサービス正常性に関する更新情報を取得する方法</div>
+      <div class="article-nav-title">Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</div>
     </a>
   
 </nav>
@@ -322,7 +277,7 @@
           </li>
         
           <li>
-            <a href="../cloud-flow-connector-paging/">Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</a>
+            <a href="../../powerautomate/cloud-flow-connector-paging/">Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</a>
           </li>
         
           <li>
@@ -330,7 +285,7 @@
           </li>
         
           <li>
-            <a href="../../powerapps/power-apps-flow-response-timeout-120s/">Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</a>
+            <a href="">Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</a>
           </li>
         
           <li>

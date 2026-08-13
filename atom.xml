@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-08-13T01:33:19.475Z</updated>
+  <updated>2026-08-13T01:55:16.663Z</updated>
   <entry>
     <author>
       <name>
@@ -39,7 +39,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-08-13T01:33:19.475Z</updated>
+    <updated>2026-08-13T01:55:16.663Z</updated>
   </entry>
   <entry>
     <author>
@@ -49,10 +49,10 @@
     </author>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/Cloud-flow/"/>
-    <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
-    <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
+    <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
+    <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
     <content>
       <![CDATA[<p>こんにちは、Power Platform サポートチームの早坂です。<br/></p><p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p><span id="more"></span><div class="alert is-info"><p class="alert-title">Note</p><p>本記事では、Power Platform for Admins コネクタの「環境一覧を管理者として作成する」(<code>Get-AdminEnvironment</code>) アクションを例にご説明します。ページングの対応有無、パラメーター名、1 ページあたりの既定件数はコネクタとアクションによって異なるため、実際にご利用になるアクションのコネクタ リファレンスをあわせてご確認ください。</p><p>本記事のスクリーンショットは日本語表示の環境で取得しています。アクション名やパラメーター名の表示は、環境の言語設定によって異なる場合があります。</p></div><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#1-%E4%B8%80%E5%BA%A6%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%A7%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E7%90%86%E7%94%B1">1. 一度の呼び出しですべてのデータを取得できない理由</a></li><li><a href="#2-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-1-%E6%94%B9%E3%83%9A%E3%83%BC%E3%82%B8%E8%A8%AD%E5%AE%9A%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">2. 対応方法 1: 改ページ設定を使用する</a><ul><li><a href="#2-1-%E8%A8%AD%E5%AE%9A%E6%89%8B%E9%A0%86">2-1. 設定手順</a></li><li><a href="#2-2-%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">2-2. 動作確認</a></li></ul></li><li><a href="#3-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-2-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%20nextLink%20%E3%82%92%E3%81%9F%E3%81%A9%E3%82%8B">3. 対応方法 2: フローで nextLink をたどる</a><ul><li><a href="#3-1-nextLink%20%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">3-1. nextLink の使用方法を確認する</a></li><li><a href="#3-2-$skiptoken%20%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%A6%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">3-2. $skiptoken を取り出して使用する</a></li><li><a href="#3-3-nextLink%20%E3%81%AE%20URL%20%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">3-3. nextLink の URL をそのまま使用する</a></li></ul></li><li><a href="#4-2%20%E3%81%A4%E3%81%AE%E6%96%B9%E6%B3%95%E3%81%AE%E4%BD%BF%E3%81%84%E5%88%86%E3%81%91">4. 2 つの方法の使い分け</a></li><li><a href="#5-%E8%A8%AD%E8%A8%88%E6%99%82%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E6%B3%A8%E6%84%8F%E7%82%B9">5. 設計時に確認しておきたい注意点</a></li><li><a href="#6-%E3%81%BE%E3%81%A8%E3%82%81">6. まとめ</a></li><li><a href="#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1">参考情報</a></li></ul><p><a id='1-一度の呼び出しですべてのデータを取得できない理由'></a></p><h2 id="1-一度の呼び出しですべてのデータを取得できない理由"><a href="#1-一度の呼び出しですべてのデータを取得できない理由" class="headerlink" title="1. 一度の呼び出しですべてのデータを取得できない理由"></a>1. 一度の呼び出しですべてのデータを取得できない理由</h2><p>クラウド フローから一覧を取得するコネクタ アクションを実行すると、対象のデータが存在していても、<strong>一部のレコードしか返らない</strong> ことがあります。コネクタの一覧取得アクションには、応答サイズやサービス側の処理負荷を抑えるため、結果を一定件数ごとのページに分けて返すものがあります。</p><p>「環境一覧を管理者として作成する」アクションでは、詳細パラメーターとして次を指定できます。</p><table><thead><tr><th>パラメーター</th><th>説明</th></tr></thead><tbody><tr><td>ページ サイズ (<code>$top</code>)</td><td>1 ページに含める件数</td></tr><tr><td>トークンをスキップする (<code>$skiptoken</code>)</td><td>続きのページを取得するためのトークン</td></tr><tr><td>プロパティを展開する (<code>$expand</code>)</td><td>応答に展開するプロパティ</td></tr></tbody></table><p>また、応答には主に次の値が含まれます。</p><table><thead><tr><th>プロパティ</th><th>説明</th></tr></thead><tbody><tr><td><code>value</code></td><td>現在のページに含まれるデータ</td></tr><tr><td><code>nextLink</code></td><td>次のページを取得するための URL。最終ページでは返りません</td></tr></tbody></table><p>改ページ設定がオフ (既定) の状態では、アクションは 1 ページ分の応答をそのまま返します。次の画像は、環境が 3 つ存在するテナントでページ サイズに <code>1</code> を指定して実行した結果です。結果を確認しやすくするため、アクションの後に <strong>作成</strong> を置き、配列の件数を数える <code>length()</code> 関数で取得件数を出力しています。取得できたのは 1 件です。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/01-pagination-off-run.png" alt="改ページがオフのときの実行結果。取得できた件数が 1 で nextLink が返っている"></p><p>アクションの未加工出力を確認すると、1 ページ目のデータを含む <code>value</code> に加えて、次のページを示す <code>nextLink</code> が返っています。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/05-pagination-off-raw-output.png" alt="環境一覧を管理者として作成するアクションの未加工出力に nextLink が含まれている"></p><p><code>nextLink</code> は、<code>$skiptoken</code> を含むクエリ文字列付きの URL として返されます。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://&lt;host&gt;/apim/powerplatformforadmins/&lt;connection&gt;/environments?api-version=2018-10-01&amp;%24top=1&amp;%24skiptoken=&lt;トークン&gt;&amp;%24paginationId=&lt;ID&gt;</span><br></pre></td></tr></table></figure><p><a id='2-対応方法-1-改ページ設定を使用する'></a></p><h2 id="2-対応方法-1-改ページ設定を使用する"><a href="#2-対応方法-1-改ページ設定を使用する" class="headerlink" title="2. 対応方法 1: 改ページ設定を使用する"></a>2. 対応方法 1: 改ページ設定を使用する</h2><p>アクションの設定に <strong>改ページ</strong> が用意されている場合は、この設定を使用するのが最も簡潔です。指定したしきい値に達するまで、Power Automate が <code>nextLink</code> を自動的にたどり、結果を 1 つの応答にまとめて返します。</p><p><a id='2-1-設定手順'></a></p><h3 id="2-1-設定手順"><a href="#2-1-設定手順" class="headerlink" title="2-1. 設定手順"></a>2-1. 設定手順</h3><ol><li>デザイナーで対象のアクションを選択します。</li><li><strong>設定</strong> タブを開きます。</li><li><strong>ネットワーキング</strong> の <strong>改ページ</strong> をオンにします。</li><li><strong>しきい値</strong> に、取得したい件数を入力します。</li></ol><p><img src="/blog/powerautomate/cloud-flow-connector-paging/02-pagination-on-setting.png" alt="アクションの設定タブで改ページをオンにし、しきい値を入力した画面"></p><div class="alert is-info"><p class="alert-title">Note</p><p>しきい値は取得件数の上限ではないため、指定した件数を超えるレコードが返る場合があります。詳細は「<a href="#2-2-%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">2-2. 動作確認</a>」の補足をご覧ください。<br/></p><p>改ページはすべてのアクションで使用できるわけではありません。設定タブに <strong>改ページ</strong> の項目が表示されないアクションは、この方法を使用できません。その場合は「<a href="#3-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-2-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%20nextLink%20%E3%82%92%E3%81%9F%E3%81%A9%E3%82%8B">3. 対応方法 2: フローで nextLink をたどる</a>」をご覧ください。<br/></p><p>また、設定タブに <strong>改ページ</strong> があっても、アクションが応答に継続トークンを返さない場合は効果がありません。詳細は「<a href="#5-1-%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%87%AA%E4%BD%93%E3%81%AE%E5%88%B6%E9%99%90%E3%81%8C%E3%81%AA%E3%81%84%E3%81%8B%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">5-1. アクション自体の制限がないかを確認する</a>」をご覧ください。</p></div><p><a id='2-2-動作確認'></a></p><h3 id="2-2-動作確認"><a href="#2-2-動作確認" class="headerlink" title="2-2. 動作確認"></a>2-2. 動作確認</h3><p>環境が 3 つ存在するテナントで、ページ サイズを <code>1</code> にして動作を確認しました。</p><table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>確認日</td><td>2026 年 8 月 3 日</td></tr><tr><td>使用コネクタ</td><td>Power Platform for Admins (「環境一覧を管理者として作成する」)</td></tr><tr><td>権限</td><td>Power Platform 管理者</td></tr><tr><td>対象テナントの環境数</td><td>3</td></tr><tr><td>確認方法</td><td>フローの実行履歴と actions API から取得した応答を確認</td></tr></tbody></table><table><thead><tr><th>改ページ</th><th>ページ サイズ</th><th>しきい値</th><th>取得件数</th><th>nextLink</th></tr></thead><tbody><tr><td>オフ (既定)</td><td>1</td><td>-</td><td>1</td><td>あり</td></tr><tr><td>オン</td><td>1</td><td>100</td><td>3</td><td>なし</td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/03-pagination-on-run.png" alt="改ページをオンにしたときの実行結果。取得できた件数が 3 で nextLink が返っていない"></p><p>改ページがオフの場合は 1 件だけでしたが、改ページをオンにすると、環境数と同じ 3 件が 1 つの応答として返りました。</p><div class="alert is-important"><p class="alert-title">重要</p><p>改ページのしきい値は、取得件数の上限ではなく「少なくともこの件数に達するまでページを取得する」という指定です。実際の取得件数はページ単位で決まります。たとえば、1 ページが 300 件、しきい値が 500 件の場合、1 ページ目の 300 件ではしきい値に達しないため、2 ページ目も取得し、最大 600 件が返る場合があります。取得件数の上限を厳密に制御したい場合は、返された配列から必要な件数だけを取り出すなど、フロー側で調整してください。</p></div><p><a id='3-対応方法-2-フローで nextLink をたどる'></a></p><h2 id="3-対応方法-2-フローで-nextLink-をたどる"><a href="#3-対応方法-2-フローで-nextLink-をたどる" class="headerlink" title="3. 対応方法 2: フローで nextLink をたどる"></a>3. 対応方法 2: フローで nextLink をたどる</h2><p>設定タブに <strong>改ページ</strong> が表示されないアクションでは、応答に <code>nextLink</code> などの継続情報があり、次のページを呼び出せる場合に、フロー側で続きを取得できます。</p><p>たとえば、HTTP with Microsoft Entra ID コネクタのアクションには、改ページの項目自体がありません。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/07-http-action-no-pagination-setting.png" alt="HTTP with Microsoft Entra ID のアクション設定。ネットワーキングに改ページの項目がない"></p><p><a id='3-1-nextLink の使用方法を確認する'></a></p><h3 id="3-1-nextLink-の使用方法を確認する"><a href="#3-1-nextLink-の使用方法を確認する" class="headerlink" title="3-1. nextLink の使用方法を確認する"></a>3-1. nextLink の使用方法を確認する</h3><p><code>nextLink</code> の使用方法は、次のページを取得するアクションの入力形式によって異なります。</p><table><thead><tr><th>アクションの入力形式</th><th>nextLink の使用方法</th><th>本記事の例</th></tr></thead><tbody><tr><td><code>$skiptoken</code> など、継続トークンを入力する項目がある</td><td><code>nextLink</code> からトークンだけを取り出す</td><td>Power Platform for Admins</td></tr><tr><td>要求 URL を入力できる</td><td><code>nextLink</code> の URL 全体を次の要求に使用する</td><td>HTTP with Microsoft Entra ID</td></tr></tbody></table><p>どちらの場合も、<code>Do until</code> などを使用して <code>nextLink</code> が返らなくなるまでページの取得を繰り返します。対象の API やコネクタの仕様を確認し、入力形式に合う方法を使用してください。</p><p><a id='3-2-$skiptoken を取り出して使用する'></a></p><h3 id="3-2-skiptoken-を取り出して使用する"><a href="#3-2-skiptoken-を取り出して使用する" class="headerlink" title="3-2. $skiptoken を取り出して使用する"></a>3-2. $skiptoken を取り出して使用する</h3><p>「環境一覧を管理者として作成する」アクションには、次のページ用の URL を入力する項目はなく、<code>$skiptoken</code> を入力する項目があります。このため、<code>nextLink</code> から <code>$skiptoken</code> の値だけを取り出します。<code>skiptoken=</code> で分割して後半を取得し、さらに <code>&amp;</code> で分割して先頭を取得します。</p><div class="alert is-important"><p class="alert-title">重要</p><p>取り出した値は URL エンコードされています。トークン末尾の <code>=</code> が <code>%3d</code> のままの状態で <code>$skiptoken</code> へ渡すと、次のエラーになります。<br/></p><p><strong>要求 URI の継続トークンが無効です。継続トークン - ‘&lt;トークン&gt;%3d’</strong><br/></p><p><code>decodeUriComponent()</code> でデコードしてから渡してください。</p></div><p>デコードを含めた式は次のとおりです。<code>環境一覧を管理者として作成する</code> の部分は、ご利用のアクション名に読み替えてください。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if(</span><br><span class="line">  empty(coalesce(body(&#x27;環境一覧を管理者として作成する&#x27;)?[&#x27;nextLink&#x27;], &#x27;&#x27;)),</span><br><span class="line">  &#x27;&#x27;,</span><br><span class="line">  decodeUriComponent(</span><br><span class="line">    first(</span><br><span class="line">      split(</span><br><span class="line">        last(</span><br><span class="line">          split(body(&#x27;環境一覧を管理者として作成する&#x27;)?[&#x27;nextLink&#x27;], &#x27;skiptoken=&#x27;)</span><br><span class="line">        ),</span><br><span class="line">        &#x27;&amp;&#x27;</span><br><span class="line">      )</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>フローの構成は次のとおりです。</p><table><thead><tr><th>順序</th><th>アクション</th><th>設定</th></tr></thead><tbody><tr><td>1</td><td>変数を初期化する</td><td>名前 <code>varSkipToken</code> &#x2F; 種類 文字列 &#x2F; 値 空</td></tr><tr><td>2</td><td>変数を初期化する</td><td>名前 <code>varEnvNames</code> &#x2F; 種類 アレイ &#x2F; 値 空</td></tr><tr><td>3</td><td>Do until</td><td>条件 <code>varSkipToken</code> が次の値に等しい (空)</td></tr><tr><td>3-1</td><td>環境一覧を管理者として作成する</td><td>ページ サイズ <code>1</code> &#x2F; トークンをスキップする <code>varSkipToken</code></td></tr><tr><td>3-2</td><td>配列変数に追加</td><td>取得したデータを <code>varEnvNames</code> へ追加</td></tr><tr><td>3-3</td><td>変数を設定する</td><td><code>varSkipToken</code> に 3-2 の式を設定</td></tr><tr><td>4</td><td>作成</td><td>取得件数と結果を出力</td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/04-dountil-designer.png" alt="Do until で nextLink をたどるフローのデザイナー画面"></p><p><code>Do until</code> は本体を実行してから条件を評価します。<code>varSkipToken</code> は初期値が空のため、1 周目は <code>$skiptoken</code> を指定しない状態で 1 ページ目を取得し、2 周目以降は前の周回で取り出したトークンを使用します。最終ページでは <code>nextLink</code> が返らないため <code>varSkipToken</code> が空になり、繰り返しが終了します。</p><div class="alert is-warning"><p class="alert-title">警告</p><p><code>Do until</code> には繰り返しの上限 (既定 60 回) とタイムアウト (既定 1 時間) があります。上限に達すると、途中までのデータしか取得できていない状態で <code>Do until</code> が終了します。想定するページ数に対して十分な上限を設定し、上限に達した場合を検知する処理をあわせて実装してください。</p></div><p>上記の構成で実行したところ、3 ページに分けて 3 件すべてを重複なく取得できました。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/06-dountil-decoded-success.png" alt="Do until で 3 ページ分を取得した実行結果"></p><p><a id='3-3-nextLink の URL をそのまま使用する'></a></p><h3 id="3-3-nextLink-の-URL-をそのまま使用する"><a href="#3-3-nextLink-の-URL-をそのまま使用する" class="headerlink" title="3-3. nextLink の URL をそのまま使用する"></a>3-3. nextLink の URL をそのまま使用する</h3><p>HTTP with Microsoft Entra ID コネクタでは、要求 URL を入力できます。このため、<code>nextLink</code> からトークンを取り出さず、URL 全体を次の要求に使用します。</p><p>最初に呼び出す URL を <code>varNextLink</code> へ設定します。次の例では、Flow Management API の一覧取得 URL を使用しています。<code>&lt;環境 ID&gt;</code> は取得対象の環境 ID に置き換えてください。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.flow.microsoft.com/providers/Microsoft.ProcessSimple/environments/&lt;環境 ID&gt;/flows?api-version=2016-11-01&amp;$top=50</span><br></pre></td></tr></table></figure><p><code>Do until</code> 内の HTTP アクションは、メソッドを <code>GET</code>、要求の URL を <code>variables(&#39;varNextLink&#39;)</code> にします。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/11-http-request-nextlink.png" alt="HTTP アクションの要求 URL に varNextLink を指定した画面"></p><p>HTTP アクションの実行後、<code>varNextLink</code> を次の式で更新します。最終ページでは <code>nextLink</code> が返らないため、空文字を設定してループを終了します。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coalesce(body(&#x27;HTTP_Get_Flows&#x27;)?[&#x27;nextLink&#x27;], &#x27;&#x27;)</span><br></pre></td></tr></table></figure><p><img src="/blog/powerautomate/cloud-flow-connector-paging/12-set-nextlink.png" alt="HTTP 応答の nextLink で varNextLink を更新する画面"></p><p>この構成で、実行時に <code>nextLink</code> が返らなくなるまで取得したところ、2 ページ、合計 100 件を取得できました。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/08-http-dountil-success.png" alt="HTTP アクションと Do until で 2 ページ 100 件を取得した実行結果"></p><p><a id='4-2 つの方法の使い分け'></a></p><h2 id="4-2-つの方法の使い分け"><a href="#4-2-つの方法の使い分け" class="headerlink" title="4. 2 つの方法の使い分け"></a>4. 2 つの方法の使い分け</h2><table><thead><tr><th>方法</th><th>使用できる条件</th><th>特徴</th></tr></thead><tbody><tr><td>改ページ設定 (2 章)</td><td>設定タブに <strong>改ページ</strong> がある</td><td>設定するだけで済み、フローが単純になる</td></tr><tr><td><code>Do until</code> + <code>nextLink</code> (3 章)</td><td>応答に継続情報があり、次のページを呼び出せる</td><td>実装量は増えるが、途中経過の記録や独自の停止条件を作り込める</td></tr></tbody></table><p>改ページ設定が使用できる場合は、そちらをご検討ください。</p><p><a id='5-設計時に確認しておきたい注意点'></a></p><h2 id="5-設計時に確認しておきたい注意点"><a href="#5-設計時に確認しておきたい注意点" class="headerlink" title="5. 設計時に確認しておきたい注意点"></a>5. 設計時に確認しておきたい注意点</h2><p><a id='5-1-アクション自体の制限がないかを確認する'></a></p><h3 id="5-1-アクション自体の制限がないかを確認する"><a href="#5-1-アクション自体の制限がないかを確認する" class="headerlink" title="5-1. アクション自体の制限がないかを確認する"></a>5-1. アクション自体の制限がないかを確認する</h3><p>一覧が全件返らない原因が改ページではなく、<strong>アクションそのものの制限</strong> である場合があります。この場合は、改ページ設定を有効にしても <code>Do until</code> で <code>nextLink</code> をたどっても解消しません。</p><p>たとえば、2026 年 8 月 4 日 15 時 (日本時間) に Power Platform 管理センターで確認した既知の問題 6057285 では、Power Automate Management コネクタの <strong>List My Flows</strong> アクションは、環境内に 50 個以上のフローがある場合にすべてを返さないことがあると案内されていました。回避策は <strong>List Flows as Admin (V2)</strong> アクションの使用です。</p><table><thead><tr><th>アクション</th><th>改ページ</th><th>取得件数</th></tr></thead><tbody><tr><td>自分のフローの一覧表示 (<code>List My Flows</code>)</td><td>オフ (既定)</td><td><strong>51</strong></td></tr><tr><td>自分のフローの一覧表示 (<code>List My Flows</code>)</td><td>オン (しきい値 5000)</td><td><strong>51</strong></td></tr><tr><td>管理者としてフローの一覧を取得 (V2) (<code>List Flows as Admin (V2)</code>)</td><td>オフ (既定)</td><td><strong>106</strong></td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/09-listmyflows-vs-admin-run.png" alt="3 つのアクションの取得件数を出力した作成アクションの実行結果"></p><p>この検証では、<strong>List My Flows</strong> の改ページをオンにし、しきい値を <code>5000</code> に設定しても、取得件数は 51 件のままでした。応答に <code>nextLink</code> がなかったため、改ページ設定では続きを取得できませんでした。一方、<strong>List Flows as Admin (V2)</strong> では 106 件が返りました。</p><div class="alert is-important"><p class="alert-title">重要</p><p>既知の問題は一時的な情報であり、状態や回避策が変更される場合があります。期待した件数が返らないときは、対象アクションの応答に <code>nextLink</code> などの継続情報があるかを確認するとともに、Power Platform 管理センターの <strong>ヘルプとサポート</strong> &gt; <strong>既知の問題</strong> とコネクタ リファレンスで最新情報をご確認ください。</p></div><ul><li><a href="https://admin.powerplatform.microsoft.com/support/knownissues/6057285">既知の問題 6057285 - Power Platform 管理センター</a></li><li><a href="https://learn.microsoft.com/connectors/flowmanagement/#list-my-flows">List My Flows - Power Automate Management コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/connectors/flowmanagement/#list-flows-as-admin-(v2)">List Flows as Admin (V2) - Power Automate Management コネクタ - Microsoft Learn</a></li></ul><h3 id="5-2-本当に全件が必要かを確認する"><a href="#5-2-本当に全件が必要かを確認する" class="headerlink" title="5-2. 本当に全件が必要かを確認する"></a>5-2. 本当に全件が必要かを確認する</h3><p>全件取得は、実行時間、コネクタの呼び出し回数、フローが扱うデータ量をいずれも増加させます。フィルターで対象を絞れないかをあわせてご検討ください。</p><h3 id="5-3-フィルターを指定した場合も改ページを確認する"><a href="#5-3-フィルターを指定した場合も改ページを確認する" class="headerlink" title="5-3. フィルターを指定した場合も改ページを確認する"></a>5-3. フィルターを指定した場合も改ページを確認する</h3><p>フィルターで取得対象を絞っていても、改ページが必要な場合があります。SharePoint コネクタの <strong>複数の項目の取得</strong> アクションには、5,000 件を超えるリストでフィルター クエリを使用した場合、最初の 5,000 件に一致する項目がないと、結果が返らないことがあるという制限が公開されています。</p><p>たとえば、7,000 件のリストで条件に一致する 5 件が 5,001 件目以降にある場合、取得予定件数が 5 件でも、改ページがオフだと 0 件になる可能性があります。このような場合は、アクションの改ページをオンにして、続きのページも検索対象にします。</p><h3 id="5-4-最終ページを判定する"><a href="#5-4-最終ページを判定する" class="headerlink" title="5-4. 最終ページを判定する"></a>5-4. 最終ページを判定する</h3><p>最終ページでは <code>nextLink</code> が返りません。空の値を <code>$skiptoken</code> に渡して再実行すると 1 ページ目が返るため、判定を省略すると同じデータを重複して取得します。<code>empty()</code> などで必ず確認してください。</p><h3 id="5-5-コネクタの呼び出し回数の制限を確認する"><a href="#5-5-コネクタの呼び出し回数の制限を確認する" class="headerlink" title="5-5. コネクタの呼び出し回数の制限を確認する"></a>5-5. コネクタの呼び出し回数の制限を確認する</h3><p>ページングを実装すると、ページ数の分だけコネクタの呼び出し回数が増えます。Power Platform for Admins コネクタには、接続ごとに 60 秒あたり 100 回の API 呼び出し制限があります。利用者数と実行頻度を含めて、制限に到達しないかをご確認ください。</p><h3 id="5-6-エラー処理を追加する"><a href="#5-6-エラー処理を追加する" class="headerlink" title="5-6. エラー処理を追加する"></a>5-6. エラー処理を追加する</h3><p>途中のページ取得に失敗した場合、結果には一部のデータだけが残る可能性があります。「全件取得できた」と誤解しないよう、実運用では <code>Do until</code> の終了条件と実行結果を確認し、失敗を検知する処理をあわせて実装してください。</p><p><a id='6-まとめ'></a></p><h2 id="6-まとめ"><a href="#6-まとめ" class="headerlink" title="6. まとめ"></a>6. まとめ</h2><p>コネクタの応答に <code>nextLink</code> が含まれる場合、データは次のページへ続いています。改ページ設定がオフのアクションでは、通常はフロー側で続きを取得するための対応が必要です。</p><ul><li>アクションの設定に <strong>改ページ</strong> があれば、オンにしてしきい値を指定する</li><li>改ページがないアクションでは、<code>Do until</code> で <code>nextLink</code> をたどる</li><li><code>$skiptoken</code> を自分で組み立てる場合は、<code>decodeUriComponent()</code> で URL エンコードを戻す</li><li><code>nextLink</code> が返らなくなったことを判定して繰り返しを止める</li></ul><p>なお、一覧が全件返らない原因がページングではなく、アクション自体の制限であることもあります。実装に着手する前に、対象アクションのリファレンスと既知の問題をあわせてご確認ください (5-1 参照)。</p><p>あわせて、<code>Do until</code> の繰り返し上限、コネクタの呼び出し回数の制限、エラー処理の実装もご確認いただけますと幸いです。</p><p><a id='参考情報'></a></p><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/ja-jp/connectors/powerplatformforadmins/">Power Platform for Admins コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/connectors/flowmanagement/">Power Automate Management コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-exceed-default-page-size-with-pagination">改ページ位置の自動修正で既定のページ サイズを超える結果を取得する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/sharepoint/dev/business-apps/power-automate/guidance/working-with-get-items-and-get-files">Power Automate で SharePoint の「複数の項目の取得」と「複数のファイルの取得」を使用する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-control-flow-loops#until-loop">ループを使用してデータを繰り返し処理する - Azure Logic Apps | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-create-variables-store-values">変数を使用して値を保存および管理する - Azure Logic Apps | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference">ワークフロー式関数のリファレンス ガイド - Azure Logic Apps | Microsoft Learn</a></li></ul><div class="alert is-info"><p class="alert-title">Note</p><p>本記事に記載した数式は実装例です。エラー処理や各環境固有の条件をすべて含むものではありません。ご利用の際は、検証環境で十分に動作をご確認ください。</p></div><p>※本記事の執筆には生成 AI を使用しています。<a href="https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content">参考</a></p>]]>
     </content>
@@ -64,7 +64,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-13T01:33:19.558Z</updated>
+    <updated>2026-08-13T01:55:16.754Z</updated>
   </entry>
   <entry>
     <author>
@@ -90,7 +90,33 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-13T01:33:19.426Z</updated>
+    <updated>2026-08-13T01:55:16.609Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
+    <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
+    <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの竹嶋です。<br/></p><p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p><span id="more"></span><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li><li><a href="#1-%E6%A6%82%E8%A6%81">1. 概要</a></li><li><a href="#2-120-%E7%A7%92%E5%88%B6%E9%99%90%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B%E4%BB%95%E7%B5%84%E3%81%BF">2. 120 秒制限が発生する仕組み</a></li><li><a href="#3-%E5%9B%9E%E9%81%BF%E7%AD%96%E9%9D%9E%E5%90%8C%E6%9C%9F%E5%BF%9C%E7%AD%94%E3%82%92%E3%82%AA%E3%83%B3%E3%81%AB%E3%81%99%E3%82%8B">3. 回避策：非同期応答をオンにする</a><ul><li><a href="#%E6%89%8B%E9%A0%86-1-%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%BF%9C%E7%AD%94%E3%82%92%E9%9D%9E%E5%90%8C%E6%9C%9F%E3%81%AB%E3%81%99%E3%82%8B">手順 1. フローを作成する（応答を非同期にする）</a></li><li><a href="#%E6%89%8B%E9%A0%86-2-%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99">手順 2. アプリから呼び出す</a></li></ul></li><li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li></ul><p><a id='1-概要'></a></p><h2 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h2><p>Power Apps キャンバスアプリから <code>&#39;フロー名&#39;.Run()</code> でクラウドフローを呼び出し、「Power App またはフローに応答する」アクションで結果を受け取る構成は、データ取得や処理のオフロードなどで広く利用されています。</p><p>一方で、この呼び出しには <strong>応答が返るまで 120 秒という時間制限</strong> があります。フロー内の処理が長引いて 120 秒以内に応答を返せない場合、<strong>呼び出し元のアプリ側でタイムアウトエラーが発生</strong> します。</p><p>ここで重要なのは、これが <strong>フロー全体の実行時間ではなく「応答を返すまで」の制限</strong> であるという点です。フロー自体はバックエンドで実行を継続している場合があり、「フローは成功しているのに、アプリ側だけがエラーになる」という状況も起こり得ます。</p><p>本記事では、この 120 秒制限の仕組みと、長時間処理が見込まれる場合の回避策をご紹介します。</p><p><a id='2-120-秒制限が発生する仕組み'></a></p><h2 id="2-120-秒制限が発生する仕組み"><a href="#2-120-秒制限が発生する仕組み" class="headerlink" title="2. 120 秒制限が発生する仕組み"></a>2. 120 秒制限が発生する仕組み</h2><p>Power Apps からのフロー呼び出しは、内部的には <strong>HTTP の同期通信</strong> で行われます。アプリは「Power App またはフローに応答する」アクションからの応答を待ち受けますが、この同期リクエスト／応答には公開情報のとおり 120 秒の上限が設けられています。</p><blockquote><p>受信要求（インスタント フローのトリガーや HTTP 要求トリガーなど）の制限は <strong>120 秒（2 分）</strong>。</p></blockquote><p><a href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#request-limits">自動化フロー、スケジュール フロー、インスタント フローの制限 - Power Automate | Microsoft Learn</a></p><p>つまり、フロー内で実行されるデータ取得・外部 API 呼び出し・AI 処理などの合計が 120 秒に近づくと、応答が間に合わずタイムアウトに至ります。</p><p>この制限を回避する方法として <strong>「非同期応答」をオンにする</strong> 手順をご紹介します。</p><p><a id='3-回避策非同期応答をオンにする'></a></p><h2 id="3-回避策：非同期応答をオンにする"><a href="#3-回避策：非同期応答をオンにする" class="headerlink" title="3. 回避策：非同期応答をオンにする"></a>3. 回避策：非同期応答をオンにする</h2><p>120 秒制限は HTTP 同期応答の仕様であり、値を変更することはできません。そこで有効なのが、「Power App またはフローに応答する」アクションの <strong>「非同期応答」トグルをオンにする</strong> 方法です。</p><p>非同期応答をオンにすると、120 秒を超える処理でも、Power Apps はフローからの応答を待機できます。</p><p><strong>フロー内の「Power App またはフローに応答する」アクションが実行されるまで、アプリ側の <code>.Run()</code> は待機状態となり、呼び出し後の処理へは進みません</strong>。この待機には <strong>1 時間のハードリミット</strong>があり、1 時間以内に応答アクションが実行されなかった場合は、アプリ側でタイムアウトが発生します。</p><p>応答アクションの設定トグルを 1 つ変更するだけで 120 秒を超える処理に対応できるため、基本的には<strong>フローのアクションの並びを作り変えずに</strong>対応できることも利点になります。</p><h4 id="手順-1-フローを作成する（応答を非同期にする）"><a href="#手順-1-フローを作成する（応答を非同期にする）" class="headerlink" title="手順 1. フローを作成する（応答を非同期にする）"></a>手順 1. フローを作成する（応答を非同期にする）</h4><p>前提として、「Power Apps がフローを呼び出したとき (V2)」をトリガーに、時間のかかる処理を実行し、最後に「Power App またはフローに応答する」アクションを配置されているとします。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">１．[Power Apps がフローを呼び出したとき (V2)]</span><br><span class="line">２．時間のかかるアクション・処理を実行</span><br><span class="line">３．[Power App またはフローに応答する]</span><br></pre></td></tr></table></figure><p>「Power App またはフローに応答する」アクションの <strong>設定（…）→「非同期応答」をオン</strong> にします。</p><!-- 📸 キャプチャ（3-async-toggle）: 「Power App またはフローに応答する」の設定で「非同期応答」がオンになっている状態。 --><p><img src="/blog/powerapps/power-apps-flow-response-timeout-120s/async-toggle.png" alt="応答アクションの設定で「非同期応答」をオンにする"></p><h4 id="手順-2-アプリから呼び出す"><a href="#手順-2-アプリから呼び出す" class="headerlink" title="手順 2. アプリから呼び出す"></a>手順 2. アプリから呼び出す</h4><p>アプリ側は通常どおり <code>.Run()</code> で呼び出します。非同期応答をオンにした場合、<code>.Run()</code> はフロー内の応答アクションが実行されるまで待機し、実行後に結果を受け取ります。</p><div class="alert is-info"><p class="alert-title">Note</p><p>非同期応答の詳細については、下記の公開情報をご参照ください。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/guidance/coding-guidelines/asychronous-flow-pattern">非同期応答の使用 - Power Automate | Microsoft Learn</a></p></div><p><a id='まとめ'></a></p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul><li>Power Apps からのフロー呼び出しには、<strong>応答までに 120 秒（2 分）の制限</strong> があります。これは HTTP 同期応答の仕様であり、値の変更はできません。</li><li>これは <strong>フロー全体の実行時間ではなく「応答を返すまで」の制限</strong> です。</li><li>長時間処理が見込まれる場合は、「Power App またはフローに応答する」アクションの <strong>「非同期応答」をオンにする</strong> ことで、120 秒の制限を回避できます。</li><li>非同期応答をオンにしてもアプリへすぐに応答が返るわけではなく、<code>.Run()</code> はフロー内の応答アクションが実行されるまで待機します。</li><li>非同期応答の待機には <strong>1 時間のハードリミット</strong>があり、1 時間以内に応答アクションが実行されない場合はタイムアウトします。</li></ul>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerapps/power-apps-flow-response-timeout-120s/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerapps/power-apps-flow-response-timeout-120s/"/>
+    <published>2026-07-15T15:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの竹嶋です。<br/></p>
+<p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
+    </summary>
+    <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
+    <updated>2026-08-13T01:55:16.730Z</updated>
   </entry>
   <entry>
     <author>
@@ -113,7 +139,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-08-13T01:33:19.649Z</updated>
+    <updated>2026-08-13T01:55:16.851Z</updated>
   </entry>
   <entry>
     <author>
@@ -139,7 +165,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-08-13T01:33:19.427Z</updated>
+    <updated>2026-08-13T01:55:16.610Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +188,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-08-13T01:33:19.712Z</updated>
+    <updated>2026-08-13T01:55:16.920Z</updated>
   </entry>
   <entry>
     <author>
@@ -185,7 +211,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-08-13T01:33:19.774Z</updated>
+    <updated>2026-08-13T01:55:16.988Z</updated>
   </entry>
   <entry>
     <author>
@@ -209,7 +235,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-08-13T01:33:19.777Z</updated>
+    <updated>2026-08-13T01:55:16.992Z</updated>
   </entry>
   <entry>
     <author>
@@ -232,7 +258,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-08-13T01:33:19.709Z</updated>
+    <updated>2026-08-13T01:55:16.918Z</updated>
   </entry>
   <entry>
     <author>
@@ -255,7 +281,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-08-13T01:33:19.649Z</updated>
+    <updated>2026-08-13T01:55:16.851Z</updated>
   </entry>
   <entry>
     <author>
@@ -281,7 +307,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-08-13T01:33:19.747Z</updated>
+    <updated>2026-08-13T01:55:16.959Z</updated>
   </entry>
   <entry>
     <author>
@@ -308,7 +334,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-08-13T01:33:19.759Z</updated>
+    <updated>2026-08-13T01:55:16.971Z</updated>
   </entry>
   <entry>
     <author>
@@ -334,7 +360,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-08-13T01:33:19.710Z</updated>
+    <updated>2026-08-13T01:55:16.918Z</updated>
   </entry>
   <entry>
     <author>
@@ -371,7 +397,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-08-13T01:33:19.759Z</updated>
+    <updated>2026-08-13T01:55:16.971Z</updated>
   </entry>
   <entry>
     <author>
@@ -401,7 +427,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-08-13T01:33:19.708Z</updated>
+    <updated>2026-08-13T01:55:16.917Z</updated>
   </entry>
   <entry>
     <author>
@@ -433,7 +459,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-08-13T01:33:19.647Z</updated>
+    <updated>2026-08-13T01:55:16.849Z</updated>
   </entry>
   <entry>
     <author>
@@ -456,7 +482,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-08-13T01:33:19.774Z</updated>
+    <updated>2026-08-13T01:55:16.988Z</updated>
   </entry>
   <entry>
     <author>
@@ -489,7 +515,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-08-13T01:33:19.759Z</updated>
+    <updated>2026-08-13T01:55:16.971Z</updated>
   </entry>
   <entry>
     <author>
@@ -522,36 +548,6 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-08-13T01:33:19.712Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
-    <category term="SharePoint" scheme="https://jpdynamicscrm.github.io/blog/tags/SharePoint/"/>
-    <category term="Mobile" scheme="https://jpdynamicscrm.github.io/blog/tags/Mobile/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートの竹内です。<br>今回は、モバイル端末で SharePoint をデータソースとしたキャンバスアプリを利用する際に、画像やメディアファイルが表示されない問題について、下記項目の順にご説明いたします。</p><ol><li>問題の概要</li><li>発生原因</li><li>対処方法</li><li>その他の原因について (参考)</li><li>参考情報</li></ol><span id="more"></span><h2 id="1-問題の概要"><a href="#1-問題の概要" class="headerlink" title="1. 問題の概要"></a>1. 問題の概要</h2><p>SharePoint リストをデータソースとしたキャンバスアプリにおいて、以下のような事象が発生することがございます。</p><ul><li><strong>Web ブラウザ (PC)</strong> では画像やメディアが正常に表示されるが、<strong>Power Apps モバイルアプリ (iOS&#x2F;Android)</strong> では表示されない</li><li><strong>Teams デスクトップ&#x2F;モバイルアプリ</strong> 内で公開されたアプリでも同様に表示されない</li></ul><h2 id="2-発生原因"><a href="#2-発生原因" class="headerlink" title="2. 発生原因"></a>2. 発生原因</h2><h3 id="2-1-クロスオリジンでの認証情報の問題"><a href="#2-1-クロスオリジンでの認証情報の問題" class="headerlink" title="2.1 クロスオリジンでの認証情報の問題"></a>2.1 クロスオリジンでの認証情報の問題</h3><p>Power Apps（<code>*.powerapps.com</code>）と SharePoint（<code>*.sharepoint.com</code>）は<strong>異なるオリジン（ドメイン）</strong> です。<br>Power Apps から SharePoint の画像を取得しようとすると、クロスオリジンリクエストとなり、<strong>SharePoint オリジンの認証情報が必要</strong>になります。</p><h3 id="2-2-なぜブラウザでは表示されるのか"><a href="#2-2-なぜブラウザでは表示されるのか" class="headerlink" title="2.2 なぜブラウザでは表示されるのか"></a>2.2 なぜブラウザでは表示されるのか</h3><p>Web ブラウザでアプリを実行する場合、ユーザーが以前に SharePoint サイトにログインしていると、ブラウザには <code>*.sharepoint.com</code> ドメインの <strong>Cookie（認証情報）</strong> が保存されています。<br>Power Apps から SharePoint への画像リクエスト時、ブラウザはこの Cookie を自動的に送信するため、SharePoint が認証済みリクエストとして処理し、画像を返します。</p><p>プライベートブラウジングモードや、SharePoint に事前にログインしていない状態では、ブラウザでも画像が表示されない場合がございます。</p><h3 id="2-3-なぜモバイルアプリでは表示されないのか"><a href="#2-3-なぜモバイルアプリでは表示されないのか" class="headerlink" title="2.3 なぜモバイルアプリでは表示されないのか"></a>2.3 なぜモバイルアプリでは表示されないのか</h3><p>Power Apps モバイルアプリはネイティブアプリであり、ブラウザとは独立しています。<br>そのため、<strong>SharePoint オリジン（<code>*.sharepoint.com</code>）の認証情報（Cookie）を持っていません。</strong></p><p>認証情報なしでリクエストが送信されるため、SharePoint がリクエストを拒否し、画像が表示されません。</p><h3 id="2-4-Power-Apps-で-URL-書き換えが行われないケース"><a href="#2-4-Power-Apps-で-URL-書き換えが行われないケース" class="headerlink" title="2.4 Power Apps で URL 書き換えが行われないケース"></a>2.4 Power Apps で URL 書き換えが行われないケース</h3><p>Power Apps は、SharePoint リストの「画像 (Image)」列タイプのデータを、Power Apps で認証できる形式に URL 書き換えを行います。この書き換えが行われた URL であれば、Power Apps が認証を代行するため、モバイルアプリでも画像が表示されます。</p><p>ただし、以下のケースでは URL 書き換えが行われないため、モバイルアプリで画像が表示されません。</p><table><thead><tr><th>ケース</th><th>説明</th></tr></thead><tbody><tr><td>テキスト列に画像 URL を保存している</td><td>「画像 (Image)」列タイプではないため、URL 書き換えが行われません</td></tr><tr><td>異なるサイトの画像を参照している</td><td>リストがサイト A にあり、画像がサイト B にある場合、URL 書き換えがサポートされていません</td></tr></tbody></table><h2 id="3-対処方法"><a href="#3-対処方法" class="headerlink" title="3. 対処方法"></a>3. 対処方法</h2><h3 id="対処方法-1-モバイルブラウザから-Power-Apps-にアクセスする"><a href="#対処方法-1-モバイルブラウザから-Power-Apps-にアクセスする" class="headerlink" title="対処方法 1: モバイルブラウザから Power Apps にアクセスする"></a>対処方法 1: モバイルブラウザから Power Apps にアクセスする</h3><p>Power Apps モバイルアプリではなく、モバイルデバイスのブラウザを使用してアプリを実行します。</p><ol><li>モバイルブラウザで、画像が保存されている <strong>SharePoint サイトに先にアクセス</strong> し、サインインします。<br>これにより、ブラウザに SharePoint の認証 Cookie が保存されます。</li><li>同じモバイルブラウザで <a href="https://make.powerapps.com/">Power Apps ポータル</a> にアクセスし、アプリを実行します。</li></ol><div class="alert is-info"><p class="alert-title">Note</p><p>この方法では、Power Apps モバイルアプリの機能 (カメラ、GPS など) の一部が制限される場合がございます。</p></div><h3 id="対処方法-2-「画像-Image-」列タイプを使用する"><a href="#対処方法-2-「画像-Image-」列タイプを使用する" class="headerlink" title="対処方法 2: 「画像 (Image)」列タイプを使用する"></a>対処方法 2: 「画像 (Image)」列タイプを使用する</h3><p>SharePoint リストで「画像 (Image)」列タイプを使用し、この列に直接画像をアップロードしてください。<br>Power Apps が URL 書き換えを行い、モバイルアプリでも画像が表示されます。</p><div class="alert is-info"><p class="alert-title">Note</p><p>ハイパーリンク列に URL を保存している場合などには SharePoint リストでは画像が表示される場合でも、Power Apps モバイルアプリで画像が表示されません。</p></div><h3 id="対処方法-3-ファイルを-SharePoint-リストの添付ファイルとして保存する"><a href="#対処方法-3-ファイルを-SharePoint-リストの添付ファイルとして保存する" class="headerlink" title="対処方法 3: ファイルを SharePoint リストの添付ファイルとして保存する"></a>対処方法 3: ファイルを SharePoint リストの添付ファイルとして保存する</h3><p>画像やメディアファイルをリストアイテムの <strong>添付ファイル (Attachments)</strong> として保存する方法です。<br>添付ファイルは Power Apps で認証が行われるため、モバイルアプリでも表示されます。</p><ol><li><p>SharePoint リストでアイテムを作成し、画像ファイルを添付ファイルとして追加します。</p></li><li><p>Power Apps で添付ファイルを参照するには、以下のような数式を使用します。</p><p><strong>Image コントロールの Image プロパティ設定例:</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">First(Gallery1.Selected.Attachments).Value</span><br></pre></td></tr></table></figure></li></ol><h3 id="対処方法-4-CORS-対応の外部ストレージに画像を保存する"><a href="#対処方法-4-CORS-対応の外部ストレージに画像を保存する" class="headerlink" title="対処方法 4: CORS 対応の外部ストレージに画像を保存する"></a>対処方法 4: CORS 対応の外部ストレージに画像を保存する</h3><p>画像を SharePoint ではなく、<strong>Azure Storage</strong> や <strong>Azure CDN</strong> などの CORS 対応ストレージに保存する方法です。<br>これらのストレージは公開アクセス設定が可能で、認証なしで画像を取得できるため、モバイルアプリでも表示されます。</p><div class="alert is-info"><p class="alert-title">Note</p><p>この方法では画像が公開される可能性があるため、セキュリティ要件を確認してください。</p></div><h2 id="4-その他の原因について-参考"><a href="#4-その他の原因について-参考" class="headerlink" title="4. その他の原因について (参考)"></a>4. その他の原因について (参考)</h2><p>本記事で説明した SharePoint の認証問題とは別に、以下の要因で同様の事象が発生する場合がございます。</p><h3 id="外部サーバー-Azure-Storage-等-の-CORS-設定"><a href="#外部サーバー-Azure-Storage-等-の-CORS-設定" class="headerlink" title="外部サーバー (Azure Storage 等) の CORS 設定"></a>外部サーバー (Azure Storage 等) の CORS 設定</h3><p>SharePoint ではなく Azure Storage や独自のサーバーに画像を保存している場合、<strong>CORS (Cross-Origin Resource Sharing)</strong> の設定が必要です。</p><p>外部サーバーで CORS を構成する場合、以下のドメインからのリクエストを許可してください。</p><ul><li><code>*.powerapps.com</code></li><li><code>web.powerapps.com</code></li><li><code>apps.powerapps.com</code></li></ul><h3 id="プロキシによるヘッダー削除"><a href="#プロキシによるヘッダー削除" class="headerlink" title="プロキシによるヘッダー削除"></a>プロキシによるヘッダー削除</h3><p>Zscaler、Blue Coat などのプロキシサーバーが Power Apps のリクエストから認証ヘッダーを削除し、画像が表示されなくなることがございます。<br>プロキシを経由しない場合に問題が解消するかご確認ください。</p><div class="alert is-info"><p class="alert-title">Note</p><p>プロキシが認証ヘッダーを削除している場合、Power Apps チームではサポートの対象外となります。</p></div><h2 id="5-参考情報"><a href="#5-参考情報" class="headerlink" title="5. 参考情報"></a>5. 参考情報</h2><p>詳細については、以下の公開情報をご参照ください。</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/add-images-pictures-audio-video">キャンバス アプリでマルチメディア ファイルを使用する</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/controls/control-richtexteditor#pasted-images-may-not-appear-consistently">リッチ テキスト エディター コントロール</a></li><li><a href="https://learn.microsoft.com/ja-jp/connectors/sharepointonline/#limits">SharePoint コネクタの制限事項</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/limits-and-config#proxies">Power Apps のシステム要件と制限 (プロキシ)</a></li></ul><p>※本記事の執筆には生成 AI を使用しています。<a href="https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content">参考</a></p><hr><p>免責事項<br>※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。</p>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/canvasapp/sharepoint-image-mobile-issue/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/canvasapp/sharepoint-image-mobile-issue/"/>
-    <published>2026-01-16T03:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platform サポートの竹内です。<br>今回は、モバイル端末で SharePoint をデータソースとしたキャンバスアプリを利用する際に、画像やメディアファイルが表示されない問題について、下記項目の順にご説明いたします。</p>
-<ol>
-<li>問題の概要</li>
-<li>発生原因</li>
-<li>対処方法</li>
-<li>その他の原因について (参考)</li>
-<li>参考情報</li>
-</ol>]]>
-    </summary>
-    <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-08-13T01:33:19.433Z</updated>
+    <updated>2026-08-13T01:55:16.920Z</updated>
   </entry>
 </feed>
