@@ -1,5 +1,5 @@
 ---
-title: ## Copilot Studio試用版ライセンスについて
+title: Copilot Studio試用版ライセンスについて
 date: 2026-08-12 10:00:00
 tags:
   - Microsoft Copilot Studio
@@ -8,6 +8,7 @@ tags:
 categories:
   - [Microsoft Copilot Studio]
 ---
+# Copilot Studio試用版ライセンスについて
 
 こんにちは、Power Platform サポートチームのヤサルです。
 本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。
