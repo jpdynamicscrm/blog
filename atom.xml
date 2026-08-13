@@ -18,7 +18,28 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-08-10T09:32:53.567Z</updated>
+  <updated>2026-08-13T01:18:14.211Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/categories/Microsoft-Copilot-Studio/"/>
+    <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
+    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/tags/Microsoft-Copilot-Studio/"/>
+    <category term="Power Virtual Agents" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Virtual-Agents/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p><span id="more"></span><ul><li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li><li><a href="#1-%E6%A6%82%E8%A6%81">1. 概要</a></li><li><a href="#2-%E8%A9%A6%E7%94%A8%E7%89%88%E3%81%AE%E7%A8%AE%E9%A1%9E">2. 試用版の種類 </a></li><li><a href="#3-%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">3. ブロックする方法</a></li><li><a href="#4-%E4%BB%98%E4%B8%8E%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">4. セルフサービスサインアップによりライセンスを取得したユーザーを確認する方法</a></li></ul><p><a id='1-概要'></a></p><h1 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h1><p>Copilot Studio の試用版では、開発者や管理者が Microsoft Copilot Studio の主要な機能を体験することが可能です。以下に、試用版の種類、付与方法、ブロック方法、およびライセンス確認方法について詳しく説明します。 </p><p><a id='2-試用版の種類'></a></p><h1 id="2-試用版の種類"><a href="#2-試用版の種類" class="headerlink" title="2. 試用版の種類"></a>2. 試用版の種類</h1><p>Copilot Studio の試用版には以下の 2 種類があります。</p><ol><li>個人用試用版</li><li>組織用試用版</li></ol><h2 id="1-個人用試用版"><a href="#1-個人用試用版" class="headerlink" title="1. 個人用試用版"></a>1. 個人用試用版</h2><p>個人の職場または学校アカウントを使用してサインアップし、Copilot Studio の機能を体験できます。ユーザー本人が、Copilot Stuido サインアップページよりサインアップすることで、「Microsoft Copilot Studio Viral Trial」を取得することができます。<br>初回は 30 日間の無料試用が開始されますが試用終了時にさらに 30 日間の延長が可能です。試用期間終了後、最大 90 日間はエージェントが引き続き機能します。<br>詳細なサインアップ手順については、以下の公開文書を参照してください。</p><p><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/sign-up-individual">Copilot Studio 試用版へのサインアップ</a></p><p><img src="/blog/copilotstudio/copilot-studio-trial-license/2_Signup.png"><br><img src="/blog/copilotstudio/copilot-studio-trial-license/2_Home.png"></p><h2 id="2-組織用試用版"><a href="#2-組織用試用版" class="headerlink" title="2. 組織用試用版"></a>2. 組織用試用版</h2><p>組織用試用版は、組織 (テナント) 単位で Copilot Studio の有償版を試すための試用版です。管理者が Microsoft 365 管理センターから「Microsoft Copilot Studio 試用版」を有効にする必要があります。組織 (テナント) につき 1 回のみ有効化可能で、試用期間は 30 日間、1 回だけ 30 日間の延長ができます。<br>また、Microsoft Copilot Studio 試用版を取得した後、アドオンライセンスとして「Microsoft Copilot Studio ユーザー ライセンス試用版」を最大 25 ライセンス取得することが可能です。<br>Copilot Studio でエージェントの作成を行いたいユーザーには、「Microsoft Copilot Studio ユーザー ライセンス試用版」を付与してください。</p><p><a id='3-ブロックする方法'></a></p><h1 id="3-ブロックする方法"><a href="#3-ブロックする方法" class="headerlink" title="3. ブロックする方法"></a>3. ブロックする方法</h1><p>Copilot Studio の個人用試用版を、組織内のユーザーがセルフサービスで取得できないように、以下のコマンドで制御できます。<br>ご留意事項といたしまして、本コマンドは Copilot Studio のみを個別にブロックするものではありません。テナント全体の Microsot セルフサービス サインアップの試用版を制御する設定となりますので、ご留意ください。</p><p>また、本コマンドの実行により、組織内ユーザーが新たにセルフサービスで試用版を取得することを防止できますが、すでに試用版を取得しているユーザーのライセンスは自動的には解除されません。<br>すでに Microsoft Copilot Studio Viral Trial を取得しているユーザーのライセンスを剥奪したい場合には、後述の<a href="#4-%E4%BB%98%E4%B8%8E%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">4. セルフサービスサインアップによりライセンスを取得したユーザーを確認する方法</a>をご確認ください。</p><p><strong>事前準備</strong><br>PowerShellモジュールを以下の公開文書の手順に従ってインストールします。</p><p><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell">PowerShellモジュールのインストール</a></p><p><strong>コマンドの実行</strong><br>以下のコマンドを実行しセルフサービスサインアップの無効化します。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$params</span> = <span class="selector-tag">@</span>&#123;allowedToSignUpEmailBasedSubscriptions = <span class="variable">$false</span>&#125;</span><br><span class="line"><span class="built_in">Update-MgPolicyAuthorizationPolicy</span> <span class="literal">-BodyParameter</span> <span class="variable">$params</span></span><br></pre></td></tr></table></figure><p>コマンドの詳細については下記の公開情報をご参照ください。</p><p><a href="https://learn.microsoft.com/ja-jp/entra/identity/users/directory-self-service-signup">電子メール検証済みユーザーのセルフサービスサインアップ</a></p><p><a id='4-付与されているライセンスを確認する方法'></a></p><h1 id="4-セルフサービスサインアップによりライセンスを取得したユーザーを確認する方法"><a href="#4-セルフサービスサインアップによりライセンスを取得したユーザーを確認する方法" class="headerlink" title="4. セルフサービスサインアップによりライセンスを取得したユーザーを確認する方法"></a>4. セルフサービスサインアップによりライセンスを取得したユーザーを確認する方法</h1><p>Microsoft 365 管理センターより、ユーザーに Microsoft Copilot Studio Viral Trial ライセンスを付与されているかを確認できます。<br>[課金情報] &gt; [ライセンス] &gt; [Microsoft Copilot Studio Viral Trial] の順にクリックし、ユーザー一覧をご確認ください。また、本画面にてユーザーを複数選択し、一括でライセンスの割り当て解除を行うことも可能です。<br><img src="/blog/copilotstudio/copilot-studio-trial-license/4_M365AdmiCenter_LicenseAssignment.png"></p>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-trial-license/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-trial-license/"/>
+    <published>2026-08-12T01:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
+    </summary>
+    <updated>2026-08-13T01:18:14.211Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -27,10 +48,10 @@
     </author>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/Cloud-flow/"/>
-    <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
-    <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
+    <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
+    <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
     <content>
       <![CDATA[<p>こんにちは、Power Platform サポートチームの早坂です。<br/></p><p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p><span id="more"></span><div class="alert is-info"><p class="alert-title">Note</p><p>本記事では、Power Platform for Admins コネクタの「環境一覧を管理者として作成する」(<code>Get-AdminEnvironment</code>) アクションを例にご説明します。ページングの対応有無、パラメーター名、1 ページあたりの既定件数はコネクタとアクションによって異なるため、実際にご利用になるアクションのコネクタ リファレンスをあわせてご確認ください。</p><p>本記事のスクリーンショットは日本語表示の環境で取得しています。アクション名やパラメーター名の表示は、環境の言語設定によって異なる場合があります。</p></div><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#1-%E4%B8%80%E5%BA%A6%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%A7%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E7%90%86%E7%94%B1">1. 一度の呼び出しですべてのデータを取得できない理由</a></li><li><a href="#2-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-1-%E6%94%B9%E3%83%9A%E3%83%BC%E3%82%B8%E8%A8%AD%E5%AE%9A%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">2. 対応方法 1: 改ページ設定を使用する</a><ul><li><a href="#2-1-%E8%A8%AD%E5%AE%9A%E6%89%8B%E9%A0%86">2-1. 設定手順</a></li><li><a href="#2-2-%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">2-2. 動作確認</a></li></ul></li><li><a href="#3-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-2-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%20nextLink%20%E3%82%92%E3%81%9F%E3%81%A9%E3%82%8B">3. 対応方法 2: フローで nextLink をたどる</a><ul><li><a href="#3-1-nextLink%20%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">3-1. nextLink の使用方法を確認する</a></li><li><a href="#3-2-$skiptoken%20%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%A6%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">3-2. $skiptoken を取り出して使用する</a></li><li><a href="#3-3-nextLink%20%E3%81%AE%20URL%20%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">3-3. nextLink の URL をそのまま使用する</a></li></ul></li><li><a href="#4-2%20%E3%81%A4%E3%81%AE%E6%96%B9%E6%B3%95%E3%81%AE%E4%BD%BF%E3%81%84%E5%88%86%E3%81%91">4. 2 つの方法の使い分け</a></li><li><a href="#5-%E8%A8%AD%E8%A8%88%E6%99%82%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E6%B3%A8%E6%84%8F%E7%82%B9">5. 設計時に確認しておきたい注意点</a></li><li><a href="#6-%E3%81%BE%E3%81%A8%E3%82%81">6. まとめ</a></li><li><a href="#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1">参考情報</a></li></ul><p><a id='1-一度の呼び出しですべてのデータを取得できない理由'></a></p><h2 id="1-一度の呼び出しですべてのデータを取得できない理由"><a href="#1-一度の呼び出しですべてのデータを取得できない理由" class="headerlink" title="1. 一度の呼び出しですべてのデータを取得できない理由"></a>1. 一度の呼び出しですべてのデータを取得できない理由</h2><p>クラウド フローから一覧を取得するコネクタ アクションを実行すると、対象のデータが存在していても、<strong>一部のレコードしか返らない</strong> ことがあります。コネクタの一覧取得アクションには、応答サイズやサービス側の処理負荷を抑えるため、結果を一定件数ごとのページに分けて返すものがあります。</p><p>「環境一覧を管理者として作成する」アクションでは、詳細パラメーターとして次を指定できます。</p><table><thead><tr><th>パラメーター</th><th>説明</th></tr></thead><tbody><tr><td>ページ サイズ (<code>$top</code>)</td><td>1 ページに含める件数</td></tr><tr><td>トークンをスキップする (<code>$skiptoken</code>)</td><td>続きのページを取得するためのトークン</td></tr><tr><td>プロパティを展開する (<code>$expand</code>)</td><td>応答に展開するプロパティ</td></tr></tbody></table><p>また、応答には主に次の値が含まれます。</p><table><thead><tr><th>プロパティ</th><th>説明</th></tr></thead><tbody><tr><td><code>value</code></td><td>現在のページに含まれるデータ</td></tr><tr><td><code>nextLink</code></td><td>次のページを取得するための URL。最終ページでは返りません</td></tr></tbody></table><p>改ページ設定がオフ (既定) の状態では、アクションは 1 ページ分の応答をそのまま返します。次の画像は、環境が 3 つ存在するテナントでページ サイズに <code>1</code> を指定して実行した結果です。結果を確認しやすくするため、アクションの後に <strong>作成</strong> を置き、配列の件数を数える <code>length()</code> 関数で取得件数を出力しています。取得できたのは 1 件です。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/01-pagination-off-run.png" alt="改ページがオフのときの実行結果。取得できた件数が 1 で nextLink が返っている"></p><p>アクションの未加工出力を確認すると、1 ページ目のデータを含む <code>value</code> に加えて、次のページを示す <code>nextLink</code> が返っています。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/05-pagination-off-raw-output.png" alt="環境一覧を管理者として作成するアクションの未加工出力に nextLink が含まれている"></p><p><code>nextLink</code> は、<code>$skiptoken</code> を含むクエリ文字列付きの URL として返されます。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://&lt;host&gt;/apim/powerplatformforadmins/&lt;connection&gt;/environments?api-version=2018-10-01&amp;%24top=1&amp;%24skiptoken=&lt;トークン&gt;&amp;%24paginationId=&lt;ID&gt;</span><br></pre></td></tr></table></figure><p><a id='2-対応方法-1-改ページ設定を使用する'></a></p><h2 id="2-対応方法-1-改ページ設定を使用する"><a href="#2-対応方法-1-改ページ設定を使用する" class="headerlink" title="2. 対応方法 1: 改ページ設定を使用する"></a>2. 対応方法 1: 改ページ設定を使用する</h2><p>アクションの設定に <strong>改ページ</strong> が用意されている場合は、この設定を使用するのが最も簡潔です。指定したしきい値に達するまで、Power Automate が <code>nextLink</code> を自動的にたどり、結果を 1 つの応答にまとめて返します。</p><p><a id='2-1-設定手順'></a></p><h3 id="2-1-設定手順"><a href="#2-1-設定手順" class="headerlink" title="2-1. 設定手順"></a>2-1. 設定手順</h3><ol><li>デザイナーで対象のアクションを選択します。</li><li><strong>設定</strong> タブを開きます。</li><li><strong>ネットワーキング</strong> の <strong>改ページ</strong> をオンにします。</li><li><strong>しきい値</strong> に、取得したい件数を入力します。</li></ol><p><img src="/blog/powerautomate/cloud-flow-connector-paging/02-pagination-on-setting.png" alt="アクションの設定タブで改ページをオンにし、しきい値を入力した画面"></p><div class="alert is-info"><p class="alert-title">Note</p><p>しきい値は取得件数の上限ではないため、指定した件数を超えるレコードが返る場合があります。詳細は「<a href="#2-2-%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">2-2. 動作確認</a>」の補足をご覧ください。<br/></p><p>改ページはすべてのアクションで使用できるわけではありません。設定タブに <strong>改ページ</strong> の項目が表示されないアクションは、この方法を使用できません。その場合は「<a href="#3-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-2-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%20nextLink%20%E3%82%92%E3%81%9F%E3%81%A9%E3%82%8B">3. 対応方法 2: フローで nextLink をたどる</a>」をご覧ください。<br/></p><p>また、設定タブに <strong>改ページ</strong> があっても、アクションが応答に継続トークンを返さない場合は効果がありません。詳細は「<a href="#5-1-%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%87%AA%E4%BD%93%E3%81%AE%E5%88%B6%E9%99%90%E3%81%8C%E3%81%AA%E3%81%84%E3%81%8B%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">5-1. アクション自体の制限がないかを確認する</a>」をご覧ください。</p></div><p><a id='2-2-動作確認'></a></p><h3 id="2-2-動作確認"><a href="#2-2-動作確認" class="headerlink" title="2-2. 動作確認"></a>2-2. 動作確認</h3><p>環境が 3 つ存在するテナントで、ページ サイズを <code>1</code> にして動作を確認しました。</p><table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>確認日</td><td>2026 年 8 月 3 日</td></tr><tr><td>使用コネクタ</td><td>Power Platform for Admins (「環境一覧を管理者として作成する」)</td></tr><tr><td>権限</td><td>Power Platform 管理者</td></tr><tr><td>対象テナントの環境数</td><td>3</td></tr><tr><td>確認方法</td><td>フローの実行履歴と actions API から取得した応答を確認</td></tr></tbody></table><table><thead><tr><th>改ページ</th><th>ページ サイズ</th><th>しきい値</th><th>取得件数</th><th>nextLink</th></tr></thead><tbody><tr><td>オフ (既定)</td><td>1</td><td>-</td><td>1</td><td>あり</td></tr><tr><td>オン</td><td>1</td><td>100</td><td>3</td><td>なし</td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/03-pagination-on-run.png" alt="改ページをオンにしたときの実行結果。取得できた件数が 3 で nextLink が返っていない"></p><p>改ページがオフの場合は 1 件だけでしたが、改ページをオンにすると、環境数と同じ 3 件が 1 つの応答として返りました。</p><div class="alert is-important"><p class="alert-title">重要</p><p>改ページのしきい値は、取得件数の上限ではなく「少なくともこの件数に達するまでページを取得する」という指定です。実際の取得件数はページ単位で決まります。たとえば、1 ページが 300 件、しきい値が 500 件の場合、1 ページ目の 300 件ではしきい値に達しないため、2 ページ目も取得し、最大 600 件が返る場合があります。取得件数の上限を厳密に制御したい場合は、返された配列から必要な件数だけを取り出すなど、フロー側で調整してください。</p></div><p><a id='3-対応方法-2-フローで nextLink をたどる'></a></p><h2 id="3-対応方法-2-フローで-nextLink-をたどる"><a href="#3-対応方法-2-フローで-nextLink-をたどる" class="headerlink" title="3. 対応方法 2: フローで nextLink をたどる"></a>3. 対応方法 2: フローで nextLink をたどる</h2><p>設定タブに <strong>改ページ</strong> が表示されないアクションでは、応答に <code>nextLink</code> などの継続情報があり、次のページを呼び出せる場合に、フロー側で続きを取得できます。</p><p>たとえば、HTTP with Microsoft Entra ID コネクタのアクションには、改ページの項目自体がありません。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/07-http-action-no-pagination-setting.png" alt="HTTP with Microsoft Entra ID のアクション設定。ネットワーキングに改ページの項目がない"></p><p><a id='3-1-nextLink の使用方法を確認する'></a></p><h3 id="3-1-nextLink-の使用方法を確認する"><a href="#3-1-nextLink-の使用方法を確認する" class="headerlink" title="3-1. nextLink の使用方法を確認する"></a>3-1. nextLink の使用方法を確認する</h3><p><code>nextLink</code> の使用方法は、次のページを取得するアクションの入力形式によって異なります。</p><table><thead><tr><th>アクションの入力形式</th><th>nextLink の使用方法</th><th>本記事の例</th></tr></thead><tbody><tr><td><code>$skiptoken</code> など、継続トークンを入力する項目がある</td><td><code>nextLink</code> からトークンだけを取り出す</td><td>Power Platform for Admins</td></tr><tr><td>要求 URL を入力できる</td><td><code>nextLink</code> の URL 全体を次の要求に使用する</td><td>HTTP with Microsoft Entra ID</td></tr></tbody></table><p>どちらの場合も、<code>Do until</code> などを使用して <code>nextLink</code> が返らなくなるまでページの取得を繰り返します。対象の API やコネクタの仕様を確認し、入力形式に合う方法を使用してください。</p><p><a id='3-2-$skiptoken を取り出して使用する'></a></p><h3 id="3-2-skiptoken-を取り出して使用する"><a href="#3-2-skiptoken-を取り出して使用する" class="headerlink" title="3-2. $skiptoken を取り出して使用する"></a>3-2. $skiptoken を取り出して使用する</h3><p>「環境一覧を管理者として作成する」アクションには、次のページ用の URL を入力する項目はなく、<code>$skiptoken</code> を入力する項目があります。このため、<code>nextLink</code> から <code>$skiptoken</code> の値だけを取り出します。<code>skiptoken=</code> で分割して後半を取得し、さらに <code>&amp;</code> で分割して先頭を取得します。</p><div class="alert is-important"><p class="alert-title">重要</p><p>取り出した値は URL エンコードされています。トークン末尾の <code>=</code> が <code>%3d</code> のままの状態で <code>$skiptoken</code> へ渡すと、次のエラーになります。<br/></p><p><strong>要求 URI の継続トークンが無効です。継続トークン - ‘&lt;トークン&gt;%3d’</strong><br/></p><p><code>decodeUriComponent()</code> でデコードしてから渡してください。</p></div><p>デコードを含めた式は次のとおりです。<code>環境一覧を管理者として作成する</code> の部分は、ご利用のアクション名に読み替えてください。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if(</span><br><span class="line">  empty(coalesce(body(&#x27;環境一覧を管理者として作成する&#x27;)?[&#x27;nextLink&#x27;], &#x27;&#x27;)),</span><br><span class="line">  &#x27;&#x27;,</span><br><span class="line">  decodeUriComponent(</span><br><span class="line">    first(</span><br><span class="line">      split(</span><br><span class="line">        last(</span><br><span class="line">          split(body(&#x27;環境一覧を管理者として作成する&#x27;)?[&#x27;nextLink&#x27;], &#x27;skiptoken=&#x27;)</span><br><span class="line">        ),</span><br><span class="line">        &#x27;&amp;&#x27;</span><br><span class="line">      )</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>フローの構成は次のとおりです。</p><table><thead><tr><th>順序</th><th>アクション</th><th>設定</th></tr></thead><tbody><tr><td>1</td><td>変数を初期化する</td><td>名前 <code>varSkipToken</code> &#x2F; 種類 文字列 &#x2F; 値 空</td></tr><tr><td>2</td><td>変数を初期化する</td><td>名前 <code>varEnvNames</code> &#x2F; 種類 アレイ &#x2F; 値 空</td></tr><tr><td>3</td><td>Do until</td><td>条件 <code>varSkipToken</code> が次の値に等しい (空)</td></tr><tr><td>3-1</td><td>環境一覧を管理者として作成する</td><td>ページ サイズ <code>1</code> &#x2F; トークンをスキップする <code>varSkipToken</code></td></tr><tr><td>3-2</td><td>配列変数に追加</td><td>取得したデータを <code>varEnvNames</code> へ追加</td></tr><tr><td>3-3</td><td>変数を設定する</td><td><code>varSkipToken</code> に 3-2 の式を設定</td></tr><tr><td>4</td><td>作成</td><td>取得件数と結果を出力</td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/04-dountil-designer.png" alt="Do until で nextLink をたどるフローのデザイナー画面"></p><p><code>Do until</code> は本体を実行してから条件を評価します。<code>varSkipToken</code> は初期値が空のため、1 周目は <code>$skiptoken</code> を指定しない状態で 1 ページ目を取得し、2 周目以降は前の周回で取り出したトークンを使用します。最終ページでは <code>nextLink</code> が返らないため <code>varSkipToken</code> が空になり、繰り返しが終了します。</p><div class="alert is-warning"><p class="alert-title">警告</p><p><code>Do until</code> には繰り返しの上限 (既定 60 回) とタイムアウト (既定 1 時間) があります。上限に達すると、途中までのデータしか取得できていない状態で <code>Do until</code> が終了します。想定するページ数に対して十分な上限を設定し、上限に達した場合を検知する処理をあわせて実装してください。</p></div><p>上記の構成で実行したところ、3 ページに分けて 3 件すべてを重複なく取得できました。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/06-dountil-decoded-success.png" alt="Do until で 3 ページ分を取得した実行結果"></p><p><a id='3-3-nextLink の URL をそのまま使用する'></a></p><h3 id="3-3-nextLink-の-URL-をそのまま使用する"><a href="#3-3-nextLink-の-URL-をそのまま使用する" class="headerlink" title="3-3. nextLink の URL をそのまま使用する"></a>3-3. nextLink の URL をそのまま使用する</h3><p>HTTP with Microsoft Entra ID コネクタでは、要求 URL を入力できます。このため、<code>nextLink</code> からトークンを取り出さず、URL 全体を次の要求に使用します。</p><p>最初に呼び出す URL を <code>varNextLink</code> へ設定します。次の例では、Flow Management API の一覧取得 URL を使用しています。<code>&lt;環境 ID&gt;</code> は取得対象の環境 ID に置き換えてください。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.flow.microsoft.com/providers/Microsoft.ProcessSimple/environments/&lt;環境 ID&gt;/flows?api-version=2016-11-01&amp;$top=50</span><br></pre></td></tr></table></figure><p><code>Do until</code> 内の HTTP アクションは、メソッドを <code>GET</code>、要求の URL を <code>variables(&#39;varNextLink&#39;)</code> にします。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/11-http-request-nextlink.png" alt="HTTP アクションの要求 URL に varNextLink を指定した画面"></p><p>HTTP アクションの実行後、<code>varNextLink</code> を次の式で更新します。最終ページでは <code>nextLink</code> が返らないため、空文字を設定してループを終了します。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coalesce(body(&#x27;HTTP_Get_Flows&#x27;)?[&#x27;nextLink&#x27;], &#x27;&#x27;)</span><br></pre></td></tr></table></figure><p><img src="/blog/powerautomate/cloud-flow-connector-paging/12-set-nextlink.png" alt="HTTP 応答の nextLink で varNextLink を更新する画面"></p><p>この構成で、実行時に <code>nextLink</code> が返らなくなるまで取得したところ、2 ページ、合計 100 件を取得できました。</p><p><img src="/blog/powerautomate/cloud-flow-connector-paging/08-http-dountil-success.png" alt="HTTP アクションと Do until で 2 ページ 100 件を取得した実行結果"></p><p><a id='4-2 つの方法の使い分け'></a></p><h2 id="4-2-つの方法の使い分け"><a href="#4-2-つの方法の使い分け" class="headerlink" title="4. 2 つの方法の使い分け"></a>4. 2 つの方法の使い分け</h2><table><thead><tr><th>方法</th><th>使用できる条件</th><th>特徴</th></tr></thead><tbody><tr><td>改ページ設定 (2 章)</td><td>設定タブに <strong>改ページ</strong> がある</td><td>設定するだけで済み、フローが単純になる</td></tr><tr><td><code>Do until</code> + <code>nextLink</code> (3 章)</td><td>応答に継続情報があり、次のページを呼び出せる</td><td>実装量は増えるが、途中経過の記録や独自の停止条件を作り込める</td></tr></tbody></table><p>改ページ設定が使用できる場合は、そちらをご検討ください。</p><p><a id='5-設計時に確認しておきたい注意点'></a></p><h2 id="5-設計時に確認しておきたい注意点"><a href="#5-設計時に確認しておきたい注意点" class="headerlink" title="5. 設計時に確認しておきたい注意点"></a>5. 設計時に確認しておきたい注意点</h2><p><a id='5-1-アクション自体の制限がないかを確認する'></a></p><h3 id="5-1-アクション自体の制限がないかを確認する"><a href="#5-1-アクション自体の制限がないかを確認する" class="headerlink" title="5-1. アクション自体の制限がないかを確認する"></a>5-1. アクション自体の制限がないかを確認する</h3><p>一覧が全件返らない原因が改ページではなく、<strong>アクションそのものの制限</strong> である場合があります。この場合は、改ページ設定を有効にしても <code>Do until</code> で <code>nextLink</code> をたどっても解消しません。</p><p>たとえば、2026 年 8 月 4 日 15 時 (日本時間) に Power Platform 管理センターで確認した既知の問題 6057285 では、Power Automate Management コネクタの <strong>List My Flows</strong> アクションは、環境内に 50 個以上のフローがある場合にすべてを返さないことがあると案内されていました。回避策は <strong>List Flows as Admin (V2)</strong> アクションの使用です。</p><table><thead><tr><th>アクション</th><th>改ページ</th><th>取得件数</th></tr></thead><tbody><tr><td>自分のフローの一覧表示 (<code>List My Flows</code>)</td><td>オフ (既定)</td><td><strong>51</strong></td></tr><tr><td>自分のフローの一覧表示 (<code>List My Flows</code>)</td><td>オン (しきい値 5000)</td><td><strong>51</strong></td></tr><tr><td>管理者としてフローの一覧を取得 (V2) (<code>List Flows as Admin (V2)</code>)</td><td>オフ (既定)</td><td><strong>106</strong></td></tr></tbody></table><p><img src="/blog/powerautomate/cloud-flow-connector-paging/09-listmyflows-vs-admin-run.png" alt="3 つのアクションの取得件数を出力した作成アクションの実行結果"></p><p>この検証では、<strong>List My Flows</strong> の改ページをオンにし、しきい値を <code>5000</code> に設定しても、取得件数は 51 件のままでした。応答に <code>nextLink</code> がなかったため、改ページ設定では続きを取得できませんでした。一方、<strong>List Flows as Admin (V2)</strong> では 106 件が返りました。</p><div class="alert is-important"><p class="alert-title">重要</p><p>既知の問題は一時的な情報であり、状態や回避策が変更される場合があります。期待した件数が返らないときは、対象アクションの応答に <code>nextLink</code> などの継続情報があるかを確認するとともに、Power Platform 管理センターの <strong>ヘルプとサポート</strong> &gt; <strong>既知の問題</strong> とコネクタ リファレンスで最新情報をご確認ください。</p></div><ul><li><a href="https://admin.powerplatform.microsoft.com/support/knownissues/6057285">既知の問題 6057285 - Power Platform 管理センター</a></li><li><a href="https://learn.microsoft.com/connectors/flowmanagement/#list-my-flows">List My Flows - Power Automate Management コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/connectors/flowmanagement/#list-flows-as-admin-(v2)">List Flows as Admin (V2) - Power Automate Management コネクタ - Microsoft Learn</a></li></ul><h3 id="5-2-本当に全件が必要かを確認する"><a href="#5-2-本当に全件が必要かを確認する" class="headerlink" title="5-2. 本当に全件が必要かを確認する"></a>5-2. 本当に全件が必要かを確認する</h3><p>全件取得は、実行時間、コネクタの呼び出し回数、フローが扱うデータ量をいずれも増加させます。フィルターで対象を絞れないかをあわせてご検討ください。</p><h3 id="5-3-フィルターを指定した場合も改ページを確認する"><a href="#5-3-フィルターを指定した場合も改ページを確認する" class="headerlink" title="5-3. フィルターを指定した場合も改ページを確認する"></a>5-3. フィルターを指定した場合も改ページを確認する</h3><p>フィルターで取得対象を絞っていても、改ページが必要な場合があります。SharePoint コネクタの <strong>複数の項目の取得</strong> アクションには、5,000 件を超えるリストでフィルター クエリを使用した場合、最初の 5,000 件に一致する項目がないと、結果が返らないことがあるという制限が公開されています。</p><p>たとえば、7,000 件のリストで条件に一致する 5 件が 5,001 件目以降にある場合、取得予定件数が 5 件でも、改ページがオフだと 0 件になる可能性があります。このような場合は、アクションの改ページをオンにして、続きのページも検索対象にします。</p><h3 id="5-4-最終ページを判定する"><a href="#5-4-最終ページを判定する" class="headerlink" title="5-4. 最終ページを判定する"></a>5-4. 最終ページを判定する</h3><p>最終ページでは <code>nextLink</code> が返りません。空の値を <code>$skiptoken</code> に渡して再実行すると 1 ページ目が返るため、判定を省略すると同じデータを重複して取得します。<code>empty()</code> などで必ず確認してください。</p><h3 id="5-5-コネクタの呼び出し回数の制限を確認する"><a href="#5-5-コネクタの呼び出し回数の制限を確認する" class="headerlink" title="5-5. コネクタの呼び出し回数の制限を確認する"></a>5-5. コネクタの呼び出し回数の制限を確認する</h3><p>ページングを実装すると、ページ数の分だけコネクタの呼び出し回数が増えます。Power Platform for Admins コネクタには、接続ごとに 60 秒あたり 100 回の API 呼び出し制限があります。利用者数と実行頻度を含めて、制限に到達しないかをご確認ください。</p><h3 id="5-6-エラー処理を追加する"><a href="#5-6-エラー処理を追加する" class="headerlink" title="5-6. エラー処理を追加する"></a>5-6. エラー処理を追加する</h3><p>途中のページ取得に失敗した場合、結果には一部のデータだけが残る可能性があります。「全件取得できた」と誤解しないよう、実運用では <code>Do until</code> の終了条件と実行結果を確認し、失敗を検知する処理をあわせて実装してください。</p><p><a id='6-まとめ'></a></p><h2 id="6-まとめ"><a href="#6-まとめ" class="headerlink" title="6. まとめ"></a>6. まとめ</h2><p>コネクタの応答に <code>nextLink</code> が含まれる場合、データは次のページへ続いています。改ページ設定がオフのアクションでは、通常はフロー側で続きを取得するための対応が必要です。</p><ul><li>アクションの設定に <strong>改ページ</strong> があれば、オンにしてしきい値を指定する</li><li>改ページがないアクションでは、<code>Do until</code> で <code>nextLink</code> をたどる</li><li><code>$skiptoken</code> を自分で組み立てる場合は、<code>decodeUriComponent()</code> で URL エンコードを戻す</li><li><code>nextLink</code> が返らなくなったことを判定して繰り返しを止める</li></ul><p>なお、一覧が全件返らない原因がページングではなく、アクション自体の制限であることもあります。実装に着手する前に、対象アクションのリファレンスと既知の問題をあわせてご確認ください (5-1 参照)。</p><p>あわせて、<code>Do until</code> の繰り返し上限、コネクタの呼び出し回数の制限、エラー処理の実装もご確認いただけますと幸いです。</p><p><a id='参考情報'></a></p><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/ja-jp/connectors/powerplatformforadmins/">Power Platform for Admins コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/connectors/flowmanagement/">Power Automate Management コネクタ - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-exceed-default-page-size-with-pagination">改ページ位置の自動修正で既定のページ サイズを超える結果を取得する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/sharepoint/dev/business-apps/power-automate/guidance/working-with-get-items-and-get-files">Power Automate で SharePoint の「複数の項目の取得」と「複数のファイルの取得」を使用する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-control-flow-loops#until-loop">ループを使用してデータを繰り返し処理する - Azure Logic Apps | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-create-variables-store-values">変数を使用して値を保存および管理する - Azure Logic Apps | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/azure/logic-apps/workflow-definition-language-functions-reference">ワークフロー式関数のリファレンス ガイド - Azure Logic Apps | Microsoft Learn</a></li></ul><div class="alert is-info"><p class="alert-title">Note</p><p>本記事に記載した数式は実装例です。エラー処理や各環境固有の条件をすべて含むものではありません。ご利用の際は、検証環境で十分に動作をご確認ください。</p></div><p>※本記事の執筆には生成 AI を使用しています。<a href="https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content">参考</a></p>]]>
     </content>
@@ -42,7 +63,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-10T09:32:53.567Z</updated>
+    <updated>2026-08-13T01:18:14.297Z</updated>
   </entry>
   <entry>
     <author>
@@ -68,7 +89,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-10T09:32:53.437Z</updated>
+    <updated>2026-08-13T01:18:14.161Z</updated>
   </entry>
   <entry>
     <author>
@@ -91,7 +112,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-08-10T09:32:53.657Z</updated>
+    <updated>2026-08-13T01:18:14.387Z</updated>
   </entry>
   <entry>
     <author>
@@ -117,7 +138,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-08-10T09:32:53.438Z</updated>
+    <updated>2026-08-13T01:18:14.161Z</updated>
   </entry>
   <entry>
     <author>
@@ -140,7 +161,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-08-10T09:32:53.719Z</updated>
+    <updated>2026-08-13T01:18:14.449Z</updated>
   </entry>
   <entry>
     <author>
@@ -163,7 +184,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-08-10T09:32:53.782Z</updated>
+    <updated>2026-08-13T01:18:14.513Z</updated>
   </entry>
   <entry>
     <author>
@@ -187,7 +208,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-08-10T09:32:53.786Z</updated>
+    <updated>2026-08-13T01:18:14.516Z</updated>
   </entry>
   <entry>
     <author>
@@ -210,7 +231,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-08-10T09:32:53.718Z</updated>
+    <updated>2026-08-13T01:18:14.448Z</updated>
   </entry>
   <entry>
     <author>
@@ -233,7 +254,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-08-10T09:32:53.657Z</updated>
+    <updated>2026-08-13T01:18:14.387Z</updated>
   </entry>
   <entry>
     <author>
@@ -259,7 +280,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-08-10T09:32:53.755Z</updated>
+    <updated>2026-08-13T01:18:14.486Z</updated>
   </entry>
   <entry>
     <author>
@@ -286,7 +307,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-08-10T09:32:53.767Z</updated>
+    <updated>2026-08-13T01:18:14.497Z</updated>
   </entry>
   <entry>
     <author>
@@ -312,7 +333,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-08-10T09:32:53.718Z</updated>
+    <updated>2026-08-13T01:18:14.448Z</updated>
   </entry>
   <entry>
     <author>
@@ -349,7 +370,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-08-10T09:32:53.767Z</updated>
+    <updated>2026-08-13T01:18:14.497Z</updated>
   </entry>
   <entry>
     <author>
@@ -379,7 +400,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-08-10T09:32:53.717Z</updated>
+    <updated>2026-08-13T01:18:14.447Z</updated>
   </entry>
   <entry>
     <author>
@@ -411,7 +432,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-08-10T09:32:53.655Z</updated>
+    <updated>2026-08-13T01:18:14.385Z</updated>
   </entry>
   <entry>
     <author>
@@ -434,7 +455,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-08-10T09:32:53.782Z</updated>
+    <updated>2026-08-13T01:18:14.513Z</updated>
   </entry>
   <entry>
     <author>
@@ -467,7 +488,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-08-10T09:32:53.767Z</updated>
+    <updated>2026-08-13T01:18:14.497Z</updated>
   </entry>
   <entry>
     <author>
@@ -500,7 +521,7 @@
     <title>
       <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
     </title>
-    <updated>2026-08-10T09:32:53.719Z</updated>
+    <updated>2026-08-13T01:18:14.449Z</updated>
   </entry>
   <entry>
     <author>
@@ -530,30 +551,6 @@
 </ol>]]>
     </summary>
     <title>モバイル端末で SharePoint をソースにしたキャンバスアプリの画像やメディアが表示されない場合の対処方法</title>
-    <updated>2026-08-10T09:32:53.444Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Dynamics 365" scheme="https://jpdynamicscrm.github.io/blog/categories/Dynamics-365/"/>
-    <category term="情報採取" scheme="https://jpdynamicscrm.github.io/blog/tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/"/>
-    <category term="お問い合わせ全般" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/"/>
-    <category term="Dynamics 365" scheme="https://jpdynamicscrm.github.io/blog/tags/Dynamics-365/"/>
-    <category term="トラブルシューティング" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの鎌田です。</p><p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p><span id="more"></span><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol><li><a href="#identification-info">識別情報の取得</a><ol><li><a href="#environment-url">環境 URL</a></li><li><a href="#upn">UPN（ユーザー プリンシパル名）</a></li><li><a href="#session-id">セッション ID・バージョン情報</a></li></ol></li><li><a href="#security-role-and-team">セキュリティロールとチームの確認</a></li><li><a href="#solution-layers">ソリューション レイヤーの確認</a></li><li><a href="#import-history">インポート履歴の確認</a></li><li><a href="#web-api-response">Web API レスポンスの取得</a></li><li><a href="#diagnostic-info">診断情報の取得</a><ol><li><a href="#network-trace">ネットワーク トレース（HAR ファイル）</a></li><li><a href="#video-recording">動画の録画</a></li></ol></li></ol><hr><p><a id='identification-info'></a></p><h2 id="1-識別情報の取得"><a href="#1-識別情報の取得" class="headerlink" title="1. 識別情報の取得"></a>1. 識別情報の取得</h2><p>サーバー側のログ調査に必要な識別情報です。</p><p><a id='environment-url'></a></p><h3 id="1-1-環境-URL"><a href="#1-1-環境-URL" class="headerlink" title="1-1. 環境 URL"></a>1-1. 環境 URL</h3><ol><li>Dynamics 365 にサインインします</li><li>ブラウザのアドレスバーから URL をコピーします<br>例: <code>https://contoso.crm7.dynamics.com</code></li></ol><p><a id='upn'></a></p><h3 id="1-2-UPN（ユーザー-プリンシパル名）"><a href="#1-2-UPN（ユーザー-プリンシパル名）" class="headerlink" title="1-2. UPN（ユーザー プリンシパル名）"></a>1-2. UPN（ユーザー プリンシパル名）</h3><p>事象が発生しているユーザーを特定するために必要です。<br>例: <code>user@contoso.onmicrosoft.com</code></p><p>Power Platform 管理センターで環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [ユーザー] のユーザー名よりご確認いただけます。<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/upn.png"></p><p><a id='session-id'></a></p><h3 id="1-3-セッション-ID・バージョン情報"><a href="#1-3-セッション-ID・バージョン情報" class="headerlink" title="1-3. セッション ID・バージョン情報"></a>1-3. セッション ID・バージョン情報</h3><ol><li>Dynamics 365 アプリの画面右上の歯車アイコンをクリックします</li><li>「情報」をクリックするとダイアログに情報が表示されます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/sessionid.png"></li></ol><hr><p><a id='security-role-and-team'></a></p><h2 id="2-セキュリティロールとチームの確認"><a href="#2-セキュリティロールとチームの確認" class="headerlink" title="2. セキュリティロールとチームの確認"></a>2. セキュリティロールとチームの確認</h2><p>アクセス権限に関連する問題の調査に必要です。</p><ol><li>Power Platform 管理センターで環境を開き、[設定] &gt; [ユーザーとアクセス許可] &gt; [ユーザー] を開きます</li><li>対象ユーザーをクリックします</li><li>サイドバーの「直接割り当てられたロール」から、割り当てられたセキュリティ ロールの一覧を確認できます（チーム経由で割り当てられたロールはここには表示されません）</li><li>サイドバーの「チーム」から、所属しているチームの一覧を確認できます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/user-info.png"></li></ol><hr><p><a id='solution-layers'></a></p><h2 id="3-ソリューション-レイヤーの確認"><a href="#3-ソリューション-レイヤーの確認" class="headerlink" title="3. ソリューション レイヤーの確認"></a>3. ソリューション レイヤーの確認</h2><p>特定のコンポーネント (アプリ、テーブル、フォームなど) がどのソリューション経由でインストール・カスタマイズされたかを確認する方法です。<br>コンポーネントの出自や変更履歴の調査に必要となります。</p><ol><li><a href="https://make.powerapps.com/">Power Apps ポータル</a> にサインインし、対象の環境を選択します</li><li>左ナビゲーションから [ソリューション] を選択します</li><li>[既定のソリューション] を開きます<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-list.png"></li><li>左ペインのオブジェクト一覧から対象のコンポーネントの種類を選択します（例: モデル駆動型アプリの場合は [アプリ]）</li><li>対象のコンポーネントの [︙] メニューを開き、[詳細] &gt; [ソリューション レイヤーの表示] をクリックします<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-layers-menu.png"></li><li>表示されたソリューション レイヤーの画面のスクリーンショットを取得します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/solution-layers-result.png"></li></ol><p>ソリューション レイヤーには、そのコンポーネントに影響を与えたソリューションが上から順（最新が上）に表示されます。最下層の [システム] レイヤーはプラットフォーム既定の定義です。</p><p><strong>参考資料：</strong> <a href="https://learn.microsoft.com/power-apps/maker/data-platform/solution-layers">ソリューション レイヤー</a></p><hr><p><a id='import-history'></a></p><h2 id="4-インポート履歴の確認"><a href="#4-インポート履歴の確認" class="headerlink" title="4. インポート履歴の確認"></a>4. インポート履歴の確認</h2><p>データ インポートに関する問題の調査では、対象のインポート レコードを特定するための情報が必要です。</p><ol><li>Dynamics 365 アプリの左上のアプリ名をクリックし、アプリ一覧から「Power Platform 環境設定」を選択します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/import-app-selection.png"></li><li>左ナビゲーションの [データ管理] をクリックし、[インポート] を選択します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/import-data-management.png"></li><li>問題が発生しているインポートを特定し、この画面のスクリーンショットを取得します。複数のインポートが表示されている場合は、該当のインポートがどれかわかるように示してください<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/import-history.png"></li></ol><p>スクリーンショットでは、以下の情報が確認できるようにしてください：</p><ul><li><strong>インポート名</strong>: 問題が発生しているインポートがどれか特定するために必要です</li><li><strong>ステータス</strong>: 完了、エラーなどの状態</li><li><strong>成功・部分的な失敗・エラーの件数</strong>: 問題の規模を把握するために必要です</li><li><strong>作成日</strong>: インポートが実行された日時</li></ul><div class="alert is-info"><p class="alert-title">Note</p><p>一覧に表示される日時が日本時間ではない場合は、その旨をサポート担当者にお知らせください。</p></div><hr><p><a id='web-api-response'></a></p><h2 id="5-Web-API-レスポンスの取得"><a href="#5-Web-API-レスポンスの取得" class="headerlink" title="5. Web API レスポンスの取得"></a>5. Web API レスポンスの取得</h2><p>サーバー側のデータや設定を確認するため、Web API のレスポンスを JSON ファイルとして提供いただく場合があります。</p><p><strong>取得手順（Microsoft Edge）：</strong></p><ol><li>ブラウザで調査対象の環境 (<code>https://&lt;環境 URL&gt;.dynamics.com</code>) にアクセスし、Dynamics 365 にサインインできることを確認します</li><li>新しいタブを開き、サポート担当者から指定された URL をアドレスバーに入力してアクセスします<br>例: <code>https://&lt;環境 URL&gt;.dynamics.com/api/data/v9.2/accounts</code></li><li>レスポンスが表示されたら、画面左上の「整形出力」にチェックを入れます</li><li>ページ上で右クリックし、「名前を付けて保存」を選択します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/web-api-save.png"></li><li>ファイルの種類が「JSON ファイル」になっていることを確認し、保存します</li><li>保存した JSON ファイルを、サポート担当者から提供されたファイル アップロード用のリンクからアップロードしてください</li></ol><hr><p><a id='diagnostic-info'></a></p><h2 id="6-診断情報の取得"><a href="#6-診断情報の取得" class="headerlink" title="6. 診断情報の取得"></a>6. 診断情報の取得</h2><p>問題の詳細な調査に必要な診断情報です。</p><p><a id='network-trace'></a></p><h3 id="6-1-ネットワーク-トレース（HAR-ファイル）"><a href="#6-1-ネットワーク-トレース（HAR-ファイル）" class="headerlink" title="6-1. ネットワーク トレース（HAR ファイル）"></a>6-1. ネットワーク トレース（HAR ファイル）</h3><p>ブラウザと Dynamics 365 サーバー間の通信を記録します。<br>ネットワーク トレースとは、ブラウザーがページを表示するために送受信した通信を時系列で記録したものです。<br>問題が発生した操作を記録し HAR ファイルとして共有いただくことで、調査がスムーズになります。</p><div class="alert is-important"><p class="alert-title">重要</p><p><strong>事象再現の直前</strong>に取得を開始し、<strong>事象を再現させた直後</strong>に保存してください。不要な通信が増え肝心な要求が埋もれるため、不要なページ遷移はせず最小の再現だけに留めてください。</p></div><p><strong>取得手順（Microsoft Edge）：</strong></p><ol><li>ブラウザで <code>F12</code> キーを押し、開発者ツールを開き、「ネットワーク」タブを選択します</li><li>以下のオプションを有効にします：<ul><li>「ログを保持」にチェック</li><li>「キャッシュを無効にする」にチェック</li></ul></li><li>「クリア」ボタンで古いログを消去します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/trace-start.jpg"></li><li>事象を<strong>最小の手順で 1 回だけ</strong>再現させます</li><li>再現後、「Export HAR」ボタン（↓アイコン）をクリックして保存します（ファイル名は <code>YYYYMMDD_issue.har</code> のように日付と概要を含めてください）<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/trace-end.jpg"></li></ol><p><strong>参考資料：</strong> <a href="https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace">ブラウザー トレースの取得（Azure Portal）</a></p><p><a id='video-recording'></a></p><h3 id="6-2-動画の録画"><a href="#6-2-動画の録画" class="headerlink" title="6-2. 動画の録画"></a>6-2. 動画の録画</h3><p>事象再現時の動画があると、発生状況をより正確に把握できます。</p><div class="alert is-important"><p class="alert-title">重要</p><p>事象発生の<strong>事前</strong>に録画を開始し、事象発生を確認した<strong>後</strong>に停止してください。</p></div><h4 id="Snipping-Tool-での画面録画"><a href="#Snipping-Tool-での画面録画" class="headerlink" title="Snipping Tool での画面録画"></a>Snipping Tool での画面録画</h4><ol><li><code>Windows + Shift + S</code> キーを押して Snipping Tool を起動、または検索から「Snipping Tool」を起動します</li><li>動画ボタン（ビデオカメラアイコン）をクリックします<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/snipping-tool.png"></li><li>録画する画面の範囲をドラッグで選択し、「スタート」をクリックして録画を開始します<br><img src="/blog/powerplatform/dynamics365-troubleshooting-info-collection/start-recording.png"></li><li>事象を再現させます</li><li>録画停止ボタンを押して終了し、ファイルを保存します</li></ol><h4 id="その他の録画方法"><a href="#その他の録画方法" class="headerlink" title="その他の録画方法"></a>その他の録画方法</h4><ul><li><a href="https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0">PowerPoint で画面を記録する</a></li><li><a href="https://learn.microsoft.com/ja-jp/office/troubleshoot/settings/how-to-use-problem-steps-recorder">問題ステップ レコーダーの使用方法</a></li></ul>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/dynamics365-troubleshooting-info-collection/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/dynamics365-troubleshooting-info-collection/"/>
-    <published>2026-01-06T00:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platform サポートチームの鎌田です。</p>
-<p>本記事では、Dynamics 365 に関するお問い合わせの際に必要となる情報の取得手順をご説明します。<br>適切な情報をご提供いただくことで、問題の早期解決につながります。</p>]]>
-    </summary>
-    <title>Dynamics 365 トラブルシューティングのための情報収集ガイド</title>
-    <updated>2026-08-10T09:32:53.719Z</updated>
+    <updated>2026-08-13T01:18:14.167Z</updated>
   </entry>
 </feed>
