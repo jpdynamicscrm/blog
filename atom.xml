@@ -18,7 +18,30 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-08-17T03:07:26.528Z</updated>
+  <updated>2026-08-17T11:33:01.550Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/"/>
+    <category term="Desktop flow" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Automate/Desktop-flow/"/>
+    <category term="お問い合わせ全般" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/"/>
+    <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
+    <category term="Power Automate for desktop" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate-for-desktop/"/>
+    <content>
+      <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p><span id="more"></span><h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol><li><a href="#anchor-version-up">バージョンアップ</a></li><li><a href="#anchor-cacheclear">キャッシュクリア</a></li><li><a href="#anchor-connection">通信設定の確認</a></li><li><a href="#anchor-troubleshooting">トラブルシューティングの実行</a></li></ol><p><a id='anchor-version-up'></a></p><h1 id="1-バージョンアップ"><a href="#1-バージョンアップ" class="headerlink" title="1. バージョンアップ"></a>1. バージョンアップ</h1><p>Power Automate for desktop は定期的にバージョンアップをしています。<br>過去の不具合はバージョンアップによって修正されており、発生した問題も解消する可能性があります。また、テクニカルサポートにお問い合せいただいた場合でも、バージョンアップにて事象が解消するかの確認をお願いする場合もございます。そのため、テクニカルサポートにお問合せいただく前に、可能な限り最新バージョンにアップデートいただき、事象が解消するかご確認いただけますと幸いです。  </p><p><strong>[実施方法]</strong><br>バージョンアップは Power Automate for desktop 起動後のポップアップ の更新を押下することで可能です。<br><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/versionup.png">  </p><p>また、以下からインストーラーを取得し、実行することでも可能です。※事前のアンインストールは不要です。<br><a href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/install">Power Automate のインストール</a>   </p><div class="alert is-info"><p class="alert-title">Note</p><p>ストア版をご利用いただいている場合は、自動でバージョンアップが実行されます。  </p></div><p><a id='anchor-cacheclear'></a></p><h1 id="2-キャッシュクリア"><a href="#2-キャッシュクリア" class="headerlink" title="2. キャッシュクリア"></a>2. キャッシュクリア</h1><p>Power Automate for desktop は認証情報や実行するデスクトップフローの情報を一部キャッシュ情報としてローカル端末に保持します。<br>このキャッシュの影響で過去に本来実行できる操作がエラーとなる事例やデスクトップフローの編集画面が正しく表示されない事例が発生しております。これらの事象はキャッシュクリアによって問題が解消します。  </p><p><strong>[実施方法]</strong><br>キャッシュクリアは ヘルプ &gt; トラブルシューティング の キャッシュ の「キャッシュを無効化する」から実行できます。<br>本操作により 起動している Power Automate for desktop が終了しますので、実行するデスクトップフローがない場合に実施ください。<br><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/cache-clear.png">  </p><p><a id='anchor-connection'></a></p><h1 id="3-通信設定の確認"><a href="#3-通信設定の確認" class="headerlink" title="3. 通信設定の確認"></a>3. 通信設定の確認</h1><p>Power Automate for desktop をご利用される際、クラウドサービスとの通信が発生します。<br>通信可能なドメインに通信できない場合、Power Automate for desktop 起動時、もしくは、デスクトップフロー実行時にエラーが発生します。  </p><p><strong>[実施方法]</strong><br>以下のページを参照いただき、端末から各ドメインが通信できる状態となっているかご確認ください。<br><a href="https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration">Power Automate の IP アドレス構成</a>   </p><p>「Power Automate の IP アドレス構成」の 2026 年 8 月時点で通信が必要となる設定セクション</p><ul><li>Power Automate Web ポータルを使用する  </li><li>デスクトップ フロー ランタイムのグローバル エンドポイント ※1  </li><li>デスクトップ用 Power Automate MSI インストーラーのグローバル エンドポイント ※2  </li><li>デスクトップ フロー ランタイムのパブリック エンドポイント ※1  </li><li>ホスト型コンピューターとホスト型コンピューター グループのパブリック エンドポイント ※3</li></ul><p>※1 デスクトップ フロー ランタイム アプリ利用時<br>※2 MSI インストーラー利用時<br>※3 ホスト型コンピューターご利用時</p><div class="alert is-info"><p class="alert-title">Note</p><p>後述のトラブルシューティングを実行することでも、問題の通信を特定することができますので併せてご確認ください。  </p></div><p><a id='anchor-troubleshooting'></a></p><h1 id="4-トラブルシューティングの実行"><a href="#4-トラブルシューティングの実行" class="headerlink" title="4. トラブルシューティングの実行"></a>4. トラブルシューティングの実行</h1><p>Power Automate for desktop での一般的な問題に対して原因を特定する機能として、トラブルシューティングがあります。<br>診断したいセクションが分かれており、診断対象の実行を押下することで問題を特定することができます。</p><p><strong>[実施方法]</strong><br>ヘルプ &gt; トラブルシューティング から起動できます。<br>また、Windows のメニューからも起動することができるため、Power Automate for desktop が起動できない場合は、メニューから直接起動ください。<br><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/setup-troubleshooting.png">  </p><table><thead><tr><th>セクション</th><th>診断内容</th></tr></thead><tbody><tr><td>接続の問題を診断する</td><td>インターネット接続、プロキシ、サービスの問題を診断する</td></tr><tr><td>サインインの問題を診断する</td><td>認証とその問題を診断する</td></tr><tr><td>Dataverse の問題を診断する</td><td>環境とアクセス許可の問題を診断する</td></tr><tr><td>UI&#x2F;Web オートメーションの問題のトラプルシューティング</td><td>UI&#x2F;Web オートメーションに関する問題のトラブルシューティング</td></tr><tr><td>Picture-in-Picture の問題のトラブルシューティング</td><td>Picture-in-Picture 関連の問題のトラブルシューティング</td></tr><tr><td>インストールの問題のトラブルシューティング</td><td>Power Automate、.NET Framework、WebView2、Windows更新プログラムに関連するインストールの問題のトラブルシューティング</td></tr><tr><td>クラウドランタイムの接続に関する問題を診断します</td><td>Power Automate サービスのコンピューター登録とクラウドランタイムに関する問題を診断します</td></tr></tbody></table><p><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/troubleshooting.png">  </p><hr><h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p><hr>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/"/>
+    <published>2026-08-18T03:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>]]>
+    </summary>
+    <title>Power Automate for desktop お問い合わせ前のトラブルシューティング</title>
+    <updated>2026-08-17T11:33:01.550Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -39,7 +62,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-08-17T03:07:26.528Z</updated>
+    <updated>2026-08-17T11:33:01.387Z</updated>
   </entry>
   <entry>
     <author>
@@ -64,7 +87,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-17T03:07:26.631Z</updated>
+    <updated>2026-08-17T11:33:01.476Z</updated>
   </entry>
   <entry>
     <author>
@@ -90,7 +113,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-17T03:07:26.466Z</updated>
+    <updated>2026-08-17T11:33:01.333Z</updated>
   </entry>
   <entry>
     <author>
@@ -116,7 +139,7 @@
 <p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
-    <updated>2026-08-17T03:07:26.606Z</updated>
+    <updated>2026-08-17T11:33:01.453Z</updated>
   </entry>
   <entry>
     <author>
@@ -139,7 +162,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-08-17T03:07:26.739Z</updated>
+    <updated>2026-08-17T11:33:01.573Z</updated>
   </entry>
   <entry>
     <author>
@@ -165,7 +188,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-08-17T03:07:26.467Z</updated>
+    <updated>2026-08-17T11:33:01.335Z</updated>
   </entry>
   <entry>
     <author>
@@ -188,7 +211,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-08-17T03:07:26.821Z</updated>
+    <updated>2026-08-17T11:33:01.642Z</updated>
   </entry>
   <entry>
     <author>
@@ -211,7 +234,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-08-17T03:07:26.900Z</updated>
+    <updated>2026-08-17T11:33:01.710Z</updated>
   </entry>
   <entry>
     <author>
@@ -235,7 +258,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-08-17T03:07:26.905Z</updated>
+    <updated>2026-08-17T11:33:01.714Z</updated>
   </entry>
   <entry>
     <author>
@@ -258,7 +281,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-08-17T03:07:26.819Z</updated>
+    <updated>2026-08-17T11:33:01.640Z</updated>
   </entry>
   <entry>
     <author>
@@ -281,7 +304,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-08-17T03:07:26.740Z</updated>
+    <updated>2026-08-17T11:33:01.573Z</updated>
   </entry>
   <entry>
     <author>
@@ -307,7 +330,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-08-17T03:07:26.867Z</updated>
+    <updated>2026-08-17T11:33:01.681Z</updated>
   </entry>
   <entry>
     <author>
@@ -334,7 +357,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-08-17T03:07:26.880Z</updated>
+    <updated>2026-08-17T11:33:01.693Z</updated>
   </entry>
   <entry>
     <author>
@@ -360,7 +383,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-08-17T03:07:26.819Z</updated>
+    <updated>2026-08-17T11:33:01.640Z</updated>
   </entry>
   <entry>
     <author>
@@ -397,7 +420,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-08-17T03:07:26.881Z</updated>
+    <updated>2026-08-17T11:33:01.693Z</updated>
   </entry>
   <entry>
     <author>
@@ -427,7 +450,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-08-17T03:07:26.818Z</updated>
+    <updated>2026-08-17T11:33:01.639Z</updated>
   </entry>
   <entry>
     <author>
@@ -459,7 +482,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-08-17T03:07:26.738Z</updated>
+    <updated>2026-08-17T11:33:01.571Z</updated>
   </entry>
   <entry>
     <author>
@@ -482,7 +505,7 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-08-17T03:07:26.900Z</updated>
+    <updated>2026-08-17T11:33:01.710Z</updated>
   </entry>
   <entry>
     <author>
@@ -515,39 +538,6 @@
 </ul>]]>
     </summary>
     <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-08-17T03:07:26.880Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
-    <category term="検索" scheme="https://jpdynamicscrm.github.io/blog/tags/%E6%A4%9C%E7%B4%A2/"/>
-    <category term="ストレージ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/"/>
-    <category term="Copilot" scheme="https://jpdynamicscrm.github.io/blog/tags/Copilot/"/>
-    <content>
-      <![CDATA[<p>こんにちは、Power Platformサポートチームの鈴木です。</p><p>本記事ではDataverse Search のストレージ内訳について、以下の Q1〜Q5 の質問に回答する形でご説明させていただきます。</p><ul><li><a href="#q1">Q1: PPAC の「Dataverse Search」ストレージは何の合算値ですか？</a></li><li><a href="#q2">Q2: 検索インデックス（Search）の中身と削減のコツは？</a></li><li><a href="#q3">Q3: 構造化インデックス（Structured）の中身と削減のコツは？</a></li><li><a href="#q4">Q4: テキストデータインデックス（TextData）の中身と削減のコツは？</a></li><li><a href="#q5">Q5: 画面で見えない内訳をどう管理すればよいですか？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>PPAC に表示される Dataverse Search ストレージの意味。</li><li>3 種類のインデックス（Search &#x2F; Structured &#x2F; TextData）の役割。</li><li>それぞれの容量が増える主因と削減アプローチ。</li><li>Copilot &#x2F; エージェントとインデックスの関係。</li><li>PPACで直接は見えない内訳の考え方と運用ポイント。</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#q1">Q1: PPAC の「Dataverse Search」ストレージは何の合算値ですか？</a></li><li><a href="#q2">Q2: 検索インデックス（Search）の中身と削減のコツは？</a></li><li><a href="#q3">Q3: 構造化インデックス（Structured）の中身と削減のコツは？</a></li><li><a href="#q4">Q4: テキストデータインデックス（TextData）の中身と削減のコツは？</a></li><li><a href="#q5">Q5: 画面で見えない内訳をどう管理すればよいですか？</a></li></ul><h2 id="q1">PPAC の「Dataverse Search」ストレージは何の合算値ですか？ (Q1)</h2>【結論】PPAC に表示される Dataverse Search ストレージは、「検索インデックス（Relevance / Search）」「構造化インデックス（Structured）」「非構造化（テキスト）インデックス（Unstructured / TextData）」の合算です。<p>【補足】インデックスは、グローバル検索や Copilot のためにデータを探しやすくする仕組みです。<br>Power Platform 管理センター のテーブル容量画面では合計のみが表示され、各内訳の使用量は直接は見えません。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/user/relevance-search-benefits">Dataverse 検索とは（インデックスの種類）</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization#how-much-will-dataverse-search-cost">Dataverse 検索の構成（費用・容量に関する記載）</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/release-plan/2025wave1/data-platform/enhance-ai-powered-experiences-dataverse-search">Dataverse 検索による AI 搭載エクスペリエンスの強化 (Release Plan)</a></li></ul><h2 id="q2">検索インデックス（Search）の中身と削減のコツは？ (Q2)</h2>【結論】検索インデックスは、モデル駆動アプリのグローバル検索用に、対象テーブルの「検索対象列」とレコードを素早く探すための情報を保持します。対象テーブル数・検索対象列数・レコード数が多いほど容量が増えます。<p>【補足】不要なテーブルや列を検索対象から外すことで容量を抑えられます。<br>必要に応じて、環境設定の Dataverse 検索 を「既定（Default）」または「オフ（Off）」にすることで、容量を抑えられます。(モデル駆動型アプリのグローバル検索用の検索ボックスは表示されなくなります。)</p><p>【容量削減のためのポイント】</p><ol><li>検索対象テーブルの見直し（業務で検索しない履歴テーブル等は対象外）。</li><li>検索対象列の削減（フリーテキストに不要な列は対象外）。</li><li>必要な場合のみ環境で検索機能を「既定」や「オフ」に設定。</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/user/relevance-search#understand-search-results">テーブルと行を Dataverse 検索で検索する（対象列種の説明）</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization#select-tables-for-dataverse-searchs-global-search">Dataverse 検索の構成（対象テーブル・列の設定手順）</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/user/relevance-search-benefits#what-actions-can-makers-or-admins-take-to-manage-dataverse-search-efficiently">Dataverse 検索の効率的な管理（テーブル&#x2F;列の外し方）</a></li></ul><h2 id="q3">構造化インデックス（Structured）の中身と削減のコツは？ (Q3)</h2>【結論】構造化インデックスは、Copilot や AI エージェントが Dataverse のテーブルデータを理解し、関係性をたどって推論するための索引です。App Copilot や Copilot Studio のエージェント、Dynamics 365 の一部 Copilot が利用します。<p>【補足】不要なアプリでの App Copilot 無効化、未使用エージェントやナレッジソースの削除で容量を抑えられます。<br>一部のファーストパーティ Copilot は専用の管理画面で無効化が必要です。</p><p>【容量削減のためのポイント】</p><ol><li>アプリ単位で App Copilot を無効化。</li><li>環境設定で Copilot をオフ。</li><li>Copilot Studio の未使用エージェントや Dataverse ナレッジソースの削除。</li><li>営業ハブや Customer Service における Copilot をオフ。</li></ol><p>【補足】Dynamics 365 Sales Close Agent（SCA）機能において、Product（製品）エンティティ向けのセマンティック検索（Semantic Search） が有効化されたことで、構造化インデックス（Structured）の容量増加となる場合があります。<br>無効化により当該インデックスが削除され、容量が削減される見込みです。利用されない場合は、以下の方法で当該機能の無効化を行うことが可能です。</p><ol><li>対象環境のモデル駆動型アプリへ管理者権限でアクセスします。</li><li>F12 で開発者ツールを開き、コンソールタブを表示します。</li><li>次の JavaScript を実行して該当の検索スキルレコードを無効化します。</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Xrm</span>.<span class="property">WebApi</span>.<span class="title function_">retrieveMultipleRecords</span>(</span><br><span class="line"><span class="string">&quot;dvtablesearch&quot;</span>,</span><br><span class="line"><span class="string">&quot;?$filter=name eq &#x27;Product_UkrWydE7w4YL3rT7pU6s3&#x27;&quot;</span></span><br><span class="line">).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">result</span>) &#123;</span><br><span class="line"><span class="keyword">if</span> (result.<span class="property">entities</span>.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">var</span> dvtablesearchId = result.<span class="property">entities</span>[<span class="number">0</span>].<span class="property">dvtablesearchid</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Xrm</span>.<span class="property">WebApi</span>.<span class="title function_">updateRecord</span>(<span class="string">&quot;dvtablesearch&quot;</span>, dvtablesearchId, &#123;</span><br><span class="line"><span class="string">&quot;statecode&quot;</span>: <span class="number">1</span></span><br><span class="line">&#125;).<span class="title function_">then</span>(</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;dvtablesearch has been updated successfully:&quot;</span>, res);</span><br><span class="line">&#125;,</span><br><span class="line"><span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Update failed, please retry:&quot;</span>, error.<span class="property">message</span>);</span><br><span class="line">&#125;</span><br><span class="line">);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No record found with name = Product_UkrWydE7w4YL3rT7pU6s3.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>【補足】無効化状態の確認は次の API で行えます。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;環境URL&gt;/api/data/v9.0/dvtablesearchs?$filter=(name%20eq%20%27Product_UkrWydE7w4YL3rT7pU6s3%27)</span><br></pre></td></tr></table></figure><p>【補足】statecode が 1 の場合は当該機能がオフと判断いただけます。</p><p>【リスク軽減】本操作は環境に影響しますので、検証環境での事前確認や変更管理の手続きを行ったうえで実施してください。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#disable-copilot-chat-for-a-model-driven-app">モデル駆動型アプリの Copilot チャット の有効&#x2F;無効化</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#enable-copilot-for-model-driven-apps-in-your-environment">環境内のモデル駆動型アプリの Copilot の有効&#x2F;無効化</a></li><li><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-dataverse">MCS（Microsoft Copilot Studio）で Knowledge Source の追加</a></li><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/sales/enable-setup-copilot#turn-copilot-features-on-or-off-in-sales-hub">営業ハブ における Copilot の機能</a></li><li><a href="https://learn.microsoft.com/ja-jp/dynamics365/customer-service/administer/configure-copilot-features#opt-out-of-using-copilot-features">Customer Service における Copilot の機能</a><br>Copilot Service 管理センター アプリにアクセスし、以下から確認できる各機能を利用いただいていない場合には、無効化することは可能です。<ul><li>サポートエクスペリエンス &gt; 生産性 &gt; 質問やメールに使用する Copilot</li><li>サポートエクスペリエンス &gt; 生産性 &gt; 要約<br>※画面下部に「この機能のオプトアウト」の設定があります。</li></ul></li></ul><h2 id="q4">テキストデータインデックス（TextData）の中身と削減のコツは？ (Q4)</h2>【結論】テキストデータインデックスは、Copilot / エージェントが参照する非構造化データ（PDF や Word、OneDrive / SharePoint の文書など）を検索・要約するための索引です。アップロードや連携したファイルが多いほど容量が増えます。<p>【補足】未使用ファイルの削除、不要な OneDrive &#x2F; SharePoint の連携解除で容量を抑えられます。</p><p>【容量削減のためのポイント】</p><ol><li>エージェント内の未使用ファイルを削除。</li><li>参照しない OneDrive &#x2F; SharePoint の接続を解除。</li><li>必要なファイルやフォルダのみを選ぶ（深いフォルダを丸ごと選ばない）。</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-file-upload">Copilot Studio: ファイルをナレッジソースに追加</a></li><li><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-sharepoint">Copilot Studio: SharePoint をナレッジソースに追加</a></li><li><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-unstructured-data">Copilot Studio: 非構造化データの追加 </a></li></ul><h2 id="q5">画面で見えない内訳をどう管理すればよいですか？ (Q5)</h2>【結論】Power Platform 管理センター では合計のみの表示ですので、アプリ・エージェント単位で「どの機能がどのインデックスを使っているか」を整理し、不要な対象を段階的に外すのが有効です。 また、環境の Dataverse Search を「既定」にするとグローバル検索のインデックス生成を抑えられます。<p>【補足】Copilot などの生成 AI は構造化&#x2F;非構造化インデックスを使います。 方針に合わせて機能を無効化・対象縮小すると容量が削減されます。</p><p>【よくある誤解】</p><ul><li>誤解: Dataverse Search を「既定」にするとすべてのインデックスが止まる。<ul><li>→ 正しくは: グローバル検索用は抑制されますが、Copilot など他機能向けの索引は個別設定により維持される場合があります。</li></ul></li><li>誤解: アプリで Copilot をオフにしても環境全体の索引が消える。<ul><li>→ 正しくは: アプリ単位の影響に限定されます。環境や他アプリ・エージェントの設定は別途管理が必要です。</li></ul></li></ul><h2 id="summary">まとめ</h2>- Power Platform 管理センター の Dataverse Search ストレージは検索・構造化・テキストの 3 インデックスの合算です。<ul><li><p>検索インデックスは、グローバル検索対象のテーブル&#x2F;列&#x2F;レコード数の見直しで削減できます。</p></li><li><p>構造化インデックスは Copilot&#x2F;エージェントの無効化・対象縮小で抑えられます。</p></li><li><p>テキストデータインデックスは未使用ファイル削除・連携解除で減らせます。</p></li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2>本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-search-storage-guide/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/dataverse-search-storage-guide/"/>
-    <published>2026-01-18T15:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、Power Platformサポートチームの鈴木です。</p>
-<p>本記事ではDataverse Search のストレージ内訳について、以下の Q1〜Q5 の質問に回答する形でご説明させていただきます。</p>
-<ul>
-<li><a href="#q1">Q1: PPAC の「Dataverse Search」ストレージは何の合算値ですか？</a></li>
-<li><a href="#q2">Q2: 検索インデックス（Search）の中身と削減のコツは？</a></li>
-<li><a href="#q3">Q3: 構造化インデックス（Structured）の中身と削減のコツは？</a></li>
-<li><a href="#q4">Q4: テキストデータインデックス（TextData）の中身と削減のコツは？</a></li>
-<li><a href="#q5">Q5: 画面で見えない内訳をどう管理すればよいですか？</a></li>
-</ul>]]>
-    </summary>
-    <title>
-      <![CDATA[Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）]]>
-    </title>
-    <updated>2026-08-17T03:07:26.820Z</updated>
+    <updated>2026-08-17T11:33:01.693Z</updated>
   </entry>
 </feed>
