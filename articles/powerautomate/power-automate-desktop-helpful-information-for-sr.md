@@ -141,6 +141,9 @@ Power Automate コンピューター ランタイムをご利用いただいて�
 <a id='anchor-httpviewer'></a>
 
 ### 7.1 HTTP ビューアー / 開発者ツール  
+> [!NOTE]
+> HTTP ビューアー / 開発者ツールは Power Automate for desktop のバージョン 2.70 以降で利用できます。
+
 1. 環境変数への追加  
    実行される端末 > システムのプロパティ > 詳細設定 > 環境変数 を選択し、ユーザー環境変数に以下を追加します。  
    - 変数名 : PAD_DEV_TOOLS_ENABLED  / 変数値 : true  
