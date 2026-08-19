@@ -1,5 +1,5 @@
 ---
-title: Power Automate クラウド フローの実行履歴を Dataverse の FlowRun テーブルから取得する
+title: 管理者が Power Automate クラウド フローの実行履歴を取得する方法
 date: 2026-08-07 12:00:00
 tags:
   - Power Automate
@@ -12,26 +12,27 @@ categories:
 # はじめに
 
 こんにちは、Power Platform サポートチームの早坂です。  
-本記事では、Power Automate クラウド フローの実行結果を Dataverse の `FlowRun` テーブルから取得する方法と、同テーブルに保存される情報の範囲をご紹介します。
+本記事では、管理者が Power Automate クラウド フローの実行履歴を確認・取得する方法を、目的別にご紹介します。
 
-`FlowRun` テーブルでは、フローの開始時刻、終了時刻、状態、エラー概要などの実行単位の情報を取得できます。一方、各アクションの名前、入力、出力、追跡 ID などの詳細情報は保存されません。用途に応じて Power Automate の実行履歴や Application Insights と使い分ける必要があります。
+実行履歴の確認方法には、Power Automate ポータル、オートメーション センター、Dataverse の `FlowRun` テーブル、Application Insights があります。取得できる情報、対象となるフロー、データの完全性が異なるため、調査や監視の目的に応じた使い分けが必要です。
 
 <!-- more -->
 
 ### この記事でわかること
 
+- 管理者が実行履歴を確認・取得する方法の使い分け
 - Dataverse の `FlowRun` テーブルに保存される情報と、保存されない情報
 - Dataverse Web API と PowerShell を使用して実行履歴を取得する方法
 - `FlowRun` の保持期間を Power Platform 管理センターから変更する方法（画面付き）
 - 実行履歴が保存されない主な条件と、データの完全性に関する注意点
-- Power Automate ポータル、`FlowRun`、Application Insights の使い分け
 
 # 目次
 
 1. [対象範囲と前提条件](#anchor-prerequisites)
+1. [目的別の確認・取得方法](#anchor-methods)
 1. [FlowRun テーブルに保存される情報](#anchor-flowrun-data)
 1. [Dataverse Web API から実行履歴を取得する](#anchor-web-api)
-1. [アクション単位の詳細が必要な場合](#anchor-action-details)
+1. [アクション単位の詳細を調査する](#anchor-action-details)
 1. [保持期間とデータの完全性](#anchor-retention)
 1. [実行履歴が保存されない主な条件](#anchor-ingestion-failures)
 1. [まとめ](#anchor-summary)
@@ -43,7 +44,9 @@ categories:
 
 # 対象範囲と前提条件
 
-`FlowRun` テーブルへ実行履歴が保存される対象は、定義が Dataverse に保存されている**ソリューション クラウド フロー**です。
+確認方法によって対象範囲が異なります。Power Automate ポータルでは、ソリューションに含まれていないクラウド フローを含め、アクセス権を持つ対象フローの実行履歴を確認できます。
+
+一方、`FlowRun` テーブルへ実行履歴が保存される対象は、定義が Dataverse に保存されている**ソリューション クラウド フロー**です。オートメーション センターのクラウド フロー実行データにも `FlowRun` が使用されます。
 
 > [!IMPORTANT]
 > ソリューションに含まれていないクラウド フローは、`FlowRun` テーブルへの実行履歴保存の対象ではありません。
@@ -52,6 +55,30 @@ categories:
 
 > [!NOTE]
 > 本記事の内容は、2026 年 8 月 7 日に検証用の Dataverse 環境とソリューション クラウド フローを使用して確認したものです。
+
+<a id='anchor-methods'></a>
+
+# 目的別の確認・取得方法
+
+管理者が利用できる主な方法は次のとおりです。
+
+| 目的 | 使用する機能 | 対象と特徴 |
+|---|---|---|
+| 特定の実行を調査する | Power Automate ポータルの実行履歴 | 対象フローへのアクセス権が必要です。ソリューションに含まれていないクラウド フローも対象で、実行、トリガー、各アクションの状態、入力、出力、追跡 ID などを確認できます。実行履歴はトランザクション ベースです。 |
+| 環境内の自動化を横断的に監視する | オートメーション センター | ダッシュボードから実行ログ、エラー、パフォーマンスなどを確認できます。クラウド フローの実行データには `FlowRun` が使用されます。 |
+| 実行結果を API で取得・集計する | Dataverse の `FlowRun` テーブル | ソリューション クラウド フローが対象です。実行単位の状態、開始・終了時刻、実行時間、エラー概要などを取得できます。アクション単位の詳細は含まれません。 |
+| アクション単位で継続的に監視・分析する | Application Insights | クラウド フローの実行、トリガー、アクションのテレメトリを分析し、アラートを設定できます。マネージド環境でのみサポートされます。 |
+
+個別の障害調査では、最初に Power Automate ポータルの実行履歴から対象の実行を特定します。実行詳細ページの URL は、次の形式です。
+
+```text
+https://make.powerautomate.com/environments/<環境 ID>/flows/<フロー ID>/runs/<実行 ID>
+```
+
+URL の `<実行 ID>` は `FlowRun` テーブルの `name` に対応します。ポータルで失敗したアクションを展開すると、アクション名、入力、出力を確認できます。また、エラー情報に `clientRequestId`、`serviceRequestId` などの追跡 ID が表示される場合があります。これらを使って対象実行と失敗箇所を絞り込み、継続的な監視や横断分析が必要な場合は Application Insights のテレメトリと突き合わせます。
+
+> [!IMPORTANT]
+> `FlowRun` と Application Insights のデータは、どちらも 100% の完全性が保証されるトランザクション データではありません。個別の実行を確実に調査する場合は、Power Automate ポータルの実行履歴を使用してください。
 
 <a id='anchor-flowrun-data'></a>
 
@@ -201,9 +228,15 @@ $response.value
 
 <a id='anchor-action-details'></a>
 
-# アクション単位の詳細が必要な場合
+# アクション単位の詳細を調査する
 
 アクション名、アクションごとの成否、入力、出力、追跡 ID を確認する場合は、Power Automate ポータルの実行履歴を使用します。
+
+1. [Power Automate](https://make.powerautomate.com/) で対象の環境へ切り替えます。
+1. 対象のクラウド フローを開き、実行履歴から調査する実行を選択します。
+1. 実行詳細ページの URL から実行 ID を確認します。
+1. 失敗したトリガーまたはアクションを展開し、エラー、入力、出力、追跡 ID を確認します。
+1. `FlowRun` や Application Insights のデータと照合する場合は、環境 ID、フロー ID、実行 ID、発生時刻を検索条件として使用します。
 
 > [!NOTE]
 > フローの失敗の多くはアクション単位で発生しますが、アクションに起因しないエラーが表示される場合もあります。
@@ -211,7 +244,7 @@ $response.value
 > [!NOTE]
 > Power Automate ポータルのフロー詳細に表示される実行履歴はトランザクション ベースであり、実行が欠落なく表示されます。個別の実行を確実に調査したい場合は、`FlowRun` テーブルではなくポータルの実行履歴を使用してください。
 
-長期的な監視や分析でアクション単位のテレメトリが必要な場合は、Application Insights へのエクスポートを検討します。Application Insights では、クラウド フローの実行は `requests`、トリガーとアクションは `dependencies` に保存されます。
+長期的な監視や分析でアクション単位のテレメトリが必要な場合は、Application Insights へのエクスポートを検討します。Application Insights では、クラウド フローの実行は `requests`、トリガーとアクションは `dependencies` に保存されます。`customDimensions` の `environmentId` と `resourceId`（フロー ID）に加え、発生時刻やアクション名を使って、ポータルで確認した実行と対象範囲を絞り込みます。
 
 次の KQL は、指定した環境とフローの失敗したアクションを検索する例です。
 
@@ -290,9 +323,9 @@ Power Platform 管理センターから保持期間を変更する手順は次�
 
 # まとめ
 
-Dataverse の `FlowRun` テーブルは、ソリューション クラウド フローの実行結果を横断的に取得し、状態や実行時間を集計する用途に適しています。
+管理者がクラウド フローの実行履歴を確認する方法は、目的に応じて使い分けます。個別の実行調査には Power Automate ポータル、環境内の横断的な監視にはオートメーション センター、ソリューション クラウド フローの実行結果を API で取得・集計する場合は `FlowRun` が適しています。
 
-一方、アクション名、アクションごとの入力と出力、アクション追跡 ID などは保存されません。実行単位の集計には `FlowRun`、個別実行の調査には Power Automate ポータル、アクション単位の長期分析には Application Insights を使用してください。
+`FlowRun` には、アクション名、アクションごとの入力と出力、アクション追跡 ID などは保存されません。アクション単位の継続的な監視や分析が必要な場合は、Application Insights を使用してください。
 
 <a id='anchor-references'></a>
 
