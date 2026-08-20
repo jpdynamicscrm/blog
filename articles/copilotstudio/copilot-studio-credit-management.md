@@ -1,7 +1,8 @@
 ---
 title:【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法
 date: 2026-07-15
-categories: Microsoft Copilot Studio
+categories: 
+  - Microsoft Copilot Studio
 tags:
   - Microsoft Copilot Studio
   - License
