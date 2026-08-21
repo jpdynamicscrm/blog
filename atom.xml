@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-08-17T11:33:01.550Z</updated>
+  <updated>2026-08-21T09:10:55.804Z</updated>
   <entry>
     <author>
       <name>
@@ -40,7 +40,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせ前のトラブルシューティング</title>
-    <updated>2026-08-17T11:33:01.550Z</updated>
+    <updated>2026-08-21T09:10:55.804Z</updated>
   </entry>
   <entry>
     <author>
@@ -62,7 +62,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-08-17T11:33:01.387Z</updated>
+    <updated>2026-08-21T09:10:55.654Z</updated>
   </entry>
   <entry>
     <author>
@@ -87,7 +87,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-17T11:33:01.476Z</updated>
+    <updated>2026-08-21T09:10:55.736Z</updated>
   </entry>
   <entry>
     <author>
@@ -113,7 +113,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-08-17T11:33:01.333Z</updated>
+    <updated>2026-08-21T09:10:55.605Z</updated>
   </entry>
   <entry>
     <author>
@@ -139,7 +139,7 @@
 <p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
-    <updated>2026-08-17T11:33:01.453Z</updated>
+    <updated>2026-08-21T09:10:55.714Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +162,36 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-08-17T11:33:01.573Z</updated>
+    <updated>2026-08-21T09:10:55.825Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/categories/Microsoft-Copilot-Studio/"/>
+    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
+    <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
+    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/tags/Microsoft-Copilot-Studio/"/>
+    <category term="License" scheme="https://jpdynamicscrm.github.io/blog/tags/License/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの中村です。</p><p>本記事では、Microsoft Copilot Studio において<strong>エージェント単位</strong>で Copilot クレジットの消費量を予測し、実績管理するために利用できる機能をまとめてご紹介します。</p><div class="alert is-important"><p class="alert-title">重要</p><p>本記事は <strong>Copilot Studio の Standard Harness</strong> を使用した場合を前提としています。GitHub Copilot Harness では、テスト実行時の課金動作やエージェントの分析画面が異なる場合があります。</p><p>本記事で紹介するツールや機能は、クレジット消費量の<strong>目安を把握するための参考情報</strong>です。特定のシナリオにおけるクレジット消費量を保証するものではなく、本記事の内容をもって「このエージェント構成ではこれだけ消費される」と確定させることはできません。</p><p>また、「特定のシナリオでのクレジット消費がライセンス上正しいか」「自社の利用形態に必要なライセンス数」等、<strong>使用権・ライセンス要件に関するご質問は製品サポートでのご支援の対象外</strong>となっております。このようなご確認が必要な場合は、貴社ご担当の <strong>Microsoft 営業担当者</strong>または<strong>販売パートナー</strong>へお問い合わせください。</p></div><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Copilot クレジットの概要</li><li>開発段階でエージェントのクレジット消費を予測するために利用できる機能</li><li>本番リリース後にエージェント単位でクレジット消費を監視・制御するために利用できる機能</li><li>各機能の使い分けと予実管理の全体像</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#copilot-%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%81%A8%E3%81%AF">Copilot クレジットとは</a></li><li><a href="#%E9%96%8B%E7%99%BA%E6%AE%B5%E9%9A%8E-%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E6%B6%88%E8%B2%BB%E3%81%AE%E4%BA%88%E6%B8%AC%E3%81%AB%E5%88%A9%E7%94%A8%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD">開発段階: クレジット消費の予測に利用できる機能</a><ul><li><a href="#%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E4%BD%BF%E7%94%A8%E9%87%8F%E8%A6%8B%E7%A9%8D%E3%82%82%E3%82%8A%E3%83%84%E3%83%BC%E3%83%AB-agent-usage-estimator">エージェント使用量見積もりツール (Agent Usage Estimator)</a></li><li><a href="#copilot-studio-%E3%81%AE-%E7%9B%A3%E8%A6%96-%E3%82%BF%E3%83%96-analytics---billing">Copilot Studio の 監視 タブ (Analytics - Billing)</a></li><li><a href="#%E3%83%86%E3%82%B9%E3%83%88%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E6%B6%88%E8%B2%BB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">テスト実行時のクレジット消費について</a></li></ul></li><li><a href="#%E6%9C%AC%E7%95%AA%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E5%BE%8C-%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E6%B6%88%E8%B2%BB%E3%81%AE%E5%AE%9F%E7%B8%BE%E7%AE%A1%E7%90%86%E3%81%AB%E5%88%A9%E7%94%A8%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD">本番リリース後: クレジット消費の実績管理に利用できる機能</a><ul><li><a href="#power-platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC---copilot-studio-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E7%94%BB%E9%9D%A2">Power Platform 管理センター - Copilot Studio ライセンス画面</a></li><li><a href="#azure-cost-management-pay-as-you-go-%E5%88%A9%E7%94%A8%E6%99%82">Azure Cost Management (Pay-as-you-go 利用時)</a></li><li><a href="#copilot-studio-%E3%81%AE-%E7%9B%A3%E8%A6%96-%E3%82%BF%E3%83%96-%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%80%8B%E5%88%A5">Copilot Studio の 監視 タブ (エージェント個別)</a></li></ul></li><li><a href="#%E3%81%BE%E3%81%A8%E3%82%81-%E4%BA%88%E5%AE%9F%E7%AE%A1%E7%90%86%E3%81%AE%E5%85%A8%E4%BD%93%E5%83%8F">まとめ: 予実管理の全体像</a></li><li><a href="#%E4%BD%BF%E7%94%A8%E6%A8%A9%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%94%E8%B3%AA%E5%95%8F%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">使用権に関するご質問について</a></li><li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0%E5%8F%AF%E8%83%BD%E6%80%A7">注意事項（情報の更新可能性）</a></li></ul><h2 id="Copilot-クレジットとは"><a href="#Copilot-クレジットとは" class="headerlink" title="Copilot クレジットとは"></a>Copilot クレジットとは</h2><p>2025 年 9 月 1 日より、Copilot Studio のエージェント消費の共通通貨は「メッセージ」から <strong>Copilot クレジット</strong> に変更されました。Copilot クレジットは、エージェントが情報を取得し、プロンプトに応答し、アクションやスキルを実行するために必要な時間と労力を測定する単位です。消費されるクレジット数は、エージェントの設計、ユーザーとのやり取りの頻度、使用する機能によって異なります。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing">Copilot Studio licensing - Microsoft Copilot Studio | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/requirements-messages-management">Billing rates and management - Microsoft Copilot Studio | Microsoft Learn</a></li></ul><h2 id="開発段階-クレジット消費の予測に利用できる機能"><a href="#開発段階-クレジット消費の予測に利用できる機能" class="headerlink" title="開発段階: クレジット消費の予測に利用できる機能"></a>開発段階: クレジット消費の予測に利用できる機能</h2><h3 id="エージェント使用量見積もりツール-Agent-Usage-Estimator"><a href="#エージェント使用量見積もりツール-Agent-Usage-Estimator" class="headerlink" title="エージェント使用量見積もりツール (Agent Usage Estimator)"></a>エージェント使用量見積もりツール (Agent Usage Estimator)</h3><p><a href="https://microsoft.github.io/copilot-studio-estimator/">Microsoft エージェント使用量見積もりツール</a> は、組織が月ごとの Copilot クレジット消費量を事前に予測するための公開ツールです。</p><p>主な機能は以下のとおりです。</p><ul><li>エージェントの種類（Copilot Studio カスタム、Dynamics 365 Sales &#x2F; Service &#x2F; Finance &#x2F; Supply Chain Management等）を選択して見積もりを作成できます</li><li>トラフィック量、オーケストレーション方法、ナレッジソース、ツール &#x2F; アクションの構成に基づいてクレジット消費量を算出します</li><li>低・中・高のボリュームシナリオをテストできます</li><li>複数エージェントの合算コストを算出できます</li><li>PDF レポートを生成し、調達承認やステークホルダーレビューに利用できます</li></ul><p>利用例としては、以下のような場面が挙げられます。</p><ul><li>予算計画のための月間クレジット消費量の予測</li><li>異なるエージェント構成間のコスト比較</li><li>機能の利用がクレジット消費に与える影響の把握</li></ul><div class="alert is-info"><p class="alert-title">Note</p><p>このツールは <strong>見積もり目的のみ</strong> であり、最終コストを保証するものではありません。実際の消費量は実運用パターンに依存するため、見積もり値に対して 10〜20% のバッファーを加えることがお勧めされています。</p></div><p>また、本ツールが<strong>適さない</strong>ユースケースは以下のとおりです。</p><ul><li>確定的な価格見積もりや契約上のコミットメントの作成</li><li>特定シナリオにおけるクレジット消費量の保証</li><li>過去の実績使用量のトラッキング（本ツールは将来予測のみ提供）</li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agent-usage-estimator">Agent usage estimator - Microsoft Copilot Studio | Microsoft Learn</a></li></ul><h3 id="Copilot-Studio-の-監視-タブ-Analytics-Billing"><a href="#Copilot-Studio-の-監視-タブ-Analytics-Billing" class="headerlink" title="Copilot Studio の [監視] タブ (Analytics - Billing)"></a>Copilot Studio の [監視] タブ (Analytics - Billing)</h3><p>Copilot Studio のエージェント個別画面にある [監視] タブでは、エージェントごとの Copilot クレジット消費状況を確認できます。</p><p>本番リリース前であっても、パイロット運用（テスト チャット以外のチャネルで実際にエージェントを公開し、限定的にユーザーに利用させる運用）を行っている場合は、このタブで実消費データを確認できます。Agent Usage Estimator の予測値と比較することで、本番リリース前に予測精度を高めることが可能です。</p><p>確認できる情報は以下のとおりです。</p><ul><li>選択した期間における合計課金クレジット数</li><li><strong>請求の傾向 (Billing trend)</strong>: 期間中のクレジット消費量の推移をチャートで表示します</li><li><strong>コスト配分 (Cost distribution)</strong>: どの種類のアクティビティ（ナレッジ、アクション、フローなど）がクレジット消費に寄与しているかを表示します</li></ul><div class="alert is-info"><p class="alert-title">Note</p><p>分析データの更新には数時間かかるため、直近のアクティビティがすぐに反映されない場合があります。</p></div><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/analytics-consumption">View agent’s billing consumption - Microsoft Copilot Studio | Microsoft Learn</a></li></ul><h3 id="テスト実行時のクレジット消費について"><a href="#テスト実行時のクレジット消費について" class="headerlink" title="テスト実行時のクレジット消費について"></a>テスト実行時のクレジット消費について</h3><p>開発・テスト段階での注意点として、<strong>組み込みテスト チャットでのメッセージは Copilot クレジットの課金対象にカウントされません</strong>。フロー デザイナーやエージェントのテスト チャットからのテスト実行も同様に課金対象外です。そのため、開発段階ではテストを気にせず実施し、Agent Usage Estimator で予測した値と本番リリース後の実績値を比較する運用がお勧めです。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/faq-billing-licensing">FAQ for Copilot Studio billing and licensing - Microsoft Copilot Studio | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/flows-overview#manage-agent-flow-capacity-usage">Agent flows overview - Microsoft Copilot Studio | Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/requirements-messages-management#overage-enforcement">Billing rates and management - Microsoft Copilot Studio | Microsoft Learn</a></li></ul><h2 id="本番リリース後-クレジット消費の「実績管理」に利用できる機能"><a href="#本番リリース後-クレジット消費の「実績管理」に利用できる機能" class="headerlink" title="本番リリース後: クレジット消費の「実績管理」に利用できる機能"></a>本番リリース後: クレジット消費の「実績管理」に利用できる機能</h2><h3 id="Power-Platform-管理センター-Copilot-Studio-ライセンス画面"><a href="#Power-Platform-管理センター-Copilot-Studio-ライセンス画面" class="headerlink" title="Power Platform 管理センター - Copilot Studio ライセンス画面"></a>Power Platform 管理センター - Copilot Studio ライセンス画面</h3><p>Power Platform 管理センター (<a href="https://admin.powerplatform.microsoft.com/">https://admin.powerplatform.microsoft.com</a>) の [ライセンス] &gt; [Copilot Studio] から、以下などの情報を確認・管理できます。</p><h4 id="概要-Summary-タブ"><a href="#概要-Summary-タブ" class="headerlink" title="[概要 (Summary)] タブ"></a>[概要 (Summary)] タブ</h4><table><thead><tr><th>カード</th><th>内容</th></tr></thead><tbody><tr><td>従量課金制 Copilot クレジット</td><td>アクティブな請求プランの数と月初来のCopilotクレジット合計</td></tr><tr><td>プリペイドキャパシティ</td><td>購入済み容量の割り当て・消費状況</td></tr><tr><td>製品ごとの容量消費量</td><td>プリペイド &#x2F; 従量課金制ごとの消費内訳</td></tr><tr><td>容量の消費を合計した傾向</td><td>月ごとの容量消費トレンド（前払い &#x2F; 従量課金制 &#x2F; 日ごと使用状況）</td></tr><tr><td>上位 5 個 (人) のエージェントとユーザー</td><td>クレジット使用量別の上位エージェントおよびユーザー</td></tr><tr><td>環境別の Copilot クレジットの使用状況</td><td>上位 5 件の環境のクレジット使用量</td></tr></tbody></table><h4 id="環境-Environments-タブ"><a href="#環境-Environments-タブ" class="headerlink" title="[環境 (Environments)] タブ"></a>[環境 (Environments)] タブ</h4><p>環境ごとの詳細な消費状況を確認できます。</p><ul><li>プリペイド容量から差し引かれたクレジット数</li><li>Pay-as-you-go プランで課金されたユニット数</li><li>環境のステータス（容量内 &#x2F; 超過 &#x2F; 容量割り当て済み &#x2F; Pay-as-you-go 使用中）</li><li><strong>エージェント別の消費明細</strong> (メッセージ消費の詳細 グリッド): エージェントごとの消費明細を確認できます</li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/power-platform/admin/manage-copilot-studio-messages-capacity">Manage Copilot Studio credits and capacity - Power Platform | Microsoft Learn</a></li></ul><h3 id="Azure-Cost-Management-Pay-as-you-go-利用時"><a href="#Azure-Cost-Management-Pay-as-you-go-利用時" class="headerlink" title="Azure Cost Management (Pay-as-you-go 利用時)"></a>Azure Cost Management (Pay-as-you-go 利用時)</h3><p>Pay-as-you-go プランを利用している場合、Azure ポータルの Azure Cost Management からも課金情報を確認できます。</p><ul><li>メーターごと、Azure リソースごとに課金額を表示します</li><li>各課金プランは Power Platform アカウントリソースに対応しています</li><li>使用状況は通常 24 時間以内に反映されます</li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/power-platform/admin/pay-as-you-go-usage-costs">View usage and billing information - Power Platform | Microsoft Learn</a></li></ul><h3 id="Copilot-Studio-の-監視-タブ-エージェント個別"><a href="#Copilot-Studio-の-監視-タブ-エージェント個別" class="headerlink" title="Copilot Studio の [監視] タブ (エージェント個別)"></a>Copilot Studio の [監視] タブ (エージェント個別)</h3><p>前述のとおり、本番リリース後も Copilot Studio 内の各エージェントの [監視] タブから、そのエージェント固有の課金クレジット情報、トレンド、コスト配分を確認できます。[請求を表示する] ボタンをクリックすると、請求の傾向やコスト配分の詳細パネルが開きます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/analytics-consumption">View agent’s billing consumption - Microsoft Copilot Studio | Microsoft Learn</a></li></ul><h2 id="まとめ-予実管理の全体像"><a href="#まとめ-予実管理の全体像" class="headerlink" title="まとめ: 予実管理の全体像"></a>まとめ: 予実管理の全体像</h2><table><thead><tr><th>フェーズ</th><th>機能</th><th>主な用途</th></tr></thead><tbody><tr><td>開発 (予測)</td><td>Agent Usage Estimator</td><td>月間消費量の見積もり、予算計画、複数エージェントの合算コスト予測</td></tr><tr><td>開発 (予測)</td><td>Copilot Studio [監視] タブ</td><td>パイロット運用中の実消費データによる予測精度の向上</td></tr><tr><td>本番 (実績)</td><td>PPAC [Licensing] &gt; [Copilot Studio]</td><td>テナント &#x2F; 環境レベルの消費監視、容量割り当て管理</td></tr><tr><td>本番 (実績)</td><td>Azure Cost Management</td><td>Pay-as-you-go 利用時の詳細課金分析</td></tr><tr><td>本番 (実績)</td><td>Copilot Studio [監視] タブ</td><td>エージェント個別の課金トレンド、コスト分布</td></tr></tbody></table><h2 id="使用権に関するご質問について"><a href="#使用権に関するご質問について" class="headerlink" title="使用権に関するご質問について"></a>使用権に関するご質問について</h2><div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Copilot クレジットの消費量を予測・管理する技術的な方法をご紹介しています。</p><p>「特定のシナリオでのクレジット消費がライセンス上正しいか」等、<strong>使用権に関するご確認は製品サポートの対応範囲外</strong>となります。</p></div><ul><li>クレジットおよびライセンスの公式情報: <a href="https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing">Copilot Studio のライセンスと課金</a></li><li>使用権・契約に関する個別のご確認: 貴社ご担当の <strong>Microsoft 営業担当者</strong>、または<strong>販売パートナー</strong>へお問い合わせください。</li><li>サポートへのお問い合わせ時の留意事項: <a href="https://jpdynamicscrm.github.io/blog/powerplatform/about-power-platform-support/#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Power Apps&#x2F;Power Automate&#x2F;Copilot Studio お問い合わせ時の留意事項 - ライセンスに関するお問い合わせについて</a></li></ul>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-credit-management/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-credit-management/"/>
+    <published>2026-07-14T15:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートチームの中村です。</p>
+<p>本記事では、Microsoft Copilot Studio において<strong>エージェント単位</strong>で Copilot クレジットの消費量を予測し、実績管理するために利用できる機能をまとめてご紹介します。</p>
+<blockquote>
+<p>[!IMPORTANT]<br>本記事は <strong>Copilot Studio の Standard Harness</strong> を使用した場合を前提としています。GitHub Copilot Harness では、テスト実行時の課金動作やエージェントの分析画面が異なる場合があります。</p>
+<p>本記事で紹介するツールや機能は、クレジット消費量の<strong>目安を把握するための参考情報</strong>です。特定のシナリオにおけるクレジット消費量を保証するものではなく、本記事の内容をもって「このエージェント構成ではこれだけ消費される」と確定させることはできません。</p>
+<p>また、「特定のシナリオでのクレジット消費がライセンス上正しいか」「自社の利用形態に必要なライセンス数」等、<strong>使用権・ライセンス要件に関するご質問は製品サポートでのご支援の対象外</strong>となっております。このようなご確認が必要な場合は、貴社ご担当の <strong>Microsoft 営業担当者</strong>または<strong>販売パートナー</strong>へお問い合わせください。</p>
+</blockquote>]]>
+    </summary>
+    <title>【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法</title>
+    <updated>2026-08-21T09:10:55.630Z</updated>
   </entry>
   <entry>
     <author>
@@ -188,7 +217,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-08-17T11:33:01.335Z</updated>
+    <updated>2026-08-21T09:10:55.606Z</updated>
   </entry>
   <entry>
     <author>
@@ -211,7 +240,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-08-17T11:33:01.642Z</updated>
+    <updated>2026-08-21T09:10:55.887Z</updated>
   </entry>
   <entry>
     <author>
@@ -234,7 +263,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-08-17T11:33:01.710Z</updated>
+    <updated>2026-08-21T09:10:55.949Z</updated>
   </entry>
   <entry>
     <author>
@@ -258,7 +287,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-08-17T11:33:01.714Z</updated>
+    <updated>2026-08-21T09:10:55.953Z</updated>
   </entry>
   <entry>
     <author>
@@ -281,7 +310,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-08-17T11:33:01.640Z</updated>
+    <updated>2026-08-21T09:10:55.885Z</updated>
   </entry>
   <entry>
     <author>
@@ -304,7 +333,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-08-17T11:33:01.573Z</updated>
+    <updated>2026-08-21T09:10:55.825Z</updated>
   </entry>
   <entry>
     <author>
@@ -330,7 +359,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-08-17T11:33:01.681Z</updated>
+    <updated>2026-08-21T09:10:55.923Z</updated>
   </entry>
   <entry>
     <author>
@@ -357,7 +386,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-08-17T11:33:01.693Z</updated>
+    <updated>2026-08-21T09:10:55.934Z</updated>
   </entry>
   <entry>
     <author>
@@ -383,7 +412,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-08-17T11:33:01.640Z</updated>
+    <updated>2026-08-21T09:10:55.885Z</updated>
   </entry>
   <entry>
     <author>
@@ -420,7 +449,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-08-17T11:33:01.693Z</updated>
+    <updated>2026-08-21T09:10:55.934Z</updated>
   </entry>
   <entry>
     <author>
@@ -450,7 +479,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-08-17T11:33:01.639Z</updated>
+    <updated>2026-08-21T09:10:55.884Z</updated>
   </entry>
   <entry>
     <author>
@@ -482,7 +511,7 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-08-17T11:33:01.571Z</updated>
+    <updated>2026-08-21T09:10:55.823Z</updated>
   </entry>
   <entry>
     <author>
@@ -505,39 +534,6 @@
 <p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
     </summary>
     <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-08-17T11:33:01.710Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Platform Admin Center" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform-Admin-Center/"/>
-    <category term="PowerShell" scheme="https://jpdynamicscrm.github.io/blog/tags/PowerShell/"/>
-    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
-    <category term="セキュリティ ロール" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/"/>
-    <category term="環境管理" scheme="https://jpdynamicscrm.github.io/blog/tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/"/>
-    <category term="ユーザー管理" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/"/>
-    <content>
-      <![CDATA[<p>こんにちは、PowerPlatformサポートチームの粟野です。</p><p>本記事では Power Platform 管理者向け PowerShell を使ってできる代表的な操作について、以下の Q1〜Q6 の質問に回答する形でご説明させていただきます。</p><ul><li><a href="#q1">Q1: Power Platform の PowerShell モジュールはどうやって準備すればよいですか？</a></li><li><a href="#q2">Q2: PowerShell で環境を作成するにはどうすればよいですか？</a></li><li><a href="#q3">Q3: 環境の一覧取得や詳細確認はできますか？</a></li><li><a href="#q4">Q4: Dataverse にユーザーを追加するにはどうすればよいですか？</a></li><li><a href="#q5">Q5: ユーザーに環境ロールを付与するにはどうすればよいですか？</a></li><li><a href="#q6">Q6: 環境のバックアップや復元は PowerShell でできますか？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Power Platform 管理用 PowerShell モジュールの準備方法とサインインの手順</li><li>PowerShell を使った環境の新規作成やデータベース付きの環境作成の方法</li><li>環境の一覧取得や特定の環境の情報を確認する方法</li><li>Dataverse 環境にユーザーを追加する手順</li><li>環境管理者や環境作成者のロールをユーザーに付与する方法</li><li>環境のバックアップ・復元を PowerShell で実行する方法</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#q1">Power Platform の PowerShell モジュールの準備 (Q1)</a></li><li><a href="#q2">PowerShell で環境を作成する (Q2)</a></li><li><a href="#q3">環境の一覧取得・詳細確認 (Q3)</a></li><li><a href="#q4">Dataverse にユーザーを追加する (Q4)</a></li><li><a href="#q5">ユーザーに環境ロールを付与する (Q5)</a></li><li><a href="#q6">環境のバックアップ・復元 (Q6)</a></li><li><a href="#summary">まとめ</a></li><li><a href="#notice">注意事項（情報の更新可能性）</a></li></ul><h2 id="q1">Power Platform の PowerShell モジュールの準備 (Q1)</h2><p>【結論】Power Platform を PowerShell で管理するには、専用の PowerShell モジュールを事前に PC へ入れておく必要があります。<br>モジュールのインストールとサインインの 2 ステップで準備が整います。</p><h3 id="モジュールのインストール"><a href="#モジュールのインストール" class="headerlink" title="モジュールのインストール"></a>モジュールのインストール</h3><p>管理者として PowerShell を開き、以下のコマンドを実行してください。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Install-Module</span> <span class="literal">-Name</span> Microsoft.PowerApps.Administration.PowerShell</span><br><span class="line"><span class="built_in">Install-Module</span> <span class="literal">-Name</span> Microsoft.PowerApps.PowerShell <span class="literal">-AllowClobber</span></span><br></pre></td></tr></table></figure><p>PC の管理者権限がない場合は、末尾に <code>-Scope CurrentUser</code> を追加してください。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Install-Module</span> <span class="literal">-Name</span> Microsoft.PowerApps.Administration.PowerShell <span class="literal">-Scope</span> CurrentUser</span><br><span class="line"><span class="built_in">Install-Module</span> <span class="literal">-Name</span> Microsoft.PowerApps.PowerShell <span class="literal">-AllowClobber</span> <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure><h3 id="サインイン"><a href="#サインイン" class="headerlink" title="サインイン"></a>サインイン</h3><p>モジュールを入れたら、以下のコマンドでサインインします。<br>ブラウザーのサインイン画面が表示されるので、管理者アカウントの資格情報を入力してください。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Add-PowerAppsAccount</span> <span class="literal">-Endpoint</span> prod</span><br></pre></td></tr></table></figure><p>【補足】コマンドレットで管理操作を行うには、Microsoft Entra ID のテナント管理者、Power Platform 管理者、Dynamics 365 管理者のいずれかの権限が必要です。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell">Power Apps と Power Automate の PowerShell サポート (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powershell-installation">Power Platform 管理者用 PowerShell のインストール (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powershell-getting-started">Power Platform 管理者用 PowerShell の概要 (Docs)</a></li></ul><h2 id="q2">PowerShell で環境を作成する (Q2)</h2><p>【結論】<code>New-AdminPowerAppEnvironment</code> コマンドを使うと、PowerShell から環境を新しく作成できます。<br>環境の種類（本番、サンドボックス、試用版、開発者用など）や、場所（リージョン）を指定して作成します。</p><h3 id="基本的な環境の作成"><a href="#基本的な環境の作成" class="headerlink" title="基本的な環境の作成"></a>基本的な環境の作成</h3><p>以下は、日本リージョンに「テスト環境」という名前の試用版環境を作成する例です。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New-AdminPowerAppEnvironment</span> <span class="literal">-DisplayName</span> <span class="string">&#x27;テスト環境&#x27;</span> <span class="literal">-LocationName</span> japan <span class="literal">-EnvironmentSku</span> Trial</span><br></pre></td></tr></table></figure><h3 id="Dataverse-データベース付きの環境を作成する"><a href="#Dataverse-データベース付きの環境を作成する" class="headerlink" title="Dataverse データベース付きの環境を作成する"></a>Dataverse データベース付きの環境を作成する</h3><p>Dataverse（データを保存するためのデータベース）を同時につくりたい場合は、<code>-ProvisionDatabase</code> を付けて、言語と通貨も指定します。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New-AdminPowerAppEnvironment</span> <span class="literal">-DisplayName</span> <span class="string">&#x27;Japan Dev&#x27;</span> <span class="literal">-LocationName</span> japan <span class="literal">-EnvironmentSku</span> Sandbox <span class="literal">-ProvisionDatabase</span> <span class="literal">-LanguageName</span> <span class="number">1041</span> <span class="literal">-CurrencyName</span> JPY</span><br></pre></td></tr></table></figure><p>【ポイント】</p><ol><li><code>-EnvironmentSku</code> で指定できる種類は <code>Production</code>（本番）、<code>Sandbox</code>（サンドボックス）、<code>Trial</code>（試用）、<code>Developer</code>（開発者用）などがあります</li><li><code>-LocationName</code> はリージョンです。日本の場合は <code>japan</code> を指定します</li><li><code>-ProvisionDatabase</code> を付けると Dataverse データベースが自動で作られます</li><li>データベースを作る場合は <code>-LanguageName</code>（言語コード）と <code>-CurrencyName</code>（通貨コード）を必ず指定してください</li><li><code>-SecurityGroupId</code> を指定すると、環境にアクセスできるユーザーをセキュリティグループで絞り込めます</li></ol><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/new-adminpowerappenvironment?view=pa-ps-latest">New-AdminPowerAppEnvironment (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell">Power Apps と Power Automate の PowerShell サポート (Docs)</a></li></ul><h2 id="q3">環境の一覧取得・詳細確認 (Q3)</h2><p>【結論】<code>Get-AdminPowerAppEnvironment</code> コマンドで、テナント内のすべての環境の一覧や、特定の環境の詳細を確認できます。</p><h3 id="すべての環境を一覧表示する"><a href="#すべての環境を一覧表示する" class="headerlink" title="すべての環境を一覧表示する"></a>すべての環境を一覧表示する</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-AdminPowerAppEnvironment</span></span><br></pre></td></tr></table></figure><p>このコマンドを実行すると、テナント内にあるすべての環境の名前（ID）、表示名、場所、作成者などが一覧で表示されます。</p><h3 id="既定の環境だけを確認する"><a href="#既定の環境だけを確認する" class="headerlink" title="既定の環境だけを確認する"></a>既定の環境だけを確認する</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-AdminPowerAppEnvironment</span> <span class="literal">-Default</span></span><br></pre></td></tr></table></figure><h3 id="特定の環境の詳細を確認する"><a href="#特定の環境の詳細を確認する" class="headerlink" title="特定の環境の詳細を確認する"></a>特定の環境の詳細を確認する</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-AdminPowerAppEnvironment</span> <span class="literal">-EnvironmentName</span> <span class="string">&#x27;環境のID（GUID）&#x27;</span></span><br></pre></td></tr></table></figure><p>【補足】<code>-EnvironmentName</code> に指定するのは画面上の「表示名」ではなく、GUID と呼ばれる環境の内部的な識別子です。<br>一覧表示の結果や PowerPlatform 管理センターから確認できます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">Power Apps と Power Automate の PowerShell サポート - 環境コマンド (Docs)</a></li></ul><h2 id="q4">Dataverse にユーザーを追加する (Q4)</h2><p>【結論】<code>Add-AdminPowerAppsSyncUser</code> コマンドを使うと、指定した Dataverse 環境にユーザーを追加できます。</p><p>以下は、環境にユーザーを追加する例です。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Add-AdminPowerAppsSyncUser</span> <span class="literal">-EnvironmentName</span> <span class="string">&#x27;環境のID&#x27;</span> <span class="literal">-PrincipalObjectId</span> <span class="string">&#x27;ユーザーのオブジェクトID&#x27;</span></span><br></pre></td></tr></table></figure><p>【補足】<code>-PrincipalObjectId</code> に指定する値は、Microsoft Entra ID（旧 Azure AD）上でのユーザーの「オブジェクト ID」です。<br>Microsoft Entra 管理センターや Azure ポータルの「ユーザー」画面から確認できます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/add-adminpowerappssyncuser?view=pa-ps-latest">Add-AdminPowerAppsSyncUser (Docs)</a></li></ul><h2 id="q5">ユーザーにロールを付与する (Q5)</h2><p>【結論】ロールの付与方法は、環境に Dataverse データベースがあるかどうかで異なります。<br>Dataverse がない環境では PowerShell の <code>Set-AdminPowerAppEnvironmentRoleAssignment</code> を、Dataverse がある環境では Power Platform CLI の <code>pac admin assign-user</code> を使います。</p><h3 id="Dataverse-がない環境の場合：PowerShell"><a href="#Dataverse-がない環境の場合：PowerShell" class="headerlink" title="Dataverse がない環境の場合：PowerShell"></a>Dataverse がない環境の場合：PowerShell</h3><p><code>Set-AdminPowerAppEnvironmentRoleAssignment</code> で「環境管理者」や「環境作成者」のロールを付与できます。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-AdminPowerAppEnvironmentRoleAssignment</span> `</span><br><span class="line">  <span class="literal">-EnvironmentName</span> <span class="string">&#x27;bbbbbbbb-1111-2222-3333-cccccccccccc&#x27;</span> `</span><br><span class="line">  <span class="literal">-RoleName</span> EnvironmentAdmin `</span><br><span class="line">  <span class="literal">-PrincipalType</span> User `</span><br><span class="line">  <span class="literal">-PrincipalObjectId</span> <span class="string">&#x27;aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb&#x27;</span></span><br></pre></td></tr></table></figure><p>テナント全体のユーザーに環境作成者ロールを付与する場合は以下のとおりです。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-AdminPowerAppEnvironmentRoleAssignment</span> `</span><br><span class="line">  <span class="literal">-EnvironmentName</span> <span class="string">&#x27;bbbbbbbb-1111-2222-3333-cccccccccccc&#x27;</span> `</span><br><span class="line">  <span class="literal">-RoleName</span> EnvironmentMaker `</span><br><span class="line">  <span class="literal">-PrincipalType</span> Tenant</span><br></pre></td></tr></table></figure><p>【ポイント】</p><ol><li><code>-RoleName</code> には <code>EnvironmentAdmin</code>（環境管理者）または <code>EnvironmentMaker</code>（環境作成者）を指定します</li><li><code>-PrincipalType</code> には <code>User</code>（ユーザー個人）、<code>Group</code>（セキュリティグループ）、<code>Tenant</code>（テナント全体）のいずれかを指定します</li><li><code>User</code> や <code>Group</code> を指定した場合は <code>-PrincipalObjectId</code> で対象のオブジェクト ID も指定してください</li></ol><h3 id="Dataverse-がある環境の場合：Power-Platform-CLI"><a href="#Dataverse-がある環境の場合：Power-Platform-CLI" class="headerlink" title="Dataverse がある環境の場合：Power Platform CLI"></a>Dataverse がある環境の場合：Power Platform CLI</h3><p>Dataverse がある環境では上記の PowerShell コマンドは 403 エラーになります。<br>代わりに Power Platform CLI に含まれる <code>pac admin assign-user</code> コマンドを使います。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pac admin assign<span class="literal">-user</span> `</span><br><span class="line">  <span class="literal">--environment</span> <span class="number">00000000</span><span class="literal">-0000-0000-0000-000000000000</span> `</span><br><span class="line">  <span class="literal">--user</span> <span class="string">&quot;user@contoso.com&quot;</span> `</span><br><span class="line">  <span class="literal">--role</span> <span class="string">&quot;Basic User&quot;</span></span><br></pre></td></tr></table></figure><p>【補足】<code>pac admin assign-user</code> を使うには、あらかじめ Power Platform CLI をインストールし、<code>pac auth create</code> で認証を済ませておく必要があります。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/set-adminpowerappenvironmentroleassignment?view=pa-ps-latest">Set-AdminPowerAppEnvironmentRoleAssignment (Docs)</a></li><li><a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/admin#pac-admin-assign-user">pac admin assign-user (Docs &#x2F; 英語のみ)</a></li></ul><h2 id="q6">環境のバックアップ・復元 (Q6)</h2><p>【結論】PowerShell を使えば、環境のバックアップ作成と復元をコマンドで実行できます。<br>手動バックアップを定期的に取得したい場合や、復元作業を自動化したい場合に便利です。</p><h3 id="バックアップを作成する"><a href="#バックアップを作成する" class="headerlink" title="バックアップを作成する"></a>バックアップを作成する</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$backupRequest</span> = [<span class="type">pscustomobject</span>]<span class="selector-tag">@</span>&#123;</span><br><span class="line">    Label = <span class="string">&quot;手動バックアップ 2026年2月&quot;</span></span><br><span class="line">    Notes = <span class="string">&quot;定期バックアップ&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Backup-PowerAppEnvironment</span> <span class="literal">-EnvironmentName</span> <span class="string">&#x27;環境のID&#x27;</span> <span class="literal">-BackupRequestDefinition</span> <span class="variable">$backupRequest</span></span><br></pre></td></tr></table></figure><h3 id="バックアップ一覧を確認する"><a href="#バックアップ一覧を確認する" class="headerlink" title="バックアップ一覧を確認する"></a>バックアップ一覧を確認する</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-PowerAppEnvironmentBackups</span> <span class="literal">-EnvironmentName</span> <span class="string">&#x27;環境のID&#x27;</span></span><br></pre></td></tr></table></figure><h3 id="バックアップから復元する"><a href="#バックアップから復元する" class="headerlink" title="バックアップから復元する"></a>バックアップから復元する</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$restoreRequest</span> = [<span class="type">pscustomobject</span>]<span class="selector-tag">@</span>&#123;</span><br><span class="line">    SourceEnvironmentId = <span class="string">&quot;復元元の環境ID&quot;</span></span><br><span class="line">    TargetEnvironmentName = <span class="string">&quot;復元先の環境表示名&quot;</span></span><br><span class="line">    RestorePointDateTime = <span class="string">&quot;2026-02-10 09:00:00&quot;</span></span><br><span class="line">    SkipAuditData = <span class="variable">$true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Restore-PowerAppEnvironment</span> <span class="literal">-EnvironmentName</span> <span class="string">&#x27;復元先の環境ID&#x27;</span> <span class="literal">-RestoreToRequestDefinition</span> <span class="variable">$restoreRequest</span></span><br></pre></td></tr></table></figure><p>【補足】復元操作を行うと、復元先の環境のデータが上書きされます。<br>上書きされたデータは元に戻せませんので、実行前に十分ご確認ください。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/backup-powerappenvironment?view=pa-ps-latest">Backup-PowerAppEnvironment (Docs)</a></li><li><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/restore-powerappenvironment?view=pa-ps-latest">Restore-PowerAppEnvironment (Docs)</a></li></ul><h2 id="summary">まとめ</h2><ul><li>Power Platform 管理用 PowerShell モジュールを使えば、環境の作成・一覧取得・バックアップ・復元などの環境管理をコマンドで自動化できます</li><li><code>Add-AdminPowerAppsSyncUser</code> で Dataverse へのユーザー追加、<code>Set-AdminPowerAppEnvironmentRoleAssignment</code> で環境ロール付与が PowerShell から実行できます</li><li>定型的な管理作業をスクリプト化することで、作業の効率化やミスの防止が期待できます</li><li>まずはテスト用の環境で各コマンドの動きを確認してから、本番環境に適用することをおすすめいたします</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2><p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。</p>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-powershell-admin-guide/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-powershell-admin-guide/"/>
-    <published>2026-02-09T15:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>こんにちは、PowerPlatformサポートチームの粟野です。</p>
-<p>本記事では Power Platform 管理者向け PowerShell を使ってできる代表的な操作について、以下の Q1〜Q6 の質問に回答する形でご説明させていただきます。</p>
-<ul>
-<li><a href="#q1">Q1: Power Platform の PowerShell モジュールはどうやって準備すればよいですか？</a></li>
-<li><a href="#q2">Q2: PowerShell で環境を作成するにはどうすればよいですか？</a></li>
-<li><a href="#q3">Q3: 環境の一覧取得や詳細確認はできますか？</a></li>
-<li><a href="#q4">Q4: Dataverse にユーザーを追加するにはどうすればよいですか？</a></li>
-<li><a href="#q5">Q5: ユーザーに環境ロールを付与するにはどうすればよいですか？</a></li>
-<li><a href="#q6">Q6: 環境のバックアップや復元は PowerShell でできますか？</a></li>
-</ul>]]>
-    </summary>
-    <title>Power Platform 管理者向け PowerShell でできること代表例まとめ</title>
-    <updated>2026-08-17T11:33:01.693Z</updated>
+    <updated>2026-08-21T09:10:55.949Z</updated>
   </entry>
 </feed>

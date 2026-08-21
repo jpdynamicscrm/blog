@@ -4,27 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>Power Automate for desktop お問い合わせ前のトラブルシューティング | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <title>【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Power Platform サポートの林です。本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの中村です。 本記事では、Microsoft Copilot Studio においてエージェント単位で Copilot クレジットの消費量を予測し、実績管理するために利用できる機能をまとめてご紹介します。  [!IMPORTANT]本記事は Copilot Studio の Standard Harness を使用した場合を前提としています。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Power Automate for desktop お問い合わせ前のトラブルシューティング">
-<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/index.html">
+<meta property="og:title" content="【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-credit-management/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは。Power Platform サポートの林です。本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの中村です。 本記事では、Microsoft Copilot Studio においてエージェント単位で Copilot クレジットの消費量を予測し、実績管理するために利用できる機能をまとめてご紹介します。  [!IMPORTANT]本記事は Copilot Studio の Standard Harness を使用した場合を前提としています。">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/versionup.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/cache-clear.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/setup-troubleshooting.png">
-<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/troubleshooting.png">
-<meta property="article:published_time" content="2026-08-18T03:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-21T09:10:55.804Z">
+<meta property="article:published_time" content="2026-07-14T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-21T09:10:55.630Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
-<meta property="article:tag" content="Power Automate">
-<meta property="article:tag" content="Power Automate for desktop">
-<meta property="article:tag" content="お問い合わせ全般">
+<meta property="article:tag" content="How to">
+<meta property="article:tag" content="License">
+<meta property="article:tag" content="Microsoft Copilot Studio">
+<meta property="article:tag" content="Power Platform">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/versionup.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
   
@@ -87,7 +83,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-powerautomate/power-automate-desktop-troubleshoot" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-copilotstudio/copilot-studio-credit-management" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,7 +92,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Power Automate for desktop お問い合わせ前のトラブルシューティング
+      【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法
     </h1>
   
 
@@ -104,14 +100,14 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2026-08-18T03:00:00.000Z" itemprop="datePublished">2026-08-18</time>
+  <time datetime="2026-07-14T15:00:00.000Z" itemprop="datePublished">2026-07-15</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
 / Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
 
 <script type="text/javascript">
-  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerautomate/power-automate-desktop-troubleshoot.md";
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/copilotstudio/copilot-studio-credit-management.md";
   const urlParts = sourceUrl.split("/");
   const user = urlParts[3];
   const repo = urlParts[4];
@@ -159,89 +155,199 @@
         
         
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Power-Automate/">Power Automate</a>►<a class="article-category-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a>
+    <a class="article-category-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a>
   </div>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+de77d0cf-9260-55de-bc58-39d01f5a9bb4%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Automate+for+desktop+%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%89%8D%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fpower-automate-desktop-troubleshoot%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fpower-automate-desktop-troubleshoot.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fpower-automate-desktop-troubleshoot.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+caf00481-f848-54b0-ba63-8108b0c8065b%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%80%90Standard+Harness%E3%80%91Copilot+Studio+%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%8D%98%E4%BD%8D%E3%81%AE+Copilot+%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E6%B6%88%E8%B2%BB%E9%87%8F%E3%82%92%E4%BA%88%E6%B8%AC%E3%83%BB%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fcopilotstudio%2Fcopilot-studio-credit-management%2F%29%0A*+Content+Source%3A+%5Barticles%2Fcopilotstudio%2Fcopilot-studio-credit-management.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fcopilotstudio%2Fcopilot-studio-credit-management.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-troubleshoot/" data-id="cuidr60lvvb6QKvhF3hl2uLdZ" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/copilotstudio/copilot-studio-credit-management/" data-id="cuid6WEggOWdSAaeNtc_2VqPx" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>
+        <p>こんにちは、Power Platform サポートチームの中村です。</p>
+<p>本記事では、Microsoft Copilot Studio において<strong>エージェント単位</strong>で Copilot クレジットの消費量を予測し、実績管理するために利用できる機能をまとめてご紹介します。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>本記事は <strong>Copilot Studio の Standard Harness</strong> を使用した場合を前提としています。GitHub Copilot Harness では、テスト実行時の課金動作やエージェントの分析画面が異なる場合があります。</p>
+<p>本記事で紹介するツールや機能は、クレジット消費量の<strong>目安を把握するための参考情報</strong>です。特定のシナリオにおけるクレジット消費量を保証するものではなく、本記事の内容をもって「このエージェント構成ではこれだけ消費される」と確定させることはできません。</p>
+<p>また、「特定のシナリオでのクレジット消費がライセンス上正しいか」「自社の利用形態に必要なライセンス数」等、<strong>使用権・ライセンス要件に関するご質問は製品サポートでのご支援の対象外</strong>となっております。このようなご確認が必要な場合は、貴社ご担当の <strong>Microsoft 営業担当者</strong>または<strong>販売パートナー</strong>へお問い合わせください。</p></div>
 <span id="more"></span>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ol>
-<li><a href="#anchor-version-up">バージョンアップ</a></li>
-<li><a href="#anchor-cacheclear">キャッシュクリア</a></li>
-<li><a href="#anchor-connection">通信設定の確認</a></li>
-<li><a href="#anchor-troubleshooting">トラブルシューティングの実行</a></li>
-</ol>
-<p><a id='anchor-version-up'></a></p>
-<h1 id="1-バージョンアップ"><a href="#1-バージョンアップ" class="headerlink" title="1. バージョンアップ"></a>1. バージョンアップ</h1><p>Power Automate for desktop は定期的にバージョンアップをしています。<br>過去の不具合はバージョンアップによって修正されており、発生した問題も解消する可能性があります。また、テクニカルサポートにお問い合せいただいた場合でも、バージョンアップにて事象が解消するかの確認をお願いする場合もございます。そのため、テクニカルサポートにお問合せいただく前に、可能な限り最新バージョンにアップデートいただき、事象が解消するかご確認いただけますと幸いです。  </p>
-<p><strong>[実施方法]</strong><br>バージョンアップは Power Automate for desktop 起動後のポップアップ の更新を押下することで可能です。<br><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/versionup.png">  </p>
-<p>また、以下からインストーラーを取得し、実行することでも可能です。※事前のアンインストールは不要です。<br><a href="https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/install">Power Automate のインストール</a>   </p>
-<div class="alert is-info"><p class="alert-title">Note</p><p>ストア版をご利用いただいている場合は、自動でバージョンアップが実行されます。  </p></div>
-<p><a id='anchor-cacheclear'></a></p>
-<h1 id="2-キャッシュクリア"><a href="#2-キャッシュクリア" class="headerlink" title="2. キャッシュクリア"></a>2. キャッシュクリア</h1><p>Power Automate for desktop は認証情報や実行するデスクトップフローの情報を一部キャッシュ情報としてローカル端末に保持します。<br>このキャッシュの影響で過去に本来実行できる操作がエラーとなる事例やデスクトップフローの編集画面が正しく表示されない事例が発生しております。これらの事象はキャッシュクリアによって問題が解消します。  </p>
-<p><strong>[実施方法]</strong><br>キャッシュクリアは ヘルプ &gt; トラブルシューティング の キャッシュ の「キャッシュを無効化する」から実行できます。<br>本操作により 起動している Power Automate for desktop が終了しますので、実行するデスクトップフローがない場合に実施ください。<br><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/cache-clear.png">  </p>
-<p><a id='anchor-connection'></a></p>
-<h1 id="3-通信設定の確認"><a href="#3-通信設定の確認" class="headerlink" title="3. 通信設定の確認"></a>3. 通信設定の確認</h1><p>Power Automate for desktop をご利用される際、クラウドサービスとの通信が発生します。<br>通信可能なドメインに通信できない場合、Power Automate for desktop 起動時、もしくは、デスクトップフロー実行時にエラーが発生します。  </p>
-<p><strong>[実施方法]</strong><br>以下のページを参照いただき、端末から各ドメインが通信できる状態となっているかご確認ください。<br><a href="https://learn.microsoft.com/ja-jp/power-automate/ip-address-configuration">Power Automate の IP アドレス構成</a>   </p>
-<p>「Power Automate の IP アドレス構成」の 2026 年 8 月時点で通信が必要となる設定セクション</p>
-<ul>
-<li>Power Automate Web ポータルを使用する  </li>
-<li>デスクトップ フロー ランタイムのグローバル エンドポイント ※1  </li>
-<li>デスクトップ用 Power Automate MSI インストーラーのグローバル エンドポイント ※2  </li>
-<li>デスクトップ フロー ランタイムのパブリック エンドポイント ※1  </li>
-<li>ホスト型コンピューターとホスト型コンピューター グループのパブリック エンドポイント ※3</li>
+
+<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<li>Copilot クレジットの概要</li>
+<li>開発段階でエージェントのクレジット消費を予測するために利用できる機能</li>
+<li>本番リリース後にエージェント単位でクレジット消費を監視・制御するために利用できる機能</li>
+<li>各機能の使い分けと予実管理の全体像</li>
 </ul>
-<p>※1 デスクトップ フロー ランタイム アプリ利用時<br>※2 MSI インストーラー利用時<br>※3 ホスト型コンピューターご利用時</p>
-<div class="alert is-info"><p class="alert-title">Note</p><p>後述のトラブルシューティングを実行することでも、問題の通信を特定することができますので併せてご確認ください。  </p></div>
-<p><a id='anchor-troubleshooting'></a></p>
-<h1 id="4-トラブルシューティングの実行"><a href="#4-トラブルシューティングの実行" class="headerlink" title="4. トラブルシューティングの実行"></a>4. トラブルシューティングの実行</h1><p>Power Automate for desktop での一般的な問題に対して原因を特定する機能として、トラブルシューティングがあります。<br>診断したいセクションが分かれており、診断対象の実行を押下することで問題を特定することができます。</p>
-<p><strong>[実施方法]</strong><br>ヘルプ &gt; トラブルシューティング から起動できます。<br>また、Windows のメニューからも起動することができるため、Power Automate for desktop が起動できない場合は、メニューから直接起動ください。<br><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/setup-troubleshooting.png">  </p>
-<table>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
+<li><a href="#copilot-%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%81%A8%E3%81%AF">Copilot クレジットとは</a></li>
+<li><a href="#%E9%96%8B%E7%99%BA%E6%AE%B5%E9%9A%8E-%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E6%B6%88%E8%B2%BB%E3%81%AE%E4%BA%88%E6%B8%AC%E3%81%AB%E5%88%A9%E7%94%A8%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD">開発段階: クレジット消費の予測に利用できる機能</a><ul>
+<li><a href="#%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E4%BD%BF%E7%94%A8%E9%87%8F%E8%A6%8B%E7%A9%8D%E3%82%82%E3%82%8A%E3%83%84%E3%83%BC%E3%83%AB-agent-usage-estimator">エージェント使用量見積もりツール (Agent Usage Estimator)</a></li>
+<li><a href="#copilot-studio-%E3%81%AE-%E7%9B%A3%E8%A6%96-%E3%82%BF%E3%83%96-analytics---billing">Copilot Studio の 監視 タブ (Analytics - Billing)</a></li>
+<li><a href="#%E3%83%86%E3%82%B9%E3%83%88%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E6%B6%88%E8%B2%BB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">テスト実行時のクレジット消費について</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%AC%E7%95%AA%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E5%BE%8C-%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E6%B6%88%E8%B2%BB%E3%81%AE%E5%AE%9F%E7%B8%BE%E7%AE%A1%E7%90%86%E3%81%AB%E5%88%A9%E7%94%A8%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD">本番リリース後: クレジット消費の実績管理に利用できる機能</a><ul>
+<li><a href="#power-platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC---copilot-studio-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E7%94%BB%E9%9D%A2">Power Platform 管理センター - Copilot Studio ライセンス画面</a></li>
+<li><a href="#azure-cost-management-pay-as-you-go-%E5%88%A9%E7%94%A8%E6%99%82">Azure Cost Management (Pay-as-you-go 利用時)</a></li>
+<li><a href="#copilot-studio-%E3%81%AE-%E7%9B%A3%E8%A6%96-%E3%82%BF%E3%83%96-%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%80%8B%E5%88%A5">Copilot Studio の 監視 タブ (エージェント個別)</a></li>
+</ul>
+</li>
+<li><a href="#%E3%81%BE%E3%81%A8%E3%82%81-%E4%BA%88%E5%AE%9F%E7%AE%A1%E7%90%86%E3%81%AE%E5%85%A8%E4%BD%93%E5%83%8F">まとめ: 予実管理の全体像</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%A8%A9%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%94%E8%B3%AA%E5%95%8F%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">使用権に関するご質問について</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0%E5%8F%AF%E8%83%BD%E6%80%A7">注意事項（情報の更新可能性）</a></li>
+</ul>
+<h2 id="Copilot-クレジットとは"><a href="#Copilot-クレジットとは" class="headerlink" title="Copilot クレジットとは"></a>Copilot クレジットとは</h2><p>2025 年 9 月 1 日より、Copilot Studio のエージェント消費の共通通貨は「メッセージ」から <strong>Copilot クレジット</strong> に変更されました。Copilot クレジットは、エージェントが情報を取得し、プロンプトに応答し、アクションやスキルを実行するために必要な時間と労力を測定する単位です。消費されるクレジット数は、エージェントの設計、ユーザーとのやり取りの頻度、使用する機能によって異なります。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing">Copilot Studio licensing - Microsoft Copilot Studio | Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/requirements-messages-management">Billing rates and management - Microsoft Copilot Studio | Microsoft Learn</a></li>
+</ul>
+<h2 id="開発段階-クレジット消費の予測に利用できる機能"><a href="#開発段階-クレジット消費の予測に利用できる機能" class="headerlink" title="開発段階: クレジット消費の予測に利用できる機能"></a>開発段階: クレジット消費の予測に利用できる機能</h2><h3 id="エージェント使用量見積もりツール-Agent-Usage-Estimator"><a href="#エージェント使用量見積もりツール-Agent-Usage-Estimator" class="headerlink" title="エージェント使用量見積もりツール (Agent Usage Estimator)"></a>エージェント使用量見積もりツール (Agent Usage Estimator)</h3><p><a href="https://microsoft.github.io/copilot-studio-estimator/">Microsoft エージェント使用量見積もりツール</a> は、組織が月ごとの Copilot クレジット消費量を事前に予測するための公開ツールです。</p>
+<p>主な機能は以下のとおりです。</p>
+<ul>
+<li>エージェントの種類（Copilot Studio カスタム、Dynamics 365 Sales &#x2F; Service &#x2F; Finance &#x2F; Supply Chain Management等）を選択して見積もりを作成できます</li>
+<li>トラフィック量、オーケストレーション方法、ナレッジソース、ツール &#x2F; アクションの構成に基づいてクレジット消費量を算出します</li>
+<li>低・中・高のボリュームシナリオをテストできます</li>
+<li>複数エージェントの合算コストを算出できます</li>
+<li>PDF レポートを生成し、調達承認やステークホルダーレビューに利用できます</li>
+</ul>
+<p>利用例としては、以下のような場面が挙げられます。</p>
+<ul>
+<li>予算計画のための月間クレジット消費量の予測</li>
+<li>異なるエージェント構成間のコスト比較</li>
+<li>機能の利用がクレジット消費に与える影響の把握</li>
+</ul>
+<div class="alert is-info"><p class="alert-title">Note</p><p>このツールは <strong>見積もり目的のみ</strong> であり、最終コストを保証するものではありません。実際の消費量は実運用パターンに依存するため、見積もり値に対して 10〜20% のバッファーを加えることがお勧めされています。</p></div>
+<p>また、本ツールが<strong>適さない</strong>ユースケースは以下のとおりです。</p>
+<ul>
+<li>確定的な価格見積もりや契約上のコミットメントの作成</li>
+<li>特定シナリオにおけるクレジット消費量の保証</li>
+<li>過去の実績使用量のトラッキング（本ツールは将来予測のみ提供）</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agent-usage-estimator">Agent usage estimator - Microsoft Copilot Studio | Microsoft Learn</a></li>
+</ul>
+<h3 id="Copilot-Studio-の-監視-タブ-Analytics-Billing"><a href="#Copilot-Studio-の-監視-タブ-Analytics-Billing" class="headerlink" title="Copilot Studio の [監視] タブ (Analytics - Billing)"></a>Copilot Studio の [監視] タブ (Analytics - Billing)</h3><p>Copilot Studio のエージェント個別画面にある [監視] タブでは、エージェントごとの Copilot クレジット消費状況を確認できます。</p>
+<p>本番リリース前であっても、パイロット運用（テスト チャット以外のチャネルで実際にエージェントを公開し、限定的にユーザーに利用させる運用）を行っている場合は、このタブで実消費データを確認できます。Agent Usage Estimator の予測値と比較することで、本番リリース前に予測精度を高めることが可能です。</p>
+<p>確認できる情報は以下のとおりです。</p>
+<ul>
+<li>選択した期間における合計課金クレジット数</li>
+<li><strong>請求の傾向 (Billing trend)</strong>: 期間中のクレジット消費量の推移をチャートで表示します</li>
+<li><strong>コスト配分 (Cost distribution)</strong>: どの種類のアクティビティ（ナレッジ、アクション、フローなど）がクレジット消費に寄与しているかを表示します</li>
+</ul>
+<div class="alert is-info"><p class="alert-title">Note</p><p>分析データの更新には数時間かかるため、直近のアクティビティがすぐに反映されない場合があります。</p></div>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/analytics-consumption">View agent’s billing consumption - Microsoft Copilot Studio | Microsoft Learn</a></li>
+</ul>
+<h3 id="テスト実行時のクレジット消費について"><a href="#テスト実行時のクレジット消費について" class="headerlink" title="テスト実行時のクレジット消費について"></a>テスト実行時のクレジット消費について</h3><p>開発・テスト段階での注意点として、<strong>組み込みテスト チャットでのメッセージは Copilot クレジットの課金対象にカウントされません</strong>。フロー デザイナーやエージェントのテスト チャットからのテスト実行も同様に課金対象外です。そのため、開発段階ではテストを気にせず実施し、Agent Usage Estimator で予測した値と本番リリース後の実績値を比較する運用がお勧めです。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/faq-billing-licensing">FAQ for Copilot Studio billing and licensing - Microsoft Copilot Studio | Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/flows-overview#manage-agent-flow-capacity-usage">Agent flows overview - Microsoft Copilot Studio | Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/requirements-messages-management#overage-enforcement">Billing rates and management - Microsoft Copilot Studio | Microsoft Learn</a></li>
+</ul>
+<h2 id="本番リリース後-クレジット消費の「実績管理」に利用できる機能"><a href="#本番リリース後-クレジット消費の「実績管理」に利用できる機能" class="headerlink" title="本番リリース後: クレジット消費の「実績管理」に利用できる機能"></a>本番リリース後: クレジット消費の「実績管理」に利用できる機能</h2><h3 id="Power-Platform-管理センター-Copilot-Studio-ライセンス画面"><a href="#Power-Platform-管理センター-Copilot-Studio-ライセンス画面" class="headerlink" title="Power Platform 管理センター - Copilot Studio ライセンス画面"></a>Power Platform 管理センター - Copilot Studio ライセンス画面</h3><p>Power Platform 管理センター (<a href="https://admin.powerplatform.microsoft.com/">https://admin.powerplatform.microsoft.com</a>) の [ライセンス] &gt; [Copilot Studio] から、以下などの情報を確認・管理できます。</p>
+<h4 id="概要-Summary-タブ"><a href="#概要-Summary-タブ" class="headerlink" title="[概要 (Summary)] タブ"></a>[概要 (Summary)] タブ</h4><table>
 <thead>
 <tr>
-<th>セクション</th>
-<th>診断内容</th>
+<th>カード</th>
+<th>内容</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>接続の問題を診断する</td>
-<td>インターネット接続、プロキシ、サービスの問題を診断する</td>
+<td>従量課金制 Copilot クレジット</td>
+<td>アクティブな請求プランの数と月初来のCopilotクレジット合計</td>
 </tr>
 <tr>
-<td>サインインの問題を診断する</td>
-<td>認証とその問題を診断する</td>
+<td>プリペイドキャパシティ</td>
+<td>購入済み容量の割り当て・消費状況</td>
 </tr>
 <tr>
-<td>Dataverse の問題を診断する</td>
-<td>環境とアクセス許可の問題を診断する</td>
+<td>製品ごとの容量消費量</td>
+<td>プリペイド &#x2F; 従量課金制ごとの消費内訳</td>
 </tr>
 <tr>
-<td>UI&#x2F;Web オートメーションの問題のトラプルシューティング</td>
-<td>UI&#x2F;Web オートメーションに関する問題のトラブルシューティング</td>
+<td>容量の消費を合計した傾向</td>
+<td>月ごとの容量消費トレンド（前払い &#x2F; 従量課金制 &#x2F; 日ごと使用状況）</td>
 </tr>
 <tr>
-<td>Picture-in-Picture の問題のトラブルシューティング</td>
-<td>Picture-in-Picture 関連の問題のトラブルシューティング</td>
+<td>上位 5 個 (人) のエージェントとユーザー</td>
+<td>クレジット使用量別の上位エージェントおよびユーザー</td>
 </tr>
 <tr>
-<td>インストールの問題のトラブルシューティング</td>
-<td>Power Automate、.NET Framework、WebView2、Windows更新プログラムに関連するインストールの問題のトラブルシューティング</td>
-</tr>
-<tr>
-<td>クラウドランタイムの接続に関する問題を診断します</td>
-<td>Power Automate サービスのコンピューター登録とクラウドランタイムに関する問題を診断します</td>
+<td>環境別の Copilot クレジットの使用状況</td>
+<td>上位 5 件の環境のクレジット使用量</td>
 </tr>
 </tbody></table>
-<p><img src="/blog/powerautomate/power-automate-desktop-troubleshoot/troubleshooting.png">  </p>
-<hr>
-<h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>本手順は執筆時点でのユーザー インターフェイスを基に紹介しています。バージョンアップによって若干の UI の遷移など異なる場合があります。その場合は画面の指示に従って進めてください。</p>
-<hr>
+<h4 id="環境-Environments-タブ"><a href="#環境-Environments-タブ" class="headerlink" title="[環境 (Environments)] タブ"></a>[環境 (Environments)] タブ</h4><p>環境ごとの詳細な消費状況を確認できます。</p>
+<ul>
+<li>プリペイド容量から差し引かれたクレジット数</li>
+<li>Pay-as-you-go プランで課金されたユニット数</li>
+<li>環境のステータス（容量内 &#x2F; 超過 &#x2F; 容量割り当て済み &#x2F; Pay-as-you-go 使用中）</li>
+<li><strong>エージェント別の消費明細</strong> (メッセージ消費の詳細 グリッド): エージェントごとの消費明細を確認できます</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/power-platform/admin/manage-copilot-studio-messages-capacity">Manage Copilot Studio credits and capacity - Power Platform | Microsoft Learn</a></li>
+</ul>
+<h3 id="Azure-Cost-Management-Pay-as-you-go-利用時"><a href="#Azure-Cost-Management-Pay-as-you-go-利用時" class="headerlink" title="Azure Cost Management (Pay-as-you-go 利用時)"></a>Azure Cost Management (Pay-as-you-go 利用時)</h3><p>Pay-as-you-go プランを利用している場合、Azure ポータルの Azure Cost Management からも課金情報を確認できます。</p>
+<ul>
+<li>メーターごと、Azure リソースごとに課金額を表示します</li>
+<li>各課金プランは Power Platform アカウントリソースに対応しています</li>
+<li>使用状況は通常 24 時間以内に反映されます</li>
+</ul>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/power-platform/admin/pay-as-you-go-usage-costs">View usage and billing information - Power Platform | Microsoft Learn</a></li>
+</ul>
+<h3 id="Copilot-Studio-の-監視-タブ-エージェント個別"><a href="#Copilot-Studio-の-監視-タブ-エージェント個別" class="headerlink" title="Copilot Studio の [監視] タブ (エージェント個別)"></a>Copilot Studio の [監視] タブ (エージェント個別)</h3><p>前述のとおり、本番リリース後も Copilot Studio 内の各エージェントの [監視] タブから、そのエージェント固有の課金クレジット情報、トレンド、コスト配分を確認できます。[請求を表示する] ボタンをクリックすると、請求の傾向やコスト配分の詳細パネルが開きます。</p>
+<p>＜参考資料＞</p>
+<ul>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/analytics-consumption">View agent’s billing consumption - Microsoft Copilot Studio | Microsoft Learn</a></li>
+</ul>
+<h2 id="まとめ-予実管理の全体像"><a href="#まとめ-予実管理の全体像" class="headerlink" title="まとめ: 予実管理の全体像"></a>まとめ: 予実管理の全体像</h2><table>
+<thead>
+<tr>
+<th>フェーズ</th>
+<th>機能</th>
+<th>主な用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>開発 (予測)</td>
+<td>Agent Usage Estimator</td>
+<td>月間消費量の見積もり、予算計画、複数エージェントの合算コスト予測</td>
+</tr>
+<tr>
+<td>開発 (予測)</td>
+<td>Copilot Studio [監視] タブ</td>
+<td>パイロット運用中の実消費データによる予測精度の向上</td>
+</tr>
+<tr>
+<td>本番 (実績)</td>
+<td>PPAC [Licensing] &gt; [Copilot Studio]</td>
+<td>テナント &#x2F; 環境レベルの消費監視、容量割り当て管理</td>
+</tr>
+<tr>
+<td>本番 (実績)</td>
+<td>Azure Cost Management</td>
+<td>Pay-as-you-go 利用時の詳細課金分析</td>
+</tr>
+<tr>
+<td>本番 (実績)</td>
+<td>Copilot Studio [監視] タブ</td>
+<td>エージェント個別の課金トレンド、コスト分布</td>
+</tr>
+</tbody></table>
+<h2 id="使用権に関するご質問について"><a href="#使用権に関するご質問について" class="headerlink" title="使用権に関するご質問について"></a>使用権に関するご質問について</h2><div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Copilot クレジットの消費量を予測・管理する技術的な方法をご紹介しています。</p><p>「特定のシナリオでのクレジット消費がライセンス上正しいか」等、<strong>使用権に関するご確認は製品サポートの対応範囲外</strong>となります。</p></div>
+<ul>
+<li>クレジットおよびライセンスの公式情報: <a href="https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing">Copilot Studio のライセンスと課金</a></li>
+<li>使用権・契約に関する個別のご確認: 貴社ご担当の <strong>Microsoft 営業担当者</strong>、または<strong>販売パートナー</strong>へお問い合わせください。</li>
+<li>サポートへのお問い合わせ時の留意事項: <a href="https://jpdynamicscrm.github.io/blog/powerplatform/about-power-platform-support/#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Power Apps&#x2F;Power Automate&#x2F;Copilot Studio お問い合わせ時の留意事項 - ライセンスに関するお問い合わせについて</a></li>
+</ul>
 
       
       
@@ -255,10 +361,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li></ul>
 
         
-        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerautomate/power-automate-desktop-troubleshoot.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/copilotstudio/copilot-studio-credit-management.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -266,10 +372,19 @@
     
 <nav id="article-nav">
   
+    <a href="../../powerpages/power-pages-external-idp-claims/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項
+        
+      </div>
+    </a>
   
-    <a href="../../copilotstudio/copilot-studio-trial-license/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="../../canvasapp/canvas-app-data-without-source-permission/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Copilot Studio 試用版ライセンスについて</div>
+      <div class="article-nav-title">Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</div>
     </a>
   
 </nav>
@@ -288,15 +403,15 @@
       <ul>
         
           <li>
-            <a href="">Power Automate for desktop お問い合わせ前のトラブルシューティング</a>
+            <a href="../../powerautomate/power-automate-desktop-troubleshoot/">Power Automate for desktop お問い合わせ前のトラブルシューティング</a>
           </li>
         
           <li>
-            <a href="../../copilotstudio/copilot-studio-trial-license/">Copilot Studio 試用版ライセンスについて</a>
+            <a href="../copilot-studio-trial-license/">Copilot Studio 試用版ライセンスについて</a>
           </li>
         
           <li>
-            <a href="../cloud-flow-connector-paging/">Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</a>
+            <a href="../../powerautomate/cloud-flow-connector-paging/">Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</a>
           </li>
         
           <li>
