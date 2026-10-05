@@ -189,7 +189,7 @@ Application Insights では、クラウド フローの実行は `requests`、�
 
 ### 4-1-1. 対象となるクラウド フロー
 
-`FlowRun` テーブルへ実行履歴が保存される対象は、ソリューション クラウド フロー (定義が Dataverse に保存されているクラウド フロー) です。オートメーション センターのクラウド フロー実行データにも `FlowRun` が使用されます。
+`FlowRun` テーブルへ実行履歴が保存される対象は、ソリューション対応クラウド フロー (定義が Dataverse に保存されているクラウド フロー) です。オートメーション センターのクラウド フロー実行データにも `FlowRun` が使用されます。
 
 対象のクラウド フローの定義が Dataverse に存在するかどうかは、Web API で `workflow` テーブルを参照して確認できます。
 
@@ -279,7 +279,7 @@ Power Platform 管理センターから保持期間を変更する手順は以�
 > `FlowRun` はユーザー単位でパーティション分割されるため、上記の上限やスロットリングは組織全体ではなく、クラウド フローの所有者ごとに評価されます。特定のユーザーへクラウド フローの所有権が集中している環境では影響を受けやすくなります。
 
 > [!WARNING]
-> `FlowRun` には、すべての実行履歴が欠落なく保存されるとは限りません。監査や完全な実行記録が必要な設計では、`FlowRun` だけに依存しないでください。
+> `FlowRun` には、すべての実行履歴が欠落なく保存されるとは限りません。監査や完全な実行記録が必要な設計では、他の方法をご検討ください。
 
 レコードが欠落している可能性がある場合は、`FlowEvent` テーブルの `FlowRunIngestion` イベントを確認します。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレートの超過など、記録がスキップされた原因がシグナルとして残ります。
 
@@ -366,7 +366,7 @@ Excel のワークシートへ `FlowRun` のレコードが読み込まれます
 Dataverse Web API の `$select` で指定する論理名と説明は、[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun) を参照してください。
 
 > [!NOTE]
-> `duration` の単位は、Microsoft Learn の日本語ページ間で記載が異なります。[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) では「実行期間」が **秒単位**、[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun) の `DurationInMs` では「実行時間 (**ミリ秒単位**)」と記載されていますが、ミリ秒が正しい単位です。
+> `duration` の単位は、Microsoft Learn の日本語ページ間で記載が異なります。[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) では「実行期間」が **秒単位**、[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun) の `DurationInMs` では「実行時間 (**ミリ秒単位**)」と記載されており、弊社の環境でもミリ秒単位であることを確認しました。
 
 > [!IMPORTANT]
 > `status` と `triggertype` を `$filter` で指定する場合は、画面の表示名ではなく API が返す値を使用します。弊社の環境では、`triggertype` に `Scheduled`（予定されている）や `Instant`（手動実行）が、`status` に `Succeeded` や `Failed` が格納されていました。[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) に記載されている「自動化」「予定されている」「マニュアル」は画面上の表示名であり、そのまま `$filter` へ指定しても一致しません。
