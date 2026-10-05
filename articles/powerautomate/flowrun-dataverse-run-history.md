@@ -14,6 +14,8 @@ categories:
 
 「特定のフローが失敗した原因を調べたい」「複数のフローの実行状況をまとめて監視したい」「実行結果を一覧で取得して集計・レポートしたい」といった場面では、目的によって適した実行履歴が異なります。本記事では、こうした困りごとを解消するために、Power Automate の標準の実行履歴、Application Insights のテレメトリ、Dataverse の `FlowRun` テーブルという 3 種類のログについて、それぞれの特徴と使い分け、取得方法をご紹介します。目的に合ったログの選び方が分かるよう、次章でまず全体像を整理します。
 
+なお、管理者がクラウド フローの一覧を取得する方法は、弊社ブログ記事「[Power Automate のクラウドフロー一覧を管理者が取得する方法](https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/)」でご紹介しています。
+
 <!-- more -->
 
 # 目次
@@ -22,17 +24,18 @@ categories:
 1. [Power Automate の標準の実行履歴](#anchor-standard-history)
    1. [ログの概要](#anchor-standard-overview)
    1. [ログの取得方法](#anchor-standard-retrieval)
-      1. [ポータルでの確認と CSV エクスポート](#anchor-action-details)
+      1. [ポータルで確認する](#anchor-action-details)
+      1. [CSV でエクスポートする](#anchor-csv-export)
       1. [PowerShell の Get-FlowRun で取得する](#anchor-get-flowrun)
 1. [Application Insights のテレメトリ](#anchor-app-insights)
    1. [ログの概要](#anchor-app-insights-overview)
    1. [ログの取得方法](#anchor-app-insights-retrieval)
 1. [Dataverse の FlowRun テーブル](#anchor-flowrun)
    1. [ログの概要](#anchor-flowrun-overview)
-      1. [対象となるクラウド フローとアクセス権](#anchor-prerequisites)
+      1. [対象となるクラウド フロー](#anchor-prerequisites)
       1. [保存される列](#anchor-flowrun-data)
       1. [保存されない情報とポータルとの比較](#anchor-flowrun-limitations)
-      1. [保持期間とデータの完全性](#anchor-retention)
+      1. [保持期間](#anchor-retention)
       1. [実行履歴が保存されない主な条件](#anchor-ingestion-failures)
    1. [ログの取得方法](#anchor-flowrun-retrieval)
       1. [オートメーション センターで確認する](#anchor-automation-center)
@@ -58,11 +61,10 @@ categories:
 | データソース | 利用者・アクセス権 | 対象となるフロー | 情報の粒度・主な用途 | 保持期間 | 取得・確認ツール |
 |---|---|---|---|---|---|
 | Power Automate の標準の実行履歴 | 所有者・共同所有者など、対象フローへのアクセス権を持つユーザー | ソリューションに含まれるフローと含まれないフロー | 実行、トリガー、アクションの状態や入力・出力。個別の問題調査 | 既定 28 日 | Power Automate ポータル、CSV エクスポート、PowerShell (`Get-FlowRun`) |
-| Application Insights のテレメトリ | エクスポートを設定する管理者と、Azure リソースのログを読み取れるユーザー | マネージド環境で、クラウド フローのエクスポート対象として設定したデータ | 実行、トリガー、アクションのテレメトリ。横断的な監視・分析 (完全な入力・出力ではない) | 出力先 Log Analytics の保持設定に従う | Application Insights のメトリック・ログ (KQL) |
-| Dataverse の `FlowRun` | 対象レコードを読み取れるユーザー。オートメーション センターには追加のアクセス条件あり | 定義が Dataverse に保存されているソリューション クラウド フロー | 実行単位の状態、時刻、実行時間、エラー概要。横断監視や結果の集計 | 既定 28 日 (変更可能) | オートメーション センター、Excel の OData フィード、Dataverse Web API / PowerShell |
+| Application Insights のテレメトリ | エクスポートを設定する管理者と、Azure リソースのログを読み取れるユーザー | マネージド環境で、フローのエクスポート対象として設定したデータ | 実行、トリガー、アクションのテレメトリ。横断的な監視・分析 (完全な入力・出力ではない) | 出力先 Log Analytics の保持設定に従う | Application Insights のメトリック・ログ (KQL) |
+| Dataverse の `FlowRun` | 対象レコードを読み取れるユーザー。オートメーション センターには追加のアクセス条件あり | ソリューションに含まれるフロー | 実行単位の状態、時刻、実行時間、エラー概要。横断監視や結果の集計 | 既定 28 日 (変更可能) | オートメーション センター、Excel の OData フィード、Dataverse Web API / PowerShell |
 
-> [!IMPORTANT]
-> `FlowRun` と Application Insights のデータは、どちらも 100% の完全性が保証されるトランザクション データではありません。個別の実行を確実に調査する場合は、Power Automate ポータルの実行履歴を使用してください。
+クラウド フローには、ソリューションに含まれるフローと含まれないフローがあります。それぞれ内部的に管理される場所が異なるため、実行履歴の閲覧可否も異なります。
 
 <a id='anchor-standard-history'></a>
 
@@ -84,7 +86,7 @@ Power Automate ポータルでは、アクセス権を持つ対象フローの�
 
 <a id='anchor-action-details'></a>
 
-### 2-2-1. ポータルでの確認と CSV エクスポート
+### 2-2-1. ポータルで確認する
 
 個別の問題を調査する場合は、はじめに Power Automate ポータルの実行履歴から対象の実行を特定します。
 
@@ -92,12 +94,12 @@ Power Automate ポータルでは、アクセス権を持つ対象フローの�
 1. 対象のクラウド フローを開き、実行履歴から調査する実行を選択します。
 1. 実行詳細ページの URL から実行 ID を確認します。
 1. 失敗したトリガーまたはアクションを展開し、エラー、入力、出力を確認します。
-1. `FlowRun` や Application Insights のデータと照合する場合は、環境 ID、フロー ID、実行 ID、発生時刻を検索条件として使用します。
 
-実行詳細ページの URL は以下の形式です。
+実行詳細ページの URL は以下の形式です。ソリューションに含まれるフローの場合は 2 行目の形式になり、**マイ フロー** から開いた場合は `<ソリューション ID>` の部分が `~preferred` になります。
 
 ```text
 https://make.powerautomate.com/environments/<環境 ID>/flows/<フロー ID>/runs/<実行 ID>
+https://make.powerautomate.com/environments/<環境 ID>/solutions/<ソリューション ID>/flows/<フロー ID>/runs/<実行 ID>
 ```
 
 URL の `<実行 ID>` は `FlowRun` テーブルの `name` に対応します。
@@ -106,8 +108,9 @@ URL の `<実行 ID>` は `FlowRun` テーブルの `name` に対応します。
 
 ![Power Automate の実行詳細画面。上部に「フロー実行に失敗しました。アクション 'Divide_by_zero' に失敗しました」と失敗したアクション名とエラーの詳細が表示され、キャンバス上で該当アクションが失敗、後続アクションがスキップされている](flowrun-dataverse-run-history/image04.png)
 
-> [!NOTE]
-> フローの失敗の多くはアクション単位で発生しますが、アクションに起因しないエラーが表示される場合もあります。
+<a id='anchor-csv-export'></a>
+
+### 2-2-2. CSV でエクスポートする
 
 実行履歴を CSV として取得する場合は、以下の手順を使用します。
 
@@ -119,7 +122,7 @@ URL の `<実行 ID>` は `FlowRun` テーブルの `name` に対応します。
 
 <a id='anchor-get-flowrun'></a>
 
-### 2-2-2. PowerShell の Get-FlowRun で取得する
+### 2-2-3. PowerShell の Get-FlowRun で取得する
 
 標準の実行履歴は、`Microsoft.PowerApps.PowerShell` モジュールの `Get-FlowRun` でも取得できます。管理者向けモジュールではなく、ユーザー向けモジュールに含まれるコマンドです。
 
@@ -146,7 +149,7 @@ Get-FlowRun -EnvironmentName '<環境 ID>' -FlowName '<クラウド フロー ID
 
 ## 3-1. ログの概要
 
-個別の調査ではなく、**アクション単位のテレメトリを長期的に保持して監視・分析したい**場合は、Application Insights へのエクスポートを検討します。`FlowRun` にはアクション単位の情報が保存されないため、この用途では Application Insights が選択肢になります。
+個別の調査ではなく、**アクション単位のテレメトリを長期的に保持して監視・分析したい**場合は、Application Insights へのエクスポートを検討します。
 
 Application Insights では、クラウド フローの実行は `requests`、トリガーとアクションは `dependencies` に保存されます。`customDimensions` の `environmentId` と `resourceId`（フロー ID）に加え、発生時刻やアクション名を使って、ポータルで確認した実行と対象範囲を絞り込みます。ただし、テレメトリは各アクションの完全な入力・出力を保存するものではありません。
 
@@ -177,26 +180,11 @@ Application Insights では、クラウド フローの実行は `requests`、�
 
 `FlowRun` は Dataverse のエラスティック テーブルで、クラウド フローの実行単位の情報が保存されます。実行結果を一覧で取得・集計する用途に適しています。
 
-> [!NOTE]
-> 本章の検証結果は、2026 年 8 月 26 日に検証用の Dataverse 環境とクラウド フローを使用して確認したものです。
-> 画像内の環境固有の値やユーザー情報は、弊社検証環境の情報であるためマスキングしています。
-
 <a id='anchor-prerequisites'></a>
 
-### 4-1-1. 対象となるクラウド フローとアクセス権
+### 4-1-1. 対象となるクラウド フロー
 
-`FlowRun` テーブルへ実行履歴が保存される対象は、定義が Dataverse に保存されているクラウド フローです。オートメーション センターのクラウド フロー実行データにも `FlowRun` が使用されます。
-
-> [!IMPORTANT]
-> 公開情報では、`FlowRun` の対象は「定義が Dataverse に保存されているソリューション クラウド フロー」と説明されています。一方、弊社の環境では、独自のソリューションへ追加していないフローについても、既定のソリューションに定義が存在し、`FlowRun` へ実行履歴が保存されることを確認しました。
-
-フローの状態ごとの記録可否は以下のとおりです。
-
-| フローの状態 | Dataverse の `workflow` テーブル | `FlowRun` への記録 |
-|---|---|---|
-| 独自のソリューションに追加している | 存在する | 記録される |
-| 既定のソリューションのみに含まれる | 存在する | 記録される |
-| 定義が Dataverse に保存されていない | 存在しない (`404`) | 記録されない |
+`FlowRun` テーブルへ実行履歴が保存される対象は、定義が Dataverse に保存されているソリューション クラウド フローです。オートメーション センターのクラウド フロー実行データにも `FlowRun` が使用されます。
 
 対象のフローの定義が Dataverse に存在するかどうかは、Web API で `workflow` テーブルを参照して確認できます。
 
@@ -204,9 +192,7 @@ Application Insights では、クラウド フローの実行は `requests`、�
 GET https://<組織 URL>/api/data/v9.2/workflows(<クラウド フロー ID>)?$select=name,category
 ```
 
-フローの情報が返れば `FlowRun` に実行履歴が記録され、`404`（定義が見つからない）の場合は記録されません。ただし、これはフロー定義の有無による判定であり、すべての環境における記録可否を保証するものではありません。
-
-本記事では、Dataverse Web API を使用してデータを読み取る例を紹介します。API の実行には、対象環境の `FlowRun` テーブルを読み取る権限と、Dataverse Web API 用のアクセストークンが必要です。システム管理者ロールなど、環境内の `FlowRun` レコードを組織単位で読み取れる権限があれば、自分が所有していないフローの実行履歴も取得できます。
+フローの情報が返れば `FlowRun` に実行履歴が記録され、`404`（定義が見つからない）の場合は記録されません。
 
 <a id='anchor-flowrun-data'></a>
 
@@ -234,32 +220,6 @@ GET https://<組織 URL>/api/data/v9.2/workflows(<クラウド フロー ID>)?$s
 
 参考情報：[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata)
 
-Dataverse Web API の `$select` で指定する論理名と、テーブル参照に記載されている説明は以下のとおりです。
-
-| 論理名 | 説明 |
-|---|---|
-| `name` | カスタム エンティティの名前。 |
-| `starttime` | フローの実行が開始された日時。 |
-| `endtime` | フローの実行が終了した日時。 |
-| `duration` | 実行時間 (ミリ秒)。 |
-| `status` | フロー実行の状態。 |
-| `triggertype` | フロー実行のトリガーの種類。 |
-| `errorcode` | フローの実行が失敗したときのエラー コード。 |
-| `errormessage` | フローの実行が失敗したときのエラー メッセージ。 |
-| `clienttrackingid` | 実行のクライアント追跡 ID。 |
-| `workflowid` | この実行に関連付けられているワークフローの一意識別子。 |
-| `parentrunid` | この実行をトリガーした親実行の一意識別子。 |
-| `partitionid` | 論理パーティション ID。論理パーティションは、同じパーティション ID を持つレコードのセットで構成されます。 |
-| `ttlinseconds` | 有効期間 (秒)。 |
-
-参考情報：[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun)
-
-> [!NOTE]
-> `duration` の単位は、Microsoft Learn の日本語ページ間で記載が異なります。[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) では「実行期間」が **秒単位**、[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun) の `DurationInMs` では「実行時間 (**ミリ秒単位**)」と記載されています。弊社の環境では、`starttime` と `endtime` の差が 0〜1 秒の実行に対して `duration` が `502` や `867` を返したため、ミリ秒として扱うのが適切です。
-
-> [!IMPORTANT]
-> `status` と `triggertype` を `$filter` で指定する場合は、画面の表示名ではなく API が返す値を使用します。弊社の環境では、`triggertype` に `Scheduled`（予定されている）や `Instant`（手動実行）が、`status` に `Succeeded` や `Failed` が格納されていました。上の表にある「自動化」「予定されている」「マニュアル」は画面上の表示名であり、そのまま `$filter` へ指定しても一致しません。
-
 <a id='anchor-flowrun-limitations'></a>
 
 ### 4-1-3. 保存されない情報とポータルとの比較
@@ -284,18 +244,18 @@ Dataverse Web API の `$select` で指定する論理名と、テーブル参照
 
 | 情報 | `FlowRun` | Power Automate ポータル |
 |---|---|---|
-| 実行の状態 | 取得できる (`status`) | 確認できる |
-| エラー コード | 取得できる (`errorcode`) | 確認できる |
-| 失敗したアクション名 | 取得できない | 確認できる |
-| エラーの詳細 | 概要のみ (`errormessage`) | 確認できる |
-| アクションの入力と出力 | 取得できない | 確認できる |
-| クライアント追跡 ID | 取得できる (`clienttrackingid`) | 確認できる |
+| 実行の状態 | 確認可 (`status`) | 確認可 |
+| エラー コード | 確認可 (`errorcode`) | 確認可 |
+| 失敗したアクション名 | 確認不可 | 確認可 |
+| エラーの詳細 | 概要のみ (`errormessage`) | 確認可 |
+| アクションの入力と出力 | 確認不可 | 確認可 |
+| クライアント追跡 ID | 確認可 (`clienttrackingid`) | 確認可 |
 
-このように、`errormessage` から取得できるのは実行単位の概要までです。どのアクションが失敗したかを特定する場合は、[2-2-1. ポータルでの確認と CSV エクスポート](#anchor-action-details) のポータルの手順を使用してください。
+このように、`errormessage` から取得できるのは実行単位の概要までです。どのアクションが失敗したかを特定する場合は、[2-2-1. ポータルで確認する](#anchor-action-details) のポータルの手順を使用してください。
 
 <a id='anchor-retention'></a>
 
-### 4-1-4. 保持期間とデータの完全性
+### 4-1-4. 保持期間
 
 `FlowRun` レコードの既定の保持期間は 28 日です。
 
@@ -317,14 +277,6 @@ Power Platform 管理センターから保持期間を変更する手順は以�
 > [!NOTE]
 > 保持期間の変更は、変更後に作成される `FlowRun` レコードにのみ適用されます。既存のレコードの保持期間は変わりません。
 
-> [!WARNING]
-> `FlowRun` への書き込みに使用されるデータ ストリームはトランザクション データではなく、100% の完全性は保証されません。監査や完全な実行記録が必要な設計では、`FlowRun` だけに依存しないでください。
-
-レコードが欠落している可能性がある場合は、`FlowEvent` テーブルの `FlowRunIngestion` イベントを確認します。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレートの超過など、記録がスキップされた原因がシグナルとして残ります。
-
-> [!IMPORTANT]
-> ただし、`FlowEvent` にシグナルがないことは、すべての実行が `FlowRun` に保存されていることを意味しません。データ ストリームの一時的な問題で欠落したレコードは、`FlowEvent` にも記録されないためです。
-
 <a id='anchor-ingestion-failures'></a>
 
 ### 4-1-5. 実行履歴が保存されない主な条件
@@ -340,6 +292,14 @@ Power Platform 管理センターから保持期間を変更する手順は以�
 
 > [!NOTE]
 > `FlowRun` はユーザー単位でパーティション分割されるため、上記の上限やスロットリングは組織全体ではなく、フローの所有者ごとに評価されます。特定のユーザーへフローの所有権が集中している環境では影響を受けやすくなります。
+
+> [!WARNING]
+> `FlowRun` には、すべての実行履歴が欠落なく保存されるとは限りません。監査や完全な実行記録が必要な設計では、`FlowRun` だけに依存しないでください。
+
+レコードが欠落している可能性がある場合は、`FlowEvent` テーブルの `FlowRunIngestion` イベントを確認します。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレートの超過など、記録がスキップされた原因がシグナルとして残ります。
+
+> [!IMPORTANT]
+> ただし、`FlowEvent` にシグナルがないことは、すべての実行が `FlowRun` に保存されていることを意味しません。データ ストリームの一時的な問題で欠落したレコードは、`FlowEvent` にも記録されないためです。
 
 <a id='anchor-flowrun-retrieval'></a>
 
@@ -416,6 +376,34 @@ Excel のワークシートへ `FlowRun` のレコードが読み込まれます
 
 ### 4-2-3. Dataverse Web API から取得する
 
+本記事では、Dataverse Web API を使用してデータを読み取る例を紹介します。API の実行には、対象環境の `FlowRun` テーブルを読み取る権限と、Dataverse Web API 用のアクセストークンが必要です。システム管理者ロールなど、環境内の `FlowRun` レコードを組織単位で読み取れる権限があれば、自分が所有していないフローの実行履歴も取得できます。
+
+Dataverse Web API の `$select` で指定する論理名と、テーブル参照に記載されている説明は以下のとおりです。
+
+| 論理名 | 説明 |
+|---|---|
+| `name` | カスタム エンティティの名前。 |
+| `starttime` | フローの実行が開始された日時。 |
+| `endtime` | フローの実行が終了した日時。 |
+| `duration` | 実行時間 (ミリ秒)。 |
+| `status` | フロー実行の状態。 |
+| `triggertype` | フロー実行のトリガーの種類。 |
+| `errorcode` | フローの実行が失敗したときのエラー コード。 |
+| `errormessage` | フローの実行が失敗したときのエラー メッセージ。 |
+| `clienttrackingid` | 実行のクライアント追跡 ID。 |
+| `workflowid` | この実行に関連付けられているワークフローの一意識別子。 |
+| `parentrunid` | この実行をトリガーした親実行の一意識別子。 |
+| `partitionid` | 論理パーティション ID。論理パーティションは、同じパーティション ID を持つレコードのセットで構成されます。 |
+| `ttlinseconds` | 有効期間 (秒)。 |
+
+参考情報：[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun)
+
+> [!NOTE]
+> `duration` の単位は、Microsoft Learn の日本語ページ間で記載が異なります。[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) では「実行期間」が **秒単位**、[Flow Run (flowrun) テーブル/エンティティ参照](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun) の `DurationInMs` では「実行時間 (**ミリ秒単位**)」と記載されていますが、ミリ秒が正しい単位です。
+
+> [!IMPORTANT]
+> `status` と `triggertype` を `$filter` で指定する場合は、画面の表示名ではなく API が返す値を使用します。弊社の環境では、`triggertype` に `Scheduled`（予定されている）や `Instant`（手動実行）が、`status` に `Succeeded` や `Failed` が格納されていました。[4-1-2. 保存される列](#anchor-flowrun-data) の表にある「自動化」「予定されている」「マニュアル」は画面上の表示名であり、そのまま `$filter` へ指定しても一致しません。
+
 `FlowRun` テーブルのエンティティ セット名は `flowruns` です。以下のような GET 要求で実行履歴を取得できます。使用にあたっては [サンプルコード免責事項](#anchor-sample-disclaimer) をご確認ください。
 
 ```http
@@ -456,9 +444,6 @@ $headers = @{
 $response = Invoke-RestMethod -Method Get -Uri $requestUri -Headers $headers
 $response.value
 ```
-
-> [!NOTE]
-> `FlowRun` はエラスティック テーブルです。弊社の環境では、`partitionid` は実行ごとに一意の値が設定され、`name` と同じ値になっていました。そのため `partitionid` を指定して取得対象を絞り込む用途には使用できません。特定のフローの実行履歴を取得する場合は、上の例のように `workflowid` で絞り込みます。
 
 弊社の環境では、実行が終了してから `FlowRun` へレコードが現れるまで、約 3 分かかりました。取得処理では即時反映を前提とせず、再試行や待機時間を考慮してください。
 
