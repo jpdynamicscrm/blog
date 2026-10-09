@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-10-09T05:07:47.220Z</updated>
+  <updated>2026-10-09T05:27:34.248Z</updated>
   <entry>
     <author>
       <name>
@@ -46,7 +46,7 @@
 </ul>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について</title>
-    <updated>2026-10-09T05:07:47.220Z</updated>
+    <updated>2026-10-09T05:27:34.248Z</updated>
   </entry>
   <entry>
     <author>
@@ -69,7 +69,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせ前のトラブルシューティング</title>
-    <updated>2026-10-09T05:07:47.379Z</updated>
+    <updated>2026-10-09T05:27:34.409Z</updated>
   </entry>
   <entry>
     <author>
@@ -91,7 +91,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-10-09T05:07:47.217Z</updated>
+    <updated>2026-10-09T05:27:34.244Z</updated>
   </entry>
   <entry>
     <author>
@@ -116,7 +116,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-10-09T05:07:47.306Z</updated>
+    <updated>2026-10-09T05:27:34.335Z</updated>
   </entry>
   <entry>
     <author>
@@ -142,7 +142,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-10-09T05:07:47.164Z</updated>
+    <updated>2026-10-09T05:27:34.190Z</updated>
   </entry>
   <entry>
     <author>
@@ -168,7 +168,7 @@
 <p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
-    <updated>2026-10-09T05:07:47.282Z</updated>
+    <updated>2026-10-09T05:27:34.311Z</updated>
   </entry>
   <entry>
     <author>
@@ -178,8 +178,8 @@
     </author>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Pages/"/>
     <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Pages/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
     <content>
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Power Pages と外部 ID プロバイダー (Microsoft Entra External ID) を OpenID Connect (OIDC) で連携する際に、サインアップ時に入力した氏名が取引先担当者 (Contact) に反映されないという事象を題材に、外部 ID プロバイダーが既定で発行するクレームの考え方と、必要なクレームを追加するための構成についてご案内いたします。</p><p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p><span id="more"></span><div class="alert is-info"><p class="alert-title">Note</p><p>本記事は執筆時点の情報に基づいています。製品の仕様は予告なく変更される場合がありますので、最新の情報は公式ドキュメントをご確認ください。</p></div><h2 id="背景-Power-Pages-のクレームマッピングの仕組み"><a href="#背景-Power-Pages-のクレームマッピングの仕組み" class="headerlink" title="背景: Power Pages のクレームマッピングの仕組み"></a>背景: Power Pages のクレームマッピングの仕組み</h2><p>Power Pages で OpenID Connect による外部 ID プロバイダー連携を構成する場合、外部 ID プロバイダーが発行するトークン内のクレームを、取引先担当者 (Contact) の列にマッピングできます。</p><p>このマッピングは、以下のサイト設定で構成します。</p><ul><li><code>Authentication/OpenIdConnect/{ProviderName}/RegistrationClaimsMapping</code> : 新規登録 (サインアップ) 時に使用されるマッピング</li><li><code>Authentication/OpenIdConnect/{ProviderName}/LoginClaimsMapping</code> : サインイン時に使用されるマッピング</li></ul><p>たとえば、氏名を Contact の名 (firstname) &#x2F; 姓 (lastname) にマッピングする場合、次のように設定します。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firstname=given_name,lastname=family_name,fullname=name</span><br></pre></td></tr></table></figure><p>この設定では、<code>given_name</code> クレームの値を firstname に、<code>family_name</code> クレームの値を lastname にマッピングしています。<br><br>ここで重要な点は、<strong>マッピング元となるクレーム (<code>given_name</code> &#x2F; <code>family_name</code> など) が、実際に発行されるトークンに含まれている必要がある</strong> ということです。トークンにクレームが含まれていない場合、マッピング先の列には値が設定されません。</p><h2 id="事象-Claim-given-name-is-null-in-token"><a href="#事象-Claim-given-name-is-null-in-token" class="headerlink" title="事象: Claim given_name is null in token"></a>事象: <code>Claim given_name is null in token</code></h2><p>外部 ID プロバイダー連携を構成した Power Pages サイトで、サインアップ時に氏名を入力しても Contact に氏名が反映されない場合、Power Pages の診断ログに次のようなメッセージが記録されることがあります。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Claim given_name is null in token</span><br><span class="line">Claim family_name is null in token</span><br></pre></td></tr></table></figure><p>このメッセージは、Power Pages がクレームマッピングを処理する際に、トークン内に <code>given_name</code> および <code>family_name</code> クレームが存在しなかったことを示しています。</p><h2 id="原因-既定のトークンに含まれるクレームは限定的"><a href="#原因-既定のトークンに含まれるクレームは限定的" class="headerlink" title="原因: 既定のトークンに含まれるクレームは限定的"></a>原因: 既定のトークンに含まれるクレームは限定的</h2><p>Microsoft Entra External ID では、ユーザー フローで収集した属性 (氏名など) はディレクトリに保存されますが、<strong>既定で ID トークンに含まれるクレームのセットは意図的に限定されています</strong>。</p><p>そのため、ユーザー フローで氏名を収集していても、<code>given_name</code> や <code>family_name</code> といったクレームは、明示的に追加しない限り既定では ID トークンに含まれません。アプリケーションがこれらのクレームを必要とする場合は、アプリ登録側でトークンに含めるよう構成する必要があります。</p><p>今回の事象は、この既定の動作によるものであり、製品の仕様に基づく想定内の挙動です。</p><h2 id="対処-オプションのクレームを追加する"><a href="#対処-オプションのクレームを追加する" class="headerlink" title="対処: オプションのクレームを追加する"></a>対処: オプションのクレームを追加する</h2><p><code>given_name</code>、<code>family_name</code>、<code>email</code>、<code>name</code> など、Microsoft Entra ID で定義済みの標準クレームを ID トークンに追加する場合は、アプリ登録の [トークン構成] にある [オプションのクレーム] を使用します。</p><p>以下の手順で構成します。</p><ol><li>Microsoft Entra 管理センターで、Power Pages の ID プロバイダーとして使用しているアプリ登録を開きます</li><li><strong>[トークン構成]</strong> (Token configuration) を選択します</li><li><strong>[オプションの要求を追加]</strong> (Add optional claim) をクリックします</li><li>トークンの種類として <strong>[ID]</strong> を選択します</li><li>Power Pages のマッピングで使用しているクレーム (例: <code>given_name</code>、<code>family_name</code>) を選択して追加します</li></ol><p>構成後、あらためてサインアップを実施すると、氏名が ID トークンに含まれるようになり、Contact に氏名が反映されることを確認できます。</p><div class="alert is-info"><p class="alert-title">Note</p><p>クレームを追加または変更した後は、Power Pages 側の <code>RegistrationClaimsMapping</code> および <code>LoginClaimsMapping</code> で参照しているクレーム名と一致しているかをご確認ください。異なるクレーム名で発行した場合は、Power Pages 側のマッピングも対応するクレーム名に合わせて変更する必要があります。</p></div><h2 id="セキュリティ上の考慮事項"><a href="#セキュリティ上の考慮事項" class="headerlink" title="セキュリティ上の考慮事項"></a>セキュリティ上の考慮事項</h2><p>トークンには、アプリケーションが実際に使用するクレームのみを含めることをお勧めします。</p><p>不要な個人情報 (PII) をトークンに追加しないことで、万一トークンが漏えいした場合に露出する情報を必要最小限に抑えられます。追加するクレームは、Power Pages のマッピングで実際に参照しているものに限定することが望ましい構成です。</p><p>外部 ID プロバイダーとの連携を設計する際は、「既定でどのクレームが発行されるか」を把握したうえで、<strong>アプリケーションが必要とするクレームを、必要になった時点で明示的に追加する</strong> という方針で構成することをお勧めします。</p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事では、Power Pages と Microsoft Entra External ID を OpenID Connect で連携する際に、氏名が取引先担当者に反映されない事象を題材に、以下の点をご案内しました。</p><ul><li>Power Pages のクレームマッピングは、トークンに含まれるクレームを Contact 列にマッピングする仕組みであり、マッピング元のクレームがトークンに含まれている必要がある</li><li>Microsoft Entra External ID では、既定で ID トークンに含まれるクレームは限定的であり、<code>given_name</code> &#x2F; <code>family_name</code> などは明示的に追加しない限り含まれない</li><li>標準クレームを追加する場合は、アプリ登録の [トークン構成] &gt; [オプションのクレーム] を使用する方法がシンプルで運用しやすい</li><li>トークンには、アプリケーションが実際に使用するクレームのみを含める</li></ul><p>外部 ID プロバイダー連携を構成する際は、既定で発行されるクレームを確認し、必要なクレームを適切に追加することで、想定どおりの動作を実現できます。</p><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/power-pages/security/authentication/openid-settings#set-up-additional-claims">OpenID Connect プロバイダーの設定 - 追加のクレームの設定 (Microsoft Learn)</a></li><li><a href="https://learn.microsoft.com/entra/identity-platform/optional-claims#configure-optional-claims-in-your-application">アプリケーションでオプションのクレームを構成する (Microsoft Learn)</a></li><li><a href="https://learn.microsoft.com/entra/external-id/customers/migrate-from-cognito-to-external-id#step-2-prepare">Amazon Cognito から Microsoft Entra External ID への移行 (Microsoft Learn)</a></li></ul><hr><p>※ 本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>]]>
     </content>
@@ -191,7 +191,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-10-09T05:07:47.401Z</updated>
+    <updated>2026-10-09T05:27:34.431Z</updated>
   </entry>
   <entry>
     <author>
@@ -220,7 +220,7 @@
 </blockquote>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法</title>
-    <updated>2026-10-09T05:07:47.191Z</updated>
+    <updated>2026-10-09T05:27:34.218Z</updated>
   </entry>
   <entry>
     <author>
@@ -246,7 +246,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-10-09T05:07:47.165Z</updated>
+    <updated>2026-10-09T05:27:34.191Z</updated>
   </entry>
   <entry>
     <author>
@@ -269,7 +269,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-10-09T05:07:47.468Z</updated>
+    <updated>2026-10-09T05:27:34.500Z</updated>
   </entry>
   <entry>
     <author>
@@ -292,7 +292,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-10-09T05:07:47.536Z</updated>
+    <updated>2026-10-09T05:27:34.569Z</updated>
   </entry>
   <entry>
     <author>
@@ -316,7 +316,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-10-09T05:07:47.540Z</updated>
+    <updated>2026-10-09T05:27:34.573Z</updated>
   </entry>
   <entry>
     <author>
@@ -339,7 +339,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-10-09T05:07:47.467Z</updated>
+    <updated>2026-10-09T05:27:34.498Z</updated>
   </entry>
   <entry>
     <author>
@@ -362,7 +362,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-10-09T05:07:47.401Z</updated>
+    <updated>2026-10-09T05:27:34.431Z</updated>
   </entry>
   <entry>
     <author>
@@ -388,7 +388,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-10-09T05:07:47.508Z</updated>
+    <updated>2026-10-09T05:27:34.540Z</updated>
   </entry>
   <entry>
     <author>
@@ -415,7 +415,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-10-09T05:07:47.520Z</updated>
+    <updated>2026-10-09T05:27:34.552Z</updated>
   </entry>
   <entry>
     <author>
@@ -441,7 +441,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-10-09T05:07:47.467Z</updated>
+    <updated>2026-10-09T05:27:34.498Z</updated>
   </entry>
   <entry>
     <author>
@@ -478,7 +478,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-10-09T05:07:47.520Z</updated>
+    <updated>2026-10-09T05:27:34.552Z</updated>
   </entry>
   <entry>
     <author>
@@ -508,7 +508,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-10-09T05:07:47.466Z</updated>
+    <updated>2026-10-09T05:27:34.497Z</updated>
   </entry>
   <entry>
     <author>
@@ -540,6 +540,6 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-10-09T05:07:47.399Z</updated>
+    <updated>2026-10-09T05:27:34.430Z</updated>
   </entry>
 </feed>
