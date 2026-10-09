@@ -1,5 +1,5 @@
 ---
-title:【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について
+title: 【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について
 date: 2026-09-18
 categories: Microsoft Copilot Studio
 tags:
