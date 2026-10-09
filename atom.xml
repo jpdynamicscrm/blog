@@ -18,7 +18,36 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-10-09T01:57:59.384Z</updated>
+  <updated>2026-10-09T05:07:47.220Z</updated>
+  <entry>
+    <author>
+      <name>
+        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
+      </name>
+    </author>
+    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/categories/Microsoft-Copilot-Studio/"/>
+    <category term="Microsoft Copilot Studio" scheme="https://jpdynamicscrm.github.io/blog/tags/Microsoft-Copilot-Studio/"/>
+    <content>
+      <![CDATA[<p>こんにちは、Power Platform サポートの清水です。<br>この記事では、Copilot Studio のエージェントを Teams に展開した際に発生することのあるトラブルと、その対処法についてご紹介します。</p><div class="alert is-important"><p class="alert-title">重要</p><p>本記事は <strong>Copilot Studio の Standard Harness</strong> を使用した場合を前提としています。GitHub Copilot Harness には当てはまらない場合があります。</p></div><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Copilot Studio のエージェントを Teams に展開した場合の動作の特徴</li><li>Teams チャネルで発生しがちなトラブル</li><li>Teams チャネルでトラブルが発生した場合の対処法</li><li>Teams チャネルでトラブルが発生しにくくなるようなエージェントの構築ヒント</li></ul><span id="more"></span><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#1">Teams チャネルの特徴と発生しがちなトラブルについて</a></li><li><a href="#2">Teams チャネルで会話中にエラーが発生した場合の切り分けについて</a></li><li><a href="#3">エージェントの実装における対策について</a></li></ul><p><a id='1'></a></p><h2 id="Teams-チャネルの特徴と発生しがちなトラブルについて"><a href="#Teams-チャネルの特徴と発生しがちなトラブルについて" class="headerlink" title="Teams チャネルの特徴と発生しがちなトラブルについて"></a>Teams チャネルの特徴と発生しがちなトラブルについて</h2><p>Copilot Studio の Microsoft Teams チャネルは、エージェントの展開先として非常に多くご採用いただいているチャネルですが、チャネルの特徴により、エージェントとの会話において原因不明のエラーが発生することも多くあります。  </p><p>Teams チャネルでトラブルの発生原因となる動作として、<strong>セッションが自動でリセットされない</strong>という特徴があります。<br>Teams チャネルでは、Microsoft 365 Copilot などの Web ベースの展開とは異なり、会話のスレッドが無期限に保持され、会話履歴が永続的に保持されます。<br>※参考情報: <a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/guidance/deploy-agent-teams">Microsoft Teams でエージェントを展開する - Microsoft Copilot Studio</a></p><p>この動作により、過去にエージェントと行った会話履歴や、セッション上で保持されている変数、トークンなどが自動でリセットされずに半永久的に保持され、想定外の動作が発生するケースが多くみられます。  </p><p>事例ベースでは、例えば以下のような事象が発生した事例があります。</p><ul><li>過去の会話履歴が蓄積したことが原因で、AI モデルとのやり取り時にトークン (コンテキスト長) の上限を超過してエラーが発生する</li><li>過去のやり取りにおいてグローバル変数に格納された値がリセットされず、想定外の変数値が再利用されてしまう</li><li>エージェントが過去にナレッジソースから検索した情報がセッション内に残り、最新のナレッジソースの情報を応答できない</li></ul><p>また、エージェントの内部処理でエラーが発生した場合、多くは「SystemError」としてユーザーに応答が返されます。<br>そのため、原因の分析が難しく、お問い合わせをいただくまで原因や対処法が分からないことが多いです。  </p><p>一度エラーが発生すると、同じエラーが繰り返し発生し、エージェントが全く使用できない状態となってしまうケースも存在します。  </p><p>なお、以下のように、エージェントとの会話が始まっていない段階での問題については、この動作とは関連がない可能性が高いです。<br>この場合、エージェント側での対処ではなく、Teams 側の設定などが影響している可能性が高いため、まずは Teams の設定の確認などを進めていくことをおすすめいたします。</p><ul><li>エージェントを Teams にインストールできない</li><li>Teams 上でエージェントが見つからない</li><li>エージェントにメッセージを送信しても応答が来ない</li></ul><p><a id='2'></a></p><h2 id="Teams-チャネルで会話中にエラーが発生した場合の切り分けについて"><a href="#Teams-チャネルで会話中にエラーが発生した場合の切り分けについて" class="headerlink" title="Teams チャネルで会話中にエラーが発生した場合の切り分けについて"></a>Teams チャネルで会話中にエラーが発生した場合の切り分けについて</h2><p>Teams チャネルでのエージェントとの会話中に原因不明なエラーが発生した場合、まず実施いただきたい切り分けは以下の通りです。</p><ol><li>Microsoft 365 Copilot チャネルでも同じ事象が発生するか</li><li>事象が発生したセッションにおいて <code>/debug clearhistory</code> や <code>/debug clearstate</code> コマンドを実行することで改善が見られるか</li></ol><p>エージェントとの会話において、Teams チャネルでのみエラーが発生する場合、上述のセッション残存が影響している可能性が高いです。  </p><p>また、<code>/debug clearhistory</code> や <code>/debug clearstate</code> コマンドは、エージェントとの会話履歴や、会話の状態、キャッシュされた情報を削除するコマンドです。<br>さらに、<code>/debug clearstate</code> を実行することで、エージェントの最新バージョンが読み込まれ、公開済みの新しいバージョンを取得することができます。  </p><p>上記コマンドを実行することで事象に改善が見られる場合、Teams チャネルでのセッション保持が原因で問題が発生している可能性が高いため、後述するようなエージェント側での対策により、再発防止が期待できます。</p><p><a id='3'></a></p><h2 id="エージェントの実装における対策について"><a href="#エージェントの実装における対策について" class="headerlink" title="エージェントの実装における対策について"></a>エージェントの実装における対策について</h2><p>Teams チャネルにエージェントを展開する場合、エージェントの設計として、明示的に会話履歴やグローバル変数をリセットする処理を組み込むことをおすすめします。<br>リセットのタイミングとしては、</p><ul><li>エラー発生時</li><li>一定時間セッションが非アクティブとなったタイミング</li></ul><p>などが挙げられます。</p><p>非アクティブ時のリセットについては、以下の公開情報にて実装方法を紹介しておりますので、ご参照ください。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/guidance/deploy-agent-teams#implement-inactivity-resets">非アクティブ時のリセットを実装する</a>  </p><p>また、エージェントのシステムトピックである “エラー発生時” トピックにて、上記と同様の処理を実装することで、エラー発生時にセッションをクリアすることが可能です。<br>ユーザーのユースケースを複数想定し、実装の観点からもエラーが発生しない仕組みの導入をご検討ください。  </p><p>非アクティブ トリガーの仕組みやユースケースに関して紹介している以下の公開情報も参考になりますので、ぜひご一読ください。<br><a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/guidance/inactivity-trigger-guidance">非アクティブ トリガー</a>  </p><p>エージェントをより快適に使用するために、チャネルの特性を考慮したエージェントの実装をご検討いただけますと幸いです。</p>]]>
+    </content>
+    <id>https://jpdynamicscrm.github.io/blog/copilotstudio/copilotstudio-publish-to-teams-channel/</id>
+    <link href="https://jpdynamicscrm.github.io/blog/copilotstudio/copilotstudio-publish-to-teams-channel/"/>
+    <published>2026-09-17T15:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>こんにちは、Power Platform サポートの清水です。<br>この記事では、Copilot Studio のエージェントを Teams に展開した際に発生することのあるトラブルと、その対処法についてご紹介します。</p>
+<blockquote>
+<p>[!IMPORTANT]<br>本記事は <strong>Copilot Studio の Standard Harness</strong> を使用した場合を前提としています。GitHub Copilot Harness には当てはまらない場合があります。</p>
+</blockquote>
+<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<li>Copilot Studio のエージェントを Teams に展開した場合の動作の特徴</li>
+<li>Teams チャネルで発生しがちなトラブル</li>
+<li>Teams チャネルでトラブルが発生した場合の対処法</li>
+<li>Teams チャネルでトラブルが発生しにくくなるようなエージェントの構築ヒント</li>
+</ul>]]>
+    </summary>
+    <title>【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について</title>
+    <updated>2026-10-09T05:07:47.220Z</updated>
+  </entry>
   <entry>
     <author>
       <name>
@@ -40,7 +69,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせ前のトラブルシューティング</title>
-    <updated>2026-10-09T01:57:59.384Z</updated>
+    <updated>2026-10-09T05:07:47.379Z</updated>
   </entry>
   <entry>
     <author>
@@ -62,7 +91,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-10-09T01:57:59.274Z</updated>
+    <updated>2026-10-09T05:07:47.217Z</updated>
   </entry>
   <entry>
     <author>
@@ -87,7 +116,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-10-09T01:57:59.334Z</updated>
+    <updated>2026-10-09T05:07:47.306Z</updated>
   </entry>
   <entry>
     <author>
@@ -97,8 +126,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
     <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
@@ -113,7 +142,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-10-09T01:57:59.238Z</updated>
+    <updated>2026-10-09T05:07:47.164Z</updated>
   </entry>
   <entry>
     <author>
@@ -123,8 +152,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
     <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
@@ -139,7 +168,7 @@
 <p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
-    <updated>2026-10-09T01:57:59.319Z</updated>
+    <updated>2026-10-09T05:07:47.282Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +191,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-10-09T01:57:59.399Z</updated>
+    <updated>2026-10-09T05:07:47.401Z</updated>
   </entry>
   <entry>
     <author>
@@ -191,7 +220,7 @@
 </blockquote>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法</title>
-    <updated>2026-10-09T01:57:59.257Z</updated>
+    <updated>2026-10-09T05:07:47.191Z</updated>
   </entry>
   <entry>
     <author>
@@ -201,8 +230,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
+    <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
@@ -217,7 +246,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-10-09T01:57:59.239Z</updated>
+    <updated>2026-10-09T05:07:47.165Z</updated>
   </entry>
   <entry>
     <author>
@@ -240,7 +269,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-10-09T01:57:59.446Z</updated>
+    <updated>2026-10-09T05:07:47.468Z</updated>
   </entry>
   <entry>
     <author>
@@ -263,7 +292,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-10-09T01:57:59.492Z</updated>
+    <updated>2026-10-09T05:07:47.536Z</updated>
   </entry>
   <entry>
     <author>
@@ -287,7 +316,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-10-09T01:57:59.495Z</updated>
+    <updated>2026-10-09T05:07:47.540Z</updated>
   </entry>
   <entry>
     <author>
@@ -310,7 +339,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-10-09T01:57:59.445Z</updated>
+    <updated>2026-10-09T05:07:47.467Z</updated>
   </entry>
   <entry>
     <author>
@@ -333,7 +362,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-10-09T01:57:59.399Z</updated>
+    <updated>2026-10-09T05:07:47.401Z</updated>
   </entry>
   <entry>
     <author>
@@ -359,7 +388,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-10-09T01:57:59.473Z</updated>
+    <updated>2026-10-09T05:07:47.508Z</updated>
   </entry>
   <entry>
     <author>
@@ -386,7 +415,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-10-09T01:57:59.481Z</updated>
+    <updated>2026-10-09T05:07:47.520Z</updated>
   </entry>
   <entry>
     <author>
@@ -412,7 +441,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-10-09T01:57:59.445Z</updated>
+    <updated>2026-10-09T05:07:47.467Z</updated>
   </entry>
   <entry>
     <author>
@@ -449,7 +478,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-10-09T01:57:59.481Z</updated>
+    <updated>2026-10-09T05:07:47.520Z</updated>
   </entry>
   <entry>
     <author>
@@ -479,7 +508,7 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-10-09T01:57:59.444Z</updated>
+    <updated>2026-10-09T05:07:47.466Z</updated>
   </entry>
   <entry>
     <author>
@@ -489,8 +518,8 @@
     </author>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Pages/"/>
     <category term="Power Pages" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Pages/"/>
-    <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
     <category term="Security" scheme="https://jpdynamicscrm.github.io/blog/tags/Security/"/>
+    <category term="Administration" scheme="https://jpdynamicscrm.github.io/blog/tags/Administration/"/>
     <content>
       <![CDATA[<p>こんにちは、Power Platformサポートチームの吉永です。</p><p>本記事では Power Pages 認証キーに関するご説明を行わせて頂きます。</p><p>Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定期的に更新作業を実施する必要のある項目となっており、この認証キーが持つ有効期限が切れてしまった場合、Web サイトにアクセスできないといった大きな影響が生じます。</p><p>このため、Power Pages の Web サイトを作成する上で、Power Pages 認証キーをどのように管理いただくかは非常に重要なポイントとなります。</p><p>本記事では Power Pages 認証キーの管理について、以下の Q1〜Q4 の質問に回答する形でご説明させていただきます。</p><ul><li><a href="#auth-key-overview">Q1: Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">Q2: 認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">Q3: どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">Q4: 認証キーはどのように管理すればいいですか？</a></li></ul><span id="more"></span><h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul><li>Power Pages が Dataverse (データ置き場) に接続するための「鍵」の仕組み</li><li>1 年に 1 回の更新を忘れた場合のリスク</li><li>Power Platform 管理センターを使った簡単な更新手順</li><li>更新作業に伴うサイトの一時的な再起動について</li></ul><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？</a></li><li><a href="#expiration-impact">認証キーの有効期限が切れるとどうなりますか？</a></li><li><a href="#renewal-steps">どうやってキーを更新すればいいですか？</a></li><li><a href="#auth-key-management">認証キーはどのように管理すればいいですか？</a></li></ul><h2 id="auth-key-overview">Power Pages の認証キーとは何ですか？なぜ更新が必要なのですか？ (Q1)</h2><p>Power Pages 認証キーは Power Pages で作成された Web サイトを表示するために必要な Dataverse へのアクセスを行うための認証キーとなります。</p><p>前提として、Power Page で作られた Web サイトは、Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/architecture">Power Pages アーキテクチャ (Docs)</a></li></ul><p><img src="/blog/powerpages/power-pages-auth-key/power-pages-architecture.png"></p><p>このため、Power Pages の Web サイトが機能するためには、Power Pages (Web サイト) が Dataverse に接続可能な状態である必要があります。<br>この接続にはセキュリティ上の観点から「認証キー」を用いた接続が利用されておりますが、この「認証キー」には 1 年間という有効期限がございます。</p><p>この「認証キー」の有効期限は自動では更新されないことから、ユーザー様にて定期的に「認証キー」を更新していただく必要がございます。<br>Web サイト認証キーの管理</p><p>【補足 : 認証キーの実体】<br>先述させて頂きましたように、 Power Pages では Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。</p><p>このため、Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で作成される仕組みとなっております。<br>このことから、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-azure-app.png"></p><p>なお、Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。</p><h2 id="expiration-impact">認証キーの有効期限が切れるとどうなりますか？ (Q2)</h2>「認証キー」の有効期限が切れた場合、Web サイトは Dataverse にアクセスできなくなります。Power Pages の Web サイトは Dataverse 上に保存された Web サイトのカスタマイズ情報などを使って動作しておりますので、以下のような問題が発生します。<ul><li>ログインができなくなる</li><li>フォームに入力したデータを送信できなくなる</li><li>ページにデータが表示されずエラーになる</li></ul><p>実際に「認証キーの有効期限が切れてしまっていたことで、Web サイトにアクセスできなくなった」というお問い合わせを頂くことがあり、影響としても非常に大きいものとなりますので、期限切れになる前に必ず更新作業を行って頂く必要がございます。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-expiration-of-an-auth-key">Web サイト認証キーの管理 - 認証キーの有効期限切れを確認する (Docs)</a></li></ul><h2 id="renewal-steps">どうやってキーを更新すればいいですか？ (Q3)</h2>Power Pages 認証キーは以下の手順で更新可能です。<ol><li><a href="https://aka.ms/ppac?utm_source=blog">Power Platform 管理センター</a> にアクセスします。</li><li>左側のメニューから [管理] &gt; [Power Pages] を選択します。</li><li>対象のウェブサイトを選択し、画面上部のメニューまたは詳細画面から [管理] (または [設定]) を探します。</li><li>[セキュリティ] セクションにある <strong>[Web サイト認証キー]</strong> をクリックします。</li><li>表示された画面で <strong>[キーの更新]</strong> ボタンを押し、確認画面で [OK] を選択します。<br><img src="/blog/powerpages/power-pages-auth-key/power-pages-auth-key.png"></li></ol><p>これにより更新処理が始まり、自動でキーの更新が完了となります。</p><p>【ポイント】</p><p>1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。</p><p>2.「キーの更新」ボタンを押すことで、新しいキーが自動生成されますが、新たなキーの有効期限は 1 年後となります。</p><p>3.認証キーを更新する際、ウェブサイトの再起動が発生します。<br>この再起動では  Web サイトが完全に停止するわけではございませんが、数分程度の間、利用者がサイトにアクセスしづらくなる可能性があるため、必要に応じて、夜間帯などでの実行をご検討ください。</p><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/admin-roles">Web サイト管理に必要なロール (Docs)</a></li></ul><h2 id="auth-key-management">認証キーはどのように管理すればいいですか？ (Q4)</h2>Power Pages の認証キーは、有効期限切れが近づくと管理者宛に以下のような方法で複数回通知されます。<ul><li>電子メール</li><li>Power Platform 管理センター</li><li>Web サイト上</li></ul><p>＜参考資料＞</p><ul><li><a href="https://learn.microsoft.com/ja-jp/power-pages/admin/manage-auth-key#check-authentication-key-expiration-notification">認証キーの有効期限切れを確認する (Docs)</a></li></ul><p>場合によってメールでの通知に気づくことが出来ない可能性がある一方で、有効期限が切れた場合の影響が大きいため、必要に応じてより通知に気づきやすい、漏れが生じにくい方法での管理についてもご検討いただけますと幸いです。</p><h2 id="summary">まとめ</h2><ul><li>Power Pages の認証キーは、安全なデータ接続に必要な「身分証明書」です。</li><li>有効期限 (1 年) が切れると、サイトが正常に動かなくなります。</li><li>管理センターから簡単に更新できますが、数分間のサイト再起動を伴います。</li><li>メール通知が届いたら、利用者の少ない時間帯を見計らって更新しましょう。</li></ul><h2 id="notice">注意事項（情報の更新可能性）</h2>本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。]]>
     </content>
@@ -511,29 +540,6 @@
 </ul>]]>
     </summary>
     <title>Power Pages 認証キーの更新ガイド</title>
-    <updated>2026-10-09T01:57:59.398Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>
-        <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
-      </name>
-    </author>
-    <category term="Power Platform Admin Center" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform-Admin-Center/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
-    <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
-    <content>
-      <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Power Platform のソリューションを運用するうえで押さえておきたいベストプラクティスについてご案内いたします。</p><p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p><span id="more"></span><div class="alert is-info"><p class="alert-title">Note</p><p>本記事は執筆時点の情報に基づいています。製品の仕様は予告なく変更される場合がありますので、最新の情報は公式ドキュメントをご確認ください。</p></div><h2 id="ソリューションとは"><a href="#ソリューションとは" class="headerlink" title="ソリューションとは"></a>ソリューションとは</h2><p>Power Platform のソリューションとは、Power Apps のアプリや Power Automate のフロー、Dataverse のテーブルなどのコンポーネントをひとまとめにして管理するための「入れ物」です。</p><p>Power Apps や Power Automate で作成したコンポーネントは、既定では「既定のソリューション（Default Solution）」に含まれます。<br>しかし、本番運用を見据える場合はカスタムソリューションを作成し、関連するコンポーネントをまとめて管理することが推奨されます。</p><p>ソリューションを利用するメリットは主に以下のとおりです。</p><ul><li>開発環境から本番環境へコンポーネントをまとめて移行できる</li><li>変更履歴やバージョンの管理がしやすくなる</li><li>コンポーネント間の依存関係を把握しやすくなる</li><li>不要になった機能をまとめて削除（アンインストール）できる</li></ul><div class="alert is-important"><p class="alert-title">重要</p><p>小規模な開発であっても、カスタムソリューションを使うことで変更管理やバックアップが容易になります。既定のソリューションのみでの運用は推奨されません。</p></div><h2 id="マネージドソリューションとアンマネージドソリューション"><a href="#マネージドソリューションとアンマネージドソリューション" class="headerlink" title="マネージドソリューションとアンマネージドソリューション"></a>マネージドソリューションとアンマネージドソリューション</h2><p>ソリューションには「マネージドソリューション」と「アンマネージドソリューション」の 2 種類があります。<br>それぞれの特徴は以下のとおりです。</p><table><thead><tr><th>項目</th><th>アンマネージドソリューション</th><th>マネージドソリューション</th></tr></thead><tbody><tr><td>主な用途</td><td>開発環境での編集・作業用</td><td>テスト環境・本番環境への展開用</td></tr><tr><td>コンポーネントの編集</td><td>可能</td><td>不可（意図しない変更を防止）</td></tr><tr><td>アンインストール</td><td>コンポーネントは環境に残る</td><td>コンポーネントごと削除される</td></tr></tbody></table><p>基本的な運用として、以下のフローが推奨されます。</p><ol><li>開発環境でアンマネージドソリューションとしてコンポーネントを編集する</li><li>マネージドソリューションとしてエクスポートする</li><li>テスト環境や本番環境にマネージドソリューションとしてインポートする</li></ol><div class="alert is-warning"><p class="alert-title">警告</p><p>アンマネージドソリューションを本番環境に直接インポートすると、コンポーネントの削除やバージョン管理が困難になります。本番環境にはマネージドソリューションとして展開してください。</p></div><h2 id="発行元（パブリッシャー）の設定"><a href="#発行元（パブリッシャー）の設定" class="headerlink" title="発行元（パブリッシャー）の設定"></a>発行元（パブリッシャー）の設定</h2><p>ソリューションの発行元（パブリッシャー）は、テーブルや列の論理名に付与されるプレフィックスを決定する重要な設定です。<br>以下のポイントに注意して設定してください。</p><h3 id="組織で発行元を統一する"><a href="#組織で発行元を統一する" class="headerlink" title="組織で発行元を統一する"></a>組織で発行元を統一する</h3><p>発行元は組織ごとにひとつ作成し、すべてのソリューションで同じ発行元を使用することが推奨されます。<br>発行元が異なるとコンポーネントの依存関係が複雑になり、管理が難しくなります。</p><h3 id="プレフィックスを適切に設定する"><a href="#プレフィックスを適切に設定する" class="headerlink" title="プレフィックスを適切に設定する"></a>プレフィックスを適切に設定する</h3><p>プレフィックスは組織を識別できる短い文字列（例: <code>contoso</code>）に設定します。<br>プレフィックスを <code>contoso</code> に設定した場合、新しく作成したテーブルの論理名は <code>contoso_テーブル名</code> のように自動的に付与されます。</p><div class="alert is-important"><p class="alert-title">重要</p><p>一度設定したプレフィックスはあとから変更できません。最初に慎重に決定してください。</p></div><h3 id="既定の発行元を使用しない"><a href="#既定の発行元を使用しない" class="headerlink" title="既定の発行元を使用しない"></a>既定の発行元を使用しない</h3><p>既定の発行元（プレフィックス: <code>new</code>）は使用しないでください。<br>他の組織が作成したコンポーネントと名前が競合する恐れがあります。</p><h2 id="ソリューションの設計"><a href="#ソリューションの設計" class="headerlink" title="ソリューションの設計"></a>ソリューションの設計</h2><p>ソリューションを適切に設計することで、変更の影響範囲を限定でき、展開やテストが容易になります。</p><h3 id="機能単位でソリューションを分割する"><a href="#機能単位でソリューションを分割する" class="headerlink" title="機能単位でソリューションを分割する"></a>機能単位でソリューションを分割する</h3><p>ひとつのソリューションにすべてのコンポーネントを詰め込むのではなく、機能や業務の単位で分割します。<br>たとえば「営業管理アプリ」と「経費申請フロー」がある場合、それぞれ別のソリューションとして管理します。</p><p>コンポーネントが多すぎるソリューションは、エクスポートやインポートに時間がかかり、エラー発生時の原因特定も難しくなります。</p><h3 id="共通コンポーネントはベースソリューションにまとめる"><a href="#共通コンポーネントはベースソリューションにまとめる" class="headerlink" title="共通コンポーネントはベースソリューションにまとめる"></a>共通コンポーネントはベースソリューションにまとめる</h3><p>複数のソリューションで共有するコンポーネント（テーブル、セキュリティロールなど）は、専用のベースソリューションにまとめます。<br>各機能ソリューションはベースソリューションに依存する形にすることで、整理された構成になります。</p><h3 id="循環参照を避ける"><a href="#循環参照を避ける" class="headerlink" title="循環参照を避ける"></a>循環参照を避ける</h3><p>ソリューション間の依存関係は一方向に保ち、循環参照が発生しないように設計します。<br>循環参照が発生すると、インポートの順序管理が複雑になり、展開に失敗する場合があります。</p><h2 id="環境間のソリューション移行"><a href="#環境間のソリューション移行" class="headerlink" title="環境間のソリューション移行"></a>環境間のソリューション移行</h2><p>ソリューションを環境間で移行する際は、以下のベストプラクティスに従ってください。</p><h3 id="最低-3-つの環境を用意する"><a href="#最低-3-つの環境を用意する" class="headerlink" title="最低 3 つの環境を用意する"></a>最低 3 つの環境を用意する</h3><ul><li><strong>開発環境</strong>: コンポーネントの編集・開発を行う環境</li><li><strong>テスト環境</strong>: 動作確認・検証を行う環境</li><li><strong>本番環境</strong>: 実際のユーザーが利用する環境</li></ul><p>テスト環境がないと、本番環境で初めて問題が発覚するリスクが高くなります。</p><h3 id="接続参照と環境変数を活用する"><a href="#接続参照と環境変数を活用する" class="headerlink" title="接続参照と環境変数を活用する"></a>接続参照と環境変数を活用する</h3><p>接続参照は、フローやアプリが外部サービスに接続するための設定を環境ごとに分けるために使用します。<br>環境変数は、環境ごとに異なる値（URL、API キーなど）を管理するために使用します。</p><p>これらを活用することで、ソリューション自体を変更することなく環境に応じた設定が可能になります。<br>「開発環境の接続情報が本番環境に持ち込まれる」という事故を防ぐことができます。</p><h2 id="バージョン管理と-ALM"><a href="#バージョン管理と-ALM" class="headerlink" title="バージョン管理と ALM"></a>バージョン管理と ALM</h2><p>ソリューションのライフサイクルを適切に管理するために、バージョン管理と ALM（Application Lifecycle Management）の仕組みを取り入れることを推奨します。</p><h3 id="バージョン番号の運用"><a href="#バージョン番号の運用" class="headerlink" title="バージョン番号の運用"></a>バージョン番号の運用</h3><p>ソリューションのバージョン番号は「メジャー.マイナー.ビルド.リビジョン」の 4 桁構成です。<br>以下のようなルールで運用すると管理がしやすくなります。</p><ul><li>初回リリース: <code>1.0.0.0</code></li><li>軽微な修正: リビジョンを上げる（例: <code>1.0.0.1</code>）</li><li>機能追加: マイナーバージョンを上げる（例: <code>1.1.0.0</code>）</li><li>大規模な変更: メジャーバージョンを上げる（例: <code>2.0.0.0</code>）</li></ul><h3 id="パイプラインによる展開の自動化"><a href="#パイプラインによる展開の自動化" class="headerlink" title="パイプラインによる展開の自動化"></a>パイプラインによる展開の自動化</h3><p>Power Platform のパイプライン機能を使うと、開発環境からテスト環境・本番環境への展開を効率的に行えます。</p><ol><li>Power Platform 管理センターでパイプラインを有効化します</li><li>開発環境とターゲット環境（テスト・本番）を登録します</li><li>ソリューションの <strong>[パイプラインで展開]</strong> を選択して展開を実行します</li></ol><h3 id="ソース管理との連携"><a href="#ソース管理との連携" class="headerlink" title="ソース管理との連携"></a>ソース管理との連携</h3><p>Azure DevOps や GitHub と連携することで、ソリューションの変更履歴をリポジトリで管理できます。<br>変更の追跡やコードレビューを行う本格的な ALM を実現したい場合に有効です。</p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事では、Power Platform のソリューション運用におけるベストプラクティスをご紹介しました。<br>主なポイントは以下のとおりです。</p><ul><li>ソリューションは小規模な開発でもカスタムソリューションを作成して管理する</li><li>開発環境ではアンマネージド、本番環境にはマネージドソリューションとして展開する</li><li>発行元は組織で統一し、既定の発行元（プレフィックス: <code>new</code>）は使用しない</li><li>機能や業務単位でソリューションを分割し、循環参照を避ける</li><li>開発・テスト・本番の 3 環境を用意し、接続参照と環境変数で設定を分離する</li><li>バージョン番号を適切に管理し、パイプラインやソース管理を活用する</li></ul><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm">ソリューションの概要 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/overview-alm">Power Platform の ALM の概要 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-concepts-alm#managed-and-unmanaged-solutions">マネージドソリューションとアンマネージドソリューション - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/change-solution-publisher-prefix">ソリューション発行元のプレフィックス - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/solution-layers-alm">ソリューションのレイヤー - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/environment-strategy-alm">環境戦略 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-connection-reference">接続参照の概要 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/environmentvariables">環境変数の概要 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines">Power Platform のパイプライン - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/devops-build-tools">Power Platform 向け Azure DevOps ビルドツール - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/devops-github-actions">Power Platform 向け GitHub Actions - Microsoft Learn</a></li></ul>]]>
-    </content>
-    <id>https://jpdynamicscrm.github.io/blog/powerplatform/solution-best-practices-power-platform/</id>
-    <link href="https://jpdynamicscrm.github.io/blog/powerplatform/solution-best-practices-power-platform/"/>
-    <published>2026-02-10T03:00:00.000Z</published>
-    <summary>
-      <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Power Platform のソリューションを運用するうえで押さえておきたいベストプラクティスについてご案内いたします。</p>
-<p>ソリューションは、アプリやフロー、テーブルなどのコンポーネントをまとめて管理・移行するための仕組みです。<br>適切に設計・運用することで、変更管理や環境間の展開がスムーズになります。</p>]]>
-    </summary>
-    <title>Power Platform ソリューション運用のベストプラクティス</title>
-    <updated>2026-10-09T01:57:59.492Z</updated>
+    <updated>2026-10-09T05:07:47.399Z</updated>
   </entry>
 </feed>
