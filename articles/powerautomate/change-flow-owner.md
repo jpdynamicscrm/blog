@@ -230,7 +230,7 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
 以下の方法でフローの所有者を変更できます。<br/>
 
 **実行例**
-1. 対象のソリューション 編集画面を表示し、対象のフローの「詳細」メニューを選択します
+1. 対象のソリューション 編集画面を表示し、対象のフローを選択し、「詳細」を選択します
     ![](./change-flow-owner/image17.png) 
 2. フロー編集画面の「編集」を押下します
     ![](./change-flow-owner/image18.png) 
