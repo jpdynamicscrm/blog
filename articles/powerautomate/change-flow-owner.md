@@ -234,7 +234,7 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
     ![](./change-flow-owner/image17.png) 
 2. フロー編集画面の「編集」を押下します
     ![](./change-flow-owner/image18.png) 
-3. 所有者を変更します<br/>
+3. 「主要な所有者」を変更します<br/>
     ![](./change-flow-owner/image19.png) 
 
 
