@@ -172,8 +172,8 @@ Power Platform 管理センターで環境を開き、[設定] > [ユーザー�
    - 「キャッシュを無効にする」にチェック
 3. 「クリア」ボタンで古いログを消去します
    ![](./dynamics365-troubleshooting-info-collection/trace-start.jpg)
-4. 事象を**最小の手順で 1 回だけ**再現させます
-5. 再現後、「Export HAR」ボタン（↓アイコン）をクリックして保存します（ファイル名は `YYYYMMDD_issue.har` のように日付と概要を含めてください）
+4. レコーディングが開始された状態で、事象を**最小の手順で 1 回だけ**再現させます
+5. 再現後、レコーディングを停止し、「Export HAR」ボタン（↓アイコン）をクリックして保存します（ファイル名は `YYYYMMDD_issue.har` のように日付と概要を含めてください）
    ![](./dynamics365-troubleshooting-info-collection/trace-end.jpg)
 
 **参考資料：** [ブラウザー トレースの取得（Azure Portal）](https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace)
