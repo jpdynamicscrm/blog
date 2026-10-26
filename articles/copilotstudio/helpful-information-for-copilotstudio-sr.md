@@ -25,7 +25,6 @@ categories:
       1. [Conversation ID](#anchor-conversationid)
       1. [セッション詳細](#anchor-session-details)
       1. [事象再現時のスナップショット zip ファイル](#anchor-snapshot-zip)
-      1. [ナレッジの有効化状態](#anchor-knowledge-enable-state)
       1. [会話入出力](#anchor-raw-input-output)
       1. [トピック画面](#anchor-topics-screen)
       1. [会話トランスクリプションテーブルデータ](#anchor-conversation-transcript)
@@ -89,8 +88,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 <a id='anchor-botid'></a>
 
 ## 4. Bot ID
-  以下の手順で Bot ID を取得し、ご提供ください。
-  必要に応じて URL をそのままご提供ください。
+  以下の手順でエージェントの URL をそのままご提供ください。
 
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。
   - URL 内の bots/ の直後にある ID が Bot ID です。
@@ -104,7 +102,11 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットとのチャットウィンドウに '/debug conversationid' とご入力ください。  
-  - 得られた応答をテキストファイルとしてご提供ください。また、下画像と同様のスクリーンショットをご提供ください。  
+  - 得られた応答をテキストファイルとしてご提供ください。また、スクリーンショットをご提供ください。
+
+   > 以下の画像は、エージェントのテスト実行画面での取得例です。
+   > Conversation ID は、公開先のチャネルでも同じコマンドで取得できます。調査対象となる事象が発生した、または再現したチャネルの Conversation ID を取得し、ご提供ください。
+
   ![](./helpful-information-for-copilotstudio-sr/image_ConversationID.png)  
 
 <a id='anchor-session-details'></a>
@@ -128,17 +130,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 <a id='anchor-knowledge-enable-state'></a>
 
-## 8. ナレッジの有効化状態
-  以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
-
-  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
-  - 対象のコパイロットの「ナレッジ」セクションで「有効」のトグルボタンがオンであるかを確認します。  
-  - 確認した際の、下画像と同様のスクリーンショットをご提供ください。  
-  ![](./helpful-information-for-copilotstudio-sr/image_knowledge_enabling.png)  
-
-<a id='anchor-raw-input-output'></a>
-
-## 9. 会話入出力 
+## 8. 会話入出力 
   以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
 
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
@@ -148,7 +140,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 <a id='anchor-topics-screen'></a>
 
-## 10. トピック画面
+## 9. トピック画面
   以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
 
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロット＞トピックタブを開きます。  
@@ -158,14 +150,14 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 <a id='anchor-conversation-transcript'></a>
 
-## 11. 会話トランスクリプションテーブルデータ
+## 10. 会話トランスクリプションテーブルデータ
   下記公開情報にてご案内している方法で、会話トランスクリプションテーブルのデータを取得してください。  
   取得した zip ファイルをご提供ください。  
   https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts
 
 <a id='anchor-solution-export-file'></a>
 
-## 12. ソリューションエクスポートファイル
+## 11. ソリューションエクスポートファイル
 
 1. エージェントのエクスポートを選択し、ソリューション画面を開きます。  
 起動経路：エージェント＞（任意のエージェント）…　＞　エージェントのエクスポート
@@ -175,13 +167,18 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 1. 「既存を追加」からエージェントをソリューションに追加します。  
    必要に応じて同様の手順でクラウドフローもソリューションに追加し、一緒にご提供ください。
    ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file3.png) 　
-1. ソリューション一覧画面に戻り、作成したソリューションをエクスポートします。設定値は任意で構いません。
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file4.png) 　
-
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file4.png) 　   
+1. 対象エージェントの必須オブジェクトをソリューションに追加します。
+追加経路：対象エージェント　＞　…　＞　詳細　＞　必須オブジェクトを追加 　
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file5.png) 　
+1. ソリューション一覧画面に戻り、作成したソリューションをアンマネージでエクスポートします。
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file6.png)
+   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file7.png)
+ 　
 
 <a id='anchor-about-networkhar'></a>
 
-## 13. Web ブラウザのネットワーク トレース・コンソール ログ
+## 12. Web ブラウザのネットワーク トレース・コンソール ログ
   カスタム Copilot 編集中、あるいは実行中に Copilot Studio サービスへ送信する HTTP リクエストや Copilot Studio サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  
 
  > [!IMPORTANT]
@@ -205,7 +202,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 <a id='anchor-teamslog'></a>
 
-## 14. Teamsクライアントのネットワーク トレース、診断ログ
+## 13. Teamsクライアントのネットワーク トレース、診断ログ
 Teamsクライアントにおいてのみエラーや問題が発生する場合、Teamsクライアントのネットワーク トレースやTeams 診断ログ　より、発生している事象を調査します。<br/>
 
 1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
