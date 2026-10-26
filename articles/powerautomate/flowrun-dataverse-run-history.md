@@ -157,7 +157,7 @@ Get-FlowRun -EnvironmentName '<環境 ID>' -FlowName '<クラウド フロー ID
 
 Application Insights では、クラウド フローの実行は `requests`、トリガーとアクションは `dependencies` に保存されます。`customDimensions` の `environmentId` と `resourceId`（クラウド フロー ID）に加え、発生時刻やアクション名を使って、ポータルで確認した実行に絞り込みます。ただし、テレメトリは各アクションの入力・出力のすべてを保存するわけではありません。
 
-Application Insights に保存されるのは、エクスポート対象として設定したクラウド フローの実行、トリガー、アクションのデータです。エクスポートできるのは、Dataverse データベースを持つ**マネージド環境**だけです。エクスポートの設定には、Power Platform 管理者、Dynamics 365 管理者、または対象環境の管理者・システム管理者などの権限に加えて、出力先 Azure リソースに対する権限も必要です。ログを確認するユーザーにも、その Azure リソースのログを読み取る権限が必要です。
+Application Insights に保存されるのは、エクスポート対象として設定したクラウド フローの実行、トリガー、アクションのデータです。エクスポートできるのは、Dataverse データベースを持つ**マネージド環境**だけです。設定するユーザーには、テナントの Power Platform 管理者または Dynamics 365 管理者ロールに加え、対象環境の環境管理者またはシステム管理者ロールが必要です。また、出力先 Azure リソースに対する権限も必要です。ログを確認するユーザーにも、その Azure リソースのログを読み取る権限が必要です。
 
 保持期間は、出力先 Log Analytics ワークスペースおよびテーブルの実際の設定に従います。`AppRequests` と `AppDependencies` の既定の保持期間は 90 日で、テーブルごとに変更できます。設定は [Log Analytics ワークスペースでデータ保持を管理する](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/data-retention-configure) を参照してください。
 
@@ -280,7 +280,7 @@ Power Platform 管理センターから保持期間を変更する手順は以�
 > [!WARNING]
 > `FlowRun` には、すべての実行が記録されるとは限りません。監査や完全な実行記録が必要な用途では、他の方法をご検討ください。
 
-記録されていない実行がある可能性がある場合は、`FlowEvent` テーブルの `FlowRunIngestion` イベントを確認してください。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレートの超過など、記録されなかった理由が残ります。
+実行履歴に不足がある場合は、`FlowEvent` テーブルの `FlowRunIngestion` イベントを確認してください。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレートの超過など、記録されなかった理由が残ります。
 
 > [!IMPORTANT]
 > ただし、`FlowEvent` に何も記録されていなくても、すべての実行が `FlowRun` に記録されているとは限りません。一時的な問題で記録されなかった実行は、`FlowEvent` にも記録されないためです。
@@ -371,6 +371,9 @@ Dataverse Web API の `$select` で指定する論理名と説明は、[Flow Run
 > `status` と `triggertype` を `$filter` で指定する場合は、画面の表示名ではなく API が返す値を使ってください。弊社の検証環境では、`triggertype` に `Scheduled`（画面の表示は「スケジュール済み」）や `Instant`（「すぐに」）が、`status` に `Succeeded` や `Failed` が格納されていました。[Dataverse でクラウド フロー実行履歴を管理する](https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata) に記載されている「自動化」「予定されている」「マニュアル」も API の値ではないため、そのまま `$filter` に指定しても一致しません。
 
 `FlowRun` テーブルのエンティティ セット名は `flowruns` です。以下のような GET 要求で実行履歴を取得できます。使用にあたっては [サンプルコード免責事項](#anchor-sample-disclaimer) をご確認ください。
+
+> [!IMPORTANT]
+> 以下のサンプルの `<クラウド フロー ID>` には、Power Automate の **マイ フロー** から対象のフローを開き、URL の `/flows/` の直後に表示される `FlowId` を指定してください。ソリューション エクスプローラーから開いた URL に含まれる `workflowUniqueId` はバージョンごとに変わるため、使用しないでください。詳細は [ソリューションに対応したクラウド フローのドラフトとバージョン管理 - 既知の問題](https://learn.microsoft.com/ja-jp/power-automate/drafts-versioning#known-issues) を参照してください。
 
 ```http
 GET https://<組織 URL>/api/data/v9.2/flowruns
