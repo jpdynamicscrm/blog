@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>管理者が Power Automate クラウド フローの実行履歴を取得する方法 ～失敗調査・複数フローの監視・集計を目的別に使い分ける～ | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの早坂です。本記事では、管理者が Power Automate クラウド フローの実行履歴を確認・取得する方法についてご案内します。 「特定のクラウド フローが失敗した原因を調べたい」「複数のクラウド フローの実行状況をまとめて監視したい」「実行結果を一覧で取得し、集計してレポートを作りたい」といった場面では、目的によって適したログが異なりま">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管理者が Power Automate クラウド フローの実行履歴を取得する方法 ～失敗調査・複数フローの監視・集計を目的別に使い分ける～">
+<meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/index.html">
+<meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの早坂です。本記事では、管理者が Power Automate クラウド フローの実行履歴を確認・取得する方法についてご案内します。 「特定のクラウド フローが失敗した原因を調べたい」「複数のクラウド フローの実行状況をまとめて監視したい」「実行結果を一覧で取得し、集計してレポートを作りたい」といった場面では、目的によって適したログが異なりま">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image04.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image01.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image02.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image05.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image06.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image07.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image08.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image09.png">
+<meta property="og:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image10.png">
+<meta property="article:published_time" content="2026-08-26T03:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-28T09:57:16.766Z">
+<meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
+<meta property="article:tag" content="Cloud flow">
+<meta property="article:tag" content="Dataverse">
+<meta property="article:tag" content="Power Automate">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/image04.png">
+  
+    <link rel="alternate" href="../../atom.xml" title="Japan Dynamics CRM &amp; Power Platform Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+        <a class="main-nav-link" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpdynamicscrm.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Dynamics CRM &amp; Power Platform Support Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="../../index.html" id="subtitle">日本マイクロソフトの Dynamics CRM &amp; Power Platform テクニカル サポート チームより、情報をお届けします！</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-powerautomate/flowrun-dataverse-run-history" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      管理者が Power Automate クラウド フローの実行履歴を取得する方法 ～失敗調査・複数フローの監視・集計を目的別に使い分ける～
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Published: 
+        <a href="" class="article-date-single">
+  <time datetime="2026-08-26T03:00:00.000Z" itemprop="datePublished">2026-08-26</time>
+</a>
+        
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpdynamicscrm/blog/blob/master/articles/powerautomate/flowrun-dataverse-run-history.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Power-Automate/">Power Automate</a>►<a class="article-category-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a>
+  </div>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+44afb4d5-fb7e-5de9-888c-56c78e67b200%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E7%AE%A1%E7%90%86%E8%80%85%E3%81%8C+Power+Automate+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89+%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E5%AE%9F%E8%A1%8C%E5%B1%A5%E6%AD%B4%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95+%EF%BD%9E%E5%A4%B1%E6%95%97%E8%AA%BF%E6%9F%BB%E3%83%BB%E8%A4%87%E6%95%B0%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E7%9B%A3%E8%A6%96%E3%83%BB%E9%9B%86%E8%A8%88%E3%82%92%E7%9B%AE%E7%9A%84%E5%88%A5%E3%81%AB%E4%BD%BF%E3%81%84%E5%88%86%E3%81%91%E3%82%8B%EF%BD%9E%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerautomate%2Fflowrun-dataverse-run-history%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerautomate%2Fflowrun-dataverse-run-history.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerautomate%2Fflowrun-dataverse-run-history.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerautomate/flowrun-dataverse-run-history/" data-id="cuidmp0m5lfYWt3DuHDwawHhJ" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>こんにちは、Power Platform サポートチームの早坂です。<br>本記事では、管理者が Power Automate クラウド フローの実行履歴を確認・取得する方法についてご案内します。</p>
+<p>「特定のクラウド フローが失敗した原因を調べたい」「複数のクラウド フローの実行状況をまとめて監視したい」「実行結果を一覧で取得し、集計してレポートを作りたい」といった場面では、目的によって適したログが異なります。こうした困りごとを解消するために、Power Automate の標準の実行履歴、Application Insights のテレメトリ、Dataverse の <code>FlowRun</code> テーブルという 3 種類のログについて、それぞれの特徴、使い分け、取得方法をご紹介します。目的に合ったログの選び方が分かるよう、次章でまず全体像を整理します。</p>
+<p>なお、管理者がクラウド フローの一覧を取得する方法は、弊社ブログ記事「<a href="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/">Power Automate のクラウドフロー一覧を管理者が取得する方法</a>」でご紹介しています。</p>
+<span id="more"></span>
+
+
+
+<ol>
+<li><a href="#anchor-overview">概要</a></li>
+<li><a href="#anchor-standard-history">Power Automate の標準の実行履歴</a><ol>
+<li><a href="#anchor-standard-overview">ログの概要</a></li>
+<li><a href="#anchor-standard-retrieval">ログの取得方法</a><ol>
+<li><a href="#anchor-action-details">ポータルで確認する</a></li>
+<li><a href="#anchor-csv-export">CSV でエクスポートする</a></li>
+<li><a href="#anchor-get-flowrun">PowerShell の Get-FlowRun で取得する</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#anchor-app-insights">Application Insights のテレメトリ</a><ol>
+<li><a href="#anchor-app-insights-overview">ログの概要</a></li>
+<li><a href="#anchor-app-insights-retrieval">ログの取得方法</a></li>
+</ol>
+</li>
+<li><a href="#anchor-flowrun">Dataverse の FlowRun テーブル</a><ol>
+<li><a href="#anchor-flowrun-overview">ログの概要</a><ol>
+<li><a href="#anchor-prerequisites">対象となるクラウド フロー</a></li>
+<li><a href="#anchor-flowrun-data">保存される列</a></li>
+<li><a href="#anchor-flowrun-limitations">保存されない情報とポータルとの比較</a></li>
+<li><a href="#anchor-retention">保持期間</a></li>
+<li><a href="#anchor-ingestion-failures">実行履歴が記録されない主な条件</a></li>
+</ol>
+</li>
+<li><a href="#anchor-flowrun-retrieval">ログの取得方法</a><ol>
+<li><a href="#anchor-automation-center">オートメーション センターで確認する</a></li>
+<li><a href="#anchor-excel">Excel の OData フィードから取得する</a><ol>
+<li><a href="#anchor-excel-endpoint">Web API エンドポイントを確認する</a></li>
+<li><a href="#anchor-excel-connect">Excel から接続する</a></li>
+<li><a href="#anchor-excel-load">flowruns テーブルを読み込む</a></li>
+</ol>
+</li>
+<li><a href="#anchor-web-api">Dataverse Web API から取得する</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><a href="#anchor-summary">まとめ</a></li>
+<li><a href="#anchor-references">参考情報</a></li>
+<li><a href="#anchor-sample-disclaimer">サンプルコード免責事項</a></li>
+</ul>
+<hr>
+<p><a id='anchor-overview'></a><br><a id='anchor-methods'></a></p>
+<h1 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h1><p>管理者が利用できる主なログは、以下の 3 種類です。用途や確認できる内容、保持期間、取得方法が異なるため、まずは全体像を把握し、目的に合ったログを選んでください。</p>
+<p>クラウド フローには、ソリューションに含まれるもの（ソリューション対応クラウド フロー）と含まれないものがあります。それぞれ内部的に管理される場所が異なるため、実行履歴の閲覧可否も異なります。</p>
+<table>
+<thead>
+<tr>
+<th>ログの種類</th>
+<th>利用できる人</th>
+<th>対象となるクラウド フロー</th>
+<th>確認できる内容・主な用途</th>
+<th>保持期間</th>
+<th>確認・取得の方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Power Automate の標準の実行履歴</td>
+<td>所有者・共同所有者など、対象のクラウド フローへのアクセス権を持つユーザー</td>
+<td>ソリューション対応クラウド フローと、ソリューションに含まれないクラウド フローの両方</td>
+<td>実行、トリガー、アクションの状態や入力・出力。個別の問題調査</td>
+<td>既定 28 日</td>
+<td>Power Automate ポータル、CSV エクスポート、PowerShell (<code>Get-FlowRun</code>)</td>
+</tr>
+<tr>
+<td>Application Insights のテレメトリ</td>
+<td>エクスポートを設定する管理者と、Azure リソースのログを読み取れるユーザー</td>
+<td>マネージド環境のクラウド フロー（エクスポートを設定した環境のもの）</td>
+<td>実行、トリガー、アクションのテレメトリ。複数のクラウド フローの監視・分析（入力・出力のすべては含まない）</td>
+<td>出力先 Log Analytics の保持設定に従う</td>
+<td>Application Insights のメトリック・ログ (KQL)</td>
+</tr>
+<tr>
+<td>Dataverse の <code>FlowRun</code></td>
+<td>対象レコードを読み取れるユーザー（オートメーション センターは追加の条件あり）</td>
+<td>ソリューション対応クラウド フロー</td>
+<td>実行単位の状態、時刻、実行時間、エラー概要。複数のクラウド フローの監視や結果の集計</td>
+<td>既定 28 日（変更可能）</td>
+<td>オートメーション センター、Excel の OData フィード、Dataverse Web API &#x2F; PowerShell</td>
+</tr>
+</tbody></table>
+<p><a id='anchor-standard-history'></a></p>
+<h1 id="2-Power-Automate-の標準の実行履歴"><a href="#2-Power-Automate-の標準の実行履歴" class="headerlink" title="2. Power Automate の標準の実行履歴"></a>2. Power Automate の標準の実行履歴</h1><p><a id='anchor-standard-overview'></a></p>
+<h2 id="2-1-ログの概要"><a href="#2-1-ログの概要" class="headerlink" title="2-1. ログの概要"></a>2-1. ログの概要</h2><p>Power Automate ポータルでは、アクセス権のあるクラウド フローの実行履歴を確認できます。ソリューション対応クラウド フローと、ソリューションに含まれないクラウド フローの両方が対象です。</p>
+<p>標準の実行履歴は、実行の記録が欠けない仕組み（トランザクション）で保存されます。既定の保持期間は 28 日です。長期保存が必要な場合は、保持期限が切れる前に必要な情報を取得してください。詳細は <a href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/flow-run-issues/missing-runs-or-triggers-history-for-a-flow">フローの実行履歴またはトリガー履歴が見つからない場合の説明</a> を参照してください。</p>
+<p><a id='anchor-standard-retrieval'></a></p>
+<h2 id="2-2-ログの取得方法"><a href="#2-2-ログの取得方法" class="headerlink" title="2-2. ログの取得方法"></a>2-2. ログの取得方法</h2><p>標準の実行履歴は、Power Automate ポータルで確認できるほか、CSV でエクスポートしたり、PowerShell の <code>Get-FlowRun</code> で取得したりできます。個別の問題調査にはポータル、一覧での取得には CSV や PowerShell が適しています。</p>
+<p><a id='anchor-action-details'></a></p>
+<h3 id="2-2-1-ポータルで確認する"><a href="#2-2-1-ポータルで確認する" class="headerlink" title="2-2-1. ポータルで確認する"></a>2-2-1. ポータルで確認する</h3><p>個別の問題を調査する場合は、はじめに Power Automate ポータルの実行履歴から対象の実行を特定します。</p>
+<ol>
+<li><a href="https://make.powerautomate.com/">Power Automate</a> で対象の環境へ切り替えます。</li>
+<li>対象のクラウド フローを開き、実行履歴から調査する実行を選択します。</li>
+<li>失敗したトリガーまたはアクションを展開し、エラー、入力、出力を確認します。</li>
+</ol>
+<p>実行詳細ページの URL は以下の形式です。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://make.powerautomate.com/environments/&lt;環境 ID&gt;/flows/&lt;クラウド フロー ID&gt;/runs/&lt;実行 ID&gt;</span><br></pre></td></tr></table></figure>
+
+<p>ソリューション対応クラウド フローの場合は、以下の形式になります。<strong>マイ フロー</strong> から開いた場合は、<code>&lt;ソリューション ID&gt;</code> の部分が <code>~preferred</code> になります。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://make.powerautomate.com/environments/&lt;環境 ID&gt;/solutions/&lt;ソリューション ID&gt;/flows/&lt;クラウド フロー ID&gt;/runs/&lt;実行 ID&gt;</span><br></pre></td></tr></table></figure>
+
+<p>URL の <code>&lt;実行 ID&gt;</code> は <code>FlowRun</code> テーブルの <code>name</code> に対応するため、<a href="#anchor-flowrun">4. Dataverse の FlowRun テーブル</a> で同じ実行を探すときの手がかりになります。</p>
+<p>失敗した実行を Power Automate ポータルで開くと、実行の詳細画面の上部にアクション名とエラーの詳細が表示されます。</p>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image04.png" alt="Power Automate の実行詳細画面。上部に「フロー実行に失敗しました。アクション &#39;Divide_by_zero&#39; に失敗しました」と失敗したアクション名とエラーの詳細が表示され、キャンバス上で該当アクションが失敗、後続アクションがスキップされている"></p>
+<p><a id='anchor-csv-export'></a></p>
+<h3 id="2-2-2-CSV-でエクスポートする"><a href="#2-2-2-CSV-でエクスポートする" class="headerlink" title="2-2-2. CSV でエクスポートする"></a>2-2-2. CSV でエクスポートする</h3><p>実行履歴を CSV として取得する場合は、次の手順で操作します。</p>
+<ol>
+<li><a href="https://make.powerautomate.com/">Power Automate</a> で <strong>マイ フロー</strong> から対象のクラウド フローを開きます。</li>
+<li><strong>実行履歴</strong> の <strong>すべて表示</strong> を選択します。</li>
+<li><strong>CSV のダウンロード</strong> を選択します。</li>
+</ol>
+<p>詳細は <a href="https://learn.microsoft.com/ja-jp/power-automate/privacy-dsr-export#export-run-history">実行履歴をエクスポートする</a> を参照してください。CSV には、実行の状態や開始・終了時刻に加えて、トリガーとアクションの入力・出力も含まれます。</p>
+<p><a id='anchor-get-flowrun'></a></p>
+<h3 id="2-2-3-PowerShell-の-Get-FlowRun-で取得する"><a href="#2-2-3-PowerShell-の-Get-FlowRun-で取得する" class="headerlink" title="2-2-3. PowerShell の Get-FlowRun で取得する"></a>2-2-3. PowerShell の Get-FlowRun で取得する</h3><p>標準の実行履歴は、<code>Microsoft.PowerApps.PowerShell</code> モジュールの <code>Get-FlowRun</code> でも取得できます。管理者向けモジュールではなく、作成者向けモジュールに含まれるコマンドです。</p>
+<p>以下は、モジュールをインストールし、サインインして対象のクラウド フローの実行履歴を取得する使用例です。環境 ID とクラウド フロー ID を対象の値に置き換えてください。使用にあたっては <a href="#anchor-sample-disclaimer">サンプルコード免責事項</a> をご確認ください。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Install-Module</span> <span class="literal">-Name</span> Microsoft.PowerApps.PowerShell <span class="literal">-Scope</span> CurrentUser</span><br><span class="line"><span class="built_in">Add-PowerAppsAccount</span></span><br><span class="line"><span class="built_in">Get-FlowRun</span> <span class="literal">-EnvironmentName</span> <span class="string">&#x27;&lt;環境 ID&gt;&#x27;</span> <span class="literal">-FlowName</span> <span class="string">&#x27;&lt;クラウド フロー ID&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>サインインするユーザーには、所有者や共同所有者など、対象のクラウド フローへのアクセス権が必要です。管理者ロールがあるだけで、すべてのクラウド フローの実行履歴を取得できるわけではありません。</p>
+<p>モジュールの利用方法は <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell">Power Apps 用の PowerShell サポート</a> を参照してください。</p>
+<p><a id='anchor-app-insights'></a></p>
+<h1 id="3-Application-Insights-のテレメトリ"><a href="#3-Application-Insights-のテレメトリ" class="headerlink" title="3. Application Insights のテレメトリ"></a>3. Application Insights のテレメトリ</h1><p><a id='anchor-app-insights-overview'></a></p>
+<h2 id="3-1-ログの概要"><a href="#3-1-ログの概要" class="headerlink" title="3-1. ログの概要"></a>3-1. ログの概要</h2><p>個別の調査ではなく、<strong>アクション単位のテレメトリを長期的に保持して監視・分析したい</strong>場合は、Application Insights へのエクスポートをご検討ください。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>Power Automate の Application Insights へのエクスポートは、現在パブリック プレビューです。詳細は <a href="https://learn.microsoft.com/ja-jp/power-platform/admin/set-up-export-application-insights">Application Insights へのデータのエクスポートを設定する</a> を参照してください。</p></div>
+<p>Application Insights では、クラウド フローの実行は <code>requests</code>、トリガーとアクションは <code>dependencies</code> に保存されます。<code>customDimensions</code> の <code>environmentId</code> と <code>resourceId</code>（クラウド フロー ID）に加え、発生時刻やアクション名を使って、ポータルで確認した実行に絞り込みます。ただし、テレメトリは各アクションの入力・出力のすべてを保存するわけではありません。</p>
+<p>Application Insights に保存されるのは、エクスポート対象として設定したクラウド フローの実行、トリガー、アクションのデータです。エクスポートできるのは、Dataverse データベースを持つ<strong>マネージド環境</strong>だけです。設定するユーザーには、テナントの Power Platform 管理者または Dynamics 365 管理者ロールに加え、対象環境の環境管理者またはシステム管理者ロールが必要です。また、出力先 Azure リソースに対する権限も必要です。ログを確認するユーザーにも、その Azure リソースのログを読み取る権限が必要です。</p>
+<p>保持期間は、出力先 Log Analytics ワークスペースおよびテーブルの実際の設定に従います。<code>AppRequests</code> と <code>AppDependencies</code> の既定の保持期間は 90 日で、テーブルごとに変更できます。設定は <a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/data-retention-configure">Log Analytics ワークスペースでデータ保持を管理する</a> を参照してください。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>Application Insights のテレメトリはトランザクション データではないため、すべてのログが欠落なく保存されることは保証されません。</p></div>
+<p><a id='anchor-app-insights-retrieval'></a></p>
+<h2 id="3-2-ログの取得方法"><a href="#3-2-ログの取得方法" class="headerlink" title="3-2. ログの取得方法"></a>3-2. ログの取得方法</h2><p>設定から確認までの流れは以下のとおりです。画面付きの詳しい手順は、各リンク先の公開情報を参照してください。</p>
+<ol>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/set-up-export-application-insights">Application Insights へのデータのエクスポートを設定する</a> に沿って、Power Platform 管理センターで対象環境と出力先を指定し、Power Automate の実行、トリガー、アクションからエクスポートするカテゴリを選択します。</li>
+<li>データの反映を待ち、<a href="https://learn.microsoft.com/ja-jp/power-platform/admin/app-insights-cloud-flow">Application Insights を使用してクラウド フローを監視する</a> に沿って、Application Insights のメトリックやログを確認します。データの配信には最大 24 時間かかる場合があります。</li>
+<li>ログの絞り込みや集計には、同ページに掲載されている KQL の例を、対象環境やクラウド フローに合わせて書き換えて使います。</li>
+</ol>
+<p><a id='anchor-flowrun'></a></p>
+<h1 id="4-Dataverse-の-FlowRun-テーブル"><a href="#4-Dataverse-の-FlowRun-テーブル" class="headerlink" title="4. Dataverse の FlowRun テーブル"></a>4. Dataverse の FlowRun テーブル</h1><p><a id='anchor-flowrun-overview'></a></p>
+<h2 id="4-1-ログの概要"><a href="#4-1-ログの概要" class="headerlink" title="4-1. ログの概要"></a>4-1. ログの概要</h2><p><code>FlowRun</code> は Dataverse のエラスティック テーブルで、クラウド フローの実行単位の情報が保存されます。実行結果を一覧で取得・集計する用途に適しています。</p>
+<p><a id='anchor-prerequisites'></a></p>
+<h3 id="4-1-1-対象となるクラウド-フロー"><a href="#4-1-1-対象となるクラウド-フロー" class="headerlink" title="4-1-1. 対象となるクラウド フロー"></a>4-1-1. 対象となるクラウド フロー</h3><p><code>FlowRun</code> テーブルに実行履歴が保存される対象は、ソリューション対応クラウド フロー（定義が Dataverse に保存されているクラウド フロー）です。</p>
+<p>対象のクラウド フローの定義が Dataverse に存在するかどうかは、Web API で <code>workflow</code> テーブルを参照して確認できます。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://&lt;組織 URL&gt;/api/data/v9.2/workflows(&lt;クラウド フロー ID&gt;)?$select=name,category</span><br></pre></td></tr></table></figure>
+
+<p>クラウド フローの情報が返れば <code>FlowRun</code> に実行履歴が記録され、<code>404</code>（定義が見つからない）の場合は記録されません。</p>
+<p><a id='anchor-flowrun-data'></a></p>
+<h3 id="4-1-2-保存される列"><a href="#4-1-2-保存される列" class="headerlink" title="4-1-2. 保存される列"></a>4-1-2. 保存される列</h3><p>保存される列の詳細は、<a href="https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata">Dataverse でクラウド フロー実行履歴を管理する</a> を参照してください。</p>
+<p><a id='anchor-flowrun-limitations'></a></p>
+<h3 id="4-1-3-保存されない情報とポータルとの比較"><a href="#4-1-3-保存されない情報とポータルとの比較" class="headerlink" title="4-1-3. 保存されない情報とポータルとの比較"></a>4-1-3. 保存されない情報とポータルとの比較</h3><p>以下のようなアクション単位の情報は <code>FlowRun</code> テーブルに保存されません。</p>
+<ul>
+<li>アクションの表示名</li>
+<li>アクションごとの状態や実行時間</li>
+<li>アクションの入力と出力</li>
+</ul>
+<p>失敗した実行では、<code>errorcode</code> に <code>ActionFailed</code> などのコードが、<code>errormessage</code> に次のような JSON が保存されます。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;code&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ActionFailed&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;An action failed. No dependent actions succeeded.&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;messageTemplate&quot;</span><span class="punctuation">:</span> <span class="string">&quot;An action failed. No dependent actions succeeded.&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>FlowRun</code> と Power Automate ポータルで取得できる情報の違いは以下のとおりです。失敗した同じ実行を、両方で確認した結果です。</p>
+<table>
+<thead>
+<tr>
+<th>情報</th>
+<th><code>FlowRun</code></th>
+<th>Power Automate ポータル</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>実行の状態</td>
+<td>確認可 (<code>status</code>)</td>
+<td>確認可</td>
+</tr>
+<tr>
+<td>エラー コード</td>
+<td>確認可 (<code>errorcode</code>)</td>
+<td>確認可</td>
+</tr>
+<tr>
+<td>失敗したアクション名</td>
+<td>確認不可</td>
+<td>確認可</td>
+</tr>
+<tr>
+<td>エラーの詳細</td>
+<td>概要のみ (<code>errormessage</code>)</td>
+<td>確認可</td>
+</tr>
+<tr>
+<td>アクションの入力と出力</td>
+<td>確認不可</td>
+<td>確認可</td>
+</tr>
+<tr>
+<td>クライアント追跡 ID</td>
+<td>確認可 (<code>clienttrackingid</code>)</td>
+<td>確認可</td>
+</tr>
+</tbody></table>
+<p>このように、<code>errormessage</code> から取得できるのは実行単位の概要までです。どのアクションが失敗したかを特定する場合は、<a href="#anchor-action-details">2-2-1. ポータルで確認する</a> の手順でポータルから確認してください。</p>
+<p><a id='anchor-retention'></a></p>
+<h3 id="4-1-4-保持期間"><a href="#4-1-4-保持期間" class="headerlink" title="4-1-4. 保持期間"></a>4-1-4. 保持期間</h3><p><code>FlowRun</code> レコードの既定の保持期間は 28 日です。</p>
+<p>Power Platform 管理センターから保持期間を変更する手順は以下のとおりです。</p>
+<ol>
+<li><a href="https://admin.powerplatform.microsoft.com/">Power Platform 管理センター</a> にサインインします。</li>
+<li><strong>管理</strong> &gt; <strong>環境</strong> から対象の環境を選択し、<strong>設定</strong> を開きます。</li>
+<li><strong>製品</strong> &gt; <strong>機能</strong> を選択します。</li>
+<li><strong>Dataverse のクラウド フロー実行履歴</strong> の <strong>FlowRun エンティティの Time to Live</strong> を設定します。</li>
+</ol>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image01.png" alt="Power Platform 管理センターの機能ページに表示される Dataverse のクラウド フロー実行履歴の設定"></p>
+<p>選択できる値は、<strong>有効 - 28 日間保持 (既定)</strong>、<strong>有効 - 14 日間保持</strong>、<strong>有効 - 7 日間保持</strong>、<strong>無効</strong> の 4 つです。</p>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image02.png" alt="FlowRun エンティティの Time to Live で選択できる 4 つの値"></p>
+<p>管理センターに用意されていない任意の値が必要な場合は、組織テーブルの <code>FlowRunTimeToLiveInSeconds</code> を直接変更します。値を <code>0</code> にすると、新しい実行が記録されなくなります。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>保持期間の変更は、変更後に作成される <code>FlowRun</code> レコードにのみ適用されます。既存のレコードの保持期間は変わりません。</p></div>
+<p><a id='anchor-ingestion-failures'></a></p>
+<h3 id="4-1-5-実行履歴が記録されない主な条件"><a href="#4-1-5-実行履歴が記録されない主な条件" class="headerlink" title="4-1-5. 実行履歴が記録されない主な条件"></a>4-1-5. 実行履歴が記録されない主な条件</h3><p><code>FlowRun</code> に実行が記録されない代表的な条件は以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>クラウド フロー所有者の権限不足</td>
+<td>クラウド フローのプライマリ所有者が <code>FlowRun</code> テーブルへの読み取り権限を持たない場合、<code>FlowRun</code> に実行が記録されません。<code>FlowEvent</code> に <code>ElasticTableNoRoleForUser</code> が記録されます。</td>
+</tr>
+<tr>
+<td>パーティション サイズの上限</td>
+<td>エラスティック テーブルには、現時点でパーティションあたり 20 GB の制限があります。上限に達すると、そのユーザーが所有するクラウド フローの実行だけが記録されなくなります。</td>
+</tr>
+<tr>
+<td>取り込みレートのスロットリング</td>
+<td>1 人のユーザーが実行頻度の高いクラウド フローを多数所有している場合、記録が制限され、一部の実行が記録されないことがあります。</td>
+</tr>
+<tr>
+<td>保持期間が <code>0</code>（無効）</td>
+<td><code>FlowRunTimeToLiveInSeconds</code> が <code>0</code> の場合、新しい実行が記録されなくなり、<code>FlowEvent</code> に <code>TtlSettingEqual0</code> が記録されます。</td>
+</tr>
+</tbody></table>
+<div class="alert is-info"><p class="alert-title">Note</p><p><code>FlowRun</code> はユーザー単位でパーティション分割されるため、上記の上限やスロットリングは組織全体ではなく、クラウド フローの所有者ごとに評価されます。特定のユーザーにクラウド フローの所有権が集中している環境では影響を受けやすくなります。</p></div>
+<div class="alert is-warning"><p class="alert-title">警告</p><p><code>FlowRun</code> には、すべての実行が記録されるとは限りません。監査や完全な実行記録が必要な用途では、他の方法をご検討ください。</p></div>
+<p>実行履歴に不足がある場合は、<code>FlowEvent</code> テーブルの <code>FlowRunIngestion</code> イベントを確認してください。保持期間の無効化、ストレージ容量、パーティション上限、取り込みレートの超過など、記録されなかった理由が残ります。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>ただし、<code>FlowEvent</code> に何も記録されていなくても、すべての実行が <code>FlowRun</code> に記録されているとは限りません。一時的な問題で記録されなかった実行は、<code>FlowEvent</code> にも記録されないためです。</p></div>
+<p><a id='anchor-flowrun-retrieval'></a></p>
+<h2 id="4-2-ログの取得方法"><a href="#4-2-ログの取得方法" class="headerlink" title="4-2. ログの取得方法"></a>4-2. ログの取得方法</h2><p>環境内の複数のクラウド フローの実行状況をまとめて監視する場合はオートメーション センター、コードを書かずに一覧を取得・集計する場合は Excel の OData フィード、自動処理に組み込む場合は Dataverse Web API が適しています。いずれも、クラウド フローの実行データとして <code>FlowRun</code> を参照します。</p>
+<p><a id='anchor-automation-center'></a></p>
+<h3 id="4-2-1-オートメーション-センターで確認する"><a href="#4-2-1-オートメーション-センターで確認する" class="headerlink" title="4-2-1. オートメーション センターで確認する"></a>4-2-1. オートメーション センターで確認する</h3><p>オートメーション センターでは、ダッシュボードから実行ログ、エラー、パフォーマンスなどを確認できます。クラウド フローについては、ソリューション対応クラウド フローが対象です。オートメーション センターは <code>FlowRun</code> のデータを表示するため、本記事では <code>FlowRun</code> の確認方法の一つとして紹介します。</p>
+<p>表示には、クラウド フローの所有者であること、または環境全体の関連データへの読み取りアクセス権が必要です。<strong>共同所有者であることだけでは十分ではありません。</strong> <code>workflow</code>、<code>flowrun</code>、<code>flowsession</code> などの関連テーブルに対する読み取り権限と、その範囲（自分のレコードだけか、組織全体かなど）を確認してください。</p>
+<p><a href="https://make.powerautomate.com/">Power Automate</a> で対象環境の <strong>オートメーション センター</strong> を開き、実行ログやパフォーマンスを確認します。画面付きの操作方法とアクセス条件は <a href="https://learn.microsoft.com/ja-jp/power-automate/automation-center-overview">オートメーション センターの概要</a> を参照してください。</p>
+<p><a id='anchor-excel'></a></p>
+<h3 id="4-2-2-Excel-の-OData-フィードから取得する"><a href="#4-2-2-Excel-の-OData-フィードから取得する" class="headerlink" title="4-2-2. Excel の OData フィードから取得する"></a>4-2-2. Excel の OData フィードから取得する</h3><p><code>FlowRun</code> の内容は、Excel の OData フィードから取得することもできます。コードを書かずに一覧を取得できるため、定期的な集計やレポートの作成に適しています。</p>
+<p><a id='anchor-excel-endpoint'></a></p>
+<h4 id="4-2-2-1-Web-API-エンドポイントを確認する"><a href="#4-2-2-1-Web-API-エンドポイントを確認する" class="headerlink" title="4-2-2-1. Web API エンドポイントを確認する"></a>4-2-2-1. Web API エンドポイントを確認する</h4><ol>
+<li><a href="https://make.powerapps.com/">Power Apps</a> で対象の環境へ切り替えます。</li>
+<li>右上の歯車アイコンから <strong>開発者リソース</strong> を選択します。</li>
+<li><strong>Web API エンドポイント</strong> に表示されている URL を控えます。</li>
+</ol>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image05.png" alt="Power Apps の開発者リソース画面。Web API エンドポイントの URL が表示されている"></p>
+<p><a id='anchor-excel-connect'></a></p>
+<h4 id="4-2-2-2-Excel-から接続する"><a href="#4-2-2-2-Excel-から接続する" class="headerlink" title="4-2-2-2. Excel から接続する"></a>4-2-2-2. Excel から接続する</h4><ol>
+<li>Excel で空白のブックを開きます。</li>
+<li><strong>データ</strong> タブ &gt; <strong>データの取得</strong> &gt; <strong>その他のデータ ソースから</strong> &gt; <strong>OData フィードから</strong> を選択します。</li>
+</ol>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image06.png" alt="Excel のデータ タブで、データの取得からその他のデータ ソースからを展開し、OData フィードからが表示されている"></p>
+<ol>
+<li><a href="#anchor-excel-endpoint">4-2-2-1. Web API エンドポイントを確認する</a> で控えた <strong>Web API エンドポイント</strong> の URL を入力し、<strong>OK</strong> を選択します。</li>
+</ol>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image07.png" alt="OData フィード ダイアログに Web API エンドポイントの URL を入力した状態"></p>
+<ol>
+<li><strong>組織アカウント</strong> を選択し、環境に対する権限を持つユーザーでサインインします。サインイン後、<strong>接続</strong> を選択します。</li>
+</ol>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image08.png" alt="OData フィードの認証画面。左側の一覧から組織アカウントが選択されている"></p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>認証方法の既定は <strong>匿名</strong> です。<strong>組織アカウント</strong> を選択しないと接続できません。</p></div>
+<p><a id='anchor-excel-load'></a></p>
+<h4 id="4-2-2-3-flowruns-テーブルを読み込む"><a href="#4-2-2-3-flowruns-テーブルを読み込む" class="headerlink" title="4-2-2-3. flowruns テーブルを読み込む"></a>4-2-2-3. flowruns テーブルを読み込む</h4><ol>
+<li>ナビゲーターの検索ボックスに <code>flowruns</code> と入力し、表示されたテーブルを選択します。</li>
+<li>プレビューの内容を確認し、<strong>読み込み</strong> を選択します。</li>
+</ol>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image09.png" alt="ナビゲーターで flowruns を検索して選択し、右側にプレビューが表示されている"></p>
+<p>Excel のワークシートに <code>FlowRun</code> のレコードが読み込まれます。</p>
+<p><img src="/blog/powerautomate/flowrun-dataverse-run-history/image10.png" alt="Excel に flowruns テーブルが読み込まれ、クエリと接続ウィンドウに読み込み済みの行数が表示されている"></p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>接続時にテーブルの情報を読み込むため、完了までに時間がかかる場合があります。</p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>Excel の OData フィードや Dataverse コネクタは、比較的小規模なデータを扱う分析シナリオを想定しています。大量データを継続的に抽出する場合は、Azure Synapse Link の使用が推奨されています。詳細は <a href="https://learn.microsoft.com/ja-jp/power-query/connectors/dataverse">Dataverse コネクタの制限事項と考慮事項</a> を参照してください。</p></div>
+<p><a id='anchor-web-api'></a></p>
+<h3 id="4-2-3-Dataverse-Web-API-から取得する"><a href="#4-2-3-Dataverse-Web-API-から取得する" class="headerlink" title="4-2-3. Dataverse Web API から取得する"></a>4-2-3. Dataverse Web API から取得する</h3><p>ここでは、Dataverse Web API を使ってデータを読み取る例を紹介します。API の実行には、対象環境の <code>FlowRun</code> テーブルを読み取る権限と、Dataverse Web API 用のアクセストークンが必要です。システム管理者ロールなど、環境内のすべての <code>FlowRun</code> レコードを読み取れる権限があれば、自分が所有していないクラウド フローの実行履歴も取得できます。</p>
+<p>Dataverse Web API の <code>$select</code> で指定する論理名と説明は、<a href="https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun">Flow Run (flowrun) テーブル&#x2F;エンティティ参照</a> を参照してください。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p><code>duration</code> の単位は、Microsoft Learn の日本語ページ間で記載が異なります。<a href="https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata">Dataverse でクラウド フロー実行履歴を管理する</a> では「実行期間」が <strong>秒単位</strong>、<a href="https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun">Flow Run (flowrun) テーブル&#x2F;エンティティ参照</a> の <code>DurationInMs</code> では「実行時間 (<strong>ミリ秒単位</strong>)」と記載されており、弊社の検証環境でもミリ秒単位であることを確認しました。</p></div>
+<div class="alert is-important"><p class="alert-title">重要</p><p><code>status</code> と <code>triggertype</code> を <code>$filter</code> で指定する場合は、画面の表示名ではなく API が返す値を使ってください。弊社の検証環境では、<code>triggertype</code> に <code>Scheduled</code>（画面の表示は「スケジュール済み」）や <code>Instant</code>（「すぐに」）が、<code>status</code> に <code>Succeeded</code> や <code>Failed</code> が格納されていました。<a href="https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata">Dataverse でクラウド フロー実行履歴を管理する</a> に記載されている「自動化」「予定されている」「マニュアル」も API の値ではないため、そのまま <code>$filter</code> に指定しても一致しません。</p></div>
+<p><code>FlowRun</code> テーブルのエンティティ セット名は <code>flowruns</code> です。以下のような GET 要求で実行履歴を取得できます。使用にあたっては <a href="#anchor-sample-disclaimer">サンプルコード免責事項</a> をご確認ください。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>以下のサンプルの <code>&lt;クラウド フロー ID&gt;</code> には、Power Automate の <strong>マイ フロー</strong> から対象のフローを開き、URL の <code>/flows/</code> の直後に表示される <code>FlowId</code> を指定してください。ソリューション エクスプローラーから開いた URL に含まれる <code>workflowUniqueId</code> はバージョンごとに変わるため、使用しないでください。詳細は <a href="https://learn.microsoft.com/ja-jp/power-automate/drafts-versioning#known-issues">ソリューションに対応したクラウド フローのドラフトとバージョン管理 - 既知の問題</a> を参照してください。</p></div>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET https://&lt;組織 URL&gt;/api/data/v9.2/flowruns</span><br><span class="line">  ?$select=name,starttime,endtime,duration,status,triggertype,errorcode,errormessage,clienttrackingid,workflowid,partitionid,ttlinseconds</span><br><span class="line">  &amp;$filter=workflowid eq &#x27;&lt;クラウド フロー ID&gt;&#x27;</span><br><span class="line">  &amp;$orderby=starttime desc</span><br><span class="line">  &amp;$top=100</span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">OData-Version</span><span class="punctuation">: </span>4.0</span><br><span class="line"><span class="attribute">Authorization</span><span class="punctuation">: </span>Bearer &lt;アクセストークン&gt;</span><br></pre></td></tr></table></figure>
+
+<p>PowerShell から取得する場合は、はじめに Dataverse Web API 用のアクセストークンを取得します。以下の例では Azure CLI を使用し、対象組織の URL をリソースとして指定しています。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">az login</span><br><span class="line"><span class="variable">$webApiUrl</span> = <span class="string">&#x27;https://&lt;組織 URL&gt;/api/data/v9.2&#x27;</span></span><br><span class="line"><span class="variable">$accessToken</span> = az account <span class="built_in">get-access</span><span class="literal">-token</span> <span class="literal">--resource</span> <span class="string">&quot;https://&lt;組織 URL&gt;&quot;</span> <span class="literal">--query</span> accessToken <span class="literal">--output</span> tsv</span><br></pre></td></tr></table></figure>
+
+<p>取得したアクセストークンを使用して、次のように取得できます。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$flowId</span> = <span class="string">&#x27;&lt;クラウド フロー ID&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$select</span> = <span class="string">&#x27;name,starttime,endtime,duration,status,triggertype,errorcode,errormessage,clienttrackingid,workflowid,partitionid,ttlinseconds&#x27;</span></span><br><span class="line"><span class="variable">$filter</span> = [<span class="type">uri</span>]::EscapeDataString(<span class="string">&quot;workflowid eq &#x27;<span class="variable">$flowId</span>&#x27;&quot;</span>)</span><br><span class="line"><span class="variable">$requestUri</span> = <span class="string">&quot;<span class="variable">$webApiUrl</span>/flowruns?`$select=<span class="variable">$select</span>&amp;`$filter=<span class="variable">$filter</span>&amp;`$orderby=starttime desc&amp;`$top=100&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$headers</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">    Authorization      = <span class="string">&quot;Bearer <span class="variable">$accessToken</span>&quot;</span></span><br><span class="line">    Accept             = <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">    <span class="string">&#x27;OData-Version&#x27;</span>    = <span class="string">&#x27;4.0&#x27;</span></span><br><span class="line">    <span class="string">&#x27;OData-MaxVersion&#x27;</span> = <span class="string">&#x27;4.0&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$response</span> = <span class="built_in">Invoke-RestMethod</span> <span class="literal">-Method</span> Get <span class="literal">-Uri</span> <span class="variable">$requestUri</span> <span class="literal">-Headers</span> <span class="variable">$headers</span></span><br><span class="line"><span class="variable">$response</span>.value</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://learn.microsoft.com/ja-jp/power-automate/automation-center-overview">オートメーション センターの概要</a> には、クラウド フローの実行履歴が Dataverse とオートメーション センターで利用できるようになるまでに最大 1 時間かかる場合があると記載されています。実行直後に取得する場合は、時間をおいて取得するか、再試行する処理を入れてください。</p>
+<div class="alert is-success"><p class="alert-title">ヒント</p><p>Web API エンドポイントは、開発者リソース画面では <code>https://&lt;組織名&gt;.api.crm.dynamics.com/api/data/v9.2</code> の形式で表示されます。弊社の検証環境では、<code>api</code> を含まない組織 URL (<code>https://&lt;組織名&gt;.crm.dynamics.com/api/data/v9.2</code>) でも同じ結果を取得できました。</p></div>
+<p><a id='anchor-summary'></a></p>
+<h1 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h1><p>管理者がクラウド フローの実行履歴を確認するときは、目的に応じて次のように使い分けてください。</p>
+<ul>
+<li>個別の実行を確実に調査する場合は、Power Automate ポータルの実行履歴を使います。アクション名、入力、出力まで確認できます。</li>
+<li>アクション単位のテレメトリを長期的に保持して監視・分析する場合は、Application Insights を使います。ただし<strong>マネージド環境が必要</strong>です。</li>
+<li>複数のクラウド フローの実行状況をまとめて監視したり、実行結果を一覧で取得・集計したりする場合は、<code>FlowRun</code> を使います。ダッシュボードで確認する場合はオートメーション センター、コードを書かずに済ませたい場合は Excel の OData フィード、自動処理に組み込む場合は Dataverse Web API や PowerShell が適しています。</li>
+</ul>
+<p><code>FlowRun</code> には、アクション名やアクションごとの入力と出力は保存されません。また、<code>FlowRun</code> には記録されない実行がある可能性があるため、監査など欠落が許されない用途では Power Automate ポータルの実行履歴と併用してください。</p>
+<p><a id='anchor-references'></a></p>
+<h1 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h1><ul>
+<li><a href="https://learn.microsoft.com/ja-jp/power-automate/dataverse/cloud-flow-run-metadata">Dataverse でクラウド フロー実行履歴を管理する</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowrun">FlowRun テーブル&#x2F;エンティティ参照</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/webapi/query-data-web-api">Web API を使用してデータのクエリを実行する</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-edit-elastic-tables">エラスティック テーブルを作成して編集する</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/reference/entities/flowevent">FlowEvent テーブル&#x2F;エンティティ参照</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-query/connectors/dataverse">Dataverse コネクタ (Power Query) の制限事項と考慮事項</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/app-insights-cloud-flow">Application Insights を使用してクラウド フローを監視する</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/set-up-export-application-insights">Application Insights へのデータのエクスポートを設定する</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-automate/automation-center-overview">オートメーション センターの概要</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-automate/privacy-dsr-export#export-run-history">実行履歴をエクスポートする</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/troubleshoot/power-platform/power-automate/flow-run-issues/missing-runs-or-triggers-history-for-a-flow">フローの実行履歴またはトリガー履歴が見つからない場合の説明</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell">Power Apps 用の PowerShell サポート</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/data-retention-configure">Log Analytics ワークスペースでデータ保持を管理する</a></li>
+</ul>
+<p><a id='anchor-sample-disclaimer'></a></p>
+<h1 id="サンプルコード免責事項"><a href="#サンプルコード免責事項" class="headerlink" title="サンプルコード免責事項"></a>サンプルコード免責事項</h1><div class="alert is-important"><p class="alert-title">重要</p><p>&#x3D;&#x3D;&#x3D;サンプルコード免責事項&#x3D;&#x3D;&#x3D;</p><p>・本記事で紹介しているサンプルコードは説明のためのサンプルであり、お客様の要望を直接満たすためのご提供ではございません。</p><p>そのため、製品の実運用環境で使用されることを前提に提供されるものではありません。</p>
+<p>・エラー処理などは含まれておりません。また、弊社にてその動作を保証するものではございません。</p>
+<p>・サンプル コードおよびそれに関連するあらゆる情報は、”現状のまま” で</p><p>提供されるものであり、商品性や特定の目的への適合性に関する黙示の保証も含め、</p><p>明示、黙示を問わずいかなる保証も付されるものではありません。</p>
+<p>ご使用の際には、十分にご検証いただき、ご使用くださいますようお願い申し上げます。</p>
+<p>マイクロソフトは、お客様に対し、サンプル コードを使用および改変するための</p><p>非排他的かつ無償の権利ならびに本サンプル コードをオブジェクト コードの形式で</p><p>複製および頒布するための非排他的かつ無償の権利を許諾します。</p>
+<p>但し、お客様は下記に同意するものとします。</p><p>(1) サンプル コードが組み込まれたお客様のソフトウェア製品のマーケティングのために</p><p>    マイクロソフトの会社名、ロゴまたは商標を用いないこと</p><p>(2) サンプル コードが組み込まれたお客様のソフトウェア製品に有効な著作権表示をすること</p><p>(3) サンプル コードの使用または頒布から生じるあらゆる損害 (弁護士費用を含む) に</p><p>    関する請求または訴訟について、マイクロソフトおよびマイクロソフトの取引業者に対し補償し、</p><p>    損害を与えないこと</p></div>
+<p>※本記事の執筆には生成 AI を使用しています。<a href="https://learn.microsoft.com/ja-jp/principles-for-ai-generated-content">参考</a></p>
+<hr>
+<p>免責事項<br>※本情報の内容 (添付文書、リンク先などを含む) は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li></ul>
+
+        
+        <a href="https://github.com/jpdynamicscrm/blog/edit/master/articles/powerautomate/flowrun-dataverse-run-history.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../copilotstudio/copilotstudio-publish-to-teams-channel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について
+        
+      </div>
+    </a>
+  
+  
+    <a href="../power-automate-desktop-troubleshoot/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Power Automate for desktop お問い合わせ前のトラブルシューティング</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../copilotstudio/copilotstudio-publish-to-teams-channel/">【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について</a>
+          </li>
+        
+          <li>
+            <a href="">管理者が Power Automate クラウド フローの実行履歴を取得する方法 ～失敗調査・複数フローの監視・集計を目的別に使い分ける～</a>
+          </li>
+        
+          <li>
+            <a href="../power-automate-desktop-troubleshoot/">Power Automate for desktop お問い合わせ前のトラブルシューティング</a>
+          </li>
+        
+          <li>
+            <a href="../../copilotstudio/copilot-studio-trial-license/">Copilot Studio 試用版ライセンスについて</a>
+          </li>
+        
+          <li>
+            <a href="../cloud-flow-connector-paging/">Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ALM/" rel="tag">ALM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector/" rel="tag">Connector</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-Apps/" rel="tag">Model-driven Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Paging/" rel="tag">Paging</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-BI/" rel="tag">Power BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/TDS-endpoint/" rel="tag">TDS endpoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Team-Members/" rel="tag">Team Members</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Teams/" rel="tag">Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Troubleshooting/" rel="tag">Troubleshooting</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" rel="tag">パイプライン</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" rel="tag">マネージド環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">21</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">14</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">39</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">26</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">42</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">22</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/09/">2026 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/08/">2026 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/07/">2026 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/05/">2026 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/04/">2026 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/03/">2026 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/02/">2026 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2026/01/">2026 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/12/">2025 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/10/">2025 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/09/">2025 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/08/">2025 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/05/">2025 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/04/">2025 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/03/">2025 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/02/">2025 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2025/01/">2025 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/12/">2024 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/11/">2024 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/10/">2024 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/07/">2024 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/06/">2024 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2024/01/">2024 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/11/">2023 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">2023 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/06/">2023 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/05/">2023 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/AI-Builder/" style="font-size: 10px;">AI Builder</a> <a href="../../tags/ALM/" style="font-size: 10px;">ALM</a> <a href="../../tags/Administration/" style="font-size: 10.59px;">Administration</a> <a href="../../tags/App-Access-Checker/" style="font-size: 10px;">App Access Checker</a> <a href="../../tags/Audit-Log/" style="font-size: 10px;">Audit Log</a> <a href="../../tags/Canvas-app/" style="font-size: 15.29px;">Canvas app</a> <a href="../../tags/Capacity/" style="font-size: 10.59px;">Capacity</a> <a href="../../tags/Cloud-flow/" style="font-size: 18.24px;">Cloud flow</a> <a href="../../tags/Connector/" style="font-size: 10.59px;">Connector</a> <a href="../../tags/Connector-and-Connection/" style="font-size: 12.35px;">Connector and Connection</a> <a href="../../tags/Copilot/" style="font-size: 10.59px;">Copilot</a> <a href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" style="font-size: 10px;">DLP ポリシー</a> <a href="../../tags/Dataflow/" style="font-size: 10px;">Dataflow</a> <a href="../../tags/Dataverse/" style="font-size: 17.65px;">Dataverse</a> <a href="../../tags/Dataverse-for-Teams/" style="font-size: 11.18px;">Dataverse for Teams</a> <a href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10.59px;">Dataverse ストレージ</a> <a href="../../tags/Desktop-flow/" style="font-size: 11.76px;">Desktop flow</a> <a href="../../tags/Developer-Environment/" style="font-size: 10px;">Developer Environment</a> <a href="../../tags/Dynamics/" style="font-size: 14.71px;">Dynamics</a> <a href="../../tags/Dynamics-365/" style="font-size: 11.76px;">Dynamics 365</a> <a href="../../tags/Environment/" style="font-size: 12.94px;">Environment</a> <a href="../../tags/Exchange/" style="font-size: 10px;">Exchange</a> <a href="../../tags/Governance/" style="font-size: 16.47px;">Governance</a> <a href="../../tags/Graph-API/" style="font-size: 10.59px;">Graph API</a> <a href="../../tags/How-to/" style="font-size: 18.82px;">How to</a> <a href="../../tags/Ideas/" style="font-size: 10px;">Ideas</a> <a href="../../tags/Information/" style="font-size: 11.76px;">Information</a> <a href="../../tags/License/" style="font-size: 14.12px;">License</a> <a href="../../tags/Microsoft-Copilot-Studio/" style="font-size: 14.12px;">Microsoft Copilot Studio</a> <a href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" style="font-size: 10.59px;">Microsoft Teams 連携</a> <a href="../../tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="../../tags/Model-driven-Apps/" style="font-size: 10px;">Model-driven Apps</a> <a href="../../tags/Model-driven-app/" style="font-size: 12.94px;">Model-driven app</a> <a href="../../tags/Network/" style="font-size: 11.76px;">Network</a> <a href="../../tags/Office-365-Management-API/" style="font-size: 10px;">Office 365 Management API</a> <a href="../../tags/Paging/" style="font-size: 10.59px;">Paging</a> <a href="../../tags/Power-Apps/" style="font-size: 17.06px;">Power Apps</a> <a href="../../tags/Power-Automate/" style="font-size: 20px;">Power Automate</a> <a href="../../tags/Power-Automate-for-desktop/" style="font-size: 14.71px;">Power Automate for desktop</a> <a href="../../tags/Power-BI/" style="font-size: 10px;">Power BI</a> <a href="../../tags/Power-Pages/" style="font-size: 11.76px;">Power Pages</a> <a href="../../tags/Power-Platform/" style="font-size: 19.41px;">Power Platform</a> <a href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" style="font-size: 10px;">Power Platform 管理センター</a> <a href="../../tags/Power-Virtual-Agents/" style="font-size: 10px;">Power Virtual Agents</a> <a href="../../tags/PowerPlatform/" style="font-size: 10px;">PowerPlatform</a> <a href="../../tags/PowerShell/" style="font-size: 11.76px;">PowerShell</a> <a href="../../tags/Security/" style="font-size: 10px;">Security</a> <a href="../../tags/Settings/" style="font-size: 10px;">Settings</a> <a href="../../tags/SharePoint/" style="font-size: 10.59px;">SharePoint</a> <a href="../../tags/TDS-endpoint/" style="font-size: 10px;">TDS endpoint</a> <a href="../../tags/Team-Members/" style="font-size: 10px;">Team Members</a> <a href="../../tags/Teams/" style="font-size: 10px;">Teams</a> <a href="../../tags/Troubleshooting/" style="font-size: 10px;">Troubleshooting</a> <a href="../../tags/VNetGateway/" style="font-size: 10px;">VNetGateway</a> <a href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" style="font-size: 15.88px;">お問い合わせ全般</a> <a href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" style="font-size: 10px;">オンプレミス データ ゲートウェイ</a> <a href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10.59px;">キャンバスアプリ</a> <a href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" style="font-size: 10.59px;">サポート</a> <a href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">ストレージ</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 11.18px;">セキュリティ ロール</a> <a href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" style="font-size: 10px;">セキュリティロール</a> <a href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" style="font-size: 10px;">テナント移行</a> <a href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" style="font-size: 10px;">トラブルシューティング</a> <a href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" style="font-size: 10px;">パイプライン</a> <a href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" style="font-size: 10px;">マネージド環境</a> <a href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" style="font-size: 10px;">モニター</a> <a href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" style="font-size: 10px;">ユーザー管理</a> <a href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" style="font-size: 10px;">ライセンス</a> <a href="../../tags/%E5%A7%94%E4%BB%BB/" style="font-size: 10px;">委任</a> <a href="../../tags/%E5%BD%B9%E5%89%B2/" style="font-size: 10px;">役割</a> <a href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" style="font-size: 13.53px;">情報採取</a> <a href="../../tags/%E6%A4%9C%E7%B4%A2/" style="font-size: 10px;">検索</a> <a href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" style="font-size: 10px;">環境管理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-BI/">Power BI</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/PowerPlatform/">PowerPlatform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
+      &copy; 2026 Japan Dynamics CRM &amp; Power Platform Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
