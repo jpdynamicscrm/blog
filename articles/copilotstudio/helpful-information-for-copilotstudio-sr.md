@@ -83,6 +83,8 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - Copilot Studio ポータルを開きます。開いている環境が対象の環境であることを確認してください  
   - URL 内の environments/ の直後にある ID が環境 ID です。
   - URL をテキストファイル、あるいは文字列としてメール等に張り付けてご提供ください。  
+  ![](./helpful-information-for-copilotstudio-sr/image_EnvironmentID_new.png)  
+  クラシックエクスペリエンスの場合
   ![](./helpful-information-for-copilotstudio-sr/image_EnvironmentID.png)  
 
 <a id='anchor-botid'></a>
@@ -93,6 +95,8 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。
   - URL 内の bots/ の直後にある ID が Bot ID です。
   - URL をテキストファイル、あるいは文字列としてメール等に張り付けてご提供ください。
+  ![](./helpful-information-for-copilotstudio-sr/image_BotID_new.png)  
+  クラシックエクスペリエンスの場合
   ![](./helpful-information-for-copilotstudio-sr/image_BotID.png)  
 
 <a id='anchor-conversationid'></a>
@@ -107,6 +111,8 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
    > 以下の画像は、エージェントのテスト実行画面での取得例です。
    > Conversation ID は、公開先のチャネルでも同じコマンドで取得できます。調査対象となる事象が発生した、または再現したチャネルの Conversation ID を取得し、ご提供ください。
 
+  ![](./helpful-information-for-copilotstudio-sr/image_ConversationID_new.png)  
+  Standard Harness エージェントの場合
   ![](./helpful-information-for-copilotstudio-sr/image_ConversationID.png)  
 
 <a id='anchor-session-details'></a>
@@ -114,6 +120,13 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 ## 6. セッション詳細
   以下の手順でセッション詳細を取得し、ご提供ください。
 
+  - Copilot Studio ポータル>（対象の環境選択）＞3点リーダー＞セッション詳細を開きます。
+  - 表示された内容をコピーしてテキストファイルとしてご提供ください。
+  ![](./helpful-information-for-copilotstudio-sr/image_session_details_new1.png)  
+  ![](./helpful-information-for-copilotstudio-sr/image_session_details_new2.png)  
+
+
+ご参考：クラシックエクスペリエンスの場合
   - Copilot Studio ポータル>（対象の環境選択）＞歯車アイコン＞セッション詳細を開きます。
   - 表示された内容をコピーしてテキストファイルとしてご提供ください。
   ![](./helpful-information-for-copilotstudio-sr/image_session_details.png)  
@@ -135,7 +148,9 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットとのチャットウィンドウでコパイロットと会話を行ってください。  
-  - その会話画面について、下画像と同様のスクリーンショットをご提供ください。  
+  - その会話画面について、下画像と同様のスクリーンショットをご提供ください。 
+  ![](./helpful-information-for-copilotstudio-sr/image_conversation_inout_new.png) 
+  Standard Harness エージェントの場合
   ![](./helpful-information-for-copilotstudio-sr/image_conversation_inout.png) 
 
 <a id='anchor-topics-screen'></a>
