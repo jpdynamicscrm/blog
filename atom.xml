@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-10-28T09:57:16.695Z</updated>
+  <updated>2026-10-30T05:27:34.097Z</updated>
   <entry>
     <author>
       <name>
@@ -46,7 +46,7 @@
 </ul>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について</title>
-    <updated>2026-10-28T09:57:16.695Z</updated>
+    <updated>2026-10-30T05:27:34.097Z</updated>
   </entry>
   <entry>
     <author>
@@ -71,7 +71,7 @@
 <p>なお、管理者がクラウド フローの一覧を取得する方法は、弊社ブログ記事「<a href="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/">Power Automate のクラウドフロー一覧を管理者が取得する方法</a>」でご紹介しています。</p>]]>
     </summary>
     <title>管理者が Power Automate クラウド フローの実行履歴を取得する方法 ～失敗調査・複数フローの監視・集計を目的別に使い分ける～</title>
-    <updated>2026-10-28T09:57:16.766Z</updated>
+    <updated>2026-10-30T05:27:34.207Z</updated>
   </entry>
   <entry>
     <author>
@@ -94,7 +94,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせ前のトラブルシューティング</title>
-    <updated>2026-10-28T09:57:16.807Z</updated>
+    <updated>2026-10-30T05:27:34.266Z</updated>
   </entry>
   <entry>
     <author>
@@ -116,7 +116,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-10-28T09:57:16.693Z</updated>
+    <updated>2026-10-30T05:27:34.094Z</updated>
   </entry>
   <entry>
     <author>
@@ -141,7 +141,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-10-28T09:57:16.757Z</updated>
+    <updated>2026-10-30T05:27:34.194Z</updated>
   </entry>
   <entry>
     <author>
@@ -151,8 +151,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
     <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
@@ -167,7 +167,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-10-28T09:57:16.658Z</updated>
+    <updated>2026-10-30T05:27:34.045Z</updated>
   </entry>
   <entry>
     <author>
@@ -177,11 +177,11 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
-    <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
+    <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
     <content>
       <![CDATA[<p>こんにちは、Power Platform サポートチームの竹嶋です。<br/></p><p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p><span id="more"></span><h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul><li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li><li><a href="#1-%E6%A6%82%E8%A6%81">1. 概要</a></li><li><a href="#2-120-%E7%A7%92%E5%88%B6%E9%99%90%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B%E4%BB%95%E7%B5%84%E3%81%BF">2. 120 秒制限が発生する仕組み</a></li><li><a href="#3-%E5%9B%9E%E9%81%BF%E7%AD%96%E9%9D%9E%E5%90%8C%E6%9C%9F%E5%BF%9C%E7%AD%94%E3%82%92%E3%82%AA%E3%83%B3%E3%81%AB%E3%81%99%E3%82%8B">3. 回避策：非同期応答をオンにする</a><ul><li><a href="#%E6%89%8B%E9%A0%86-1-%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%BF%9C%E7%AD%94%E3%82%92%E9%9D%9E%E5%90%8C%E6%9C%9F%E3%81%AB%E3%81%99%E3%82%8B">手順 1. フローを作成する（応答を非同期にする）</a></li><li><a href="#%E6%89%8B%E9%A0%86-2-%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99">手順 2. アプリから呼び出す</a></li></ul></li><li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li></ul><p><a id='1-概要'></a></p><h2 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h2><p>Power Apps キャンバスアプリから <code>&#39;フロー名&#39;.Run()</code> でクラウドフローを呼び出し、「Power App またはフローに応答する」アクションで結果を受け取る構成は、データ取得や処理のオフロードなどで広く利用されています。</p><p>一方で、この呼び出しには <strong>応答が返るまで 120 秒という時間制限</strong> があります。フロー内の処理が長引いて 120 秒以内に応答を返せない場合、<strong>呼び出し元のアプリ側でタイムアウトエラーが発生</strong> します。</p><p>ここで重要なのは、これが <strong>フロー全体の実行時間ではなく「応答を返すまで」の制限</strong> であるという点です。フロー自体はバックエンドで実行を継続している場合があり、「フローは成功しているのに、アプリ側だけがエラーになる」という状況も起こり得ます。</p><p>本記事では、この 120 秒制限の仕組みと、長時間処理が見込まれる場合の回避策をご紹介します。</p><p><a id='2-120-秒制限が発生する仕組み'></a></p><h2 id="2-120-秒制限が発生する仕組み"><a href="#2-120-秒制限が発生する仕組み" class="headerlink" title="2. 120 秒制限が発生する仕組み"></a>2. 120 秒制限が発生する仕組み</h2><p>Power Apps からのフロー呼び出しは、内部的には <strong>HTTP の同期通信</strong> で行われます。アプリは「Power App またはフローに応答する」アクションからの応答を待ち受けますが、この同期リクエスト／応答には公開情報のとおり 120 秒の上限が設けられています。</p><blockquote><p>受信要求（インスタント フローのトリガーや HTTP 要求トリガーなど）の制限は <strong>120 秒（2 分）</strong>。</p></blockquote><p><a href="https://learn.microsoft.com/ja-jp/power-automate/limits-and-config#request-limits">自動化フロー、スケジュール フロー、インスタント フローの制限 - Power Automate | Microsoft Learn</a></p><p>つまり、フロー内で実行されるデータ取得・外部 API 呼び出し・AI 処理などの合計が 120 秒に近づくと、応答が間に合わずタイムアウトに至ります。</p><p>この制限を回避する方法として <strong>「非同期応答」をオンにする</strong> 手順をご紹介します。</p><p><a id='3-回避策非同期応答をオンにする'></a></p><h2 id="3-回避策：非同期応答をオンにする"><a href="#3-回避策：非同期応答をオンにする" class="headerlink" title="3. 回避策：非同期応答をオンにする"></a>3. 回避策：非同期応答をオンにする</h2><p>120 秒制限は HTTP 同期応答の仕様であり、値を変更することはできません。そこで有効なのが、「Power App またはフローに応答する」アクションの <strong>「非同期応答」トグルをオンにする</strong> 方法です。</p><p>非同期応答をオンにすると、120 秒を超える処理でも、Power Apps はフローからの応答を待機できます。</p><p><strong>フロー内の「Power App またはフローに応答する」アクションが実行されるまで、アプリ側の <code>.Run()</code> は待機状態となり、呼び出し後の処理へは進みません</strong>。この待機には <strong>1 時間のハードリミット</strong>があり、1 時間以内に応答アクションが実行されなかった場合は、アプリ側でタイムアウトが発生します。</p><p>応答アクションの設定トグルを 1 つ変更するだけで 120 秒を超える処理に対応できるため、基本的には<strong>フローのアクションの並びを作り変えずに</strong>対応できることも利点になります。</p><h4 id="手順-1-フローを作成する（応答を非同期にする）"><a href="#手順-1-フローを作成する（応答を非同期にする）" class="headerlink" title="手順 1. フローを作成する（応答を非同期にする）"></a>手順 1. フローを作成する（応答を非同期にする）</h4><p>前提として、「Power Apps がフローを呼び出したとき (V2)」をトリガーに、時間のかかる処理を実行し、最後に「Power App またはフローに応答する」アクションを配置されているとします。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">１．[Power Apps がフローを呼び出したとき (V2)]</span><br><span class="line">２．時間のかかるアクション・処理を実行</span><br><span class="line">３．[Power App またはフローに応答する]</span><br></pre></td></tr></table></figure><p>「Power App またはフローに応答する」アクションの <strong>設定（…）→「非同期応答」をオン</strong> にします。</p><!-- 📸 キャプチャ（3-async-toggle）: 「Power App またはフローに応答する」の設定で「非同期応答」がオンになっている状態。 --><p><img src="/blog/powerapps/power-apps-flow-response-timeout-120s/async-toggle.png" alt="応答アクションの設定で「非同期応答」をオンにする"></p><h4 id="手順-2-アプリから呼び出す"><a href="#手順-2-アプリから呼び出す" class="headerlink" title="手順 2. アプリから呼び出す"></a>手順 2. アプリから呼び出す</h4><p>アプリ側は通常どおり <code>.Run()</code> で呼び出します。非同期応答をオンにした場合、<code>.Run()</code> はフロー内の応答アクションが実行されるまで待機し、実行後に結果を受け取ります。</p><div class="alert is-info"><p class="alert-title">Note</p><p>非同期応答の詳細については、下記の公開情報をご参照ください。</p><p><a href="https://learn.microsoft.com/ja-jp/power-automate/guidance/coding-guidelines/asychronous-flow-pattern">非同期応答の使用 - Power Automate | Microsoft Learn</a></p></div><p><a id='まとめ'></a></p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul><li>Power Apps からのフロー呼び出しには、<strong>応答までに 120 秒（2 分）の制限</strong> があります。これは HTTP 同期応答の仕様であり、値の変更はできません。</li><li>これは <strong>フロー全体の実行時間ではなく「応答を返すまで」の制限</strong> です。</li><li>長時間処理が見込まれる場合は、「Power App またはフローに応答する」アクションの <strong>「非同期応答」をオンにする</strong> ことで、120 秒の制限を回避できます。</li><li>非同期応答をオンにしてもアプリへすぐに応答が返るわけではなく、<code>.Run()</code> はフロー内の応答アクションが実行されるまで待機します。</li><li>非同期応答の待機には <strong>1 時間のハードリミット</strong>があり、1 時間以内に応答アクションが実行されない場合はタイムアウトします。</li></ul>]]>
     </content>
@@ -193,7 +193,7 @@
 <p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
-    <updated>2026-10-28T09:57:16.742Z</updated>
+    <updated>2026-10-30T05:27:34.172Z</updated>
   </entry>
   <entry>
     <author>
@@ -216,7 +216,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-10-28T09:57:16.821Z</updated>
+    <updated>2026-10-30T05:27:34.287Z</updated>
   </entry>
   <entry>
     <author>
@@ -245,7 +245,7 @@
 </blockquote>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法</title>
-    <updated>2026-10-28T09:57:16.676Z</updated>
+    <updated>2026-10-30T05:27:34.070Z</updated>
   </entry>
   <entry>
     <author>
@@ -255,8 +255,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
@@ -271,7 +271,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-10-28T09:57:16.659Z</updated>
+    <updated>2026-10-30T05:27:34.046Z</updated>
   </entry>
   <entry>
     <author>
@@ -294,7 +294,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-10-28T09:57:16.866Z</updated>
+    <updated>2026-10-30T05:27:34.350Z</updated>
   </entry>
   <entry>
     <author>
@@ -317,7 +317,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-10-28T09:57:16.910Z</updated>
+    <updated>2026-10-30T05:27:34.413Z</updated>
   </entry>
   <entry>
     <author>
@@ -341,7 +341,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-10-28T09:57:16.913Z</updated>
+    <updated>2026-10-30T05:27:34.416Z</updated>
   </entry>
   <entry>
     <author>
@@ -364,7 +364,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-10-28T09:57:16.865Z</updated>
+    <updated>2026-10-30T05:27:34.349Z</updated>
   </entry>
   <entry>
     <author>
@@ -387,7 +387,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-10-28T09:57:16.821Z</updated>
+    <updated>2026-10-30T05:27:34.287Z</updated>
   </entry>
   <entry>
     <author>
@@ -413,7 +413,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-10-28T09:57:16.892Z</updated>
+    <updated>2026-10-30T05:27:34.386Z</updated>
   </entry>
   <entry>
     <author>
@@ -440,7 +440,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-10-28T09:57:16.899Z</updated>
+    <updated>2026-10-30T05:27:34.397Z</updated>
   </entry>
   <entry>
     <author>
@@ -466,7 +466,7 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-10-28T09:57:16.865Z</updated>
+    <updated>2026-10-30T05:27:34.349Z</updated>
   </entry>
   <entry>
     <author>
@@ -503,7 +503,7 @@
 </blockquote>]]>
     </summary>
     <title>外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント</title>
-    <updated>2026-10-28T09:57:16.900Z</updated>
+    <updated>2026-10-30T05:27:34.397Z</updated>
   </entry>
   <entry>
     <author>
@@ -533,6 +533,6 @@
 </ul>]]>
     </summary>
     <title>Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ</title>
-    <updated>2026-10-28T09:57:16.864Z</updated>
+    <updated>2026-10-30T05:27:34.348Z</updated>
   </entry>
 </feed>
