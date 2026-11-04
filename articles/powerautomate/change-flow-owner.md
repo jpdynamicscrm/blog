@@ -229,7 +229,7 @@ Set-AdminFlowOwnerRole -EnvironmentName <環境ID> -FlowName <フローID> -Prin
 ### ＜ソリューション フロー＞　フロー詳細画面からフローの所有者を変更する方法
 以下の方法でフローの所有者を変更できます。<br/>
 
-> [!NOTE] 
+> > [!NOTE]
 > リューション内のクラウド フローの主要な所有者を変更するには、操作ユーザーに「システム管理者」または「System Customizer」のセキュリティ ロールが必要です。
 
 **実行例**
