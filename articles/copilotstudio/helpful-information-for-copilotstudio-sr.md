@@ -26,11 +26,17 @@ categories:
       1. [セッション詳細](#anchor-session-details)
       1. [事象再現時のスナップショット zip ファイル](#anchor-snapshot-zip)
       1. [会話入出力](#anchor-raw-input-output)
+      1. [エージェントの定義](#anchor-agent-yamal-download)
       1. [トピック画面](#anchor-topics-screen)
       1. [会話トランスクリプションテーブルデータ](#anchor-conversation-transcript)
       1. [ソリューションエクスポートファイル](#anchor-solution-export-file)
       1. [Web ブラウザのネットワーク トレース・コンソール ログ](#anchor-about-networkhar)
       1. [Teamsクライアントのネットワーク トレース、診断ログ](#anchor-teamslog)
+      1. [エージェントフローの情報取得](#anchor-agent-flow)
+         * [フロー URL](#anchor-agent-flow-url)
+         * [フロー実行履歴 URL](#anchor-agent-flow-run-url)
+         * [実行履歴 CSV](#anchor-agent-flow-csv)
+         * [未加工入力、未加工出力](#anchor-agent-flow-input-output)
 
 <a id='anchor-intro'></a>
 
@@ -141,7 +147,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - 得られた zip ファイルをご提供ください。  
   ![](./helpful-information-for-copilotstudio-sr/image_snapshot.png)  
 
-<a id='anchor-knowledge-enable-state'></a>
+<a id='anchor-raw-input-output'></a>
 
 ## 8. 会話入出力 
   以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
@@ -153,9 +159,19 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   Standard Harness エージェントの場合
   ![](./helpful-information-for-copilotstudio-sr/image_conversation_inout.png) 
 
+<a id='anchor-agent-yamal-download'></a>
+
+## 9. エージェントの定義 
+  以下の手順でエージェント定義のファイルを取得し、ご提供ください。
+
+  - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
+  - 右上の 3 点リーダー (...)  ＞ダウンロード の順で、ファイルをダウンロードしてください。
+  - ダウンロードされたファイルをご提供ください。 
+  ![](./helpful-information-for-copilotstudio-sr/image_ymal_download.png)
+
 <a id='anchor-topics-screen'></a>
 
-## 9. トピック画面
+## 10. トピック画面
   以下の手順でスクリーンショット画像ファイルを取得し、ご提供ください。
 
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロット＞トピックタブを開きます。  
@@ -165,14 +181,14 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 <a id='anchor-conversation-transcript'></a>
 
-## 10. 会話トランスクリプションテーブルデータ
+## 11. 会話トランスクリプションテーブルデータ
   下記公開情報にてご案内している方法で、会話トランスクリプションテーブルのデータを取得してください。  
   取得した zip ファイルをご提供ください。  
   https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/analytics-sessions-transcripts#export-conversation-transcripts
 
 <a id='anchor-solution-export-file'></a>
 
-## 11. ソリューションエクスポートファイル
+## 12. ソリューションエクスポートファイル
 
 1. エージェントのエクスポートを選択し、ソリューション画面を開きます。  
 起動経路：エージェント＞（任意のエージェント）…　＞　エージェントのエクスポート
@@ -193,7 +209,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 <a id='anchor-about-networkhar'></a>
 
-## 12. Web ブラウザのネットワーク トレース・コンソール ログ
+## 13. Web ブラウザのネットワーク トレース・コンソール ログ
   カスタム Copilot 編集中、あるいは実行中に Copilot Studio サービスへ送信する HTTP リクエストや Copilot Studio サービスから受信する HTTP レスポンスの内容を確認することで通信上の問題を特定します。  
 
  > [!IMPORTANT]
@@ -217,7 +233,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 <a id='anchor-teamslog'></a>
 
-## 13. Teamsクライアントのネットワーク トレース、診断ログ
+## 14. Teamsクライアントのネットワーク トレース、診断ログ
 Teamsクライアントにおいてのみエラーや問題が発生する場合、Teamsクライアントのネットワーク トレースやTeams 診断ログ　より、発生している事象を調査します。<br/>
 
 1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
@@ -246,6 +262,46 @@ Windows のタスクバーにある 「隠れているインジケータを表�
     ![](./helpful-information-for-copilotstudio-sr/image_TeamsLogResult.png)　
 1. 8. で取得したHARファイルと、10. で取得した「PROD-WebLogs ….zip」 および 「MSTeams Support Logs … フォルダー」 を圧縮した .zip ファイル　のご提供をお願いします
 
+<a id='anchor-agent-flow'></a>
+
+## 15. エージェントフローの情報取得
+
+<a id='anchor-agent-flow-url'></a>
+
+### フロー URL
+以下の手順でフローの URL をそのままご提供ください。
+
+ - Copilot Studio ポータル>（対象の環境選択）＞ワークフロー＞対象のフローを開きます。
+ - URL をテキストファイル、あるいは文字列としてメール等に張り付けてご提供ください。
+ ![](./helpful-information-for-copilotstudio-sr/image_agent_flow_url.png)  
+
+ <a id='anchor-agent-flow-run-url'></a>
+
+### フロー実行履歴 URL
+以下の手順でフローの実行履歴 URL をそのままご提供ください。
+ - Copilot Studio ポータル>（対象の環境選択）＞ワークフロー＞対象のフローを開きます。
+ - 28 日間の実行履歴、または[すべての実行履歴]から対象の実行履歴を開きます。
+ ![](./helpful-information-for-copilotstudio-sr/image_agent_flow_run_url_1.png)  
+ - 開いた画面の URL をご提供ください。
+ ![](./helpful-information-for-copilotstudio-sr/image_agent_flow_run_url_2.png)  
+
+<a id='anchor-agent-flow-csv'></a>
+
+### 実行履歴 CSV
+ - Copilot Studio ポータル>（対象の環境選択）＞ワークフロー＞対象のフローを開きます。
+ - フローの詳細画面を開き「28 日間の実行履歴」から「すべての実行」を選択します。  
+ ![](./helpful-information-for-copilotstudio-sr/image_agent_flow_run_csv_1.png)  
+ -  「CSV ファイルを取得」を選択し、取得した CSV ファイルをご提供ください。  
+ ![](./helpful-information-for-copilotstudio-sr/image_agent_flow_run_csv_2.png)  
+
+<a id='anchor-agent-flow-input-output'></a>
+
+### 未加工入力、未加工出力  
+実行履歴から該当アクションをクリックして開き、以下で表示されるテキストをコピーし、ご提供ください。  
+* 「入力」セクション → 「未加工の入力を表示する」 
+ ![](./helpful-information-for-copilotstudio-sr/image_agent_raw_input_1.png)  
+* 「出力」セクション → 「未加工の出力を表示する」 
+ ![](./helpful-information-for-copilotstudio-sr/image_agent_raw_output_1.png)  
 ---
 
 ## 補足
