@@ -9,7 +9,7 @@ categories:
   - [Microsoft Copilot Studio]
 ---
 
-# Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて
+# Copilot Studio の生成 AI 機能を利用する際のデータのお取り扱いについて
 こんにちは。Power Platform サポートチームの トテ です。
 今回はよく寄せられるお問い合わせのひとつ、 Copilot Studio の生成 AI 機能におけるデータのお取り扱いについてご案内いたします。
 

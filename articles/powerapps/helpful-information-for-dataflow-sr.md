@@ -116,7 +116,7 @@ categories:
 データフローの編集を行う直前でログの記録を開始し、エラーが表示されるまでの動作をログに収録いただけますようお願い申し上げます。
 
 ログの取得方法については、お手数ですが以下の公開情報をご参照ください。 
-※手順内の1. 及び2.ステップ記録ツール」については実施いただかなくて大丈夫です。 
+※手順内の 1. 及び 2. 「ステップ記録ツール」については実施いただかなくて大丈夫です。 
 https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#google-chrome-and-microsoft-edge-chromium
 
 
@@ -131,7 +131,7 @@ https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#googl
 ![](./helpful-information-for-dataflow-sr/developer-resource.png) 
 
 2. [Web API エンドポイント] を取得し、末尾に /msdyn_dataflows を追加したリンクを作成します。<br>
-例 : https://org **bbca2a.api.crm7.dynamics.com/api/data/v9.2/msdyn_dataflows
+例 : https://contoso.api.crm7.dynamics.com/api/data/v9.2/msdyn_dataflows
 
 ![](./helpful-information-for-dataflow-sr/webapi-endpoint.png)
 

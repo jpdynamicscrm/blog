@@ -61,7 +61,7 @@ Web サイト認証キーの管理
 先述させて頂きましたように、 Power Pages では Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。
 
 このため、Power Pages の Web サイトを作成した場合、対象の Web サイトに紐づくアプリケーションが Azure 上に自動で作成される仕組みとなっております。
-このことから、Power Pages 認証キーの実体は Azrure から確認出来るアプリケーションに紐づく「証明書」と同様となります。
+このことから、Power Pages 認証キーの実体は Azure から確認出来るアプリケーションに紐づく「証明書」と同様となります。
 ![](power-pages-auth-key/power-pages-azure-app.png)
 
 なお、Azure 上に登録されている Power Pages 関連のアプリケーションについては、基本的に「Portals-」から始まる名称で登録されています。

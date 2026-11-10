@@ -52,7 +52,7 @@ Teams に投稿すると改行が反映されないことがあります。
 
 ## 改行を反映する方法
 
-今回は事象の解決方法として、replace 関数を使用する方法と、&lt;pre&gt;タグを使用する方法の２つをご案内いたします。
+今回は事象の解決方法として、replace 関数を使用する方法と、&lt;pre&gt;タグを使用する方法の 2 つをご案内いたします。
 
 <a id='anchor-line-break-replace'></a>
 
@@ -143,8 +143,8 @@ SharePoint リストや Microsoft Excel から取得した複数行テキスト�
 今回の例では、以下の状況を想定しています。
 
 トリガー：SharePoint リストにアイテムが追加されたとき  
-アクション１：作成  pre タグの追加   
-アクション２：作成した変数の内容を Teams に投稿する
+アクション 1：作成  pre タグの追加   
+アクション 2：作成した変数の内容を Teams に投稿する
 
 イメージ図  
 ![](cloudflow-specialcharacters/line-break/flow-image.png)
@@ -160,13 +160,13 @@ SharePoint リストや Microsoft Excel から取得した複数行テキスト�
 下画像のように、ご自身の SharePoint リストをご指定ください。<br>
 ![](cloudflow-specialcharacters/line-break/sharepoint.png)
 
-#### アクション１：作成 pre タグの追加
+#### アクション 1：作成 pre タグの追加
 
 下画像のように、取得したい文字列に &lt;pre&gt; タグを追加してください。<br>
 ![](cloudflow-specialcharacters/line-break/pre/create.png)
 
 
-#### アクション２：作成した変数を Teams に投稿する  
+#### アクション 2：作成した変数を Teams に投稿する  
 
 上で作成した変数をメッセージに設定することで、改行が反映されるようになります。<br>  
 ![](cloudflow-specialcharacters/line-break/pre/teams.png)

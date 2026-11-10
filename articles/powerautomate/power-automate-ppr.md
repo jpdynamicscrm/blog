@@ -104,7 +104,7 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
 
 ### 管理者
 
-以下の３つのレポートから確認できます。  
+以下の 3 つのレポートから確認できます。  
 詳細はリンク先の公開情報をご参照ください。  
 * [フローごとのレポート](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#per-flow-report) ・・フローごとのライセンスの Power Platform 要求数の消費状況を確認できます。
 * [ライセンスユーザーレポート](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#licensed-user-report) ・・ユーザーごとの Power Platform 要求数の消費状況を確認できます

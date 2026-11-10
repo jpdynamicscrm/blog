@@ -11,7 +11,7 @@ categories:
 
 # Power Pages ライセンスについて
 
-こんにちは、PowerPlatformサポートチームの三田です。
+こんにちは、Power Platform サポートチームの三田です。
 
 本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。
 

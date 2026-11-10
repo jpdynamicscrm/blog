@@ -120,7 +120,7 @@ Dataverse コネクタを利用し Copilots(bot) テーブルからエージェ�
 [Power Platform インベントリ (プレビュー)](https://learn.microsoft.com/ja-jp/power-platform/admin/power-platform-inventory)  
 
 ### 4-2. CoE を利用する方法 (Dataverse のみ)
-[CoE Starter kit](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) を環境にインストールすることで、Datavese に作成されたエージェントの一覧を確認することができます。  
+[CoE Starter kit](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) を環境にインストールすることで、Dataverse に作成されたエージェントの一覧を確認することができます。  
 ![](./how-to-list-copilot-agents/coe.png)  
 
 Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点で CoE Starter Kit から確認することはサポートされていません。  
@@ -147,7 +147,7 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 1. 「選択した環境の行を一覧表示する」アクションの「環境」を動的コンテンツ「リンクされたメタデータ インスタンス API の URL」に変更します。  
   環境：@item()?['properties/linkedEnvironmentMetadata/instanceApiUrl']  
 ![](./how-to-list-copilot-agents/dataverse2_3.png)
-1. 「選択した環境の行を一覧表示する」アクションが 「For each」 コントロールで囲まれることを確認し、後続のアクションもすべて 「For each」 コントール内に追加します。  
+1. 「選択した環境の行を一覧表示する」アクションが 「For each」 コントロールで囲まれることを確認し、後続のアクションもすべて 「For each」 コントロール内に追加します。  
 ![](./how-to-list-copilot-agents/dataverse2_4.png)
 1. 「ファイルの作成」アクションのファイル名に動的コンテンツ「リンクされたメタデータ フレンドリ名」を追加します。　　
    サンプルでは、フレンドリ名（＝環境名）を追加することで、環境ごとにファイルを作成し、他の環境のデータが上書きされる事を防ぎます。運用に合わせて任意の項目を設定してください。  

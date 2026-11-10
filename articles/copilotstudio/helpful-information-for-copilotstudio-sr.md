@@ -186,7 +186,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 1. 対象エージェントの必須オブジェクトをソリューションに追加します。
 追加経路：対象エージェント　＞　…　＞　詳細　＞　必須オブジェクトを追加 　
    ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file5.png) 　
-1. ソリューション一覧画面に戻り、作成したソリューションをアンマネージでエクスポートします。
+1. ソリューション一覧画面に戻り、作成したソリューションをアンマネージドでエクスポートします。
    ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file6.png)
    ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file7.png)
  　
@@ -225,7 +225,7 @@ Teamsクライアントにおいてのみエラーや問題が発生する場合
 1. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
 ※ 拡張子が .json となっていることをご確認ください<br/>
     ![](./helpful-information-for-copilotstudio-sr/image_Configuration.png)　
-1. 2. で作成した 「configuration.json」 を以下パスのフィルダーに保存します<br/>
+1. 2. で作成した 「configuration.json」 を以下パスのフォルダーに保存します<br/>
 パス : %localappdata%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams<br/>
     ![](./helpful-information-for-copilotstudio-sr/image_ConfigurationPath.png)　
 1. Teams をサインアウトし、一度閉じます
