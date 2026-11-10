@@ -16,7 +16,7 @@ categories:
 
 本記事ではDataverse Search のストレージ内訳について、以下の Q1〜Q5 の質問に回答する形でご説明させていただきます。
 
-- [Q1: PPAC の「Dataverse Search」ストレージは何の合算値ですか？](#q1)
+- [Q1: Power Platform 管理センター (PPAC) の「Dataverse Search」ストレージは何の合算値ですか？](#q1)
 - [Q2: 検索インデックス（Search）の中身と削減のコツは？](#q2)
 - [Q3: 構造化インデックス（Structured）の中身と削減のコツは？](#q3)
 - [Q4: テキストデータインデックス（TextData）の中身と削減のコツは？](#q4)
