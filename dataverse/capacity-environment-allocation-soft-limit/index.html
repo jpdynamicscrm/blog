@@ -6,16 +6,16 @@
   
   <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポートチームの粟野です。 本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの粟野です。 本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。  [!IMPORTANT]2026 年 11 月 10 日時点で、Microsoft Learn に次の記載があります。  現">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/dataverse/capacity-environment-allocation-soft-limit/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポートチームの粟野です。 本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの粟野です。 本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。  [!IMPORTANT]2026 年 11 月 10 日時点で、Microsoft Learn に次の記載があります。  現">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98">
 <meta property="article:published_time" content="2026-04-26T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-11-10T03:33:22.658Z">
+<meta property="article:modified_time" content="2026-11-10T09:10:56.696Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Capacity">
 <meta property="article:tag" content="Dataverse">
@@ -162,16 +162,22 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+5906f70e-b41f-5ecf-8870-d1eb2378adc6%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E7%92%B0%E5%A2%83%E3%81%AE%E5%AE%B9%E9%87%8F%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%81%AF%E3%82%BD%E3%83%95%E3%83%88%E3%83%AA%E3%83%9F%E3%83%83%E3%83%88+%E2%80%95+0+MB+%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%82%82%E6%B6%88%E8%B2%BB%E3%81%AF%E6%AD%A2%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84%E7%82%B9%E3%81%AB%E3%81%94%E6%B3%A8%E6%84%8F%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fdataverse%2Fcapacity-environment-allocation-soft-limit%2F%29%0A*+Content+Source%3A+%5Barticles%2Fdataverse%2Fcapacity-environment-allocation-soft-limit.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fdataverse%2Fcapacity-environment-allocation-soft-limit.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/dataverse/capacity-environment-allocation-soft-limit/" data-id="cuidH4lVV-sc5yEEootx8O7cf" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/dataverse/capacity-environment-allocation-soft-limit/" data-id="cuid-UCTw9gzmh2-HulbOLXFL" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Power Platform サポートチームの粟野です。</p>
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p>2026 年 11 月 10 日時点で、Microsoft Learn に次の記載があります。</p>
+<ul>
+<li>現在は、電子メールの通知による「ソフトな強制」のみが有効です。</li>
+<li>今後の Dataverse ストレージ検証のロールアウト後は、テナントが容量を超過した状態が解消されない場合、従量課金制が有効でないサンドボックス環境が段階的に制限される予定です。超過から 30 日後に管理モード (アクセスが管理者のみに限定) となり、90 日後に無効 (サインインが制限) となります。運用環境は対象外です。ロールアウトの時期は、メッセージ センターでご確認ください。</li>
+</ul>
+<p>本記事の「環境への影響」に関する記載は、ロールアウト前の動作を前提としています。</p></div>
 <span id="more"></span>
 
-<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<h2 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h2><ul>
 <li>環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、管理者への通知を目的とした仕組みであること</li>
 <li>割り当てを 0 MB にした場合でも、環境内のデータ消費には影響しないこと</li>
 <li>「テナントで利用可能な容量から引き落とす」設定が関係する場面と関係しない場面があること</li>
@@ -179,31 +185,28 @@
 <li>容量管理で押さえておきたいポイント</li>
 </ul>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ul>
-<li><a href="#q1">環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)</a></li>
-<li><a href="#q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)</a></li>
-<li><a href="#q3">特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する方法はあるか (Q3)</a></li>
+<li><a href="#q1">環境の容量割り当てを 0 MB にすれば消費を止められるか（Q1）</a></li>
+<li><a href="#q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか（Q2）</a></li>
+<li><a href="#q3">特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する方法はあるか（Q3）</a></li>
 <li><a href="#tenant-overage">テナント全体の容量を超えた場合に起きること</a></li>
 <li><a href="#summary">まとめ</a></li>
-<li><a href="#notice">注意事項（情報の更新可能性）</a></li>
 </ul>
-<h2 id="q1">環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)</h2>
-
-<p>【結論】環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、消費を制限する機能ではなく、超過状態を目視可能とする、管理者にメールで通知をお届けするための仕組みです。<br>割り当てた量を超えた場合でも、その環境でのデータの保存や作成はそのまま継続されます。</p>
-<p>そのため、割り当てを 0 MB に設定した場合でも、環境の中でファイルやデータが作成されると、テナント全体の容量から消費される動作となります。</p>
+<p><a id='q1'></a></p>
+<h2 id="環境の容量割り当てを-0-MB-にすれば消費を止められるか（Q1）"><a href="#環境の容量割り当てを-0-MB-にすれば消費を止められるか（Q1）" class="headerlink" title="環境の容量割り当てを 0 MB にすれば消費を止められるか（Q1）"></a>環境の容量割り当てを 0 MB にすれば消費を止められるか（Q1）</h2><p>【結論】環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、消費を制限する機能ではなく、超過状態を確認できるようにし、管理者にメールで通知するための仕組みです。<br>割り当てた量を超えた場合でも、その環境でのデータの保存や作成はそのまま継続されます。</p>
+<p>そのため、従量課金（Pay-as-you-go）を利用していない環境では、割り当てを 0 MB に設定した場合でも、環境の中でファイルやデータが作成されると、テナント全体の容量から消費される動作となります。</p>
 <p>【ポイント】</p>
 <ol>
-<li>容量割り当ては「この環境にどれだけ使わせたいか」の目安を管理者が設定するためのもの</li>
-<li>割り当てを設定する際に、通知を受け取る閾値（パーセンテージ）を指定できる。消費量がその割合に達した際に管理者へメール通知が届く（データの保存には影響しない）</li>
-<li>0 MB に設定した場合でも、環境で発生するデータはテナント全体の容量から消費される</li>
+<li>容量割り当ては「この環境にどれだけ使わせたいか」の目安を管理者が設定するためのものです。</li>
+<li>割り当てを設定する際に、通知を受け取る閾値（パーセンテージ）を指定できます。消費量がその割合に達した際に、管理者へメール通知が届きます（データの保存には影響しません）。</li>
+<li>従量課金を利用していない環境では、0 MB に設定した場合でも、環境で発生するデータはテナント全体の容量から消費されます。</li>
 </ol>
 <p>＜参考資料＞</p>
 <ul>
-<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#frequently-asked-questions-faq">Dataverse 容量ベースのストレージの詳細 - よくあるご質問</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#frequently-asked-questions-about-storage-faq">Dataverse 容量ベースのストレージの詳細 - よくあるご質問</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage">Dataverse 容量ベースのストレージの概要</a></li>
 </ul>
-<h2 id="q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)</h2>
-
-<p>【結論】従量課金（Pay-as-you-go）を設定していない環境では、この設定のオン・オフによる動作の違いはございません。<br>どちらの場合も、環境の消費分はテナント全体の容量から消費される動作となります。</p>
+<p><a id='q2'></a></p>
+<h2 id="「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか（Q2）"><a href="#「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか（Q2）" class="headerlink" title="「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか（Q2）"></a>「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか（Q2）</h2><p>【結論】従量課金（Pay-as-you-go）を設定していない環境では、この設定のオン・オフによる動作の違いはありません。<br>どちらの場合も、環境で使用した分はテナント全体の容量から消費される動作となります。</p>
 <p>現時点では、この設定が効果を持つのは、環境に従量課金（Pay-as-you-go）プランが紐づいている場合です。</p>
 <p>以下の表で違いを整理します。</p>
 <table>
@@ -216,7 +219,7 @@
 </thead>
 <tbody><tr>
 <td><strong>従量課金あり</strong></td>
-<td>割り当て超過分をまずテナント全体の余り容量から使い、それでも足りない場合に Azure サブスクリプションへ課金</td>
+<td>割り当て超過分をまずテナント全体の余剰容量から使い、それでも足りない場合に Azure サブスクリプションへ課金</td>
 <td>割り当て超過分がそのまま Azure サブスクリプションへ課金</td>
 </tr>
 <tr>
@@ -225,26 +228,24 @@
 <td>テナント全体の容量から消費（<strong>オンと同じ</strong>）</td>
 </tr>
 </tbody></table>
-<h4 id="実際の動作例"><a href="#実際の動作例" class="headerlink" title="実際の動作例"></a>実際の動作例</h4><p>以下は、従量課金（Pay-as-you-go）が紐づいた環境で「Draw from the available capacity in my tenant」（テナントで利用可能な容量から引き落とす）の設定を切り替えた場合の、ファイル容量消費の推移です。<br><img width="1872" height="668" alt="image" src="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98" /></p>
+<h3 id="実際の動作例"><a href="#実際の動作例" class="headerlink" title="実際の動作例"></a>実際の動作例</h3><p>以下は、従量課金（Pay-as-you-go）が紐づいた環境で「Draw from the available capacity in my tenant」（テナントで利用可能な容量から引き落とす）の設定を切り替えた場合の、ファイル容量消費の推移です。<br><img width="1872" height="668" alt="image" src="https://github.com/user-attachments/assets/0bc7c771-96e3-468f-b978-ddbcfce8ce98" /></p>
 <p>この環境ではファイル容量の割り当てを 3 GB に設定しており、実際の消費量（約 7 GB）が割り当てを超過しています。</p>
 <ul>
-<li><strong>4&#x2F;23 まで</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オフ</strong>）: 割り当て（3 GB）を超えた分がそのまま Pay-as-you-go として Azure サブスクリプションに課金されています（グラフの紫色部分）。</li>
-<li><strong>4&#x2F;24 以降</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オン</strong>）: 超過分がまずテナントプールの余剰容量から充当されるようになり、Pay-as-you-go の課金が発生しなくなっています。</li>
+<li><strong>4 月 23 日まで</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オフ</strong>）: 割り当て（3 GB）を超えた分がそのまま Pay-as-you-go として Azure サブスクリプションに課金されています（グラフの紫色部分）。</li>
+<li><strong>4 月 24 日以降</strong>（「Draw from the available capacity in my tenant」&#x3D; <strong>オン</strong>）: 超過分がまずテナント全体の余剰容量から充当されるようになり、Pay-as-you-go の課金が発生しなくなっています。</li>
 </ul>
 <p>このように、従量課金環境では「Draw from the available capacity in my tenant」の設定によって課金先が変わります。一方、従量課金が紐づいていない環境では、この設定を切り替えても動作に違いはありません。</p>
 <p>＜参考資料＞</p>
 <ul>
-<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#manage-capacity-overage">Dataverse 容量ベースのストレージの詳細 - 容量超過の管理</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#manage-storage-overage">Dataverse 容量ベースのストレージの詳細 - ストレージの超過分を管理する</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#allocate-capacity-for-an-environment">Dataverse 容量ベースのストレージの詳細 - 環境に容量を割り当てる</a></li>
 </ul>
-<h2 id="q3">特定の環境の容量消費（Database / File / Log）を制限する方法はあるか (Q3)</h2>
-
-<p>【結論】現時点では、特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する機能はご用意されておりません。</p>
+<p><a id='q3'></a></p>
+<h2 id="特定の環境の容量消費（Database-File-Log）を制限する方法はあるか（Q3）"><a href="#特定の環境の容量消費（Database-File-Log）を制限する方法はあるか（Q3）" class="headerlink" title="特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する方法はあるか（Q3）"></a>特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する方法はあるか（Q3）</h2><p>【結論】現時点では、特定の環境の容量消費（Database &#x2F; File &#x2F; Log）を制限する機能はありません。</p>
 <p>前述のとおり、容量割り当ては管理者への通知を目的とした設定です。<br>環境ごとに Database &#x2F; File &#x2F; Log それぞれの容量に上限を設けてデータの保存や作成を制限するような仕組みは、現在の Dataverse では提供されていない状況です。</p>
 <p>【補足】仮に容量割り当てが厳密な上限として動作した場合、環境内で必要なレコードの作成、添付ファイルのアップロード、ログの記録などが行えなくなり、業務に影響が生じる可能性があります。<br>こうした点を踏まえ、現在の仕組みでは消費自体は継続しつつ、メール通知で管理者にお知らせする設計となっています。</p>
-<h2 id="tenant-overage">テナント全体の容量を超えた場合に起きること</h2>
-
-<p>環境単位の割り当てはソフトな制限ですが、テナント全体の容量を超過した場合には、一部の管理操作に影響が出ます。<br>以下の操作は、テナント全体の容量超過が解消されるまでご利用いただけなくなります。</p>
+<p><a id='tenant-overage'></a></p>
+<h2 id="テナント全体の容量を超えた場合に起きること"><a href="#テナント全体の容量を超えた場合に起きること" class="headerlink" title="テナント全体の容量を超えた場合に起きること"></a>テナント全体の容量を超えた場合に起きること</h2><p>環境単位の割り当てはソフトな制限ですが、テナント全体の容量を超過した場合には、一部の管理操作に影響が出ます。<br>以下の操作は、テナント全体の容量超過が解消されるまでご利用いただけなくなります。</p>
 <ul>
 <li>新しい環境の作成（空き容量 1 GB 以上が必要）</li>
 <li>環境のコピー</li>
@@ -253,30 +254,27 @@
 <li>環境の回復（空き容量 1 GB 以上が必要）</li>
 <li>環境への Dataverse データベースの追加</li>
 </ul>
-<p>【補足】テナント容量を超えた場合でも、既存の環境に保存されているデータが消えることはございませんのでご安心ください。<br>また、既存の環境でのデータの読み書きも引き続きご利用いただけます。<br>影響があるのは上記のような「管理操作」に限られます。</p>
+<p>【補足】テナント容量を超えた場合でも、現時点では、既存の環境でのデータの読み書きは引き続きご利用いただけます。<br>現時点で影響があるのは、上記のような「管理操作」です。<br>ただし、今後のストレージ検証のロールアウト後は、超過が解消されない場合に、従量課金制が有効でないサンドボックス環境へのアクセスが段階的に制限される予定です (運用環境は対象外です)。詳細は、冒頭の注意と下記の参考資料をご確認ください。</p>
 <p>【ポイント】</p>
 <ol>
-<li>テナント全体の容量超過時に影響を受けるのは「管理操作」（環境の新規作成・コピー・復元など）</li>
-<li>既存のデータが消えたり、環境が使えなくなったりすることはない</li>
-<li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討ください</li>
+<li>現時点で、テナント全体の容量超過時に影響を受けるのは「管理操作」（環境の新規作成・コピー・復元など）です。</li>
+<li>現時点では、既存の環境でのデータの読み書きは引き続きご利用いただけます。今後は、従量課金制が有効でないサンドボックス環境に制限が適用される予定です。</li>
+<li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討ください。</li>
 </ol>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#changes-for-exceeding-storage-capacity-entitlements">Dataverse 容量ベースのストレージの詳細 - 記憶域容量の権利を超えるための変更</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#storage-overage-lifecycle">Dataverse 容量ベースのストレージの詳細 - ストレージの超過ライフサイクル</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage#what-happens-when-my-organization-exceeds-storage-entitlements">Dataverse 容量ベースのストレージの概要 - 組織がストレージの権利を超えた場合</a></li>
 </ul>
-<h2 id="summary">まとめ</h2>
-
-<ul>
-<li>環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、管理者への通知を目的としたソフトな制限であり、消費自体には影響しない</li>
-<li>割り当てを 0 MB にした場合でも環境のデータ消費は継続し、テナント全体の容量から消費される</li>
-<li>「テナントで利用可能な容量から引き落とす」は従量課金（Pay-as-you-go）環境向けの設定であり、従量課金なしの場合はオン・オフによる違いはない</li>
-<li>テナント全体の容量を超えた場合は、環境の新規作成やコピーなどの管理操作に影響がある（既存データには影響なし）</li>
-<li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討いただきたい</li>
+<p><a id='summary'></a></p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul>
+<li>環境の容量割り当て（Database &#x2F; File &#x2F; Log）は、管理者への通知を目的としたソフトな制限であり、消費自体には影響しません。</li>
+<li>割り当てを 0 MB にした場合でも環境のデータ消費は継続し、従量課金を利用していない環境ではテナント全体の容量から消費されます。</li>
+<li>「テナントで利用可能な容量から引き落とす」は従量課金（Pay-as-you-go）環境向けの設定であり、従量課金なしの場合はオン・オフによる違いはありません。</li>
+<li>テナント全体の容量を超えた場合は、環境の新規作成やコピーなどの管理操作に影響があります（現時点では、既存の環境でのデータの読み書きには影響ありません）。</li>
+<li>容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討ください。</li>
 </ul>
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-
-<p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新の情報につきましては、公式ドキュメントもあわせてご参照いただけますと幸いです。</p>
 
       
       
@@ -361,7 +359,7 @@
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
       <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ALM/" rel="tag">ALM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector/" rel="tag">Connector</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Export/" rel="tag">Export</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Import/" rel="tag">Import</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-Apps/" rel="tag">Model-driven Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Paging/" rel="tag">Paging</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-BI/" rel="tag">Power BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/TDS-endpoint/" rel="tag">TDS endpoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Team-Members/" rel="tag">Team Members</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Teams/" rel="tag">Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Troubleshooting/" rel="tag">Troubleshooting</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" rel="tag">パイプライン</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" rel="tag">マネージド環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%96%8B%E7%99%BA%E8%80%85%E7%92%B0%E5%A2%83/" rel="tag">開発者環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%9D%9E%E6%8E%A8%E5%A5%A8/" rel="tag">非推奨</a></li></ul>  -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">21</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">14</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">41</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">39</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">27</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">23</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">9</span><ul></ul></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">21</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">14</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">41</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">39</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">27</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">23</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">9</span><ul></ul></li></ul>
     </div>
   </div>
 
@@ -390,7 +388,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">カテゴリ</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
     </div>
   </div>
 
