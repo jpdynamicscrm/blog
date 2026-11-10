@@ -12,7 +12,7 @@ categories:
   - [Power Apps, Model-driven app]
 ---
 
-こんにちは、Power Platform サポートチームの鎌田です。  
+こんにちは、Power Platform サポート チームの鎌田です。  
 本記事では、モデル駆動型アプリを使って、Dataverse テーブルのデータを Excel や CSV でエクスポート・インポートする方法を説明します。
 
 - Excel にデータをエクスポートする方法と、エクスポート形式の使い分け
@@ -96,9 +96,9 @@ categories:
 
 - 静的ワークシートと動的ワークシートは、一度に最大 100,000 行までエクスポートできます。
 - エクスポートがタイムアウトする場合は、次の方法をお試しください。
-  - フィルター条件を調整して、エクスポートする行数を減らす。
-  - ルックアップ列を減らす。
-  - 列の数を減らす。
+  - フィルター条件を調整して、エクスポートする行数を減らします。
+  - ルックアップ列を減らします。
+  - 列の数を減らします。
 - 仮想テーブルは、Excel へのエクスポートをサポートしていません。
 
 <a id='anchor-import'></a>
@@ -139,7 +139,7 @@ categories:
 
    ![](./model-driven-app-data-import-export/import-step2-select-file.png)
 
-1. **重複の許可** をするかどうかを選択します。
+1. 重複データを許可するかどうかを、**重複の許可** で選択します。
 
    ![](./model-driven-app-data-import-export/import-step3-duplicate-setting.png)
 
