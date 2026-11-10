@@ -39,7 +39,6 @@ Dataverse のデータはその特性に応じて以下の 3 種類の領域に�
 ストレージの詳細につきましては、以下の公開情報もぜひご参照ください。
 * [新しい Microsoft Dataverse ストレージ容量](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#example-storage-capacity-scenarios-overage-enforcement)
 
-***
 <a id='anchor-QA'></a>
 ## 2. よくあるご質問
 <a id='anchor-reduce-storage'></a>

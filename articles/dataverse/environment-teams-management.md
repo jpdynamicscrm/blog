@@ -21,7 +21,6 @@ categories:
 <!-- more -->
 
 ## Dataverse for Teams の概要
----
 
 Dataverse for Teams 環境とは、Teams のチームに紐づく Power Platform の環境です。
 
@@ -70,7 +69,6 @@ Teams チームにゲストユーザーを招待している場合、ゲスト�
     ※他のユーザーが作成したレコードへのアクセス権は持ちません。
 
 ## 特定のユーザーにだけ環境を作成させたい
----
 
 最初に説明した通り、Dataverse for Teams 環境は、Teams 上でのアプリやボットの作成を通して作成されます。
 そのため、環境を作成させたくない場合、Teams 上でのアプリやボットの作成を禁止する、すなわち、Teams からの Power Apps および Power Virtual Agents の使用を禁止する必要があります。
@@ -81,7 +79,7 @@ Teams からの Power Apps/Power Virtual Agents の使用を禁止するには�
 参考: [Microsoft Teams のアプリのアクセス許可ポリシーを管理する](https://learn.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies)
 
 ## 環境の作成は禁止したいが、アプリは使わせたい
----
+
 Teams 上の Power Apps/Power Virtual Agents アプリを禁止としても、引き続きアプリやボットを使用できます。
 まず、アプリやボットの使用を許可するには、組織全体のカスタム アプリ設定にて、カスタム アプリとの対話を許可してください。
 参考: [組織全体のカスタム アプリ設定](https://learn.microsoft.com/ja-jp/microsoftteams/teams-custom-app-policies-and-settings#org-wide-custom-app-setting)
@@ -114,7 +112,6 @@ Dataverse for Teams 環境で作成したアプリやボットを [同僚が作�
 ※参考: [Teams 管理センターで Microsoft Power Platform アプリを管理する](https://learn.microsoft.com/ja-jp/microsoftteams/manage-power-platform-apps)
 
 ## 環境を監視するには？
----
 
 センター オブ エクセレンス (CoE) スターター キットを使用すると、Dataverse for Teams の環境の監視およびクリーン アップができます。
 参考: [Microsoft Dataverse for Teams 環境管理](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/teams-governance)

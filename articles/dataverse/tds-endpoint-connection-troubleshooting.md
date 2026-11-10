@@ -239,8 +239,6 @@ DNS 解決で A レコード (IPv4) と AAAA レコード (IPv6) の両方が返
 
 **対処方法**: FQDN ベースの許可に加えて、Azure サービス タグ (特に `PowerPlatformInfra` および `AzureCloud` の対象リージョン) に含まれる IP アドレス範囲をファイアウォールで許可してください。Azure IP Ranges and Service Tags の一覧は [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=56519) から入手できます。
 
----
-
 > [!TIP]
 > いずれの事例でも、**モバイル テザリングなど社内ネットワークを経由しない経路で接続を試す** ことで、ネットワーク機器が原因かどうかを効率的に切り分けることができました。
 

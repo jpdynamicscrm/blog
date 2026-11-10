@@ -30,7 +30,6 @@ Power Platform では、複数テナントの統合や企業組織の変更な�
 [テナントからテナントへの移行](https://learn.microsoft.com/ja-jp/power-platform/admin/move-environment-tenant)
 * テナント移行は Dataverse あり環境が対象です。Dataverse なしの環境についてはテナント移行の実施できませんので、Dataverse なしの環境に含まれるキャンバス アプリや Power Automate などの移行方法につきましては、各製品の公開情報をご参照ください。
 
----
 1. [移行の流れ](#anchor-whole-process)
 2. [よくいただくご質問](#anchor-QA)
 
@@ -111,7 +110,6 @@ _`YYY@contoso.com,YYY@fabrikam.com`_
 
 本番移行にあたっては、リハーサルを実施した際のお問合せ番号を併記の上、改めてお問合せを起票いただけますと幸いです。
 
----
 <a id='anchor-QA'></a>
 ## 2. よくいただくご質問
 
@@ -161,7 +159,6 @@ _`YYY@contoso.com,YYY@fabrikam.com`_
 本挙動は通常環境にユーザーを追加いただく際にも発生する正常なものであり、ユーザーの環境利用には影響しません。
 - ご参考 : [Dataverse に自動的に追加されないユーザーのカテゴリ](https://learn.microsoft.com/ja-jp/power-platform/admin/create-users#categories-of-users-not-added-automatically-in-dataverse)
 
----
 ## 最後に
 本記事がテナント移行をご検討いただいている皆様のお役に立てましたら幸いです。
 ご不明な点などがありましたら、弊社サポート一同でお待ちしておりますので、ぜひお気軽にお問合せください。

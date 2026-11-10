@@ -27,7 +27,7 @@ XRMToolBox は当社提供のツールではないため、詳細な使用方法
 
 
 ## 事前準備  
----
+
 XRMToolBox とは、Dataverse に接続し、操作できる Windows アプリケーションとなります。  
 事前にインストールし、接続設定を行うことで、Web API でしか実行できないような Dataverse 環境に対する様々なアクションを GUI 操作によって可能にします。  
 
@@ -56,7 +56,7 @@ XRMToolBox とは、Dataverse に接続し、操作できる Windows アプリ�
 
 
 ## ツールのインストール
----
+
 XRMToolBox には、様々なツールが存在しますが、今回は監査ログをエクスポートするための、Attribute Audit Explorer というツールを使用します。  
 Attribute Audit Explorer の詳細については、下記をご参照ください。  
 (ご参考 : [Audit Explorer Plugin](https://www.xrmtoolbox.com/plugins/MESquare.XrmToolBox.AuditExplorer/))  
@@ -70,7 +70,7 @@ Attribute Audit Explorer の詳細については、下記をご参照くださ�
 
 
 ## Audit Explorer Plugin を使用して、Dataverse の監査ログをエクスポートする  
----
+
 1. Tools ウィンドウで Attribute Audit Explorer をダブルクリックで開きます。  
     ![](./audit-log-export/image05.png)
 
@@ -93,7 +93,7 @@ Attribute Audit Explorer の詳細については、下記をご参照くださ�
 
 
 ## エクスポートした監査ログの確認
----
+
 エクスポートした csv ファイルでは、各列の値を一覧で確認できます。  
    ![](./audit-log-export/image10.png)
 
@@ -101,7 +101,7 @@ Attribute Audit Explorer の詳細については、下記をご参照くださ�
 
 
 ## おわりに
----
+
 Microsoft 365 のコンプライアンスセンターから Dataverse に関する監査ログを確認し、エクスポートする方法もあります。  
 しかし現時点では、Dataverse 環境に関しては監査概要ビューから確認することで、レコードに対する変更履歴が分かりやすく表示されるため、ご利用いただいているユーザー様も多数いらっしゃるかと思います。  
 監査概要ビューでは提供していないエクスポート機能が、XRMToolBox を利用することで可能となりますので、ぜひご活用いただけますと幸いです。  

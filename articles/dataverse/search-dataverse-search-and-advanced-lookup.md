@@ -23,7 +23,7 @@ Wave2 では、以下 2 つの検索方法が追加・更新されています�
 サポート チームでも多くのお問合せをいただいているこれらの検索方法について、それぞれ詳しくご紹介します。
 
 ## Dataverse 検索
----
+
 Wave2 より、運用環境において既定で Dataverse 検索が有効化されるようになりました。
 
 ### そもそも、Dataverse 検索とは？
@@ -60,7 +60,7 @@ Power Apps ([https://make.powerapps.com](https://make.powerapps.com)) からソ�
 
 
 ## 高度なルックアップ
----
+
 Wave2 より、検索 (ルックアップ) 列の入力時に高度なルックアップをご利用いただけるようになりました。
 
 1. 列の入力時に虫眼鏡マークを選択後、「高度な検索」を選択してください。
@@ -76,7 +76,7 @@ Wave2 より、検索 (ルックアップ) 列の入力時に高度なルック�
 
 
 ## よくいただくお問合せ
----
+
 ### 各検索方法を無効化する方法
 Dataverse 検索に関しては、以下の画像のように、Power Platform 管理センターから有効 / 無効を切り替えられます。
 ![](./search-dataverse-search-and-advanced-lookup/07_dataverse_search_setting.png)
@@ -101,7 +101,7 @@ Dataverse 検索では内部的に検索インデックスを作成していま�
 
 
 ## 関連する公開情報
----
+
 - Dataverse 検索の概要について
 [自分の環境に Dataverse 検索を構成する](https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization)
 - Dataverse 検索のリリースについて
@@ -113,7 +113,7 @@ Dataverse 検索では内部的に検索インデックスを作成していま�
 
 
 ## おわりに
----
+
 以上、Wave2 で追加された 2 種類の検索方法についてご紹介しました。
 Power Platform / Dynamics 365 では、今後もさまざまな機能追加が予定されています。
 こちらのブログでも追加機能をご紹介していきますので、ぜひご活用いただけますと幸いです。

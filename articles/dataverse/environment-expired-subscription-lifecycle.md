@@ -30,8 +30,6 @@ categories:
 6. [よくあるご質問](#anchor-faq)
 7. [参考情報](#anchor-reference)
 
----
-
 <a id='anchor-target-environments'></a>
 
 ## 1. 対象となる環境
@@ -40,8 +38,6 @@ categories:
 開発者 (Developer) 環境や既定 (Default) 環境、Dataverse for Teams 環境は、サブスクリプション期限切れではなく **非アクティブ (Inactivity) ベースのクリーンアップ** の対象となり、本記事で説明するフローとは異なります。
 
 > **参考**: 開発者環境の自動削除については [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/dataverse/environment-developer-inactive-auto-deletion/) もあわせてご参照ください。
-
----
 
 <a id='anchor-timeline'></a>
 
@@ -64,8 +60,6 @@ categories:
 > 上記の「環境無効化の 14 日前・7 日前・1 日前」は、クリーンアップ対象としてマークされた後にシステムが設定する無効化予定日を基準とした日数です。  
 > サブスクリプション期限切れ日からの具体的な経過日数は公開情報では明記されていないため、通知メールに記載された日付をご確認ください。
 
----
-
 <a id='anchor-flowchart'></a>
 
 ## 3. フロー図
@@ -73,8 +67,6 @@ categories:
 以下に、サブスクリプション期限切れ後の処理フローを図示します。
 
 ![](./environment-expired-subscription-lifecycle/expired-subscription-environment-lifecycle-flowchart.png)
-
----
 
 <a id='anchor-license-renewal'></a>
 
@@ -90,8 +82,6 @@ categories:
 > [!IMPORTANT]
 > ライセンスの更新・購入には組織内の承認フローや、パートナー経由での手続きなど、時間がかかるケースがあります。  
 > 環境が削除されてしまうと復元の難易度が上がりますので、サブスクリプションの更新は **有効期限が切れる前に** 余裕を持ってご計画ください。
-
----
 
 <a id='anchor-recovery'></a>
 
@@ -126,8 +116,6 @@ Recover-AdminPowerAppEnvironment -EnvironmentName <環境名> -WaitUntilFinished
 > 環境の種類によっては、環境を回復するための十分なストレージ容量が必要になる場合があります。  
 > また、回復後のソリューション フローは無効状態となるため、必要に応じて手動で有効化してください。
 
----
-
 <a id='anchor-faq'></a>
 
 ## 6. よくあるご質問
@@ -159,8 +147,6 @@ Microsoft 365 側では無効 (Disabled) 状態でも管理者が管理センタ
 
 Power Platform 管理センターから環境の状態を確認できない場合や、環境が表示されない場合は、弊社サポートまでお問い合わせください。  
 環境の現在の状態や回復の可否について、サポート側で確認します。
-
----
 
 <a id='anchor-reference'></a>
 

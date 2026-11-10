@@ -32,8 +32,6 @@ categories:
 - フォールバック同期ジョブによる自動復旧の仕組みがわかります。
 - 同期遅延の検知方法や緩和策の考え方がわかります。
 
----
-
 <a id='q1'></a>
 
 ## Synapse Link のニアリアルタイム同期とはどのような仕組みですか？ (Q1)
@@ -51,8 +49,6 @@ Append モード（CSV 形式）をご利用の場合、インクリメンタル
 ＜参考資料＞
 - [Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data)
 - [Azure Synapse Link の増分更新 (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-incremental-updates)
-
----
 
 <a id='q2'></a>
 
@@ -87,8 +83,6 @@ Dataverse のバックエンド SQL Server では、変更追跡のためにデ�
 ＜参考資料＞
 - [Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data)
 
----
-
 <a id='q3'></a>
 
 ## 長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？ (Q3)
@@ -108,8 +102,6 @@ Dataverse のバックエンド SQL Server では、変更追跡のためにデ�
 ＜参考資料＞
 - [Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data)
 
----
-
 <a id='q4'></a>
 
 ## 遅延した同期はどのように復旧しますか？ (Q4)
@@ -125,9 +117,6 @@ Dataverse のバックエンド SQL Server では、変更追跡のためにデ�
 このため、長時間トランザクションが単発で発生した場合、同期遅延はおおむね **約 1 時間～2 時間程度** で自然に復旧します。遅延中のデータが失われることはありませんので、ご安心ください。
 
 ただし、**長時間トランザクションが連続的・断続的に発生する場合**（例: ロールアップフィールドの再計算ジョブが大量のバックログを処理し続ける場合など）は、変更追跡のバージョン番号の固定が繰り返され、**遅延が数時間に及ぶ可能性があります**。このようなケースでは、長時間トランザクションの発生源を特定し、根本的な対処を行うことが重要です。対処方法については [Q5](#q5) をご参照ください。
-
-
----
 
 <a id='q5'></a>
 
@@ -169,8 +158,6 @@ Synapse Link のニアリアルタイム同期は、前述のとおり遅延時�
 ＜参考資料＞
 - [Azure Synapse Link for Dataverse に関してよく寄せられる質問 (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/export-data-lake-faq)
 
----
-
 <a id='faq'></a>
 
 ## よくあるお問い合わせ
@@ -185,8 +172,6 @@ Synapse Link のニアリアルタイム同期は、前述のとおり遅延時�
 ### Q. 同期遅延はどの程度の頻度で発生しますか？ SLA はありますか？
 
 **A.** Synapse Link のニアリアルタイム同期について、遅延時間に関する具体的な SLA は公式に提供されていません。遅延の発生頻度は、環境ごとのデータ変更量やトランザクションのパターンによって異なります。同期遅延が業務に影響を与える場合は、[Q5](#q5) でご紹介した対策をご検討ください。
-
----
 
 <a id='summary'></a>
 
