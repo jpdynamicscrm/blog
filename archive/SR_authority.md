@@ -43,7 +43,7 @@ Power Platform 管理センターより SR (Service Request) を起票する権�
 
 つまり、行うことができる操作は「ヘルプとサポート」および、「ホーム」>「サービス正常性」/「メッセージ センター」になります。以下の画像で赤く囲った部分が該当します。
 
-![](./SR_authority/service_support_authority.PNG)
+![](./SR_authority/service-support-authority.png)
 
 
 また、環境ごとに SR を起票する権限をユーザーに付与したい場合、セキュリティ ロールを付与するといった方法があります。  
