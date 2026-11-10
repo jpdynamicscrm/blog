@@ -222,7 +222,7 @@ Teamsクライアントにおいてのみエラーや問題が発生する場合
 
 1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
     ![](./helpful-information-for-copilotstudio-sr/image_Diagnosticlogs.png)　
-1. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
+1. ノートパッドやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
 ※ 拡張子が .json となっていることをご確認ください<br/>
     ![](./helpful-information-for-copilotstudio-sr/image_Configuration.png)　
 1. 2. で作成した 「configuration.json」 を以下パスのフォルダーに保存します<br/>

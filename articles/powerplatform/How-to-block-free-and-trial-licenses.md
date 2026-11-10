@@ -167,4 +167,4 @@ Add-AllowedConsentPlans -Types "Viral"
 <br>
 
 ---
-Hope to acceralate your business with Power Automate!
+Hope to accelerate your business with Power Automate!

@@ -26,7 +26,7 @@ categories:
 ## 今回取り込む CSV ファイル
 ![](./Import-Csv-With-Standard-Connectors/image001.png)
 
-上図が今回使用した Excel シートです。これを、ファイルの種類を「CSV UTF (コンマ区切り)」へ変更して保存しました。その CSV ファイルをメモ帳で開いた様子が下図です。
+上図が今回使用した Excel シートです。これを、ファイルの種類を「CSV UTF-8 (コンマ区切り)」へ変更して保存しました。その CSV ファイルをメモ帳で開いた様子が下図です。
 
 ![](./Import-Csv-With-Standard-Connectors/image002.png)
 

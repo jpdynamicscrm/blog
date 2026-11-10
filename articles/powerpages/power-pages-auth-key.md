@@ -44,7 +44,7 @@ Power Pages 認証キーは作成頂いた Web サイトをユーザー様で定
 
 Power Pages 認証キーは Power Pages で作成された Web サイトを表示するために必要な Dataverse へのアクセスを行うための認証キーとなります。
 
-前提として、Power Page で作られた Web サイトは、Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。
+前提として、Power Pages で作られた Web サイトは、Azure 上に自動で用意されるアプリケーションを使い、Dataverse 上のデータを取得することで動作する仕組みとなっております。
 
 ＜参考資料＞
 - [Power Pages アーキテクチャ (Docs)](https://learn.microsoft.com/ja-jp/power-pages/admin/architecture)
@@ -93,7 +93,7 @@ Power Pages 認証キーは以下の手順で更新可能です。
 
 【ポイント】
 
-1.認証キーの更新処理には Powre Pages の Webサイトを管理する権限が必要となります。
+1.認証キーの更新処理には Power Pages の Webサイトを管理する権限が必要となります。
 
 2.「キーの更新」ボタンを押すことで、新しいキーが自動生成されますが、新たなキーの有効期限は 1 年後となります。
 

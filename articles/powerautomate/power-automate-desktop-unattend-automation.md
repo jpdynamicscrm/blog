@@ -78,7 +78,7 @@ categories:
 
 ## 端末の事前準備
 1. 端末の登録方法
-  Power Automate コンピュータ ランタイムアプリを使用して、該当の環境にデスクトップ フローを実行する端末を登録を行います。  
+  Power Automate コンピュータ ランタイムアプリを使用して、該当の環境にデスクトップ フローを実行する端末の登録を行います。  
   以下の記事をご参照の上でご指定ください。  
   [端末の登録方法 (有人実行) | Japan Dynamics CRM & Power Platform Support Blog (jpdynamicscrm.github.io)](https://jpdynamicscrm.github.io/blog/powerautomate/power-automate-desktop-attend-automation/#anchor-register-computers)  
   

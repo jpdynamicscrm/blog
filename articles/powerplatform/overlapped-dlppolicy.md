@@ -46,7 +46,7 @@ Power Platform では、様々な「コネクタ」を使用して Microsoft 365
 DLP ポリシーはこのようなリスクを防ぐために、コネクタの利用範囲を制限することができます。
 具体的には、「社内データは SharePoint や Outlook などのビジネスコネクタだけと連携可能」や、「SNS系コネクタは使用禁止」というルールを設定できます。
 
-(参考：[データの消失防止 (DLP) ポリシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention))
+(参考：[データの損失防止 (DLP) ポリシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention))
 
 <a id='anchor-multi-dlp-applied'></a>
 
@@ -167,7 +167,7 @@ DLP ポリシーの追加・更新により、既存のアプリやフローに�
 
 <a id='anchor-affect-to-app-flow-run'></a>
 
-## 2. アプリやフローを実行する段階への影響
+## 2. アプリやフローを実行する段階での影響
 
 アプリやフローは、作成当時の DLP ポリシーに従って設計されています。
 DLP ポリシーが更新されると、**更新後の DLP ポリシーで再評価されます**。

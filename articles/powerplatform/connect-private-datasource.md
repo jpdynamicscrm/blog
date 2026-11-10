@@ -69,7 +69,7 @@ Power Apps の場合はブラウザ上で動作するため、お客様ネット
 1. オンプレミス データ ゲートウェイがインストールされた端末からデータソースへデータのリクエストを行います。  
 1. データソースからオンプレミス データ ゲートウェイがインストールされた端末へデータを返答します。  
 1. オンプレミス データ ゲートウェイがインストールされた端末は Azure Relay へデータを返答します。  
-1. Azure Relay 経由が Power Platform データを返答します。  
+1. Azure Relay 経由で Power Platform へデータを返答します。  
 
 上記の図にもあるように、オンプレミス データ ゲートウェイがインストールされた端末から見ると Azure Relay に対して発信リクエストのみ行い通信を確立するため、外部から端末向けの、いわゆるインバウンドのポート解放は不要となっています。  
 [オンプレミス データ ゲートウェイのしくみ](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem-indepth#how-the-gateway-works)  

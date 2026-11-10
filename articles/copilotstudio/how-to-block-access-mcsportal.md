@@ -70,7 +70,7 @@ Copilot Studio の使用権が含まれています。
 Copilot Studio を通じて [Microsoft 365 Copilot](https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-overview) を拡張することができるため、Microsoft 365 Copilot ライセンスを持つユーザーは Copilot Studio を利用することができます。  
 
 [Microsoft 365 管理センター等から付与](https://learn.microsoft.com/ja-jp/copilot/microsoft-365/microsoft-365-copilot-setup#step-2---provision-microsoft-365-copilot-licenses)することができます。　  
-Copilot Studio だけなく、Microsoft 365 Copilot の使用権が含まれています。
+Copilot Studio だけでなく、Microsoft 365 Copilot の使用権が含まれています。
 
 > [!IMPORTANT]
 > Copilot Studio にアクセスさせるためには、「Copilot Studio in Copilot for M365」サービスを有効にする必要があります。

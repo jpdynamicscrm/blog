@@ -76,7 +76,7 @@ SharePoint のリストに格納されている商品名、金額、個数の3�
 ## Power Apps の説明
 
 今回、Power Apps で簡単なアプリを作成しました。ボタンをクリックすることで先程作成したフローが動き、商品リストが表示されるものです。
-ボタンの Onselect プロパティに `ClearCollect (適当な変数名, Power Automate のフロー名.Run())` を記載することで変数にフローの出力データを格納することが可能です。
+ボタンの OnSelect プロパティに `ClearCollect (適当な変数名, Power Automate のフロー名.Run())` を記載することで変数にフローの出力データを格納することが可能です。
 
 ![](./Send_data_from_automate_to_apps/powerapps_result.PNG)
 

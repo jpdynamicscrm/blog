@@ -137,7 +137,7 @@ https://learn.microsoft.com/ja-jp/azure/azure-portal/capture-browser-trace#googl
 
 3. 項番 2 にて作成したリンクにアクセスし、保存します。<br>
 ※ 以下の画面は Edge での例となります。　
-※ 保存時に、ファイル名に環境 ID などの記載いただけますと幸いです。
+※ 保存時に、ファイル名に環境 ID などを記載いただけますと幸いです。
 
 ![](./helpful-information-for-dataflow-sr/access-link.png)
 

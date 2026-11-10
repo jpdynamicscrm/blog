@@ -95,7 +95,7 @@ ClearCollect(Num,
 
 // 複数回に分けてアイテムを取得
 ForAll(Num,
-    Collect(col, FIlter(データソース, IDCount < Max, IDCount >= Min));
+    Collect(col, Filter(データソース, IDCount < Max, IDCount >= Min));
 )
 /*
 SharePoint の ID 列は数値だが=以外の演算子の委任をサポートしていないため、ID と同じ値を持つ IDCount 列を作成して使用。

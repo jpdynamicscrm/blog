@@ -35,7 +35,7 @@ Copilot Studio の試用版には以下の 2 種類があります。
 2. 組織用試用版
 
 ## 1. 個人用試用版
-個人の職場または学校アカウントを使用してサインアップし、Copilot Studio の機能を体験できます。ユーザー本人が、Copilot Stuido サインアップページよりサインアップすることで、「Microsoft Copilot Studio Viral Trial」を取得することができます。
+個人の職場または学校アカウントを使用してサインアップし、Copilot Studio の機能を体験できます。ユーザー本人が、Copilot Studio サインアップページよりサインアップすることで、「Microsoft Copilot Studio Viral Trial」を取得することができます。
 初回は 30 日間の無料試用が開始されますが試用終了時にさらに 30 日間の延長が可能です。試用期間終了後、最大 90 日間はエージェントが引き続き機能します。 
 詳細なサインアップ手順については、以下の公開文書を参照してください。
 
@@ -65,7 +65,7 @@ PowerShellモジュールを以下の公開文書の手順に従ってインス�
 [PowerShellモジュールのインストール](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
 
 **コマンドの実行**
-以下のコマンドを実行しセルフサービスサインアップの無効化します。
+以下のコマンドを実行しセルフサービスサインアップを無効化します。
 
 ```PowerShell
 $params = @{allowedToSignUpEmailBasedSubscriptions = $false}

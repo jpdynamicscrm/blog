@@ -101,7 +101,7 @@ Power Apps キャンバスアプリに関するサポートサービスのお問
      および、両者のメールアドレスやユーザープリンシパル名
 1. キャンバス アプリをご利用いただいている端末のネットワーク環境の差異
    - プロキシ経由かどうか
-   - Azure Express Route の利用有無
+   - Azure ExpressRoute の利用有無
    - セキュリティ製品の利用有無
 
 <a id='anchor-about-screencapture'></a>
@@ -126,7 +126,7 @@ Power Apps キャンバスアプリに関するサポートサービスのお問
 
 - Windows ゲーム バーでの画面収録  
   [ゲーム バーを使用して PC にゲーム クリップを記録する](https://support.microsoft.com/ja-jp/windows/%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%90%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-pc-%E3%81%AB%E3%82%B2%E3%83%BC%E3%83%A0-%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-2f477001-54d4-1276-9144-b0416a307f3c)
-- Power Point での画面収録  
+- PowerPoint での画面収録  
   [PowerPoint で画面を記録する](https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0)
 - Microsoft Teams での画面収録  
   [Microsoft Teamsで会議を記録する](https://support.microsoft.com/ja-jp/office/microsoft-teams-%E3%81%A7%E4%BC%9A%E8%AD%B0%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-34dfbe7f-b07d-4a27-b4c6-de62f1348c24#:~:text=Microsoft)
@@ -261,7 +261,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 6. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 7. アプリ一覧画面から、任意のアプリの「...」メニューを表示し、「詳細」内の「ライブ監視」を選択します<br/>
 ※モニターログの画面を開くための手順ですので、どのアプリを選択しても問題ありません
-8. 「ライブ監視のリンクをコピーする」に表示されるリンクをメモ帳等控えます（後で使用します）<br/>
+8. 「ライブ監視のリンクをコピーする」に表示されるリンクをメモ帳等に控えます（後で使用します）<br/>
 なお、7.で開いたモニターログの画面は、閉じないでください
 9. 8.で控えたURL内の環境 ID、アプリ IDを置き換えます
 URL内の環境 IDはhttps://apps.powerapps.com/play/e/ 以降の文字列（以下赤枠）、アプリ IDは、この環境 ID/a/ 以降の文字列（以下青枠）になります。
@@ -310,7 +310,7 @@ Teamsクライアントにおいてのみエラーが発生する場合、Teams�
 
 1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
     ![](./troubleshooting-general-canvasapp/image36.png)　
-2. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
+2. ノートパッドやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
 ※ 拡張子が .json となっていることをご確認ください<br/>
     ![](./troubleshooting-general-canvasapp/image37.png)　
 3. 2. で作成した 「configuration.json」 を以下パスのフォルダーに保存します<br/>
@@ -355,7 +355,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 ### 7-2-1. キャンバス アプリ実行時
   1. 対象のアプリを実行します
   2. 画面右上部の歯車アイコンを押下します
-  3. 「セッション詳細」を選択し、Power Apps ライブ バージョンを含む、表示されている情報をすべてを **テキスト形式** で取得します  
+  3. 「セッション詳細」を選択し、Power Apps ライブ バージョンを含む、表示されている情報すべてを **テキスト形式** で取得します  
         ![](./troubleshooting-general-canvasapp/image09.png)
 
 <a id='anchor-about-sessionid-web-sharepointcustomform'></a>

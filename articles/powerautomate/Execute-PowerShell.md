@@ -16,7 +16,7 @@ categories:
 
 <br>
 今回は、Power Automate から PowerShell を実行する方法についてご案内致します。<br>
-Power Automate と PowerShell と連携させることで、業務自動化の幅を広げていきましょう。<br>
+Power Automate と PowerShell を連携させることで、業務自動化の幅を広げていきましょう。<br>
 <br>
 
 <!-- more -->
