@@ -137,14 +137,33 @@ Dataverse の容量は先述した「既定の容量」とは別に、ライセ�
 
 上記のシナリオの場合、実際に適用される「追加の容量」は、データベース、ファイル、ログごとに以下のとおりとなります。<br>
 
-データベースの場合、「2.5 GB + 10 GB + 0 GB + 10 GB」で 22.5 GB<br>
-![](./capacity-license-entitlement/database.png)
+データベースの場合、「2.5 GB + 1 GB + 0 GB + 10 GB」で 13.5 GB
 
-ファイルの場合、「20 GB + 8 GB + 0 GB」で 28 GB<br>
-![](./capacity-license-entitlement/file.png)
+| データベース | 個数 | 容量 |
+| --- | ---: | ---: |
+| Power Apps Premium (250 MB) | x 10 | 2.5 GB |
+| Power Apps Per App (50 MB) | x 20 | 1 GB |
+| Copilot Studio (0 GB) | x 5 | 0 GB |
+| データベース キャパシティ アドオン (1 GB) | x 10 | 10 GB |
+| **合計** | | **13.5 GB** |
 
-ログの場合、「0 GB + 0 GB + 0 GB」で 0 GB<br>
-![](./capacity-license-entitlement/log.png)
+ファイルの場合、「20 GB + 8 GB + 0 GB」で 28 GB
+
+| ファイル | 個数 | 容量 |
+| --- | ---: | ---: |
+| Power Apps Premium (2 GB) | x 10 | 20 GB |
+| Power Apps Per App (400 MB) | x 20 | 8 GB |
+| Copilot Studio (0 GB) | x 5 | 0 GB |
+| **合計** | | **28 GB** |
+
+ログの場合、「0 GB + 0 GB + 0 GB」で 0 GB
+
+| ログ | 個数 | 容量 |
+| --- | ---: | ---: |
+| Power Apps Premium (0 GB) | x 10 | 0 GB |
+| Power Apps Per App (0 GB) | x 20 | 0 GB |
+| Copilot Studio (0 GB) | x 5 | 0 GB |
+| **合計** | | **0 GB** |
 
 <a id='anchor-finish'></a>
 
