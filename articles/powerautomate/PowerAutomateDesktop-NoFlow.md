@@ -20,7 +20,7 @@ categories:
 Power Automate for desktop をインストールした後、いざデスクトップ フローを作成しよう！とサインインすると、
 以下のような エラーが表示される場合があります。
 
-![](./PowerAutomateDesktop-NoFlow/Error.png)
+![](./PowerAutomateDesktop-NoFlow/error.png)
 
 今回は上記のエラー解消に向けての確認ポイントをご案内します。
 
@@ -45,7 +45,7 @@ Power Automate for desktop に最初にログインした際には、テナン�
 3. ユーザー一覧に該当のユーザーが存在するかを確認し、存在しない場合は [ユーザーの追加] ボタンをクリックします。
 4. 対象ユーザーアカウントのメールアドレスを指定し、[追加] をクリックします。
 5. ユーザー追加が完了しましたら、ユーザーの設定ページを開き、下図のように状態が “有効” であることを確認します。
-![](./PowerAutomateDesktop-NoFlow/UserStatus.png)
+![](./PowerAutomateDesktop-NoFlow/user-status.png)
 6. ユーザーが有効なことが確認できたら、再度 Power Automate for desktop でのフロー作成を試します。
 
 なお、過去に一度も Power Automate にアクセスしたことがない場合は、[Power Automate ポータル](https://japan.flow.microsoft.com)にアクセスすると、

@@ -31,7 +31,7 @@ Power Automate for desktop は定期的にバージョンアップをしてい�
 
 **[実施方法]**  
 バージョンアップは Power Automate for desktop 起動後のポップアップ の更新を押下することで可能です。
-![](./power-automate-desktop-troubleshoot/versionup.png)  
+![](./power-automate-desktop-troubleshoot/version-update.png)  
 
 また、以下からインストーラーを取得し、実行することでも可能です。※事前のアンインストールは不要です。  
 [Power Automate のインストール](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/install)   

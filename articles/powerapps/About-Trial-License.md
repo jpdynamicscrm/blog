@@ -73,10 +73,10 @@ Power Apps 管理 コマンドをご実行いただくとライセンス利用�
 　[割り当てられたユーザー ライセンスのリストをエクスポートする](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell#export-a-list-of-assigned-user-licenses)  
 　  
 　実行イメージ：  
-　![](./About-Trial-License/sample-image-of-Get-AdminPowerAppLicenses.png)   
+　![](./About-Trial-License/sample-image-of-get-admin-power-app-licenses.png)   
 　  
 上記コマンドで取得できる CSV ファイルの内容は下図例の様になります。  
-![](./About-Trial-License/sample-result-of-Get-AdminPowerAppLicenses.png)   
+![](./About-Trial-License/sample-result-of-get-admin-power-app-licenses.png)   
   
 - C列 "Service"：「Power Apps Per User Plan trial」となっているものが管理センター上でご確認いただける試用版ライセンス  
 - D列 "License"：「Power Apps Per User Plan trial」となっているものが管理センター上でご確認いただけない試用版ライセンス  

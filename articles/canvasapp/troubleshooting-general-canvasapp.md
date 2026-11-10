@@ -184,7 +184,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 以下の設定を有効化することで編集時でなくとも数式の情報が記録されます。  
 実行時に発生するエラーの場合、可能でしたら以下設定を有効化しアプリ発行頂いたのちモニターログをご取得下さい。  
 ご取得後は再度設定を無効化いただきますようお願い致します。  
-![](./troubleshooting-general-canvasapp/uImage00.png)
+![](./troubleshooting-general-canvasapp/settings-debug-published-app.png)
 
 <a id='anchor-about-monitorlog-edit'></a>
 
@@ -192,25 +192,25 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの編集画面を表示します  
 3. 画面左方にある　「...」メニューを表示し、「高度なツール」を選択します  
-    ![](./troubleshooting-general-canvasapp/uImage04-1.png)
+    ![](./troubleshooting-general-canvasapp/studio-advanced-tools-menu.png)
 4. 「ライブ監視」>「ライブ監視を開く」を選択します
     - 別タブで監視ウィンドウが表示されます  
-      ![](./troubleshooting-general-canvasapp/uImage04-2.png)
+      ![](./troubleshooting-general-canvasapp/studio-monitor-window.png)
 5. アプリ編集画面に戻り、事象を発生させます
 6. 監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します  
-    ![](./troubleshooting-general-canvasapp/uImage03.png)
+    ![](./troubleshooting-general-canvasapp/monitor-download.png)
 
 <a id='anchor-about-monitorlog-web-play'></a>
 
 ### 5-2. キャンバス アプリ 実行時 (Web ブラウザ)
 1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「詳細」右横の「>」マークを押下し、「ライブ監視」を選択します  
-    ![](./troubleshooting-general-canvasapp/uImage01.png)
+    ![](./troubleshooting-general-canvasapp/web-live-monitor-menu.png)
 3. 別タブで監視ウィンドウが表示されるので「公開したアプリの再生」を行います  
-    ![](./troubleshooting-general-canvasapp/uImage02.png)
+    ![](./troubleshooting-general-canvasapp/web-play-published-app.png)
 4. 別タブでアプリが再生されるので事象を発生させます  
 5. 手順3で表示した監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します   
-    ![](./troubleshooting-general-canvasapp/uImage03.png)
+    ![](./troubleshooting-general-canvasapp/monitor-download.png)
 
 <a id='anchor-about-monitorlog-mobile-play'></a>
 
@@ -218,7 +218,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 
 1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「詳細」右横の「>」マークを押下し、「ライブ監視」を選択します  
-    ![](./troubleshooting-general-canvasapp/uImage05.png)
+    ![](./troubleshooting-general-canvasapp/mobile-live-monitor-menu.png)
 3. 以降の手順は、**監視対象がメーカー (アプリ作成者) 本人であるか否か** によって異なります。該当する手順を実施してください。
 
     <a id='anchor-about-monitorlog-mobile-play-other'></a>
@@ -226,9 +226,9 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
     **A. メーカー (アプリ作成者) 以外のユーザーを監視する場合**
 
     1. ユーザー接続からセッションへのユーザー接続メニューを開きます  
-        ![](./troubleshooting-general-canvasapp/uImage06.png)
+        ![](./troubleshooting-general-canvasapp/mobile-user-connection-menu.png)
     2. Power Apps モバイルで使用するユーザーを追加しリンクを入手します  
-        ![](./troubleshooting-general-canvasapp/uImage07.png)
+        ![](./troubleshooting-general-canvasapp/mobile-add-user-get-link.png)
 
     <a id='anchor-about-monitorlog-mobile-play-maker'></a>
 
@@ -237,16 +237,16 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
     「ユーザー接続」の検索画面ではメーカー自身を選択できないため、メーカー本人を監視する場合は「ライブ監視のリンクをコピーする」を利用します。
 
     1. コマンド バーから「ライブ監視のリンクをコピーする」を選択し、リンクをコピーします  
-        ![](./troubleshooting-general-canvasapp/uImage10.png)
+        ![](./troubleshooting-general-canvasapp/copy-live-monitor-link.png)
 
 4. 得られたリンクをメールやチャットなどでモバイル端末に送ります
 5. モバイル端末で URL へアクセスすると、 Power Apps モバイルが起動されますので事象を発生させます  
     下図のとおり、デバッグセッションに接続する旨メッセージが表示されます  
-    ![](./troubleshooting-general-canvasapp/uImage08.png)
+    ![](./troubleshooting-general-canvasapp/mobile-debug-session-message.png)
 6. モニターログに Power Apps モバイルの操作が記録されます  
-    ![](./troubleshooting-general-canvasapp/uImage09.png)
+    ![](./troubleshooting-general-canvasapp/mobile-monitor-log-result.png)
 7. 記録されたモニター結果を「ダウンロード」します  
-    ![](./troubleshooting-general-canvasapp/uImage03.png)
+    ![](./troubleshooting-general-canvasapp/monitor-download.png)
 
 <a id='anchor-about-powerapps-for-teams'></a>
 

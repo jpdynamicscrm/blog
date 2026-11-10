@@ -78,9 +78,9 @@ Power Platform 管理センターの分析レポートの基となるデータ�
 1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインします。
 2. 左側メニューの [管理] > [データ エクスポート] を選択します。
 3. 画面上部 [(+)新しいデータ エクスポート] より Azure Data Lake Storage へのエクスポートを構成いたします。
-![](./list-canvas-app/data_export_apps.png)
+![](./list-canvas-app/data-export-apps.png)
 4. 構成した宛先の Azure Data Lake Storage へ、分析画面の基となるデータがエクスポートされます。
-![](./list-canvas-app/data_export_apps2.png)
+![](./list-canvas-app/data-export-apps-2.png)
 
 データ エクスポートの詳細については下記の公開情報をご参照ください。
 [Microsoft Power Platform セルフサービス分析](https://learn.microsoft.com/ja-jp/power-platform/admin/self-service-analytics)
@@ -101,7 +101,7 @@ Get-AdminPowerApp | Export-Csv -Path "app.csv" -Encoding UTF8
 
 実行後に生成された `app.csv` ファイルを利用し、キャンバスアプリの詳細を把握できます。
 CSVファイルには作成者、キャンバスアプリ名、作成日などの詳細な情報が含まれています。
-![](./list-canvas-app/powershell_export_csv.png)
+![](./list-canvas-app/powershell-export-csv.png)
 
 > [!NOTE]
 > Power Platform の PowerShell コマンド実行についての詳細は下記の情報をご確認ください。
@@ -117,7 +117,7 @@ Get-AdminPowerApp -AppName *<AppName>* -EnvironmentName *<EnvironmentName>*
 
 下記画面のように、キャンバスアプリの詳細な情報を確認することができます。
 
-![](./list-canvas-app/powershell_apps.png)
+![](./list-canvas-app/powershell-apps.png)
 
 上記コマンドを用いて、テナント内の全キャンバスアプリを取得する際のサンプルコードを下記に記載いたします。
 こちらのコードを実行すると、各キャンバスアプリにて利用されている接続や連携しているフローを確認頂けます。
@@ -177,7 +177,7 @@ $powerappsObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 > [!NOTE]
 > テナント内のキャンバスアプリ数が多い場合、処理完了までに長時間を要する可能性がございます。
 
-![](./list-canvas-app/powershell_apps_detail.png)
+![](./list-canvas-app/powershell-apps-detail.png)
 
 <a id='with_connector'></a>
 

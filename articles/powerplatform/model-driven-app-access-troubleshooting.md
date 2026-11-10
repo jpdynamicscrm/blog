@@ -42,21 +42,21 @@ categories:
 
 2. 左ペインより [環境] を選択し、ユーザーがアプリにアクセスできない事象が発生している環境を選択します。
 
-![](./model-driven-app-access-troubleshooting/00_environments.png)
+![](./model-driven-app-access-troubleshooting/00-environments.png)
 
 3. 環境の詳細ページが開いたら、画面右の [アクセス] タブ内から [ユーザー] の下の [すべて表示] を選択します。
 
-![](./model-driven-app-access-troubleshooting/01_users.png)
+![](./model-driven-app-access-troubleshooting/01-users.png)
 
 4. 設定ページに遷移したら、[アプリ アクセス チェッカーに移動します。] のリンクを選択します。
 
-![](./model-driven-app-access-troubleshooting/02_setting-user.png)
+![](./model-driven-app-access-troubleshooting/02-setting-user.png)
 
 5. App Access Checker のページに遷移したら、左上のテキスト ボックスに、アプリにアクセスできないアカウントのユーザー ID またはメール アドレスを入力し、[Search] ボタンを選択すると、ユーザー アカウントのアプリ使用に関する情報を確認できます。
 このとき、License および Security が Yes と表示されていれば、Visible も Yes となり、当該ユーザー アカウントで環境内のアプリを使用できることを意味します。
 License または Security で No と表示されている場合は、次の [ライセンスの割り当て](#anchor-license) または [セキュリティ ロールの割り当て](#anchor-security-role) をお試しください。
 
-![](./model-driven-app-access-troubleshooting/03_access-checker.png)
+![](./model-driven-app-access-troubleshooting/03-access-checker.png)
 
 <a id='anchor-license'></a>
 
@@ -69,11 +69,11 @@ App Access Checker にて、アカウントの License が No と表示されて
 
 2. 左ペインより、[ユーザー] > [アクティブなユーザー] に移動し、ライセンスを割り当てるユーザーを選択します。そのユーザーの設定がポップアップで開きます。
 
-![](./model-driven-app-access-troubleshooting/04_active-users.png)
+![](./model-driven-app-access-troubleshooting/04-active-users.png)
 
 3. ポップアップの [ライセンスとアプリ] タブを選択し、ユーザーに割り当てたいライセンスにチェックをつけ、[変更の保存] を選択すると、ユーザーへのライセンスの割り当てが完了します。
 
-![](./model-driven-app-access-troubleshooting/05_license.png)
+![](./model-driven-app-access-troubleshooting/05-license.png)
 
 > [!NOTE]
 > Dataverse は、ユーザーに割り当てられたサービス プランをキャッシュします。そのため、Microsoft Entra のライセンスの割り当てが、すぐには Dataverse に反映されない場合があります。反映されない場合は、ユーザーにいったんサインアウトして、再度サインインしてもらってください。それでも解決しない場合は、30 分ほど待ってから、再度サインアウトとサインインをお試しください。
@@ -89,19 +89,19 @@ App Access Checker にて、アカウントの Security が No と表示され�
 
 2. 左ペインから [アプリ] を選択後、ユーザーにアクセスを許可したいアプリの […] を選択して表示されるポップアップの [共有] を選択します。
 
-![](./model-driven-app-access-troubleshooting/06_apps_num.png)
+![](./model-driven-app-access-troubleshooting/06-apps-num.png)
 
 3. この操作により、指定したセキュリティ ロールが割り当てられたユーザー アカウントに対して、一括でこのアプリへのアクセスを許可できます。
    - アプリ名の左にチェックをつけ、下図②のテキスト ボックスを選択すると、中央にカスタム ロールを管理するポップアップが表示されます。
    - アプリへのアクセスを許可するセキュリティ ロールにチェックをつけ、[共有] ボタンを選択して変更を保存します。
 
-![](./model-driven-app-access-troubleshooting/07_security-role_num.png)
+![](./model-driven-app-access-troubleshooting/07-security-role-num.png)
 
 4. 手順 3 では、特定のセキュリティ ロールを持つユーザー アカウントをまとめてアクセスできるように指定する方法を紹介しました。ここでは、個別のユーザーごとにアクセスを許可する方法を紹介します。
    - [ユーザー] の下のテキスト ボックスからアクセスを許可したいアカウントを検索し、下図②のようにチェックを入れます。
    - 下図③を選択すると、アプリへのアクセスが許可されているセキュリティ ロールが表示されます。アクセスを許可したいアカウントに割り当てたいセキュリティ ロールにチェックをつけ、[共有] ボタンを選択して変更を保存します。
 
-![](./model-driven-app-access-troubleshooting/08_security-role2_num.png)
+![](./model-driven-app-access-troubleshooting/08-security-role-2-num.png)
 
 <a id='anchor-supplement'></a>
 

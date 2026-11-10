@@ -26,13 +26,13 @@ Wave2 より、運用環境において既定で Dataverse 検索が有効化さ
 
 ### そもそも、Dataverse 検索とは？
 以下のキャプチャのように、画面上部のヘッダーに表示されている検索欄が Dataverse 検索 (関連性検索) です。
-![](./search-dataverse-search-and-advanced-lookup/00_dataverse_search.png)
+![](./search-dataverse-search-and-advanced-lookup/00-dataverse-search.png)
 
 実際にこちらを検索してみると、以下のようにキーワードを入力するだけで関連エンティティを含めた検索ができます。
-![](./search-dataverse-search-and-advanced-lookup/01_dataverse_search_content.png)
+![](./search-dataverse-search-and-advanced-lookup/01-dataverse-search-content.png)
 
 なお、Wave2 以前では、この検索欄は「カテゴリ別検索」または「簡易検索」と呼ばれ、ヘッダーの虫眼鏡マークからご利用いただけました。
-![](./search-dataverse-search-and-advanced-lookup/02_federation_search.png)
+![](./search-dataverse-search-and-advanced-lookup/02-federation-search.png)
 
 このカテゴリ別検索から、より検索性や操作性を向上させた機能が Dataverse 検索です。
 
@@ -46,12 +46,12 @@ Dataverse 検索では、検索対象のテーブルを指定できます。
 環境の詳細設定画面、または Power Apps のソリューション設定画面から指定できますが、今回はソリューション設定画面をご紹介します。
 Power Apps ([https://make.powerapps.com](https://make.powerapps.com)) からソリューションを選択し、「概要」>「Dataverse 検索」>「検索インデックスの管理」より、検索対象のテーブルを指定いただけます。
 なお、Dataverse 検索の対象テーブル自体はソリューションに含まれる要素ではないため、ソリューションは任意のものをご選択いただければ問題ありません。
-![](./search-dataverse-search-and-advanced-lookup/03_dataverse_table.png)
+![](./search-dataverse-search-and-advanced-lookup/03-dataverse-table.png)
 
 **2. 検索対象の列**
 検索対象の列も、環境の詳細設定画面のほか、Power Apps のテーブル設定画面からご確認いただけます。
 テーブルの各列を選択し「検索可能」をチェックいただくことで、検索対象の列を指定できます。
-![](./search-dataverse-search-and-advanced-lookup/04_dataverse_index.png)
+![](./search-dataverse-search-and-advanced-lookup/04-dataverse-index.png)
 
 既定の状態でも、主要なテーブル・主要な列は検索対象として指定されていますが、
 カスタム テーブルなどを作成いただいている場合にはぜひ検索対象に追加の上、検索をご活用ください。
@@ -62,10 +62,10 @@ Power Apps ([https://make.powerapps.com](https://make.powerapps.com)) からソ�
 Wave2 より、検索 (ルックアップ) 列の入力時に高度なルックアップをご利用いただけるようになりました。
 
 1. 列の入力時に虫眼鏡マークを選択後、「高度な検索」を選択してください。
-![](./search-dataverse-search-and-advanced-lookup/05_advanced_search.png)
+![](./search-dataverse-search-and-advanced-lookup/05-advanced-search.png)
 
 2. 図のように、高度なルックアップ ウィンドウが表示されます。
-![](./search-dataverse-search-and-advanced-lookup/06_advanced_search_content.png)
+![](./search-dataverse-search-and-advanced-lookup/06-advanced-search-content.png)
 
 
 高度なルックアップ ウィンドウでは、入力フィールドに適したテーブルのビューから、登録したいデータを選択できます。
@@ -77,7 +77,7 @@ Wave2 より、検索 (ルックアップ) 列の入力時に高度なルック�
 
 ### 各検索方法を無効化する方法
 Dataverse 検索に関しては、以下の画像のように、Power Platform 管理センターから有効 / 無効を切り替えられます。
-![](./search-dataverse-search-and-advanced-lookup/07_dataverse_search_setting.png)
+![](./search-dataverse-search-and-advanced-lookup/07-dataverse-search-setting.png)
 
 高度なルックアップに関しては通常の方法で無効化することはできません。
 セキュリティ リスクの懸念から無効化を検討されている場合には、どちらの検索もユーザーに適切な権限が付与されているレコードのみ検索できるため、ご安心ください。

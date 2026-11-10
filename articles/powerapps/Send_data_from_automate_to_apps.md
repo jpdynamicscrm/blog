@@ -35,7 +35,7 @@ Power Automate で取得したデータを Power Apps キャンバス アプリ�
 
 SharePoint のリストに格納されている商品名、金額、個数の3列からなるデータを Power Automate で取得し、 Power Apps に送信することを想定します。
 
-![](./Send_data_from_automate_to_apps/sample_sharepoint_list.PNG)  
+![](./Send_data_from_automate_to_apps/sample-sharepoint-list.png)  
 
 ---
 
@@ -51,7 +51,7 @@ SharePoint のリストに格納されている商品名、金額、個数の3�
 
 フローの全体図は下記の通りです。
 
-![](./Send_data_from_automate_to_apps/premium_connecter_flow_1.PNG)![](./Send_data_from_automate_to_apps/premium_connecter_flow_2.PNG)
+![](./Send_data_from_automate_to_apps/premium-connector-flow-1.png)![](./Send_data_from_automate_to_apps/premium-connector-flow-2.png)
 
 フローの流れについてご説明いたします。
 
@@ -63,22 +63,22 @@ SharePoint のリストに格納されている商品名、金額、個数の3�
 6. 「応答」のアクションで商品リストの情報を Power Apps に送信します。また、応答アクション内のパラメータは以下の手順で設定します。  
 　　6-1. まず、一度フローを実行し、手順 5 の実行結果の値をコピーします。
 
-![](./Send_data_from_automate_to_apps/item_array.PNG)
+![](./Send_data_from_automate_to_apps/item-array.png)
 
 　　6-2. 応答アクションのサンプルから生成をクリックし、先程コピーした値をペースト、完了ボタンを押します。
 
-![](./Send_data_from_automate_to_apps/outou_parameter.PNG)
+![](./Send_data_from_automate_to_apps/response-parameter.png)
 
 　　6-3. 完了すると以下の画像のように JSON スキーマが定義されていることが確認できます。
 
-![](./Send_data_from_automate_to_apps/outou_flow.PNG)
+![](./Send_data_from_automate_to_apps/response-flow.png)
 
 ## Power Apps の説明
 
 今回、Power Apps で簡単なアプリを作成しました。ボタンをクリックすることで先程作成したフローが動き、商品リストが表示されるものです。
 ボタンの OnSelect プロパティに `ClearCollect (適当な変数名, Power Automate のフロー名.Run())` を記載することで変数にフローの出力データを格納することが可能です。
 
-![](./Send_data_from_automate_to_apps/powerapps_result.PNG)
+![](./Send_data_from_automate_to_apps/power-apps-result.png)
 
 <a id='anchor-standard-connecter'></a>
 
@@ -91,7 +91,7 @@ SharePoint のリストに格納されている商品名、金額、個数の3�
 次は、標準 コネクタを使用する場合についてご説明いたします。
 フローの全体図は下記の通りです。
 
-![](./Send_data_from_automate_to_apps/standard_connecter_flow.PNG)
+![](./Send_data_from_automate_to_apps/standard-connector-flow.png)
 
 標準コネクタでは「応答」アクションの代わりに「PowerApp または Flow に応答する」アクションを使用します。  
 フロー作成手順についてはプレミアムコネクタの説明の 1 ~ 5 までは同様です。その続きは以下の手順になります。  
@@ -101,13 +101,13 @@ SharePoint のリストに格納されている商品名、金額、個数の3�
 8. 「PowerApp または Flow に応答する」のアクションで商品リストの情報を Power Apps に送信します。
 パラメータとして名称には任意の値、式には「出力」（手順 7 の出力結果）を選択します。その際に、「出力」という動的なコンテンツが出てこない場合があります。その時は、以下の画像のように式で () を挿入してから動的なコンテンツに戻ることで「出力」という動的なコンテンツが出てきます。
 
-![](./Send_data_from_automate_to_apps/outou_standard_point.PNG)
+![](./Send_data_from_automate_to_apps/response-standard-point.png)
 
 #### Power Apps の説明
 
 プレミアム コネクタの時と同様にボタンをクリックすることで先程作成したフローが動き、商品リストが表示されるものを作成しました。
 
-![](./Send_data_from_automate_to_apps/powerapps_result.PNG)
+![](./Send_data_from_automate_to_apps/power-apps-result.png)
 
 プレミアムコネクタを使用する場合と比較して標準コネクタを使用する場合は Power Apps 上で文字列を正規表現で解析する必要があります。  
 作成手順は以下の通りです。
@@ -118,9 +118,9 @@ SharePoint のリストに格納されている商品名、金額、個数の3�
 　　2-2. 次に、`MatchAll` 関数を用いて文字列を正規表現で解析し、テーブルに格納します。黄色の部分の正規表現は適宜ご変更ください。正規表現を作成の際のヒントをこの章の最下部に載せています。ご参考になれば幸いです。  
 　　2-3. 最後に、テーブルの行が 1 行以上ある場合、`ClearCollect` 関数を用いて必要な列からなるテーブルを作成します。紫色の部分についても必要な列に応じてご変更ください。
 
-![](./Send_data_from_automate_to_apps/standard_botton_onselect_1.PNG)
-![](./Send_data_from_automate_to_apps/standard_botton_onselect_2.PNG)
-![](./Send_data_from_automate_to_apps/standard_botton_onselect_3.PNG)
+![](./Send_data_from_automate_to_apps/standard-button-onselect-1.png)
+![](./Send_data_from_automate_to_apps/standard-button-onselect-2.png)
+![](./Send_data_from_automate_to_apps/standard-button-onselect-3.png)
 
 正規表現作成の際のヒントを記載します。  
 下記画像の文字列 ① の情報をテーブルに変換する際の正規表現は正規表現①、文字列 ② の場合は正規表現 ② になります。  
@@ -129,7 +129,7 @@ SharePoint のリストに格納されている商品名、金額、個数の3�
 また、文字列 ② の黄色の部分のように取得したい文字列の次の文字が「,」の場合、正規表現中の黄色の部分は「,」、水色の部分のように取得したい文字列の次の文字が「}」の場合、正規表現中の水色の部分は「\＋}」で表します。  
 ※水色の部分を「}」ではなく「\＋}」と表す理由は、正規表現では、「}」は特殊文字なので「}」自体として扱わず、「\＋}」と表記することで「}」それ自体を表すためです。  
 
-![](./Send_data_from_automate_to_apps/seikihyougen_hint.PNG)
+![](./Send_data_from_automate_to_apps/regex-hint.png)
 
 ---
 

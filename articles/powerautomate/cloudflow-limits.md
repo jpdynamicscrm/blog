@@ -102,7 +102,7 @@ Power Platform 要求の制限とは、フロー実行時のアクションに�
 ランタイムエンドポイントとは、フロー自体のエンドポイントを指します。 (例: https://prod-00.westus.logic.azure.com:443/)  
 例えば、下図の「HTTP要求の受信時」トリガー(manual)を使用するフローがある場合、「HTTP URL」に直接POSTリクエストを送信することで、フローを起動することが可能でございます。
 
-![](./cloudflow-limits/http-requestes-recieve.png) 
+![](./cloudflow-limits/http-requests-receive.png) 
 
 上記の例のように、フロー実行時のエンドポイントへ (から) の直接のアクセスをランタイムエンドポイント要求と呼びます。  
 エンドポイントごとに制限対象となり、制限に抵触した場合、フローの実行が失敗します。

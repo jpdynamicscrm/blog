@@ -78,7 +78,7 @@ Teams チームにゲストユーザーを招待している場合、ゲスト�
 
 Teams からの Power Apps/Power Virtual Agents の使用を禁止するには、Teams 管理センターからアプリのアクセス許可ポリシーの設定を行い、環境作成を許可してもよいユーザーにだけ以下 2 つのアプリを許可するよう設定してください。
 
-![](./environment-teams-management/Teams-app-policy.png)
+![](./environment-teams-management/teams-app-policy.png)
 参考: [Microsoft Teams のアプリのアクセス許可ポリシーを管理する](https://learn.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies)
 
 ## 環境の作成は禁止したいが、アプリは使わせたい
@@ -98,7 +98,7 @@ Teams 上の Power Apps/Power Virtual Agents アプリを禁止としても、�
 
 Dataverse for Teams 環境で作成したアプリやボットを [同僚が作成] からユーザーがインストールできるようにするには、それぞれ以下の Teams アプリを許可してください。
 
-![](./environment-teams-management/Teams-app-policy-Shared.png)
+![](./environment-teams-management/teams-app-policy-shared.png)
 
 これらの Teams アプリと、先に説明した環境作成が行われる Teams アプリの違いは、それぞれ以下の通りです。
 
@@ -124,7 +124,7 @@ CoE スターター キットとは、Power Platform での管理や開発を支
 詳細については、[公開情報](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/overview) をご参照ください。
 
 ※注意事項
-![](./environment-teams-management/CoE-disclaimer.png)
+![](./environment-teams-management/coe-disclaimer.png)
 
 
 ## 注釈

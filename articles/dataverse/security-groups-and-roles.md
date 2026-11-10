@@ -64,7 +64,7 @@ Power Platform 環境には、デフォルトではテナントに所属する�
 
 参考: [環境へのユーザー アクセスのコントロール: セキュリティ グループおよびライセンス](https://learn.microsoft.com/ja-jp/power-platform/admin/control-user-access)
 
-![](./security-groups-and-roles/ppac_security_group.png)
+![](./security-groups-and-roles/ppac-security-group.png)
 
 
 ## セキュリティ ロールについて
@@ -88,7 +88,7 @@ Power Platform 管理センターから環境を開き、[設定] > [ユーザ�
 各特権の項目に対して、作成・読み取り・書き込みなどの動作ごとに、特権の種類を [なし / 部署 / 組織 / 部署配下 / ユーザー] に設定できます。<br>
 参考: [セキュリティ ロールおよび特権](https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges)
 
-![](./security-groups-and-roles/ppac_security_role_settings.png)
+![](./security-groups-and-roles/ppac-security-role-settings.png)
 
 前述のように、システム管理者や Basic User といった定義済みのセキュリティ ロールが存在するものの、カスタマイズにより細かく特権を定義できます。これにより、お客様の使用シナリオやニーズに合わせて、柔軟なアクセス制御ができます。
 

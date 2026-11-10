@@ -50,7 +50,7 @@ categories:
 
 [MC1041146](https://admin.microsoft.com/Adminportal/Home#/MessageCenter/:/messages/MC1041146)  
 
-![](./environment-developer-inactive-auto-deletion/MC1041146.png)
+![](./environment-developer-inactive-auto-deletion/mc1041146.png)
 <br>
 
 ## 2. 開発者環境の自動無効化/削除条件  

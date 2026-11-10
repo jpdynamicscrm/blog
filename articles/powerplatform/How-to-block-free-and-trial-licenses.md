@@ -70,9 +70,9 @@ categories:
    Get-AllowedConsentPlans
    ```
    ※Internal と Viral のライセンスが共に有効である場合 (＝無償版、試用版が利用可能な状態)<br>
-    ![](./How-to-block-free-and-trial-licenses/Get-AllowedConsentPlans.png)<br>
+    ![](./How-to-block-free-and-trial-licenses/get-allowed-consent-plans.png)<br>
    ※Internal と Viral のライセンスが共に無効である場合 (＝無償版、試用版が利用不可の状態)<br>
-    ![](./How-to-block-free-and-trial-licenses/Get-AllowedConsentPlans-false.png)<br>
+    ![](./How-to-block-free-and-trial-licenses/get-allowed-consent-plans-false.png)<br>
 <br>
 1. ライセンス一覧を表示するコマンドを実行し、テナント内に無償版、試用版ライセンスを利用しているユーザーがいるかどうかを確認します。<br>
    ```powershell 
@@ -88,7 +88,7 @@ Remove-AllowedConsentPlans -Types "Internal"
 Remove-AllowedConsentPlans -Types "Viral"
 ```
 以下のように確認メッセージが表示されるので、"y" と入力し、Enter キーを押してください。
-   ![](./How-to-block-free-and-trial-licenses/Confirmation-message.png)<br>
+   ![](./How-to-block-free-and-trial-licenses/confirmation-message.png)<br>
 
 <br>
 試用版、無償版の利用を許可する場合は、下記のコマンドを実行してください。

@@ -29,22 +29,22 @@ categories:
 1. XrmToolBox を [モデル駆動型アプリの開発者ツール](https://learn.microsoft.com/ja-jp/power-apps/developer/model-driven-apps/developer-tools) の記事の案内に従ってダウンロードします。
 
 2. XrmToolBox アプリケーションを開き、「Configuration」タブより「Manage connections」を選択します。
-![](./user-settings-change-by-admin/2ndStep.png)
+![](./user-settings-change-by-admin/xrmtoolbox-manage-connections.png)
 3. 「New Connection」を選択し、「Microsoft Login Control」を選択します。
 4. 「Open Microsoft Login Control」を選択し、ユーザー名などを入力します。
-![](./user-settings-change-by-admin/4thStep.png)<br>
-![](./user-settings-change-by-admin/4-2ndStep.png)
+![](./user-settings-change-by-admin/open-microsoft-login-control.png)<br>
+![](./user-settings-change-by-admin/login-credentials.png)
 5. 該当環境を選択して Connection の任意の名前を入力し、「Finish」を選択します。
 Connection が作成されたことを確認し、「Connections Manager」ウィンドウを閉じます。
 6. 「Tools」タブより「User Settings Utility」を選択し、ダブルクリックします。
 (表示されない場合は事前に「ToolLibrary」よりツールを追加してください)
 ※「Do you want to connect to an organization first?」というダイアログが表示された場合は「はい」を選択し、
 作成した Connection 先を選び「Connect」を選択してください。
-![](./user-settings-change-by-admin/6thStep.png)
+![](./user-settings-change-by-admin/select-connection-connect.png)
 7. 「Load Users and settings」を選択します。
 8. 対象ユーザーを選択し、変更したい個人設定を変更します。
 9. 「Update User Settings」を選択します。<br>
-![](./user-settings-change-by-admin/finalStep.png)
+![](./user-settings-change-by-admin/update-user-settings.png)
 
 以上の手順で管理者がユーザーの個人設定を変更できます。
 また、繰り返しにはなりますが、冒頭でお伝えしたとおり、XrmToolBox についてはサードパーティー製ツールですので、本ツールをご利用いただく中でのエラーやご不明点については弊社からサポートを提供できません。あらかじめご了承ください。

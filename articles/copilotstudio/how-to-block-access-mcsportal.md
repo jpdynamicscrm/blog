@@ -87,7 +87,7 @@ Copilot Studio でエージェントを作成したいユーザーをセキュ�
 ![](./how-to-block-access-mcsportal/securitygroup.png)
 1. [Power Platform 管理センターのテナント設定](https://admin.powerplatform.microsoft.com/manage/tenantsettings)を開きます。
 1. 「Copilot Studio 作成者」を選択し、作成したセキュリティグループを設定します。
-![](./how-to-block-access-mcsportal/tenant_setting.png)
+![](./how-to-block-access-mcsportal/tenant-setting.png)
 
 
 ## よくある質問

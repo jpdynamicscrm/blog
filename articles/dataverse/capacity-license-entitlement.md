@@ -84,7 +84,7 @@ Dataverse ではご購入いただくライセンスの種類によって、テ�
 - Dynamics 365
 
 なお、具体的なライセンス例ごとに割り当てられる「既定の容量」は以下のとおりとなります。<br>
-![](./capacity-license-entitlement/default%20capacity.png)
+![](./capacity-license-entitlement/default-capacity.png)
 
  
  
@@ -116,7 +116,7 @@ Dataverse の容量は先述した「既定の容量」とは別に、ライセ�
 このため、ご契約いただくライセンスの数が多いほど、テナントに付与されるストレージ量は増加します。
 
 なお、ライセンスの種類によって、ストレージ量が付与されるかどうか、どの程度のサイズが付与されるかが異なり、具体的な例として以下のような違いがあります。<br>
-![](./capacity-license-entitlement/add%20capacity.png)
+![](./capacity-license-entitlement/add-capacity.png)
 
 また、購入いただいたライセンスに応じて付与される追加容量とは別に、ストレージ量の追加を目的として購入いただくアドオンがあります。<br>
 参考情報 : [テナントに Microsoft Dataverse 容量を追加](https://learn.microsoft.com/ja-jp/power-platform/admin/add-storage#purchase-dataverse-capacity-add-on)

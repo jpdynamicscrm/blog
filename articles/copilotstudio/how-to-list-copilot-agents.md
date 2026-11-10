@@ -54,13 +54,13 @@ Teams アプリの Copilot Studio から作成したエージェントは Datave
    * 検索対象テーブルに「Copilots/コパイロット」を選択します。
    * 必要に応じて、「列の編集/Edit Columns」から表示する列を編集します。
    * 「結果/Results」を押します。  
-![](./how-to-list-copilot-agents/advanced_search.png)
+![](./how-to-list-copilot-agents/advanced-search.png)
 1. エージェント一覧が表示されます。表示された検索結果をExcel にエクスポートが可能です。  
-![](./how-to-list-copilot-agents/export_excel.png)
+![](./how-to-list-copilot-agents/export-excel.png)
 1. エクスポートした Excel を開くと、エージェント名 (Name列) と所有者 (Owner) を確認することができます。  
-![](./how-to-list-copilot-agents/excel_list.png)
+![](./how-to-list-copilot-agents/excel-list.png)
 1. 手順4の画面で所有者のメールアドレスを追加しますと、エクスポート時にメールアドレスを一緒に出力することができます。  
-![](./how-to-list-copilot-agents/add_owner_email.png)
+![](./how-to-list-copilot-agents/add-owner-email.png)
 
 
 
@@ -136,7 +136,7 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 具体的には「環境一覧を管理者として作成する」アクションを利用して取得した環境ごとに CSV を出力することで、 Copilot 情報を取得します。
 
 #### フロー全体図
-![](./how-to-list-copilot-agents/dataverse2_1.png)
+![](./how-to-list-copilot-agents/dataverse-flow-overview.png)
 
 #### 前作業
 全ての環境の Copilots テーブルにアクセスするために、自分自身を環境の管理者として追加します。  
@@ -146,16 +146,16 @@ Dataverse for Teams 環境の Copilot につきましては 2025 年 2 月時点
 1. 管理者向け Power Platform コネクタの「環境一覧を管理者として作成する」アクションを追加します。
 1. 「選択した環境の行を一覧表示する」アクションの「環境」を動的コンテンツ「リンクされたメタデータ インスタンス API の URL」に変更します。  
   環境：@item()?['properties/linkedEnvironmentMetadata/instanceApiUrl']  
-![](./how-to-list-copilot-agents/dataverse2_3.png)
+![](./how-to-list-copilot-agents/dataverse-environment-expression.png)
 1. 「選択した環境の行を一覧表示する」アクションが 「For each」 コントロールで囲まれることを確認し、後続のアクションもすべて 「For each」 コントロール内に追加します。  
-![](./how-to-list-copilot-agents/dataverse2_4.png)
+![](./how-to-list-copilot-agents/dataverse-for-each.png)
 1. 「ファイルの作成」アクションのファイル名に動的コンテンツ「リンクされたメタデータ フレンドリ名」を追加します。　　
    サンプルでは、フレンドリ名（＝環境名）を追加することで、環境ごとにファイルを作成し、他の環境のデータが上書きされる事を防ぎます。運用に合わせて任意の項目を設定してください。  
-![](./how-to-list-copilot-agents/dataverse2_5.png)
+![](./how-to-list-copilot-agents/dataverse-friendly-name.png)
 
 #### フロー実行結果  
 フローを実行すると指定したフォルダに環境ごとの CSV が出力されます。  
-![](./how-to-list-copilot-agents/dataverse2_2.png)
+![](./how-to-list-copilot-agents/dataverse-csv-output.png)
 
 ## 5. よくある質問
 ### Microsoft 365 Copilot を拡張した Copilot の情報が取得できますか
