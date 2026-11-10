@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-11-06T02:39:36.482Z</updated>
+  <updated>2026-11-10T00:02:42.646Z</updated>
   <entry>
     <author>
       <name>
@@ -42,7 +42,7 @@
 <p>本記事では Power Apps 開発者環境の廃止予定について、以下の Q1〜Q6 の質問に回答する形でご説明させていただきます。</p>]]>
     </summary>
     <title>Power Apps 開発者環境の廃止予定と必要な対応ガイド</title>
-    <updated>2026-11-06T02:39:36.482Z</updated>
+    <updated>2026-11-10T00:02:42.646Z</updated>
   </entry>
   <entry>
     <author>
@@ -74,7 +74,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリで Dataverse のデータをインポート・エクスポートする方法</title>
-    <updated>2026-11-06T02:39:36.268Z</updated>
+    <updated>2026-11-10T00:02:42.357Z</updated>
   </entry>
   <entry>
     <author>
@@ -103,7 +103,7 @@
 </ul>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について</title>
-    <updated>2026-11-06T02:39:36.235Z</updated>
+    <updated>2026-11-10T00:02:42.313Z</updated>
   </entry>
   <entry>
     <author>
@@ -128,7 +128,7 @@
 <p>なお、管理者がクラウド フローの一覧を取得する方法は、弊社ブログ記事「<a href="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/">Power Automate のクラウドフロー一覧を管理者が取得する方法</a>」でご紹介しています。</p>]]>
     </summary>
     <title>管理者が Power Automate クラウド フローの実行履歴を取得する方法 ～失敗調査・複数フローの監視・集計を目的別に使い分ける～</title>
-    <updated>2026-11-06T02:39:36.326Z</updated>
+    <updated>2026-11-10T00:02:42.436Z</updated>
   </entry>
   <entry>
     <author>
@@ -151,7 +151,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせ前のトラブルシューティング</title>
-    <updated>2026-11-06T02:39:36.369Z</updated>
+    <updated>2026-11-10T00:02:42.494Z</updated>
   </entry>
   <entry>
     <author>
@@ -173,7 +173,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-11-06T02:39:36.232Z</updated>
+    <updated>2026-11-10T00:02:42.310Z</updated>
   </entry>
   <entry>
     <author>
@@ -198,7 +198,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-11-06T02:39:36.316Z</updated>
+    <updated>2026-11-10T00:02:42.422Z</updated>
   </entry>
   <entry>
     <author>
@@ -208,8 +208,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Connector" scheme="https://jpdynamicscrm.github.io/blog/tags/Connector/"/>
     <category term="Paging" scheme="https://jpdynamicscrm.github.io/blog/tags/Paging/"/>
@@ -224,7 +224,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-11-06T02:39:36.196Z</updated>
+    <updated>2026-11-10T00:02:42.260Z</updated>
   </entry>
   <entry>
     <author>
@@ -234,8 +234,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
     <category term="How to" scheme="https://jpdynamicscrm.github.io/blog/tags/How-to/"/>
@@ -250,7 +250,7 @@
 <p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
-    <updated>2026-11-06T02:39:36.296Z</updated>
+    <updated>2026-11-10T00:02:42.394Z</updated>
   </entry>
   <entry>
     <author>
@@ -273,7 +273,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-11-06T02:39:36.385Z</updated>
+    <updated>2026-11-10T00:02:42.515Z</updated>
   </entry>
   <entry>
     <author>
@@ -302,7 +302,7 @@
 </blockquote>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法</title>
-    <updated>2026-11-06T02:39:36.215Z</updated>
+    <updated>2026-11-10T00:02:42.286Z</updated>
   </entry>
   <entry>
     <author>
@@ -312,8 +312,8 @@
     </author>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/"/>
     <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Apps/Canvas-app/"/>
-    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="Power Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Apps/"/>
+    <category term="Canvas app" scheme="https://jpdynamicscrm.github.io/blog/tags/Canvas-app/"/>
     <category term="キャンバスアプリ" scheme="https://jpdynamicscrm.github.io/blog/tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/"/>
     <category term="Power Automate" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Automate/"/>
     <category term="Cloud flow" scheme="https://jpdynamicscrm.github.io/blog/tags/Cloud-flow/"/>
@@ -328,7 +328,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-11-06T02:39:36.197Z</updated>
+    <updated>2026-11-10T00:02:42.262Z</updated>
   </entry>
   <entry>
     <author>
@@ -351,7 +351,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-11-06T02:39:36.431Z</updated>
+    <updated>2026-11-10T00:02:42.579Z</updated>
   </entry>
   <entry>
     <author>
@@ -374,7 +374,7 @@
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポートチームの 早川 です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えいたします。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-11-06T02:39:36.479Z</updated>
+    <updated>2026-11-10T00:02:42.642Z</updated>
   </entry>
   <entry>
     <author>
@@ -398,7 +398,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-11-06T02:39:36.482Z</updated>
+    <updated>2026-11-10T00:02:42.646Z</updated>
   </entry>
   <entry>
     <author>
@@ -421,7 +421,7 @@
 <p>本記事では Dataverse の環境容量割り当て（Database &#x2F; File &#x2F; Log）について、お問い合わせでよくいただくご質問を Q&amp;A 形式でご説明いたします。</p>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-11-06T02:39:36.431Z</updated>
+    <updated>2026-11-10T00:02:42.577Z</updated>
   </entry>
   <entry>
     <author>
@@ -444,7 +444,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-11-06T02:39:36.385Z</updated>
+    <updated>2026-11-10T00:02:42.515Z</updated>
   </entry>
   <entry>
     <author>
@@ -452,8 +452,8 @@
         <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
       </name>
     </author>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
     <category term="Power Platform Admin Center" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform-Admin-Center/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
     <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
     <category term="License" scheme="https://jpdynamicscrm.github.io/blog/tags/License/"/>
     <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
@@ -470,7 +470,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-11-06T02:39:36.459Z</updated>
+    <updated>2026-11-10T00:02:42.615Z</updated>
   </entry>
   <entry>
     <author>
@@ -497,7 +497,7 @@
 <li><a href="#q1">]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-11-06T02:39:36.467Z</updated>
+    <updated>2026-11-10T00:02:42.627Z</updated>
   </entry>
   <entry>
     <author>
@@ -523,6 +523,6 @@
 <li>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-11-06T02:39:36.431Z</updated>
+    <updated>2026-11-10T00:02:42.577Z</updated>
   </entry>
 </feed>
