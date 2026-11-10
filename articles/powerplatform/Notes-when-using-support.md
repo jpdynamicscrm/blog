@@ -95,7 +95,7 @@ Dynamics 365 では、マイクロソフトがサービスの提供に影響を�
 
 セキュリティ ロールに関する具体的なサポート範囲については、以下の記事もあわせてご確認ください。
 
-- [カスタム セキュリティ ロールの作成に関するサポート範囲について](https://jpdynamicscrm.github.io/blog/powerplatform/support-scope-custom-security-role/)
+- [カスタム セキュリティ ロールの作成に関するサポート範囲について](https://jpdynamicscrm.github.io/blog/dataverse/security-custom-role-support-scope/)
 
 <a id='license'></a>
 

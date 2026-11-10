@@ -7,6 +7,7 @@ tags:
   - Governance
 categories:
   - [Power Platform Admin Center]
+  - [Dataverse]
 ---
 
 こんにちは、Power Platform サポートの原です。
@@ -28,22 +29,22 @@ categories:
 1. XrmToolBox を [こちら](https://learn.microsoft.com/ja-jp/power-apps/developer/model-driven-apps/developer-tools) の記事の案内に従ってダウンロードします。
 
 2. XrmToolBox アプリケーションを開き、 [Configuration] タブより [Manage connections] を選択します。
-![](./ChangePersonalizationSettings/2ndStep.png)
+![](./user-settings-change-by-admin/2ndStep.png)
 3. [New Connection] を選択し、[Microsoft Login Control] をクリックします。
 4. [Open Microsoft Login Control] をクリックし、ユーザー名などを入力します。
-![](./ChangePersonalizationSettings/4thStep.png)<br>
-![](./ChangePersonalizationSettings/4-2ndStep.png)
+![](./user-settings-change-by-admin/4thStep.png)<br>
+![](./user-settings-change-by-admin/4-2ndStep.png)
 5. 該当環境を選択して Connection の任意の名前を入力し、[Finish]を選択します。
 Connection が作成されたことを確認し、[Connections Manager] ウィンドウを閉じます。
 6. [Tools] タブより [User Settings Utility] を選択し、ダブルクリックします。
 (表示されない場合は事前に [ToolLibrary] よりツールを追加してください)
 ※「Do you want to connect to an organization first?」というダイアログが表示された場合は「はい」を選択し
 作成した Connection 先を選び「Connect」をクリックしてください。
-![](./ChangePersonalizationSettings/6thStep.png)
+![](./user-settings-change-by-admin/6thStep.png)
 7. [Load Users and settings] をクリックします。
 8. 対象ユーザーを選択し、変更したい個人設定を変更します。
 9. [Update User Settings]をクリックします。<br>
-![](./ChangePersonalizationSettings/finalStep.png)
+![](./user-settings-change-by-admin/finalStep.png)
 
 以上の手順で管理者がユーザーの個人設定を変更することが可能です。
 また、繰り返しにはなりますが、冒頭でお伝えした通り、XrmToolBox につきましては、サードパーティー製ツールでございますため、本ツールをご利用いただく中でのエラーやご不明点に関しましては弊社からサポートをご提供することがかないませんことをご承知おきください。

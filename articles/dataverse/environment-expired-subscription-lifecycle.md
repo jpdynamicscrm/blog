@@ -39,7 +39,7 @@ categories:
 サブスクリプション期限切れに伴う自動 cleanup の対象は **本番 (Production) 環境** と **サンドボックス (Sandbox) 環境** です。  
 開発者 (Developer) 環境や既定 (Default) 環境、Dataverse for Teams 環境は、サブスクリプション期限切れではなく **非アクティブ (Inactivity) ベースの cleanup** の対象となり、本記事で説明するフローとは異なります。
 
-> **参考**: 開発者環境の自動削除については [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/) もあわせてご参照ください。
+> **参考**: 開発者環境の自動削除については [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/dataverse/environment-developer-inactive-auto-deletion/) もあわせてご参照ください。
 
 ---
 
@@ -72,7 +72,7 @@ categories:
 
 以下に、サブスクリプション期限切れ後の処理フローを図示します。
 
-![](./expired-subscription-environment-lifecycle/expired-subscription-environment-lifecycle-flowchart.png)
+![](./environment-expired-subscription-lifecycle/expired-subscription-environment-lifecycle-flowchart.png)
 
 ---
 
@@ -148,7 +148,7 @@ M365 側では Disabled 状態でも管理者が管理センターにアクセ�
 
 いいえ。開発者環境はサブスクリプション期限切れの cleanup ではなく、**非アクティブ (Inactivity) ベースの cleanup** の対象です。  
 開発者環境の場合、ユーザー活動がない状態が 30 日間続くと無効化され、無効化から 15 日後に削除されます。  
-詳細は [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/) をご参照ください。
+詳細は [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/dataverse/environment-developer-inactive-auto-deletion/) をご参照ください。
 
 ### Q4. 環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？
 
@@ -170,7 +170,7 @@ Power Platform 管理センターから環境の状態を確認できない場�
 - [Power Platform 環境の自動削除 (日本語)](https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup)
 - [環境の回復 - Recover environment](https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment)
 - [Microsoft Power Platform のライセンスの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus)
-- [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/powerplatform/Automatic-deletion-of-inactive-Developer-environments/)
+- [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/dataverse/environment-developer-inactive-auto-deletion/)
 
 ---
 

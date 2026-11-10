@@ -2,7 +2,7 @@
 title: 【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法
 date: 2026-07-15
 categories:
-  - Microsoft Copilot Studio
+  - [Microsoft Copilot Studio]
 tags:
   - Microsoft Copilot Studio
   - License
@@ -172,7 +172,7 @@ Pay-as-you-go プランを利用している場合、Azure ポータルの Azure
 |---|---|---|
 | 開発 (予測) | Agent Usage Estimator | 月間消費量の見積もり、予算計画、複数エージェントの合算コスト予測 |
 | 開発 (予測) | Copilot Studio [監視] タブ | パイロット運用中の実消費データによる予測精度の向上 |
-| 本番 (実績) | PPAC [Licensing] > [Copilot Studio] | テナント / 環境レベルの消費監視、容量割り当て管理 |
+| 本番 (実績) | Power Platform 管理センター [Licensing] > [Copilot Studio] | テナント / 環境レベルの消費監視、容量割り当て管理 |
 | 本番 (実績) | Azure Cost Management | Pay-as-you-go 利用時の詳細課金分析 |
 | 本番 (実績) | Copilot Studio [監視] タブ | エージェント個別の課金トレンド、コスト分布 |
 

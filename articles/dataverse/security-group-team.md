@@ -69,7 +69,7 @@ Dataverse には以下の 4 種類のチームがあります。Power Platform �
 グループ チームは Power Platform 管理センターから作成します。
 
 1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com) にサインインし、対象環境の **設定** > **ユーザーとアクセス許可** > **チーム** を選択します。
-   ![](./dataverse-group-team/ppac-settings-team.png)
+   ![](./security-group-team/ppac-settings-team.png)
 2. **+ チームの作成** を選択します。
 3. 各フィールドを入力します。
 
@@ -88,7 +88,7 @@ Dataverse には以下の 4 種類のチームがあります。Power Platform �
    | グループ名 | 紐づける Microsoft Entra ID グループを検索・選択 |
    | メンバーシップの種類 | 後述の [メンバーシップの種類について](#membership-type) を参照 |
 
-   ![](./dataverse-group-team/create-team-form.png)
+   ![](./security-group-team/create-team-form.png)
 
 チームを作成すると、紐づけた Microsoft Entra グループのメンバーが環境にアクセスしたタイミングで、自動的にグループ チームに追加されます。
 
@@ -101,7 +101,7 @@ Dataverse には以下の 4 種類のチームがあります。Power Platform �
 1. Power Platform 管理センターの **チーム** 一覧から対象のチームを選択します。
 2. **セキュリティ ロールの管理** を選択します。
 3. 割り当てるセキュリティ ロールを選択し、**保存** を選択します。
-   ![](./dataverse-group-team/manage-security-roles.png)
+   ![](./security-group-team/manage-security-roles.png)
 
 <a id='faq'></a>
 

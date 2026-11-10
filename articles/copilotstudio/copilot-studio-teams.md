@@ -233,7 +233,7 @@ categories:
 
 > [!NOTE]  
 > Dataverse for Teams 環境にCopilotを作成します。  
-> [Dataverse for Teams 環境の管理方法 | Japan Dynamics CRM & Power Platform Support Blog](https://jpdynamicscrm.github.io/blog/powerplatform/Manage-Dataverse-for-Teams/)  
+> [Dataverse for Teams 環境の管理方法 | Japan Dynamics CRM & Power Platform Support Blog](https://jpdynamicscrm.github.io/blog/dataverse/environment-teams-management/)  
 > ※作成されるのはクラシックボットで、Web版で作成されるボットと機能が異なります。  
 
 <a id='3-1-エージェントを公開する'></a>
