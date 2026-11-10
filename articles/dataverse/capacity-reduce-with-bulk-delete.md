@@ -37,7 +37,9 @@ categories:
 - [実行時の注意点とリスク (Q4)](#q4)
 - [容量反映のタイムラグ (Q5)](#q5)
 
-<h2 id="q1">Dataverse の「一括削除」とは (Q1)</h2>
+<a id='q1'></a>
+
+## Dataverse の「一括削除」とは (Q1)
 
 【結論】条件を指定して大量のデータをバックグラウンドで安全に削除し、Dataverse の容量を空けるための標準機能です。
 
@@ -54,7 +56,9 @@ Dataverse 容量が増加すると、環境の動作パフォーマンスが低�
 - [Microsoft Dataverse ストレージ容量の解放 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/free-storage-space)
 - [大量の特定の対象データを一括削除で削除する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/delete-bulk-records)
 
-<h2 id="q2">一括削除の設定手順 (Q2)</h2>
+<a id='q2'></a>
+
+## 一括削除の設定手順 (Q2)
 
 【結論】Power Platform 管理センターの設定メニューからウィザード形式で作成します。
 
@@ -81,7 +85,9 @@ Dataverse 容量が増加すると、環境の動作パフォーマンスが低�
 ＜参考資料＞
 - [大量の特定の対象データを一括削除で削除する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/delete-bulk-records)
 
-<h2 id="q3">監査ログの削除について (Q3)</h2>
+<a id='q3'></a>
+
+## 監査ログの削除について (Q3)
 
 【結論】監査ログは通常の一括削除ウィザードではなく、「監査ログ管理」から期間単位で削除します。
 
@@ -99,7 +105,9 @@ Dataverse 容量が増加すると、環境の動作パフォーマンスが低�
 - [監査ログ データの削除 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-dataverse-auditing#delete-audit-logs)
 - [Dataverse 監査の概要 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/audit-data-user-activity)
 
-<h2 id="q4">実行時の注意点とリスク (Q4)</h2>
+<a id='q4'></a>
+
+## 実行時の注意点とリスク (Q4)
 
 【結論】一度削除したデータは元に戻せません。また、定期実行の設定を変更するとジョブが解除されてしまうため注意が必要です。
 
@@ -124,7 +132,9 @@ Dataverse 容量が増加すると、環境の動作パフォーマンスが低�
 - [削除されたテーブル レコードを復元する - プレビュー (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/restore-deleted-table-records)
 - [削除されたレコード機能で現在サポートされていないテーブル](https://learn.microsoft.com/ja-jp/power-platform/admin/restore-deleted-table-records#tables-not-currently-supported-for-the-deleted-records-feature)
 
-<h2 id="q5">容量反映のタイムラグ (Q5)</h2>
+<a id='q5'></a>
+
+## 容量反映のタイムラグ (Q5)
 
 【結論】削除後、容量レポートに反映されるまで最大 24 〜 48 時間かかる場合があります。
 
@@ -137,7 +147,9 @@ Dataverse の容量計算はリアルタイムではなく、非同期の集計�
 ＜参考資料＞
 - [新しい Microsoft Dataverse ストレージ容量 - 容量ページの詳細 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#capacity-page-details)
 
-<h2 id="summary">まとめ</h2>
+<a id='summary'></a>
+
+## まとめ
 
 Dataverse の容量不足は、システムの安定稼働に関わる重要な課題です。手動での対応には限界があるため、「一括削除機能」を有効活用して、定期的に不要なデータをクリーニングする運用を自動化しましょう。
 
@@ -147,6 +159,3 @@ Dataverse の容量不足は、システムの安定稼働に関わる重要な�
 - **反映**: 容量レポートへの反映には 1〜2 日かかることがある。
 
 まずは「成功した古いシステムジョブ」など、業務影響のない安全なデータから削除設定を試してみることをおすすめします。
-
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。

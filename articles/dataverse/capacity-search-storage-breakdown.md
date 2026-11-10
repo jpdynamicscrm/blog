@@ -38,7 +38,9 @@ categories:
 - [Q4: テキストデータインデックス（TextData）の中身と削減のコツは？](#q4)
 - [Q5: 画面で見えない内訳をどう管理すればよいですか？](#q5)
 
-<h2 id="q1">PPAC の「Dataverse Search」ストレージは何の合算値ですか？ (Q1)</h2>
+<a id='q1'></a>
+
+## PPAC の「Dataverse Search」ストレージは何の合算値ですか？ (Q1)
 【結論】PPAC に表示される Dataverse Search ストレージは、「検索インデックス（Relevance / Search）」「構造化インデックス（Structured）」「非構造化（テキスト）インデックス（Unstructured / TextData）」の合算です。
 
 【補足】インデックスは、グローバル検索や Copilot のためにデータを探しやすくする仕組みです。
@@ -49,7 +51,9 @@ Power Platform 管理センター のテーブル容量画面では合計のみ�
 - [Dataverse 検索の構成（費用・容量に関する記載）](https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization#how-much-will-dataverse-search-cost)
 - [Dataverse 検索による AI 搭載エクスペリエンスの強化 (Release Plan)](https://learn.microsoft.com/ja-jp/power-platform/release-plan/2025wave1/data-platform/enhance-ai-powered-experiences-dataverse-search)
 
-<h2 id="q2">検索インデックス（Search）の中身と削減のコツは？ (Q2)</h2>
+<a id='q2'></a>
+
+## 検索インデックス（Search）の中身と削減のコツは？ (Q2)
 【結論】検索インデックスは、モデル駆動アプリのグローバル検索用に、対象テーブルの「検索対象列」とレコードを素早く探すための情報を保持します。対象テーブル数・検索対象列数・レコード数が多いほど容量が増えます。
 
 【補足】不要なテーブルや列を検索対象から外すことで容量を抑えられます。
@@ -65,7 +69,9 @@ Power Platform 管理センター のテーブル容量画面では合計のみ�
 - [Dataverse 検索の構成（対象テーブル・列の設定手順）](https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization#select-tables-for-dataverse-searchs-global-search)
 - [Dataverse 検索の効率的な管理（テーブル/列の外し方）](https://learn.microsoft.com/ja-jp/power-apps/user/relevance-search-benefits#what-actions-can-makers-or-admins-take-to-manage-dataverse-search-efficiently)
 
-<h2 id="q3">構造化インデックス（Structured）の中身と削減のコツは？ (Q3)</h2>
+<a id='q3'></a>
+
+## 構造化インデックス（Structured）の中身と削減のコツは？ (Q3)
 【結論】構造化インデックスは、Copilot や AI エージェントが Dataverse のテーブルデータを理解し、関係性をたどって推論するための索引です。
 App Copilot や Copilot Studio のエージェント、Dynamics 365 の一部 Copilot が利用します。
 
@@ -130,7 +136,9 @@ Xrm.WebApi.retrieveMultipleRecords(
   ※画面下部に「この機能のオプトアウト」の設定があります。
 
 
-<h2 id="q4">テキストデータインデックス（TextData）の中身と削減のコツは？ (Q4)</h2>
+<a id='q4'></a>
+
+## テキストデータインデックス（TextData）の中身と削減のコツは？ (Q4)
 【結論】テキストデータインデックスは、Copilot / エージェントが参照する非構造化データ（PDF や Word、OneDrive / SharePoint の文書など）を検索・要約するための索引です。
 アップロードや連携したファイルが多いほど容量が増えます。
 
@@ -146,7 +154,9 @@ Xrm.WebApi.retrieveMultipleRecords(
 - [Copilot Studio: SharePoint をナレッジソースに追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-sharepoint)
 - [Copilot Studio: 非構造化データの追加 ](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-unstructured-data)
 
-<h2 id="q5">画面で見えない内訳をどう管理すればよいですか？ (Q5)</h2>
+<a id='q5'></a>
+
+## 画面で見えない内訳をどう管理すればよいですか？ (Q5)
 【結論】Power Platform 管理センター では合計のみの表示ですので、アプリ・エージェント単位で「どの機能がどのインデックスを使っているか」を整理し、不要な対象を段階的に外すのが有効です。 また、環境の Dataverse Search を「既定」にするとグローバル検索のインデックス生成を抑えられます。
 
 【補足】Copilot などの生成 AI は構造化/非構造化インデックスを使います。 方針に合わせて機能を無効化・対象縮小すると容量が削減されます。
@@ -158,7 +168,9 @@ Xrm.WebApi.retrieveMultipleRecords(
   - → 正しくは: アプリ単位の影響に限定されます。環境や他アプリ・エージェントの設定は別途管理が必要です。
 
 
-<h2 id="summary">まとめ</h2>
+<a id='summary'></a>
+
+## まとめ
 - Power Platform 管理センター の Dataverse Search ストレージは検索・構造化・テキストの 3 インデックスの合算です。
 
 - 検索インデックスは、グローバル検索対象のテーブル/列/レコード数の見直しで削減できます。
@@ -166,9 +178,3 @@ Xrm.WebApi.retrieveMultipleRecords(
 - 構造化インデックスは Copilot/エージェントの無効化・対象縮小で抑えられます。
 
 - テキストデータインデックスは未使用ファイル削除・連携解除で減らせます。
-
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-本記事の内容は執筆日時点の公開情報に基づいております。
-仕様や UI、制限事項は将来変更される可能性がございます。
-最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。
-

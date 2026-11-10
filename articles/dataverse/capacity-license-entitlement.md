@@ -20,7 +20,9 @@ categories:
 
 <!-- more -->
 
-<h2 id="content">目次</h2>
+<a id='content'></a>
+
+## 目次
   
 1. [はじめに](#anchor-begin)
 2. [テナントごとに付与されるストレージ容量のライセンスの概要](#anchor-dataverse-storeage)

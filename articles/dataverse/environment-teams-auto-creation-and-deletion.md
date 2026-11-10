@@ -44,9 +44,10 @@ categories:
 - [使われていない環境の自動削除 (Q5)](#q5)
 - [削除された環境の復元 (Q6)](#q6)
 - [まとめ](#summary)
-- [注意事項（情報の更新可能性）](#notice)
 
-<h2 id="about">Dataverse for Teams 環境とは</h2>
+<a id='about'></a>
+
+## Dataverse for Teams 環境とは
 
 Dataverse for Teams は、Microsoft Teams の中に組み込まれたデータ管理の仕組みです。
 2020 年 9 月に導入されました。
@@ -90,7 +91,9 @@ Power Platform 管理センターの環境一覧では、種類が「Microsoft T
 - [Power Platform ライセンス FAQ - Dataverse for Teams (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#dataverse-for-teams)
 
 
-<h2 id="q1">Dataverse for Teams 環境が自動作成されるタイミング (Q1)</h2>
+<a id='q1'></a>
+
+## Dataverse for Teams 環境が自動作成されるタイミング (Q1)
 
 【結論】Teams 上で「アプリを作る」「エージェントを作る」「アプリをインストールする」のいずれかの操作を初めて行うと、そのチームに対して Dataverse for Teams 環境が自動的に作られます。
 
@@ -118,7 +121,9 @@ Power Platform 管理センターの環境一覧では、種類が「Microsoft T
 - [Power Platform ライセンス FAQ - Dataverse (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#dataverse)
 
 
-<h2 id="q2">環境の自動作成を止める方法 (Q2)</h2>
+<a id='q2'></a>
+
+## 環境の自動作成を止める方法 (Q2)
 
 【結論】Teams 管理センターのアプリのアクセス許可ポリシーを使い、環境作成のきっかけとなるアプリをブロックすることで制御できます。
 
@@ -149,7 +154,9 @@ Power Platform 管理センターの環境一覧では、種類が「Microsoft T
 - [Microsoft Teams でアプリのアクセス許可ポリシーを管理する (Docs)](https://learn.microsoft.com/ja-jp/microsoftteams/teams-app-permission-policies)
 
 
-<h2 id="q3">環境ごと・テナントごとの容量の上限 (Q3)</h2>
+<a id='q3'></a>
+
+## 環境ごと・テナントごとの容量の上限 (Q3)
 
 【結論】環境ごとにデータベースとファイルを合わせて 2 GB、テナント全体では「5 つ + Microsoft 365 ライセンス 20 個につき 1 つ」が環境数の上限です。
 
@@ -188,7 +195,9 @@ Dataverse for Teams 環境の容量は、通常の Dataverse とは別のしく�
 - [Power Platform ライセンス FAQ - Dataverse (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-flow-licensing-faq#dataverse)
 
 
-<h2 id="q4">手動で環境を削除する方法 (Q4)</h2>
+<a id='q4'></a>
+
+## 手動で環境を削除する方法 (Q4)
 
 【結論】Power Platform 管理センターから削除する方法と、紐づいている Teams のチームを削除する方法の 2 通りがあります。
 
@@ -216,7 +225,9 @@ Dataverse for Teams 環境は、紐づいている Teams のチームと連動�
 - [Teams 環境の Microsoft Dataverse について - 環境のライフサイクル (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/about-teams-environment#environment-lifecycle)
 
 
-<h2 id="q5">使われていない環境の自動削除 (Q5)</h2>
+<a id='q5'></a>
+
+## 使われていない環境の自動削除 (Q5)
 
 【結論】90 日間使われていない Dataverse for Teams 環境は自動的に無効になり、そのまま 30 日間放置すると自動的に削除されます。
 
@@ -249,7 +260,9 @@ Power Platform には、使われていない Dataverse for Teams 環境を自�
 - [非アクティブな Dataverse for Teams 環境の自動削除 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/inactive-teams-environment)
 
 
-<h2 id="q6">削除された環境の復元 (Q6)</h2>
+<a id='q6'></a>
+
+## 削除された環境の復元 (Q6)
 
 【結論】自動削除・手動削除いずれの場合も、削除されてから 7 日以内であれば Power Platform 管理センターから復元できます。
 
@@ -281,17 +294,12 @@ Power Platform には、使われていない Dataverse for Teams 環境を自�
 - [環境の復元 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment)
 
 
-<h2 id="summary">まとめ</h2>
+<a id='summary'></a>
+
+## まとめ
 
 - Dataverse for Teams 環境は、Teams 内でアプリ・エージェントの作成やアプリのインストールを行うと自動的に作られます。管理センターからは作成できません。
 - 環境作成を止めたい場合は、Teams 管理センターで Power Apps、Copilot Studio、サンプル アプリをブロックします。
 - 環境ごとに 2 GB の容量上限があり、テナント全体の環境数にも上限があります。
 - 90 日間使われていない環境は自動で無効化され、さらに 30 日放置すると自動で削除されます。
 - 削除された環境は 7 日以内であれば復元できます。
-
-
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-
-本記事の内容は執筆日時点の公開情報に基づいております。
-仕様や UI、制限事項は将来変更される可能性がございます。
-最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。

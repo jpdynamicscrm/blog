@@ -29,9 +29,10 @@ categories:
 - [特定の環境の容量消費（Database / File / Log）を制限する方法はあるか (Q3)](#q3)
 - [テナント全体の容量を超えた場合に起きること](#tenant-overage)
 - [まとめ](#summary)
-- [注意事項（情報の更新可能性）](#notice)
 
-<h2 id="q1">環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)</h2>
+<a id='q1'></a>
+
+## 環境の容量割り当てを 0 MB にすれば消費を止められるか (Q1)
 
 【結論】環境の容量割り当て（Database / File / Log）は、消費を制限する機能ではなく、超過状態を目視可能とする、管理者にメールで通知をお届けするための仕組みです。
 割り当てた量を超えた場合でも、その環境でのデータの保存や作成はそのまま継続されます。
@@ -47,7 +48,9 @@ categories:
 - [Dataverse 容量ベースのストレージの詳細 - よくあるご質問](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#frequently-asked-questions-faq)
 - [Dataverse 容量ベースのストレージの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage)
 
-<h2 id="q2">「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)</h2>
+<a id='q2'></a>
+
+## 「テナントで利用可能な容量から引き落とす」をオフにすればテナント容量は消費されないか (Q2)
 
 【結論】従量課金（Pay-as-you-go）を設定していない環境では、この設定のオン・オフによる動作の違いはございません。
 どちらの場合も、環境の消費分はテナント全体の容量から消費される動作となります。
@@ -78,7 +81,9 @@ categories:
 - [Dataverse 容量ベースのストレージの詳細 - 容量超過の管理](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#manage-capacity-overage)
 - [Dataverse 容量ベースのストレージの詳細 - 環境に容量を割り当てる](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#allocate-capacity-for-an-environment)
 
-<h2 id="q3">特定の環境の容量消費（Database / File / Log）を制限する方法はあるか (Q3)</h2>
+<a id='q3'></a>
+
+## 特定の環境の容量消費（Database / File / Log）を制限する方法はあるか (Q3)
 
 【結論】現時点では、特定の環境の容量消費（Database / File / Log）を制限する機能はご用意されておりません。
 
@@ -89,7 +94,9 @@ categories:
 こうした点を踏まえ、現在の仕組みでは消費自体は継続しつつ、メール通知で管理者にお知らせする設計となっています。
 
 
-<h2 id="tenant-overage">テナント全体の容量を超えた場合に起きること</h2>
+<a id='tenant-overage'></a>
+
+## テナント全体の容量を超えた場合に起きること
 
 環境単位の割り当てはソフトな制限ですが、テナント全体の容量を超過した場合には、一部の管理操作に影響が出ます。
 以下の操作は、テナント全体の容量超過が解消されるまでご利用いただけなくなります。
@@ -114,16 +121,12 @@ categories:
 - [Dataverse 容量ベースのストレージの詳細 - 記憶域容量の権利を超えるための変更](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#changes-for-exceeding-storage-capacity-entitlements)
 - [Dataverse 容量ベースのストレージの概要 - 組織がストレージの権利を超えた場合](https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage#what-happens-when-my-organization-exceeds-storage-entitlements)
 
-<h2 id="summary">まとめ</h2>
+<a id='summary'></a>
+
+## まとめ
 
 - 環境の容量割り当て（Database / File / Log）は、管理者への通知を目的としたソフトな制限であり、消費自体には影響しない
 - 割り当てを 0 MB にした場合でも環境のデータ消費は継続し、テナント全体の容量から消費される
 - 「テナントで利用可能な容量から引き落とす」は従量課金（Pay-as-you-go）環境向けの設定であり、従量課金なしの場合はオン・オフによる違いはない
 - テナント全体の容量を超えた場合は、環境の新規作成やコピーなどの管理操作に影響がある（既存データには影響なし）
 - 容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討いただきたい
-
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-
-本記事の内容は執筆日時点の公開情報に基づいております。
-仕様や UI、制限事項は将来変更される可能性がございます。
-最新の情報につきましては、公式ドキュメントもあわせてご参照いただけますと幸いです。
