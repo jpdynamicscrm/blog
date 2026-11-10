@@ -14,6 +14,13 @@ categories:
 
 本記事では Dataverse の環境容量割り当て（Database / File / Log）について、お問い合わせでよくいただくご質問を Q&A 形式でご説明いたします。
 
+> [!IMPORTANT]
+> 2026 年 11 月 10 日時点で、Microsoft Learn に次の記載があります。
+> - 現在は、電子メールの通知による「ソフトな強制」のみが有効です。
+> - 今後の Dataverse ストレージ検証のロールアウト後は、テナントが容量を超過した状態が解消されない場合、従量課金制が有効でないサンドボックス環境が段階的に制限される予定です。超過から 30 日後に管理モード (アクセスが管理者のみに限定) となり、90 日後に無効 (サインインが制限) となります。運用環境は対象外です。ロールアウトの時期は、メッセージ センターでご確認ください。
+>
+> 本記事の「環境への影響」に関する記載は、ロールアウト前の動作を前提としています。
+
 <!-- more -->
 
 ## この記事でわかること
@@ -37,15 +44,15 @@ categories:
 【結論】環境の容量割り当て（Database / File / Log）は、消費を制限する機能ではなく、超過状態を確認できるようにし、管理者にメールで通知するための仕組みです。
 割り当てた量を超えた場合でも、その環境でのデータの保存や作成はそのまま継続されます。
 
-そのため、割り当てを 0 MB に設定した場合でも、環境の中でファイルやデータが作成されると、テナント全体の容量から消費される動作となります。
+そのため、従量課金（Pay-as-you-go）を利用していない環境では、割り当てを 0 MB に設定した場合でも、環境の中でファイルやデータが作成されると、テナント全体の容量から消費される動作となります。
 
 【ポイント】
 1. 容量割り当ては「この環境にどれだけ使わせたいか」の目安を管理者が設定するためのものです。
 2. 割り当てを設定する際に、通知を受け取る閾値（パーセンテージ）を指定できます。消費量がその割合に達した際に、管理者へメール通知が届きます（データの保存には影響しません）。
-3. 0 MB に設定した場合でも、環境で発生するデータはテナント全体の容量から消費されます。
+3. 従量課金を利用していない環境では、0 MB に設定した場合でも、環境で発生するデータはテナント全体の容量から消費されます。
 
 ＜参考資料＞
-- [Dataverse 容量ベースのストレージの詳細 - よくあるご質問](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#frequently-asked-questions-faq)
+- [Dataverse 容量ベースのストレージの詳細 - よくあるご質問](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#frequently-asked-questions-about-storage-faq)
 - [Dataverse 容量ベースのストレージの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage)
 
 <a id='q2'></a>
@@ -78,7 +85,7 @@ categories:
 このように、従量課金環境では「Draw from the available capacity in my tenant」の設定によって課金先が変わります。一方、従量課金が紐づいていない環境では、この設定を切り替えても動作に違いはありません。
 
 ＜参考資料＞
-- [Dataverse 容量ベースのストレージの詳細 - 容量超過の管理](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#manage-capacity-overage)
+- [Dataverse 容量ベースのストレージの詳細 - ストレージの超過分を管理する](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#manage-storage-overage)
 - [Dataverse 容量ベースのストレージの詳細 - 環境に容量を割り当てる](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#allocate-capacity-for-an-environment)
 
 <a id='q3'></a>
@@ -108,17 +115,18 @@ categories:
 - 環境の回復（空き容量 1 GB 以上が必要）
 - 環境への Dataverse データベースの追加
 
-【補足】テナント容量を超えた場合でも、既存の環境に保存されているデータが消えることはありませんのでご安心ください。
-また、既存の環境でのデータの読み書きも引き続きご利用いただけます。
-影響があるのは上記のような「管理操作」に限られます。
+【補足】テナント容量を超えた場合でも、現時点では、既存の環境でのデータの読み書きは引き続きご利用いただけます。
+現時点で影響があるのは、上記のような「管理操作」です。
+ただし、今後のストレージ検証のロールアウト後は、超過が解消されない場合に、従量課金制が有効でないサンドボックス環境へのアクセスが段階的に制限される予定です (運用環境は対象外です)。詳細は、冒頭の注意と下記の参考資料をご確認ください。
 
 【ポイント】
-1. テナント全体の容量超過時に影響を受けるのは「管理操作」（環境の新規作成・コピー・復元など）です。
-2. 既存のデータが消えたり、環境が使えなくなったりすることはありません。
+1. 現時点で、テナント全体の容量超過時に影響を受けるのは「管理操作」（環境の新規作成・コピー・復元など）です。
+2. 現時点では、既存の環境でのデータの読み書きは引き続きご利用いただけます。今後は、従量課金制が有効でないサンドボックス環境に制限が適用される予定です。
 3. 容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討ください。
 
 ＜参考資料＞
 - [Dataverse 容量ベースのストレージの詳細 - 記憶域容量の権利を超えるための変更](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#changes-for-exceeding-storage-capacity-entitlements)
+- [Dataverse 容量ベースのストレージの詳細 - ストレージの超過ライフサイクル](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#storage-overage-lifecycle)
 - [Dataverse 容量ベースのストレージの概要 - 組織がストレージの権利を超えた場合](https://learn.microsoft.com/ja-jp/power-platform/admin/whats-new-storage#what-happens-when-my-organization-exceeds-storage-entitlements)
 
 <a id='summary'></a>
@@ -126,7 +134,7 @@ categories:
 ## まとめ
 
 - 環境の容量割り当て（Database / File / Log）は、管理者への通知を目的としたソフトな制限であり、消費自体には影響しません。
-- 割り当てを 0 MB にした場合でも環境のデータ消費は継続し、テナント全体の容量から消費されます。
+- 割り当てを 0 MB にした場合でも環境のデータ消費は継続し、従量課金を利用していない環境ではテナント全体の容量から消費されます。
 - 「テナントで利用可能な容量から引き落とす」は従量課金（Pay-as-you-go）環境向けの設定であり、従量課金なしの場合はオン・オフによる違いはありません。
-- テナント全体の容量を超えた場合は、環境の新規作成やコピーなどの管理操作に影響があります（既存データには影響ありません）。
+- テナント全体の容量を超えた場合は、環境の新規作成やコピーなどの管理操作に影響があります（現時点では、既存の環境でのデータの読み書きには影響ありません）。
 - 容量に余裕がなくなった場合は、不要データの整理や追加容量のご購入をご検討ください。

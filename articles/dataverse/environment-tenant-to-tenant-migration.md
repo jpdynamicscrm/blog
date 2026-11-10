@@ -11,8 +11,6 @@ categories:
   - [Dataverse]
 ---
 
-#  環境のテナント移行について
-
 こんにちは、Power Platform サポート チームの島です。
 本記事では、Power Platform の Dataverse あり環境を他のテナントに移行するプロセスについてご案内します。
 <!-- more -->

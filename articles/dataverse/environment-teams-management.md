@@ -10,14 +10,17 @@ categories:
   - [Dataverse]
 ---
 
-#  Dataverse for Teams 環境の管理方法
-
 こんにちは、Power Platform サポート チームの清水です。
 
 今回は、2020 年 9 月に新たに Teams に統合された Power Platform の機能について、その管理・制御方法やよくお問合せいただく内容に関して、詳しくご説明します。
 
 ライセンスが Teams に組み込まれているという性質上、管理にお困りの方も多いかと思います。
 この記事が皆様のお役に立ちましたら幸いです。
+
+> [!IMPORTANT]
+> Microsoft Dataverse for Teams 環境は非推奨です。2026 年 11 月 15 日以降は、Teams アプリのアクセス許可ポリシーに関係なく、新しい Dataverse for Teams 環境を作成できなくなります。Dataverse にアップグレードされていない既存の環境は、2027 年 9 月 15 日に停止され、2027 年 10 月 30 日に廃止される予定です。
+> 詳細については、[Teams 環境の Microsoft Dataverse について](https://learn.microsoft.com/ja-jp/power-platform/admin/about-teams-environment) と [Power Platform で予定されている重要な変更 (非推奨)](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-microsoft-dataverse-for-teams-environments) を参照してください。
+
 <!-- more -->
 
 ## Dataverse for Teams の概要
@@ -50,7 +53,7 @@ Dataverse for Teams 環境には以下の制限があります。
     各環境は、最大で 2 GB または 100 万行のデータを格納できます。
 - テナントごとのストレージ制限
     テナントごとのストレージ容量の上限は以下の式で決定されます。
-    ``` 10 GB + (環境数 * 2 GB) ```
+    ``` 環境数 * 2 GB ```
     また、ストレージ容量の上限は 19.5 TB となります。
 
 各テナントで作成可能な環境数は、Power Platform 管理センターからご確認ください。
@@ -117,7 +120,7 @@ Dataverse for Teams 環境で作成したアプリやボットを [同僚が作�
 参考: [Microsoft Dataverse for Teams 環境管理](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/teams-governance)
 
 CoE スターター キットとは、Power Platform での管理や開発を支援するためのツールです。
-[GitHub リポジトリ](https://github.com/microsoft/powerapps-tools/tree/master/Administration/CoEStarterKit) からダウンロードでき、Power Platform のソリューションとしてインストールされます。
+[GitHub リポジトリ](https://aka.ms/CoEStarterKitRepo) からダウンロードでき、Power Platform のソリューションとしてインストールされます。
 詳細については、[公開情報](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/overview) をご参照ください。
 
 ※注意事項
@@ -127,3 +130,9 @@ CoE スターター キットとは、Power Platform での管理や開発を支
 ## 注釈
 (※1) [公開情報](https://learn.microsoft.com/ja-jp/power-apps/teams/use-sample-apps-from-teams-store)に記載のサンプル アプリをインストールすると、Dataverse for Teams 環境が自動で作成されます。
 (※2) Microsoft 365 のライセンス数が 200,000 を超えるテナントに関しては、上限を引き上げたい場合、サポートまでお問合せください。
+
+## 参考情報
+
+- [Teams 環境の Microsoft Dataverse について](https://learn.microsoft.com/ja-jp/power-platform/admin/about-teams-environment)
+- [Power Platform で予定されている重要な変更 (非推奨)](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-microsoft-dataverse-for-teams-environments)
+- [インベントリ コンポーネントを設定する](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/setup-core-components)

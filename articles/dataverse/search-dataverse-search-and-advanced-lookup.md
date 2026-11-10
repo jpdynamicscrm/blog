@@ -9,8 +9,6 @@ categories:
   - [Dataverse]
 ---
 
-#  2021 年 Wave2 で追加されたモデル駆動アプリの検索方法まとめ
-
 こんにちは、Power Platform サポート チームの島です。
 
 Power Platform の半期に一度の大規模リリース (Wave2) が日本リージョンで 10 月 11 日 (月) から一般公開されました。
@@ -85,19 +83,18 @@ Dataverse 検索に関しては、以下の画像のように、Power Platform �
 セキュリティ リスクの懸念から無効化を検討されている場合には、どちらの検索もユーザーに適切な権限が付与されているレコードのみ検索できるため、ご安心ください。
 
 ### 一部の環境で Dataverse 検索が有効化されていない
-現在のところ、Dataverse 検索は運用環境 (Production 環境) のみで有効化されています。
-サンドボックス環境など、その他の環境では既定で機能が無効化されています。これらの環境で Dataverse 検索をご利用の場合には、「各検索方法を無効化する方法」でご紹介した画面から機能を有効化できるので、ぜひお試しください。
+公開情報では、新しい運用環境 (Production 環境)、サンドボックス環境、既定の環境の種類では Dataverse 検索がオンに設定され、その他の種類の新しい環境では既定値に設定されると記載されています。
+Dataverse 検索が有効になっていない環境でご利用の場合には、「各検索方法を無効化する方法」でご紹介した画面から機能を有効化できるので、ぜひお試しください。
 なお、設定を有効化してから、実際に検索に利用するインデックスが構築されるまでには数時間以上 (きわめて大規模な環境の場合、最大数日) かかる場合があります。
 
 ### Dataverse 検索を有効にするとキャパシティの使用量が増えた
 Dataverse 検索では内部的に検索インデックスを作成していますが、この検索インデックスは Dataverse ストレージ容量のうち、データベース容量を使用します。
 そのため、Dataverse 検索を有効化した後、検索インデックスが構築されることでキャパシティ (Dataverse ストレージ容量) の使用量が増加します。
 具体的な増加量については、インデックス構築対象のテーブル・列・データ量にもよるためご案内をしておりません。
-ただし増加量は RelevanceSearch テーブルに反映されますので、もし環境ごとのキャパシティをご確認いただいた際に当該テーブルの使用量が増加している場合には、Dataverse 検索の対象となるテーブル・列を減らしていただくことをご検討ください。
+ただし増加量は DataverseSearch テーブル (旧称 RelevanceSearch) に反映されますので、もし環境ごとのキャパシティをご確認いただいた際に当該テーブルの使用量が増加している場合には、Dataverse 検索の対象となるテーブル・列を減らしていただくことをご検討ください。
 なお、Dataverse 検索の対象を減らしていただいた後、実際に削減がキャパシティに反映されるまでに最大 24 時間が必要です。
 
-公開情報 [新しい容量ストレージモデル](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#faq) より「よくあるご質問」>「DataverseSearch テーブルとは、またどうすればそれを減らすことができますか」にもご案内がありますので、ぜひご参照ください。
-※本記事公開時点では、DataverseSearch を RelevanceSearch と読み替えいただけますと幸いです。
+公開情報 [Dataverse 容量に基づくストレージの詳細](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#faq) の「Dataverse 検索に関してよく寄せられる質問 (FAQ)」>「DataverseSearch テーブルとは何ですか。また、どのようにしてこれを減らすことができますか。」にもご案内がありますので、ぜひご参照ください。
 
 
 ## 関連する公開情報
@@ -110,6 +107,8 @@ Dataverse 検索では内部的に検索インデックスを作成していま�
 [モデル駆動型 Power Apps のすべてのユーザー向けの高度なルックアップ機能](https://learn.microsoft.com/ja-jp/power-platform-release-plan/2021wave2/power-apps/advanced-lookup-capabilities-all-end-users-model-driven-power-apps)
 - 2021 年 Wave2 を含む、リリース計画の全体
 [Dynamics 365 および Microsoft Power Platform のリリース計画](https://learn.microsoft.com/ja-jp/dynamics365/release-plans/)
+- Dataverse 検索の既定値とストレージ容量について
+[Dataverse 容量に基づくストレージの詳細](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage)
 
 
 ## おわりに

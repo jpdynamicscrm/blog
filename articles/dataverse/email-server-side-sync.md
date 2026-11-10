@@ -10,8 +10,6 @@ categories:
   - [Dataverse]
 ---
 
-# Dataverse と Exchange Online のサーバー側同期
-
 こんにちは、Power Platform サポート チームの鎌田です。
 Dynamics 365 で使用される Dataverse と Outlook のメール サーバーである Exchange サーバーを同期させることで、予定、連絡先、およびタスクを Dynamics 365 と Outlook でシームレスに連携できます。
 本記事では、Dataverse と Exchange Online のサーバー側同期についてご案内いたします。
@@ -79,9 +77,9 @@ Dynamics 365 App for Outlook は Outlook から Dynamics 365 のレコードを�
 
 以下のいずれかの方法でメールを追跡できます。
 
-- 追跡したいメールを選択した状態で **分類** をクリックし、Track To Dynamics 365 の分類を付与することで、対象のメールを追跡できます。Dynamics 365 へ正しく連携できなかった場合、分類のタグが Tracked To Dynamics 365 (Undeliverable) になります。<br>![](./email-server-side-sync/outlook_classification.png)
+- 追跡したいメールを選択した状態で **分類** をクリックし、Tracked To Dynamics 365 の分類を付与することで、対象のメールを追跡できます。Dynamics 365 へ正しく連携できなかった場合、分類のタグが Tracked To Dynamics 365 (Undeliverable) になります。<br>![](./email-server-side-sync/outlook_classification.png)
 
-- Dynamics 365 App for Outlook を利用してメールを追跡することもできます。追跡対象外のメールで [関連を設定せずに追跡] とすると上の方法と同じく Track To Dynamics 365 の分類タグがつき、メールを追跡できます。<br>![](./email-server-side-sync/outlook_d365afo_track_mail.png)
+- Dynamics 365 App for Outlook を利用してメールを追跡することもできます。追跡対象外のメールで [関連を設定せずに追跡] とすると上の方法と同じく Tracked To Dynamics 365 の分類タグがつき、メールを追跡できます。<br>![](./email-server-side-sync/outlook_d365afo_track_mail.png)
 
 Dynamics 365 アプリの [営業ハブ] > [活動] > [すべての電子メール] より、上記の方法で追跡した電子メール レコードが確認できます。同期には 5 分から 15 分程度かかる場合があります。
 <br>![](./email-server-side-sync/d365_mail_record.png)
@@ -90,7 +88,7 @@ Dynamics 365 アプリの [営業ハブ] > [活動] > [すべての電子メー�
 
 ## 予定の追跡
 
-Outlook より [予定表] を開き、追跡対象の予定を右クリックして先ほどのメールの追跡と同様に Track To Dynamics 365 の分類を付与することで、対象の予定を追跡できます。<br>![](./email-server-side-sync/outlook_calender_sync.png)
+Outlook より [予定表] を開き、追跡対象の予定を右クリックして先ほどのメールの追跡と同様に Tracked To Dynamics 365 の分類を付与することで、対象の予定を追跡できます。<br>![](./email-server-side-sync/outlook_calender_sync.png)
 Dynamics 365 アプリの [営業ハブ] > [活動] > [すべての予定] より、上記の方法で追跡した予定レコードが確認できます。同期には 5 分から 15 分程度かかる場合があります。<br>![](./email-server-side-sync/d365_schedule_record.png)
 
 <a id='personal-settings'></a>

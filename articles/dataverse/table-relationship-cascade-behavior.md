@@ -8,7 +8,6 @@ tags:
 categories:
   - [Dataverse]
 ---
-# テーブルのリレーションシップとカスケード
 
 こんにちは、Power Platform サポート チームの鈴木です。  
 

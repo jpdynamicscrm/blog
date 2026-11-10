@@ -9,8 +9,6 @@ categories:
   - [Dataverse]
 ---
 
-# Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法
-
 こんにちは、Power Platform サポート チームの河津です。
 
 本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートしている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&A 形式でご案内いたします。
@@ -44,7 +42,7 @@ Append モード（CSV 形式）をご利用の場合、インクリメンタル
 
 ただし、公式ドキュメントでは以下のように記載されています。
 
-> ニアリアルタイム同期のパフォーマンスは、初期データロードサイズ、データチャーンレート、変更量など複数の要因に依存します。（中略）このような高ボリュームのシナリオでは、ニアリアルタイムのデータ可用性は保証されません。
+> ほぼリアルタイムの同期パフォーマンスは、初期データ読み込みサイズ、データ変更頻度、変更量など、いくつかの要因によって異なります。（中略）このような大量のシナリオでは、ほぼリアルタイムでのデータの可用性を保証することはできません。
 
 ＜参考資料＞
 - [Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data)

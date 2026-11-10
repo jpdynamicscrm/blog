@@ -10,7 +10,6 @@ categories:
   - [Dataverse]
   - [Power Apps, Model-driven app]
 ---
-#  Dataverse の監査ログをエクスポートする方法
 
 こんにちは、Power Platform サポートチームの鈴木です。  
 
@@ -19,8 +18,8 @@ Dataverse の監査ログの取得や、確認方法については下記公開�
 (ご参考 : [Dataverse 監査を管理する](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-dataverse-auditing))  
 
 サポートチームでは、監査概要ビューの内容をエクスポートしたい、というお問い合わせをいただくことがありますが、2023 年 4 月現在では、Dataverse 監査ログのエクスポート機能を提供していません。
-そこで、今回は XRMToolBox というサードパーティ製のツールを使用したエクスポート方法をご紹介します。  
-XRMToolBox は当社提供のツールではないため、詳細な使用方法やエラーへの対処は提供元へご確認ください。あらかじめご了承のうえ、ご利用ください。  
+そこで、今回は XrmToolBox というサードパーティ製のツールを使用したエクスポート方法をご紹介します。  
+XrmToolBox は当社提供のツールではないため、詳細な使用方法やエラーへの対処は提供元へご確認ください。あらかじめご了承のうえ、ご利用ください。  
 
 
 <!-- more -->
@@ -28,13 +27,13 @@ XRMToolBox は当社提供のツールではないため、詳細な使用方法
 
 ## 事前準備  
 
-XRMToolBox とは、Dataverse に接続し、操作できる Windows アプリケーションとなります。  
+XrmToolBox とは、Dataverse に接続し、操作できる Windows アプリケーションとなります。  
 事前にインストールし、接続設定を行うことで、Web API でしか実行できないような Dataverse 環境に対する様々なアクションを GUI 操作によって可能にします。  
 
-1. XRMToolBox を以下のサイトよりダウンロードします。  
-    [XRMToolBox 公式サイト](https://www.xrmtoolbox.com/)
+1. XrmToolBox を以下のサイトよりダウンロードします。  
+    [XrmToolBox 公式サイト](https://www.xrmtoolbox.com/)
 
-2. XRMToolBox アプリケーションを開きます。  
+2. XrmToolBox アプリケーションを開きます。  
 
 3. Configuration タブより Manage connections を選択します。  
     ![](./audit-log-export/image01.png)
@@ -51,13 +50,13 @@ XRMToolBox とは、Dataverse に接続し、操作できる Windows アプリ�
 
 8. Connection が作成されたことを確認し、Connections Manager ウィンドウを閉じます。  
 
-これで、XRMToolBox のインストールと Dataverse 環境への接続が完了です。  
+これで、XrmToolBox のインストールと Dataverse 環境への接続が完了です。  
 
 
 
 ## ツールのインストール
 
-XRMToolBox には、様々なツールが存在しますが、今回は監査ログをエクスポートするための、Attribute Audit Explorer というツールを使用します。  
+XrmToolBox には、様々なツールが存在しますが、今回は監査ログをエクスポートするための、Attribute Audit Explorer というツールを使用します。  
 Attribute Audit Explorer の詳細については、下記をご参照ください。  
 (ご参考 : [Audit Explorer Plugin](https://www.xrmtoolbox.com/plugins/MESquare.XrmToolBox.AuditExplorer/))  
 
@@ -102,6 +101,11 @@ Attribute Audit Explorer の詳細については、下記をご参照くださ�
 
 ## おわりに
 
-Microsoft 365 のコンプライアンスセンターから Dataverse に関する監査ログを確認し、エクスポートする方法もあります。  
+Microsoft Purview ポータル (旧 Microsoft Purview コンプライアンス ポータル) から Dataverse に関する監査ログを確認し、エクスポートする方法もあります。  
 しかし現時点では、Dataverse 環境に関しては監査概要ビューから確認することで、レコードに対する変更履歴が分かりやすく表示されるため、ご利用いただいているユーザー様も多数いらっしゃるかと思います。  
-監査概要ビューでは提供していないエクスポート機能が、XRMToolBox を利用することで可能となりますので、ぜひご活用いただけますと幸いです。  
+監査概要ビューでは提供していないエクスポート機能が、XrmToolBox を利用することで可能となりますので、ぜひご活用いただけますと幸いです。
+
+## 参考情報
+- [Microsoft Dataverse 用コミュニティ ツール](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/community-tools)
+- [Microsoft Purview で Microsoft Dataverse とモデル駆動型アプリ アクティビティ ログを表示する](https://learn.microsoft.com/ja-jp/power-platform/admin/activity-logging-auditing/activity-logs-dataverse-model-driven-apps)
+- [Microsoft Purview ポータルの詳細](https://learn.microsoft.com/ja-jp/purview/purview-portal)  

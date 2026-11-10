@@ -28,7 +28,10 @@ categories:
 各項目について公開情報内にも詳細を記載していますのでご参照ください。   
   
 なお、対象はあくまで Dataverse for Teams 環境となります。   
-環境が紐づいているチーム自体が削除されるわけではありませんので、ご安心ください。   
+環境が紐づいているチーム自体が削除されるわけではありませんので、ご安心ください。
+
+> [!IMPORTANT]
+> Microsoft Dataverse for Teams 環境は非推奨です。Dataverse にアップグレードされていない既存の環境は、2027 年 9 月 15 日に停止され、2027 年 10 月 30 日に廃止される予定です。停止の日付までは、本記事で説明する非アクティブ期間に基づく自動無効化と削除のスケジュールが引き続き適用されます。   
   
 <!-- more -->  
 ## 0. はじめに (本メカニズムの停止について)
@@ -212,5 +215,10 @@ Power Platform 管理センター > 環境 > 対象環境 > リソース > Power
          
 **Q：再有効化した場合、無効化前の情報が維持されるか？**  
 A：再有効化後または復元後は、無効化前の情報が維持されます。<br>
-削除されてしまいますと、無効化前の情報は復元できなくなりますのでご注意ください。<br> 
+復元可能な期間 (削除後 7 日以内) を過ぎて完全に削除されてしまいますと、無効化前の情報は復元できなくなりますのでご注意ください。<br> 
 <br>
+
+## 参考情報
+
+- [Power Platform 環境の自動削除](https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup)
+- [Power Platform で予定されている重要な変更 (非推奨) - Dataverse for Teams 環境の廃止](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-microsoft-dataverse-for-teams-environments)

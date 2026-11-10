@@ -10,8 +10,6 @@ categories:
   - [Dataverse]
 ---
 
-# Dataverse for Teams 環境の自動作成と削除の仕組みまとめ
-
 こんにちは、Power Platform サポート チームの中下です。
 
 本記事では Dataverse for Teams 環境の概要と、自動作成・削除の仕組みについて、以下の Q1～Q6 の質問に回答する形でご説明します。
@@ -22,6 +20,10 @@ categories:
 - [Q4: Dataverse for Teams 環境を手動で削除する方法を教えてください](#q4)
 - [Q5: 使われていない環境は自動的に削除されますか？](#q5)
 - [Q6: 削除された環境を元に戻すことはできますか？](#q6)
+
+> [!IMPORTANT]
+> Microsoft Dataverse for Teams 環境は非推奨です。2026 年 11 月 15 日以降は、Microsoft Teams から新しい Dataverse for Teams 環境を作成できなくなります。Dataverse にアップグレードされていない既存の環境は、2027 年 9 月 15 日に停止され、2027 年 10 月 30 日に廃止される予定です。環境を維持する場合は、2027 年 10 月 30 日までに Dataverse へアップグレードしてください。  
+> このため、Q1 と Q2 で説明する環境の自動作成は、2026 年 11 月 15 日以降は行われなくなります。Q5 で説明する非アクティブな環境の自動無効化と削除は、環境が停止される日付まで引き続き適用されます。
 
 <!-- more -->
 
@@ -71,7 +73,7 @@ Dataverse for Teams は、この Dataverse をベースにしていますが、T
 | ゲストの操作 | アプリの実行のみ (作成・編集は不可) | ロールに応じて操作可能 |
 
 Dataverse for Teams は、EDU A1 プランと SUB SKU を除く、Microsoft 365 の多くのプランに含まれています。
-つまり、すでに Microsoft 365 をお使いの場合は、追加の費用なしで利用できます。
+つまり、対象の Microsoft 365 プランをお使いの場合は、追加の費用なしで利用できます。
 
 ただし、Teams の外でアプリを使いたい場合や、外部システムから直接データにアクセスしたい場合は、環境を通常の Dataverse にアップグレードする必要があります。
 アップグレードには、Power Apps や Power Automate などのライセンスが別途必要です。
@@ -280,9 +282,7 @@ Power Platform には、使われていない Dataverse for Teams 環境を自�
 
 1. Power Platform 管理センターにサインインします。
 2. [環境] の一覧ページで、無効になった環境を選びます。
-3. 「詳細」ペインの [編集] を選びます。
-4. 「管理モード」の設定を「有効」に切り替えます。
-5. [保存] を選んで変更を反映します。
+3. 環境ページで [環境を再度有効にする] を選びます。
 
 【ポイント】
 1. 削除後 7 日以内であれば復元が可能
@@ -291,6 +291,7 @@ Power Platform には、使われていない Dataverse for Teams 環境を自�
 
 ＜参考資料＞
 - [非アクティブな Dataverse for Teams 環境の自動削除 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/inactive-teams-environment)
+- [Power Platform 環境の自動削除 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup)
 - [環境の復元 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment)
 
 
@@ -303,3 +304,6 @@ Power Platform には、使われていない Dataverse for Teams 環境を自�
 - 環境ごとに 2 GB の容量上限があり、テナント全体の環境数にも上限があります。
 - 90 日間使われていない環境は自動で無効化され、さらに 30 日放置すると自動で削除されます。
 - 削除された環境は 7 日以内であれば復元できます。
+
+＜参考資料＞
+- [Power Platform で予定されている重要な変更 (非推奨) - Dataverse for Teams 環境の廃止 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-microsoft-dataverse-for-teams-environments)

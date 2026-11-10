@@ -10,8 +10,6 @@ categories:
   - [Power Platform Admin Center]
 ---
 
-# セキュリティ グループとセキュリティ ロールによる Dataverse 環境のアクセス権制御方法
-
 こんにちは、Power Platform サポート チームの鎌田です。
 
 今回は、Power Platform、特に Dataverse を作成した環境に対して、セキュリティ グループやセキュリティ ロールを使ってアクセスを制御する方法についてご紹介いたします。

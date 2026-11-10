@@ -9,8 +9,6 @@ categories:
   - [Dataverse]
 ---
 
-# Dataverse 容量不足を解消！一括削除機能の使い方と注意点まとめ
-
 こんにちは、Power Platform サポートチームの中下です。
 
 本記事では Dataverse の容量削減について、以下の Q1～Q5 の質問に回答する形でご説明します。
@@ -42,7 +40,7 @@ categories:
 
 ## Dataverse の「一括削除」とは (Q1)
 
-【結論】条件を指定して大量のデータをバックグラウンドで安全に削除し、Dataverse の容量を空けるための標準機能です。
+【結論】条件を指定して大量のデータをバックグラウンドで削除し、Dataverse の容量を空けるための標準機能です。
 
 Dataverse 容量が増加すると、環境の動作パフォーマンスが低下したり、テナントの容量がひっ迫するおそれがあります。このような場合、手動で 1 件ずつデータを消すのは現実的ではありません。
 
@@ -110,7 +108,7 @@ Dataverse 容量が増加すると、環境の動作パフォーマンスが低�
 
 ## 実行時の注意点とリスク (Q4)
 
-【結論】一度削除したデータは元に戻せません。また、定期実行の設定を変更するとジョブが解除されてしまうため注意が必要です。
+【結論】削除したデータは、削除されたレコードの保持を有効にしていない場合や、一括削除ウィザードで「完全削除」を選択した場合は、元に戻せません。また、定期実行の設定を変更するとジョブが解除されてしまうため注意が必要です。
 
 一括削除を実行する前に、以下のリスクと「よくある失敗」を確認してください。
 
@@ -131,22 +129,25 @@ Dataverse 容量が増加すると、環境の動作パフォーマンスが低�
 - [環境のバックアップと復元 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/backup-restore-environments)
 - [テーブルの関連付けの動作 (Docs)](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/create-edit-entity-relationships#table-relationship-behavior)
 - [削除されたテーブル レコードを復元する - プレビュー (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/restore-deleted-table-records)
-- [削除されたレコード機能で現在サポートされていないテーブル (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/restore-deleted-table-records#tables-not-currently-supported-for-the-deleted-records-feature)
+- [削除されたレコード機能で現在サポートされていないテーブル (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/restore-deleted-table-records#tables-that-the-deleted-records-setting-doesnt-support)
+- [レコードの一括削除 - Power Apps で削除されたレコードを復元する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/delete-bulk-records#restore-deleted-records-in-power-apps)
 
 <a id='q5'></a>
 
 ## 容量反映のタイムラグ (Q5)
 
-【結論】削除後、容量レポートに反映されるまで最大 24 ～ 48 時間かかる場合があります。
+【結論】削除後、容量レポートに反映されるまで最大 24 ～ 48 時間 (監査ログの削除は最大 72 時間) かかる場合があります。
 
 「一括削除ジョブが『成功』になったのに、管理センターの容量グラフが減っていない」というお問い合わせをよくいただきます。これは不具合ではなく、仕様によるタイムラグです。
 
 Dataverse の容量計算はリアルタイムではなく、非同期の集計処理によって行われています。削除処理が完了してから、その結果が容量レポートの数値に反映されるまで、通常 24 時間程度、場合によっては 48 時間ほどかかることがあります。
+監査ログを削除した場合は、ストレージ情報の更新に最大 72 時間かかることがあります。
 
 削除直後に減っていなくても焦らず、翌日以降に再度確認してみてください。もし数日経っても変化がない場合は、削除したデータ量が全体に対して微々たるものだった可能性や、インデックスなどのシステム領域が再計算されていない可能性が考えられます。
 
 ＜参考資料＞
 - [新しい Microsoft Dataverse ストレージ容量 - 容量ページの詳細 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#capacity-page-details)
+- [ストレージの空きを増やす (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/free-storage-space)
 
 <a id='summary'></a>
 
@@ -156,7 +157,7 @@ Dataverse の容量不足は、システムの安定稼働に関わる重要な�
 
 - **一括削除機能**: 条件を指定して大量データをバックグラウンドで削除できます。
 - **監査ログ**: 専用の管理画面から削除します。
-- **注意点**: 復元できないため、バックアップを推奨します。関連データの削除にご注意ください。
-- **反映**: 容量レポートへの反映には 1～2 日かかることがあります。
+- **注意点**: 完全に削除したデータは復元できないため、バックアップを推奨します。関連データの削除にご注意ください。
+- **反映**: 容量レポートへの反映には 1～2 日 (監査ログの削除は最大 72 時間) かかることがあります。
 
 まずは「成功した古いシステムジョブ」など、業務影響のない安全なデータから削除設定を試してみることをおすすめします。

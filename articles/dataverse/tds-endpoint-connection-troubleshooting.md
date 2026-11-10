@@ -17,8 +17,6 @@ toc:
   list_number: false
 ---
 
-# 外部アプリから Dataverse の TDS endpoint に接続できないときの確認ポイント
-
 こんにちは、Power Platform サポート チームの王です。
 
 Power BI Desktop、SQL Server Management Studio (SSMS)、Excel などの外部アプリケーションから Dataverse に接続しようとした際に、次のようなエラーや症状が発生することがあります。
@@ -59,7 +57,7 @@ Dataverse の TDS endpoint は、Power BI Desktop、SSMS、Excel などの外部
 
 - TDS endpoint への接続には TCP 1433 または 5558 が必要です。
 - 1433 が使えない場合は 5558 を利用できますが、接続先 URL に ,5558 を付与する必要があります。  
-  ※ Power BI Desktop の Dataverse 接続は URL の指定がご利用いただけません。
+  ※ Power BI Desktop で 5558 を使う場合は、Power Query M で、環境 URL に `,5558` を付けたソースを作成する必要があります。
 - 多くのプロキシ サーバーは TDS プロトコルを適切に処理できません。
 - TDS 通信では 1433/5558 から 443 へのポート リダイレクトが発生し、SSL inspection が干渉することがあります。
 - TDS endpoint のユーザー レベル制御が有効な場合、権限不足で authentication error や missing privilege error になることがあります。
@@ -108,7 +106,7 @@ Power Apps や Dataverse に接続しているものと同じ組織アカウン�
 また、アプリに古い資格情報が残っていると、誤ったテナントやアカウントで接続を試みて失敗することがあります。
 
 - Power BI Desktop の場合: File > Options and settings > Data source settings から資格情報をクリアして再サインイン
-- SSMS の場合: Azure Active Directory 認証を選択し、正しいアカウントで接続
+- SSMS の場合: Microsoft Entra ID 認証を選択し、正しいアカウントで接続
 
 ### 確認 4. TCP 1433 / 5558 の疎通を確認する
 
@@ -214,8 +212,8 @@ Dataverse 側のログにも TDS セッションが一切記録されないた�
 
 Zscaler、Netskope などのクラウド プロキシを経由する環境で確認された原因です。
 
-TDS プロトコルは HTTP ではなく TCP レベルのプロトコルであるため、多くの Web プロキシでは正しく処理できません。
-Azure Virtual Desktop やシンクライアントからクラウド プロキシ経由でインターネットに接続する構成では、TDS トラフィックがプロキシでインターセプトされ、接続に失敗します。
+TDS プロトコルは HTTP とは異なるアプリケーション レベルのプロトコルであるため、多くの Web プロキシでは正しく処理できません。
+Azure Virtual Desktop やシンクライアントからクラウド プロキシ経由でインターネットに接続する構成では、TDS トラフィックがプロキシでインターセプトされ、接続に失敗することがあります。
 
 **対処方法**: PAC ファイルまたはクラウド プロキシの管理画面で、Power Platform 関連の FQDN (`*.dynamics.com`、`*.crm#.dynamics.com` など) をプロキシ バイパスに設定してください。
 
@@ -284,3 +282,7 @@ DNS 解決で A レコード (IPv4) と AAAA レコード (IPv6) の両方が返
 - [Control access of the TDS endpoint](https://learn.microsoft.com/power-platform/admin/control-tds-settings)
 - [Set up the Power BI dashboard - Troubleshooting](https://learn.microsoft.com/power-platform/guidance/coe/setup-powerbi#troubleshooting)
 - [Power Platform URLs and IP address ranges](https://learn.microsoft.com/power-platform/admin/online-requirements)
+- [Power Query Dataverse コネクタ](https://learn.microsoft.com/ja-jp/power-query/connectors/dataverse)
+- [Microsoft Dataverse コネクタを使用して Power BI レポートを作成する](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/data-platform-powerbi-connector)
+- [SQL を使用してデータのクエリを実行する (Microsoft Dataverse)](https://learn.microsoft.com/ja-jp/power-apps/developer/data-platform/dataverse-sql-query)
+- [TDS エンドポイントのアクセスを制御する](https://learn.microsoft.com/ja-jp/power-platform/admin/control-tds-settings)

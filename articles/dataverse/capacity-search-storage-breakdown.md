@@ -10,8 +10,6 @@ categories:
   - [Dataverse]
 ---
 
-# Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）
-
 こんにちは、Power Platform サポートチームの鈴木です。
 
 本記事では Dataverse Search のストレージ内訳について、以下の Q1～Q5 の質問に回答する形でご説明します。
@@ -59,15 +57,17 @@ Power Platform 管理センターのテーブル容量画面では合計のみ�
 
 【補足】不要なテーブルや列を検索対象から外すことで容量を抑えられます。
 必要に応じて、環境設定の Dataverse 検索を「既定（Default）」または「オフ（Off）」にすることで、容量を抑えられます。(モデル駆動型アプリのグローバル検索用の検索ボックスは表示されなくなります。)
+ただし、「オフ」にすると、12 時間以内にインデックスが削除され、Copilot や Copilot Studio のエージェントなど、Dataverse 検索のデータを使うエクスペリエンスも制限されます。再度有効にする場合は完全同期が必要になるため、影響を確認したうえで設定してください。
 
 【容量削減のためのポイント】
 1. 検索対象テーブルの見直し（業務で検索しない履歴テーブルなどは対象外）
 2. 検索対象列の削減（フリーテキストに不要な列は対象外）
-3. 必要な場合のみ環境で検索機能を「既定」や「オフ」に設定
+3. 必要な場合のみ環境で検索機能を「既定」や「オフ」に設定 (「オフ」にする場合は、上記の影響にご注意ください)
 
 ＜参考資料＞
 - [テーブルと行を Dataverse 検索で検索する（対象列の種類の説明）](https://learn.microsoft.com/ja-jp/power-apps/user/relevance-search#understand-search-results)
 - [Dataverse 検索の構成（対象テーブル・列の設定手順）](https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization#select-tables-for-dataverse-searchs-global-search)
+- [Dataverse 検索の構成（Dataverse 検索の管理・オフにした場合の影響）](https://learn.microsoft.com/ja-jp/power-platform/admin/configure-relevance-search-organization#managing-dataverse-search)
 - [Dataverse 検索の効率的な管理（テーブル/列の外し方）](https://learn.microsoft.com/ja-jp/power-apps/user/relevance-search-benefits#what-actions-can-makers-or-admins-take-to-manage-dataverse-search-efficiently)
 
 <a id='q3'></a>
@@ -130,7 +130,7 @@ Xrm.WebApi.retrieveMultipleRecords(
 - [環境内のモデル駆動型アプリの Copilot の有効/無効化](https://learn.microsoft.com/ja-jp/power-apps/maker/model-driven-apps/add-ai-copilot#enable-copilot-for-model-driven-apps-in-your-environment)
 - [MCS（Microsoft Copilot Studio）で Knowledge Source の追加](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/knowledge-add-dataverse)
 - [営業ハブ における Copilot の機能](https://learn.microsoft.com/ja-jp/dynamics365/sales/enable-setup-copilot#turn-copilot-features-on-or-off-in-sales-hub)
-- [Customer Service における Copilot の機能](https://learn.microsoft.com/ja-jp/dynamics365/customer-service/administer/configure-copilot-features#opt-out-of-using-copilot-features)
+- [Customer Service における Copilot の機能](https://learn.microsoft.com/ja-jp/dynamics365/customer-service/administer/configure-copilot-features#opt-out-of-copilot-features)
   Copilot Service 管理センター アプリにアクセスし、以下から確認できる各機能を利用いただいていない場合には、無効化できます。
   - サポートエクスペリエンス > 生産性 > 質問やメールに使用する Copilot
   - サポートエクスペリエンス > 生産性 > 要約

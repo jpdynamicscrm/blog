@@ -81,7 +81,7 @@ categories:
 
 > [!IMPORTANT]
 > ライセンスの更新・購入には組織内の承認フローや、パートナー経由での手続きなど、時間がかかるケースがあります。  
-> 環境が削除されてしまうと復元の難易度が上がりますので、サブスクリプションの更新は **有効期限が切れる前に** 余裕を持ってご計画ください。
+> 環境が削除された場合に回復できる期間は限られていますので、サブスクリプションの更新は **有効期限が切れる前に** 余裕を持ってご計画ください。
 
 <a id='anchor-recovery'></a>
 
@@ -109,7 +109,7 @@ categories:
 Get-AdminPowerAppSoftDeletedEnvironment
 
 # 環境を回復
-Recover-AdminPowerAppEnvironment -EnvironmentName <環境名> -WaitUntilFinished $true
+Recover-AdminPowerAppEnvironment -EnvironmentName <環境 ID> -WaitUntilFinished $true
 ```
 
 > [!NOTE]
@@ -135,7 +135,8 @@ Microsoft 365 側では無効 (Disabled) 状態でも管理者が管理センタ
 ### Q3. 開発者環境も同じ流れで無効化されますか？
 
 いいえ。開発者環境はサブスクリプション期限切れのクリーンアップではなく、**非アクティブ (Inactivity) ベースのクリーンアップ** の対象です。  
-開発者環境の場合、ユーザー活動がない状態が 30 日間続くと無効化され、無効化から 15 日後に削除されます。  
+開発者環境の場合、ユーザー活動がない状態が 30 日間 (マネージド環境である開発者環境は 60 日間) 続くと無効化され、無効化から 15 日後に削除されます。  
+なお、アンマネージド開発者環境は非推奨であり、活動の有無にかかわらず、2026 年 12 月 15 日以降に停止され、2027 年 1 月 15 日以降に削除される予定です。  
 詳細は [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/dataverse/environment-developer-inactive-auto-deletion/) をご参照ください。
 
 ### Q4. 環境が無効化された後、ライセンスを購入すれば自動で復旧しますか？
@@ -155,5 +156,6 @@ Power Platform 管理センターから環境の状態を確認できない場�
 - [Automatic deletion of Power Platform environments (英語)](https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup)
 - [Power Platform 環境の自動削除 (日本語)](https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup)
 - [環境の回復 - Recover environment](https://learn.microsoft.com/ja-jp/power-platform/admin/recover-environment)
+- [Recover-AdminPowerAppEnvironment](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powerapps.administration.powershell/recover-adminpowerappenvironment)
 - [Microsoft Power Platform のライセンスの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus)
 - [非アクティブな開発者環境の自動削除について](https://jpdynamicscrm.github.io/blog/dataverse/environment-developer-inactive-auto-deletion/)
