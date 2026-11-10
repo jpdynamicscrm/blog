@@ -8,10 +8,8 @@ tags:
   - マネージド環境
   - セキュリティロール
 categories:
-  - Power Platform
+  - [Power Platform Admin Center]
 ---
-
-# Power Platform パイプライン機能の概要・権限・運用ガイド
 
 こんにちは、Power Platformサポートチームの鈴木です。
 
@@ -26,7 +24,9 @@ categories:
 - [Q7: 既存の環境をカスタムホストとして利用できますか？](#q7)
 - [Q8: マネージド環境とパイプラインの関係は？](#q8)
 
-### この記事でわかること
+<!-- more -->
+
+## この記事でわかること
 - パイプラインとは何か、どのような場面で役立つかがわかる
 - 「プラットフォームホスト」と「カスタムホスト」の違いと選び方がわかる
 - パイプラインに関わる 3 つの主なロールの役割と関係がわかる
@@ -34,7 +34,9 @@ categories:
 - 個人用パイプラインの作成を制御する方法がわかる
 - マネージド環境とパイプラインの関係がわかる
 
-<h2 id="q1">Power Platform のパイプラインとは何ですか？ (Q1)</h2>
+<a id='q1'></a>
+
+## Power Platform のパイプラインとは何ですか？ (Q1)
 
 【結論】パイプラインとは、Power Platform で作ったアプリやフローなどの「ソリューション」を、開発用の環境からテスト用・本番用の環境へ簡単に届けるための仕組みです。
 
@@ -55,7 +57,9 @@ Dataverse のテーブルに保存されているデータそのものは配布�
 - [Power Platform のパイプラインの概要 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines)
 - [Power Platform でパイプラインを設定する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines)
 
-<h2 id="q2">プラットフォームホストとカスタムホストの違いは何ですか？ (Q2)</h2>
+<a id='q2'></a>
+
+## プラットフォームホストとカスタムホストの違いは何ですか？ (Q2)
 
 【結論】パイプラインの設定情報を保管する「ホスト環境」には「プラットフォームホスト」と「カスタムホスト」の 2 種類があります。
 目的や規模に応じて使い分けます。
@@ -89,7 +93,9 @@ Dataverse のテーブルに保存されているデータそのものは配布�
 - [カスタム パイプライン ホストを使用してパイプラインを作成する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines)
 - [Power Platform でパイプラインを設定する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines)
 
-<h2 id="q3">パイプラインに関わるロールにはどのようなものがありますか？ (Q3)</h2>
+<a id='q3'></a>
+
+## パイプラインに関わるロールにはどのようなものがありますか？ (Q3)
 
 【結論】パイプラインに関わる主なロールは次の 3 種類です。
 それぞれ管理できる範囲（スコープ）が異なります。
@@ -116,7 +122,9 @@ Dataverse のテーブルに保存されているデータそのものは配布�
 - [カスタム パイプライン ホストを使用してパイプラインを作成する - パイプラインを作成者と共有する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#share-pipelines-with-makers)
 - [プラットフォーム ホストを使用して個人用パイプラインを作成する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/platform-host-pipelines)
 
-<h2 id="q4">パイプラインを作成・管理するにはどのような権限が必要ですか？ (Q4)</h2>
+<a id='q4'></a>
+
+## パイプラインを作成・管理するにはどのような権限が必要ですか？ (Q4)
 
 【結論】パイプラインを作成・管理するために必要な権限は、プラットフォームホストを使う場合とカスタムホストを使う場合で異なります。
 
@@ -157,7 +165,9 @@ PPAC の環境ページから実行できます。
 - [サービス管理者ロールを使用してテナントを管理する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/use-service-admin-role-manage-tenant)
 - [高い特権を持つ管理者ロールを管理する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/manage-high-privileged-admin-roles)
 
-<h2 id="q5">パイプラインを実行するだけの場合、どのような権限が必要ですか？ (Q5)</h2>
+<a id='q5'></a>
+
+## パイプラインを実行するだけの場合、どのような権限が必要ですか？ (Q5)
 
 【結論】パイプラインの実行に必要な権限は、パイプラインの種類によって異なります。
 
@@ -190,7 +200,9 @@ PPAC の環境ページから実行できます。
 - [Power Platform でパイプラインを実行する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/run-pipeline)
 - [カスタム パイプライン ホストを使用してパイプラインを作成する - パイプラインを作成者と共有する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#share-pipelines-with-makers)
 
-<h2 id="q6">作成者が個人用パイプラインを自由に作れないように制御するには？ (Q6)</h2>
+<a id='q6'></a>
+
+## 作成者が個人用パイプラインを自由に作れないように制御するには？ (Q6)
 
 【結論】カスタムホストを既定のホストとして設定し、開発環境をカスタムホストに関連付けることで、プラットフォームホストでの個人用パイプライン作成を無効にできます。
 
@@ -225,7 +237,9 @@ PPAC の環境ページから実行できます。
 - [プラットフォーム ホストの代わりに既定のパイプライン ホストを設定する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/set-a-default-pipelines-host)
 - [管理者の展開ページ (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/admin-deployment-hub)
 
-<h2 id="q7">既存の環境をカスタムホストとして利用できますか？ (Q7)</h2>
+<a id='q7'></a>
+
+## 既存の環境をカスタムホストとして利用できますか？ (Q7)
 
 【結論】はい、既存の環境にパイプラインアプリをインストールすることで、カスタムホストとして利用できます。
 
@@ -248,7 +262,9 @@ PPAC の環境ページから実行できます。
 - [カスタム パイプライン ホストを使用してパイプラインを作成する - パイプライン アプリケーションをホスト環境にインストールする (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#install-the-pipelines-application-in-your-host-environment)
 - [カスタム パイプライン ホストを使用してパイプラインを作成する - 新しいカスタム ホストを作成する (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#create-a-new-custom-host)
 
-<h2 id="q8">マネージド環境とパイプラインの関係は？ (Q8)</h2>
+<a id='q8'></a>
+
+## マネージド環境とパイプラインの関係は？ (Q8)
 
 【結論】パイプラインのターゲット環境（配布先）はすべて「マネージド環境」として有効にする必要があります。
 開発環境やホスト環境はマネージド環境でなくても利用できます。
@@ -284,7 +300,9 @@ Microsoft 365 ライセンスのみのユーザーがいる場合は、マネー
 - [マネージド環境のライセンス (Docs)](https://learn.microsoft.com/ja-jp/power-platform/admin/managed-environment-licensing)
 - [Power Platform のパイプラインの概要 - ターゲット環境のマネージド環境の自動有効化 (Docs)](https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines#can-i-ensure-pipeline-targets-are-managed-environments)
 
-<h2 id="summary">まとめ</h2>
+<a id='summary'></a>
+
+## まとめ
 
 - パイプラインは、ソリューションの配布を手作業なしで行えるしくみです。個人で手軽に使える「プラットフォームホスト」と、組織全体で管理できる「カスタムホスト」の 2 種類があります。
 - パイプラインの管理には「Deployment Pipeline Administrator」ロール、実行には「Deployment Pipeline User」ロールを使い分けます。いずれの場合も、開発環境やターゲット環境への権限は別途必要です。
@@ -292,7 +310,9 @@ Microsoft 365 ライセンスのみのユーザーがいる場合は、マネー
 - ターゲット環境はマネージド環境である必要があり、マネージド環境ではプレミアムライセンスが必要です。Dynamics 365 Enterprise ライセンスがあれば要件を満たします。
 - パイプラインの日常的な運用では、Power Platform 管理者ロールは不要です。初期セットアップやテナント全体の管理が必要な場合にのみ使います。
 
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
+<a id='notice'></a>
+
+## 注意事項（情報の更新可能性）
 
 本記事の内容は執筆日時点の公開情報に基づいております。
 仕様や UI、制限事項は将来変更される可能性がございます。
