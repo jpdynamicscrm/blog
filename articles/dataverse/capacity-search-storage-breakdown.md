@@ -2,12 +2,12 @@
 title: Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）
 date: 2026-01-19 00:00:00
 tags:
-	- Dataverse
-	- 検索
-	- ストレージ
-	- Copilot
+  - Dataverse
+  - 検索
+  - ストレージ
+  - Copilot
 categories:
-	- [Dataverse]
+  - [Dataverse]
 ---
 
 # Dataverse Search のストレージ内訳と削減の考え方（Q&Aガイド）
