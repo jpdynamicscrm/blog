@@ -294,6 +294,3 @@ Power Pages に関する設定はレコードとして保存されているた�
 | 認証の概要 | https://learn.microsoft.com/power-pages/security/authentication/ |
 | Power Pages ブログ | https://powerpages.microsoft.com/en-us/blog/ |
 | コミュニティ | https://powerusers.microsoft.com/t5/Microsoft-Power-Pages-Community/ct-p/MPPCommunity |
-
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-本記事の内容は執筆日時点の公開情報に基づいております。仕様や UI、制限事項は将来変更される可能性がございます。最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。
