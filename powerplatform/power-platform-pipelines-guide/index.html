@@ -6,15 +6,15 @@
   
   <title>Power Platform パイプライン機能の概要・権限・運用ガイド | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platformサポートチームの鈴木です。 本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明させていただきます。  Q1: Power Platform のパイプラインとは何ですか？ Q2: プラットフォームホストとカスタムホストの違いは何ですか？ Q3: パイプラインに関わるロールにはどのようなものがあり">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの鈴木です。 本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明します。  Q1: Power Platform のパイプラインとは何ですか？ Q2: プラットフォーム ホストとカスタム ホストの違いは何ですか？ Q3: パイプラインに関わるロールにはどのようなものがありますか">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Power Platform パイプライン機能の概要・権限・運用ガイド">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-pipelines-guide/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platformサポートチームの鈴木です。 本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明させていただきます。  Q1: Power Platform のパイプラインとは何ですか？ Q2: プラットフォームホストとカスタムホストの違いは何ですか？ Q3: パイプラインに関わるロールにはどのようなものがあり">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの鈴木です。 本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明します。  Q1: Power Platform のパイプラインとは何ですか？ Q2: プラットフォーム ホストとカスタム ホストの違いは何ですか？ Q3: パイプラインに関わるロールにはどのようなものがありますか">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2026-04-06T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-11-10T03:33:22.892Z">
+<meta property="article:modified_time" content="2026-11-10T09:10:56.897Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="ALM">
 <meta property="article:tag" content="Power Platform">
@@ -156,47 +156,48 @@
         
         
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Power-Platform/">Power Platform</a>
+    <a class="article-category-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a>
   </div>
 
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3ed10283-7222-5ea4-bc85-bfae48d81b0d%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPower+Platform+%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E6%A9%9F%E8%83%BD%E3%81%AE%E6%A6%82%E8%A6%81%E3%83%BB%E6%A8%A9%E9%99%90%E3%83%BB%E9%81%8B%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fpowerplatform%2Fpower-platform-pipelines-guide%2F%29%0A*+Content+Source%3A+%5Barticles%2Fpowerplatform%2Fpower-platform-pipelines-guide.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fpowerplatform%2Fpower-platform-pipelines-guide.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-pipelines-guide/" data-id="cuid7HAnxVJLwvxD3x1rlVAMM" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/powerplatform/power-platform-pipelines-guide/" data-id="cuidp6fC6rM7j0I459EdwkwGi" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platformサポートチームの鈴木です。</p>
-<p>本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明させていただきます。</p>
+        <p>こんにちは、Power Platform サポートチームの鈴木です。</p>
+<p>本記事では Power Platform のパイプライン機能について、以下の Q1〜Q8 の質問に回答する形でご説明します。</p>
 <ul>
 <li><a href="#q1">Q1: Power Platform のパイプラインとは何ですか？</a></li>
-<li><a href="#q2">Q2: プラットフォームホストとカスタムホストの違いは何ですか？</a></li>
+<li><a href="#q2">Q2: プラットフォーム ホストとカスタム ホストの違いは何ですか？</a></li>
 <li><a href="#q3">Q3: パイプラインに関わるロールにはどのようなものがありますか？</a></li>
 <li><a href="#q4">Q4: パイプラインを作成・管理するにはどのような権限が必要ですか？</a></li>
 <li><a href="#q5">Q5: パイプラインを実行するだけの場合、どのような権限が必要ですか？</a></li>
 <li><a href="#q6">Q6: 作成者が個人用パイプラインを自由に作れないように制御するには？</a></li>
-<li><a href="#q7">Q7: 既存の環境をカスタムホストとして利用できますか？</a></li>
+<li><a href="#q7">Q7: 既存の環境をカスタム ホストとして利用できますか？</a></li>
 <li><a href="#q8">Q8: マネージド環境とパイプラインの関係は？</a></li>
 </ul>
-<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
-<li>パイプラインとは何か、どのような場面で役立つかがわかる</li>
-<li>「プラットフォームホスト」と「カスタムホスト」の違いと選び方がわかる</li>
-<li>パイプラインに関わる 3 つの主なロールの役割と関係がわかる</li>
-<li>パイプラインの作成・管理・実行に必要な権限の組み合わせがわかる</li>
-<li>個人用パイプラインの作成を制御する方法がわかる</li>
-<li>マネージド環境とパイプラインの関係がわかる</li>
-</ul>
-<h2 id="q1">Power Platform のパイプラインとは何ですか？ (Q1)</h2>
+<span id="more"></span>
 
-<p>【結論】パイプラインとは、Power Platform で作ったアプリやフローなどの「ソリューション」を、開発用の環境からテスト用・本番用の環境へ簡単に届けるための仕組みです。</p>
-<p>ふだん、アプリを作った環境（開発環境）から本番環境へ移すには、ソリューションを「エクスポートする」→「ファイルをダウンロードする」→「本番環境にインポートする」→「読み込む」という手作業が必要です。<br>パイプラインを使うと、この手作業を省いて、ボタンひとつで開発から本番への配布ができるようになります。</p>
+<h2 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h2><ul>
+<li>パイプラインとは何か、どのような場面で役立つかがわかる。</li>
+<li>「プラットフォーム ホスト」と「カスタム ホスト」の違いと選び方がわかる。</li>
+<li>パイプラインに関わる 3 つの主なロールの役割と関係がわかる。</li>
+<li>パイプラインの作成・管理・実行に必要な権限の組み合わせがわかる。</li>
+<li>個人用パイプラインの作成を制御する方法がわかる。</li>
+<li>マネージド環境とパイプラインの関係がわかる。</li>
+</ul>
+<p><a id='q1'></a></p>
+<h2 id="Power-Platform-のパイプラインとは何ですか？-Q1"><a href="#Power-Platform-のパイプラインとは何ですか？-Q1" class="headerlink" title="Power Platform のパイプラインとは何ですか？ (Q1)"></a>Power Platform のパイプラインとは何ですか？ (Q1)</h2><p>【結論】パイプラインとは、Power Platform で作ったアプリやフローなどの「ソリューション」を、開発用の環境からテスト用・本番用の環境へ簡単に届けるための仕組みです。</p>
+<p>ふだん、アプリを作った環境 (開発環境) から本番環境へ移すには、ソリューションを「エクスポートする」→「ファイルをダウンロードする」→「本番環境にインポートする」→「読み込む」という手作業が必要です。<br>パイプラインを使うと、この手作業を省いて、ボタンひとつで開発から本番への配布ができるようになります。</p>
 <p>パイプラインにはそのほかにも、次のような便利な機能があります。</p>
 <ul>
 <li>配布のスケジュール設定</li>
-<li>配布前の自動チェック（接続先や環境変数の検証）</li>
-<li>配布の履歴管理（いつ、誰が、何を配布したかの記録）</li>
-<li>承認フローとの連携（管理者の承認を得てから本番に配布）</li>
+<li>配布前の自動チェック (接続先や環境変数の検証)</li>
+<li>配布の履歴管理 (いつ、誰が、何を配布したかの記録)</li>
+<li>承認フローとの連携 (管理者の承認を得てから本番に配布)</li>
 </ul>
 <p>パイプラインが配布するのは「ソリューション」に含まれるアプリやフローなどの設定情報です。<br>Dataverse のテーブルに保存されているデータそのものは配布されません。</p>
 <p>＜参考資料＞</p>
@@ -204,32 +205,31 @@
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines">Power Platform のパイプラインの概要 (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines">Power Platform でパイプラインを設定する (Docs)</a></li>
 </ul>
-<h2 id="q2">プラットフォームホストとカスタムホストの違いは何ですか？ (Q2)</h2>
-
-<p>【結論】パイプラインの設定情報を保管する「ホスト環境」には「プラットフォームホスト」と「カスタムホスト」の 2 種類があります。<br>目的や規模に応じて使い分けます。</p>
-<p><strong>プラットフォームホスト</strong>は、Microsoft が自動で用意・管理するホスト環境です。<br>テナント内で誰かが初めてパイプラインページにアクセスした時点で、テナントのホームリージョンに自動でつくられます。<br>おもに「個人用パイプライン」に使われます。</p>
-<p><strong>カスタムホスト</strong>は、管理者が自分で作成・設定するホスト環境です。<br>組織全体で共有するパイプラインを管理したい場合に使います。</p>
+<p><a id='q2'></a></p>
+<h2 id="プラットフォーム-ホストとカスタム-ホストの違いは何ですか？-Q2"><a href="#プラットフォーム-ホストとカスタム-ホストの違いは何ですか？-Q2" class="headerlink" title="プラットフォーム ホストとカスタム ホストの違いは何ですか？ (Q2)"></a>プラットフォーム ホストとカスタム ホストの違いは何ですか？ (Q2)</h2><p>【結論】パイプラインの設定情報を保管する「ホスト環境」には「プラットフォーム ホスト」と「カスタム ホスト」の 2 種類があります。<br>目的や規模に応じて使い分けます。</p>
+<p><strong>プラットフォーム ホスト</strong>は、Microsoft が自動で用意・管理するホスト環境です。<br>テナント内で誰かが初めてパイプライン ページにアクセスした時点で、テナントのホーム リージョンに自動で作られます。<br>主に「個人用パイプライン」に使われます。</p>
+<p><strong>カスタム ホスト</strong>は、管理者が自分で作成・設定するホスト環境です。<br>組織全体で共有するパイプラインを管理したい場合に使います。</p>
 <table>
 <thead>
 <tr>
 <th>項目</th>
-<th>プラットフォームホスト</th>
-<th>カスタムホスト</th>
+<th>プラットフォーム ホスト</th>
+<th>カスタム ホスト</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>作成方法</td>
-<td>自動（初回アクセス時）</td>
+<td>自動 (初回アクセス時)</td>
 <td>管理者が手動で作成</td>
 </tr>
 <tr>
-<td>おもな用途</td>
+<td>主な用途</td>
 <td>個人用パイプライン</td>
 <td>組織共有のパイプライン</td>
 </tr>
 <tr>
 <td>つなげられる環境の数</td>
-<td>最大 3（開発 1 + 対象 2）</td>
+<td>最大 3 (開発 1 + 対象 2)</td>
 <td>最大 7 ステージ + 複数の開発環境</td>
 </tr>
 <tr>
@@ -244,8 +244,8 @@
 </tr>
 <tr>
 <td>データ容量の消費</td>
-<td>なし（Microsoft のインフラに保存）</td>
-<td>あり（Dataverse の容量を消費）</td>
+<td>なし (Microsoft のインフラに保存)</td>
+<td>あり (Dataverse の容量を消費)</td>
 </tr>
 <tr>
 <td>管理者のセットアップ</td>
@@ -255,11 +255,11 @@
 </tbody></table>
 <p>【ポイント】</p>
 <ol>
-<li>少人数で手軽に配布したいならプラットフォームホストで十分です</li>
-<li>組織全体でパイプラインを共有・管理したいならカスタムホストを使います</li>
-<li>プラットフォームホストのパイプラインデータは Dataverse の容量を消費しません</li>
-<li>カスタムホストは専用の環境として分けることが公式に推奨されています</li>
-<li>1 つの環境は 1 つのホストにしか関連付けできません</li>
+<li>少人数で手軽に配布したいならプラットフォーム ホストで十分です。</li>
+<li>組織全体でパイプラインを共有・管理したいならカスタム ホストを使います。</li>
+<li>プラットフォーム ホストのパイプラインデータは Dataverse の容量を消費しません。</li>
+<li>カスタム ホストは専用の環境として分けることが公式ドキュメントで推奨されています。</li>
+<li>1 つの環境は 1 つのホストにしか関連付けできません。</li>
 </ol>
 <p>＜参考資料＞</p>
 <ul>
@@ -267,34 +267,33 @@
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines">カスタム パイプライン ホストを使用してパイプラインを作成する (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines">Power Platform でパイプラインを設定する (Docs)</a></li>
 </ul>
-<h2 id="q3">パイプラインに関わるロールにはどのようなものがありますか？ (Q3)</h2>
-
-<p>【結論】パイプラインに関わる主なロールは次の 3 種類です。<br>それぞれ管理できる範囲（スコープ）が異なります。</p>
+<p><a id='q3'></a></p>
+<h2 id="パイプラインに関わるロールにはどのようなものがありますか？-Q3"><a href="#パイプラインに関わるロールにはどのようなものがありますか？-Q3" class="headerlink" title="パイプラインに関わるロールにはどのようなものがありますか？ (Q3)"></a>パイプラインに関わるロールにはどのようなものがありますか？ (Q3)</h2><p>【結論】パイプラインに関わる主なロールは次の 3 種類です。<br>それぞれ管理できる範囲 (スコープ) が異なります。</p>
 <table>
 <thead>
 <tr>
 <th>ロール名</th>
 <th>種類</th>
-<th>おもな役割</th>
+<th>主な役割</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><strong>システム管理者</strong> (System Administrator)</td>
-<td>各環境のセキュリティロール</td>
+<td>各環境のセキュリティ ロール</td>
 <td>その環境内のすべてを管理できる</td>
 </tr>
 <tr>
 <td><strong>Deployment Pipeline Administrator</strong></td>
-<td>パイプライン専用のセキュリティロール</td>
+<td>パイプライン専用のセキュリティ ロール</td>
 <td>ホスト環境内のパイプラインを管理できる</td>
 </tr>
 <tr>
 <td><strong>Power Platform 管理者</strong></td>
-<td>Microsoft Entra ID のテナントレベルの管理者ロール</td>
+<td>Microsoft Entra ID のテナント レベルの管理者ロール</td>
 <td>テナント内のすべての環境を管理できる</td>
 </tr>
 </tbody></table>
-<p>このほかに、パイプラインアプリをインストールすると、次のロールもホスト環境に追加されます。</p>
+<p>このほかに、パイプライン アプリをインストールすると、次のロールもホスト環境に追加されます。</p>
 <table>
 <thead>
 <tr>
@@ -304,15 +303,15 @@
 </thead>
 <tbody><tr>
 <td><strong>Deployment Pipeline User</strong></td>
-<td>共有されたパイプラインの実行のみ（作成や編集は不可）</td>
+<td>共有されたパイプラインの実行のみ (作成や編集は不可)</td>
 </tr>
 <tr>
 <td><strong>Deployment Pipeline Maker</strong></td>
-<td>カスタムホストで個人用パイプラインを作成・利用</td>
+<td>カスタム ホストで個人用パイプラインを作成・利用</td>
 </tr>
 <tr>
 <td><strong>Deployment Pipeline Default</strong></td>
-<td>軽量なパイプライン作成の権限（プラットフォームホストでは初回アクセス時に自動で付与）</td>
+<td>軽量なパイプライン作成の権限 (プラットフォーム ホストでは初回アクセス時に自動で付与)</td>
 </tr>
 </tbody></table>
 <p>【補足】「Deployment Pipeline Administrator」はパイプライン管理に特化したロールで、ホスト環境内のパイプライン関連の情報にだけアクセスできます。<br>ホスト環境のそのほかのデータには権限がありません。</p>
@@ -322,18 +321,17 @@
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#share-pipelines-with-makers">カスタム パイプライン ホストを使用してパイプラインを作成する - パイプラインを作成者と共有する (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/platform-host-pipelines">プラットフォーム ホストを使用して個人用パイプラインを作成する (Docs)</a></li>
 </ul>
-<h2 id="q4">パイプラインを作成・管理するにはどのような権限が必要ですか？ (Q4)</h2>
-
-<p>【結論】パイプラインを作成・管理するために必要な権限は、プラットフォームホストを使う場合とカスタムホストを使う場合で異なります。</p>
-<h3 id="プラットフォームホスト（個人用パイプライン）の場合"><a href="#プラットフォームホスト（個人用パイプライン）の場合" class="headerlink" title="プラットフォームホスト（個人用パイプライン）の場合"></a>プラットフォームホスト（個人用パイプライン）の場合</h3><p>プラットフォームホストでは、特別なロールの付与やセットアップは不要です。<br>開発環境のソリューション画面からパイプラインページにアクセスすると、自動的にパイプラインを作成できるようになります。</p>
-<p>ただし、配布先（ターゲット環境）として選べるのは、<strong>自分がソリューションの読み込み（インポート）権限を持っている環境だけ</strong>です。<br>この機能によってユーザーの権限が広がることはありません。</p>
-<p>【補足】初回アクセス時に、プラットフォームホスト環境の「Deployment Pipeline Makers」チームに自動的に追加され、「Deployment Pipeline Default」ロールが付与されます。</p>
-<h3 id="カスタムホスト（組織共有パイプライン）の場合"><a href="#カスタムホスト（組織共有パイプライン）の場合" class="headerlink" title="カスタムホスト（組織共有パイプライン）の場合"></a>カスタムホスト（組織共有パイプライン）の場合</h3><p>カスタムホストでパイプラインを作成・管理するには、ホスト環境で次のいずれかのロールが必要です。</p>
+<p><a id='q4'></a></p>
+<h2 id="パイプラインを作成・管理するにはどのような権限が必要ですか？-Q4"><a href="#パイプラインを作成・管理するにはどのような権限が必要ですか？-Q4" class="headerlink" title="パイプラインを作成・管理するにはどのような権限が必要ですか？ (Q4)"></a>パイプラインを作成・管理するにはどのような権限が必要ですか？ (Q4)</h2><p>【結論】パイプラインを作成・管理するために必要な権限は、プラットフォーム ホストを使う場合とカスタム ホストを使う場合で異なります。</p>
+<h3 id="プラットフォーム-ホスト-個人用パイプライン-の場合"><a href="#プラットフォーム-ホスト-個人用パイプライン-の場合" class="headerlink" title="プラットフォーム ホスト (個人用パイプライン) の場合"></a>プラットフォーム ホスト (個人用パイプライン) の場合</h3><p>プラットフォーム ホストでは、特別なロールの付与やセットアップは不要です。<br>開発環境のソリューション画面からパイプライン ページにアクセスすると、自動的にパイプラインを作成できるようになります。</p>
+<p>ただし、配布先 (ターゲット環境) として選べるのは、<strong>自分がソリューションの読み込み (インポート) 権限を持っている環境だけ</strong>です。<br>この機能によってユーザーの権限が広がることはありません。</p>
+<p>【補足】初回アクセス時に、プラットフォーム ホスト環境の「Deployment Pipeline Makers」チームに自動的に追加され、「Deployment Pipeline Default」ロールが付与されます。</p>
+<h3 id="カスタム-ホスト-組織共有パイプライン-の場合"><a href="#カスタム-ホスト-組織共有パイプライン-の場合" class="headerlink" title="カスタム ホスト (組織共有パイプライン) の場合"></a>カスタム ホスト (組織共有パイプライン) の場合</h3><p>カスタム ホストでパイプラインを作成・管理するには、ホスト環境で次のいずれかのロールが必要です。</p>
 <ul>
-<li><strong>Deployment Pipeline Administrator</strong>（パイプライン管理の専用ロール）</li>
-<li><strong>システム管理者</strong>（環境内のすべてにアクセスできるため、パイプライン管理も可能）</li>
+<li><strong>Deployment Pipeline Administrator</strong> (パイプライン管理の専用ロール)</li>
+<li><strong>システム管理者</strong> (環境内のすべてにアクセスできるため、パイプライン管理も可能)</li>
 </ul>
-<p>さらに、パイプラインに関連するすべての環境（開発環境・テスト環境・本番環境）へのアクセス権も別途必要です。</p>
+<p>さらに、パイプラインに関連するすべての環境 (開発環境・テスト環境・本番環境) へのアクセス権も別途必要です。</p>
 <p>【よくある誤解】</p>
 <ul>
 <li>誤解: Deployment Pipeline Administrator ロールがあれば、関連するすべての環境を操作できる。<ul>
@@ -341,7 +339,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Power-Platform-管理者の場合"><a href="#Power-Platform-管理者の場合" class="headerlink" title="Power Platform 管理者の場合"></a>Power Platform 管理者の場合</h3><p>Power Platform 管理者は、Power Platform 管理センター（PPAC）からカスタムホストの新規作成やパイプラインの一覧確認ができます。<br>ただし、2024 年の変更により、Dataverse への直接操作（セキュリティロールの変更など）を行うには「自己昇格（Self-Elevation）」が必要になりました。</p>
+<h3 id="Power-Platform-管理者の場合"><a href="#Power-Platform-管理者の場合" class="headerlink" title="Power Platform 管理者の場合"></a>Power Platform 管理者の場合</h3><p>Power Platform 管理者は、Power Platform 管理センター (PPAC) からカスタム ホストの新規作成やパイプラインの一覧確認ができます。<br>ただし、2024 年の変更により、Dataverse への直接操作 (セキュリティ ロールの変更など) を行うには「自己昇格 (Self-Elevation)」が必要になりました。</p>
 <p>【補足】自己昇格とは、Power Platform 管理者が特定の環境でシステム管理者ロールに自分自身を昇格させる操作のことです。<br>PPAC の環境ページから実行できます。</p>
 <p>＜参考資料＞</p>
 <ul>
@@ -350,67 +348,64 @@
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/use-service-admin-role-manage-tenant">サービス管理者ロールを使用してテナントを管理する (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/manage-high-privileged-admin-roles">高い特権を持つ管理者ロールを管理する (Docs)</a></li>
 </ul>
-<h2 id="q5">パイプラインを実行するだけの場合、どのような権限が必要ですか？ (Q5)</h2>
-
-<p>【結論】パイプラインの実行に必要な権限は、パイプラインの種類によって異なります。</p>
-<h3 id="個人用パイプライン（プラットフォームホスト）の場合"><a href="#個人用パイプライン（プラットフォームホスト）の場合" class="headerlink" title="個人用パイプライン（プラットフォームホスト）の場合"></a>個人用パイプライン（プラットフォームホスト）の場合</h3><p>自分で作成した個人用パイプラインは、作成者自身が実行できます。<br>必要なのは次の 2 つの権限です。</p>
+<p><a id='q5'></a></p>
+<h2 id="パイプラインを実行するだけの場合、どのような権限が必要ですか？-Q5"><a href="#パイプラインを実行するだけの場合、どのような権限が必要ですか？-Q5" class="headerlink" title="パイプラインを実行するだけの場合、どのような権限が必要ですか？ (Q5)"></a>パイプラインを実行するだけの場合、どのような権限が必要ですか？ (Q5)</h2><p>【結論】パイプラインの実行に必要な権限は、パイプラインの種類によって異なります。</p>
+<h3 id="個人用パイプライン-プラットフォーム-ホスト-の場合"><a href="#個人用パイプライン-プラットフォーム-ホスト-の場合" class="headerlink" title="個人用パイプライン (プラットフォーム ホスト) の場合"></a>個人用パイプライン (プラットフォーム ホスト) の場合</h3><p>自分で作成した個人用パイプラインは、作成者自身が実行できます。<br>必要なのは次の 2 つの権限です。</p>
 <ol>
-<li><strong>開発環境</strong>でのソリューション書き出し（エクスポート）権限</li>
-<li><strong>ターゲット環境</strong>でのソリューション読み込み（インポート）権限</li>
+<li><strong>開発環境</strong>でのソリューション書き出し (エクスポート) 権限</li>
+<li><strong>ターゲット環境</strong>でのソリューション読み込み (インポート) 権限</li>
 </ol>
-<p>「システムカスタマイザー」ロールにはこれらの権限が含まれています。</p>
-<h3 id="カスタムホストのパイプラインの場合"><a href="#カスタムホストのパイプラインの場合" class="headerlink" title="カスタムホストのパイプラインの場合"></a>カスタムホストのパイプラインの場合</h3><p>管理者が作成したパイプラインを実行するには、以下がすべて必要です。</p>
+<p>「システム カスタマイザー」ロールにはこれらの権限が含まれています。</p>
+<h3 id="カスタム-ホストのパイプラインの場合"><a href="#カスタム-ホストのパイプラインの場合" class="headerlink" title="カスタム ホストのパイプラインの場合"></a>カスタム ホストのパイプラインの場合</h3><p>管理者が作成したパイプラインを実行するには、以下がすべて必要です。</p>
 <ol>
 <li>ホスト環境で「<strong>Deployment Pipeline User</strong>」ロールが付与されていること</li>
-<li>パイプラインのレコードが自分に<strong>共有</strong>されていること（読み取り権限で十分）</li>
+<li>パイプラインのレコードが自分に<strong>共有</strong>されていること (読み取り権限で十分)</li>
 <li>開発環境でのソリューション書き出し権限</li>
 <li>ターゲット環境でのソリューション読み込み権限</li>
 </ol>
 <p>【ポイント】</p>
 <ol>
-<li>Deployment Pipeline User はパイプラインの実行だけができるロールです</li>
-<li>パイプラインの作成・編集・削除はできません</li>
-<li>開発環境やターゲット環境への権限は別途必要です</li>
-<li>アクセス権のないターゲット環境への配布はエラーになります</li>
+<li>Deployment Pipeline User はパイプラインの実行だけができるロールです。</li>
+<li>パイプラインの作成・編集・削除はできません。</li>
+<li>開発環境やターゲット環境への権限は別途必要です。</li>
+<li>アクセス権のないターゲット環境への配布はエラーになります。</li>
 </ol>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/run-pipeline">Power Platform でパイプラインを実行する (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#share-pipelines-with-makers">カスタム パイプライン ホストを使用してパイプラインを作成する - パイプラインを作成者と共有する (Docs)</a></li>
 </ul>
-<h2 id="q6">作成者が個人用パイプラインを自由に作れないように制御するには？ (Q6)</h2>
-
-<p>【結論】カスタムホストを既定のホストとして設定し、開発環境をカスタムホストに関連付けることで、プラットフォームホストでの個人用パイプライン作成を無効にできます。</p>
-<p>カスタムホストでは、プラットフォームホストと違い、パイプラインの作成権限が自動的には付与されません。<br>そのため、カスタムホストに環境を関連付けるだけで、その環境のユーザーは個人用パイプラインを作成できなくなります。</p>
+<p><a id='q6'></a></p>
+<h2 id="作成者が個人用パイプラインを自由に作れないように制御するには？-Q6"><a href="#作成者が個人用パイプラインを自由に作れないように制御するには？-Q6" class="headerlink" title="作成者が個人用パイプラインを自由に作れないように制御するには？ (Q6)"></a>作成者が個人用パイプラインを自由に作れないように制御するには？ (Q6)</h2><p>【結論】カスタム ホストを既定のホストとして設定し、開発環境をカスタム ホストに関連付けることで、プラットフォーム ホストでの個人用パイプライン作成を無効にできます。</p>
+<p>カスタム ホストでは、プラットフォーム ホストと違い、パイプラインの作成権限が自動的には付与されません。<br>そのため、カスタム ホストに環境を関連付けるだけで、その環境のユーザーは個人用パイプラインを作成できなくなります。</p>
 <h3 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h3><ol>
-<li>カスタムホスト環境がまだなければ新規作成します</li>
-<li>「展開パイプラインの構成」アプリを開きます</li>
-<li>左のメニューから「環境」を選びます</li>
-<li>対象の開発環境のレコードを新規作成します</li>
-<li>すでにプラットフォームホストに関連付いている場合は「Force Link（強制リンク）」で上書きします</li>
+<li>カスタム ホスト環境がまだなければ新規作成します。</li>
+<li>「展開パイプラインの構成」アプリを開きます。</li>
+<li>左のメニューから「環境」を選びます。</li>
+<li>対象の開発環境のレコードを新規作成します。</li>
+<li>すでにプラットフォーム ホストに関連付いている場合は「Force Link (強制リンク)」で上書きします。</li>
 </ol>
-<p>この操作により、対象の開発環境ではパイプラインの作成ボタンが使えなくなります。<br>管理者がカスタムホストで明示的にロールを付与したユーザーだけが、パイプラインを利用できるようになります。</p>
-<h3 id="ターゲット環境側からの制御"><a href="#ターゲット環境側からの制御" class="headerlink" title="ターゲット環境側からの制御"></a>ターゲット環境側からの制御</h3><p>上記の方法に加えて、<strong>ターゲット環境（本番環境など）をあらかじめカスタムホストのターゲット環境として登録しておく</strong>ことも有効です。</p>
-<p>1 つの環境は 1 つのホストにしか関連付けできません。<br>そのため、カスタムホスト側でターゲット環境として登録済みの環境は、プラットフォームホストの個人用パイプラインからは配布先として選べなくなります。</p>
-<p>開発環境をカスタムホストに関連付ける方法はパイプラインの<strong>作成自体</strong>を阻止しますが、ターゲット環境を登録する方法は<strong>本番環境への配布</strong>を阻止します。<br>本番環境を守る観点では、両方を組み合わせるとより確実です。</p>
-<p>【補足】PPAC の「展開」&gt;「設定」からも、テナント全体で既定のホストをカスタムホストに変更できます。</p>
+<p>この操作により、対象の開発環境ではパイプラインの作成ボタンが使えなくなります。<br>管理者がカスタム ホストで明示的にロールを付与したユーザーだけが、パイプラインを利用できるようになります。</p>
+<h3 id="ターゲット環境側からの制御"><a href="#ターゲット環境側からの制御" class="headerlink" title="ターゲット環境側からの制御"></a>ターゲット環境側からの制御</h3><p>上記の方法に加えて、<strong>ターゲット環境 (本番環境など) をあらかじめカスタム ホストのターゲット環境として登録しておく</strong>ことも有効です。</p>
+<p>1 つの環境は 1 つのホストにしか関連付けできません。<br>そのため、カスタム ホスト側でターゲット環境として登録済みの環境は、プラットフォーム ホストの個人用パイプラインからは配布先として選べなくなります。</p>
+<p>開発環境をカスタム ホストに関連付ける方法はパイプラインの<strong>作成自体</strong>を阻止しますが、ターゲット環境を登録する方法は<strong>本番環境への配布</strong>を阻止します。<br>本番環境を守る観点では、両方を組み合わせるとより確実です。</p>
+<p>【補足】PPAC の「展開」&gt;「設定」からも、テナント全体で既定のホストをカスタム ホストに変更できます。</p>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-up-pipelines#as-an-admin-how-do-i-prevent-makers-from-creating-personal-pipelines-by-default">Power Platform でパイプラインを設定する - 管理者として、既定で作成者が個人用パイプラインを作成できないようにするにはどうすればよいですか？ (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/set-a-default-pipelines-host">プラットフォーム ホストの代わりに既定のパイプライン ホストを設定する (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/admin-deployment-hub">管理者の展開ページ (Docs)</a></li>
 </ul>
-<h2 id="q7">既存の環境をカスタムホストとして利用できますか？ (Q7)</h2>
-
-<p>【結論】はい、既存の環境にパイプラインアプリをインストールすることで、カスタムホストとして利用できます。</p>
+<p><a id='q7'></a></p>
+<h2 id="既存の環境をカスタム-ホストとして利用できますか？-Q7"><a href="#既存の環境をカスタム-ホストとして利用できますか？-Q7" class="headerlink" title="既存の環境をカスタム ホストとして利用できますか？ (Q7)"></a>既存の環境をカスタム ホストとして利用できますか？ (Q7)</h2><p>【結論】はい、既存の環境にパイプライン アプリをインストールすることで、カスタム ホストとして利用できます。</p>
 <h3 id="手順-1"><a href="#手順-1" class="headerlink" title="手順"></a>手順</h3><ol>
-<li>PPAC にサインインし、「環境」からホストにしたい環境を選びます</li>
-<li>「リソース」→「Dynamics 365 アプリ」→「アプリのインストール」の順に進みます</li>
-<li>一覧から「Power Platform Pipelines」を選んでインストールします</li>
-<li>インストール完了後、Power Apps でホスト環境に切り替えます</li>
-<li>「展開パイプラインの構成」アプリを開き、環境やパイプラインの設定を行います</li>
+<li>PPAC にサインインし、「環境」からホストにしたい環境を選びます。</li>
+<li>「リソース」→「Dynamics 365 アプリ」→「アプリのインストール」の順に進みます。</li>
+<li>一覧から「Power Platform Pipelines」を選んでインストールします。</li>
+<li>インストール完了後、Power Apps でホスト環境に切り替えます。</li>
+<li>「展開パイプラインの構成」アプリを開き、環境やパイプラインの設定を行います。</li>
 </ol>
-<p>【補足】パイプラインアプリのインストールが必要なのは<strong>ホスト環境だけ</strong>です。<br>開発環境やターゲット環境にインストールする必要はありません。</p>
+<p>【補足】パイプライン アプリのインストールが必要なのは<strong>ホスト環境だけ</strong>です。<br>開発環境やターゲット環境にインストールする必要はありません。</p>
 <p>【よくある誤解】</p>
 <ul>
 <li>誤解: 開発環境をそのままホスト環境として使うのが簡単でよい。<ul>
@@ -423,10 +418,9 @@
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#install-the-pipelines-application-in-your-host-environment">カスタム パイプライン ホストを使用してパイプラインを作成する - パイプライン アプリケーションをホスト環境にインストールする (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/custom-host-pipelines#create-a-new-custom-host">カスタム パイプライン ホストを使用してパイプラインを作成する - 新しいカスタム ホストを作成する (Docs)</a></li>
 </ul>
-<h2 id="q8">マネージド環境とパイプラインの関係は？ (Q8)</h2>
-
-<p>【結論】パイプラインのターゲット環境（配布先）はすべて「マネージド環境」として有効にする必要があります。<br>開発環境やホスト環境はマネージド環境でなくても利用できます。</p>
-<p>マネージド環境とは、Power Platform の管理機能を強化するための設定です。<br>マネージド環境を有効にすると、共有の制限やソリューションチェックなど、さまざまな管理機能が使えるようになります。</p>
+<p><a id='q8'></a></p>
+<h2 id="マネージド環境とパイプラインの関係は？-Q8"><a href="#マネージド環境とパイプラインの関係は？-Q8" class="headerlink" title="マネージド環境とパイプラインの関係は？ (Q8)"></a>マネージド環境とパイプラインの関係は？ (Q8)</h2><p>【結論】パイプラインのターゲット環境 (配布先) はすべて「マネージド環境」として有効にする必要があります。<br>開発環境やホスト環境はマネージド環境でなくても利用できます。</p>
+<p>マネージド環境とは、Power Platform の管理機能を強化するための設定です。<br>マネージド環境を有効にすると、共有の制限やソリューション チェックなど、さまざまな管理機能が使えるようになります。</p>
 <h3 id="マネージド環境が必要な場所・不要な場所"><a href="#マネージド環境が必要な場所・不要な場所" class="headerlink" title="マネージド環境が必要な場所・不要な場所"></a>マネージド環境が必要な場所・不要な場所</h3><table>
 <thead>
 <tr>
@@ -435,7 +429,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>ターゲット環境（テスト・本番など）</td>
+<td>ターゲット環境 (テスト・本番など)</td>
 <td><strong>必要</strong></td>
 </tr>
 <tr>
@@ -447,7 +441,7 @@
 <td>不要</td>
 </tr>
 </tbody></table>
-<h3 id="ライセンスへの影響"><a href="#ライセンスへの影響" class="headerlink" title="ライセンスへの影響"></a>ライセンスへの影響</h3><p>マネージド環境を有効にすると、その環境のすべてのアクティブユーザーに「プレミアムライセンス」が必要になります。</p>
+<h3 id="ライセンスへの影響"><a href="#ライセンスへの影響" class="headerlink" title="ライセンスへの影響"></a>ライセンスへの影響</h3><p>マネージド環境を有効にすると、その環境のすべてのアクティブ ユーザーに「プレミアム ライセンス」が必要になります。</p>
 <table>
 <thead>
 <tr>
@@ -472,7 +466,7 @@
 <td>いいえ</td>
 </tr>
 </tbody></table>
-<p>【補足】Dynamics 365 Enterprise ライセンス（Sales Enterprise、Customer Service Enterprise など）を持っているユーザーは、追加のライセンスなしでマネージド環境を利用できます。<br>Microsoft 365 ライセンスのみのユーザーがいる場合は、マネージド環境の有効化前にライセンスの確認が必要です。</p>
+<p>【補足】Dynamics 365 Enterprise ライセンス (Sales Enterprise、Customer Service Enterprise など) を持っているユーザーは、追加のライセンスなしでマネージド環境を利用できます。<br>Microsoft 365 ライセンスのみのユーザーがいる場合は、マネージド環境の有効化前にライセンスの確認が必要です。</p>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/managed-environment-overview">マネージド環境の概要 (Docs)</a></li>
@@ -480,18 +474,14 @@
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/managed-environment-licensing">マネージド環境のライセンス (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-platform/alm/pipelines#can-i-ensure-pipeline-targets-are-managed-environments">Power Platform のパイプラインの概要 - ターゲット環境のマネージド環境の自動有効化 (Docs)</a></li>
 </ul>
-<h2 id="summary">まとめ</h2>
-
-<ul>
-<li>パイプラインは、ソリューションの配布を手作業なしで行えるしくみです。個人で手軽に使える「プラットフォームホスト」と、組織全体で管理できる「カスタムホスト」の 2 種類があります。</li>
+<p><a id='summary'></a></p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul>
+<li>パイプラインは、ソリューションの配布を手作業なしで行える仕組みです。個人で手軽に使える「プラットフォーム ホスト」と、組織全体で管理できる「カスタム ホスト」の 2 種類があります。</li>
 <li>パイプラインの管理には「Deployment Pipeline Administrator」ロール、実行には「Deployment Pipeline User」ロールを使い分けます。いずれの場合も、開発環境やターゲット環境への権限は別途必要です。</li>
-<li>個人用パイプラインの作成を制限したい場合は、カスタムホストを既定に設定し、開発環境をカスタムホストに関連付けます。</li>
-<li>ターゲット環境はマネージド環境である必要があり、マネージド環境ではプレミアムライセンスが必要です。Dynamics 365 Enterprise ライセンスがあれば要件を満たします。</li>
+<li>個人用パイプラインの作成を制限したい場合は、カスタム ホストを既定に設定し、開発環境をカスタム ホストに関連付けます。</li>
+<li>ターゲット環境はマネージド環境である必要があり、マネージド環境ではプレミアム ライセンスが必要です。Dynamics 365 Enterprise ライセンスがあれば要件を満たします。</li>
 <li>パイプラインの日常的な運用では、Power Platform 管理者ロールは不要です。初期セットアップやテナント全体の管理が必要な場合にのみ使います。</li>
 </ul>
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-
-<p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。</p>
 
       
       
@@ -576,7 +566,7 @@
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
       <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ALM/" rel="tag">ALM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector/" rel="tag">Connector</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Export/" rel="tag">Export</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Import/" rel="tag">Import</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-Apps/" rel="tag">Model-driven Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Paging/" rel="tag">Paging</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-BI/" rel="tag">Power BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/TDS-endpoint/" rel="tag">TDS endpoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Team-Members/" rel="tag">Team Members</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Teams/" rel="tag">Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Troubleshooting/" rel="tag">Troubleshooting</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" rel="tag">パイプライン</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" rel="tag">マネージド環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%96%8B%E7%99%BA%E8%80%85%E7%92%B0%E5%A2%83/" rel="tag">開発者環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%9D%9E%E6%8E%A8%E5%A5%A8/" rel="tag">非推奨</a></li></ul>  -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">21</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">14</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">41</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">39</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">27</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">23</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">9</span><ul></ul></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">21</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">14</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">41</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">39</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">27</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">23</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">9</span><ul></ul></li></ul>
     </div>
   </div>
 
@@ -605,7 +595,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">カテゴリ</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
     </div>
   </div>
 
