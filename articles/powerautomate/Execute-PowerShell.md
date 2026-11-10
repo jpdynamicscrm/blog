@@ -16,7 +16,7 @@ categories:
 
 <br>
 今回は、Power Automate から PowerShell を実行する方法についてご案内致します。<br>
-Power Automate と PowerShell と連携させることで、業務自動化の幅を広げていきましょう。<br>
+Power Automate と PowerShell を連携させることで、業務自動化の幅を広げていきましょう。<br>
 <br>
 
 <!-- more -->
@@ -136,7 +136,7 @@ Power Automate と組み合わせることによって、例えば以下のよ�
 　
 <a id='anchor-powershell-links'></a>
 
-## Power Shell リンク集
+## PowerShell リンク集
  - [Power Apps/Power Automate](https://learn.microsoft.com/ja-jp/power-platform/admin/powerapps-powershell)
  - [Azure](https://learn.microsoft.com/ja-jp/powershell/azure/?view=azps-6.3.0&viewFallbackFrom=azps-3.0.0)
  - [Microsoft 365](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/getting-started-with-microsoft-365-powershell?view=o365-worldwide)

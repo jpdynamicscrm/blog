@@ -83,9 +83,9 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - Copilot Studio ポータルを開きます。開いている環境が対象の環境であることを確認してください  
   - URL 内の environments/ の直後にある ID が環境 ID です。
   - URL をテキストファイル、あるいは文字列としてメール等に張り付けてご提供ください。  
-  ![](./helpful-information-for-copilotstudio-sr/image_EnvironmentID_new.png)  
+  ![](./helpful-information-for-copilotstudio-sr/environment-id-new.png)  
   クラシックエクスペリエンスの場合
-  ![](./helpful-information-for-copilotstudio-sr/image_EnvironmentID.png)  
+  ![](./helpful-information-for-copilotstudio-sr/environment-id.png)  
 
 <a id='anchor-botid'></a>
 
@@ -95,9 +95,9 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。
   - URL 内の bots/ の直後にある ID が Bot ID です。
   - URL をテキストファイル、あるいは文字列としてメール等に張り付けてご提供ください。
-  ![](./helpful-information-for-copilotstudio-sr/image_BotID_new.png)  
+  ![](./helpful-information-for-copilotstudio-sr/bot-id-new.png)  
   クラシックエクスペリエンスの場合
-  ![](./helpful-information-for-copilotstudio-sr/image_BotID.png)  
+  ![](./helpful-information-for-copilotstudio-sr/bot-id.png)  
 
 <a id='anchor-conversationid'></a>
 
@@ -111,9 +111,9 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
    > 以下の画像は、エージェントのテスト実行画面での取得例です。
    > Conversation ID は、公開先のチャネルでも同じコマンドで取得できます。調査対象となる事象が発生した、または再現したチャネルの Conversation ID を取得し、ご提供ください。
 
-  ![](./helpful-information-for-copilotstudio-sr/image_ConversationID_new.png)  
+  ![](./helpful-information-for-copilotstudio-sr/conversation-id-new.png)  
   Standard Harness エージェントの場合
-  ![](./helpful-information-for-copilotstudio-sr/image_ConversationID.png)  
+  ![](./helpful-information-for-copilotstudio-sr/conversation-id.png)  
 
 <a id='anchor-session-details'></a>
 
@@ -122,14 +122,14 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
   - Copilot Studio ポータル>（対象の環境選択）＞3点リーダー＞セッション詳細を開きます。
   - 表示された内容をコピーしてテキストファイルとしてご提供ください。
-  ![](./helpful-information-for-copilotstudio-sr/image_session_details_new1.png)  
-  ![](./helpful-information-for-copilotstudio-sr/image_session_details_new2.png)  
+  ![](./helpful-information-for-copilotstudio-sr/session-details-new-1.png)  
+  ![](./helpful-information-for-copilotstudio-sr/session-details-new-2.png)  
 
 
 ご参考：クラシックエクスペリエンスの場合
   - Copilot Studio ポータル>（対象の環境選択）＞歯車アイコン＞セッション詳細を開きます。
   - 表示された内容をコピーしてテキストファイルとしてご提供ください。
-  ![](./helpful-information-for-copilotstudio-sr/image_session_details.png)  
+  ![](./helpful-information-for-copilotstudio-sr/session-details.png)  
 
 <a id='anchor-snapshot-zip'></a>
 
@@ -139,7 +139,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットとのチャットウィンドウ右上の三点リーダーより、「スナップショットの保存」を選択します。  
   - 得られた zip ファイルをご提供ください。  
-  ![](./helpful-information-for-copilotstudio-sr/image_snapshot.png)  
+  ![](./helpful-information-for-copilotstudio-sr/snapshot.png)  
 
 <a id='anchor-knowledge-enable-state'></a>
 
@@ -149,9 +149,9 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロットを開きます。  
   - 対象のコパイロットとのチャットウィンドウでコパイロットと会話を行ってください。  
   - その会話画面について、下画像と同様のスクリーンショットをご提供ください。 
-  ![](./helpful-information-for-copilotstudio-sr/image_conversation_inout_new.png) 
+  ![](./helpful-information-for-copilotstudio-sr/conversation-input-output-new.png) 
   Standard Harness エージェントの場合
-  ![](./helpful-information-for-copilotstudio-sr/image_conversation_inout.png) 
+  ![](./helpful-information-for-copilotstudio-sr/conversation-input-output.png) 
 
 <a id='anchor-topics-screen'></a>
 
@@ -161,7 +161,7 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
   - Copilot Studio ポータル>（対象の環境選択）＞エージェント＞対象のコパイロット＞トピックタブを開きます。  
   - 事象に応じて対象のトピックの全体像や、対象のノードのプロパティなどを表示してください。  
   - その画面について、下画像のようにスクリーンショットを撮影してご提供ください。  
-  ![](./helpful-information-for-copilotstudio-sr/image_topic_screen.png) 
+  ![](./helpful-information-for-copilotstudio-sr/topic-screen.png) 
 
 <a id='anchor-conversation-transcript'></a>
 
@@ -176,19 +176,19 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
 1. エージェントのエクスポートを選択し、ソリューション画面を開きます。  
 起動経路：エージェント＞（任意のエージェント）…　＞　エージェントのエクスポート
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file1.png) 　
+   ![](./helpful-information-for-copilotstudio-sr/solution-export-file-1.png) 　
 1. 新しいソリューションを作成します。設定値は任意で構いません。
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file2.png) 　
+   ![](./helpful-information-for-copilotstudio-sr/solution-export-file-2.png) 　
 1. 「既存を追加」からエージェントをソリューションに追加します。  
    必要に応じて同様の手順でクラウドフローもソリューションに追加し、一緒にご提供ください。
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file3.png) 　
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file4.png) 　   
+   ![](./helpful-information-for-copilotstudio-sr/solution-export-file-3.png) 　
+   ![](./helpful-information-for-copilotstudio-sr/solution-export-file-4.png) 　   
 1. 対象エージェントの必須オブジェクトをソリューションに追加します。
 追加経路：対象エージェント　＞　…　＞　詳細　＞　必須オブジェクトを追加 　
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file5.png) 　
-1. ソリューション一覧画面に戻り、作成したソリューションをアンマネージでエクスポートします。
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file6.png)
-   ![](./helpful-information-for-copilotstudio-sr/image_solution_export_file7.png)
+   ![](./helpful-information-for-copilotstudio-sr/solution-export-file-5.png) 　
+1. ソリューション一覧画面に戻り、作成したソリューションをアンマネージドでエクスポートします。
+   ![](./helpful-information-for-copilotstudio-sr/solution-export-file-6.png)
+   ![](./helpful-information-for-copilotstudio-sr/solution-export-file-7.png)
  　
 
 <a id='anchor-about-networkhar'></a>
@@ -208,11 +208,11 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 
   > [!IMPORTANT]
   > ご取得の際は「ログの保持」「キャッシュを無効にする」にチェックを有効にしご取得ください。  
-  > ![](./helpful-information-for-copilotstudio-sr/image_browser_trace.png) 　
+  > ![](./helpful-information-for-copilotstudio-sr/browser-trace.png) 　
 
 ###  コンソールログ
   Console タブをクリックし、ログ領域を右クリックし **「名前を付けて保存」** にて保存いたします。  
-  ![](./helpful-information-for-copilotstudio-sr/image_console_log.png)　　
+  ![](./helpful-information-for-copilotstudio-sr/console-log.png)　　
 
 
 <a id='anchor-teamslog'></a>
@@ -221,29 +221,29 @@ Copilot Studio (旧称 Power Virtual Agents) に関するサポートサービ�
 Teamsクライアントにおいてのみエラーや問題が発生する場合、Teamsクライアントのネットワーク トレースやTeams 診断ログ　より、発生している事象を調査します。<br/>
 
 1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
-    ![](./helpful-information-for-copilotstudio-sr/image_Diagnosticlogs.png)　
-1. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
+    ![](./helpful-information-for-copilotstudio-sr/diagnostic-logs.png)　
+1. ノートパッドやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
 ※ 拡張子が .json となっていることをご確認ください<br/>
-    ![](./helpful-information-for-copilotstudio-sr/image_Configuration.png)　
-1. 2. で作成した 「configuration.json」 を以下パスのフィルダーに保存します<br/>
+    ![](./helpful-information-for-copilotstudio-sr/configuration.png)　
+1. 2. で作成した 「configuration.json」 を以下パスのフォルダーに保存します<br/>
 パス : %localappdata%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams<br/>
-    ![](./helpful-information-for-copilotstudio-sr/image_ConfigurationPath.png)　
+    ![](./helpful-information-for-copilotstudio-sr/configuration-path.png)　
 1. Teams をサインアウトし、一度閉じます
 1. 再度 Teams を起動し、以下の順で 「開発者ツール」 を起動します<br/>
 Windows のタスクバーにある 「隠れているインジケータを表示します」 > 「Teams アイコン」 の右クリック >「Engineering Tools」 > 「Open DevTools (Main Window)」<br/>
-    ![](./helpful-information-for-copilotstudio-sr/image_OpenTeamsDevTools.png)　
+    ![](./helpful-information-for-copilotstudio-sr/open-teams-dev-tools.png)　
 1. 「Network」 タブを選択し、「Preserve log」 「Disable cache」 にチェックします
-    ![](./helpful-information-for-copilotstudio-sr/image_TeamsDevToolsSetting.png)　
+    ![](./helpful-information-for-copilotstudio-sr/teams-dev-tools-setting.png)　
 1. Teams で事象が発生するように操作します<br/>
 ※ 操作をすると以下のようにログが記録されます<br/>
-    ![](./helpful-information-for-copilotstudio-sr/image_TeamsDevToolsResult.png)　
+    ![](./helpful-information-for-copilotstudio-sr/teams-dev-tools-result.png)　
 1. 事象の再現が終わりましたら 「Export HAR」 にてファイルをダウンロードします
-    ![](./helpful-information-for-copilotstudio-sr/image_TeamsHarDownload.png)　
+    ![](./helpful-information-for-copilotstudio-sr/teams-har-download.png)　
 1. Teams に戻り、「Ctrl+Alt+Shift + 1 (数字) キー」 を同時に押下し、Microsoft Teams 診断ログがダウンロードされることを確認します<br/>
 ※ ダウンロードが開始されると、以下のようなメッセージが表示されます<br/>
-    ![](./helpful-information-for-copilotstudio-sr/image_DiagnosticLogDownload.png)　
+    ![](./helpful-information-for-copilotstudio-sr/diagnostic-log-download.png)　
 1. 「ダウンロード」 フォルダーに 「PROD-WebLogs ….zip」「MSTeams Support Logs …フォルダー」 が生成されていることを確認します<br/>
-    ![](./helpful-information-for-copilotstudio-sr/image_TeamsLogResult.png)　
+    ![](./helpful-information-for-copilotstudio-sr/teams-log-result.png)　
 1. 8. で取得したHARファイルと、10. で取得した「PROD-WebLogs ….zip」 および 「MSTeams Support Logs … フォルダー」 を圧縮した .zip ファイル　のご提供をお願いします
 
 ---

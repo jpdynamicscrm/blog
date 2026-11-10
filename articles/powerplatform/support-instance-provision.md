@@ -73,9 +73,9 @@ categories:
 1. [Power Platform 管理センター](https://admin.powerplatform.microsoft.com/) へアクセス
 2. 環境一覧より、事象が発生中の環境を選択して開く
 3. 上部リボンの [コピー] をクリック
-![](./support-instance-provision/copy_button.png)
+![](./support-instance-provision/copy-button.png)
 4. 下図のように、[上書きコピー] と [上書きするターゲット環境を選択] を設定してコピーを実施 (グローバル管理者、Power Platform 管理者等が付与されておらずサポート インスタンスが表示されない場合は、下記の対処策をご確認下さい)
-![](./support-instance-provision/copy_support_instance.png)
+![](./support-instance-provision/copy-support-instance.png)
 5. コピーが完了したら担当エンジニアまで完了の旨をご連絡ください
 
 > [!NOTE]

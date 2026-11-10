@@ -77,7 +77,7 @@ Power Automate に関するサポートサービスのお問い合わせの際�
 
 - Windows ゲーム バーでの画面収録  
   [ゲーム バーを使用して PC にゲーム クリップを記録する](https://support.microsoft.com/ja-jp/windows/%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%90%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-pc-%E3%81%AB%E3%82%B2%E3%83%BC%E3%83%A0-%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-2f477001-54d4-1276-9144-b0416a307f3c)
-- Power Point での画面収録  
+- PowerPoint での画面収録  
   [PowerPoint で画面を記録する](https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0)
 - Microsoft Teams での画面収録  
   [Microsoft Teamsで会議を記録する](https://support.microsoft.com/ja-jp/office/microsoft-teams-%E3%81%A7%E4%BC%9A%E8%AD%B0%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-34dfbe7f-b07d-4a27-b4c6-de62f1348c24#:~:text=Microsoft)
@@ -166,7 +166,7 @@ Teams の Power Apps アプリで作成したフローの場合は、エクス�
 1. 実行履歴画面右上のドロップダウンから「失敗したチェック」および「チェック(新しいデータなし)」をご確認下さい。  
 ![](./helpful-information-for-powerautomate-sr/export-flowruncheck01.png)  
 1. 確認結果に応じ、以下の情報をご提供ください。
-   * 「失敗したチェック」にトリガーを試行履歴が存在する場合  
+   * 「失敗したチェック」にトリガーの試行履歴が存在する場合  
      * 該当のチェック履歴詳細より、[実行履歴に表示されるエラーメッセージ](#anchor-error-message-in-run-history)
      * 該当のチェック履歴詳細より、トリガーの[未加工入力および未加工出力](#anchor-raw-input-output)
    * トリガーの試行もなく実行されない場合は、以下をご提供ください  

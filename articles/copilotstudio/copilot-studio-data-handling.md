@@ -9,7 +9,7 @@ categories:
   - [Microsoft Copilot Studio]
 ---
 
-# Copilot studio の生成 AI 機能を利用する際のデータのお取り扱いについて
+# Copilot Studio の生成 AI 機能を利用する際のデータのお取り扱いについて
 こんにちは。Power Platform サポートチームの トテ です。
 今回はよく寄せられるお問い合わせのひとつ、 Copilot Studio の生成 AI 機能におけるデータのお取り扱いについてご案内いたします。
 
@@ -181,7 +181,7 @@ Copilot は Azure OpenAI Service を基盤としており、顧客に対する�
 
 >[!NOTE]
 **顧客データへのアクセスが可能な範囲はどうなっていますか？**<br><br>
-Azure OpenAI Service 上に保存された不正使用を監視するためのデータは不正利用の監視を目的として、必要な場合に限り Microsoft 従業員しか確認でません。
+Azure OpenAI Service 上に保存された不正使用を監視するためのデータは不正利用の監視を目的として、必要な場合に限り Microsoft 従業員しか確認できません。
 
 <br>
 上記、Note 参考URL

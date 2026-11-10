@@ -11,7 +11,7 @@ categories:
 
 # Power Pages ライセンスについて
 
-こんにちは、PowerPlatformサポートチームの三田です。
+こんにちは、Power Platform サポートチームの三田です。
 
 本記事では Power Pages のライセンスについて以下の Q1〜Q6 の質問に回答する形で整理します。
 
@@ -39,7 +39,6 @@ categories:
 - [内部ユーザー既存ライセンスとカウント除外 (Q5)](#q5)
 - [匿名ユーザーの一意判定とブラウザ差異/Cookie削除の影響 (Q6)](#q6)
 - [まとめ](#summary)
-- [注意事項（情報の更新可能性）](#notice)
 
 <h2 id="q1">Power Pages の基本ライセンスモデル (Q1)</h2>
 【結論】Power Pages は「月次ユニークユーザー数」を軸にした Capacity（容量）ベースのライセンスモデルです。
@@ -180,7 +179,4 @@ categories:
 - 超過が懸念される場合は、追加購入・再割当・Pay-as-you-go を使い分けます。
 - 超過してしまっても、即停止・追加請求の心配はありません。
 - 内部ユーザーで Power Apps per user / per app / Dynamics 365 Enterprise ライセンス保持者は条件を満たせば認証容量を消費しません。
-
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-本記事は執筆日時点の公開情報に基づいています。ライセンス体系・容量定義・ UI 表示・最小割当値などは将来変更される可能性があります。最新情報は必ず公式ドキュメント（Power Pages Licensing FAQ / 管理センター画面 / 最新 Licensing Guide）でご確認ください。
 

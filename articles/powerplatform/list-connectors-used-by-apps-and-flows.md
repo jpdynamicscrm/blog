@@ -48,7 +48,7 @@ $powerPlatObjects | Export-Csv $outputFile -NoTypeInformation -Encoding UTF8
 "https://learn.microsoft.com/ja-jp/connectors/{コネクタID}/"  
 
 例)
-* Sharepoint : https://learn.microsoft.com/ja-jp/connectors/sharepointonline/  
+* SharePoint : https://learn.microsoft.com/ja-jp/connectors/sharepointonline/  
 * SQL Server : https://learn.microsoft.com/ja-jp/connectors/sql/  
 
 #### ◆ フローやアプリでプレミアムコネクタが使われているか確認する

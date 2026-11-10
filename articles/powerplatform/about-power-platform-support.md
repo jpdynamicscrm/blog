@@ -146,7 +146,7 @@ Power Platform にてサードパーティ サービスをご使用の場合、�
 
 - お客様のご要件を直接満たすためのご提供ではございません。
 - 製品の実運用環境で使用されることを前提に提供されるものではございません。
-- 弊社にて動作の保証できかねます。
+- 弊社にて動作の保証はできかねます。
 - エラー処理などは含まれておりません。
 
 また、ご依頼の内容によっては別途プロアクティブ サービスなどのご紹介を差し上げる場合がございますので、ご理解ください。  
@@ -180,7 +180,7 @@ Power Platform にてサードパーティ サービスをご使用の場合、�
 以下のようなサービス・機能は、テクニカル サポートでのご支援の対象外です。  
 テクニカル サポート以外のお問い合わせ先があるものもございますので、それぞれ適切なお問い合わせ先へのご起票をお願いいたします。  
 - [CoE スターターキット](https://learn.microsoft.com/ja-jp/power-platform/guidance/coe/starter-kit) (問合せ先: [aka.ms/coe-starter-kit-issues](https://aka.ms/coe-starter-kit-issues))
-- [Automation Kit](https://learn.microsoft.com/ja-jp/power-automate/guidance/automation-kit/overview/introduction) (問合せ先: [aka.ms/automation-kit-issues](https//aka.ms/automation-kit-issues))
+- [Automation Kit](https://learn.microsoft.com/ja-jp/power-automate/guidance/automation-kit/overview/introduction) (問合せ先: [aka.ms/automation-kit-issues](https://aka.ms/automation-kit-issues))
 - PowerShell コマンド 
 - [Power Apps for Teams のサンプルアプリ](https://learn.microsoft.com/ja-jp/power-apps/teams/use-sample-apps-from-teams-store)
 - [Power Apps のテンプレートアプリ](https://learn.microsoft.com/ja-jp/power-apps/maker/canvas-apps/open-and-run-a-sample-app)

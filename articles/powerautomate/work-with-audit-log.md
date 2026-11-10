@@ -261,7 +261,7 @@ API のリファレンスを読むと、取得したいコンテンツの時間�
 **4-1．startTime を前日の 00:00 JST (UTC: 15:00) に指定**
 変数コネクタ「変数を初期化する」アクションを追加し、以下のように設定します。
 
-![変数を初期化-startTime](./work-with-audit-log/init-variable-startTime.png)
+![変数を初期化-startTime](./work-with-audit-log/init-variable-start-time.png)
 
 |パラメータ|値|
 |---------|--|
@@ -272,7 +272,7 @@ API のリファレンスを読むと、取得したいコンテンツの時間�
 **4-2．endTime を前日の 23：59 JST (UTC: 14:59) に指定**
 変数コネクタ - 変数を初期化するアクションを追加し、以下のように設定します。
 
-![変数を初期化-endTime](./work-with-audit-log/init-variable-endTime.png)
+![変数を初期化-endTime](./work-with-audit-log/init-variable-end-time.png)
 
 |パラメータ|値|
 |---------|--|
@@ -292,7 +292,7 @@ API のリファレンスを読むと、取得したいコンテンツの時間�
 |種類|アレイ|
 |値|空欄のまま|
 
-![変数を初期化-contentsAll](./work-with-audit-log/init-variable-contentsAll.png)
+![変数を初期化-contentsAll](./work-with-audit-log/init-variable-contents-all.png)
 
 |パラメータ|値|
 |---------|--|

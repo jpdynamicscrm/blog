@@ -101,7 +101,7 @@ Power Apps キャンバスアプリに関するサポートサービスのお問
      および、両者のメールアドレスやユーザープリンシパル名
 1. キャンバス アプリをご利用いただいている端末のネットワーク環境の差異
    - プロキシ経由かどうか
-   - Azure Express Route の利用有無
+   - Azure ExpressRoute の利用有無
    - セキュリティ製品の利用有無
 
 <a id='anchor-about-screencapture'></a>
@@ -126,7 +126,7 @@ Power Apps キャンバスアプリに関するサポートサービスのお問
 
 - Windows ゲーム バーでの画面収録  
   [ゲーム バーを使用して PC にゲーム クリップを記録する](https://support.microsoft.com/ja-jp/windows/%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%90%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-pc-%E3%81%AB%E3%82%B2%E3%83%BC%E3%83%A0-%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-2f477001-54d4-1276-9144-b0416a307f3c)
-- Power Point での画面収録  
+- PowerPoint での画面収録  
   [PowerPoint で画面を記録する](https://support.microsoft.com/ja-jp/office/powerpoint-%E3%81%A7%E7%94%BB%E9%9D%A2%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-0b4c3f65-534c-4cf1-9c59-402b6e9d79d0)
 - Microsoft Teams での画面収録  
   [Microsoft Teamsで会議を記録する](https://support.microsoft.com/ja-jp/office/microsoft-teams-%E3%81%A7%E4%BC%9A%E8%AD%B0%E3%82%92%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B-34dfbe7f-b07d-4a27-b4c6-de62f1348c24#:~:text=Microsoft)
@@ -184,7 +184,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 以下の設定を有効化することで編集時でなくとも数式の情報が記録されます。  
 実行時に発生するエラーの場合、可能でしたら以下設定を有効化しアプリ発行頂いたのちモニターログをご取得下さい。  
 ご取得後は再度設定を無効化いただきますようお願い致します。  
-![](./troubleshooting-general-canvasapp/uImage00.png)
+![](./troubleshooting-general-canvasapp/settings-debug-published-app.png)
 
 <a id='anchor-about-monitorlog-edit'></a>
 
@@ -192,25 +192,25 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの編集画面を表示します  
 3. 画面左方にある　「...」メニューを表示し、「高度なツール」を選択します  
-    ![](./troubleshooting-general-canvasapp/uImage04-1.png)
+    ![](./troubleshooting-general-canvasapp/studio-advanced-tools-menu.png)
 4. 「ライブ監視」>「ライブ監視を開く」を選択します
     - 別タブで監視ウィンドウが表示されます  
-      ![](./troubleshooting-general-canvasapp/uImage04-2.png)
+      ![](./troubleshooting-general-canvasapp/studio-monitor-window.png)
 5. アプリ編集画面に戻り、事象を発生させます
 6. 監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します  
-    ![](./troubleshooting-general-canvasapp/uImage03.png)
+    ![](./troubleshooting-general-canvasapp/monitor-download.png)
 
 <a id='anchor-about-monitorlog-web-play'></a>
 
 ### 5-2. キャンバス アプリ 実行時 (Web ブラウザ)
 1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「詳細」右横の「>」マークを押下し、「ライブ監視」を選択します  
-    ![](./troubleshooting-general-canvasapp/uImage01.png)
+    ![](./troubleshooting-general-canvasapp/web-live-monitor-menu.png)
 3. 別タブで監視ウィンドウが表示されるので「公開したアプリの再生」を行います  
-    ![](./troubleshooting-general-canvasapp/uImage02.png)
+    ![](./troubleshooting-general-canvasapp/web-play-published-app.png)
 4. 別タブでアプリが再生されるので事象を発生させます  
 5. 手順3で表示した監視ウィンドウに移動し、記録されたモニター結果を「ダウンロード」します   
-    ![](./troubleshooting-general-canvasapp/uImage03.png)
+    ![](./troubleshooting-general-canvasapp/monitor-download.png)
 
 <a id='anchor-about-monitorlog-mobile-play'></a>
 
@@ -218,7 +218,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 
 1. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 2. アプリ一覧画面から対象のアプリの「...」メニューを表示し、「詳細」右横の「>」マークを押下し、「ライブ監視」を選択します  
-    ![](./troubleshooting-general-canvasapp/uImage05.png)
+    ![](./troubleshooting-general-canvasapp/mobile-live-monitor-menu.png)
 3. 以降の手順は、**監視対象がメーカー (アプリ作成者) 本人であるか否か** によって異なります。該当する手順を実施してください。
 
     <a id='anchor-about-monitorlog-mobile-play-other'></a>
@@ -226,9 +226,9 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
     **A. メーカー (アプリ作成者) 以外のユーザーを監視する場合**
 
     1. ユーザー接続からセッションへのユーザー接続メニューを開きます  
-        ![](./troubleshooting-general-canvasapp/uImage06.png)
+        ![](./troubleshooting-general-canvasapp/mobile-user-connection-menu.png)
     2. Power Apps モバイルで使用するユーザーを追加しリンクを入手します  
-        ![](./troubleshooting-general-canvasapp/uImage07.png)
+        ![](./troubleshooting-general-canvasapp/mobile-add-user-get-link.png)
 
     <a id='anchor-about-monitorlog-mobile-play-maker'></a>
 
@@ -237,16 +237,16 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
     「ユーザー接続」の検索画面ではメーカー自身を選択できないため、メーカー本人を監視する場合は「ライブ監視のリンクをコピーする」を利用します。
 
     1. コマンド バーから「ライブ監視のリンクをコピーする」を選択し、リンクをコピーします  
-        ![](./troubleshooting-general-canvasapp/uImage10.png)
+        ![](./troubleshooting-general-canvasapp/copy-live-monitor-link.png)
 
 4. 得られたリンクをメールやチャットなどでモバイル端末に送ります
 5. モバイル端末で URL へアクセスすると、 Power Apps モバイルが起動されますので事象を発生させます  
     下図のとおり、デバッグセッションに接続する旨メッセージが表示されます  
-    ![](./troubleshooting-general-canvasapp/uImage08.png)
+    ![](./troubleshooting-general-canvasapp/mobile-debug-session-message.png)
 6. モニターログに Power Apps モバイルの操作が記録されます  
-    ![](./troubleshooting-general-canvasapp/uImage09.png)
+    ![](./troubleshooting-general-canvasapp/mobile-monitor-log-result.png)
 7. 記録されたモニター結果を「ダウンロード」します  
-    ![](./troubleshooting-general-canvasapp/uImage03.png)
+    ![](./troubleshooting-general-canvasapp/monitor-download.png)
 
 <a id='anchor-about-powerapps-for-teams'></a>
 
@@ -261,7 +261,7 @@ Web ブラウザで事象が発生している場合、[セッションID (Web�
 6. [Power Apps 作成者ポータル](https://make.powerapps.com) にアクセスします
 7. アプリ一覧画面から、任意のアプリの「...」メニューを表示し、「詳細」内の「ライブ監視」を選択します<br/>
 ※モニターログの画面を開くための手順ですので、どのアプリを選択しても問題ありません
-8. 「ライブ監視のリンクをコピーする」に表示されるリンクをメモ帳等控えます（後で使用します）<br/>
+8. 「ライブ監視のリンクをコピーする」に表示されるリンクをメモ帳等に控えます（後で使用します）<br/>
 なお、7.で開いたモニターログの画面は、閉じないでください
 9. 8.で控えたURL内の環境 ID、アプリ IDを置き換えます
 URL内の環境 IDはhttps://apps.powerapps.com/play/e/ 以降の文字列（以下赤枠）、アプリ IDは、この環境 ID/a/ 以降の文字列（以下青枠）になります。
@@ -310,7 +310,7 @@ Teamsクライアントにおいてのみエラーが発生する場合、Teams�
 
 1. Teams を起動し、「…」 > 「設定」 > 「プライバシー」 > 「拡張診断データ」 でトグルをオンにします
     ![](./troubleshooting-general-canvasapp/image36.png)　
-2. ノートパットやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
+2. ノートパッドやメモ帳を使用し、{"core/devMenuEnabled": true} の記入後、"configuration.json" のファイル名にて保存します<br/>
 ※ 拡張子が .json となっていることをご確認ください<br/>
     ![](./troubleshooting-general-canvasapp/image37.png)　
 3. 2. で作成した 「configuration.json」 を以下パスのフォルダーに保存します<br/>
@@ -355,7 +355,7 @@ Windows のタスクバーにある 「隠れているインジケータを表�
 ### 7-2-1. キャンバス アプリ実行時
   1. 対象のアプリを実行します
   2. 画面右上部の歯車アイコンを押下します
-  3. 「セッション詳細」を選択し、Power Apps ライブ バージョンを含む、表示されている情報をすべてを **テキスト形式** で取得します  
+  3. 「セッション詳細」を選択し、Power Apps ライブ バージョンを含む、表示されている情報すべてを **テキスト形式** で取得します  
         ![](./troubleshooting-general-canvasapp/image09.png)
 
 <a id='anchor-about-sessionid-web-sharepointcustomform'></a>

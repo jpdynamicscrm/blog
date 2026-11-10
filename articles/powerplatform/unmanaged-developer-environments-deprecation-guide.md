@@ -11,13 +11,9 @@ categories:
   - [Power Apps]
 ---
 
-# Power Apps 開発者環境の廃止予定と必要な対応ガイド
+こんにちは、Power Platform サポートチームの粟野です。
 
-こんにちは、PowerPlatformサポートチームの 粟野 です。
-
-本記事では Power Apps 開発者環境の廃止予定について、以下の Q1〜Q6 の質問に回答する形でご説明させていただきます。
-
-<!-- more -->
+本記事では Power Apps 開発者環境の廃止予定について、以下の Q1〜Q6 の質問に回答する形でご説明します。
 
 - [Q1: Power Apps の開発者環境は、すべて廃止されるのですか？](#q1)
 - [Q2: いつから作成や利用ができなくなりますか？](#q2)
@@ -26,7 +22,9 @@ categories:
 - [Q5: マネージド環境に変更すると、ライセンスは必要ですか？](#q5)
 - [Q6: 今後、開発や学習を続けるにはどうすればよいですか？](#q6)
 
-### この記事でわかること
+<!-- more -->
+
+## この記事でわかること
 
 - 廃止対象となる開発者環境の条件
 - 新規作成終了、利用停止、削除の開始日
@@ -35,18 +33,9 @@ categories:
 - マネージド環境への変更に必要なライセンスの考え方
 - 今後も開発や学習を続けるための選択肢
 
-## 目次
+<a id='q1'></a>
 
-- [すべての開発者環境が廃止されるわけではありません (Q1)](#q1)
-- [新規作成終了・利用停止・削除の予定 (Q2)](#q2)
-- [対象の環境を確認する方法 (Q3)](#q3)
-- [アプリやデータを残すための対応 (Q4)](#q4)
-- [ライセンスの確認が必要です (Q5)](#q5)
-- [今後の開発・学習の選択肢 (Q6)](#q6)
-- [まとめ](#summary)
-- [注意事項（情報の更新可能性）](#notice)
-
-<h2 id="q1">すべての開発者環境が廃止されるわけではありません (Q1)</h2>
+## すべての開発者環境が廃止されるわけではありません (Q1)
 
 【結論】廃止対象は、マネージド環境になっていない開発者環境です。
 すでにマネージド環境になっている開発者環境は、今回の廃止対象ではありません。
@@ -64,7 +53,9 @@ categories:
 
 - [Power Platform で予定されている重要な変更：アンマネージド開発者環境と Power Apps 開発者プランの廃止](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-unmanaged-developer-environments-and-the-power-apps-developer-plan)
 
-<h2 id="q2">新規作成終了・利用停止・削除の予定 (Q2)</h2>
+<a id='q2'></a>
+
+## 新規作成終了・利用停止・削除の予定 (Q2)
 
 【結論】変更は 3 段階で行われます。
 既存の対象環境を引き続き利用する場合は、2026 年 12 月 15 日より前に対応してください。
@@ -85,7 +76,9 @@ categories:
 
 - [Power Platform で予定されている重要な変更：開発者環境の廃止スケジュール](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-unmanaged-developer-environments-and-the-power-apps-developer-plan)
 
-<h2 id="q3">対象の環境を確認する方法 (Q3)</h2>
+<a id='q3'></a>
+
+## 対象の環境を確認する方法 (Q3)
 
 【結論】管理者に、環境の種類とマネージド環境の設定の確認をご依頼ください。
 種類が開発者で、マネージド環境が有効になっていない環境が対象です。
@@ -111,7 +104,9 @@ categories:
 
 - [Power Platform で予定されている重要な変更：影響を受ける環境と管理者の確認方法](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-unmanaged-developer-environments-and-the-power-apps-developer-plan)
 
-<h2 id="q4">アプリやデータを残すための対応 (Q4)</h2>
+<a id='q4'></a>
+
+## アプリやデータを残すための対応 (Q4)
 
 【結論】必要なライセンスがある場合は、既存の環境でマネージド環境を有効にして、引き続き利用できます。
 もう 1 つの選択肢は、ソリューションを別の対応環境へ移す方法です。
@@ -133,7 +128,9 @@ Power Pages 開発者サイトを残す場合も、停止前に環境をマネ�
 - [Power Platform で予定されている重要な変更：必要な対応と移行に関する FAQ](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-unmanaged-developer-environments-and-the-power-apps-developer-plan)
 - [Power Apps のソリューションの概要](https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/solutions-overview)
 
-<h2 id="q5">ライセンスの確認が必要です (Q5)</h2>
+<a id='q5'></a>
+
+## ライセンスの確認が必要です (Q5)
 
 【結論】Power Apps 開発者プランには、マネージド環境の使用権は含まれていません。
 マネージド開発者環境でアプリやフローを実行するには、適切な Premium ライセンスなどが必要です。
@@ -147,7 +144,9 @@ Power Pages 開発者サイトを残す場合も、停止前に環境をマネ�
 - [Power Platform で予定されている重要な変更：マネージド開発者環境のライセンス](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-unmanaged-developer-environments-and-the-power-apps-developer-plan)
 - [マネージド環境のライセンス要件](https://learn.microsoft.com/ja-jp/power-platform/admin/managed-environment-licensing)
 
-<h2 id="q6">今後の開発・学習の選択肢 (Q6)</h2>
+<a id='q6'></a>
+
+## 今後の開発・学習の選択肢 (Q6)
 
 【結論】開発やテストは、マネージド開発者環境や、組織が提供する別の環境で続けられます。
 Premium 機能を試す場合は、標準の試用環境も引き続き利用できます。
@@ -167,7 +166,9 @@ Premium 機能を試す場合は、標準の試用環境も引き続き利用で
 
 - [Power Platform で予定されている重要な変更：今後の開発者環境と試用環境の選択肢](https://learn.microsoft.com/ja-jp/power-platform/important-changes-coming#deprecation-of-unmanaged-developer-environments-and-the-power-apps-developer-plan)
 
-<h2 id="summary">まとめ</h2>
+<a id='summary'></a>
+
+## まとめ
 
 - 廃止対象は、マネージド環境になっていない開発者環境です。
 - 新規作成は 2026 年 11 月 15 日に終了し、利用停止は 12 月 15 日から始まります。
@@ -177,9 +178,3 @@ Premium 機能を試す場合は、標準の試用環境も引き続き利用で
 
 作業のコピーを残すため、停止前にソリューションをエクスポートしてください。
 引き続き開発やテストを行う場合は、管理者に環境のマネージド化や別の環境の提供を依頼してください。
-
-<h2 id="notice">注意事項（情報の更新可能性）</h2>
-
-本記事の内容は、2026 年 11 月 1 日時点で確認した公開情報に基づいています。
-予定日、仕様、画面の表記、ライセンス条件は変更される場合があります。
-対応前に、各節の参考資料で最新の告知と条件をご確認ください。

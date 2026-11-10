@@ -31,7 +31,7 @@ Power Automate for desktop は定期的にバージョンアップをしてい�
 
 **[実施方法]**  
 バージョンアップは Power Automate for desktop 起動後のポップアップ の更新を押下することで可能です。
-![](./power-automate-desktop-troubleshoot/versionup.png)  
+![](./power-automate-desktop-troubleshoot/version-update.png)  
 
 また、以下からインストーラーを取得し、実行することでも可能です。※事前のアンインストールは不要です。  
 [Power Automate のインストール](https://learn.microsoft.com/ja-jp/power-automate/desktop-flows/install)   
@@ -91,7 +91,7 @@ Power Automate for desktop での一般的な問題に対して原因を特定�
 | 接続の問題を診断する | インターネット接続、プロキシ、サービスの問題を診断する |
 | サインインの問題を診断する| 認証とその問題を診断する |
 | Dataverse の問題を診断する| 環境とアクセス許可の問題を診断する| 
-| UI/Web オートメーションの問題のトラプルシューティング|UI/Web オートメーションに関する問題のトラブルシューティング| 
+| UI/Web オートメーションの問題のトラブルシューティング|UI/Web オートメーションに関する問題のトラブルシューティング| 
 | Picture-in-Picture の問題のトラブルシューティング| Picture-in-Picture 関連の問題のトラブルシューティング| 
 | インストールの問題のトラブルシューティング| Power Automate、.NET Framework、WebView2、Windows更新プログラムに関連するインストールの問題のトラブルシューティング|
 | クラウドランタイムの接続に関する問題を診断します | Power Automate サービスのコンピューター登録とクラウドランタイムに関する問題を診断します |  

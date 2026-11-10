@@ -80,7 +80,7 @@ Get-AdminFlow | Export-Csv -Path "flows.csv" -Encoding UTF8
 
 実行後に生成された `flows.csv` ファイルを利用し、フローの詳細を把握できます。
 CSVファイルには作成者、フロー名、作成日などの詳細な情報が含まれています。  
-![](./list-cloud-flow/powershell_export_csv.png)  
+![](./list-cloud-flow/powershell-export-csv.png)  
 
 > [!Note]
 > Power Platform の PowerShell コマンド実行についての詳細は下記の情報をご確認ください。  
@@ -99,7 +99,7 @@ Get-AdminFlow -FlowName *<FlowName>* -EnvironmentName *<EnvironmentName>* | %{$_
 
 下記画面のように、フローの詳細な情報を確認することができます。  
 
-![](./list-cloud-flow/powershell_detail_export.png)  
+![](./list-cloud-flow/powershell-detail-export.png)  
 
 
 また、共同所有者や実行専用ユーザーを含めた、フローに関係する人物を一覧化することがご入用である場合、下記の PowerShell コマンドのご利用をご検討ください。  
@@ -136,7 +136,7 @@ foreach ($env in $environments) {
 > [!NOTE]  
 > テナント内のフロー数が多い場合、処理完了までに長時間を要する可能性がございます。    
 
-![](./list-cloud-flow/powershell_export_people.png)  
+![](./list-cloud-flow/powershell-export-people.png)  
 
 
 <a id='2-3-power-automate-management-コネクタを利用する'></a>

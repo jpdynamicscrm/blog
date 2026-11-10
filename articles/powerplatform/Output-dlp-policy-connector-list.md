@@ -13,17 +13,17 @@ categories:
 
 こんにちは、Power Platform サポートの瀬戸です。
 
-この記事では、データ消失防止 (DLP) ポリシー に設定されたコネクタの一覧を、CSV ファイルに出力する方法をご案内いたします。
+この記事では、データ損失防止 (DLP) ポリシー に設定されたコネクタの一覧を、CSV ファイルに出力する方法をご案内いたします。
 
 <!-- more -->
 
 ## DLP ポリシーとコネクタ
-データ消失防止 (DLP) ポリシーとは、テナントや環境単位でコネクタの利用を制限できる、管理者向けの機能です。
+データ損失防止 (DLP) ポリシーとは、テナントや環境単位でコネクタの利用を制限できる、管理者向けの機能です。
 [Power Platform 管理センター](https://admin.powerplatform.microsoft.com/home) よりアクセスいただけます。
 
 ![](Output-dlp-policy-connector-list/2022-08-17-17-29-40.png)
 
-参考：[データの消失防止ポリシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention)
+参考：[データの損失防止ポリシー](https://learn.microsoft.com/ja-jp/power-platform/admin/wp-data-loss-prevention)
 
 しかし、提供されているコネクタは非常に数が多く、DLP ポリシーを設定する画面ではすべてを把握するのが難しいのが現状です。
 

@@ -104,7 +104,7 @@ Power Platform 要求数はライセンスごとに上限値が決まってお�
 
 ### 管理者
 
-以下の３つのレポートから確認できます。  
+以下の 3 つのレポートから確認できます。  
 詳細はリンク先の公開情報をご参照ください。  
 * [フローごとのレポート](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#per-flow-report) ・・フローごとのライセンスの Power Platform 要求数の消費状況を確認できます。
 * [ライセンスユーザーレポート](https://learn.microsoft.com/ja-jp/power-platform/admin/api-request-limits-allocations#licensed-user-report) ・・ユーザーごとの Power Platform 要求数の消費状況を確認できます
@@ -225,7 +225,7 @@ Power Platform 要求数の消費先は、アクションの接続先に依存�
 ### 移行期間はいつまでですか
 移行期間終了日につきましては現時点で未定です。  
 Power Platform 要求数のレポート機能が一般公開されてから、最低でも 6 カ月の猶予をもって移行期間を終了する予定です。  
-移行期間の終了日が決まりしたら、メッセージセンターやブログ等にて通知を行う予定です。  
+移行期間の終了日が決まりましたら、メッセージセンターやブログ等にて通知を行う予定です。  
 
 ### Power Platform 要求数のレポートの一般公開はいつですか。
 現時点で未定です。  
