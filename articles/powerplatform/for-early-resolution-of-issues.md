@@ -100,7 +100,7 @@ categories:
 - サポート インスタンスの作成に同意いただける場合は、起票時に作成同意の旨を記載ください
 - サポート インスタンスの作成に社内 / エンド顧客の同意が必要な場合は、事前にご確認をお願いいたします
 
-サポート インスタンスの詳細につきましては [サポート インスタンスの提供](https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/) をご参照ください。
+サポート インスタンスの詳細につきましては [サポート インスタンスを作成する際の流れと、お客様にお願いする対応](https://jpdynamicscrm.github.io/blog/powerplatform/support-instance-provision/) をご参照ください。
 
 <a id='specification'></a>
 

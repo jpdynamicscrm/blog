@@ -254,7 +254,7 @@ Edge ブラウザ向けの開発者ツール拡張機能で、サーバーサイ
 
 Power Pages に関する設定はレコードとして保存されているため、お客様環境において「どのようなカスタマイズを実装いただいているか」をまとめて確認させて頂く場合については、サポートインスタンスのご提供をお願いさせて頂く場合がございます。
 
-**参照**: [サポートインスタンスの提供](https://jpdynamicscrm.github.io/blog/powerplatform/Provide-Support-Instance/)
+**参照**: [サポート インスタンスを作成する際の流れと、お客様にお願いする対応](https://jpdynamicscrm.github.io/blog/powerplatform/support-instance-provision/)
 
 ---
 
