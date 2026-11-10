@@ -45,11 +45,12 @@ Dataverse では、各環境で利用されている容量の合計をテナン�
 
 参考情報 : [Dataverse 容量に基づくストレージの詳細 - ストレージの超過ライフサイクル](https://learn.microsoft.com/ja-jp/power-platform/admin/capacity-storage#storage-overage-lifecycle)
 
->[本記事でご紹介する内容について]<br>
+> [!NOTE]
+> **本記事でご紹介する内容について**<br>
 > Dataverse の容量については、従量課金を利用しているかどうかによって動作が一部異なります。<br>
 > 本記事では「従量課金」をご利用いただいていない場合のシナリオを基にご紹介しています。
-従量課金制プランをご利用いただいている場合については、以下のドキュメントを合わせてご確認いただけますと幸いです。<br>
-参考情報 : [Dataverse 容量メーター](https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-meters?tabs=image#dataverse-capacity-meter)
+> 従量課金制プランをご利用いただいている場合については、以下のドキュメントを合わせてご確認いただけますと幸いです。<br>
+> 参考情報 : [Dataverse 容量メーター](https://learn.microsoft.com/ja-jp/power-platform/admin/pay-as-you-go-meters?tabs=image#dataverse-capacity-meter)
 
 
 <a id='anchor-dataverse-storeage'></a>
@@ -62,8 +63,9 @@ Dataverse で利用可能な容量はご契約いただくライセンスの数�
 1. 契約いただいたライセンスの種類によって決定されるテナントの「既定の容量」<br>
 2. ライセンスやアドオンの購入数に応じて付与される「追加の容量」
 
->ライセンスガイドについては、以下のリンクからダウンロード可能でございます。<br>
->参考情報 : [Microsoft Power Platform のライセンスの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus)
+> [!NOTE]
+> ライセンスガイドについては、以下のリンクからダウンロード可能でございます。<br>
+> 参考情報 : [Microsoft Power Platform のライセンスの概要](https://learn.microsoft.com/ja-jp/power-platform/admin/pricing-billing-skus)
 
 
 つまり、Dataverse では以下の計算に基づきテナントに付与される容量が決定します。
