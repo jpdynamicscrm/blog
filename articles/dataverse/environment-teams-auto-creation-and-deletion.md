@@ -7,7 +7,7 @@ tags:
   - Teams
   - Governance
 categories:
-  - [PowerPlatform]
+  - [Dataverse]
 ---
 
 # Dataverse for Teams 環境の自動作成と削除の仕組みまとめ
@@ -22,6 +22,8 @@ categories:
 - [Q4: Dataverse for Teams 環境を手動で削除する方法を教えてください](#q4)
 - [Q5: 使われていない環境は自動的に削除されますか？](#q5)
 - [Q6: 削除された環境を元に戻すことはできますか？](#q6)
+
+<!-- more -->
 
 ### この記事でわかること
 - Dataverse for Teams 環境とは何か、通常の Dataverse との違い

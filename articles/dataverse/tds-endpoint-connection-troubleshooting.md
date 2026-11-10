@@ -10,7 +10,6 @@ tags:
   - Troubleshooting
 categories:
   - [Dataverse]
-  - [Power BI]
 toc:
   enabled: true
   min_depth: 1
