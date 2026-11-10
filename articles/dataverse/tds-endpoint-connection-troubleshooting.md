@@ -37,15 +37,6 @@ Power BI Desktop、SQL Server Management Studio (SSMS)、Excel などの外部�
 > [!IMPORTANT]
 > 通信要件や IP アドレスは変更される可能性があります。実際の設定にあたっては、記事末尾の公式ドキュメントもあわせてご確認ください。
 
-## 目次
-
-- [まず押さえたいポイント](#anchor-key-points)
-- [確認ポイントと切り分け](#anchor-checks)
-- [過去の事例で多く見られた原因](#anchor-past-cases)
-- [それでも解決しない場合に整理したい情報](#anchor-support-info)
-- [まとめ](#anchor-summary)
-- [参考情報](#anchor-references)
-
 <a id='anchor-key-points'></a>
 
 ## まず押さえたいポイント
