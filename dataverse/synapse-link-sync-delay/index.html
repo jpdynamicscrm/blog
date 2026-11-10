@@ -6,15 +6,15 @@
   
   <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法 | Japan Dynamics CRM &amp; Power Platform Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Power Platform サポート チームの河津です。 本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートしている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組み">
+  <meta name="description" content="こんにちは、Power Platform サポートチームの河津です。 本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組み">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法">
 <meta property="og:url" content="https://jpdynamicscrm.github.io/blog/dataverse/synapse-link-sync-delay/index.html">
 <meta property="og:site_name" content="Japan Dynamics CRM &amp; Power Platform Support Blog">
-<meta property="og:description" content="こんにちは、Power Platform サポート チームの河津です。 本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートしている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組み">
+<meta property="og:description" content="こんにちは、Power Platform サポートチームの河津です。 本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組み">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2026-05-19T08:00:00.000Z">
-<meta property="article:modified_time" content="2026-11-10T09:10:56.742Z">
+<meta property="article:modified_time" content="2026-11-10T03:33:22.711Z">
 <meta property="article:author" content="Japan Dynamics CRM &amp; Power Platform Support Team">
 <meta property="article:tag" content="Dataverse">
 <meta property="article:tag" content="How to">
@@ -160,13 +160,13 @@
         
         <a href="https://github.com/jpdynamicscrm/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3e9cd6d3-01c5-5963-8d2b-859ca834231a%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BDataverse+%E3%81%AE+Azure+Synapse+Link+%E3%81%A7%E5%90%8C%E6%9C%9F%E9%81%85%E5%BB%B6%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AE%E5%8E%9F%E5%9B%A0%E3%81%A8%E5%AF%BE%E5%87%A6%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpdynamicscrm.github.io%2Fblog%2Fdataverse%2Fsynapse-link-sync-delay%2F%29%0A*+Content+Source%3A+%5Barticles%2Fdataverse%2Fsynapse-link-sync-delay.md%5D%28https%3A%2F%2Fgithub.com%2Fjpdynamicscrm%2Fblog%2Fblob%2Fmaster%2Farticles%2Fdataverse%2Fsynapse-link-sync-delay.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpdynamicscrm.github.io/blog/dataverse/synapse-link-sync-delay/" data-id="cuid4kCnBvz9oPSwcIaepuVII" class="article-share-link">共有</a>
+        <a data-url="https://jpdynamicscrm.github.io/blog/dataverse/synapse-link-sync-delay/" data-id="cuidz4MY_vrtztHV_whWYLYjl" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Power Platform サポート チームの河津です。</p>
-<p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートしている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>
+        <p>こんにちは、Power Platform サポートチームの河津です。</p>
+<p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートされている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>
 <span id="more"></span>
 
 <ul>
@@ -175,41 +175,43 @@
 <li><a href="#q3">Q3: 長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？</a></li>
 <li><a href="#q4">Q4: 遅延した同期はどのように復旧しますか？</a></li>
 <li><a href="#q5">Q5: 同期遅延を防止・軽減するにはどうすればよいですか？</a></li>
-<li><a href="#faq">よくあるお問い合わせ</a></li>
-<li><a href="#summary">まとめ</a></li>
 </ul>
-<h2 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h2><ul>
-<li>Synapse Link のニアリアルタイム同期の仕組みと、遅延が発生し得る条件がわかります。</li>
-<li>長時間トランザクションが変更追跡（Change Tracking）に与える影響がわかります。</li>
-<li>1 つのテーブルのトランザクションが全テーブルの同期に影響する理由がわかります。</li>
-<li>フォールバック同期ジョブによる自動復旧の仕組みがわかります。</li>
-<li>同期遅延の検知方法や緩和策の考え方がわかります。</li>
+<h3 id="この記事でわかること"><a href="#この記事でわかること" class="headerlink" title="この記事でわかること"></a>この記事でわかること</h3><ul>
+<li>Synapse Link のニアリアルタイム同期の仕組みと、遅延が発生し得る条件がわかる</li>
+<li>長時間トランザクションが変更追跡（Change Tracking）に与える影響がわかる</li>
+<li>1 つのテーブルのトランザクションが全テーブルの同期に影響する理由がわかる</li>
+<li>フォールバック同期ジョブによる自動復旧の仕組みがわかる</li>
+<li>同期遅延の検知方法や緩和策の考え方がわかる</li>
 </ul>
-<p><a id='q1'></a></p>
-<h2 id="Synapse-Link-のニアリアルタイム同期とはどのような仕組みですか？-Q1"><a href="#Synapse-Link-のニアリアルタイム同期とはどのような仕組みですか？-Q1" class="headerlink" title="Synapse Link のニアリアルタイム同期とはどのような仕組みですか？ (Q1)"></a>Synapse Link のニアリアルタイム同期とはどのような仕組みですか？ (Q1)</h2><p>【結論】Synapse Link は Dataverse のデータ変更を「ニアリアルタイム」で ADLS Gen2 や Fabric に同期する機能ですが、リアルタイム性が常に保証されるものではありません。同期のパフォーマンスは複数の要因に依存しており、特にトランザクション量の多い環境ではデータの反映に時間がかかる場合があります。</p>
-<p>Synapse Link の差分同期（DeltaSync）は、Dataverse のバックエンドにある SQL Server の <strong>変更追跡（Change Tracking）</strong> 機能を利用しています。前回の同期以降に追加・更新・削除されたレコードを検出し、ADLS Gen2 上のファイルとして出力する仕組みです。</p>
-<p>Append モード（CSV 形式）をご利用の場合、インクリメンタル更新フォルダーが最短 <strong>5 分間隔</strong> で作成され、その時間内に発生した変更データが格納されます。</p>
-<p>ただし、公式ドキュメントでは以下のように記載されています。</p>
+<hr>
+<h2 id="q1">Synapse Link のニアリアルタイム同期とはどのような仕組みですか？ (Q1)</h2>
+
+<p>【結論】Synapse Link は Dataverse のデータ変更を「ニアリアルタイム」で ADLS Gen2 や Fabric に同期する機能ですが、リアルタイム性が常に保証されるものではございません。同期のパフォーマンスは複数の要因に依存しており、特にトランザクション量の多い環境ではデータの反映に時間がかかる場合がございます。</p>
+<p>Synapse Link の差分同期（DeltaSync）は、Dataverse のバックエンドにある SQL Server の <strong>変更追跡（Change Tracking）</strong> 機能を利用しております。前回の同期以降に追加・更新・削除されたレコードを検出し、ADLS Gen2 上のファイルとして出力する仕組みです。</p>
+<p>Append モード（CSV 形式）をご利用の場合、インクリメンタル更新フォルダが最短 <strong>5 分間隔</strong> で作成され、その時間内に発生した変更データが格納されます。</p>
+<p>ただし、公式ドキュメントでは以下のように記載されております。</p>
 <blockquote>
-<p>ほぼリアルタイムの同期パフォーマンスは、初期データ読み込みサイズ、データ変更頻度、変更量など、いくつかの要因によって異なります。（中略）このような大量のシナリオでは、ほぼリアルタイムでのデータの可用性を保証することはできません。</p>
+<p>ニアリアルタイム同期のパフォーマンスは、初期データロードサイズ、データチャーンレート、変更量など複数の要因に依存します。（中略）このような高ボリュームのシナリオでは、ニアリアルタイムのデータ可用性は保証されません。</p>
 </blockquote>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data">Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-incremental-updates">Azure Synapse Link の増分更新 (Docs)</a></li>
 </ul>
-<p><a id='q2'></a></p>
-<h2 id="同期遅延が発生する主な原因は何ですか？-Q2"><a href="#同期遅延が発生する主な原因は何ですか？-Q2" class="headerlink" title="同期遅延が発生する主な原因は何ですか？ (Q2)"></a>同期遅延が発生する主な原因は何ですか？ (Q2)</h2><p>【結論】同期遅延の主な原因として、Dataverse 上で <strong>長時間にわたるトランザクション</strong> が実行されていることにより、変更追跡で管理されるバージョン番号が一時的に固定され、変更レコードが更新されなくなるケースが挙げられます。</p>
-<p>Dataverse のバックエンド SQL Server では、変更追跡のためにデータベース全体で共通の行バージョン番号が管理されています。この変更追跡の性質として、長時間実行中のトランザクションが存在すると、そのトランザクションが完了するまでバージョン番号の進行が止まり、変更レコードが更新されない動作となっています。</p>
-<p>具体的には、以下のような流れで同期遅延が発生する場合があります。</p>
+<hr>
+<h2 id="q2">同期遅延が発生する主な原因は何ですか？ (Q2)</h2>
+
+<p>【結論】同期遅延の主な原因として、Dataverse 上で <strong>長時間にわたるトランザクション</strong> が実行されていることにより、変更追跡で管理されるバージョン番号が一時的に固定され、変更レコードが更新されなくなるケースが挙げられます。</p>
+<p>Dataverse のバックエンド SQL Server では、変更追跡のためにデータベース全体で共通の行バージョン番号が管理されています。この変更追跡の性質として、長時間実行中のトランザクションが存在すると、そのトランザクションが完了するまでバージョン番号の進行が止まり、変更レコードが更新されない動作となっております。</p>
+<p>具体的には、以下のような流れで同期遅延が発生する場合がございます。</p>
 <ol>
-<li>Dataverse 上で何らかの処理（プラグイン、バッチ処理、大量データ操作など）により長時間のトランザクションが開始されます</li>
-<li>そのトランザクションが完了するまで、変更追跡のバージョン番号が固定されます</li>
-<li>バージョン番号が固定されている間、他のテーブルで正常にコミットされた変更であっても変更追跡クエリから返されなくなります</li>
-<li>Synapse Link の差分同期処理自体は正常に動作し続けますが、取得可能な変更レコードが 0 件となるため、ファイルへの出力が行われない状態となります</li>
-<li>長時間トランザクションが完了するとバージョン番号が進行し、それまでに溜まっていた変更が一斉にエクスポートされます</li>
+<li>Dataverse 上で何らかの処理（プラグイン、バッチ処理、大量データ操作など）により長時間のトランザクションが開始される</li>
+<li>そのトランザクションが完了するまで、変更追跡のバージョン番号が固定される</li>
+<li>バージョン番号が固定されている間、他のテーブルで正常にコミットされた変更であっても変更追跡クエリから返されなくなる</li>
+<li>Synapse Link の差分同期処理自体は正常に動作し続けますが、取得可能な変更レコードが 0 件となるため、ファイルへの出力が行われない状態となる</li>
+<li>長時間トランザクションが完了するとバージョン番号が進行し、それまでに溜まっていた変更が一斉にエクスポートされる</li>
 </ol>
-<h3 id="長時間トランザクションが発生しやすいケース"><a href="#長時間トランザクションが発生しやすいケース" class="headerlink" title="長時間トランザクションが発生しやすいケース"></a>長時間トランザクションが発生しやすいケース</h3><p>以下のような操作は、長時間にわたるトランザクションを発生させる可能性があります。</p>
+<h3 id="長時間トランザクションが発生しやすいケース"><a href="#長時間トランザクションが発生しやすいケース" class="headerlink" title="長時間トランザクションが発生しやすいケース"></a>長時間トランザクションが発生しやすいケース</h3><p>以下のような操作は、長時間にわたるトランザクションを発生させる可能性がございます。</p>
 <table>
 <thead>
 <tr>
@@ -235,40 +237,46 @@
 </tr>
 <tr>
 <td>ロールアップフィールドの定期再計算</td>
-<td>Dataverse のシステムジョブ「Calculate Rollup Field」がロールアップフィールドの再計算を実行する際、対象レコード数が多いと長時間トランザクションとなる場合があります</td>
+<td>Dataverse のシステムジョブ「Calculate Rollup Field」がロールアップフィールドの再計算を実行する際、対象レコード数が多い場合に長時間トランザクションとなる場合がある</td>
 </tr>
 </tbody></table>
-<p>なお、ロールアップフィールドの再計算ジョブは Dataverse のシステムジョブとして自動的に実行されるため、<strong>お客様が明示的に操作を行っていない場合でも長時間トランザクションの原因となる可能性があります</strong>。特に、マネージドソリューション（Dynamics 365 のアプリケーションなど）によって導入されたロールアップフィールドが業務上使用されていない場合でも、バックログ（未処理の再計算キュー）が蓄積し、再計算ジョブの実行時間が長期化するケースが確認されています。</p>
+<p>なお、ロールアップフィールドの再計算ジョブは Dataverse のシステムジョブとして自動的に実行されるため、<strong>お客様が明示的に操作を行っていない場合でも長時間トランザクションの原因となる可能性がございます</strong>。特に、マネージドソリューション（Dynamics 365 のアプリケーション等）によって導入されたロールアップフィールドが業務上使用されていない場合でも、バックログ（未処理の再計算キュー）が蓄積し、再計算ジョブの実行時間が長期化するケースが確認されております。</p>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data">Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)</a></li>
 </ul>
-<p><a id='q3'></a></p>
-<h2 id="長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？-Q3"><a href="#長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？-Q3" class="headerlink" title="長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？ (Q3)"></a>長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？ (Q3)</h2><p>【結論】変更追跡で使用されるバージョン番号はデータベース（組織）レベルで共通のシーケンスとして管理されているため、いずれか 1 つのテーブルで長時間トランザクションが存在すると、すべてのテーブルの同期に影響が及ぶ仕組みとなっています。</p>
+<hr>
+<h2 id="q3">長時間トランザクションがあると、なぜ全テーブルの同期が止まるのですか？ (Q3)</h2>
+
+<p>【結論】変更追跡で使用されるバージョン番号はデータベース（組織）レベルで共通のシーケンスとして管理されているため、いずれか 1 つのテーブルで長時間トランザクションが存在すると、すべてのテーブルの同期に影響が及ぶ仕組みとなっております。</p>
 <p>具体的には、以下のような仕組みです。</p>
 <ol>
-<li><strong>変更追跡のバージョン番号はデータベース全体で共通</strong> — テーブルごとに独立しているわけではありません</li>
+<li><strong>変更追跡のバージョン番号はデータベース全体で共通</strong> — テーブルごとに独立しているわけではございません</li>
 <li><strong>バージョン番号はデータベースレベルで固定される</strong> — いずれかのテーブルで未コミットのトランザクションが存在する場合、その時点のバージョン番号で変更追跡の進行が止まります</li>
 <li><strong>固定されたバージョンを超えるレコードは返されない</strong> — 他のテーブルで正常にコミットされたレコードであっても、変更追跡クエリの結果に含まれなくなります</li>
 </ol>
 <p>たとえば、テーブル A で大量レコードの一括作成処理（長時間トランザクション）が実行されている場合、テーブル B や C で発生した変更も変更追跡から返されなくなります。</p>
-<p>この動作は変更追跡の設計上の仕様です。長時間トランザクションが完了すると、すべてのテーブルで溜まっていた変更が一斉にエクスポートされるため、「すべてのテーブルのファイル出力が同じ時刻に集中する」という現象として観測される場合があります。</p>
+<p>この動作は変更追跡の設計上の仕様でございます。長時間トランザクションが完了しますと、すべてのテーブルで溜まっていた変更が一斉にエクスポートされるため、「すべてのテーブルのファイル出力が同じ時刻に集中する」という現象として観測される場合がございます。</p>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data">Azure Synapse ワークスペースを使用して Dataverse の Azure Synapse リンクを作成する - ほぼリアルタイムのデータと読み取り専用スナップショット データにアクセスする (Docs)</a></li>
 </ul>
-<p><a id='q4'></a></p>
-<h2 id="遅延した同期はどのように復旧しますか？-Q4"><a href="#遅延した同期はどのように復旧しますか？-Q4" class="headerlink" title="遅延した同期はどのように復旧しますか？ (Q4)"></a>遅延した同期はどのように復旧しますか？ (Q4)</h2><p>【結論】Synapse Link には、設計上 <strong>フォールバック同期ジョブ（automated hourly fallback synchronization job）</strong> が定期的に自動実行される仕組みが組み込まれています。通常の差分同期で取得できなかった変更データがあった場合でも、このフォールバック同期ジョブが検知し回収します。</p>
+<hr>
+<h2 id="q4">遅延した同期はどのように復旧しますか？ (Q4)</h2>
+
+<p>【結論】Synapse Link には、設計上 <strong>フォールバック同期ジョブ（automated hourly fallback synchronization job）</strong> が定期的に自動実行される仕組みが組み込まれております。通常の差分同期で取得できなかった変更データがあった場合でも、このフォールバックジョブが検知し回収します。</p>
 <p>フォールバック同期ジョブの想定動作は以下のとおりです。</p>
 <ol>
 <li>通常の差分同期は約 5 分間隔で実行されますが、変更追跡のバージョン番号が固定されている間は変更レコードが 0 件となります</li>
 <li>長時間トランザクションが完了するとバージョン番号が進行し、それまでに溜まっていた変更が変更追跡から一斉に返されるようになります</li>
-<li>仮にタイミングの問題で通常の差分同期がこれらの変更を拾えなかった場合でも、<strong>定期的に実行されるフォールバック同期ジョブがセーフティ ネットとして機能</strong>し、取りこぼしたデータを回収・出力します</li>
+<li>仮にタイミングの問題で通常の差分同期がこれらの変更を拾えなかった場合でも、<strong>定期的にに実行されるフォールバックジョブがセーフティネットとして機能</strong>し、取りこぼしたデータを回収・出力します</li>
 </ol>
-<p>このため、長時間トランザクションが単発で発生した場合、同期遅延はおおむね <strong>約 1 時間～2 時間程度</strong> で自然に復旧します。遅延中のデータが失われることはありませんので、ご安心ください。</p>
-<p>ただし、<strong>長時間トランザクションが連続的・断続的に発生する場合</strong>（例: ロールアップフィールドの再計算ジョブが大量のバックログを処理し続ける場合など）は、変更追跡のバージョン番号の固定が繰り返され、<strong>遅延が数時間に及ぶ可能性があります</strong>。このようなケースでは、長時間トランザクションの発生源を特定し、根本的な対処を行うことが重要です。対処方法については <a href="#q5">Q5</a> をご参照ください。</p>
-<p><a id='q5'></a></p>
-<h2 id="同期遅延を防止・軽減するにはどうすればよいですか？-Q5"><a href="#同期遅延を防止・軽減するにはどうすればよいですか？-Q5" class="headerlink" title="同期遅延を防止・軽減するにはどうすればよいですか？ (Q5)"></a>同期遅延を防止・軽減するにはどうすればよいですか？ (Q5)</h2><p>【結論】同期遅延の根本的な原因は Dataverse 上の長時間トランザクションにあるため、対策としてはソースシステム側での長時間トランザクションの発生を抑制する方向が基本となります。</p>
+<p>このため、長時間トランザクションが単発で発生した場合、同期遅延はおおむね <strong>約 1 時間〜2 時間程度</strong> で自然に復旧いたします。遅延中のデータが失われることはございませんので、ご安心ください。</p>
+<p>ただし、<strong>長時間トランザクションが連続的・断続的に発生する場合</strong>（例: ロールアップフィールドの再計算ジョブが大量のバックログを処理し続ける場合など）は、変更追跡のバージョン番号の固定が繰り返され、<strong>遅延が数時間に及ぶ可能性がございます</strong>。このようなケースでは、長時間トランザクションの発生源を特定し、根本的な対処を行うことが重要です。対処方法については <a href="#q5">Q5</a> をご参照ください。</p>
+<hr>
+<h2 id="q5">同期遅延を防止・軽減するにはどうすればよいですか？ (Q5)</h2>
+
+<p>【結論】同期遅延の根本的な原因は Dataverse 上の長時間トランザクションにございますため、対策としてはソースシステム側での長時間トランザクションの発生を抑制する方向が基本となります。</p>
 <h3 id="対策-1-長時間トランザクションの特定と抑制"><a href="#対策-1-長時間トランザクションの特定と抑制" class="headerlink" title="対策 1: 長時間トランザクションの特定と抑制"></a>対策 1: 長時間トランザクションの特定と抑制</h3><table>
 <thead>
 <tr>
@@ -289,7 +297,7 @@
 <td>エクスポート対象を絞り込む、またはビューを最適化する</td>
 </tr>
 </tbody></table>
-<h3 id="対策-2-Synapse-Link-プロファイルの分割"><a href="#対策-2-Synapse-Link-プロファイルの分割" class="headerlink" title="対策 2: Synapse Link プロファイルの分割"></a>対策 2: Synapse Link プロファイルの分割</h3><p>同期対象テーブル数が多い場合、複数の Synapse Link プロファイルに分割することで、処理の競合を低減できる可能性があります。ただし、変更追跡のバージョン番号はデータベースレベルで管理されているため、長時間トランザクションによる遅延そのものはプロファイルの分割では防止できない点にご留意ください。</p>
+<h3 id="対策-2-Synapse-Link-プロファイルの分割"><a href="#対策-2-Synapse-Link-プロファイルの分割" class="headerlink" title="対策 2: Synapse Link プロファイルの分割"></a>対策 2: Synapse Link プロファイルの分割</h3><p>同期対象テーブル数が多い場合、複数の Synapse Link プロファイルに分割することで、処理の競合を低減できる可能性がございます。ただし、変更追跡のバージョン番号はデータベースレベルで管理されておりますため、長時間トランザクションによる遅延そのものはプロファイルの分割では防止できない点にご留意ください。</p>
 <h3 id="対策-3-ロールアップフィールドの管理"><a href="#対策-3-ロールアップフィールドの管理" class="headerlink" title="対策 3: ロールアップフィールドの管理"></a>対策 3: ロールアップフィールドの管理</h3><p>Dataverse のロールアップフィールドは、システムジョブ「Calculate Rollup Field」により定期的に再計算されます。対象レコード数が多い場合、この再計算処理が長時間トランザクションとなり、同期遅延の原因となることがあります。</p>
 <p>以下の対応をご検討ください。</p>
 <table>
@@ -301,34 +309,41 @@
 </thead>
 <tbody><tr>
 <td>再計算ジョブの一時停止・間隔変更</td>
-<td>[設定] → [システムジョブ] → [定期的なシステムジョブ] から「Calculate Rollup Field」ジョブの一時停止（Pause）や再計算間隔の変更ができます</td>
+<td>[設定] → [システムジョブ] → [定期的なシステムジョブ] から「Calculate Rollup Field」ジョブの一時停止（Pause）や再計算間隔の変更が可能です</td>
 </tr>
 <tr>
 <td>未使用ロールアップフィールドの確認</td>
-<td>マネージドソリューション（Dynamics 365 アプリケーションなど）により導入されたロールアップフィールドが業務上使用されていない場合、不要なフィールドの削除をご検討ください。ただし、マネージドソリューションの標準フィールドは削除できない場合があります</td>
+<td>マネージドソリューション（Dynamics 365 アプリケーション等）により導入されたロールアップフィールドが業務上使用されていない場合、不要なフィールドの削除をご検討ください。ただし、マネージドソリューションの標準フィールドは削除できない場合があります</td>
 </tr>
 </tbody></table>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/define-rollup-fields#modify-rollup-job-recurrence">ロールアップ列の定義 - ロールアップ ジョブの繰り返しを変更する (Docs)</a></li>
 </ul>
-<h3 id="同期遅延が許容されない要件について"><a href="#同期遅延が許容されない要件について" class="headerlink" title="同期遅延が許容されない要件について"></a>同期遅延が許容されない要件について</h3><p>Synapse Link のニアリアルタイム同期は、前述のとおり遅延時間に関する具体的な SLA や保証が提供されておらず、Dataverse 上のトランザクション状況によっては数十分～1 時間程度の遅延が発生する可能性があります。そのため、リアルタイム性が厳密に求められるデータ連携の要件においては、別途、Dataverse Web API を直接利用した連携など、ご要件に応じた別のデータ連携手段をご検討ください。</p>
+<h3 id="同期遅延が許容されない要件について"><a href="#同期遅延が許容されない要件について" class="headerlink" title="同期遅延が許容されない要件について"></a>同期遅延が許容されない要件について</h3><p>Synapse Link のニアリアルタイム同期は、前述のとおり遅延時間に関する具体的な SLA や保証が提供されておらず、Dataverse 上のトランザクション状況によっては数十分～1 時間程度の遅延が発生する可能性がございます。そのため、リアルタイム性が厳密に求められるデータ連携の要件においては、別途、Dataverse Web API を直接利用した連携など、ご要件に応じた別のデータ連携手段をご検討ください。</p>
 <p>＜参考資料＞</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/power-apps/maker/data-platform/export-data-lake-faq">Azure Synapse Link for Dataverse に関してよく寄せられる質問 (Docs)</a></li>
 </ul>
-<p><a id='faq'></a></p>
-<h2 id="よくあるお問い合わせ"><a href="#よくあるお問い合わせ" class="headerlink" title="よくあるお問い合わせ"></a>よくあるお問い合わせ</h2><p>サポートへ実際にお寄せいただくお問い合わせの中から、関連性の高いものを Q&amp;A 形式でご紹介いたします。</p>
-<h3 id="Q-Append-モード（CSV）でインクリメンタルフォルダーは作成されているのに、中にデータが入っていないことがあります。なぜですか？"><a href="#Q-Append-モード（CSV）でインクリメンタルフォルダーは作成されているのに、中にデータが入っていないことがあります。なぜですか？" class="headerlink" title="Q. Append モード（CSV）でインクリメンタルフォルダーは作成されているのに、中にデータが入っていないことがあります。なぜですか？"></a>Q. Append モード（CSV）でインクリメンタルフォルダーは作成されているのに、中にデータが入っていないことがあります。なぜですか？</h3><p><strong>A.</strong> インクリメンタルフォルダーは約 5 分ごとに作成されますが、フォルダーの作成と実際のデータ出力は非同期で行われます。長時間トランザクションにより変更追跡のバージョン番号が固定されている場合、フォルダーは作成されるもののデータが 0 件のため CSV ファイルが出力されないケースがあります。長時間トランザクションが完了しバージョン番号が進行すると、以降のフォルダーにまとめてデータが出力されます。</p>
-<h3 id="Q-同期遅延はどの程度の頻度で発生しますか？-SLA-はありますか？"><a href="#Q-同期遅延はどの程度の頻度で発生しますか？-SLA-はありますか？" class="headerlink" title="Q. 同期遅延はどの程度の頻度で発生しますか？ SLA はありますか？"></a>Q. 同期遅延はどの程度の頻度で発生しますか？ SLA はありますか？</h3><p><strong>A.</strong> Synapse Link のニアリアルタイム同期について、遅延時間に関する具体的な SLA は公式に提供されていません。遅延の発生頻度は、環境ごとのデータ変更量やトランザクションのパターンによって異なります。同期遅延が業務に影響を与える場合は、<a href="#q5">Q5</a> でご紹介した対策をご検討ください。</p>
-<p><a id='summary'></a></p>
-<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><ul>
-<li>Synapse Link のニアリアルタイム同期は Dataverse の変更追跡（Change Tracking）を基盤としており、高トランザクション環境ではデータの反映に遅延が生じる場合があります。</li>
-<li>同期遅延の主な原因は、Dataverse 上の長時間トランザクションが変更追跡のバージョン番号の進行を止めることによるものです。</li>
-<li>変更追跡のバージョン番号はデータベースレベルで管理されるため、1 つのテーブルの長時間トランザクションが全テーブルの同期に影響を及ぼします。</li>
-<li>遅延した同期はフォールバック同期ジョブにより自動的に復旧し、データの欠落は発生しません。</li>
-<li>根本的な対策としては、長時間トランザクションの特定と抑制をご検討ください。</li>
+<hr>
+<h2 id="faq">よくあるお問い合わせ</h2>
+
+<p>サポートへ実際にお寄せいただくお問い合わせの中から、関連性の高いものを Q&amp;A 形式でご紹介いたします。</p>
+<h3 id="Q-Append-モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？"><a href="#Q-Append-モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？" class="headerlink" title="Q. Append モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？"></a>Q. Append モード（CSV）でインクリメンタルフォルダは作成されているのに、中にデータが入っていないことがあります。なぜですか？</h3><p><strong>A.</strong> インクリメンタルフォルダは約 5 分ごとに作成されますが、フォルダの作成と実際のデータ出力は非同期で行われます。長時間トランザクションにより変更追跡のバージョン番号が固定されている場合、フォルダは作成されるもののデータが 0 件のため CSV ファイルが出力されないケースがございます。長時間トランザクションが完了しバージョン番号が進行しますと、以降のフォルダにまとめてデータが出力されます。</p>
+<h3 id="Q-同期遅延はどの程度の頻度で発生しますか？-SLA-はありますか？"><a href="#Q-同期遅延はどの程度の頻度で発生しますか？-SLA-はありますか？" class="headerlink" title="Q. 同期遅延はどの程度の頻度で発生しますか？ SLA はありますか？"></a>Q. 同期遅延はどの程度の頻度で発生しますか？ SLA はありますか？</h3><p><strong>A.</strong> Synapse Link のニアリアルタイム同期について、遅延時間に関する具体的な SLA は公式に提供されておりません。遅延の発生頻度は、環境ごとのデータ変更量やトランザクションのパターンによって異なります。同期遅延が業務に影響を与える場合は、<a href="#q5">Q5</a> でご紹介した対策をご検討いただければと存じます。</p>
+<hr>
+<h2 id="summary">まとめ</h2>
+
+<ul>
+<li>Synapse Link のニアリアルタイム同期は Dataverse の変更追跡（Change Tracking）を基盤としており、高トランザクション環境ではデータの反映に遅延が生じる場合がございます</li>
+<li>同期遅延の主な原因は、Dataverse 上の長時間トランザクションが変更追跡のバージョン番号の進行を止めることによるものです</li>
+<li>変更追跡のバージョン番号はデータベースレベルで管理されるため、1 つのテーブルの長時間トランザクションが全テーブルの同期に影響を及ぼします</li>
+<li>遅延した同期はフォールバック同期ジョブにより自動的に復旧し、データの欠落は発生いたしません</li>
+<li>根本的な対策としては、長時間トランザクションの特定と抑制をご検討ください</li>
 </ul>
+<h2 id="notice">注意事項（情報の更新可能性）</h2>
+
+<p>本記事の内容は執筆日時点の公開情報に基づいております。<br>仕様や UI、制限事項は将来変更される可能性がございます。<br>最新情報は公式ドキュメントをご確認くださいますようお願い申し上げます。</p>
 
       
       
@@ -413,7 +428,7 @@
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
       <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/AI-Builder/" rel="tag">AI Builder</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ALM/" rel="tag">ALM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Administration/" rel="tag">Administration</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/App-Access-Checker/" rel="tag">App Access Checker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Audit-Log/" rel="tag">Audit Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Canvas-app/" rel="tag">Canvas app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Capacity/" rel="tag">Capacity</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Cloud-flow/" rel="tag">Cloud flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector/" rel="tag">Connector</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/" rel="tag">Connector and Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Copilot/" rel="tag">Copilot</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/DLP-%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/" rel="tag">DLP ポリシー</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataflow/" rel="tag">Dataflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/" rel="tag">Dataverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-for-Teams/" rel="tag">Dataverse for Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">Dataverse ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Desktop-flow/" rel="tag">Desktop flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Developer-Environment/" rel="tag">Developer Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/" rel="tag">Dynamics</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/" rel="tag">Dynamics 365</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Environment/" rel="tag">Environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Exchange/" rel="tag">Exchange</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Export/" rel="tag">Export</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/" rel="tag">Governance</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Graph-API/" rel="tag">Graph API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/" rel="tag">How to</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Ideas/" rel="tag">Ideas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Import/" rel="tag">Import</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/" rel="tag">Information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/" rel="tag">License</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/" rel="tag">Microsoft Copilot Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/" rel="tag">Microsoft Teams 連携</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Mobile/" rel="tag">Mobile</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-Apps/" rel="tag">Model-driven Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/" rel="tag">Model-driven app</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/" rel="tag">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Office-365-Management-API/" rel="tag">Office 365 Management API</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Paging/" rel="tag">Paging</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/" rel="tag">Power Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/" rel="tag">Power Automate</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/" rel="tag">Power Automate for desktop</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-BI/" rel="tag">Power BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/" rel="tag">Power Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/" rel="tag">Power Platform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform-%E7%AE%A1%E7%90%86%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC/" rel="tag">Power Platform 管理センター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Virtual-Agents/" rel="tag">Power Virtual Agents</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerPlatform/" rel="tag">PowerPlatform</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/" rel="tag">PowerShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Settings/" rel="tag">Settings</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SharePoint/" rel="tag">SharePoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/TDS-endpoint/" rel="tag">TDS endpoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Team-Members/" rel="tag">Team Members</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Teams/" rel="tag">Teams</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Troubleshooting/" rel="tag">Troubleshooting</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/VNetGateway/" rel="tag">VNetGateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/" rel="tag">お問い合わせ全般</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AA%E3%83%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%B9-%E3%83%87%E3%83%BC%E3%82%BF-%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4/" rel="tag">オンプレミス データ ゲートウェイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">キャンバスアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88/" rel="tag">サポート</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" rel="tag">ストレージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティ ロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AD%E3%83%BC%E3%83%AB/" rel="tag">セキュリティロール</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E7%A7%BB%E8%A1%8C/" rel="tag">テナント移行</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/" rel="tag">トラブルシューティング</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/" rel="tag">パイプライン</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E7%92%B0%E5%A2%83/" rel="tag">マネージド環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC/" rel="tag">モニター</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E7%AE%A1%E7%90%86/" rel="tag">ユーザー管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9/" rel="tag">ライセンス</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%A7%94%E4%BB%BB/" rel="tag">委任</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%B9%E5%89%B2/" rel="tag">役割</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%83%85%E5%A0%B1%E6%8E%A1%E5%8F%96/" rel="tag">情報採取</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A4%9C%E7%B4%A2/" rel="tag">検索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%92%B0%E5%A2%83%E7%AE%A1%E7%90%86/" rel="tag">環境管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%96%8B%E7%99%BA%E8%80%85%E7%92%B0%E5%A2%83/" rel="tag">開発者環境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%9D%9E%E6%8E%A8%E5%A5%A8/" rel="tag">非推奨</a></li></ul>  -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">21</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">14</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">41</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">39</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">27</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">23</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">9</span><ul></ul></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Apps/">Power Apps</a><span class="tag-list-count">21</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%A8%E8%88%AC/">お問い合わせ全般</a><span class="tag-list-count">14</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/PowerShell/">PowerShell</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate/">Power Automate</a><span class="tag-list-count">41</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Platform/">Power Platform</a><span class="tag-list-count">39</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Governance/">Governance</a><span class="tag-list-count">17</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/How-to/">How to</a><span class="tag-list-count">27</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/License/">License</a><span class="tag-list-count">8</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Microsoft-Teams-%E9%80%A3%E6%90%BA/">Microsoft Teams 連携</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Information/">Information</a><span class="tag-list-count">3</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Model-driven-app/">Model-driven app</a><span class="tag-list-count">7</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics/">Dynamics</a><span class="tag-list-count">9</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dataverse/">Dataverse</a><span class="tag-list-count">23</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Dynamics-365/">Dynamics 365</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Network/">Network</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Pages/">Power Pages</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Connector-and-Connection/">Connector and Connection</a><span class="tag-list-count">4</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Power-Automate-for-desktop/">Power Automate for desktop</a><span class="tag-list-count">9</span><ul></ul></li></ul>
     </div>
   </div>
 
@@ -442,7 +457,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">カテゴリ</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataflow/">Dataflow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dataverse/">Dataverse</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Dynamics-365/">Dynamics 365</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Microsoft-Copilot-Studio/">Microsoft Copilot Studio</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/">Power Apps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Canvas-app/">Canvas app</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Apps/Model-driven-app/">Model-driven app</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/">Power Automate</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Cloud-flow/">Cloud flow</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Automate/Desktop-flow/">Desktop flow</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Pages/">Power Pages</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform/">Power Platform</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Power-Platform-Admin-Center/">Power Platform Admin Center</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">サポートサービスのご利用について</a></li></ul>
     </div>
   </div>
 
