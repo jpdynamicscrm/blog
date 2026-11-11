@@ -18,7 +18,7 @@
   <title>
     <![CDATA[Japan Dynamics CRM & Power Platform Support Blog]]>
   </title>
-  <updated>2026-11-10T09:10:56.909Z</updated>
+  <updated>2026-11-11T01:30:29.931Z</updated>
   <entry>
     <author>
       <name>
@@ -50,7 +50,7 @@
 </ul>]]>
     </summary>
     <title>Power Apps 開発者環境の廃止予定と必要な対応ガイド</title>
-    <updated>2026-11-10T09:10:56.909Z</updated>
+    <updated>2026-11-11T01:30:29.931Z</updated>
   </entry>
   <entry>
     <author>
@@ -82,7 +82,7 @@
 </ul>]]>
     </summary>
     <title>モデル駆動型アプリで Dataverse のデータをインポート・エクスポートする方法</title>
-    <updated>2026-11-10T09:10:56.727Z</updated>
+    <updated>2026-11-11T01:30:29.635Z</updated>
   </entry>
   <entry>
     <author>
@@ -111,7 +111,7 @@
 </ul>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェントを Teams に展開する場合の注意事項について</title>
-    <updated>2026-11-10T09:10:56.660Z</updated>
+    <updated>2026-11-11T01:30:29.514Z</updated>
   </entry>
   <entry>
     <author>
@@ -136,7 +136,7 @@
 <p>なお、管理者がクラウド フローの一覧を取得する方法は、弊社ブログ記事「<a href="https://jpdynamicscrm.github.io/blog/powerautomate/list-cloud-flow/">Power Automate のクラウドフロー一覧を管理者が取得する方法</a>」でご紹介しています。</p>]]>
     </summary>
     <title>管理者が Power Automate クラウド フローの実行履歴を取得する方法 ～失敗調査・複数フローの監視・集計を目的別に使い分ける～</title>
-    <updated>2026-11-10T09:10:56.799Z</updated>
+    <updated>2026-11-11T01:30:29.753Z</updated>
   </entry>
   <entry>
     <author>
@@ -159,7 +159,7 @@
       <![CDATA[<p>こんにちは。Power Platform サポートの林です。<br>本記事では Power Automate for desktop で問題が発生した際にユーザー側で問題を解消するためのトラブルシューティングについてご案内いたします。  </p>]]>
     </summary>
     <title>Power Automate for desktop お問い合わせ前のトラブルシューティング</title>
-    <updated>2026-11-10T09:10:56.842Z</updated>
+    <updated>2026-11-11T01:30:29.824Z</updated>
   </entry>
   <entry>
     <author>
@@ -181,7 +181,7 @@
       <![CDATA[<p>こんにちは、Power Platform サポートチームのヤサルです。<br>本記事では Copilot Studio (旧称 Power Virtual Agents) の試用版について下記項目の順にご説明いたします。</p>]]>
     </summary>
     <title>Copilot Studio 試用版ライセンスについて</title>
-    <updated>2026-11-10T09:10:56.658Z</updated>
+    <updated>2026-11-11T01:30:29.510Z</updated>
   </entry>
   <entry>
     <author>
@@ -206,7 +206,7 @@
 <p>本記事では、Power Automate のクラウド フローからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と対処方法をご紹介します。アクションの <strong>改ページ</strong> 設定を使用する方法と、フローで応答の <code>nextLink</code> をたどる方法の 2 つを、実機での確認結果とあわせて整理しています。</p>]]>
     </summary>
     <title>Power Automate のクラウド フローでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-11-10T09:10:56.789Z</updated>
+    <updated>2026-11-11T01:30:29.737Z</updated>
   </entry>
   <entry>
     <author>
@@ -232,7 +232,7 @@
 <p>本記事では、Power Apps キャンバスアプリからコネクタの一覧取得アクションを実行したときに、<strong>データが存在するのに一部のレコードしか取得できない</strong> という事象について、その理由と、応答の <code>nextLink</code> から <code>$skiptoken</code> を取り出して続きのページを取得する方法をご紹介します。あわせて、繰り返し回数の決め方による実装の違いと、設計時に確認いただきたい注意点も整理しています。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリでコネクタの nextLink を使用して続きのデータを取得する方法</title>
-    <updated>2026-11-10T09:10:56.622Z</updated>
+    <updated>2026-11-11T01:30:29.451Z</updated>
   </entry>
   <entry>
     <author>
@@ -258,7 +258,7 @@
 <p>本記事では、Power Apps キャンバスアプリから Power Automate のクラウドフローを呼び出す構成でよくお問い合わせをいただく、<strong>フローの呼び出しから応答までの「120 秒制限」によってタイムアウトが発生するケース</strong>について、その仕組みと具体的な回避方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps のフロー呼び出しにおける 120 秒制限を回避する方法</title>
-    <updated>2026-11-10T09:10:56.768Z</updated>
+    <updated>2026-11-11T01:30:29.705Z</updated>
   </entry>
   <entry>
     <author>
@@ -281,7 +281,7 @@
 <p>「サインアップ時に氏名を入力したのに Contact に氏名が引き継がれない」「診断ログに <code>Claim given_name is null in token</code> と出力される」といったお問い合わせをいただくことがございます。本記事では、その原因と対処方法を整理してお伝えいたします。</p>]]>
     </summary>
     <title>Power Pages で外部 ID プロバイダー連携時にクレームが取引先担当者に反映されない場合の考慮事項</title>
-    <updated>2026-11-10T09:10:56.859Z</updated>
+    <updated>2026-11-11T01:30:29.849Z</updated>
   </entry>
   <entry>
     <author>
@@ -310,7 +310,7 @@
 </blockquote>]]>
     </summary>
     <title>【Standard Harness】Copilot Studio エージェント単位の Copilot クレジット消費量を予測・管理する方法</title>
-    <updated>2026-11-10T09:10:56.640Z</updated>
+    <updated>2026-11-11T01:30:29.481Z</updated>
   </entry>
   <entry>
     <author>
@@ -336,7 +336,7 @@
 <p>本記事では、Power Apps キャンバスアプリで Excel や SharePoint をデータソースとしてご利用の際にお問い合わせとしてよくいただく、<strong>アプリ利用者にデータソースの権限を付与せずにデータだけを表示したい</strong> というご要望について、その背景と Power Automate クラウドフローを活用した実現方法をご紹介します。</p>]]>
     </summary>
     <title>Power Apps キャンバスアプリで利用者に Excel や SharePoint の権限を付与せずにデータを表示する方法</title>
-    <updated>2026-11-10T09:10:56.623Z</updated>
+    <updated>2026-11-11T01:30:29.453Z</updated>
   </entry>
   <entry>
     <author>
@@ -359,7 +359,7 @@
 <p>本記事では、Dataverse の Azure Synapse Link（以下、Synapse Link）を利用してデータを Azure Data Lake Storage (ADLS) Gen2 や Fabric にエクスポートしている環境において、データの同期に遅延（数十分～数時間程度）が発生するケースについて、その仕組みと原因、対処方法を Q&amp;A 形式でご案内いたします。</p>]]>
     </summary>
     <title>Dataverse の Azure Synapse Link で同期遅延が発生する場合の原因と対処方法</title>
-    <updated>2026-11-10T09:10:56.742Z</updated>
+    <updated>2026-11-11T01:30:29.662Z</updated>
   </entry>
   <entry>
     <author>
@@ -369,8 +369,8 @@
     </author>
     <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
     <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
     <category term="Information" scheme="https://jpdynamicscrm.github.io/blog/tags/Information/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
     <category term="Model-driven Apps" scheme="https://jpdynamicscrm.github.io/blog/tags/Model-driven-Apps/"/>
     <content>
       <![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platform サポート チームの早川です。<br>本記事では、Dataverse のカスタム セキュリティ ロールの作成に関して、弊社サポートでご案内可能な範囲と、ご案内が難しい範囲について整理してお伝えします。</p><p>セキュリティ ロールに関するお問い合わせとして、「特定の操作を行うために必要な最小限の権限を持つカスタム セキュリティ ロールの構成を教えてほしい」というご要望をいただくことがあります。<br>このようなお問い合わせに対する弊社サポートの対応方針と、お客様側でカスタム セキュリティ ロールを作成する際の推奨アプローチをご案内します。</p><span id="more"></span><h2 id="セキュリティ-ロールの概要"><a href="#セキュリティ-ロールの概要" class="headerlink" title="セキュリティ ロールの概要"></a>セキュリティ ロールの概要</h2><p>Dataverse では、ロールベースのセキュリティ モデルを採用しており、ユーザーが環境内で実行できる操作は、割り当てられたセキュリティ ロールによって決定されます。</p><p>セキュリティ ロールは大きく以下の 2 種類に分けられます。</p><h3 id="既定のセキュリティ-ロール-Out-Of-the-Box、OOB"><a href="#既定のセキュリティ-ロール-Out-Of-the-Box、OOB" class="headerlink" title="既定のセキュリティ ロール (Out-Of-the-Box、OOB)"></a>既定のセキュリティ ロール (Out-Of-the-Box、OOB)</h3><p>Dataverse 環境に標準で用意されているセキュリティ ロールです。代表的なものとして、以下のロールがあります。</p><ul><li><strong>システム管理者</strong>: 環境におけるすべての操作を実行できるロール</li><li><strong>Basic User</strong>: 環境における一般的なアプリの利用ができるロール</li><li><strong>システム カスタマイザー</strong>: 環境のカスタマイズができるロール</li><li><strong>Environment Maker</strong>: アプリやフローなどの新しいリソースを作成できるロール</li></ul><p>これらの既定のセキュリティ ロールは、一般的なユーザー タスクに対応するよう設計されており、「必要最小限のアクセス権」のベスト プラクティスに基づいて構成されています。</p><h3 id="カスタム-セキュリティ-ロール"><a href="#カスタム-セキュリティ-ロール" class="headerlink" title="カスタム セキュリティ ロール"></a>カスタム セキュリティ ロール</h3><p>お客様が独自に作成するセキュリティ ロールです。既定のセキュリティ ロールでは要件を満たせない場合に、テーブルごとの特権やアクセス レベルを個別に設定して作成します。</p><h2 id="サポートでご案内可能な範囲"><a href="#サポートでご案内可能な範囲" class="headerlink" title="サポートでご案内可能な範囲"></a>サポートでご案内可能な範囲</h2><p>弊社サポートでは、セキュリティ ロールに関して以下の内容をご案内できます。</p><ul><li><strong>既定のセキュリティ ロールの仕様</strong>: 各既定ロールに含まれる特権やアクセス レベルについての説明</li><li><strong>セキュリティ ロールの概念や仕組み</strong>: 特権、アクセス レベル (ユーザー &#x2F; 部署 &#x2F; 親子部署 &#x2F; 組織)、テーブル権限などの概念の説明</li><li><strong>セキュリティ ロールの作成・編集手順</strong>: Power Platform 管理センターからセキュリティ ロールを作成・編集・コピーする操作手順のご案内</li><li><strong>公式ドキュメントのご案内</strong>: セキュリティ ロールに関連する公式ドキュメントへの誘導</li><li><strong>特定のエラーの調査</strong>: セキュリティ ロールの不足に起因するエラーが発生した場合、そのエラーに必要な特権の特定を支援</li></ul><h2 id="サポートでご案内が難しい範囲"><a href="#サポートでご案内が難しい範囲" class="headerlink" title="サポートでご案内が難しい範囲"></a>サポートでご案内が難しい範囲</h2><p>一方で、以下のようなご要望については、弊社サポートではご案内が難しい場合があります。</p><p><strong>「操作 X を行うために必要な最小限の権限を持つカスタム セキュリティ ロールを作成してほしい &#x2F; 構成を教えてほしい」</strong></p><p>このようなご案内が難しい主な理由は以下のとおりです。</p><h3 id="1-環境ごとにカスタマイズが異なるため"><a href="#1-環境ごとにカスタマイズが異なるため" class="headerlink" title="1. 環境ごとにカスタマイズが異なるため"></a>1. 環境ごとにカスタマイズが異なるため</h3><p>Dataverse 環境は、お客様ごとにカスタム テーブル、カスタム列、プラグイン、ビジネス ルール、Power Automate フローなどの構成が異なります。ある操作に必要な権限は、これらのカスタマイズの内容によって大きく変わる可能性があり、すべての環境に共通する最小権限の構成を一律にご案内することはできません。</p><h3 id="2-依存関係の網羅的な特定が困難なため"><a href="#2-依存関係の網羅的な特定が困難なため" class="headerlink" title="2. 依存関係の網羅的な特定が困難なため"></a>2. 依存関係の網羅的な特定が困難なため</h3><p>一つの操作を完了するためには、直接的に操作するテーブルだけでなく、関連するテーブルやシステム テーブルへのアクセス権が必要になることがあります。これらの依存関係はカスタマイズの内容や運用方法によって異なるため、必要な権限を網羅的に特定し、検証することは非常に困難です。</p><h3 id="3-製品の更新により必要な権限が変化する可能性があるため"><a href="#3-製品の更新により必要な権限が変化する可能性があるため" class="headerlink" title="3. 製品の更新により必要な権限が変化する可能性があるため"></a>3. 製品の更新により必要な権限が変化する可能性があるため</h3><p>Dataverse の更新に伴い、セキュリティ ロールの特権が変更される場合があります。ある時点で動作していたカスタム セキュリティ ロールの構成が、製品の更新後には不十分になる可能性があります。</p><h2 id="カスタム-セキュリティ-ロール作成時の推奨アプローチ"><a href="#カスタム-セキュリティ-ロール作成時の推奨アプローチ" class="headerlink" title="カスタム セキュリティ ロール作成時の推奨アプローチ"></a>カスタム セキュリティ ロール作成時の推奨アプローチ</h2><p>カスタム セキュリティ ロールを作成する必要がある場合は、以下のアプローチを推奨します。</p><h3 id="1-既定のセキュリティ-ロールをコピーして作成する"><a href="#1-既定のセキュリティ-ロールをコピーして作成する" class="headerlink" title="1. 既定のセキュリティ ロールをコピーして作成する"></a>1. 既定のセキュリティ ロールをコピーして作成する</h3><p>ゼロからカスタム セキュリティ ロールを作成するのではなく、要件に最も近い既定のセキュリティ ロール (例: Basic User) をコピーし、それをベースに必要な権限を追加・調整することを推奨します。</p><div class="alert is-important"><p class="alert-title">重要</p><p>システム管理者ロールのコピーは推奨しません。コピーしたロールをユーザーに割り当てると、そのユーザーが他のユーザーをシステム管理者に昇格させられるリスクがあります。また、製品の更新によって追加される新しい特権はコピーしたロールには自動的に反映されません。</p></div><h3 id="2-テスト環境で検証する"><a href="#2-テスト環境で検証する" class="headerlink" title="2. テスト環境で検証する"></a>2. テスト環境で検証する</h3><p>カスタム セキュリティ ロールの変更は、まずテスト環境や開発環境で十分に検証してから、本番環境に適用してください。</p><h3 id="3-段階的に権限を調整する"><a href="#3-段階的に権限を調整する" class="headerlink" title="3. 段階的に権限を調整する"></a>3. 段階的に権限を調整する</h3><p>必要な操作をテスト環境で実行し、権限不足のエラーが発生した場合は、エラー メッセージを手がかりに不足している特権を特定し、段階的に権限を追加していく方法が実用的です。</p><h3 id="4-定期的に見直す"><a href="#4-定期的に見直す" class="headerlink" title="4. 定期的に見直す"></a>4. 定期的に見直す</h3><p>製品の更新に伴いセキュリティ ロールの特権が変更される場合がありますので、カスタム セキュリティ ロールの権限設定は定期的に見直すことを推奨します。</p><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事では、カスタム セキュリティ ロールの作成に関するサポート範囲について以下の内容をご案内しました。</p><ul><li>弊社サポートでは、既定のセキュリティ ロールの仕様説明や、セキュリティ ロールの概念・操作手順のご案内ができます。</li><li>一方、特定の操作に必要な最小限の権限を持つカスタム セキュリティ ロールの構成については、環境固有のカスタマイズや依存関係の複雑さから、ご案内が難しい場合があります。</li><li>カスタム セキュリティ ロールを作成する際は、既定のロールをコピーし、テスト環境で段階的に検証するアプローチを推奨します。</li></ul><h2 id="参考情報"><a href="#参考情報" class="headerlink" title="参考情報"></a>参考情報</h2><ul><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/security-roles-privileges">Dataverse のセキュリティ ロールと特権 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security-configure">環境のユーザー セキュリティの構成 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/copy-security-role">セキュリティ ロールをコピーして時間を節約する - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/wp-security-cds">Microsoft Dataverse のセキュリティの概念 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/prevent-elevation-security-role-privilege">管理ユーザーの作成とセキュリティ ロール特権の昇格の防止 - Microsoft Learn</a></li><li><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/database-security">Dataverse のロールベースのセキュリティ ロール - Microsoft Learn</a></li></ul>]]>
@@ -383,7 +383,7 @@
 <p>セキュリティ ロールに関するお問い合わせとして、「特定の操作を行うために必要な最小限の権限を持つカスタム セキュリティ ロールの構成を教えてほしい」というご要望をいただくことがあります。<br>このようなお問い合わせに対する弊社サポートの対応方針と、お客様側でカスタム セキュリティ ロールを作成する際の推奨アプローチをご案内します。</p>]]>
     </summary>
     <title>カスタム セキュリティ ロールの作成に関するサポート範囲について</title>
-    <updated>2026-11-10T09:10:56.736Z</updated>
+    <updated>2026-11-11T01:30:29.652Z</updated>
   </entry>
   <entry>
     <author>
@@ -407,7 +407,7 @@
 <p>本記事では Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法について、主な論点ごとにご説明します。</p>]]>
     </summary>
     <title>Dynamics 365 Team Members ライセンスのカスタマイズ制限と活用方法</title>
-    <updated>2026-11-10T09:10:56.909Z</updated>
+    <updated>2026-11-11T01:30:29.931Z</updated>
   </entry>
   <entry>
     <author>
@@ -438,7 +438,7 @@
 </blockquote>]]>
     </summary>
     <title>Dataverse 環境の容量割り当てはソフトリミット ― 0 MB に設定しても消費は止まらない点にご注意ください</title>
-    <updated>2026-11-10T09:10:56.696Z</updated>
+    <updated>2026-11-11T01:30:29.587Z</updated>
   </entry>
   <entry>
     <author>
@@ -461,7 +461,7 @@
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>こんにちは、Power Platformサポートチームの吉永です。<br>]]>
     </summary>
     <title>Power Pages トラブルシューティング ガイド</title>
-    <updated>2026-11-10T09:10:56.859Z</updated>
+    <updated>2026-11-11T01:30:29.849Z</updated>
   </entry>
   <entry>
     <author>
@@ -469,8 +469,8 @@
         <![CDATA[Japan Dynamics CRM & Power Platform Support Team]]>
       </name>
     </author>
-    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
     <category term="Power Platform Admin Center" scheme="https://jpdynamicscrm.github.io/blog/categories/Power-Platform-Admin-Center/"/>
+    <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/categories/Dataverse/"/>
     <category term="Power Platform" scheme="https://jpdynamicscrm.github.io/blog/tags/Power-Platform/"/>
     <category term="License" scheme="https://jpdynamicscrm.github.io/blog/tags/License/"/>
     <category term="Dataverse" scheme="https://jpdynamicscrm.github.io/blog/tags/Dataverse/"/>
@@ -487,7 +487,7 @@
 <p><a href="https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup">Automatic deletion of Power Platform environments (英語)</a><br><a href="https://learn.microsoft.com/ja-jp/power-platform/admin/automatic-environment-cleanup">Power Platform 環境の自動削除 (日本語)</a></p>]]>
     </summary>
     <title>サブスクリプション期限切れ時の Power Platform 環境の無効化・削除フロー</title>
-    <updated>2026-11-10T09:10:56.723Z</updated>
+    <updated>2026-11-11T01:30:29.629Z</updated>
   </entry>
   <entry>
     <author>
@@ -522,7 +522,7 @@
 </ul>]]>
     </summary>
     <title>Power Platform パイプライン機能の概要・権限・運用ガイド</title>
-    <updated>2026-11-10T09:10:56.897Z</updated>
+    <updated>2026-11-11T01:30:29.912Z</updated>
   </entry>
   <entry>
     <author>
@@ -557,6 +557,6 @@
 </blockquote>]]>
     </summary>
     <title>Dataverse for Teams 環境の自動作成と削除の仕組みまとめ</title>
-    <updated>2026-11-10T09:10:56.723Z</updated>
+    <updated>2026-11-11T01:30:29.630Z</updated>
   </entry>
 </feed>
