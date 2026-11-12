@@ -88,14 +88,6 @@ skip_render:
   # Search Console
   - 'google471f926fb901d82b.html'
 
-# Deployment
-## Docs: https://hexo.io/doc  s/deployment.html
-deploy:
-  type: git
-  repo: git@github.com:jpdynamicscrm/blog.git
-  branch: gh-pages
-  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }} [skip ci]"
-
 root: /blog/
 permalink: :title/
 permalink_defaults:
