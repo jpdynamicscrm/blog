@@ -1,12 +1,9 @@
+<!-- 記事の誤りのご指摘やご意見を、この下にご記入ください。 -->
+<!-- この Issue は公開されます。テナント名やメール アドレスなどの個人情報・機密情報は記載しないでください。個別の技術的なお問い合わせは、サポート窓口をご利用ください。 -->
+
 
 
 ---
 
-#### Document Details
-
-⚠ *Do not edit this section.
-
-* ID: {{ID}}
-* 対象記事: [{{TITLE}}]({{PostURL}})
-* Content Source: [{{SourceFileName}}]({{SourceURL}})
-* Author: {{Author}}
+- 対象記事: [{{TITLE}}]({{PostURL}})
+- 記事のソース: [{{SourceFileName}}]({{SourceURL}})
