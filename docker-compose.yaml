@@ -1,4 +1,3 @@
-#version: '3'
 services:
   blog:
     image: ghcr.io/cssjpn/blog-build-tools:latest
@@ -8,7 +7,6 @@ services:
       - "4000:4000"
     volumes:
       - "./articles:/blog/articles"
-      - "./scaffolds:/blog/scaffolds"
       - "./source:/blog/source"
       - "./themes:/blog/themes"
       - "./_config.yml:/blog/_config.yml"

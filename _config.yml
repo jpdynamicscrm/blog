@@ -77,16 +77,9 @@ root_cat_generator:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://jpdynamicscrm.github.io/blog/
 github:
-#  2025/02/27 kosukehara 更新履歴とコントリビューター表示追加対応　
   url: https://github.com/jpdynamicscrm/blog/
   posts_dir: articles
-#  default_branch: ma
-#  2025/02/19 kosukehara 更新履歴とコントリビューターを取得して表示
-#  url: https://github.com/jpazureid/blog/
-#  posts_dir: articles
-#  default_branch: main
   show_additional_info: true
-
 
 skip_render:
   - '_data/*.png'
@@ -94,14 +87,6 @@ skip_render:
   - 'BingSiteAuth.xml'
   # Search Console
   - 'google471f926fb901d82b.html'
-
-# Deployment
-## Docs: https://hexo.io/doc  s/deployment.html
-deploy:
-  type: git
-  repo: git@github.com:jpdynamicscrm/blog.git
-  branch: gh-pages
-  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }} [skip ci]"
 
 root: /blog/
 permalink: :title/
@@ -172,7 +157,7 @@ feed:
   path: atom.xml
   limit: 20
 
-  # show disclaimer in all article by default. disableDisclaimer of article's option set true hide.
+# show disclaimer in all article by default. disableDisclaimer of article's option set true hide.
 # ex)
 # ---
 # title: Article Title
