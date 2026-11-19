@@ -80,8 +80,8 @@ Power Automate には、サービスを皆さまへ安定的に提供するた�
 ### フローのアクション要求数を数えてみる
 「アクション要求数」は、大まかに言うと「実行されたアクションの数」です。実行したフローのアクション要求数は、フローごとの分析のページ、または Power Platform 管理センターで確認できます。
 
-* [作成者が使用状況を分析するためのどんなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#as-a-maker-what-tools-do-i-have-to-analyze-my-usage)
-* [管理者が環境の使用状況を分析するためのどのようなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/types#as-an-admin-what-tools-do-i-have-to-analyze-my-environments-usage)
+* [作成者が使用状況を分析するためのどんなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-a-maker-what-tools-do-i-have-to-analyze-my-usage)
+* [管理者が環境の使用状況を分析するためのどのようなツールがありますか?](https://learn.microsoft.com/ja-jp/power-platform/admin/power-automate-licensing/faqs#as-a-maker-what-tools-do-i-have-to-analyze-my-usage)
 
 ※ フローの分析のページの例 (上記公開情報より)  
 ![](troubleshoot-throttling-flow/image15.png)
